@@ -454,7 +454,6 @@
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [2-4]",
             "GL: [32 AP] [Hard] Ch 1: Ep 5 [2-7]",
-            "GL: [40 AP] [Hard] Ch 2: Ep 2 [2-4]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [3-9]",
             "JP: [16 AP] [Hard] Ch 1: Ep 5 [2-7]",
             "JP: [28 AP] [Hard] Ch 3: Ep 4 [1-8]"
@@ -766,7 +765,7 @@
         "height": "178cm",
         "weight": "52kg",
         "birth": "Aug 8",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Qe",
         "favorite": "Meat",
         "hobby": "Personal grooming",
@@ -906,7 +905,7 @@
         "height": "150cm",
         "weight": "39kg",
         "birth": "Aug 13",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Ki",
         "favorite": "Ribbons and flowers",
         "hobby": "Collecting ribbons",
@@ -1079,7 +1078,6 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/alfr.png",
         "farm": [
             "GL: [20 AP] [Hard] Ch 1: Ep 2 [2-4]",
-            "GL: [24 AP] [Hard] Ch 1: Ep 3 [3-2]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [2-9]",
             "JP: [20 AP] [Hard] Ch 1: Ep 2 [2-4]",
             "JP: [32 AP] [Hard] Ch 2: Ep 3 [2-9]"
@@ -1384,7 +1382,7 @@
         "height": "150cm",
         "weight": "45kg",
         "birth": "Aug 25",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Qe",
         "favorite": "New things",
         "hobby": "Mischief",
@@ -1677,6 +1675,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/amis.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 1 [3-9]",
             "JP: [24 AP] [Hard] Ch 3: Ep 1 [3-9]"
         ],
         "leader skill": "+5 Hit Rate",
@@ -1741,7 +1740,6 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/ishu.png",
         "farm": [
             "GL: [24 AP] [Hard] Ch 1: Ep 2 [2-9]",
-            "GL: [32 AP] [Hard] Ch 1: Ep 3 [3-9]",
             "GL: [32 AP] [Hard] Ch 1: Ep 5 [1-8]",
             "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-9]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [3-1]",
@@ -1810,6 +1808,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/mizu.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 1 [3-1]",
             "JP: [24 AP] [Hard] Ch 3: Ep 1 [3-1]"
         ],
         "leader skill": "+10 Slash ATK",
@@ -1971,7 +1970,7 @@
         "height": "142cm",
         "weight": "38kg",
         "birth": "Oct 23",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Ki",
         "favorite": "Sugar candy",
         "hobby": "Tending the fireplace",
@@ -2011,7 +2010,7 @@
         "job 3": "Ninja",
         "jc 1": "Ranger [Lupus]ᴶ\n[bonus damage against monsters]",
         "jc 2": "",
-        "jc 3": "Ninja+ᴶ",
+        "jc 3": "Ninja+",
         "inputs": [
             "Yuan"
         ],
@@ -2610,7 +2609,7 @@
         "height": "156cm",
         "weight": "45kg",
         "birth": "Aug 1",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Qe",
         "favorite": "Meat",
         "hobby": "Falconry",
@@ -2725,7 +2724,7 @@
         "job 3": "Magic Swordsman",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Magic Swordsman+ᴶ",
+        "jc 3": "Magic Swordsman+",
         "inputs": [
             "Arkil",
             "Aqil"
@@ -2747,7 +2746,7 @@
         "height": "168cm",
         "weight": "54kg",
         "birth": "Oct 21",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Kn",
         "favorite": "Waterpipe",
         "hobby": "Shrouding things in smoke",
@@ -2779,6 +2778,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/kuon.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 1 [3-10]",
             "JP: [24 AP] [Hard] Ch 3: Ep 1 [3-10]"
         ],
         "leader skill": ": +10 Magic ATK, -10 Cast Time Ratio",
@@ -2872,7 +2872,7 @@
         "height": "158cm",
         "weight": "44kg",
         "birth": "Oct 12",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Pa",
         "favorite": "Magical tomes",
         "hobby": "Collecting magical tomes",
@@ -3176,6 +3176,7 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/suto.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 1 [3-2]",
             "JP: [28 AP] [Hard] Ch 3: Ep 1 [3-2]"
         ],
         "leader skill": "+20 Slash ATK",
@@ -3272,7 +3273,7 @@
         "height": "158cm",
         "weight": "48kg",
         "birth": "Oct 10",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Kn",
         "favorite": "Hair decorations and combs",
         "hobby": "Playing with kids",
@@ -3626,8 +3627,8 @@
             "job 1": "C",
             "job 2": "B",
             "job 3": "SS",
-            "jc": "",
-            "total": "SS"
+            "total": "SS",
+            "jc 3": "SS"
         }
     },
     "UN_V2_CHALICE": {
@@ -3744,7 +3745,7 @@
         "height": "142cm",
         "weight": "39kg",
         "birth": "Aug 25",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Kn",
         "favorite": "Polishing her lamp",
         "hobby": "Sewing magical clothes",
@@ -4574,7 +4575,7 @@
         "height": "140cm",
         "weight": "36kg",
         "birth": "Aug 31",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Kn",
         "favorite": "Enjoying the woods",
         "hobby": "Cuddling with animals",
@@ -4636,7 +4637,7 @@
         "height": "189cm",
         "weight": "80kg",
         "birth": "Aug 15",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Qe",
         "favorite": "His comrades",
         "hobby": "Improving his twin-blade skills",
@@ -4773,7 +4774,7 @@
         "height": "165cm",
         "weight": "56kg",
         "birth": "Oct 25",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Qe",
         "favorite": "Fluffy things",
         "hobby": "Collecting ornaments",
@@ -5220,7 +5221,7 @@
         "height": "150cm",
         "weight": "41kg",
         "birth": "Aug 30",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Pa",
         "favorite": "Rin",
         "hobby": "Chasing Rin and his practice",
@@ -5287,7 +5288,7 @@
         "height": "170cm",
         "weight": "58kg",
         "birth": "Oct 1",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Pa",
         "favorite": "Hammocks",
         "hobby": "Planning his next device",
@@ -5380,6 +5381,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/suzu.png",
         "farm": [
+            "GL: [32 AP] [Hard] Ch 1: Ep 3 [3-9]",
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [3-9]"
         ],
         "leader skill": "Light: +50% PATK",
@@ -5546,7 +5548,7 @@
         "height": "196cm",
         "weight": "86kg",
         "birth": "Oct 18",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Kn",
         "favorite": "Spicy food",
         "hobby": "Lecturing promising youth",
@@ -5578,6 +5580,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/fung.png",
         "farm": [
+            "GL: [24 AP] [Hard] Ch 1: Ep 3 [3-2]",
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [3-2]"
         ],
         "leader skill": "Water: +30% MATK, +20% PDEF",
@@ -5880,7 +5883,7 @@
         "height": "186cm",
         "weight": "79kg",
         "birth": "Oct 9",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Kn",
         "favorite": "Sweet bean desserts",
         "hobby": "Watching traditional Wadatsumi dance",
@@ -6080,6 +6083,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/shen.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 2: Ep 2 [2-4]",
             "JP: [32 AP] [Hard] Ch 2: Ep 2 [2-4]"
         ],
         "leader skill": "Water: +50% PATK",
@@ -6174,7 +6178,7 @@
         "height": "157cm",
         "weight": "47kg",
         "birth": "Aug 4",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Kn",
         "favorite": "Festivals",
         "hobby": "Fluffy tails",
@@ -6595,7 +6599,7 @@
             "HP": 435,
             "Max Jewels": 154,
             "PATK": 138,
-            "PDEF": 85,
+            "PDEF": 116,
             "MATK": 116,
             "MDEF": 106,
             "DEX": 144,
@@ -6734,7 +6738,7 @@
         "height": "162cm",
         "weight": "52kg",
         "birth": "Aug 10",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Pa",
         "favorite": "Paint",
         "hobby": "Reading books, listening to bards",
@@ -7297,7 +7301,7 @@
         "job 1": "Lord Commander",
         "job 2": "Magic Swordsman",
         "job 3": "Holy Cavalier",
-        "jc 1": "",
+        "jc 1": "Zayi: Lord Cc",
         "jc 2": "",
         "jc 3": "Holy Cavalier [Ghia]ᴶ",
         "inputs": [
@@ -7385,7 +7389,7 @@
         "height": "156cm",
         "weight": "45kg",
         "birth": "Oct 17",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Ki",
         "favorite": "Her summoned creatures",
         "hobby": "Chatting, writing poems",
@@ -8030,7 +8034,7 @@
         "height": "159cm",
         "weight": "48kg",
         "birth": "Oct 31",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Qe",
         "favorite": "Tough people",
         "hobby": "Collecting dolls and ribbons",
@@ -8420,7 +8424,7 @@
         "height": "162cm",
         "weight": "48kg",
         "birth": "Aug 17",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Pa",
         "favorite": "Songs from Wadatsumi",
         "hobby": "Watching the ocean",
@@ -8580,7 +8584,7 @@
     },
     "UN_V2_THILLIE": {
         "iname": "UN_V2_THILLIE",
-        "name": "Thillieᴶ",
+        "name": "Thillie",
         "inofficial": "Thillie",
         "gender": "♀",
         "element": "Wind",
@@ -8593,7 +8597,7 @@
         ],
         "leader skill": "Wind: +30% HP",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/thillie",
+        "link": "http://www.alchemistcodedb.com/unit/thillie",
         "job 1": "Beast Tamer",
         "job 2": "Sage",
         "job 3": "Ninja",
@@ -8604,7 +8608,7 @@
             "Thillie"
         ],
         "stats": {
-            "HP": 357,
+            "HP": 392,
             "Max Jewels": 166,
             "PATK": 115,
             "PDEF": 76,
@@ -9298,7 +9302,7 @@
             "CRIT": 136,
             "LUCK": 125
         },
-        "profile": "Miuna is a descendant from the People of Ku, who forged Excalibur. Miuna inherited her father's trade as well, making her an excellent blacksmith. She can be quite emotional, but once you've earned her trust, she's a reliable ally who will never betray you. Miuna looks up to Zain and Cadanova like older brothers, since they often visited her father.",
+        "profile": "Miuna is a descendant from the People of Ku, who forged Excalibur. Miuna inherited her father's talent as well, making her an excellent blacksmith. She can be quite emotional, but once you've earned her trust, she's a reliable ally who will never betray you. Miuna looks up to Zain and Cadanova like older brothers, since they often visited her father.",
         "country": "Slothstein",
         "height": "154cm",
         "weight": "40kg",
@@ -9566,7 +9570,7 @@
     },
     "UN_V2_MIKOTO": {
         "iname": "UN_V2_MIKOTO",
-        "name": "Mikotoᴶ",
+        "name": "Mikoto",
         "inofficial": "Mikoto",
         "gender": "♀",
         "element": "Water",
@@ -9579,7 +9583,7 @@
         ],
         "leader skill": "Water: +50% HP",
         "master ability": "-5 Used Jewels",
-        "link": "http://www.alchemistcodedb.com/jp/unit/mikoto",
+        "link": "http://www.alchemistcodedb.com/unit/mikoto",
         "job 1": "Priestess",
         "job 2": "Ninja",
         "job 3": "Valkyrie",
@@ -9590,7 +9594,7 @@
             "Mikoto"
         ],
         "stats": {
-            "HP": 372,
+            "HP": 400,
             "Max Jewels": 155,
             "PATK": 116,
             "PDEF": 85,
@@ -9618,7 +9622,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/miko.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/miko-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_MARGARET": {
         "iname": "UN_V2_MARGARET",
@@ -9851,7 +9862,7 @@
         "height": "188cm",
         "weight": "85kg",
         "birth": "Oct 2",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Ki",
         "favorite": "Animals, children",
         "hobby": "Fieldwork",
@@ -9863,7 +9874,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/yuto.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/yuto-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        }
     },
     "UN_V2_BASINI": {
         "iname": "UN_V2_BASINI",
@@ -9993,7 +10011,7 @@
     },
     "UN_V2_YUNAGI": {
         "iname": "UN_V2_YUNAGI",
-        "name": "Yunagiᴶ",
+        "name": "Yunagi",
         "inofficial": "Yuunagi",
         "gender": "♀",
         "element": "Water",
@@ -10006,7 +10024,7 @@
         ],
         "leader skill": "Water: +30% HP, +20% PATK",
         "master ability": "+300 HP, +40 Initial Jewels",
-        "link": "http://www.alchemistcodedb.com/jp/unit/yunagi",
+        "link": "http://www.alchemistcodedb.com/unit/yunagi",
         "job 1": "Dark Cavalier",
         "job 2": "Ninja",
         "job 3": "Warrior",
@@ -10018,7 +10036,7 @@
             "Yuunagi"
         ],
         "stats": {
-            "HP": 356,
+            "HP": 394,
             "Max Jewels": 154,
             "PATK": 134,
             "PDEF": 88,
@@ -10431,7 +10449,7 @@
             "CRIT": 121,
             "LUCK": 128
         },
-        "profile": "Chao is a young strategic genius from Greed Dike who is versed in a range of strategic military theory. He is heir to a great noble family, and perhaps as a result of his privileged upbringing, will often act snobbishly, boasting arrogantly of his intellect. In some ways he does act like you'd expect a child of his age to, though--his greatest dream is to become a \"cool guy who's good with weapons.\"",
+        "profile": "Chao is a young strategic genius from Greed Dike who is versed in a range of strategic military theory. He is heir to a great noble family, and perhaps as a result of his privileged upbringing, will often act snobbishly, boasting arrogantly of his intellect. In some ways he does act like you'd expect a child of his age to, though-his greatest dream is to become a \"cool guy who's good with weapons.\"",
         "country": "Greed Dike",
         "height": "153cm",
         "weight": "40kg",
@@ -10508,7 +10526,7 @@
     },
     "UN_V2_NASARIO": {
         "iname": "UN_V2_NASARIO",
-        "name": "Nasarioᴶ",
+        "name": "Nasario",
         "inofficial": "Nasario",
         "gender": "♂",
         "element": "Wind",
@@ -10521,7 +10539,7 @@
         ],
         "leader skill": "Wind: +30 Magic ATK, +20% HP",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/nasario",
+        "link": "http://www.alchemistcodedb.com/unit/nasario",
         "job 1": "Summoner",
         "job 2": "Magic Swordsman",
         "job 3": "Enchanter",
@@ -10532,7 +10550,7 @@
             "Nasario"
         ],
         "stats": {
-            "HP": 734,
+            "HP": 671,
             "Max Jewels": 184,
             "PATK": 118,
             "PDEF": 136,
@@ -10548,7 +10566,7 @@
         "height": "188cm",
         "weight": "85kg",
         "birth": "Aug 3",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Ki",
         "favorite": "Vegetable soup",
         "hobby": "Sketching",
@@ -10560,7 +10578,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/nasa.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/nasa-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_LIZARDMEN_HAT": {
         "iname": "UN_V2_LIZARDMEN_HAT",
@@ -10944,7 +10969,7 @@
     },
     "UN_V2_SUIRAN": {
         "iname": "UN_V2_SUIRAN",
-        "name": "Suiranᴶ",
+        "name": "Suiran",
         "inofficial": "Suiran",
         "gender": "♀",
         "element": "Wind",
@@ -10955,7 +10980,7 @@
         "farm": [],
         "leader skill": "Wind: +20 Strike ATK, +10% HP",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/suiran",
+        "link": "http://www.alchemistcodedb.com/unit/suiran",
         "job 1": "Blacksmith",
         "job 2": "Beast Tamer",
         "job 3": "Machinist",
@@ -10966,7 +10991,7 @@
             "Suiran"
         ],
         "stats": {
-            "HP": 397,
+            "HP": 392,
             "Max Jewels": 161,
             "PATK": 141,
             "PDEF": 95,
@@ -11053,7 +11078,7 @@
     },
     "UN_V2_ZIN": {
         "iname": "UN_V2_ZIN",
-        "name": "Jinᴶ",
+        "name": "Jin",
         "inofficial": "Jin",
         "gender": "♂",
         "element": "Dark",
@@ -11064,7 +11089,7 @@
         "farm": [],
         "leader skill": "Dark: +40% HP, +5 Evasion Rate",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/zin",
+        "link": "http://www.alchemistcodedb.com/unit/zin",
         "job 1": "Spy",
         "job 2": "Samurai",
         "job 3": "Warrior",
@@ -11075,7 +11100,7 @@
             "Jin"
         ],
         "stats": {
-            "HP": 396,
+            "HP": 432,
             "Max Jewels": 173,
             "PATK": 157,
             "PDEF": 92,
@@ -11150,7 +11175,7 @@
         "height": "160cm",
         "weight": "47kg",
         "birth": "Oct 4",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Kn",
         "favorite": "Research, pretty bookshelves",
         "hobby": "Cleaning, tidying up",
@@ -11797,7 +11822,7 @@
         "height": "168cm",
         "weight": "52kg",
         "birth": "Aug 1",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Pa",
         "favorite": "Lollipops",
         "hobby": "Training/Practicing with Lucretia",
@@ -11854,7 +11879,7 @@
         "height": "154cm",
         "weight": "42kg",
         "birth": "Aug 6",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Kn",
         "favorite": "Sol",
         "hobby": "Eating",
@@ -11887,7 +11912,7 @@
         "job 3": "Summoner",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "",
+        "jc 3": "Summoner of Agarthaᴶ\n[strong non-elemental damage]",
         "inputs": [
             "Fier",
             "Vier",
@@ -12427,7 +12452,7 @@
     },
     "UN_V2_POK_EROS": {
         "iname": "UN_V2_POK_EROS",
-        "name": "Erosᴶ",
+        "name": "Eros",
         "inofficial": "Eros",
         "gender": "♀",
         "element": "Light",
@@ -12438,7 +12463,7 @@
         "farm": [],
         "leader skill": "Light: +30 Missile ATK, +20% DEX",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/pok-eros",
+        "link": "http://www.alchemistcodedb.com/unit/pok-eros",
         "job 1": "Ranger",
         "job 2": "Thief",
         "job 3": "Sniper",
@@ -12451,7 +12476,7 @@
             "POTK Eros"
         ],
         "stats": {
-            "HP": 387,
+            "HP": 430,
             "Max Jewels": 163,
             "PATK": 142,
             "PDEF": 100,
@@ -12462,7 +12487,7 @@
             "CRIT": 135,
             "LUCK": 123
         },
-        "profile": "Eros is a \"Killer Princess\" of the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. Her charm and beauty mean that everyone loves her--she's the sort of girl who can steal your heart instantly. She's very passionate, and proactive romantically, but also has a goofy side.",
+        "profile": "Eros is a \"Killer Princess\" of the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. Her charm and beauty mean that everyone loves her-she's the sort of girl who can steal your heart instantly. She's very passionate, and proactive romantically, but also has a goofy side.",
         "country": "Ragna",
         "height": "156cm",
         "weight": "50kg",
@@ -12484,11 +12509,18 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/pok_eros_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/pok_eros_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "",
+            "job 2": "",
+            "job 3": "",
+            "jc": "",
+            "total": ""
+        }
     },
     "UN_V2_S_AMATERASU": {
         "iname": "UN_V2_S_AMATERASU",
-        "name": "Amaterasuᴶ",
+        "name": "Amaterasu",
         "inofficial": "Amaterasu",
         "gender": "♀",
         "element": "Light",
@@ -12499,7 +12531,7 @@
         "farm": [],
         "leader skill": "Foreign World: +30% HP, +5 Jewels Obtained",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/s-amaterasu",
+        "link": "http://www.alchemistcodedb.com/unit/s-amaterasu",
         "job 1": "Shrine Maiden",
         "job 2": "Professor",
         "job 3": "Priestess",
@@ -12512,7 +12544,7 @@
             "SN Amaterasu"
         ],
         "stats": {
-            "HP": 320,
+            "HP": 357,
             "Max Jewels": 144,
             "PATK": 99,
             "PDEF": 62,
@@ -12549,7 +12581,7 @@
     },
     "UN_V2_S_YURI": {
         "iname": "UN_V2_S_YURI",
-        "name": "Yuriᴶ",
+        "name": "Yuri",
         "inofficial": "Yuri",
         "gender": "♀",
         "element": "Thunder",
@@ -12560,7 +12592,7 @@
         "farm": [],
         "leader skill": "Thunder: +40% PATK, +5 Jewels Obtained",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/s-yuri",
+        "link": "http://www.alchemistcodedb.com/unit/s-yuri",
         "job 1": "Blademaster",
         "job 2": "Ninja",
         "job 3": "Machinist",
@@ -12573,7 +12605,7 @@
             "SN Yuri"
         ],
         "stats": {
-            "HP": 378,
+            "HP": 403,
             "Max Jewels": 156,
             "PATK": 132,
             "PDEF": 87,
@@ -12584,7 +12616,7 @@
             "CRIT": 148,
             "LUCK": 123
         },
-        "profile": "Yuri is a kunoichi born in the land of Crimson Summer who was guided to this world from Zipangu. She possesses great knowledge and experience, and everyone depends on her--she's the \"big sis\" of the kunoichi team both literally and figuratively. The one very unusual thing about her is the huge amount that she eats, and people are really starting to wonder where exactly all the nourishment she takes in is going...",
+        "profile": "Yuri is a kunoichi born in the land of Crimson Summer who was guided to this world from Zipangu. She possesses great knowledge and experience, and everyone depends on her-she's the \"big sis\" of the kunoichi team both literally and figuratively. The one very unusual thing about her is the huge amount that she eats, and people are really starting to wonder where exactly all the nourishment she takes in is going...",
         "country": "Zipangu",
         "height": "162cm",
         "weight": "46kg",
@@ -12606,7 +12638,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/s_yuri_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/s_yuri_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "",
+            "job 2": "",
+            "job 3": "",
+            "jc": "",
+            "total": ""
+        }
     },
     "UN_V2_PRISCILA": {
         "iname": "UN_V2_PRISCILA",
@@ -12873,7 +12912,7 @@
         "height": "155cm",
         "weight": "42kg",
         "birth": "Oct 24",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Kn",
         "favorite": "Peace and quiet",
         "hobby": "Fortunetelling and meditation",
@@ -13369,7 +13408,7 @@
         "height": "159cm",
         "weight": "48kg",
         "birth": "Oct 5",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Ki",
         "favorite": "Money",
         "hobby": "Saving money, taking walks",
@@ -13538,7 +13577,7 @@
         "height": "167cm",
         "weight": "49kg",
         "birth": "Aug 7",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Pa",
         "favorite": "Inari Sushi",
         "hobby": "Doodling and writing poems",
@@ -13755,7 +13794,7 @@
         "height": "168cm",
         "weight": "48kg",
         "birth": "Aug 9",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Pa",
         "favorite": "Fluffy flower heads",
         "hobby": "Long baths",
@@ -14371,7 +14410,7 @@
         "height": "165cm",
         "weight": "50kg",
         "birth": "Aug 5",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Ki",
         "favorite": "Tomato juice",
         "hobby": "Nighttime walks",
@@ -14952,7 +14991,7 @@
         "job 1": "Sacred Knight",
         "job 2": "Battle Mage",
         "job 3": "Dark Cavalier",
-        "jc 1": "",
+        "jc 1": "Guil: Tem",
         "jc 2": "",
         "jc 3": "Dark Cavalier [Zeele]ᴶ\n[Drain Skills Bonus]",
         "inputs": [
@@ -15085,7 +15124,7 @@
         "height": "153cm",
         "weight": "42kg",
         "birth": "Aug 7",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Qe",
         "favorite": "",
         "hobby": "",
@@ -15694,7 +15733,7 @@
         "height": "157cm",
         "weight": "47kg",
         "birth": "Aug 20",
-        "zodiac": "Moon of the Rapid Wind",
+        "zodiac": "Moon of the Swift Sails",
         "blood": "Type Qe",
         "favorite": "",
         "hobby": "",
@@ -16077,7 +16116,7 @@
         "height": "139cm",
         "weight": "39kg",
         "birth": "Oct 14",
-        "zodiac": "Moon of the Imperial Fire Vault",
+        "zodiac": "Moon of the Fiery Imperial Skies",
         "blood": "Type Qe",
         "favorite": "",
         "hobby": "",
@@ -16696,7 +16735,7 @@
     "UN_V2_ALMA": {
         "iname": "UN_V2_ALMA",
         "name": "Almaᴶ",
-        "inofficial": "",
+        "inofficial": "Alma",
         "gender": "♀",
         "element": "Light",
         "collab": "",
@@ -16750,7 +16789,7 @@
     "UN_V2_REBECCA": {
         "iname": "UN_V2_REBECCA",
         "name": "Rebeccaᴶ",
-        "inofficial": "",
+        "inofficial": "Rebecca",
         "gender": "♀",
         "element": "Thunder",
         "collab": "",
@@ -16798,6 +16837,60 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/reve.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/reve-closeup.png"
+            }
+        ]
+    },
+    "UN_V2_KAYA": {
+        "iname": "UN_V2_KAYA",
+        "name": "Kayaᴶ",
+        "inofficial": "Kaya",
+        "gender": "♀",
+        "element": "Fire",
+        "collab": "",
+        "collab short": "",
+        "rarity": "★★★★★",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/kaya.png",
+        "farm": [],
+        "leader skill": "Fire: +50% HP, +30% MATK, +10 Hit Rate",
+        "master ability": "",
+        "link": "http://www.alchemistcodedb.com/jp/unit/kaya",
+        "job 1": "JB_KAYA01ᴶ",
+        "job 2": "Spy",
+        "job 3": "Bride",
+        "jc 1": "",
+        "jc 2": "",
+        "jc 3": "Fire: Wed F",
+        "inputs": [
+            "Kaya"
+        ],
+        "stats": {
+            "HP": 582,
+            "Max Jewels": 204,
+            "PATK": 106,
+            "PDEF": 118,
+            "MATK": 166,
+            "MDEF": 118,
+            "DEX": 147,
+            "AGI": 89,
+            "CRIT": 119,
+            "LUCK": 125
+        },
+        "profile": "聖教騎士団・第二騎士団長。膨大なアルケミィ、知識、及び戦闘能力を有する、騎士団内でも稀有の存在。だが物事への執着が薄く、何事も面倒そうに振る舞う。唯一興味を示すのは、遺跡や古文書といった“過去”にまつわるもの。",
+        "country": "スロウスシュタイン",
+        "height": "161cm",
+        "weight": "51kg",
+        "birth": "10月7日",
+        "zodiac": "火皇穹の月",
+        "blood": "Kn型",
+        "favorite": "歴史、好奇心",
+        "hobby": "調査メカの改良",
+        "illust": "RINZO",
+        "cv": "藤井ゆきよ",
+        "artworks": [
+            {
+                "name": "default",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kaya.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kaya-closeup.png"
             }
         ]
     },

@@ -647,6 +647,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-1]",
+                "drops": [
+                    "Necronomicon Diagram Piece",
+                    "Branch"
+                ]
+            },
+            {
                 "name": "[16 AP] [Hard] Ch 1: Ep 1 [1-1]",
                 "drops": [
                     "Wooden Sword",
@@ -668,7 +675,7 @@
                     "Branch",
                     "Turban Diagram Piece",
                     "Great Lance Piece",
-                    "Alfred Soul Shard"
+                    "Fung Liu Soul Shard"
                 ]
             },
             {
@@ -687,6 +694,14 @@
                     "Mage's Hat Diagram Piece",
                     "Branch",
                     "Alfred Soul Shard"
+                ]
+            },
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-1]",
+                "drops": [
+                    "Necronomicon Diagram Piece",
+                    "Branch",
+                    "Mizuchi Soul Shard"
                 ]
             }
         ],
@@ -1096,6 +1111,13 @@
                     "Magical Lamp Diagram Piece",
                     "Alchemic Radio Piece",
                     "Compass Diagram Piece",
+                    "Vest Diagram"
+                ]
+            },
+            {
+                "name": "[20 AP] Ch 3: Ep 1 [3-5]",
+                "drops": [
+                    "Crystal Sword Diagram Piece",
                     "Vest Diagram"
                 ]
             },
@@ -1526,6 +1548,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-8]",
+                "drops": [
+                    "Gunner's Hat Diagram Piece",
+                    "Gloves Diagram"
+                ]
+            },
+            {
                 "name": "[16 AP] [Hard] Ch 1: Ep 1 [2-4]",
                 "drops": [
                     "Gloves Diagram",
@@ -1935,7 +1964,7 @@
                     "Thick Hat",
                     "Turban Diagram Piece",
                     "Noble Coat Piece",
-                    "Ishuna Soul Shard"
+                    "Suzuka Soul Shard"
                 ]
             },
             {
@@ -2715,7 +2744,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -3678,7 +3709,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             }
         ]
@@ -3796,6 +3829,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-9]",
+                "drops": [
+                    "Sacred Lion Blade Piece",
+                    "Mace"
+                ]
+            },
+            {
                 "name": "[16 AP] [Hard] Ch 1: Ep 1 [1-10]",
                 "drops": [
                     "Mace",
@@ -3846,6 +3886,14 @@
                     "Dice of Fate Piece",
                     "Mace",
                     "Lambert Soul Shard"
+                ]
+            },
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-9]",
+                "drops": [
+                    "Sacred Lion Blade Piece",
+                    "Mace",
+                    "Amis Soul Shard"
                 ]
             }
         ],
@@ -4953,7 +5001,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -6004,7 +6054,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -6124,6 +6176,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-2]",
+                "drops": [
+                    "Entrancing Mask Diagram Piece",
+                    "Set Square"
+                ]
+            },
+            {
                 "name": "[16 AP] [Hard] Ch 1: Ep 1 [2-5]",
                 "drops": [
                     "Thick Hat",
@@ -6173,6 +6232,14 @@
                     "Magus Hood Piece",
                     "Set Square",
                     "Ange Soul Shard"
+                ]
+            },
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-2]",
+                "drops": [
+                    "Entrancing Mask Diagram Piece",
+                    "Set Square",
+                    "Strie Soul Shard"
                 ]
             }
         ],
@@ -6800,6 +6867,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-7]",
+                "drops": [
+                    "Gramophone Piece",
+                    "Single-Tooth Geta Diagram"
+                ]
+            },
+            {
                 "name": "[24 AP] [Hard] Ch 1: Ep 2 [3-10]",
                 "drops": [
                     "Dagger",
@@ -7364,7 +7438,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -8054,6 +8130,13 @@
                     "Marriage Letter Diagram Piece",
                     "Lucky Rabbit Figurine Piece",
                     "Gramophone Piece",
+                    "Saber Piece"
+                ]
+            },
+            {
+                "name": "[20 AP] Ch 3: Ep 1 [3-6]",
+                "drops": [
+                    "Alchemic Radio Piece",
                     "Saber Piece"
                 ]
             },
@@ -8766,7 +8849,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -9365,7 +9450,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -9388,7 +9475,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -9557,7 +9643,7 @@
                     "Old Pocket Watch Piece",
                     "Prayer Crane Diagram Piece",
                     "Magic Cape Piece",
-                    "Alaia Soul Shard"
+                    "Shenmei Soul Shard"
                 ]
             }
         ],
@@ -9777,7 +9863,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -9800,7 +9888,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -10486,7 +10573,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -11101,7 +11187,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             }
         ]
@@ -11189,6 +11277,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-10]",
+                "drops": [
+                    "Precious Bangle Diagram Piece",
+                    "Trumpet Piece"
+                ]
+            },
+            {
                 "name": "[24 AP] [Hard] Ch 1: Ep 2 [2-10]",
                 "drops": [
                     "Silver Spoon",
@@ -11203,6 +11298,14 @@
                     "Gear Rod Piece",
                     "Trumpet Piece",
                     "Ciel Soul Shard"
+                ]
+            },
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-10]",
+                "drops": [
+                    "Dice of Fate Piece",
+                    "Trumpet Piece",
+                    "Kuon Soul Shard"
                 ]
             }
         ],
@@ -11227,7 +11330,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -11333,7 +11435,7 @@
                     "Branch",
                     "Turban Diagram Piece",
                     "Great Lance Piece",
-                    "Alfred Soul Shard"
+                    "Fung Liu Soul Shard"
                 ]
             },
             {
@@ -11342,7 +11444,7 @@
                     "Thick Hat",
                     "Turban Diagram Piece",
                     "Noble Coat Piece",
-                    "Ishuna Soul Shard"
+                    "Suzuka Soul Shard"
                 ]
             },
             {
@@ -11387,7 +11489,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -11543,7 +11644,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -11659,6 +11759,13 @@
                     "Trace Blades Diagram Piece",
                     "Orichalcum Blades Piece",
                     "Black Belt Diagram Piece",
+                    "Circlet Diagram Piece"
+                ]
+            },
+            {
+                "name": "[20 AP] Ch 3: Ep 1 [3-3]",
+                "drops": [
+                    "Lucky Rabbit Figurine Piece",
                     "Circlet Diagram Piece"
                 ]
             },
@@ -11816,7 +11923,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             }
         ]
@@ -11972,7 +12081,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -11995,7 +12106,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -12135,7 +12245,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -12559,7 +12671,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -12825,7 +12936,7 @@
                     "Branch",
                     "Turban Diagram Piece",
                     "Great Lance Piece",
-                    "Alfred Soul Shard"
+                    "Fung Liu Soul Shard"
                 ]
             },
             {
@@ -13259,7 +13370,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -13659,7 +13772,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -14312,7 +14424,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -14654,7 +14765,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -14805,7 +14918,7 @@
                     "Thick Hat",
                     "Turban Diagram Piece",
                     "Noble Coat Piece",
-                    "Ishuna Soul Shard"
+                    "Suzuka Soul Shard"
                 ]
             },
             {
@@ -14888,7 +15001,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -15327,7 +15439,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -16041,7 +16152,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -16331,6 +16444,14 @@
                     "Mace",
                     "Lambert Soul Shard"
                 ]
+            },
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-10]",
+                "drops": [
+                    "Dice of Fate Piece",
+                    "Trumpet Piece",
+                    "Kuon Soul Shard"
+                ]
             }
         ],
         "event": [
@@ -16452,7 +16573,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -16475,7 +16598,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -16635,6 +16757,13 @@
                     "Lucky Rabbit Figurine Piece",
                     "Gramophone Piece",
                     "Saber Piece"
+                ]
+            },
+            {
+                "name": "[20 AP] Ch 3: Ep 1 [3-7]",
+                "drops": [
+                    "Gramophone Piece",
+                    "Single-Tooth Geta Diagram"
                 ]
             },
             {
@@ -17095,7 +17224,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -17299,6 +17427,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-1]",
+                "drops": [
+                    "Necronomicon Diagram Piece",
+                    "Branch"
+                ]
+            },
+            {
                 "name": "[32 AP] [Hard] Ch 1: Ep 5 [1-5]",
                 "drops": [
                     "Necronomicon Diagram Piece",
@@ -17306,6 +17441,14 @@
                     "Steel Hook Diagram Piece",
                     "Magic Bracelet Diagram Piece",
                     "Meily Soul Shard"
+                ]
+            },
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-1]",
+                "drops": [
+                    "Necronomicon Diagram Piece",
+                    "Branch",
+                    "Mizuchi Soul Shard"
                 ]
             }
         ],
@@ -17330,7 +17473,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -17634,7 +17776,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -18468,7 +18612,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -18639,7 +18782,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             }
         ]
@@ -19348,6 +19493,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-4]",
+                "drops": [
+                    "Wonder Scope Diagram Piece",
+                    "Compass Diagram Piece"
+                ]
+            },
+            {
                 "name": "[40 AP] [Hard] Ch 1: Ep 5 [3-4]",
                 "drops": [
                     "Compass Diagram Piece",
@@ -19979,6 +20131,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-4]",
+                "drops": [
+                    "Wonder Scope Diagram Piece",
+                    "Compass Diagram Piece"
+                ]
+            },
+            {
                 "name": "[40 AP] [Hard] Ch 2: Ep 3 [3-10]",
                 "drops": [
                     "Extravagant Helmet Diagram Piece",
@@ -20332,6 +20491,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-9]",
+                "drops": [
+                    "Sacred Lion Blade Piece",
+                    "Mace"
+                ]
+            },
+            {
                 "name": "[32 AP] [Hard] Ch 1: Ep 5 [2-7]",
                 "drops": [
                     "Great Axe Diagram Piece",
@@ -20379,6 +20545,14 @@
                     "Dice of Fate Piece",
                     "Mace",
                     "Lambert Soul Shard"
+                ]
+            },
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-9]",
+                "drops": [
+                    "Sacred Lion Blade Piece",
+                    "Mace",
+                    "Amis Soul Shard"
                 ]
             }
         ],
@@ -20795,43 +20969,6 @@
                     "Flame Emperor Armor Piece",
                     "Black Belt Diagram Piece",
                     "Holy Flame Guardian Figurine Piece"
-                ]
-            },
-            {
-                "name": "[40 AP]  Sacred Stone Memories 5-10 Fallen Sun",
-                "drops": [
-                    "Holy Knight's Maiden Figurine Piece",
-                    "Sacred Lion Blade Piece",
-                    "Compass Diagram Piece",
-                    "Wizardry Coat Diagram Piece",
-                    "Great Lance Piece",
-                    "Flame Emperor Armor Piece",
-                    "Elite Knight Token"
-                ]
-            },
-            {
-                "name": "[16 AP]  EP6 Encounter",
-                "drops": [
-                    "Star Staff Piece",
-                    "Cross Helmet Piece",
-                    "Stamp of Certain Delivery Piece",
-                    "Magic Cape Piece",
-                    "Necronomicon Diagram Piece",
-                    "Elemental Belt Diagram",
-                    "Turban Diagram Piece",
-                    "Crystal Mirror Diagram Piece",
-                    "Magnifying Glass Diagram Piece",
-                    "Silver Bell Diagram Piece",
-                    "Trumpet Piece",
-                    "Mage's Hat Diagram Piece",
-                    "Noble Coat Piece",
-                    "Dice of Fate Piece",
-                    "Old Pocket Watch Piece",
-                    "Lion Monarch Shield Piece",
-                    "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
-                    "Flame Emperor Armor Piece",
-                    "Ignis's Fatigues Diagram Piece"
                 ]
             }
         ]
@@ -21514,7 +21651,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -22174,7 +22313,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -22198,7 +22336,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -22939,7 +23079,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -24242,7 +24384,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -24991,7 +25135,7 @@
                     "Old Pocket Watch Piece",
                     "Prayer Crane Diagram Piece",
                     "Magic Cape Piece",
-                    "Alaia Soul Shard"
+                    "Shenmei Soul Shard"
                 ]
             },
             {
@@ -25073,7 +25217,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -25332,7 +25475,7 @@
                     "Old Pocket Watch Piece",
                     "Prayer Crane Diagram Piece",
                     "Magic Cape Piece",
-                    "Alaia Soul Shard"
+                    "Shenmei Soul Shard"
                 ]
             }
         ],
@@ -25567,6 +25710,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-3]",
+                "drops": [
+                    "Lucky Rabbit Figurine Piece",
+                    "Circlet Diagram Piece"
+                ]
+            },
+            {
                 "name": "[32 AP] [Hard] Ch 1: Ep 5 [2-10]",
                 "drops": [
                     "Lucky Rabbit Figurine Piece",
@@ -25651,7 +25801,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -25842,6 +25994,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-6]",
+                "drops": [
+                    "Alchemic Radio Piece",
+                    "Saber Piece"
+                ]
+            },
+            {
                 "name": "[40 AP] [Hard] Ch 1: Ep 5 [3-2]",
                 "drops": [
                     "Alchemic Radio Piece",
@@ -25939,7 +26098,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             }
         ]
@@ -26141,6 +26302,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-2]",
+                "drops": [
+                    "Entrancing Mask Diagram Piece",
+                    "Set Square"
+                ]
+            },
+            {
                 "name": "[40 AP] [Hard] Ch 1: Ep 5 [3-2]",
                 "drops": [
                     "Alchemic Radio Piece",
@@ -26148,6 +26316,14 @@
                     "Entrancing Mask Diagram Piece",
                     "Stellar Orb Diagram Piece",
                     "Alexis Soul Shard"
+                ]
+            },
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-2]",
+                "drops": [
+                    "Entrancing Mask Diagram Piece",
+                    "Set Square",
+                    "Strie Soul Shard"
                 ]
             }
         ],
@@ -26335,6 +26511,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-8]",
+                "drops": [
+                    "Gunner's Hat Diagram Piece",
+                    "Gloves Diagram"
+                ]
+            },
+            {
                 "name": "[40 AP] [Hard] Ch 1: Ep 5 [3-4]",
                 "drops": [
                     "Compass Diagram Piece",
@@ -26422,7 +26605,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -28220,7 +28405,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -29440,6 +29627,13 @@
                 ]
             },
             {
+                "name": "[20 AP] Ch 3: Ep 1 [3-5]",
+                "drops": [
+                    "Crystal Sword Diagram Piece",
+                    "Vest Diagram"
+                ]
+            },
+            {
                 "name": "[40 AP] [Hard] Ch 2: Ep 3 [3-9]",
                 "drops": [
                     "Crystal Sword Diagram Piece",
@@ -29539,7 +29733,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -30485,7 +30681,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -31397,7 +31595,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -31680,6 +31880,72 @@
             }
         ]
     },
+    "IT_EQ_DIAGRAMPIECE_LIES_2_BRACELET": {
+        "iname": "IT_EQ_DIAGRAMPIECE_LIES_2_BRACELET",
+        "name": "Precious Bangle Diagram Piece",
+        "inputs": [
+            "Precious Bangle Diagram Piece"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-eq-diagrampiece-lies-2-bracelet",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_DIAGRAM_LIES_2_BRACELET.png",
+        "story": [
+            {
+                "name": "[20 AP] Ch 3: Ep 1 [3-10]",
+                "drops": [
+                    "Precious Bangle Diagram Piece",
+                    "Trumpet Piece"
+                ]
+            },
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [1-1]",
+                "drops": [
+                    "Precious Bangle Diagram Piece",
+                    "Gloves Diagram",
+                    "Lisbeth Soul Shard"
+                ]
+            }
+        ],
+        "event": [
+            {
+                "name": "[40 AP]  Treasure of Sages [Silver Rank]",
+                "drops": [
+                    "Hunting Cape Diagram Piece",
+                    "Magic Bracelet Diagram Piece",
+                    "Hat of Tranquility Diagram Piece",
+                    "Goddess Harp Diagram Piece",
+                    "Gunner's Hat Diagram Piece",
+                    "Engineer's Waist Pouch Diagram Piece",
+                    "Rod of Recovery Diagram Piece",
+                    "Medical Tome Diagram Piece",
+                    "Entrancing Mask Diagram Piece",
+                    "Stellar Orb Diagram Piece",
+                    "Magical Lamp Diagram Piece",
+                    "Shrine Maiden's Bells Diagram Piece",
+                    "Drifter's Hat Diagram Piece",
+                    "Precious Bangle Diagram Piece"
+                ]
+            },
+            {
+                "name": "[20 AP] MP Treasure of Sages [Silver Rank]",
+                "drops": [
+                    "Hunting Cape Diagram Piece",
+                    "Magic Bracelet Diagram Piece",
+                    "Hat of Tranquility Diagram Piece",
+                    "Goddess Harp Diagram Piece",
+                    "Gunner's Hat Diagram Piece",
+                    "Engineer's Waist Pouch Diagram Piece",
+                    "Rod of Recovery Diagram Piece",
+                    "Medical Tome Diagram Piece",
+                    "Entrancing Mask Diagram Piece",
+                    "Stellar Orb Diagram Piece",
+                    "Magical Lamp Diagram Piece",
+                    "Shrine Maiden's Bells Diagram Piece",
+                    "Drifter's Hat Diagram Piece",
+                    "Precious Bangle Diagram Piece"
+                ]
+            }
+        ]
+    },
     "IT_PI_LOGI": {
         "iname": "IT_PI_LOGI",
         "name": "Logi Soul Shard",
@@ -31780,15 +32046,6 @@
                     "Sacred Lion Blade Piece",
                     "Brave Sword Diagram Piece",
                     "White Serpent Blade Diagram Piece",
-                    "Alaia Soul Shard"
-                ]
-            },
-            {
-                "name": "[40 AP] [Hard] Ch 2: Ep 2 [2-4]",
-                "drops": [
-                    "Old Pocket Watch Piece",
-                    "Prayer Crane Diagram Piece",
-                    "Magic Cape Piece",
                     "Alaia Soul Shard"
                 ]
             },
@@ -32206,15 +32463,6 @@
                 ]
             },
             {
-                "name": "[24 AP] [Hard] Ch 1: Ep 3 [3-2]",
-                "drops": [
-                    "Branch",
-                    "Turban Diagram Piece",
-                    "Great Lance Piece",
-                    "Alfred Soul Shard"
-                ]
-            },
-            {
                 "name": "[40 AP] [Hard] Ch 2: Ep 3 [2-9]",
                 "drops": [
                     "Magic Bracelet Diagram Piece",
@@ -32279,15 +32527,6 @@
                 "drops": [
                     "Gloves Diagram",
                     "Rabbit's Foot Diagram",
-                    "Ishuna Soul Shard"
-                ]
-            },
-            {
-                "name": "[32 AP] [Hard] Ch 1: Ep 3 [3-9]",
-                "drops": [
-                    "Thick Hat",
-                    "Turban Diagram Piece",
-                    "Noble Coat Piece",
                     "Ishuna Soul Shard"
                 ]
             },
@@ -32531,6 +32770,27 @@
         ],
         "event": []
     },
+    "IT_PI_FUNGLIU": {
+        "iname": "IT_PI_FUNGLIU",
+        "name": "Fung Liu Soul Shard",
+        "inputs": [
+            "Fung Liu Soul Shard"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-pi-fungliu",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_PI_FUNGLIU.png",
+        "story": [
+            {
+                "name": "[24 AP] [Hard] Ch 1: Ep 3 [3-2]",
+                "drops": [
+                    "Branch",
+                    "Turban Diagram Piece",
+                    "Great Lance Piece",
+                    "Fung Liu Soul Shard"
+                ]
+            }
+        ],
+        "event": []
+    },
     "IT_PI_YOMI": {
         "iname": "IT_PI_YOMI",
         "name": "Yomi Soul Shard",
@@ -32547,6 +32807,27 @@
                     "Silver Bell Diagram Piece",
                     "Elemental Belt Diagram",
                     "Yomi Soul Shard"
+                ]
+            }
+        ],
+        "event": []
+    },
+    "IT_PI_SUZUKA": {
+        "iname": "IT_PI_SUZUKA",
+        "name": "Suzuka Soul Shard",
+        "inputs": [
+            "Suzuka Soul Shard"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-pi-suzuka",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_PI_SUZUKA.png",
+        "story": [
+            {
+                "name": "[32 AP] [Hard] Ch 1: Ep 3 [3-9]",
+                "drops": [
+                    "Thick Hat",
+                    "Turban Diagram Piece",
+                    "Noble Coat Piece",
+                    "Suzuka Soul Shard"
                 ]
             }
         ],
@@ -32945,6 +33226,27 @@
         ],
         "event": []
     },
+    "IT_PI_SHENMEI": {
+        "iname": "IT_PI_SHENMEI",
+        "name": "Shenmei Soul Shard",
+        "inputs": [
+            "Shenmei Soul Shard"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-pi-shenmei",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_PI_SHENMEI.png",
+        "story": [
+            {
+                "name": "[40 AP] [Hard] Ch 2: Ep 2 [2-4]",
+                "drops": [
+                    "Old Pocket Watch Piece",
+                    "Prayer Crane Diagram Piece",
+                    "Magic Cape Piece",
+                    "Shenmei Soul Shard"
+                ]
+            }
+        ],
+        "event": []
+    },
     "IT_PI_RAHU": {
         "iname": "IT_PI_RAHU",
         "name": "Rahu Soul Shard",
@@ -33082,65 +33384,6 @@
             }
         ],
         "event": []
-    },
-    "IT_EQ_DIAGRAMPIECE_LIES_2_BRACELET": {
-        "iname": "IT_EQ_DIAGRAMPIECE_LIES_2_BRACELET",
-        "name": "Precious Bangle Diagram Piece",
-        "inputs": [
-            "Precious Bangle Diagram Piece"
-        ],
-        "link": "http://www.alchemistcodedb.com/item/it-eq-diagrampiece-lies-2-bracelet",
-        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_DIAGRAM_LIES_2_BRACELET.png",
-        "story": [
-            {
-                "name": "[40 AP] [Hard] Ch 3: Ep 1 [1-1]",
-                "drops": [
-                    "Precious Bangle Diagram Piece",
-                    "Gloves Diagram",
-                    "Lisbeth Soul Shard"
-                ]
-            }
-        ],
-        "event": [
-            {
-                "name": "[40 AP]  Treasure of Sages [Silver Rank]",
-                "drops": [
-                    "Hunting Cape Diagram Piece",
-                    "Magic Bracelet Diagram Piece",
-                    "Hat of Tranquility Diagram Piece",
-                    "Goddess Harp Diagram Piece",
-                    "Gunner's Hat Diagram Piece",
-                    "Engineer's Waist Pouch Diagram Piece",
-                    "Rod of Recovery Diagram Piece",
-                    "Medical Tome Diagram Piece",
-                    "Entrancing Mask Diagram Piece",
-                    "Stellar Orb Diagram Piece",
-                    "Magical Lamp Diagram Piece",
-                    "Shrine Maiden's Bells Diagram Piece",
-                    "Drifter's Hat Diagram Piece",
-                    "Precious Bangle Diagram Piece"
-                ]
-            },
-            {
-                "name": "[20 AP] MP Treasure of Sages [Silver Rank]",
-                "drops": [
-                    "Hunting Cape Diagram Piece",
-                    "Magic Bracelet Diagram Piece",
-                    "Hat of Tranquility Diagram Piece",
-                    "Goddess Harp Diagram Piece",
-                    "Gunner's Hat Diagram Piece",
-                    "Engineer's Waist Pouch Diagram Piece",
-                    "Rod of Recovery Diagram Piece",
-                    "Medical Tome Diagram Piece",
-                    "Entrancing Mask Diagram Piece",
-                    "Stellar Orb Diagram Piece",
-                    "Magical Lamp Diagram Piece",
-                    "Shrine Maiden's Bells Diagram Piece",
-                    "Drifter's Hat Diagram Piece",
-                    "Precious Bangle Diagram Piece"
-                ]
-            }
-        ]
     },
     "IT_PI_LIESBET": {
         "iname": "IT_PI_LIESBET",
@@ -33303,6 +33546,86 @@
                     "Saint's Robe Piece",
                     "Lion Monarch Shield Piece",
                     "Celine Soul Shard"
+                ]
+            }
+        ],
+        "event": []
+    },
+    "IT_PI_MIZUCHI": {
+        "iname": "IT_PI_MIZUCHI",
+        "name": "Mizuchi Soul Shard",
+        "inputs": [
+            "Mizuchi Soul Shard"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-pi-mizuchi",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_PI_MIZUCHI.png",
+        "story": [
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-1]",
+                "drops": [
+                    "Necronomicon Diagram Piece",
+                    "Branch",
+                    "Mizuchi Soul Shard"
+                ]
+            }
+        ],
+        "event": []
+    },
+    "IT_PI_SUTORIE": {
+        "iname": "IT_PI_SUTORIE",
+        "name": "Strie Soul Shard",
+        "inputs": [
+            "Strie Soul Shard"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-pi-sutorie",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_PI_SUTORIE.png",
+        "story": [
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-2]",
+                "drops": [
+                    "Entrancing Mask Diagram Piece",
+                    "Set Square",
+                    "Strie Soul Shard"
+                ]
+            }
+        ],
+        "event": []
+    },
+    "IT_PI_AMIS": {
+        "iname": "IT_PI_AMIS",
+        "name": "Amis Soul Shard",
+        "inputs": [
+            "Amis Soul Shard"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-pi-amis",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_PI_AMIS.png",
+        "story": [
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-9]",
+                "drops": [
+                    "Sacred Lion Blade Piece",
+                    "Mace",
+                    "Amis Soul Shard"
+                ]
+            }
+        ],
+        "event": []
+    },
+    "IT_PI_KUON": {
+        "iname": "IT_PI_KUON",
+        "name": "Kuon Soul Shard",
+        "inputs": [
+            "Kuon Soul Shard"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-pi-kuon",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_PI_KUON.png",
+        "story": [
+            {
+                "name": "[40 AP] [Hard] Ch 3: Ep 1 [3-10]",
+                "drops": [
+                    "Dice of Fate Piece",
+                    "Trumpet Piece",
+                    "Kuon Soul Shard"
                 ]
             }
         ],
@@ -50204,7 +50527,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -50384,7 +50709,9 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gem Seller's Scales Diagram Piece",
-                    "Prompto Soul Shard"
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             }
         ]
@@ -50543,7 +50870,9 @@
                     "Power Boiler Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
                     "Gear Rod Piece",
-                    "Prompto's Fatigues Diagram Piece"
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
                 ]
             },
             {
@@ -50569,6 +50898,218 @@
                     "Prompto Soul Shard",
                     "Noctis's Fatigues Diagram Piece",
                     "Prompto's Fatigues Diagram Piece"
+                ]
+            }
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_FF15_ARAN": {
+        "iname": "IT_EQ_DIAGRAMPIECE_FF15_ARAN",
+        "name": "Aranea's Helmet Diagram Piece",
+        "inputs": [
+            "Aranea's Helmet Diagram Piece"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-eq-diagrampiece-ff15-aran",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_DIAGRAM_FF15_ARAN.png",
+        "story": [],
+        "event": [
+            {
+                "name": "[14 AP]  EP5 Alchemy",
+                "drops": [
+                    "Cross Helmet Piece",
+                    "Magic Cape Piece",
+                    "Earrings Diagram",
+                    "Copper Bangle",
+                    "Skull Rod Piece",
+                    "Great Lance Piece",
+                    "Ogre Knife Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "King's Stew",
+                    "Harmonic Cogs",
+                    "Javelin Diagram Piece",
+                    "Magnifying Glass Diagram Piece",
+                    "Rainbow Hourglass Piece",
+                    "Mechanical Wing Piece",
+                    "Dice of Fate Piece",
+                    "Gem Seller's Scales Diagram Piece",
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
+                ]
+            },
+            {
+                "name": "[25 AP]  EP9 Highwind",
+                "drops": [
+                    "Picmy Figurine Diagram",
+                    "Lucky Rabbit Figurine Piece",
+                    "Lion Monarch Shield Piece",
+                    "Flame Emperor Armor Piece",
+                    "Magus Hood Piece",
+                    "Sacred Lion Blade Piece",
+                    "Circlet Diagram Piece",
+                    "Glass Pen Piece",
+                    "Gunner's Hat Diagram Piece",
+                    "Saint's Robe Piece",
+                    "Alchemic Radio Piece",
+                    "Crystal Sword Diagram Piece",
+                    "Dragon Scale Quiver Diagram Piece",
+                    "Power Boiler Diagram Piece",
+                    "Holy Brawler's Sash Diagram Piece",
+                    "Gear Rod Piece",
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
+                ]
+            },
+            {
+                "name": "[40 AP]  FINAL FANTASY XV Collab [Hard]",
+                "drops": [
+                    "Noctis's Fatigues Diagram Piece",
+                    "Ignis's Fatigues Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "[FFXV] Unit Soul Shard Summon Ticket"
+                ]
+            },
+            {
+                "name": "[40 AP]  FINAL FANTASY XV Collab [EX4]",
+                "drops": [
+                    "Aranea's Helmet Diagram Piece",
+                    "Stoss Spear Shard",
+                    "Sinister Helmet Diagram Piece",
+                    "Trace Blades Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Black Belt Diagram Piece",
+                    "Orichalcum Blades Piece"
+                ]
+            },
+            {
+                "name": "[50 AP]  FINAL FANTASY XV Collab [EX4+]",
+                "drops": [
+                    "Aranea's Helmet Diagram Piece",
+                    "Stoss Spear Shard",
+                    "Sinister Helmet Diagram Piece",
+                    "Trace Blades Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Black Belt Diagram Piece",
+                    "Orichalcum Blades Piece"
+                ]
+            },
+            {
+                "name": "[20 AP] MP FINAL FANTASY XV Collab [EX4]",
+                "drops": [
+                    "Aranea's Helmet Diagram Piece",
+                    "Stoss Spear Shard",
+                    "Sinister Helmet Diagram Piece",
+                    "Trace Blades Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Black Belt Diagram Piece",
+                    "Orichalcum Blades Piece"
+                ]
+            }
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_FF15_GLAD": {
+        "iname": "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
+        "name": "Gladiolus's Fatigues Diagram Piece",
+        "inputs": [
+            "Gladiolus's Fatigues Diagram Piece"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-eq-diagrampiece-ff15-glad",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_DIAGRAM_FF15_GLAD.png",
+        "story": [],
+        "event": [
+            {
+                "name": "[14 AP]  EP5 Alchemy",
+                "drops": [
+                    "Cross Helmet Piece",
+                    "Magic Cape Piece",
+                    "Earrings Diagram",
+                    "Copper Bangle",
+                    "Skull Rod Piece",
+                    "Great Lance Piece",
+                    "Ogre Knife Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "King's Stew",
+                    "Harmonic Cogs",
+                    "Javelin Diagram Piece",
+                    "Magnifying Glass Diagram Piece",
+                    "Rainbow Hourglass Piece",
+                    "Mechanical Wing Piece",
+                    "Dice of Fate Piece",
+                    "Gem Seller's Scales Diagram Piece",
+                    "Prompto Soul Shard",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
+                ]
+            },
+            {
+                "name": "[25 AP]  EP9 Highwind",
+                "drops": [
+                    "Picmy Figurine Diagram",
+                    "Lucky Rabbit Figurine Piece",
+                    "Lion Monarch Shield Piece",
+                    "Flame Emperor Armor Piece",
+                    "Magus Hood Piece",
+                    "Sacred Lion Blade Piece",
+                    "Circlet Diagram Piece",
+                    "Glass Pen Piece",
+                    "Gunner's Hat Diagram Piece",
+                    "Saint's Robe Piece",
+                    "Alchemic Radio Piece",
+                    "Crystal Sword Diagram Piece",
+                    "Dragon Scale Quiver Diagram Piece",
+                    "Power Boiler Diagram Piece",
+                    "Holy Brawler's Sash Diagram Piece",
+                    "Gear Rod Piece",
+                    "Prompto's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece"
+                ]
+            },
+            {
+                "name": "[40 AP]  FINAL FANTASY XV Collab [Hard]",
+                "drops": [
+                    "Noctis's Fatigues Diagram Piece",
+                    "Ignis's Fatigues Diagram Piece",
+                    "Gladiolus's Fatigues Diagram Piece",
+                    "Aranea's Helmet Diagram Piece",
+                    "[FFXV] Unit Soul Shard Summon Ticket"
+                ]
+            },
+            {
+                "name": "[40 AP]  FINAL FANTASY XV Collab [EX3]",
+                "drops": [
+                    "Gladiolus's Fatigues Diagram Piece",
+                    "Hardedge Shard",
+                    "Extravagant Helmet Diagram Piece",
+                    "Crystal Sword Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Gear Rod Piece",
+                    "Platinum Katar Piece"
+                ]
+            },
+            {
+                "name": "[50 AP]  FINAL FANTASY XV Collab [EX3+]",
+                "drops": [
+                    "Gladiolus's Fatigues Diagram Piece",
+                    "Hardedge Shard",
+                    "Extravagant Helmet Diagram Piece",
+                    "Crystal Sword Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Gear Rod Piece",
+                    "Platinum Katar Piece"
+                ]
+            },
+            {
+                "name": "[20 AP] MP FINAL FANTASY XV Collab [EX3]",
+                "drops": [
+                    "Gladiolus's Fatigues Diagram Piece",
+                    "Hardedge Shard",
+                    "Extravagant Helmet Diagram Piece",
+                    "Crystal Sword Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Gear Rod Piece",
+                    "Platinum Katar Piece"
                 ]
             }
         ]
@@ -50603,7 +51144,6 @@
                     "Old Pocket Watch Piece",
                     "Lion Monarch Shield Piece",
                     "Research Notebook Piece",
-                    "Sacred Lion Blade Piece",
                     "Flame Emperor Armor Piece",
                     "Ignis's Fatigues Diagram Piece"
                 ]
@@ -50674,122 +51214,6 @@
                     "Lion Monarch Shield Piece",
                     "Sacred Fur Coat Piece",
                     "Great Lance Piece"
-                ]
-            }
-        ]
-    },
-    "IT_EQ_DIAGRAMPIECE_FF15_GLAD": {
-        "iname": "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
-        "name": "Gladiolus's Fatigues Diagram Piece",
-        "inputs": [
-            "Gladiolus's Fatigues Diagram Piece"
-        ],
-        "link": "http://www.alchemistcodedb.com/item/it-eq-diagrampiece-ff15-glad",
-        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_DIAGRAM_FF15_GLAD.png",
-        "story": [],
-        "event": [
-            {
-                "name": "[40 AP]  FINAL FANTASY XV Collab [Hard]",
-                "drops": [
-                    "Noctis's Fatigues Diagram Piece",
-                    "Ignis's Fatigues Diagram Piece",
-                    "Gladiolus's Fatigues Diagram Piece",
-                    "Aranea's Helmet Diagram Piece",
-                    "[FFXV] Unit Soul Shard Summon Ticket"
-                ]
-            },
-            {
-                "name": "[40 AP]  FINAL FANTASY XV Collab [EX3]",
-                "drops": [
-                    "Gladiolus's Fatigues Diagram Piece",
-                    "Hardedge Shard",
-                    "Extravagant Helmet Diagram Piece",
-                    "Crystal Sword Diagram Piece",
-                    "Sacred Lion Blade Piece",
-                    "Gear Rod Piece",
-                    "Platinum Katar Piece"
-                ]
-            },
-            {
-                "name": "[50 AP]  FINAL FANTASY XV Collab [EX3+]",
-                "drops": [
-                    "Gladiolus's Fatigues Diagram Piece",
-                    "Hardedge Shard",
-                    "Extravagant Helmet Diagram Piece",
-                    "Crystal Sword Diagram Piece",
-                    "Sacred Lion Blade Piece",
-                    "Gear Rod Piece",
-                    "Platinum Katar Piece"
-                ]
-            },
-            {
-                "name": "[20 AP] MP FINAL FANTASY XV Collab [EX3]",
-                "drops": [
-                    "Gladiolus's Fatigues Diagram Piece",
-                    "Hardedge Shard",
-                    "Extravagant Helmet Diagram Piece",
-                    "Crystal Sword Diagram Piece",
-                    "Sacred Lion Blade Piece",
-                    "Gear Rod Piece",
-                    "Platinum Katar Piece"
-                ]
-            }
-        ]
-    },
-    "IT_EQ_DIAGRAMPIECE_FF15_ARAN": {
-        "iname": "IT_EQ_DIAGRAMPIECE_FF15_ARAN",
-        "name": "Aranea's Helmet Diagram Piece",
-        "inputs": [
-            "Aranea's Helmet Diagram Piece"
-        ],
-        "link": "http://www.alchemistcodedb.com/item/it-eq-diagrampiece-ff15-aran",
-        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_DIAGRAM_FF15_ARAN.png",
-        "story": [],
-        "event": [
-            {
-                "name": "[40 AP]  FINAL FANTASY XV Collab [Hard]",
-                "drops": [
-                    "Noctis's Fatigues Diagram Piece",
-                    "Ignis's Fatigues Diagram Piece",
-                    "Gladiolus's Fatigues Diagram Piece",
-                    "Aranea's Helmet Diagram Piece",
-                    "[FFXV] Unit Soul Shard Summon Ticket"
-                ]
-            },
-            {
-                "name": "[40 AP]  FINAL FANTASY XV Collab [EX4]",
-                "drops": [
-                    "Aranea's Helmet Diagram Piece",
-                    "Stoss Spear Shard",
-                    "Sinister Helmet Diagram Piece",
-                    "Trace Blades Diagram Piece",
-                    "Sacred Lion Blade Piece",
-                    "Black Belt Diagram Piece",
-                    "Orichalcum Blades Piece"
-                ]
-            },
-            {
-                "name": "[50 AP]  FINAL FANTASY XV Collab [EX4+]",
-                "drops": [
-                    "Aranea's Helmet Diagram Piece",
-                    "Stoss Spear Shard",
-                    "Sinister Helmet Diagram Piece",
-                    "Trace Blades Diagram Piece",
-                    "Sacred Lion Blade Piece",
-                    "Black Belt Diagram Piece",
-                    "Orichalcum Blades Piece"
-                ]
-            },
-            {
-                "name": "[20 AP] MP FINAL FANTASY XV Collab [EX4]",
-                "drops": [
-                    "Aranea's Helmet Diagram Piece",
-                    "Stoss Spear Shard",
-                    "Sinister Helmet Diagram Piece",
-                    "Trace Blades Diagram Piece",
-                    "Sacred Lion Blade Piece",
-                    "Black Belt Diagram Piece",
-                    "Orichalcum Blades Piece"
                 ]
             }
         ]

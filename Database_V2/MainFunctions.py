@@ -1,6 +1,6 @@
 import os
 import json
-import math as Math
+import math
 import jellyfish
 
 PATH=os.path.dirname(os.path.realpath(__file__))
@@ -29,9 +29,9 @@ def loadFiles(files):
 
     return ret
 
-def saveAsJSON(name, var):
-    os.makedirs(EXPORTPATH, exist_ok=True)
-    with open(EXPORTPATH+name, "wb") as f:
+def saveAsJSON(path, name, var):
+    os.makedirs(path, exist_ok=True)
+    with open(os.path.join(path, name), "wb") as f:
         f.write(json.dumps(var, indent=4, ensure_ascii=False).encode('utf8'))
     return 1
 
@@ -94,10 +94,20 @@ def match(original, new):
             original[entry]=new[entry]
     return original
             
+def FuseParam(gl,jp):
+    dif = {}
+    for key,item in jp.items():
+        if key in gl:
+            if gl[key]!=jp[key]:
+                if type(item)==dict:
+                    dif[key]=FuseParam(gl[key],jp[key])['jp']
+                elif type(item)==list:
+                    pass
+                    #needs work
 
-def FuseMasterParams():
-    mains = loadFiles(
-    ['MasterParam.json', 'MasterParamJP.json',])# 'QuestParam.json','QuestParamJP.json', 'QuestDropParam.json'])
-    for i in range(1,len(mains)):
-        mains[0]=match(mains[0],mains[i])
-    return mains[0]
+            else:
+                continue
+        dif[key]=item
+        
+    gl['jp']=dif
+    return gl
