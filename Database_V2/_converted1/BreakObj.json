@@ -9,7 +9,7 @@
         "mSideType": "UNKNOWN",
         "mIsUI": true,
         "mAppearDir": "PositiveX",
-        "jp": {}
+        "dif": {}
     },
     "BO_TEST_002": {
         "mIname": "BO_TEST_002",
@@ -21,7 +21,7 @@
         "mSideType": "ENEMY",
         "mIsUI": true,
         "mAppearDir": "PositiveY",
-        "jp": {}
+        "dif": {}
     },
     "BO_TEST_003": {
         "mIname": "BO_TEST_003",
@@ -33,7 +33,7 @@
         "mSideType": "PLAYER",
         "mIsUI": true,
         "mAppearDir": "NegativeX",
-        "jp": {}
+        "dif": {}
     },
     "BO_TEST_004": {
         "mIname": "BO_TEST_004",
@@ -45,7 +45,7 @@
         "mSideType": "UNKNOWN",
         "mIsUI": true,
         "mAppearDir": "NegativeY",
-        "jp": {}
+        "dif": {}
     },
     "BO_TEST_005": {
         "mIname": "BO_TEST_005",
@@ -58,7 +58,7 @@
         "mIsUI": true,
         "mAliveClock": 20,
         "mAppearDir": "Auto",
-        "jp": {}
+        "dif": {}
     },
     "BO_TEST_006": {
         "mIname": "BO_TEST_006",
@@ -70,7 +70,7 @@
         "mRayType": "PASS",
         "mIsUI": true,
         "mAppearDir": "Auto",
-        "jp": {}
+        "dif": {}
     },
     "BO_TEST_007": {
         "mIname": "BO_TEST_007",
@@ -84,7 +84,7 @@
         "mIsUI": true,
         "mAliveClock": 20,
         "mAppearDir": "Auto",
-        "jp": {}
+        "dif": {}
     },
     "BO_FA_EDWA01_UPPER_2": {
         "mIname": "BO_FA_EDWA01_UPPER_2",
@@ -98,6 +98,6 @@
         "mIsUI": true,
         "mAliveClock": 30,
         "mAppearDir": "Auto",
-        "jp": {}
+        "dif": {}
     }
 }

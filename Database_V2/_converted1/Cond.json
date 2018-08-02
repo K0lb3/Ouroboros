@@ -12,7 +12,7 @@
             "Blindness"
         ],
         "v_blink_hit": -20,
-        "jp": {}
+        "dif": {}
     },
     "CON_NIN_KEMURIDAMA_BYACO": {
         "iname": "CON_NIN_KEMURIDAMA_BYACO",
@@ -27,7 +27,7 @@
             "Blindness"
         ],
         "v_blink_hit": -40,
-        "jp": {}
+        "dif": {}
     },
     "CON_NIN_NINKUU_SUZAKU": {
         "iname": "CON_NIN_NINKUU_SUZAKU",
@@ -43,7 +43,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DGN_SHIFT_RUDRA": {
         "iname": "CON_DGN_SHIFT_RUDRA",
@@ -74,7 +74,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STR_CHAKRA_MILOKU": {
         "iname": "CON_STR_CHAKRA_MILOKU",
@@ -90,7 +90,7 @@
             "AutoJewel"
         ],
         "v_auto_mp_heal": 2,
-        "jp": {
+        "dif": {
             "v_auto_hp_heal": 12,
             "v_auto_mp_heal": 5
         }
@@ -108,7 +108,7 @@
             "Poison"
         ],
         "v_poison_rate": 25,
-        "jp": {}
+        "dif": {}
     },
     "CON_GUA_HEALING2": {
         "iname": "CON_GUA_HEALING2",
@@ -138,7 +138,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PST_BOSS00_DISPEL_MAGIC": {
         "iname": "CON_PST_BOSS00_DISPEL_MAGIC",
@@ -153,7 +153,7 @@
             "DisableBuff",
             "DisableDebuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_US_FATE_TAIYAKI": {
         "iname": "CON_US_FATE_TAIYAKI",
@@ -169,7 +169,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_POI": {
         "iname": "CON_POI",
@@ -183,7 +183,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_POI_1": {
         "iname": "CON_POI_1",
@@ -198,7 +198,7 @@
             "Poison"
         ],
         "v_poison_rate": 20,
-        "jp": {}
+        "dif": {}
     },
     "CON_POI_2": {
         "iname": "CON_POI_2",
@@ -212,7 +212,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_POI_SP": {
         "iname": "CON_POI_SP",
@@ -227,7 +227,7 @@
             "Poison"
         ],
         "v_poison_rate": 25,
-        "jp": {}
+        "dif": {}
     },
     "CON_PAR": {
         "iname": "CON_PAR",
@@ -241,7 +241,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STU": {
         "iname": "CON_STU",
@@ -255,7 +255,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SLE": {
         "iname": "CON_SLE",
@@ -269,7 +269,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CHA": {
         "iname": "CON_CHA",
@@ -283,7 +283,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CHA_99TURN": {
         "iname": "CON_CHA_99TURN",
@@ -299,7 +299,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STO": {
         "iname": "CON_STO",
@@ -313,7 +313,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STO_2": {
         "iname": "CON_STO_2",
@@ -327,7 +327,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STO_3": {
         "iname": "CON_STO_3",
@@ -343,7 +343,7 @@
             "Stone",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BLI": {
         "iname": "CON_BLI",
@@ -357,7 +357,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BLI_TIME": {
         "iname": "CON_BLI_TIME",
@@ -371,7 +371,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DSK": {
         "iname": "CON_DSK",
@@ -385,7 +385,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DSK_TIME": {
         "iname": "CON_DSK_TIME",
@@ -399,7 +399,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DMO": {
         "iname": "CON_DMO",
@@ -413,7 +413,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DAT": {
         "iname": "CON_DAT",
@@ -427,7 +427,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ZOM": {
         "iname": "CON_ZOM",
@@ -441,7 +441,7 @@
         "conditions": [
             "Zombie"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DEA": {
         "iname": "CON_DEA",
@@ -455,7 +455,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BER": {
         "iname": "CON_BER",
@@ -469,7 +469,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DMO_DAT": {
         "iname": "CON_DMO_DAT",
@@ -484,7 +484,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STOP": {
         "iname": "CON_STOP",
@@ -498,7 +498,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FAST": {
         "iname": "CON_FAST",
@@ -512,7 +512,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SLOW": {
         "iname": "CON_SLOW",
@@ -526,7 +526,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AUTO_HEAL": {
         "iname": "CON_AUTO_HEAL",
@@ -540,7 +540,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AUTO_HEAL_TIME": {
         "iname": "CON_AUTO_HEAL_TIME",
@@ -554,7 +554,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DON": {
         "iname": "CON_DON",
@@ -568,7 +568,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAGE": {
         "iname": "CON_RAGE",
@@ -582,7 +582,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ALL": {
         "iname": "CON_ALL",
@@ -605,7 +605,7 @@
             "DisableAttack",
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_POI_NOROI": {
         "iname": "CON_POI_NOROI",
@@ -620,7 +620,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_POI_2_NOROI": {
         "iname": "CON_POI_2_NOROI",
@@ -635,7 +635,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PAR_NOROI": {
         "iname": "CON_PAR_NOROI",
@@ -650,7 +650,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STU_NOROI": {
         "iname": "CON_STU_NOROI",
@@ -665,7 +665,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SLE_NOROI": {
         "iname": "CON_SLE_NOROI",
@@ -680,7 +680,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CHA_NOROI": {
         "iname": "CON_CHA_NOROI",
@@ -695,7 +695,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STO_NOROI": {
         "iname": "CON_STO_NOROI",
@@ -710,7 +710,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BLI_NOROI": {
         "iname": "CON_BLI_NOROI",
@@ -725,7 +725,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BLI_TIME_NOROI": {
         "iname": "CON_BLI_TIME_NOROI",
@@ -740,7 +740,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DSK_NOROI": {
         "iname": "CON_DSK_NOROI",
@@ -755,7 +755,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DMO_NOROI": {
         "iname": "CON_DMO_NOROI",
@@ -770,7 +770,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DAT_NOROI": {
         "iname": "CON_DAT_NOROI",
@@ -785,7 +785,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DEA_NOROI": {
         "iname": "CON_DEA_NOROI",
@@ -800,7 +800,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BER_NOROI": {
         "iname": "CON_BER_NOROI",
@@ -815,7 +815,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DMO_DAT_NOROI": {
         "iname": "CON_DMO_DAT_NOROI",
@@ -831,7 +831,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STOP_NOROI": {
         "iname": "CON_STOP_NOROI",
@@ -846,7 +846,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FAST_NOROI": {
         "iname": "CON_FAST_NOROI",
@@ -861,7 +861,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SLOW_NOROI": {
         "iname": "CON_SLOW_NOROI",
@@ -876,7 +876,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AUTO_HEAL_NOROI": {
         "iname": "CON_AUTO_HEAL_NOROI",
@@ -891,7 +891,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AUTO_HEAL_TIME_NOROI": {
         "iname": "CON_AUTO_HEAL_TIME_NOROI",
@@ -906,7 +906,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DON_NOROI": {
         "iname": "CON_DON_NOROI",
@@ -921,7 +921,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAGE_NOROI": {
         "iname": "CON_RAGE_NOROI",
@@ -936,7 +936,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ALL_NOROI": {
         "iname": "CON_ALL_NOROI",
@@ -960,7 +960,7 @@
             "DisableAttack",
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CHA_NOROI_MAN": {
         "iname": "CON_CHA_NOROI_MAN",
@@ -976,7 +976,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_POI": {
         "iname": "CON_PER80_POI",
@@ -990,7 +990,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_PAR": {
         "iname": "CON_PER80_PAR",
@@ -1004,7 +1004,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_STU": {
         "iname": "CON_PER80_STU",
@@ -1018,7 +1018,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_SLE": {
         "iname": "CON_PER80_SLE",
@@ -1032,7 +1032,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_CHA": {
         "iname": "CON_PER80_CHA",
@@ -1046,7 +1046,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_STO": {
         "iname": "CON_PER80_STO",
@@ -1060,7 +1060,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_BLI": {
         "iname": "CON_PER80_BLI",
@@ -1074,7 +1074,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_DSK": {
         "iname": "CON_PER80_DSK",
@@ -1088,7 +1088,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_DMO": {
         "iname": "CON_PER80_DMO",
@@ -1102,7 +1102,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_DAT": {
         "iname": "CON_PER80_DAT",
@@ -1116,7 +1116,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_ZOM": {
         "iname": "CON_PER80_ZOM",
@@ -1130,7 +1130,7 @@
         "conditions": [
             "Zombie"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_DEA": {
         "iname": "CON_PER80_DEA",
@@ -1144,7 +1144,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_BER": {
         "iname": "CON_PER80_BER",
@@ -1158,7 +1158,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_STOP": {
         "iname": "CON_PER80_STOP",
@@ -1172,7 +1172,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_FAST": {
         "iname": "CON_PER80_FAST",
@@ -1186,7 +1186,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_SLOW": {
         "iname": "CON_PER80_SLOW",
@@ -1200,7 +1200,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_DON": {
         "iname": "CON_PER80_DON",
@@ -1214,7 +1214,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_RAGE": {
         "iname": "CON_PER80_RAGE",
@@ -1228,7 +1228,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER80_ALL": {
         "iname": "CON_PER80_ALL",
@@ -1251,7 +1251,7 @@
             "DisableAttack",
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_POI": {
         "iname": "CON_PER25_POI",
@@ -1265,7 +1265,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_PAR": {
         "iname": "CON_PER25_PAR",
@@ -1279,7 +1279,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_STU": {
         "iname": "CON_PER25_STU",
@@ -1293,7 +1293,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_SLE": {
         "iname": "CON_PER25_SLE",
@@ -1307,7 +1307,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_CHA": {
         "iname": "CON_PER25_CHA",
@@ -1321,7 +1321,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_STO": {
         "iname": "CON_PER25_STO",
@@ -1335,7 +1335,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_BLI": {
         "iname": "CON_PER25_BLI",
@@ -1349,7 +1349,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_DSK": {
         "iname": "CON_PER25_DSK",
@@ -1363,7 +1363,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_DMO": {
         "iname": "CON_PER25_DMO",
@@ -1377,7 +1377,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_DAT": {
         "iname": "CON_PER25_DAT",
@@ -1391,7 +1391,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_ZOM": {
         "iname": "CON_PER25_ZOM",
@@ -1405,7 +1405,7 @@
         "conditions": [
             "Zombie"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_DEA": {
         "iname": "CON_PER25_DEA",
@@ -1419,7 +1419,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_BER": {
         "iname": "CON_PER25_BER",
@@ -1433,7 +1433,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_STOP": {
         "iname": "CON_PER25_STOP",
@@ -1447,7 +1447,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_FAST": {
         "iname": "CON_PER25_FAST",
@@ -1461,7 +1461,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_SLOW": {
         "iname": "CON_PER25_SLOW",
@@ -1475,7 +1475,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_DON": {
         "iname": "CON_PER25_DON",
@@ -1489,7 +1489,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_RAGE": {
         "iname": "CON_PER25_RAGE",
@@ -1503,7 +1503,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER25_ALL": {
         "iname": "CON_PER25_ALL",
@@ -1526,7 +1526,7 @@
             "DisableAttack",
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_POI": {
         "iname": "CON_PER10_POI",
@@ -1540,7 +1540,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_PAR": {
         "iname": "CON_PER10_PAR",
@@ -1554,7 +1554,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_STU": {
         "iname": "CON_PER10_STU",
@@ -1568,7 +1568,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_SLE": {
         "iname": "CON_PER10_SLE",
@@ -1582,7 +1582,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_CHA": {
         "iname": "CON_PER10_CHA",
@@ -1596,7 +1596,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_STO": {
         "iname": "CON_PER10_STO",
@@ -1610,7 +1610,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_BLI": {
         "iname": "CON_PER10_BLI",
@@ -1624,7 +1624,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_DSK": {
         "iname": "CON_PER10_DSK",
@@ -1638,7 +1638,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_DMO": {
         "iname": "CON_PER10_DMO",
@@ -1652,7 +1652,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_DAT": {
         "iname": "CON_PER10_DAT",
@@ -1666,7 +1666,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_ZOM": {
         "iname": "CON_PER10_ZOM",
@@ -1680,7 +1680,7 @@
         "conditions": [
             "Zombie"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_DEA": {
         "iname": "CON_PER10_DEA",
@@ -1694,7 +1694,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_BER": {
         "iname": "CON_PER10_BER",
@@ -1708,7 +1708,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_STOP": {
         "iname": "CON_PER10_STOP",
@@ -1722,7 +1722,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_FAST": {
         "iname": "CON_PER10_FAST",
@@ -1736,7 +1736,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_SLOW": {
         "iname": "CON_PER10_SLOW",
@@ -1750,7 +1750,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_DON": {
         "iname": "CON_PER10_DON",
@@ -1764,7 +1764,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_RAGE": {
         "iname": "CON_PER10_RAGE",
@@ -1778,7 +1778,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PER10_ALL": {
         "iname": "CON_PER10_ALL",
@@ -1801,7 +1801,7 @@
             "DisableAttack",
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAND_DMO_DAT": {
         "iname": "CON_RAND_DMO_DAT",
@@ -1816,7 +1816,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAND_ALL": {
         "iname": "CON_RAND_ALL",
@@ -1839,7 +1839,7 @@
             "DisableAttack",
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAND_ALL_DOKUNUKI": {
         "iname": "CON_RAND_ALL_DOKUNUKI",
@@ -1862,7 +1862,7 @@
             "DisableAttack",
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_POI": {
         "iname": "CON_FORCE_POI",
@@ -1874,7 +1874,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_PAR": {
         "iname": "CON_FORCE_PAR",
@@ -1886,7 +1886,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_STU": {
         "iname": "CON_FORCE_STU",
@@ -1898,7 +1898,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_SLE": {
         "iname": "CON_FORCE_SLE",
@@ -1910,7 +1910,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_CHA": {
         "iname": "CON_FORCE_CHA",
@@ -1922,7 +1922,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_STO": {
         "iname": "CON_FORCE_STO",
@@ -1934,7 +1934,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_BLI": {
         "iname": "CON_FORCE_BLI",
@@ -1946,7 +1946,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_DSK": {
         "iname": "CON_FORCE_DSK",
@@ -1958,7 +1958,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_DMO": {
         "iname": "CON_FORCE_DMO",
@@ -1970,7 +1970,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_DAT": {
         "iname": "CON_FORCE_DAT",
@@ -1982,7 +1982,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_ZOM": {
         "iname": "CON_FORCE_ZOM",
@@ -1994,7 +1994,7 @@
         "conditions": [
             "Zombie"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_DEA": {
         "iname": "CON_FORCE_DEA",
@@ -2006,7 +2006,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_BER": {
         "iname": "CON_FORCE_BER",
@@ -2018,7 +2018,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_STOP": {
         "iname": "CON_FORCE_STOP",
@@ -2030,7 +2030,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_FAST": {
         "iname": "CON_FORCE_FAST",
@@ -2042,7 +2042,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_SLOW": {
         "iname": "CON_FORCE_SLOW",
@@ -2054,7 +2054,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_DON": {
         "iname": "CON_FORCE_DON",
@@ -2066,7 +2066,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_RAGE": {
         "iname": "CON_FORCE_RAGE",
@@ -2078,7 +2078,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_ALL": {
         "iname": "CON_FORCE_ALL",
@@ -2099,7 +2099,7 @@
             "DisableAttack",
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FORCE_FAST_SHOCK_TO_KILL": {
         "iname": "CON_FORCE_FAST_SHOCK_TO_KILL",
@@ -2111,7 +2111,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ARMS_SWO_TYRHUNG": {
         "iname": "CON_ARMS_SWO_TYRHUNG",
@@ -2125,7 +2125,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_POI": {
         "iname": "CON_DISABLE_POI",
@@ -2139,7 +2139,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_PAR": {
         "iname": "CON_DISABLE_PAR",
@@ -2153,7 +2153,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_STU": {
         "iname": "CON_DISABLE_STU",
@@ -2167,7 +2167,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_SLE": {
         "iname": "CON_DISABLE_SLE",
@@ -2181,7 +2181,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_CHA": {
         "iname": "CON_DISABLE_CHA",
@@ -2195,7 +2195,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_STO": {
         "iname": "CON_DISABLE_STO",
@@ -2209,7 +2209,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_BLI": {
         "iname": "CON_DISABLE_BLI",
@@ -2223,7 +2223,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_DSK": {
         "iname": "CON_DISABLE_DSK",
@@ -2237,7 +2237,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_DMO": {
         "iname": "CON_DISABLE_DMO",
@@ -2251,7 +2251,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_DAT": {
         "iname": "CON_DISABLE_DAT",
@@ -2265,7 +2265,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_ZOM": {
         "iname": "CON_DISABLE_ZOM",
@@ -2279,7 +2279,7 @@
         "conditions": [
             "Zombie"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_DEA": {
         "iname": "CON_DISABLE_DEA",
@@ -2293,7 +2293,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_BER": {
         "iname": "CON_DISABLE_BER",
@@ -2307,7 +2307,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_DKN": {
         "iname": "CON_DISABLE_DKN",
@@ -2321,7 +2321,7 @@
         "conditions": [
             "DisableKnockback"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_DBU": {
         "iname": "CON_DISABLE_DBU",
@@ -2335,7 +2335,7 @@
         "conditions": [
             "DisableBuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_DDB": {
         "iname": "CON_DISABLE_DDB",
@@ -2349,7 +2349,7 @@
         "conditions": [
             "DisableDebuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_DBU_DDB": {
         "iname": "CON_DISABLE_DBU_DDB",
@@ -2364,7 +2364,7 @@
             "DisableBuff",
             "DisableDebuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_STOP": {
         "iname": "CON_DISABLE_STOP",
@@ -2378,7 +2378,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_FAST": {
         "iname": "CON_DISABLE_FAST",
@@ -2392,7 +2392,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_SLOW": {
         "iname": "CON_DISABLE_SLOW",
@@ -2406,7 +2406,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_DON": {
         "iname": "CON_DISABLE_DON",
@@ -2420,7 +2420,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_RAGE": {
         "iname": "CON_DISABLE_RAGE",
@@ -2434,7 +2434,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_ALL": {
         "iname": "CON_DISABLE_ALL",
@@ -2465,7 +2465,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_INSTANT_DBU": {
         "iname": "CON_DISABLE_INSTANT_DBU",
@@ -2479,7 +2479,7 @@
         "conditions": [
             "DisableBuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_INSTANT_DDB": {
         "iname": "CON_DISABLE_INSTANT_DDB",
@@ -2493,7 +2493,7 @@
         "conditions": [
             "DisableDebuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_INSTANT_DBU_DDB": {
         "iname": "CON_DISABLE_INSTANT_DBU_DDB",
@@ -2508,7 +2508,7 @@
             "DisableBuff",
             "DisableDebuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIAB_DISPEL_MAGIC": {
         "iname": "CON_DIAB_DISPEL_MAGIC",
@@ -2522,7 +2522,7 @@
         "conditions": [
             "DisableBuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_POI": {
         "iname": "CON_CURE_POI",
@@ -2533,7 +2533,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_PAR": {
         "iname": "CON_CURE_PAR",
@@ -2544,7 +2544,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_STU": {
         "iname": "CON_CURE_STU",
@@ -2555,7 +2555,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_SLE": {
         "iname": "CON_CURE_SLE",
@@ -2566,7 +2566,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_CHA": {
         "iname": "CON_CURE_CHA",
@@ -2577,7 +2577,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_STO": {
         "iname": "CON_CURE_STO",
@@ -2588,7 +2588,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_BLI": {
         "iname": "CON_CURE_BLI",
@@ -2599,7 +2599,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_DSK": {
         "iname": "CON_CURE_DSK",
@@ -2610,7 +2610,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_DMO": {
         "iname": "CON_CURE_DMO",
@@ -2621,7 +2621,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_DAT": {
         "iname": "CON_CURE_DAT",
@@ -2632,7 +2632,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_ZOM": {
         "iname": "CON_CURE_ZOM",
@@ -2643,7 +2643,7 @@
         "conditions": [
             "Zombie"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_DEA": {
         "iname": "CON_CURE_DEA",
@@ -2654,7 +2654,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_BER": {
         "iname": "CON_CURE_BER",
@@ -2665,7 +2665,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_DBU": {
         "iname": "CON_CURE_DBU",
@@ -2676,7 +2676,7 @@
         "conditions": [
             "DisableBuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_DDB": {
         "iname": "CON_CURE_DDB",
@@ -2687,7 +2687,7 @@
         "conditions": [
             "DisableDebuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_DSK_DMO_DAT": {
         "iname": "CON_CURE_DSK_DMO_DAT",
@@ -2700,7 +2700,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_STOP": {
         "iname": "CON_CURE_STOP",
@@ -2711,7 +2711,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_UP": {
         "iname": "CON_CURE_UP",
@@ -2722,7 +2722,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_SLOW": {
         "iname": "CON_CURE_SLOW",
@@ -2733,7 +2733,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_DON": {
         "iname": "CON_CURE_DON",
@@ -2744,7 +2744,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_RAGE": {
         "iname": "CON_CURE_RAGE",
@@ -2755,7 +2755,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CURE_ALL": {
         "iname": "CON_CURE_ALL",
@@ -2782,7 +2782,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GUA_TOUSEKI": {
         "iname": "CON_GUA_TOUSEKI",
@@ -2795,7 +2795,7 @@
             "Donsoku",
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_LOGI_GUA_HEAL": {
         "iname": "CON_LOGI_GUA_HEAL",
@@ -2823,7 +2823,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ANK_REVENGER": {
         "iname": "CON_ANK_REVENGER",
@@ -2837,7 +2837,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIOS_BAA_HEAL": {
         "iname": "CON_DIOS_BAA_HEAL",
@@ -2865,7 +2865,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BAA_JUGGERNAUT": {
         "iname": "CON_BAA_JUGGERNAUT",
@@ -2879,7 +2879,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BAA_AVENGER": {
         "iname": "CON_BAA_AVENGER",
@@ -2893,7 +2893,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAH_NOT_SKILL_SWORD": {
         "iname": "CON_MAH_NOT_SKILL_SWORD",
@@ -2907,7 +2907,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAH_NOT_MOVE_SWORD": {
         "iname": "CON_MAH_NOT_MOVE_SWORD",
@@ -2921,7 +2921,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAH_NOT_ATTACK_SWORD": {
         "iname": "CON_MAH_NOT_ATTACK_SWORD",
@@ -2935,7 +2935,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAH_STONE_SWORD": {
         "iname": "CON_MAH_STONE_SWORD",
@@ -2949,7 +2949,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_LAN_DEATH_STINGER": {
         "iname": "CON_LAN_DEATH_STINGER",
@@ -2963,7 +2963,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_LAN_HAYANIE": {
         "iname": "CON_LAN_HAYANIE",
@@ -2977,7 +2977,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_LAN_TAIMANOYARI": {
         "iname": "CON_LAN_TAIMANOYARI",
@@ -2991,7 +2991,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DGR_HUMANOYARI": {
         "iname": "CON_DGR_HUMANOYARI",
@@ -3005,7 +3005,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DGN_KINMANOYARI": {
         "iname": "CON_DGN_KINMANOYARI",
@@ -3019,7 +3019,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_WIZ_POISON_HAZE": {
         "iname": "CON_WIZ_POISON_HAZE",
@@ -3033,7 +3033,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DAI_POISON_MIST": {
         "iname": "CON_DAI_POISON_MIST",
@@ -3047,7 +3047,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DAI_MARE_LONLY": {
         "iname": "CON_DAI_MARE_LONLY",
@@ -3063,7 +3063,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_THI_POISON_KNIFE": {
         "iname": "CON_THI_POISON_KNIFE",
@@ -3077,7 +3077,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_THI_PARALYSE_KNIFE": {
         "iname": "CON_THI_PARALYSE_KNIFE",
@@ -3091,7 +3091,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_THI_SHADE_KNIFE": {
         "iname": "CON_THI_SHADE_KNIFE",
@@ -3105,7 +3105,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_THI_SLEEP_KNIFE": {
         "iname": "CON_THI_SLEEP_KNIFE",
@@ -3119,7 +3119,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_THI_PROVOKE": {
         "iname": "CON_THI_PROVOKE",
@@ -3133,7 +3133,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_THI_CHARM_KNIFE": {
         "iname": "CON_THI_CHARM_KNIFE",
@@ -3147,7 +3147,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ASS_POISON_EDGE": {
         "iname": "CON_ASS_POISON_EDGE",
@@ -3161,7 +3161,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ASS_PARALYSE_EDGE": {
         "iname": "CON_ASS_PARALYSE_EDGE",
@@ -3175,7 +3175,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ASS_SHADE_EDGE": {
         "iname": "CON_ASS_SHADE_EDGE",
@@ -3189,7 +3189,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ASS_SLEEP_EDGE": {
         "iname": "CON_ASS_SLEEP_EDGE",
@@ -3203,7 +3203,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ASS_PROVOKE": {
         "iname": "CON_ASS_PROVOKE",
@@ -3217,7 +3217,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ASS_CHARM_EDGE": {
         "iname": "CON_ASS_CHARM_EDGE",
@@ -3231,7 +3231,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ASS_CALLOFDEATH": {
         "iname": "CON_ASS_CALLOFDEATH",
@@ -3245,7 +3245,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NIN_KEMURIDAMA": {
         "iname": "CON_NIN_KEMURIDAMA",
@@ -3259,7 +3259,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NIN_MINTOU": {
         "iname": "CON_NIN_MINTOU",
@@ -3273,7 +3273,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NIN_JYATOU": {
         "iname": "CON_NIN_JYATOU",
@@ -3287,7 +3287,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NIN_MAMUSHITOU": {
         "iname": "CON_NIN_MAMUSHITOU",
@@ -3301,7 +3301,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NIN_KAGENUI": {
         "iname": "CON_NIN_KAGENUI",
@@ -3315,7 +3315,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NIN_KANASHIBARI": {
         "iname": "CON_NIN_KANASHIBARI",
@@ -3329,7 +3329,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NIN_YUAN_KANASHIBARI": {
         "iname": "CON_NIN_YUAN_KANASHIBARI",
@@ -3343,7 +3343,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NIN_DOKUKIRI": {
         "iname": "CON_NIN_DOKUKIRI",
@@ -3357,7 +3357,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KAK_SEIKENZUKI": {
         "iname": "CON_KAK_SEIKENZUKI",
@@ -3371,7 +3371,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KAK_THUMBING": {
         "iname": "CON_KAK_THUMBING",
@@ -3385,7 +3385,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KAK_TAICYOKANRI": {
         "iname": "CON_KAK_TAICYOKANRI",
@@ -3416,7 +3416,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KAK_HAKKEI": {
         "iname": "CON_KAK_HAKKEI",
@@ -3430,7 +3430,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KAK_COMBO_ARTS": {
         "iname": "CON_KAK_COMBO_ARTS",
@@ -3445,7 +3445,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STR_TEKKEN": {
         "iname": "CON_STR_TEKKEN",
@@ -3459,7 +3459,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STR_THUMBING": {
         "iname": "CON_STR_THUMBING",
@@ -3473,7 +3473,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STR_SOUKIKOU": {
         "iname": "CON_STR_SOUKIKOU",
@@ -3504,7 +3504,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STR_KIKOUSYO": {
         "iname": "CON_STR_KIKOUSYO",
@@ -3518,7 +3518,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STR_HIKOU": {
         "iname": "CON_STR_HIKOU",
@@ -3532,7 +3532,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STR_BUSHINRANBU": {
         "iname": "CON_STR_BUSHINRANBU",
@@ -3547,7 +3547,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_HUN_NERAIUCHI": {
         "iname": "CON_HUN_NERAIUCHI",
@@ -3561,7 +3561,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_HUN_BOOBY_TRAP": {
         "iname": "CON_HUN_BOOBY_TRAP",
@@ -3575,7 +3575,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAN_SNIPE_SHOOTING": {
         "iname": "CON_RAN_SNIPE_SHOOTING",
@@ -3589,7 +3589,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAN_SHADOW_SHOOT": {
         "iname": "CON_RAN_SHADOW_SHOOT",
@@ -3603,7 +3603,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAN_HIDE_TRAP": {
         "iname": "CON_RAN_HIDE_TRAP",
@@ -3617,7 +3617,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAN_TOUSEKI": {
         "iname": "CON_RAN_TOUSEKI",
@@ -3632,7 +3632,7 @@
             "DisableAttack",
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GUN_LEG_SHOT": {
         "iname": "CON_GUN_LEG_SHOT",
@@ -3646,7 +3646,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GUN_HEAD_SHOT": {
         "iname": "CON_GUN_HEAD_SHOT",
@@ -3661,7 +3661,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GUN_PINHOLE_SHOT": {
         "iname": "CON_GUN_PINHOLE_SHOT",
@@ -3675,7 +3675,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DRI_HEAL_SHOT": {
         "iname": "CON_DRI_HEAL_SHOT",
@@ -3705,7 +3705,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DRI_LEG_SHOT": {
         "iname": "CON_DRI_LEG_SHOT",
@@ -3719,7 +3719,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DRI_HEAD_SHOT": {
         "iname": "CON_DRI_HEAD_SHOT",
@@ -3734,7 +3734,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DRI_PINHOLE_SHOT": {
         "iname": "CON_DRI_PINHOLE_SHOT",
@@ -3748,7 +3748,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SNI_LEG_SNIPE": {
         "iname": "CON_SNI_LEG_SNIPE",
@@ -3762,7 +3762,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SNI_HEAD_SNIPE": {
         "iname": "CON_SNI_HEAD_SNIPE",
@@ -3777,7 +3777,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CHAL_SNI_PIERCING_SNIPE": {
         "iname": "CON_CHAL_SNI_PIERCING_SNIPE",
@@ -3791,7 +3791,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KUR_FLASH_GRENADE": {
         "iname": "CON_KUR_FLASH_GRENADE",
@@ -3806,7 +3806,7 @@
             "Stun",
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_LNC_FLASH_GRENADE": {
         "iname": "CON_LNC_FLASH_GRENADE",
@@ -3820,7 +3820,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KEM_CAT_PUNCH": {
         "iname": "CON_KEM_CAT_PUNCH",
@@ -3834,7 +3834,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KEM_SNAKE_BITE": {
         "iname": "CON_KEM_SNAKE_BITE",
@@ -3848,7 +3848,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KEM_HOUKOU": {
         "iname": "CON_KEM_HOUKOU",
@@ -3864,7 +3864,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KEM_SHUSHIN": {
         "iname": "CON_KEM_SHUSHIN",
@@ -3878,7 +3878,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KEM_BORE_TACKLE": {
         "iname": "CON_KEM_BORE_TACKLE",
@@ -3892,7 +3892,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_YUJ_REGENERATE": {
         "iname": "CON_YUJ_REGENERATE",
@@ -3906,7 +3906,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_YUJ_CROSS_REGENERATE": {
         "iname": "CON_YUJ_CROSS_REGENERATE",
@@ -3920,7 +3920,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PRI_REGENERATE": {
         "iname": "CON_PRI_REGENERATE",
@@ -3934,7 +3934,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PRI_REGENERATE_SQUARE": {
         "iname": "CON_PRI_REGENERATE_SQUARE",
@@ -3948,7 +3948,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ALEX_PRI_REGENERATE_SQUARE": {
         "iname": "CON_ALEX_PRI_REGENERATE_SQUARE",
@@ -3981,7 +3981,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PRI_AMAZING_GRACE": {
         "iname": "CON_PRI_AMAZING_GRACE",
@@ -4011,7 +4011,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PRI_REGENERATER": {
         "iname": "CON_PRI_REGENERATER",
@@ -4025,7 +4025,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PRI_REGENERATER_SELF": {
         "iname": "CON_PRI_REGENERATER_SELF",
@@ -4039,7 +4039,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PST_UZUSIOMARU_5_SP": {
         "iname": "CON_PST_UZUSIOMARU_5_SP",
@@ -4053,7 +4053,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_WIZ_JEM_REGENERATER": {
         "iname": "CON_WIZ_JEM_REGENERATER",
@@ -4067,7 +4067,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KUS_YOBOU_YAKU": {
         "iname": "CON_KUS_YOBOU_YAKU",
@@ -4100,7 +4100,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KUS_SHIKEN_YAKU": {
         "iname": "CON_KUS_SHIKEN_YAKU",
@@ -4114,7 +4114,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KUS_AUTO_HEALING": {
         "iname": "CON_KUS_AUTO_HEALING",
@@ -4128,7 +4128,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DOC_MASUI_YAKU": {
         "iname": "CON_DOC_MASUI_YAKU",
@@ -4143,7 +4143,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DOC_YOBOU_YAKU": {
         "iname": "CON_DOC_YOBOU_YAKU",
@@ -4176,7 +4176,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DOC_SHIKEN_YAKU": {
         "iname": "CON_DOC_SHIKEN_YAKU",
@@ -4190,7 +4190,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DOC_SHIKEN_YAKU_FF15": {
         "iname": "CON_DOC_SHIKEN_YAKU_FF15",
@@ -4206,7 +4206,7 @@
             "Fast",
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DOC_AUTO_HEALING": {
         "iname": "CON_DOC_AUTO_HEALING",
@@ -4220,7 +4220,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MICH_DOC_DOKU_YAKU": {
         "iname": "CON_MICH_DOC_DOKU_YAKU",
@@ -4235,7 +4235,7 @@
             "Poison"
         ],
         "v_poison_rate": 20,
-        "jp": {}
+        "dif": {}
     },
     "CON_ENC_RESTORATION": {
         "iname": "CON_ENC_RESTORATION",
@@ -4249,7 +4249,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ENC_AKUSEI": {
         "iname": "CON_ENC_AKUSEI",
@@ -4264,7 +4264,7 @@
             "Poison",
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GEN_PHANTOM_VISION": {
         "iname": "CON_GEN_PHANTOM_VISION",
@@ -4278,7 +4278,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GEN_CLOCK_UP": {
         "iname": "CON_GEN_CLOCK_UP",
@@ -4292,7 +4292,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GEN_CLOCK_DOWN": {
         "iname": "CON_GEN_CLOCK_DOWN",
@@ -4306,7 +4306,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GEN_CLOCK_BREAK": {
         "iname": "CON_GEN_CLOCK_BREAK",
@@ -4320,7 +4320,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GEN_REST_ABN": {
         "iname": "CON_GEN_REST_ABN",
@@ -4337,7 +4337,7 @@
             "Stone",
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GEN_BIND": {
         "iname": "CON_GEN_BIND",
@@ -4351,7 +4351,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GEN_BLACK_HOLE": {
         "iname": "CON_GEN_BLACK_HOLE",
@@ -4365,7 +4365,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GEN_COUNTER_CLOCK": {
         "iname": "CON_GEN_COUNTER_CLOCK",
@@ -4379,7 +4379,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_GEN_RESIST_CLOCK": {
         "iname": "CON_GEN_RESIST_CLOCK",
@@ -4394,7 +4394,7 @@
             "Stop",
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BAR_SLEEP_SONG": {
         "iname": "CON_BAR_SLEEP_SONG",
@@ -4408,7 +4408,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BAR_SLEEP_SONG_POLLIN": {
         "iname": "CON_BAR_SLEEP_SONG_POLLIN",
@@ -4424,7 +4424,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BAR_SLEEP_SOUND": {
         "iname": "CON_BAR_SLEEP_SOUND",
@@ -4438,7 +4438,7 @@
         "conditions": [
             "GoodSleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ODO_THROW_KISS": {
         "iname": "CON_ODO_THROW_KISS",
@@ -4452,7 +4452,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ODO_FASCINATION": {
         "iname": "CON_ODO_FASCINATION",
@@ -4466,7 +4466,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MIK_KIYOMETAMAE": {
         "iname": "CON_MIK_KIYOMETAMAE",
@@ -4497,7 +4497,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MIK_JYUSOGAESHI": {
         "iname": "CON_MIK_JYUSOGAESHI",
@@ -4511,7 +4511,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_WED_M_BOUQUET_TOSS": {
         "iname": "CON_WED_M_BOUQUET_TOSS",
@@ -4525,7 +4525,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_WED_M_CHARM_COUNTER": {
         "iname": "CON_WED_M_CHARM_COUNTER",
@@ -4539,7 +4539,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_WED_F_BOUQUET_TOSS": {
         "iname": "CON_WED_F_BOUQUET_TOSS",
@@ -4553,7 +4553,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_WED_F_CHARM_COUNTER": {
         "iname": "CON_WED_F_CHARM_COUNTER",
@@ -4567,7 +4567,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KAI_MAD_SEA_SONG": {
         "iname": "CON_KAI_MAD_SEA_SONG",
@@ -4582,7 +4582,7 @@
             "Berserk"
         ],
         "v_berserk_atk": 30,
-        "jp": {}
+        "dif": {}
     },
     "CON_SEN_LOWER_2": {
         "iname": "CON_SEN_LOWER_2",
@@ -4612,7 +4612,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SHN_LOWER_01": {
         "iname": "CON_SHN_LOWER_01",
@@ -4626,7 +4626,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SHN_LOWER_02": {
         "iname": "CON_SHN_LOWER_02",
@@ -4640,7 +4640,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SHN_LOWER_03": {
         "iname": "CON_SHN_LOWER_03",
@@ -4673,7 +4673,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SHN_REACTION_01": {
         "iname": "CON_SHN_REACTION_01",
@@ -4689,7 +4689,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SHN_UPPER_04": {
         "iname": "CON_SHN_UPPER_04",
@@ -4705,7 +4705,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NEC_UPPER_01": {
         "iname": "CON_NEC_UPPER_01",
@@ -4719,7 +4719,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NEC_UPPER_02": {
         "iname": "CON_NEC_UPPER_02",
@@ -4734,7 +4734,7 @@
             "Poison",
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ONM_UPPER_2": {
         "iname": "CON_ONM_UPPER_2",
@@ -4749,7 +4749,7 @@
             "Blindness"
         ],
         "v_blink_hit": -25,
-        "jp": {}
+        "dif": {}
     },
     "CON_ONM_UPPER_3": {
         "iname": "CON_ONM_UPPER_3",
@@ -4782,7 +4782,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ONM_REACTION": {
         "iname": "CON_ONM_REACTION",
@@ -4796,7 +4796,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_WEA_UPPER_2": {
         "iname": "CON_WEA_UPPER_2",
@@ -4810,7 +4810,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_WEA_UPPER_5": {
         "iname": "CON_WEA_UPPER_5",
@@ -4826,7 +4826,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_WEA_UPPER_5_TOWER": {
         "iname": "CON_WEA_UPPER_5_TOWER",
@@ -4842,7 +4842,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NEW_HUU_UPPER_1": {
         "iname": "CON_NEW_HUU_UPPER_1",
@@ -4875,7 +4875,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MOU_UPPER_2": {
         "iname": "CON_MOU_UPPER_2",
@@ -4889,7 +4889,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MOU_UPPER_3_1": {
         "iname": "CON_MOU_UPPER_3_1",
@@ -4903,7 +4903,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MOU_UPPER_3_2": {
         "iname": "CON_MOU_UPPER_3_2",
@@ -4919,7 +4919,7 @@
             "AutoJewel"
         ],
         "v_auto_mp_heal": 2,
-        "jp": {}
+        "dif": {}
     },
     "CON_MOU_LOWER_1": {
         "iname": "CON_MOU_LOWER_1",
@@ -4933,7 +4933,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MOU_LOWER_2": {
         "iname": "CON_MOU_LOWER_2",
@@ -4949,7 +4949,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MOU_LOWER_3": {
         "iname": "CON_MOU_LOWER_3",
@@ -4965,7 +4965,7 @@
             "Poison"
         ],
         "v_poison_rate": 20,
-        "jp": {}
+        "dif": {}
     },
     "CON_KADA_SEI_PROVOKE": {
         "iname": "CON_KADA_SEI_PROVOKE",
@@ -4979,7 +4979,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KADA_GUA_PROVOKE": {
         "iname": "CON_KADA_GUA_PROVOKE",
@@ -4993,7 +4993,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KUDH_LAN_DISABLEMOVE_SPEAR": {
         "iname": "CON_KUDH_LAN_DISABLEMOVE_SPEAR",
@@ -5008,7 +5008,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SEDA_RAN_HEARTBREAK": {
         "iname": "CON_SEDA_RAN_HEARTBREAK",
@@ -5022,7 +5022,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SEDA_RAN_VENOMRAIN": {
         "iname": "CON_SEDA_RAN_VENOMRAIN",
@@ -5036,7 +5036,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SEDA_RAN_SLEEP_COUNTER": {
         "iname": "CON_SEDA_RAN_SLEEP_COUNTER",
@@ -5050,7 +5050,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_YAUL_SOL_LOWER_4": {
         "iname": "CON_YAUL_SOL_LOWER_4",
@@ -5064,7 +5064,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SEDA_RAN_BIND": {
         "iname": "CON_SEDA_RAN_BIND",
@@ -5078,7 +5078,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ZAYI_LORD_LOWER_03": {
         "iname": "CON_ZAYI_LORD_LOWER_03",
@@ -5092,7 +5092,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_OTHI_WIZ_UPPER_1": {
         "iname": "CON_OTHI_WIZ_UPPER_1",
@@ -5107,7 +5107,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_OTHI_WIZ_LOWER_3": {
         "iname": "CON_OTHI_WIZ_LOWER_3",
@@ -5123,7 +5123,7 @@
             "Sleep",
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FEN_VSION_THRUST": {
         "iname": "CON_FEN_VSION_THRUST",
@@ -5137,7 +5137,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_H_FEN_SHARP_THRUST": {
         "iname": "CON_H_FEN_SHARP_THRUST",
@@ -5151,7 +5151,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_REA_PAR_SICKLE": {
         "iname": "CON_REA_PAR_SICKLE",
@@ -5165,7 +5165,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_REA_DEATH_JUDGEMENT": {
         "iname": "CON_REA_DEATH_JUDGEMENT",
@@ -5179,7 +5179,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_REA_FLASH_WAVE": {
         "iname": "CON_REA_FLASH_WAVE",
@@ -5193,7 +5193,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DT_REA_DEATH_SICKLE": {
         "iname": "CON_DT_REA_DEATH_SICKLE",
@@ -5207,7 +5207,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DT_REA_DARK_BLADE": {
         "iname": "CON_DT_REA_DARK_BLADE",
@@ -5221,7 +5221,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DT_REA_POISON_SICKLE": {
         "iname": "CON_DT_REA_POISON_SICKLE",
@@ -5235,7 +5235,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DT_REA_VIOLENCE_SICKLE": {
         "iname": "CON_DT_REA_VIOLENCE_SICKLE",
@@ -5249,7 +5249,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DT_REA_YOMIJI_WAVE": {
         "iname": "CON_DT_REA_YOMIJI_WAVE",
@@ -5263,7 +5263,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DK_REA_AMENDS_BLOOD": {
         "iname": "CON_DK_REA_AMENDS_BLOOD",
@@ -5277,7 +5277,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SHE_REF_BUFF_CLEAR": {
         "iname": "CON_SHE_REF_BUFF_CLEAR",
@@ -5291,7 +5291,7 @@
         "conditions": [
             "DisableBuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SHE_BUFF_CLEAR": {
         "iname": "CON_SHE_BUFF_CLEAR",
@@ -5306,7 +5306,7 @@
             "DisableBuff",
             "DisableDebuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_H_SHE_PRE_LIFE_MEMORY1": {
         "iname": "CON_H_SHE_PRE_LIFE_MEMORY1",
@@ -5320,7 +5320,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_H_SHE_PRE_LIFE_MEMORY2": {
         "iname": "CON_H_SHE_PRE_LIFE_MEMORY2",
@@ -5334,7 +5334,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_H_SHE_MISOGI": {
         "iname": "CON_H_SHE_MISOGI",
@@ -5348,7 +5348,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SHE_N_DEITY": {
         "iname": "CON_SHE_N_DEITY",
@@ -5364,7 +5364,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SHE_N_SANCTUARY": {
         "iname": "CON_SHE_N_SANCTUARY",
@@ -5397,7 +5397,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SHE_N_MEMORIAL": {
         "iname": "CON_SHE_N_MEMORIAL",
@@ -5427,7 +5427,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DGO_DRAGON_ROAR": {
         "iname": "CON_DGO_DRAGON_ROAR",
@@ -5441,7 +5441,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAS_HASE_SLASH": {
         "iname": "CON_MAS_HASE_SLASH",
@@ -5455,7 +5455,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CANO_ATK_PAR": {
         "iname": "CON_CANO_ATK_PAR",
@@ -5469,7 +5469,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_LIES_2_06": {
         "iname": "CON_LIES_2_06",
@@ -5485,7 +5485,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_LIES_2_07": {
         "iname": "CON_LIES_2_07",
@@ -5513,7 +5513,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_LIES_2_REACTION_01": {
         "iname": "CON_LIES_2_REACTION_01",
@@ -5529,7 +5529,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAD_UPPER_1": {
         "iname": "CON_MAD_UPPER_1",
@@ -5543,7 +5543,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DMN_WIZ_JIKOSYUHUKU": {
         "iname": "CON_DMN_WIZ_JIKOSYUHUKU",
@@ -5557,7 +5557,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MOMON_BALLOON": {
         "iname": "CON_MOMON_BALLOON",
@@ -5571,7 +5571,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MOMON_IFUNKEKAMUI": {
         "iname": "CON_MOMON_IFUNKEKAMUI",
@@ -5585,7 +5585,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ROFIA_REGENERATE": {
         "iname": "CON_ROFIA_REGENERATE",
@@ -5599,7 +5599,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FLAMEL_JEM_REGENERATE": {
         "iname": "CON_FLAMEL_JEM_REGENERATE",
@@ -5613,7 +5613,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_SWO_CLOE_R5_AS": {
         "iname": "CON_AF_ARMS_SWO_CLOE_R5_AS",
@@ -5627,7 +5627,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_REA_SICKLE": {
         "iname": "CON_AS_ARMS_REA_SICKLE",
@@ -5641,7 +5641,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_SHE_TAROT": {
         "iname": "CON_AS_ARMS_SHE_TAROT",
@@ -5655,7 +5655,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ARM_REA_WEPON": {
         "iname": "CON_ARM_REA_WEPON",
@@ -5669,7 +5669,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_YAUL_SWORD": {
         "iname": "CON_AS_ARMS_YAUL_SWORD",
@@ -5683,7 +5683,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ARMS_CHAKRAM_02_AS": {
         "iname": "CON_ARMS_CHAKRAM_02_AS",
@@ -5697,7 +5697,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_HARP_02": {
         "iname": "CON_AS_ARMS_HARP_02",
@@ -5711,7 +5711,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_HARP_03": {
         "iname": "CON_AS_ARMS_HARP_03",
@@ -5725,7 +5725,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_SEDA_BOW": {
         "iname": "CON_AS_ARMS_SEDA_BOW",
@@ -5739,7 +5739,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMO_FUNDOSHI": {
         "iname": "CON_AS_ARMO_FUNDOSHI",
@@ -5753,7 +5753,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ARMS_GREAT_SWORD_012_WA": {
         "iname": "CON_ARMS_GREAT_SWORD_012_WA",
@@ -5767,7 +5767,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SAROMO_THI_PROVOKE": {
         "iname": "CON_SAROMO_THI_PROVOKE",
@@ -5781,7 +5781,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BAA_SO_ZEKE_FUNNU": {
         "iname": "CON_BAA_SO_ZEKE_FUNNU",
@@ -5795,7 +5795,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BAA_SO_ZEKE_POISON": {
         "iname": "CON_BAA_SO_ZEKE_POISON",
@@ -5811,7 +5811,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_MIK_02": {
         "iname": "CON_AS_ARMS_MIK_02",
@@ -5825,7 +5825,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_EONORA _POISONRAIN": {
         "iname": "CON_EONORA _POISONRAIN",
@@ -5839,7 +5839,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KAISER_POISON": {
         "iname": "CON_KAISER_POISON",
@@ -5853,7 +5853,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KAISER_SLEEP": {
         "iname": "CON_KAISER_SLEEP",
@@ -5867,7 +5867,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KAISER_PARALYSE": {
         "iname": "CON_KAISER_PARALYSE",
@@ -5881,7 +5881,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_VENUS_POISON_CHARM": {
         "iname": "CON_VENUS_POISON_CHARM",
@@ -5896,7 +5896,7 @@
             "Poison",
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_VENUS_PARALYSE_BLIND": {
         "iname": "CON_VENUS_PARALYSE_BLIND",
@@ -5911,7 +5911,7 @@
             "Paralysed",
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FAMILIAR_POISON": {
         "iname": "CON_FAMILIAR_POISON",
@@ -5925,7 +5925,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_VENUS_SEC_POISON": {
         "iname": "CON_VENUS_SEC_POISON",
@@ -5939,7 +5939,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_VENUS_SEC_PARALYZE": {
         "iname": "CON_VENUS_SEC_PARALYZE",
@@ -5953,7 +5953,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_VENUS_SEC_BLIND_SILENT": {
         "iname": "CON_VENUS_SEC_BLIND_SILENT",
@@ -5968,7 +5968,7 @@
             "Blindness",
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_THI_02": {
         "iname": "CON_AS_ARMS_THI_02",
@@ -5982,7 +5982,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_OTHI_01": {
         "iname": "CON_AS_ARMS_OTHI_01",
@@ -5996,7 +5996,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KIL_01": {
         "iname": "CON_KIL_01",
@@ -6010,7 +6010,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KIL_05": {
         "iname": "CON_KIL_05",
@@ -6026,7 +6026,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KIL_06": {
         "iname": "CON_KIL_06",
@@ -6042,7 +6042,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KIL_07": {
         "iname": "CON_KIL_07",
@@ -6058,7 +6058,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KIL_08": {
         "iname": "CON_KIL_08",
@@ -6074,7 +6074,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KIL_09": {
         "iname": "CON_KIL_09",
@@ -6090,7 +6090,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_XMA_TOUSEKI_STONE": {
         "iname": "CON_XMA_TOUSEKI_STONE",
@@ -6104,7 +6104,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_XMA_RAT_GOTOHELL": {
         "iname": "CON_XMA_RAT_GOTOHELL",
@@ -6118,7 +6118,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_HAMMER_02": {
         "iname": "CON_AS_ARMS_HAMMER_02",
@@ -6132,7 +6132,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_DOC_04": {
         "iname": "CON_AS_ARMS_DOC_04",
@@ -6146,7 +6146,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ARMS_HAMMER_02_WA": {
         "iname": "CON_ARMS_HAMMER_02_WA",
@@ -6162,7 +6162,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_EVENT_HP_REGENE": {
         "iname": "CON_EVENT_HP_REGENE",
@@ -6178,7 +6178,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_EVENT_UNDOUKAI_MP_REGENE": {
         "iname": "CON_EVENT_UNDOUKAI_MP_REGENE",
@@ -6194,7 +6194,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_EVENT_VEDA_MP_REGENE": {
         "iname": "CON_EVENT_VEDA_MP_REGENE",
@@ -6210,7 +6210,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_EVENT_XMAS_CHICKEN_REGENE": {
         "iname": "CON_EVENT_XMAS_CHICKEN_REGENE",
@@ -6226,7 +6226,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MFEN_REACTION_01": {
         "iname": "CON_MFEN_REACTION_01",
@@ -6242,7 +6242,7 @@
         "conditions": [
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_ASS_LOWER_03": {
         "iname": "CON_FATE_ASS_LOWER_03",
@@ -6275,7 +6275,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_GOLD_01": {
         "iname": "CON_FATE_GOLD_01",
@@ -6291,7 +6291,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_GOLD_02": {
         "iname": "CON_FATE_GOLD_02",
@@ -6307,7 +6307,7 @@
         "conditions": [
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_GOLD_03": {
         "iname": "CON_FATE_GOLD_03",
@@ -6324,7 +6324,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_CAS_LOWER_1": {
         "iname": "CON_FATE_CAS_LOWER_1",
@@ -6338,7 +6338,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_CAS_LOWER_3": {
         "iname": "CON_FATE_CAS_LOWER_3",
@@ -6355,7 +6355,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_RIDR_LOWER_2": {
         "iname": "CON_FATE_RIDR_LOWER_2",
@@ -6371,7 +6371,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_BSKR_LOWER_1": {
         "iname": "CON_FATE_BSKR_LOWER_1",
@@ -6385,7 +6385,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_BSKR_LOWER_1_2": {
         "iname": "CON_FATE_BSKR_LOWER_1_2",
@@ -6399,7 +6399,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_BSKR_SUPPORT_1": {
         "iname": "CON_FATE_BSKR_SUPPORT_1",
@@ -6413,7 +6413,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_LAN_UPPER_3": {
         "iname": "CON_FATE_LAN_UPPER_3",
@@ -6427,7 +6427,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_LAN_LOWER_1": {
         "iname": "CON_FATE_LAN_LOWER_1",
@@ -6442,7 +6442,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_TMAG_UPPER_2": {
         "iname": "CON_FATE_TMAG_UPPER_2",
@@ -6456,7 +6456,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_TMAG_UPPER_4": {
         "iname": "CON_FATE_TMAG_UPPER_4",
@@ -6470,7 +6470,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FATE_TMAG_LOWER_1": {
         "iname": "CON_FATE_TMAG_LOWER_1",
@@ -6484,7 +6484,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ACT_F_03": {
         "iname": "CON_ACT_F_03",
@@ -6500,7 +6500,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ACT_F_05": {
         "iname": "CON_ACT_F_05",
@@ -6516,7 +6516,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ACT_F_06": {
         "iname": "CON_ACT_F_06",
@@ -6532,7 +6532,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ACT_F_REACTION_01": {
         "iname": "CON_ACT_F_REACTION_01",
@@ -6548,7 +6548,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BASI_SOL_LOWER_1": {
         "iname": "CON_BASI_SOL_LOWER_1",
@@ -6564,7 +6564,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BASI_SOL_LOWER_FF15_B": {
         "iname": "CON_BASI_SOL_LOWER_FF15_B",
@@ -6580,7 +6580,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BASI_SOL_LOWER_FF15": {
         "iname": "CON_BASI_SOL_LOWER_FF15",
@@ -6596,7 +6596,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KIZETSU_FF15": {
         "iname": "CON_KIZETSU_FF15",
@@ -6613,7 +6613,7 @@
             "Stun",
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAN_JEM_REGENE_FF15": {
         "iname": "CON_MAN_JEM_REGENE_FF15",
@@ -6629,7 +6629,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_VEDA_BOSS_JEM_REGENE": {
         "iname": "CON_VEDA_BOSS_JEM_REGENE",
@@ -6648,7 +6648,7 @@
         ],
         "v_auto_hp_heal_fix": 1600,
         "v_auto_mp_heal_fix": 250,
-        "jp": {}
+        "dif": {}
     },
     "CON_EN_NICONAMA6_AJ4000_OFF": {
         "iname": "CON_EN_NICONAMA6_AJ4000_OFF",
@@ -6662,7 +6662,7 @@
         "conditions": [
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BASI_SOL_LOWER_2": {
         "iname": "CON_BASI_SOL_LOWER_2",
@@ -6678,7 +6678,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BASI_SOL_LOWER_4": {
         "iname": "CON_BASI_SOL_LOWER_4",
@@ -6692,7 +6692,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_BASI_SOL_REACTION": {
         "iname": "CON_BASI_SOL_REACTION",
@@ -6709,7 +6709,7 @@
             "Poison"
         ],
         "v_poison_rate": 20,
-        "jp": {}
+        "dif": {}
     },
     "CON_AS_ARMS_SHN_02": {
         "iname": "CON_AS_ARMS_SHN_02",
@@ -6725,7 +6725,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_SHN_02_WA": {
         "iname": "CON_AF_ARMS_SHN_02_WA",
@@ -6741,7 +6741,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_KAM_LOWER_4": {
         "iname": "CON_KAM_LOWER_4",
@@ -6755,7 +6755,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AB_AF_ARMS_MAJ_02_WA": {
         "iname": "CON_AB_AF_ARMS_MAJ_02_WA",
@@ -6783,7 +6783,7 @@
             "DisableHeal",
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ARMS_MIUNA_01_WA": {
         "iname": "CON_ARMS_MIUNA_01_WA",
@@ -6799,7 +6799,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ARMS_SWO_ZAYI_01_ZAYI_WA": {
         "iname": "CON_ARMS_SWO_ZAYI_01_ZAYI_WA",
@@ -6815,7 +6815,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PERMANENTLY_CLOCK_UP": {
         "iname": "CON_PERMANENTLY_CLOCK_UP",
@@ -6831,7 +6831,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PERMANENTLY_CLOCK_DOWN": {
         "iname": "CON_PERMANENTLY_CLOCK_DOWN",
@@ -6847,7 +6847,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PST_BOSS00_ATK_SP3": {
         "iname": "CON_PST_BOSS00_ATK_SP3",
@@ -6863,7 +6863,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PST_BOSS00_REACTION": {
         "iname": "CON_PST_BOSS00_REACTION",
@@ -6881,7 +6881,7 @@
             "Paralysed",
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PST_BOSS00_REACTION1": {
         "iname": "CON_PST_BOSS00_REACTION1",
@@ -6895,7 +6895,7 @@
         "conditions": [
             "DisableBuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ACCS_CHOKER_WA": {
         "iname": "CON_ACCS_CHOKER_WA",
@@ -6926,7 +6926,7 @@
             "DisableHeal",
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_EN_YUTO_AJ5000_OFF": {
         "iname": "CON_EN_YUTO_AJ5000_OFF",
@@ -6940,7 +6940,7 @@
         "conditions": [
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_EN_YUTO_AJ5000_ON": {
         "iname": "CON_EN_YUTO_AJ5000_ON",
@@ -6951,7 +6951,7 @@
         "conditions": [
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_EN_YUTO_HI_REGENE": {
         "iname": "CON_EN_YUTO_HI_REGENE",
@@ -6966,7 +6966,7 @@
             "AutoHeal"
         ],
         "v_auto_hp_heal": 100,
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_SERA_01": {
         "iname": "CON_DIS_SERA_01",
@@ -6982,7 +6982,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_SERA_02": {
         "iname": "CON_DIS_SERA_02",
@@ -6998,7 +6998,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_REDM_07": {
         "iname": "CON_DIS_REDM_07",
@@ -7012,7 +7012,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_ARCH_REACTION_01": {
         "iname": "CON_DIS_ARCH_REACTION_01",
@@ -7031,7 +7031,7 @@
             "Sleep",
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_CAT_02": {
         "iname": "CON_DIS_CAT_02",
@@ -7047,7 +7047,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_DIS_USAL_01_AS": {
         "iname": "CON_AF_ARMS_DIS_USAL_01_AS",
@@ -7063,7 +7063,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ARMS_DIS_USAL_01_WA": {
         "iname": "CON_ARMS_DIS_USAL_01_WA",
@@ -7080,7 +7080,7 @@
             "Berserk"
         ],
         "v_berserk_atk": 150,
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_ELIXIR_01": {
         "iname": "CON_DIS_ELIXIR_01",
@@ -7096,7 +7096,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_EN_PRIN_01": {
         "iname": "CON_DIS_EN_PRIN_01",
@@ -7112,7 +7112,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_ETON_UPPER_3": {
         "iname": "CON_DIS_ETON_UPPER_3",
@@ -7128,7 +7128,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_ETON_REACTION": {
         "iname": "CON_DIS_ETON_REACTION",
@@ -7144,7 +7144,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_PRIN2_LOWER_2": {
         "iname": "CON_DIS_PRIN2_LOWER_2",
@@ -7160,7 +7160,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_PRIN3_UPPER_1": {
         "iname": "CON_DIS_PRIN3_UPPER_1",
@@ -7193,7 +7193,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_PRIN3_LOWER_2": {
         "iname": "CON_DIS_PRIN3_LOWER_2",
@@ -7209,7 +7209,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_PRIN3_REACTION": {
         "iname": "CON_DIS_PRIN3_REACTION",
@@ -7242,7 +7242,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_PRIN1_LOWER_3": {
         "iname": "CON_DIS_PRIN1_LOWER_3",
@@ -7258,7 +7258,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_SAM_UPPER_2": {
         "iname": "CON_DIS_SAM_UPPER_2",
@@ -7275,7 +7275,7 @@
             "Paralysed",
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_DEMON_UPPER_1": {
         "iname": "CON_DIS_DEMON_UPPER_1",
@@ -7291,7 +7291,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_DEMON_UPPER_3": {
         "iname": "CON_DIS_DEMON_UPPER_3",
@@ -7307,7 +7307,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_DEMON_UPPER_3B": {
         "iname": "CON_DIS_DEMON_UPPER_3B",
@@ -7323,7 +7323,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_DEMON_LOWER_2": {
         "iname": "CON_DIS_DEMON_LOWER_2",
@@ -7339,7 +7339,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DIS_WIZ_UPPER_3": {
         "iname": "CON_DIS_WIZ_UPPER_3",
@@ -7355,7 +7355,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ITEM_ARM_JEWEL_UP": {
         "iname": "CON_ITEM_ARM_JEWEL_UP",
@@ -7372,7 +7372,7 @@
             "AutoJewel"
         ],
         "v_auto_mp_heal": 5,
-        "jp": {}
+        "dif": {}
     },
     "CON_DEA_NOROI_LONG": {
         "iname": "CON_DEA_NOROI_LONG",
@@ -7388,7 +7388,7 @@
             "DeathSentence"
         ],
         "v_death_count": 4,
-        "jp": {}
+        "dif": {}
     },
     "CON_ARMS_DIS_KILL_01_WA": {
         "iname": "CON_ARMS_DIS_KILL_01_WA",
@@ -7403,7 +7403,7 @@
             "DisableBuff",
             "DisableDebuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ARMS_DIS_SERA_01_WA_01": {
         "iname": "CON_ARMS_DIS_SERA_01_WA_01",
@@ -7417,7 +7417,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ARMS_DIS_SERA_01_WA_02": {
         "iname": "CON_ARMS_DIS_SERA_01_WA_02",
@@ -7431,7 +7431,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_DIS_PRIN_01_WA": {
         "iname": "CON_AF_ARMS_DIS_PRIN_01_WA",
@@ -7445,7 +7445,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SPE_02": {
         "iname": "CON_SPE_02",
@@ -7461,7 +7461,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAT_WIZ_REACTION_BLAN": {
         "iname": "CON_RAT_WIZ_REACTION_BLAN",
@@ -7477,7 +7477,7 @@
             "Fast",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_ZIN_00_WA": {
         "iname": "CON_AF_ARMS_ZIN_00_WA",
@@ -7494,7 +7494,7 @@
             "Poison"
         ],
         "v_poison_rate": 20,
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_NIN_04_AS": {
         "iname": "CON_AF_ARMS_NIN_04_AS",
@@ -7508,7 +7508,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMO_BEGINNER_WA": {
         "iname": "CON_AF_ARMO_BEGINNER_WA",
@@ -7522,7 +7522,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAN_MOTHER_JEM_REGENERATE": {
         "iname": "CON_MAN_MOTHER_JEM_REGENERATE",
@@ -7537,7 +7537,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FF15_INGI_02B": {
         "iname": "CON_FF15_INGI_02B",
@@ -7553,7 +7553,7 @@
             "Poison"
         ],
         "v_poison_rate": 25,
-        "jp": {}
+        "dif": {}
     },
     "CON_FF15_INGI_WA": {
         "iname": "CON_FF15_INGI_WA",
@@ -7568,7 +7568,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FF15_PROM_06": {
         "iname": "CON_FF15_PROM_06",
@@ -7583,7 +7583,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FF15_PROM_07": {
         "iname": "CON_FF15_PROM_07",
@@ -7598,7 +7598,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FF15_PROM_08": {
         "iname": "CON_FF15_PROM_08",
@@ -7613,7 +7613,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FF15_ARAN_08": {
         "iname": "CON_FF15_ARAN_08",
@@ -7629,7 +7629,7 @@
             "DisableMove",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FF15_MAGIC_ARM04": {
         "iname": "CON_FF15_MAGIC_ARM04",
@@ -7644,7 +7644,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FF15_M_CACT_01": {
         "iname": "CON_FF15_M_CACT_01",
@@ -7660,7 +7660,7 @@
             "Poison"
         ],
         "v_poison_rate": 25,
-        "jp": {}
+        "dif": {}
     },
     "CON_FF15_MAGIC_ARM_04": {
         "iname": "CON_FF15_MAGIC_ARM_04",
@@ -7675,7 +7675,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ACHA_STR_LOWER_1": {
         "iname": "CON_ACHA_STR_LOWER_1",
@@ -7691,7 +7691,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ACHA_STR_LOWER_2": {
         "iname": "CON_ACHA_STR_LOWER_2",
@@ -7705,7 +7705,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_VIER_WIZ_LOWER_1": {
         "iname": "CON_VIER_WIZ_LOWER_1",
@@ -7719,7 +7719,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_VIER_WIZ_LOWER_4": {
         "iname": "CON_VIER_WIZ_LOWER_4",
@@ -7733,7 +7733,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ACCS_ACHA_01_WA": {
         "iname": "CON_AF_ACCS_ACHA_01_WA",
@@ -7748,7 +7748,7 @@
             "DisableBuff",
             "DisableDebuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MARMOT_REGENERATE": {
         "iname": "CON_MARMOT_REGENERATE",
@@ -7763,7 +7763,7 @@
             "AutoHeal"
         ],
         "v_auto_hp_heal": 50,
-        "jp": {}
+        "dif": {}
     },
     "CON_MARMOT_JEM_REGENERATE": {
         "iname": "CON_MARMOT_JEM_REGENERATE",
@@ -7778,7 +7778,7 @@
             "AutoHeal"
         ],
         "v_auto_hp_heal": 50,
-        "jp": {}
+        "dif": {}
     },
     "CON_DIAB_JEM_REGENERATE": {
         "iname": "CON_DIAB_JEM_REGENERATE",
@@ -7793,7 +7793,7 @@
             "AutoJewel"
         ],
         "v_auto_hp_heal": 50,
-        "jp": {}
+        "dif": {}
     },
     "CON_NON_BUFF_NOROI": {
         "iname": "CON_NON_BUFF_NOROI",
@@ -7806,7 +7806,7 @@
         "conditions": [
             "DisableBuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RH_STOCK_REACTION_01": {
         "iname": "CON_RH_STOCK_REACTION_01",
@@ -7838,7 +7838,7 @@
             "Rage",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RH_ERUKA_REACTION_01": {
         "iname": "CON_RH_ERUKA_REACTION_01",
@@ -7854,7 +7854,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RH_ATO_03": {
         "iname": "CON_RH_ATO_03",
@@ -7887,7 +7887,7 @@
             "DisableHeal",
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RH_ATO_REACTION_01": {
         "iname": "CON_RH_ATO_REACTION_01",
@@ -7903,7 +7903,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RH_RAINY_02": {
         "iname": "CON_RH_RAINY_02",
@@ -7919,7 +7919,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "COND_AF_ARMS_RH_RAIN_01_WA": {
         "iname": "COND_AF_ARMS_RH_RAIN_01_WA",
@@ -7936,7 +7936,7 @@
             "Poison"
         ],
         "v_poison_rate": 20,
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_RH_STOC_01_AS": {
         "iname": "CON_AF_ARMS_RH_STOC_01_AS",
@@ -7952,7 +7952,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_RH_RAIN_01_AS": {
         "iname": "CON_AF_ARMS_RH_RAIN_01_AS",
@@ -7968,7 +7968,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_HUU_02_AS": {
         "iname": "CON_AF_ARMS_HUU_02_AS",
@@ -7984,7 +7984,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_HUU_03_AS": {
         "iname": "CON_AF_ARMS_HUU_03_AS",
@@ -8000,7 +8000,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PERMANENTLY_BERSERK": {
         "iname": "CON_PERMANENTLY_BERSERK",
@@ -8016,7 +8016,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_S_AMAT_00_WA": {
         "iname": "CON_AF_ARMS_S_AMAT_00_WA",
@@ -8044,7 +8044,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ZYVA01_LOWER_2": {
         "iname": "CON_ZYVA01_LOWER_2",
@@ -8060,7 +8060,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ZYVA01_LOWER_3": {
         "iname": "CON_ZYVA01_LOWER_3",
@@ -8074,7 +8074,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NOIN01_UPPER_4": {
         "iname": "CON_NOIN01_UPPER_4",
@@ -8090,7 +8090,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_NOIN01_LOWER_1": {
         "iname": "CON_NOIN01_LOWER_1",
@@ -8104,7 +8104,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FURY01_UPPER_2": {
         "iname": "CON_FURY01_UPPER_2",
@@ -8120,7 +8120,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FURY01_UPPER_5": {
         "iname": "CON_FURY01_UPPER_5",
@@ -8134,7 +8134,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FURY01_LOWER_4": {
         "iname": "CON_FURY01_LOWER_4",
@@ -8150,7 +8150,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_FURY_01_AS": {
         "iname": "CON_AF_ARMS_FURY_01_AS",
@@ -8166,7 +8166,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_JAM_KURAYAMI": {
         "iname": "CON_JAM_KURAYAMI",
@@ -8182,7 +8182,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_JAM_MOUDOKU": {
         "iname": "CON_JAM_MOUDOKU",
@@ -8199,7 +8199,7 @@
             "Poison"
         ],
         "v_poison_rate": 20,
-        "jp": {}
+        "dif": {}
     },
     "CON_JAM_NO_HEAL": {
         "iname": "CON_JAM_NO_HEAL",
@@ -8215,7 +8215,7 @@
         "conditions": [
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_TINA_POISON": {
         "iname": "CON_TINA_POISON",
@@ -8232,7 +8232,7 @@
             "Poison"
         ],
         "v_poison_rate": 10,
-        "jp": {}
+        "dif": {}
     },
     "CON_TINA_HEAL": {
         "iname": "CON_TINA_HEAL",
@@ -8260,7 +8260,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_SQ_GUN_01_WA": {
         "iname": "CON_AF_ARMS_SQ_GUN_01_WA",
@@ -8276,7 +8276,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SK_AF_ARMS_MAD_02_AS": {
         "iname": "CON_SK_AF_ARMS_MAD_02_AS",
@@ -8291,7 +8291,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_SQ_PRI_01_AS": {
         "iname": "CON_AF_ARMS_SQ_PRI_01_AS",
@@ -8305,7 +8305,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_SQ_PRI_01_WA": {
         "iname": "CON_AF_ARMS_SQ_PRI_01_WA",
@@ -8321,7 +8321,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_PSI_01_WA": {
         "iname": "CON_AF_ARMS_PSI_01_WA",
@@ -8337,7 +8337,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_PAL_LOWER_4": {
         "iname": "CON_SQ_PAL_LOWER_4",
@@ -8353,7 +8353,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_PRI_UPPER_1": {
         "iname": "CON_SQ_PRI_UPPER_1",
@@ -8381,7 +8381,7 @@
             "DisableHeal",
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_PRI_UPPER_2": {
         "iname": "CON_SQ_PRI_UPPER_2",
@@ -8414,7 +8414,7 @@
             "DisableHeal",
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_PRI_UPPER_4": {
         "iname": "CON_SQ_PRI_UPPER_4",
@@ -8428,7 +8428,7 @@
         "conditions": [
             "DisableBuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_PRI_LOWER_4": {
         "iname": "CON_SQ_PRI_LOWER_4",
@@ -8442,7 +8442,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_PRI_REACTION": {
         "iname": "CON_SQ_PRI_REACTION",
@@ -8458,7 +8458,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_PRI_SUPPORT_1": {
         "iname": "CON_SQ_PRI_SUPPORT_1",
@@ -8472,7 +8472,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_DAN_UPPER_2": {
         "iname": "CON_SQ_DAN_UPPER_2",
@@ -8488,7 +8488,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_DAN_LOWER_4": {
         "iname": "CON_SQ_DAN_LOWER_4",
@@ -8516,7 +8516,7 @@
             "DisableHeal",
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_SHEN_GUN_UPPER_1": {
         "iname": "CON_SQ_SHEN_GUN_UPPER_1",
@@ -8532,7 +8532,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_SHEN_GUN_UPPER_3": {
         "iname": "CON_SQ_SHEN_GUN_UPPER_3",
@@ -8560,7 +8560,7 @@
             "DisableHeal",
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_SHEN_GUN_REACTION": {
         "iname": "CON_SQ_SHEN_GUN_REACTION",
@@ -8576,7 +8576,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_ALRUNA_02": {
         "iname": "CON_SQ_ALRUNA_02",
@@ -8592,7 +8592,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_ALRUNA_03": {
         "iname": "CON_SQ_ALRUNA_03",
@@ -8608,7 +8608,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_ALRUNA_06": {
         "iname": "CON_SQ_ALRUNA_06",
@@ -8622,7 +8622,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_ALRUNA_REACT": {
         "iname": "CON_SQ_ALRUNA_REACT",
@@ -8642,7 +8642,7 @@
             "Sleep"
         ],
         "v_poison_rate": 20,
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_PETAL_01": {
         "iname": "CON_SQ_PETAL_01",
@@ -8658,7 +8658,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SQ_PETAL_02": {
         "iname": "CON_SQ_PETAL_02",
@@ -8674,7 +8674,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_TR_DON_DAT": {
         "iname": "CON_TR_DON_DAT",
@@ -8691,7 +8691,7 @@
             "Donsoku",
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STOP_NOROI_999": {
         "iname": "CON_STOP_NOROI_999",
@@ -8706,7 +8706,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PAR_999": {
         "iname": "CON_PAR_999",
@@ -8720,7 +8720,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SLOW_999": {
         "iname": "CON_SLOW_999",
@@ -8734,7 +8734,7 @@
         "conditions": [
             "Slow"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DON_999": {
         "iname": "CON_DON_999",
@@ -8749,7 +8749,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STOP_SEKIKA_999": {
         "iname": "CON_STOP_SEKIKA_999",
@@ -8764,7 +8764,7 @@
         "conditions": [
             "Stone"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PSI_LOWER_2": {
         "iname": "CON_PSI_LOWER_2",
@@ -8780,7 +8780,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PSI_UPPER_3": {
         "iname": "CON_PSI_UPPER_3",
@@ -8796,7 +8796,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PSI_SUPPORT_1": {
         "iname": "CON_PSI_SUPPORT_1",
@@ -8810,7 +8810,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ACCS_DOLL_02": {
         "iname": "CON_AF_ACCS_DOLL_02",
@@ -8828,7 +8828,7 @@
         ],
         "v_berserk_atk": 100,
         "v_berserk_def": -50,
-        "jp": {}
+        "dif": {}
     },
     "CON_RAT_HALL_02_01": {
         "iname": "CON_RAT_HALL_02_01",
@@ -8842,7 +8842,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAT_HALL_02_02": {
         "iname": "CON_RAT_HALL_02_02",
@@ -8857,7 +8857,7 @@
             "Fast",
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAT_HALL_02_03": {
         "iname": "CON_RAT_HALL_02_03",
@@ -8874,7 +8874,7 @@
             "Fast",
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_SLE_HALL2017": {
         "iname": "CON_SLE_HALL2017",
@@ -8890,7 +8890,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_STU50_HALL": {
         "iname": "CON_STU50_HALL",
@@ -8906,7 +8906,7 @@
         "conditions": [
             "Stun"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_CHA_HALL": {
         "iname": "CON_CHA_HALL",
@@ -8920,7 +8920,7 @@
         "conditions": [
             "Charm"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_RAT_HAL_EAT": {
         "iname": "CON_RAT_HAL_EAT",
@@ -8934,7 +8934,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ACCS_CLOCK_01_WA": {
         "iname": "CON_AF_ACCS_CLOCK_01_WA",
@@ -8950,7 +8950,7 @@
         "conditions": [
             "Fast"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_EDWA01_UPPER_1": {
         "iname": "CON_FA_EDWA01_UPPER_1",
@@ -8966,7 +8966,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_EDWA01_UPPER_4": {
         "iname": "CON_FA_EDWA01_UPPER_4",
@@ -8982,7 +8982,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_EDWA01_LOWER_2": {
         "iname": "CON_FA_EDWA01_LOWER_2",
@@ -8998,7 +8998,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_PRID01_UPPER_2": {
         "iname": "CON_FA_PRID01_UPPER_2",
@@ -9012,7 +9012,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_PRID01_SUPPORT_2": {
         "iname": "CON_FA_PRID01_SUPPORT_2",
@@ -9026,7 +9026,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_DDB_HAGAREN_EX3_01": {
         "iname": "CON_DISABLE_DDB_HAGAREN_EX3_01",
@@ -9041,7 +9041,7 @@
         "conditions": [
             "DisableDebuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_DISABLE_DDB_HAGAREN_EX1_SP_01": {
         "iname": "CON_DISABLE_DDB_HAGAREN_EX1_SP_01",
@@ -9058,7 +9058,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_POI_HAGAREN_EX3_01": {
         "iname": "CON_POI_HAGAREN_EX3_01",
@@ -9075,7 +9075,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_ALPH01_UPPER_2": {
         "iname": "CON_FA_ALPH01_UPPER_2",
@@ -9091,7 +9091,7 @@
         "conditions": [
             "Blindness"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_ALPH01_UPPER_4": {
         "iname": "CON_FA_ALPH01_UPPER_4",
@@ -9107,7 +9107,7 @@
         "conditions": [
             "Donsoku"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_ALPH01_LOWER_3": {
         "iname": "CON_FA_ALPH01_LOWER_3",
@@ -9123,7 +9123,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_ALPH01_SUPPORT_1": {
         "iname": "CON_FA_ALPH01_SUPPORT_1",
@@ -9137,7 +9137,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_MAST01_UPPER_1": {
         "iname": "CON_FA_MAST01_UPPER_1",
@@ -9153,7 +9153,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_MAST01_UPPER_2": {
         "iname": "CON_FA_MAST01_UPPER_2",
@@ -9170,7 +9170,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_MAST01_LOWER_3": {
         "iname": "CON_FA_MAST01_LOWER_3",
@@ -9188,7 +9188,7 @@
         ],
         "v_blink_hit": -50,
         "v_blink_avo": -50,
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_MAST01_UPPER_3": {
         "iname": "CON_FA_MAST01_UPPER_3",
@@ -9204,7 +9204,7 @@
         "conditions": [
             "DisableMove"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_MAST01_LOWER_2": {
         "iname": "CON_FA_MAST01_LOWER_2",
@@ -9219,7 +9219,7 @@
         "conditions": [
             "DisableDebuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_FA_MAST01_01": {
         "iname": "CON_AF_ARMS_FA_MAST01_01",
@@ -9234,7 +9234,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_HAWK01_UPPER_2": {
         "iname": "CON_FA_HAWK01_UPPER_2",
@@ -9248,7 +9248,7 @@
         "conditions": [
             "DisableBuff"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_HAWK01_UPPER_4": {
         "iname": "CON_FA_HAWK01_UPPER_4",
@@ -9262,7 +9262,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_HAWK01_LOWER_1": {
         "iname": "CON_FA_HAWK01_LOWER_1",
@@ -9278,7 +9278,7 @@
         "conditions": [
             "Paralysed"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_WRAT01_LOWER_2": {
         "iname": "CON_FA_WRAT01_LOWER_2",
@@ -9294,7 +9294,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_ENVY01_UPPER_2": {
         "iname": "CON_FA_ENVY01_UPPER_2",
@@ -9308,7 +9308,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_ENVY01_UPPER_3": {
         "iname": "CON_FA_ENVY01_UPPER_3",
@@ -9324,7 +9324,7 @@
         "conditions": [
             "Berserk"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_ENVY01_UPPER_4": {
         "iname": "CON_FA_ENVY01_UPPER_4",
@@ -9340,7 +9340,7 @@
         "conditions": [
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_FA_ENVY01_SUPPORT_2": {
         "iname": "CON_FA_ENVY01_SUPPORT_2",
@@ -9354,7 +9354,7 @@
         "conditions": [
             "AutoHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_ACCS_FA_EDWA01_01_WA": {
         "iname": "CON_ACCS_FA_EDWA01_01_WA",
@@ -9371,7 +9371,7 @@
             "AutoJewel"
         ],
         "v_auto_mp_heal": 15,
-        "jp": {}
+        "dif": {}
     },
     "CON_TEM_REACTION": {
         "iname": "CON_TEM_REACTION",
@@ -9387,7 +9387,7 @@
         "conditions": [
             "AutoJewel"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_FA_WRAT01_AS": {
         "iname": "CON_AF_ARMS_FA_WRAT01_AS",
@@ -9403,7 +9403,7 @@
         "conditions": [
             "Rage"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ARMS_FA_WRAT01_01": {
         "iname": "CON_AF_ARMS_FA_WRAT01_01",
@@ -9417,7 +9417,7 @@
         "conditions": [
             "Stop"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_AF_ACCS_FA_ENVY01_01": {
         "iname": "CON_AF_ACCS_FA_ENVY01_01",
@@ -9431,7 +9431,7 @@
         "conditions": [
             "DeathSentence"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_WTH_POI": {
         "iname": "CON_WTH_POI",
@@ -9448,7 +9448,7 @@
             "Poison"
         ],
         "v_poison_rate": 3,
-        "jp": {}
+        "dif": {}
     },
     "CON_LS_30_U_HP_SLEEP_SOUND": {
         "iname": "CON_LS_30_U_HP_SLEEP_SOUND",
@@ -9462,7 +9462,7 @@
         "conditions": [
             "GoodSleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_LS_GAIN_100_U_ATK": {
         "iname": "CON_LS_GAIN_100_U_ATK",
@@ -9477,7 +9477,7 @@
             "Berserk"
         ],
         "v_berserk_atk": 200,
-        "jp": {}
+        "dif": {}
     },
     "CON_SLE_MOBIUS_01": {
         "iname": "CON_SLE_MOBIUS_01",
@@ -9493,7 +9493,7 @@
         "conditions": [
             "Sleep"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAP_MOBIUS_7F_03": {
         "iname": "CON_MAP_MOBIUS_7F_03",
@@ -9509,7 +9509,7 @@
         "conditions": [
             "Poison"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_PRI_MOBIUS_17F_01": {
         "iname": "CON_PRI_MOBIUS_17F_01",
@@ -9538,7 +9538,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAP_MOBIUS_18F_01": {
         "iname": "CON_MAP_MOBIUS_18F_01",
@@ -9554,7 +9554,7 @@
         "conditions": [
             "DisableSkill"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAP_MOBIUS_18F_02": {
         "iname": "CON_MAP_MOBIUS_18F_02",
@@ -9570,7 +9570,7 @@
         "conditions": [
             "DisableAttack"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_MAP_MOBIUS_16F_01": {
         "iname": "CON_MAP_MOBIUS_16F_01",
@@ -9598,7 +9598,7 @@
             "Slow",
             "DisableHeal"
         ],
-        "jp": {}
+        "dif": {}
     },
     "CON_US_APRIL_SALT": {
         "iname": "CON_US_APRIL_SALT",

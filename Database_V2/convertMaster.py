@@ -41,11 +41,11 @@ def createAIO():
                     if type(list(converted.items())[0][1])==dict:
                         for item in converted:
                             if item in export[main]:
-                                export[main][item]=FuseParam(export[main][item],converted[item])
+                                export[main][item]['dif']=DifParam(export[main][item],converted[item])
                             else:
                                 export[main][item]=converted[item]
                     else:
-                        export[main]=FuseParam(export[main],converted)
+                        export[main]['dif']=DifParam(export[main],converted)
                 elif type(converted)==list:
                     pass
                 print('Fused '+main)

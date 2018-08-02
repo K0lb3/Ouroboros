@@ -9,7 +9,7 @@
         "qids": [
             "QE_EV_HAGAREN_5"
         ],
-        "jp": {}
+        "dif": {}
     },
     "UD_FA_ALPH01_UPPER_3": {
         "iname": "UD_FA_ALPH01_UPPER_3",
@@ -21,7 +21,7 @@
         "qids": [
             "QE_EV_HAGAREN_9"
         ],
-        "jp": {}
+        "dif": {}
     },
     "UD_FA_ALPH01_UPPER_4": {
         "iname": "UD_FA_ALPH01_UPPER_4",
@@ -33,7 +33,7 @@
         "qids": [
             "QE_EV_HAGAREN_14"
         ],
-        "jp": {}
+        "dif": {}
     },
     "UD_FA_ALPH01_LOWER_4": {
         "iname": "UD_FA_ALPH01_LOWER_4",
@@ -45,7 +45,7 @@
         "qids": [
             "QE_EV_HAGAREN_3"
         ],
-        "jp": {}
+        "dif": {}
     },
     "UD_FA_ALPH01_LOWER_2": {
         "iname": "UD_FA_ALPH01_LOWER_2",
@@ -57,7 +57,7 @@
         "qids": [
             "QE_EV_HAGAREN_7"
         ],
-        "jp": {}
+        "dif": {}
     },
     "UD_FA_ALPH01_LOWER_3": {
         "iname": "UD_FA_ALPH01_LOWER_3",
@@ -69,7 +69,7 @@
         "qids": [
             "QE_EV_HAGAREN_11"
         ],
-        "jp": {}
+        "dif": {}
     },
     "UD_APR_LIZ_LOWER_3": {
         "iname": "UD_APR_LIZ_LOWER_3",

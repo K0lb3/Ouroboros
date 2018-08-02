@@ -12,7 +12,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_POI_02": {
         "mIname": "TR_MAP_POI_02",
@@ -27,7 +27,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_POI_03": {
         "mIname": "TR_MAP_POI_03",
@@ -41,7 +41,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_POI_01_LOOK": {
         "mIname": "TR_MAP_POI_01_LOOK",
@@ -56,7 +56,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_POI_02_LOOK": {
         "mIname": "TR_MAP_POI_02_LOOK",
@@ -71,7 +71,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_POI_03_LOOK": {
         "mIname": "TR_MAP_POI_03_LOOK",
@@ -85,7 +85,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_SLE_01": {
         "mIname": "TR_MAP_SLE_01",
@@ -100,7 +100,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_SLE_02": {
         "mIname": "TR_MAP_SLE_02",
@@ -115,7 +115,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_SLE_03": {
         "mIname": "TR_MAP_SLE_03",
@@ -129,7 +129,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_SLE_01_LOOK": {
         "mIname": "TR_MAP_SLE_01_LOOK",
@@ -144,7 +144,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_SLE_02_LOOK": {
         "mIname": "TR_MAP_SLE_02_LOOK",
@@ -159,7 +159,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_SLE_03_LOOK": {
         "mIname": "TR_MAP_SLE_03_LOOK",
@@ -173,7 +173,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_01": {
         "mIname": "TR_MAP_TORA_01",
@@ -192,7 +192,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_02": {
         "mIname": "TR_MAP_TORA_02",
@@ -211,7 +211,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_03": {
         "mIname": "TR_MAP_TORA_03",
@@ -229,7 +229,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_03_20": {
         "mIname": "TR_MAP_TORA_03_20",
@@ -247,7 +247,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_03_30": {
         "mIname": "TR_MAP_TORA_03_30",
@@ -265,7 +265,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_01_LOOK": {
         "mIname": "TR_MAP_TORA_01_LOOK",
@@ -284,7 +284,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_02_LOOK": {
         "mIname": "TR_MAP_TORA_02_LOOK",
@@ -303,7 +303,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_03_LOOK": {
         "mIname": "TR_MAP_TORA_03_LOOK",
@@ -321,7 +321,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_03_20_LOOK": {
         "mIname": "TR_MAP_TORA_03_20_LOOK",
@@ -339,7 +339,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_03_30_LOOK": {
         "mIname": "TR_MAP_TORA_03_30_LOOK",
@@ -357,7 +357,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_01_CL": {
         "mIname": "TR_MAP_TORA_01_CL",
@@ -376,7 +376,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_01": {
         "mIname": "TR_RH_ATO_SKILL_01",
@@ -394,7 +394,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill104_fire00",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_02": {
         "mIname": "TR_RH_ATO_SKILL_02",
@@ -412,7 +412,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill105_ice00",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_03": {
         "mIname": "TR_RH_ATO_SKILL_03",
@@ -430,7 +430,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill106_wind00",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_04": {
         "mIname": "TR_RH_ATO_SKILL_04",
@@ -448,7 +448,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill107_lightning00",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_05": {
         "mIname": "TR_RH_ATO_SKILL_05",
@@ -466,7 +466,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_s_rh_ato_skill108_posion00",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_01B": {
         "mIname": "TR_RH_ATO_SKILL_01B",
@@ -484,7 +484,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill110_fire00",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_02B": {
         "mIname": "TR_RH_ATO_SKILL_02B",
@@ -502,7 +502,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill111_ice00",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_03B": {
         "mIname": "TR_RH_ATO_SKILL_03B",
@@ -520,7 +520,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill113_wind00",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_04B": {
         "mIname": "TR_RH_ATO_SKILL_04B",
@@ -538,7 +538,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill112_lightning00",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_NEW_HUU_REGENERATE_01": {
         "mIname": "TR_MAP_NEW_HUU_REGENERATE_01",
@@ -553,7 +553,7 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "heal",
         "mEffTarget": "SelfSide",
-        "jp": {
+        "dif": {
             "mEffectName": "eff_p_panel_hit_heal00"
         }
     },
@@ -569,7 +569,7 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffTarget": "SelfSide",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_NEW_HUU_BUFF_02": {
         "mIname": "TR_MAP_NEW_HUU_BUFF_02",
@@ -582,7 +582,7 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffTarget": "SelfSide",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_NEW_HUU_SKILL_01": {
         "mIname": "TR_MAP_NEW_HUU_SKILL_01",
@@ -597,7 +597,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_s_huu_skill101_badst00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MOU_LOWER_4": {
         "mIname": "TR_MOU_LOWER_4",
@@ -614,7 +614,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_s_mou_skill107_hit00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_SK_MAD_LOWER_1": {
         "mIname": "TR_SK_MAD_LOWER_1",
@@ -629,7 +629,7 @@
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
         "mEffTarget": "SelfSide",
-        "jp": {
+        "dif": {
             "mExpr": "物防&魔防をアップするパネル。配置後一定時間で消滅"
         }
     },
@@ -648,7 +648,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_mad_skill105_fire00",
         "mEffTarget": "UnitAll",
-        "jp": {
+        "dif": {
             "mExpr": "乗るとダメージが発生するパネル。1度の発動または配置後一定時間経過で消滅"
         }
     },
@@ -666,7 +666,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_MARU_01": {
         "mIname": "TR_UNDOUKAI_MARU_01",
@@ -682,7 +682,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_MARU_02": {
         "mIname": "TR_UNDOUKAI_MARU_02",
@@ -698,7 +698,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_BATSU_01": {
         "mIname": "TR_UNDOUKAI_BATSU_01",
@@ -711,7 +711,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_BATSU_02": {
         "mIname": "TR_UNDOUKAI_BATSU_02",
@@ -724,7 +724,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_SOUSYA_02": {
         "mIname": "TR_UNDOUKAI_SOUSYA_02",
@@ -737,7 +737,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_SOUSYA_03": {
         "mIname": "TR_UNDOUKAI_SOUSYA_03",
@@ -750,7 +750,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_SOUSYA_04": {
         "mIname": "TR_UNDOUKAI_SOUSYA_04",
@@ -763,7 +763,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_GOAL_01": {
         "mIname": "TR_UNDOUKAI_GOAL_01",
@@ -779,7 +779,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_GOAL_02": {
         "mIname": "TR_UNDOUKAI_GOAL_02",
@@ -791,7 +791,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_DON": {
         "mIname": "TR_UNDOUKAI_DON",
@@ -804,7 +804,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_ATK_UP_UNDOUKAI": {
         "mIname": "TR_MAP_ATK_UP_UNDOUKAI",
@@ -817,7 +817,7 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_MP_REGENE": {
         "mIname": "TR_UNDOUKAI_MP_REGENE",
@@ -831,7 +831,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MP_REGENE_01": {
         "mIname": "TR_MP_REGENE_01",
@@ -845,7 +845,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_HP_REGENE": {
         "mIname": "TR_UNDOUKAI_HP_REGENE",
@@ -859,7 +859,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_UNDOUKAI_DEF_UP": {
         "mIname": "TR_UNDOUKAI_DEF_UP",
@@ -873,7 +873,7 @@
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_JUMP_UP": {
         "mIname": "TR_MAP_JUMP_UP",
@@ -887,7 +887,7 @@
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_SUPER_JUMP_UP": {
         "mIname": "TR_MAP_SUPER_JUMP_UP",
@@ -901,7 +901,7 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_HP_UP_MP_REGENE": {
         "mIname": "TR_MAP_HP_UP_MP_REGENE",
@@ -916,7 +916,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_HP_UP_MP_REGENE_P": {
         "mIname": "TR_MAP_HP_UP_MP_REGENE_P",
@@ -931,7 +931,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_HP_UP_MP_REGENE_1": {
         "mIname": "TR_MAP_HP_UP_MP_REGENE_1",
@@ -947,7 +947,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_CHANGE": {
         "mIname": "TR_MAP_CHANGE",
@@ -963,7 +963,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_CHANGE_2": {
         "mIname": "TR_MAP_CHANGE_2",
@@ -979,7 +979,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
         "mEffTarget": "EnemySide",
-        "jp": {}
+        "dif": {}
     },
     "TR_SK_FA_ALPH01_LOWER_4": {
         "mIname": "TR_SK_FA_ALPH01_LOWER_4",
@@ -994,7 +994,7 @@
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_s_fa_alph_skill107_buff",
         "mEffTarget": "SelfSide",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_FA": {
         "mIname": "TR_MAP_TORA_FA",
@@ -1012,7 +1012,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_MDEF_FA": {
         "mIname": "TR_MAP_MDEF_FA",
@@ -1026,7 +1026,7 @@
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_m_buff_up_m_def0",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_MDEF_DAI_FA": {
         "mIname": "TR_MAP_MDEF_DAI_FA",
@@ -1040,7 +1040,7 @@
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_m_buff_up_m_def0",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_S_KAIHIUP_FA": {
         "mIname": "TR_MAP_S_KAIHIUP_FA",
@@ -1054,7 +1054,7 @@
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_m_buff_esc0",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_OUEN_SWITCH_FA": {
         "mIname": "TR_MAP_OUEN_SWITCH_FA",
@@ -1066,7 +1066,7 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_RESI_EX_BOTAN_2": {
         "mIname": "TR_MAP_RESI_EX_BOTAN_2",
@@ -1078,7 +1078,7 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_RESI_EX_BOTAN": {
         "mIname": "TR_MAP_RESI_EX_BOTAN",
@@ -1090,7 +1090,7 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_MOBIUS_7F_01": {
         "mIname": "TR_MAP_MOBIUS_7F_01",
@@ -1111,7 +1111,7 @@
         "mEffShape": "All",
         "mEffScope": 99,
         "mEffHeight": 99,
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_MOBIUS_7F_02": {
         "mIname": "TR_MAP_MOBIUS_7F_02",
@@ -1128,7 +1128,7 @@
         "mEffShape": "All",
         "mEffScope": 99,
         "mEffHeight": 99,
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_MOBIUS_7F_03": {
         "mIname": "TR_MAP_MOBIUS_7F_03",
@@ -1146,7 +1146,7 @@
         "mEffShape": "All",
         "mEffScope": 99,
         "mEffHeight": 99,
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_MOBIUS_15F_01": {
         "mIname": "TR_MAP_MOBIUS_15F_01",
@@ -1159,7 +1159,7 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_MOBIUS_16F_01": {
         "mIname": "TR_MAP_MOBIUS_16F_01",
@@ -1172,7 +1172,7 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_MOBIUS_16F_02": {
         "mIname": "TR_MAP_MOBIUS_16F_02",
@@ -1190,7 +1190,7 @@
         "mEffShape": "All",
         "mEffScope": 99,
         "mEffHeight": 99,
-        "jp": {
+        "dif": {
             "mTarget": "EnemySide",
             "mIsNoOverWrite": true
         }
@@ -1211,7 +1211,7 @@
         "mEffShape": "All",
         "mEffScope": 99,
         "mEffHeight": 99,
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_MOBIUS_18F_01": {
         "mIname": "TR_MAP_MOBIUS_18F_01",
@@ -1229,7 +1229,7 @@
         "mEffShape": "All",
         "mEffScope": 99,
         "mEffHeight": 99,
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_MOBIUS_18F_02": {
         "mIname": "TR_MAP_MOBIUS_18F_02",
@@ -1247,7 +1247,7 @@
         "mEffShape": "All",
         "mEffScope": 99,
         "mEffHeight": 99,
-        "jp": {}
+        "dif": {}
     },
     "TR_MAP_TORA_04_KOTEI_LOOK": {
         "mIname": "TR_MAP_TORA_04_KOTEI_LOOK",
@@ -1265,7 +1265,7 @@
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll",
-        "jp": {}
+        "dif": {}
     },
     "TR_SK_ART_TOWER_01": {
         "mIname": "TR_SK_ART_TOWER_01",

@@ -10,7 +10,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_BORDER_FIXWEATHER": {
         "mIname": "WS_BORDER_FIXWEATHER",
@@ -23,7 +23,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_ONLY_HEATHAZE": {
         "mIname": "WS_ONLY_HEATHAZE",
@@ -36,7 +36,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_ONLY_RAIN": {
         "mIname": "WS_ONLY_RAIN",
@@ -49,7 +49,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_ONLY_SNOW": {
         "mIname": "WS_ONLY_SNOW",
@@ -62,7 +62,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_ONLY_THUNDERCLOUD": {
         "mIname": "WS_ONLY_THUNDERCLOUD",
@@ -75,7 +75,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_ONLY_GALE": {
         "mIname": "WS_ONLY_GALE",
@@ -88,7 +88,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_ONLY_ANGELSLADDER": {
         "mIname": "WS_ONLY_ANGELSLADDER",
@@ -101,7 +101,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_ONLY_DARKSHADOW": {
         "mIname": "WS_ONLY_DARKSHADOW",
@@ -114,7 +114,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_ONLY_POISONFOG": {
         "mIname": "WS_ONLY_POISONFOG",
@@ -127,7 +127,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_ONLY_SANDSTORM": {
         "mIname": "WS_ONLY_SANDSTORM",
@@ -140,7 +140,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_ONLY_DENSEFOG": {
         "mIname": "WS_ONLY_DENSEFOG",
@@ -153,7 +153,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_ONLY_SAKURAFUBUKI": {
         "mIname": "WS_ONLY_SAKURAFUBUKI",
@@ -166,7 +166,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_BORDER_RANDOMWEATHER": {
         "mIname": "WS_BORDER_RANDOMWEATHER",
@@ -179,7 +179,7 @@
         ],
         "mChangeClockMin": 0,
         "mChangeClockMax": 0,
-        "jp": {}
+        "dif": {}
     },
     "WS_RANDOM": {
         "mIname": "WS_RANDOM",
@@ -222,7 +222,7 @@
             15,
             15
         ],
-        "jp": {}
+        "dif": {}
     },
     "WS_RAIN_TO_SUNNY": {
         "mIname": "WS_RAIN_TO_SUNNY",
@@ -243,6 +243,6 @@
             50,
             50
         ],
-        "jp": {}
+        "dif": {}
     }
 }

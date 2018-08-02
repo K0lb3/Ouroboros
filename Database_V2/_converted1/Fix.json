@@ -149,17 +149,7 @@
         "DisableEsaShine": 0,
         "DisableEsaDark": 0,
         "DisableMaxDamageHp": 0,
-        "DisableMaxDamageMp": 0,
-        "jp": {
-            "DisableEsaFire": 3,
-            "DisableEsaWater": 3,
-            "DisableEsaWind": 3,
-            "DisableEsaThunder": 3,
-            "DisableEsaShine": 3,
-            "DisableEsaDark": 3,
-            "DisableMaxDamageHp": 3,
-            "DisableMaxDamageMp": 3
-        }
+        "DisableMaxDamageMp": 0
     },
     "RandomEffectMax": 5,
     "ChargeTimeMax": 1000,
@@ -233,7 +223,7 @@
     "CombinationRate": 25,
     "WeakUpRate": 35,
     "ResistDownRate": -35,
-    "jp": {
+    "dif": {
         "AbilityRankUpCountRecoverySec": 120,
         "StaminaRecoverySec": 360,
         "ShopUpdateTime": [

@@ -94,13 +94,13 @@ def match(original, new):
             original[entry]=new[entry]
     return original
             
-def FuseParam(gl,jp):
+def DifParam(gl,jp):
     dif = {}
     for key,item in jp.items():
         if key in gl:
             if gl[key]!=jp[key]:
                 if type(item)==dict:
-                    dif[key]=FuseParam(gl[key],jp[key])['jp']
+                    dif[key]=DifParam(gl[key],jp[key])
                 elif type(item)==list:
                     pass
                     #needs work
@@ -108,6 +108,5 @@ def FuseParam(gl,jp):
             else:
                 continue
         dif[key]=item
-        
-    gl['jp']=dif
-    return gl
+
+    return dif

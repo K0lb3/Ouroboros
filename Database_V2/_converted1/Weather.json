@@ -5,7 +5,7 @@
         "mExpr": "効果はありません",
         "mIcon": "Icon_Sun",
         "mEffect": "weather_none",
-        "jp": {}
+        "dif": {}
     },
     "WTH_HEATHAZE": {
         "mIname": "WTH_HEATHAZE",
@@ -16,7 +16,7 @@
         "mBuffIdLists": [
             "BUFF_WTH_HEATHAZE"
         ],
-        "jp": {}
+        "dif": {}
     },
     "WTH_RAIN": {
         "mIname": "WTH_RAIN",
@@ -27,7 +27,7 @@
         "mBuffIdLists": [
             "BUFF_WTH_RAIN"
         ],
-        "jp": {}
+        "dif": {}
     },
     "WTH_SNOW": {
         "mIname": "WTH_SNOW",
@@ -38,7 +38,7 @@
         "mBuffIdLists": [
             "BUFF_WTH_SNOW"
         ],
-        "jp": {}
+        "dif": {}
     },
     "WTH_THUNDERCLOUD": {
         "mIname": "WTH_THUNDERCLOUD",
@@ -49,7 +49,7 @@
         "mBuffIdLists": [
             "BUFF_WTH_THUNDERCLOUD"
         ],
-        "jp": {}
+        "dif": {}
     },
     "WTH_GALE": {
         "mIname": "WTH_GALE",
@@ -60,7 +60,7 @@
         "mBuffIdLists": [
             "BUFF_WTH_GALE"
         ],
-        "jp": {}
+        "dif": {}
     },
     "WTH_ANGELSLADDER": {
         "mIname": "WTH_ANGELSLADDER",
@@ -68,7 +68,7 @@
         "mExpr": "光属性の攻撃が強く、闇属性の攻撃が弱くなります",
         "mIcon": "Icon_Shiny",
         "mEffect": "weather_shiny",
-        "jp": {}
+        "dif": {}
     },
     "WTH_DARKSHADOW": {
         "mIname": "WTH_DARKSHADOW",
@@ -76,7 +76,7 @@
         "mExpr": "闇属性の攻撃が強く、光属性の攻撃が弱くなります",
         "mIcon": "Icon_Darkfog",
         "mEffect": "weather_darkfog",
-        "jp": {}
+        "dif": {}
     },
     "WTH_POISONFOG": {
         "mIname": "WTH_POISONFOG",
@@ -87,7 +87,7 @@
         "mCondIdLists": [
             "CON_WTH_POI"
         ],
-        "jp": {}
+        "dif": {}
     },
     "WTH_SANDSTORM": {
         "mIname": "WTH_SANDSTORM",
@@ -98,7 +98,7 @@
         "mBuffIdLists": [
             "BUFF_WTH_SANDSTORM"
         ],
-        "jp": {}
+        "dif": {}
     },
     "WTH_DENSEFOG": {
         "mIname": "WTH_DENSEFOG",
@@ -109,7 +109,7 @@
         "mBuffIdLists": [
             "BUFF_WTH_DENSEFOG"
         ],
-        "jp": {}
+        "dif": {}
     },
     "WTH_SAKURAFUBUKI": {
         "mIname": "WTH_SAKURAFUBUKI",
@@ -120,6 +120,6 @@
         "mBuffIdLists": [
             "BUFF_WTH_SAKURAFUBUKI"
         ],
-        "jp": {}
+        "dif": {}
     }
 }

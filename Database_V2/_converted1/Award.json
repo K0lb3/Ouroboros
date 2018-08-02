@@ -7,7 +7,7 @@
         "bg": "extra00001",
         "start_at": "1/28/2017",
         "grade": 6,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -19,7 +19,7 @@
         "bg": "extra00002",
         "start_at": "1/28/2017",
         "grade": 6,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -31,7 +31,7 @@
         "bg": "extra00003",
         "start_at": "1/28/2017",
         "grade": 6,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -43,7 +43,7 @@
         "bg": "extra00004",
         "start_at": "1/28/2017",
         "grade": 6,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -54,7 +54,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 2,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -65,7 +65,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 3,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -76,7 +76,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 4,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -87,7 +87,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 1,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -98,7 +98,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 2,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -109,7 +109,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 3,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -120,7 +120,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 3,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -131,7 +131,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 3,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -142,7 +142,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 2,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -153,7 +153,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 3,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -164,7 +164,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 4,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -175,7 +175,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 5,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -186,7 +186,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 2,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -197,7 +197,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 3,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -208,7 +208,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 4,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -219,7 +219,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 5,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -230,7 +230,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 2,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -241,7 +241,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 3,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -252,7 +252,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 4,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -263,7 +263,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 5,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -274,7 +274,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 2,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -285,7 +285,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 3,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -296,7 +296,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 4,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -307,7 +307,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 5,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -318,7 +318,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 2,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -329,7 +329,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 3,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -340,7 +340,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 4,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
@@ -351,7 +351,7 @@
         "icon": "IT_AWARD",
         "start_at": "1/28/2017",
         "grade": 5,
-        "jp": {
+        "dif": {
             "start_at": "2017/01/28"
         }
     },
