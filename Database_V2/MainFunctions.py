@@ -96,17 +96,29 @@ def match(original, new):
             
 def DifParam(gl,jp):
     dif = {}
-    for key,item in jp.items():
-        if key in gl:
-            if gl[key]!=jp[key]:
-                if type(item)==dict:
-                    dif[key]=DifParam(gl[key],jp[key])
-                elif type(item)==list:
-                    pass
-                    #needs work
+    #no difference
+    if gl==jp:
+        return dif
 
+    if type(jp)==dict:
+        for key,item in jp.items():
+            if key in gl:
+                if gl[key]!=jp[key]:
+                        dif[key]=DifParam(gl[key],jp[key])
             else:
-                continue
-        dif[key]=item
+                dif[key]=item
+                
+    elif type(jp)==list:
+        for ji in jp:
+            dif=[]
+            found=False
+            for gi in gl:
+                if gi==ji:
+                    found=True
+                    break
+            if not found:
+                dif.append(ji)
+    else:
+        dif = jp
 
     return dif
