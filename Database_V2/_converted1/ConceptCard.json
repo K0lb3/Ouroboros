@@ -9,7 +9,38 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_ENVYRIA_VETTEL_01"
+        "trust_reward": "CARD_TS_ENVYRIA_VETTEL_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_VETTEL_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_VETTEL_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_HIEN_NIGHT"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_VETTEL_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_VETTEL_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_VETTEL_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_VETT_GERA_NATA"
+            },
+            {
+                "abil_iname": "AB_01_ENVYRIA_VETTEL_01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA"
+            },
+            {
+                "abil_iname": "AB_01_ENVYRIA_VETTEL_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_VETTEL_01"
+            },
+            {
+                "abil_iname": "AB_02_ENVYRIA_VETTEL_01"
+            },
+            {
+                "skin": "AF_SK_VETT_BABEL",
+                "cnds_iname": "CARD_CNDS_VETT"
+            }
+        ]
     },
     "TS_ENVYRIA_CLOE_01": {
         "iname": "TS_ENVYRIA_CLOE_01",
@@ -21,7 +52,38 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_ENVYRIA_CLOE_01"
+        "trust_reward": "CARD_TS_ENVYRIA_CLOE_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_CLOE_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_CLOE_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_HIEN_NIGHT"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_CLOE_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_CLOE_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_CLOE_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_CLOE_LENN"
+            },
+            {
+                "abil_iname": "AB_01_ENVYRIA_CLOE_01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA"
+            },
+            {
+                "abil_iname": "AB_01_ENVYRIA_CLOE_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_CLOE_01"
+            },
+            {
+                "abil_iname": "AB_02_ENVYRIA_CLOE_01"
+            },
+            {
+                "skin": "AF_SK_CLOE_BABEL",
+                "cnds_iname": "CARD_CNDS_CLOE"
+            }
+        ]
     },
     "TS_ENVYRIA_FAIRLILY_01": {
         "iname": "TS_ENVYRIA_FAIRLILY_01",
@@ -33,7 +95,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_ENVYRIA_FAIRLILY_01"
+        "trust_reward": "CARD_TS_ENVYRIA_FAIRLILY_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_FAIRLILY_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_FAIRLILY_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA_PLUS_UROBOROS"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_FAIRLILY_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_FAIRLILY_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_FAIRLILY_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_VAVEL_WEA"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_FAIRLILY_01"
+            }
+        ]
     },
     "TS_ENVYRIA_SHAYNA_01": {
         "iname": "TS_ENVYRIA_SHAYNA_01",
@@ -45,7 +123,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_ENVYRIA_SHAYNA_01"
+        "trust_reward": "CARD_TS_ENVYRIA_SHAYNA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_SHAYNA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_SHAYNA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA_PLUS_UROBOROS"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_SHAYNA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_SHAYNA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_SHAYNA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SYAINA_SUZUKA"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_SHAYNA_01"
+            }
+        ]
     },
     "TS_ENVYRIA_LGDSAG_01": {
         "iname": "TS_ENVYRIA_LGDSAG_01",
@@ -57,7 +151,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_ENVYRIA_LGDSAG_01"
+        "trust_reward": "CARD_TS_ENVYRIA_LGDSAG_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_LGDSAG_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_LGDSAG_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA_PLUS_UROBOROS"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_LGDSAG_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_LGDSAG_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_LGDSAG_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_LOGI_DIOS"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_LGDSAG_01"
+            }
+        ]
     },
     "TS_ENVYRIA_ELIZABETH_01": {
         "iname": "TS_ENVYRIA_ELIZABETH_01",
@@ -69,7 +179,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_ENVYRIA_ELIZABETH_01"
+        "trust_reward": "CARD_TS_ENVYRIA_ELIZABETH_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_ELIZABETH_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_ELIZABETH_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA_PLUS_UROBOROS"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_ELIZABETH_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_ELIZABETH_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_ELIZABETH_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ERIZ_DECE_MARI"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_ELIZABETH_01"
+            }
+        ]
     },
     "TS_ENVYRIA_MONZOTM_01": {
         "iname": "TS_ENVYRIA_MONZOTM_01",
@@ -81,7 +207,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_ENVYRIA_MONZOTM_01"
+        "trust_reward": "CARD_TS_ENVYRIA_MONZOTM_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_MONZOTM_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_MONZOTM_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SEIKYOU_NIGHT"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_MONZOTM_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_MONZOTM_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_MONZOTM_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_MONZ_OTMA"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_MONZOTM_01"
+            }
+        ]
     },
     "TS_ENVYRIA_MARGARET_01": {
         "iname": "TS_ENVYRIA_MARGARET_01",
@@ -93,7 +235,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_ENVYRIA_MARGARET_01"
+        "trust_reward": "CARD_TS_ENVYRIA_MARGARET_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_MARGARET_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_MARGARET_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA_PLUS_UROBOROS"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_MARGARET_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_MARGARET_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_MARGARET_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ERIZ_MARG"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_MARGARET_01"
+            }
+        ]
     },
     "TS_ENVYRIA_DARTAGNAN_01": {
         "iname": "TS_ENVYRIA_DARTAGNAN_01",
@@ -105,7 +263,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_ENVYRIA_DARTAGNAN_01"
+        "trust_reward": "CARD_TS_ENVYRIA_DARTAGNAN_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_DARTAGNAN_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_DARTAGNAN_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_HIEN_NIGHT"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_DARTAGNAN_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_DARTAGNAN_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_DARTAGNAN_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_DARU"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_DARTAGNAN_01"
+            }
+        ]
     },
     "TS_ENVYRIA_LUCRETIA_01": {
         "iname": "TS_ENVYRIA_LUCRETIA_01",
@@ -117,7 +291,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_ENVYRIA_LUCRETIA_01"
+        "trust_reward": "CARD_TS_ENVYRIA_LUCRETIA_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_LUCRETIA_01"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_LUCRETIA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_ENVYRIA_LUCRETIA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_LUCRETIA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_LCRE_GEIN"
+            }
+        ]
     },
     "TS_ENVYRIA_DECEL_01": {
         "iname": "TS_ENVYRIA_DECEL_01",
@@ -129,7 +314,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_ENVYRIA_DECEL_01"
+        "trust_reward": "CARD_TS_ENVYRIA_DECEL_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_DECEL_01"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_DECEL_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_ENVYRIA_DECEL_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_DECEL_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_DECE"
+            }
+        ]
     },
     "TS_ENVYRIA_ALFRED_01": {
         "iname": "TS_ENVYRIA_ALFRED_01",
@@ -141,7 +337,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_ENVYRIA_ALFRED_01"
+        "trust_reward": "CARD_TS_ENVYRIA_ALFRED_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_ALFRED_01"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_ALFRED_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_ENVYRIA_ALFRED_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_ALFRED_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SYAI_ALFR"
+            }
+        ]
     },
     "TS_ENVYRIA_PRISCILA_01": {
         "iname": "TS_ENVYRIA_PRISCILA_01",
@@ -153,7 +360,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_ENVYRIA_PRISCILA_01"
+        "trust_reward": "CARD_TS_ENVYRIA_PRISCILA_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_PRISCILA_01"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_PRISCILA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_ENVYRIA_PRISCILA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_PRISCILA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_PRIC_LAMI_TERE"
+            }
+        ]
     },
     "TS_ENVYRIA_ELAINE_01": {
         "iname": "TS_ENVYRIA_ELAINE_01",
@@ -165,7 +383,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_ENVYRIA_ELAINE_01"
+        "trust_reward": "CARD_TS_ENVYRIA_ELAINE_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_ELAINE_01"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_ELAINE_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_ENVYRIA_ELAINE_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_ELAINE_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ERIN"
+            }
+        ]
     },
     "TS_ENVYRIA_DILGA_01": {
         "iname": "TS_ENVYRIA_DILGA_01",
@@ -177,7 +406,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_ENVYRIA_DILGA_01"
+        "trust_reward": "CARD_TS_ENVYRIA_DILGA_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_DILGA_01"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_DILGA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_ENVYRIA_DILGA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_DILGA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_DILG"
+            }
+        ]
     },
     "TS_ENVYRIA_AGATHA_01": {
         "iname": "TS_ENVYRIA_AGATHA_01",
@@ -189,7 +429,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_ENVYRIA_AGATHA_01"
+        "trust_reward": "CARD_TS_ENVYRIA_AGATHA_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_AGATHA_01"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_AGATHA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_ENVYRIA_AGATHA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_AGATHA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_LOGI_DIOS_ZEKE"
+            }
+        ]
     },
     "TS_ENVYRIA_AYLLU_01": {
         "iname": "TS_ENVYRIA_AYLLU_01",
@@ -201,7 +452,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_ENVYRIA_AYLLU_01"
+        "trust_reward": "CARD_TS_ENVYRIA_AYLLU_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_AYLLU_01"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_AYLLU_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_AYLLU_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_LUST"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_AYLLU_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_ENVYRIA_AYLLU_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_AYLLU_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_AIRY"
+            }
+        ]
     },
     "TS_ENVYRIA_ROTEN_01": {
         "iname": "TS_ENVYRIA_ROTEN_01",
@@ -213,7 +480,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_ENVYRIA_ROTEN_01"
+        "trust_reward": "CARD_TS_ENVYRIA_ROTEN_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_ROTEN_01"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_ROTEN_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_ENVYRIA_ROTEN_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_ROTEN_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA"
+            }
+        ]
     },
     "TS_ENVYRIA_RUNBELL_01": {
         "iname": "TS_ENVYRIA_RUNBELL_01",
@@ -225,7 +503,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_ENVYRIA_RUNBELL_01"
+        "trust_reward": "CARD_TS_ENVYRIA_RUNBELL_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_RUNBELL_01"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_RUNBELL_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_RUNBELL_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_RUNBELL_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_RUNBELL_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_RUNBELL_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_LANB"
+            }
+        ]
     },
     "TS_ENVYRIA_FOUNTAIN_01": {
         "iname": "TS_ENVYRIA_FOUNTAIN_01",
@@ -237,7 +531,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_ENVYRIA_FOUNTAIN_01"
+        "trust_reward": "CARD_TS_ENVYRIA_FOUNTAIN_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_FOUNTAIN_01"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_FOUNTAIN_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_ENVYRIA_FOUNTAIN_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_FOUNTAIN_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA"
+            }
+        ]
     },
     "TS_EXP_01": {
         "iname": "TS_EXP_01",
@@ -329,7 +634,17 @@
         "rare": 1,
         "sell": 400,
         "en_cost": 1200,
-        "en_exp": 2000
+        "en_exp": 2000,
+        "effects": [
+            {
+                "statusup_skill": "SK_LETTER_01"
+            },
+            {
+                "card_skill": "SK_GS1_LETTER_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_LETTER_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_LETTER_01_BONUS01"
+            }
+        ]
     },
     "TS_LETTER_02": {
         "iname": "TS_LETTER_02",
@@ -340,7 +655,17 @@
         "rare": 1,
         "sell": 400,
         "en_cost": 1200,
-        "en_exp": 2000
+        "en_exp": 2000,
+        "effects": [
+            {
+                "statusup_skill": "SK_LETTER_02"
+            },
+            {
+                "card_skill": "SK_GS1_LETTER_02",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_LETTER_02_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_LETTER_02_BONUS01"
+            }
+        ]
     },
     "TS_SLOTH_FIONA_01": {
         "iname": "TS_SLOTH_FIONA_01",
@@ -352,7 +677,31 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_SLOTH_FIONA_01"
+        "trust_reward": "CARD_TS_SLOTH_FIONA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_SLOTH_FIONA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_SLOTH_FIONA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SLOTH"
+            },
+            {
+                "card_skill": "SK_GS2_SLOTH_FIONA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_SLOTH_FIONA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_SLOTH_FIONA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_FIONA"
+            },
+            {
+                "abil_iname": "AB_01_SLOTH_FIONA_01",
+                "cnds_iname": "CARD_CNDS_SLOTH"
+            },
+            {
+                "abil_iname": "AB_01_SLOTH_FIONA_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "statusup_skill": "SK_SLOTH_FIONA_01"
+            }
+        ]
     },
     "TS_ENVYRIA_ALAIA_01": {
         "iname": "TS_ENVYRIA_ALAIA_01",
@@ -364,7 +713,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_ENVYRIA_ALAIA_01"
+        "trust_reward": "CARD_TS_ENVYRIA_ALAIA_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_ENVYRIA_ALAIA_01"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_ALAIA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_ENVYRIA_ALAIA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_ALAIA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ARAI"
+            }
+        ]
     },
     "TS_ENVYRIA_VICTOR_01": {
         "iname": "TS_ENVYRIA_VICTOR_01",
@@ -376,7 +736,30 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_ENVYRIA_VICTOR_01"
+        "trust_reward": "CARD_TS_ENVYRIA_VICTOR_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_VICTOR_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_VICTOR_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_HIEN_NIGHT"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_VICTOR_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_VICTOR_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_VICTOR_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_VICT_NATA_VETT_CLOE_NINA"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_VICTOR_01"
+            },
+            {
+                "abil_iname": "AB_01_ENVYRIA_VICTOR_01"
+            },
+            {
+                "skin": "AF_SK_VICT_BABEL",
+                "cnds_iname": "CARD_CNDS_VICT"
+            }
+        ]
     },
     "TS_WRATH_ZAHAR_01": {
         "iname": "TS_WRATH_ZAHAR_01",
@@ -388,7 +771,30 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_WRATH_ZAHAR_01"
+        "trust_reward": "CARD_TS_WRATH_ZAHAR_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WRATHTRIZ_ZAHAR_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATHTRIZ_ZAHAR_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SHADOW_MESSIAH"
+            },
+            {
+                "card_skill": "SK_GS2_WRATHTRIZ_ZAHAR_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_WRATHTRIZ_ZAHAR_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_WRATHTRIZ_ZAHAR_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ZAHA_LETI_IRA"
+            },
+            {
+                "statusup_skill": "SK_WRATHTRIZ_ZAHAR_01"
+            },
+            {
+                "abil_iname": "AB_01_WRATHTRIZ_ZAHA_01"
+            },
+            {
+                "skin": "AF_SK_SAHA_BABEL",
+                "cnds_iname": "CARD_CNDS_ZAHA"
+            }
+        ]
     },
     "TS_WRATH_SPICA_01": {
         "iname": "TS_WRATH_SPICA_01",
@@ -400,7 +806,38 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_WRATH_SPICA_01"
+        "trust_reward": "CARD_TS_WRATH_SPICA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WRATHTRIZ_SPICA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATHTRIZ_SPICA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SHADOW_MESSIAH"
+            },
+            {
+                "card_skill": "SK_GS2_WRATHTRIZ_SPICA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_WRATHTRIZ_SPICA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_WRATHTRIZ_SPICA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ZAHA_SPIC"
+            },
+            {
+                "abil_iname": "AB_01_WRATHTRIZ_SPICA_01",
+                "cnds_iname": "CARD_CNDS_WRATHTRIZ"
+            },
+            {
+                "abil_iname": "AB_01_WRATHTRIZ_SPICA_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "statusup_skill": "SK_WRATHTRIZ_SPICA_01"
+            },
+            {
+                "abil_iname": "AB_02_WRATHTRIZ_SPICA_01"
+            },
+            {
+                "skin": "AF_SK_SPIC_BABEL",
+                "cnds_iname": "CARD_CNDS_SPIC"
+            }
+        ]
     },
     "TS_WRATH_GLANZ_01": {
         "iname": "TS_WRATH_GLANZ_01",
@@ -412,7 +849,28 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_WRATH_GLANZ_01"
+        "trust_reward": "CARD_TS_WRATH_GLANZ_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WRATHTRIZ_GLANZ_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATHTRIZ_GLANZ_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_WRATHTRIZ"
+            },
+            {
+                "card_skill": "SK_GS1_WRATHTRIZ_GLANZ_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATHTRIZ_GLANZ_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "card_skill": "SK_GS2_WRATHTRIZ_GLANZ_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_WRATHTRIZ_GLANZ_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_WRATHTRIZ_GLANZ_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_GRANZ_ANASTASIA"
+            },
+            {
+                "statusup_skill": "SK_WRATHTRIZ_GLANZ_01"
+            }
+        ]
     },
     "TS_WRATH_LAMIA_01": {
         "iname": "TS_WRATH_LAMIA_01",
@@ -424,7 +882,28 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_WRATH_LAMIA_01"
+        "trust_reward": "CARD_TS_WRATH_LAMIA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WRATHTRIZ_LAMIA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATHTRIZ_LAMIA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_WRATHTRIZ"
+            },
+            {
+                "card_skill": "SK_GS1_WRATHTRIZ_LAMIA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATHTRIZ_LAMIA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "card_skill": "SK_GS2_WRATHTRIZ_LAMIA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_WRATHTRIZ_LAMIA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_WRATHTRIZ_LAMIA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_LAMIA_TERESA"
+            },
+            {
+                "statusup_skill": "SK_WRATHTRIZ_LAMIA_01"
+            }
+        ]
     },
     "TS_WRATH_ROSA_01": {
         "iname": "TS_WRATH_ROSA_01",
@@ -436,7 +915,28 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_WRATH_ROSA_01"
+        "trust_reward": "CARD_TS_WRATH_ROSA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WRATHTRIZ_ROSA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATHTRIZ_ROSA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_WRATHTRIZ"
+            },
+            {
+                "card_skill": "SK_GS1_WRATHTRIZ_ROSA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATHTRIZ_ROSA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "card_skill": "SK_GS2_WRATHTRIZ_ROSA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_WRATHTRIZ_ROSA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_WRATHTRIZ_ROSA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ROSA"
+            },
+            {
+                "statusup_skill": "SK_WRATHTRIZ_ROSA_01"
+            }
+        ]
     },
     "TS_WRATH_MAGNUS_01": {
         "iname": "TS_WRATH_MAGNUS_01",
@@ -448,7 +948,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_WRATH_MAGNUS_01"
+        "trust_reward": "CARD_TS_WRATH_MAGNUS_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WRATHTRIZ_MAGNUS_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_WRATHTRIZ_MAGNUS_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATHTRIZ_MAGNUS_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_MAGN_SUTO_AISH"
+            },
+            {
+                "statusup_skill": "SK_WRATHTRIZ_MUGNUS_01"
+            }
+        ]
     },
     "TS_WRATH_SABALETA_01": {
         "iname": "TS_WRATH_SABALETA_01",
@@ -460,7 +971,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_WRATH_SABALETA_01"
+        "trust_reward": "CARD_TS_WRATH_SABALETA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WRATHTRIZ_SABALETA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_WRATHTRIZ_SABALETA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATHTRIZ_SABALETA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SABA_VANE"
+            },
+            {
+                "statusup_skill": "SK_WRATHTRIZ_SABALETA_01"
+            }
+        ]
     },
     "TS_WRATH_MARE_01": {
         "iname": "TS_WRATH_MARE_01",
@@ -472,7 +994,30 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_WRATH_MARE_01"
+        "trust_reward": "CARD_TS_WRATH_MARE_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WRATHTRIZ_MARE_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATHTRIZ_MARE_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SHADOW_MESSIAH"
+            },
+            {
+                "card_skill": "SK_GS2_WRATHTRIZ_MARE_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_WRATHTRIZ_MARE_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_WRATHTRIZ_MARE_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_MARE_IRA"
+            },
+            {
+                "statusup_skill": "SK_WRATHTRIZ_MARE_01"
+            },
+            {
+                "abil_iname": "AB_01_WRATHTRIZ_MARE_01"
+            },
+            {
+                "skin": "AF_SK_MARE_BABEL",
+                "cnds_iname": "CARD_CNDS_MARE"
+            }
+        ]
     },
     "TS_APR_LIZ_01": {
         "iname": "TS_APR_LIZ_01",
@@ -485,7 +1030,23 @@
         "en_cost": 1200,
         "en_exp": 2000,
         "trust_reward": "CARD_TS_APR_LIZ_01",
-        "first_get_unit": "UN_V2_APR_LIZ"
+        "first_get_unit": "UN_V2_APR_LIZ",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_APR_LIZ_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_APR_LIZ_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ANIMAL_FRIEND_LIZ"
+            },
+            {
+                "card_skill": "SK_GS2_APR_LIZ_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_APR_LIZ_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_APR_LIZ_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_LIZ"
+            },
+            {
+                "statusup_skill": "SK_APR_LIZ_01"
+            }
+        ]
     },
     "TS_DESERT_BALT_01": {
         "iname": "TS_DESERT_BALT_01",
@@ -497,7 +1058,38 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_DESERT_BALT_01"
+        "trust_reward": "CARD_TS_DESERT_BALT_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_DESERT_BALT_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_DESERT_BALT_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_DESERT"
+            },
+            {
+                "card_skill": "SK_GS2_DESERT_BALT_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_DESERT_BALT_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_DESERT_BALT_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_BALT_KARLA"
+            },
+            {
+                "abil_iname": "AB_01_DESERT_BALT_01",
+                "cnds_iname": "CARD_CNDS_DESERT"
+            },
+            {
+                "abil_iname": "AB_01_DESERT_BALT_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "statusup_skill": "SK_DESERT_BALT_01"
+            },
+            {
+                "abil_iname": "AB_02_DESERT_BALT_01"
+            },
+            {
+                "skin": "AF_SK_BALT_BABEL",
+                "cnds_iname": "CARD_CNDS_BALT"
+            }
+        ]
     },
     "TS_DESERT_RAMESES_01": {
         "iname": "TS_DESERT_RAMESES_01",
@@ -509,7 +1101,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_DESERT_RAMESES_01"
+        "trust_reward": "CARD_TS_DESERT_RAMESES_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_DESERT_RAMESES_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_DESERT_RAMESES_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_DESERT"
+            },
+            {
+                "card_skill": "SK_GS2_DESERT_RAMESES_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_DESERT_RAMESES_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_DESERT_RAMESES_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_RAMESES_NEFERTY"
+            },
+            {
+                "statusup_skill": "SK_DESERT_RAMESES_01"
+            }
+        ]
     },
     "TS_DESERT_RETZIUS_01": {
         "iname": "TS_DESERT_RETZIUS_01",
@@ -521,7 +1129,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_DESERT_RETZIUS_01"
+        "trust_reward": "CARD_TS_DESERT_RETZIUS_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_DESERT_RETZIUS_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_DESERT_RETZIUS_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_DESERT"
+            },
+            {
+                "card_skill": "SK_GS2_DESERT_RETZIUS_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_DESERT_RETZIUS_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_DESERT_RETZIUS_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_RETZIUS_LUCIA"
+            },
+            {
+                "statusup_skill": "SK_DESERT_RETZIUS_01"
+            }
+        ]
     },
     "TS_DESERT_ANK_01": {
         "iname": "TS_DESERT_ANK_01",
@@ -533,7 +1157,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_DESERT_ANK_01"
+        "trust_reward": "CARD_TS_DESERT_ANK_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_DESERT_ANKH_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_DESERT_ANKH_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_DESERT"
+            },
+            {
+                "card_skill": "SK_GS2_DESERT_ANKH_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_DESERT_ANKH_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_DESERT_ANKH_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ANKH_RYLE"
+            },
+            {
+                "statusup_skill": "SK_DESERT_ANKH_01"
+            }
+        ]
     },
     "TS_DESERT_ARKILL_01": {
         "iname": "TS_DESERT_ARKILL_01",
@@ -545,7 +1185,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_DESERT_ARKILL_01"
+        "trust_reward": "CARD_TS_DESERT_ARKILL_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_DESERT_ARKILL_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_DESERT_ARKILL_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_DESERT_ARKILL_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ARKILL_CHATNOIR_AISHA_SUTORIE"
+            },
+            {
+                "statusup_skill": "SK_DESERT_ARKILL_01"
+            }
+        ]
     },
     "TS_DESERT_RYLE_01": {
         "iname": "TS_DESERT_RYLE_01",
@@ -557,7 +1208,30 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_DESERT_RYLE_01"
+        "trust_reward": "CARD_TS_DESERT_RYLE_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_DESERT_RYLE_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_DESERT_RYLE_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_DESERT"
+            },
+            {
+                "card_skill": "SK_GS2_DESERT_RYLE_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_DESERT_RYLE_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_DESERT_RYLE_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ANKH_RYLE"
+            },
+            {
+                "statusup_skill": "SK_DESERT_RYLE_01"
+            },
+            {
+                "abil_iname": "AB_01_DESERT_RYLE_01"
+            },
+            {
+                "skin": "AF_SK_RYLE_BABEL",
+                "cnds_iname": "CARD_CNDS_RYLE"
+            }
+        ]
     },
     "TS_SLOTH_FIONA_02": {
         "iname": "TS_SLOTH_FIONA_02",
@@ -569,7 +1243,27 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_SLOTH_FIONA_02"
+        "trust_reward": "CARD_TS_SLOTH_FIONA_02",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_SLOTH_FIONA_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_SLOTH_FIONA_02_BONUS01",
+                "cnds_iname": "CARD_CNDS_SLOTH"
+            },
+            {
+                "card_skill": "SK_GS2_SLOTH_FIONA_02",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_SLOTH_FIONA_02_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_SLOTH_FIONA_02_BONUS01",
+                "cnds_iname": "CARD_CNDS_FIONA_02"
+            },
+            {
+                "statusup_skill": "SK_SLOTH_FIONA_02"
+            },
+            {
+                "skin": "AF_SK_FION_MARR",
+                "cnds_iname": "CARD_CNDS_FIONA_02"
+            }
+        ]
     },
     "TS_DESERT_ASUWADO_01": {
         "iname": "TS_DESERT_ASUWADO_01",
@@ -581,7 +1275,23 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_DESERT_ASUWADO_01"
+        "trust_reward": "CARD_TS_DESERT_ASUWADO_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_DESERT_ASUWADO_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_DESERT_ASUWADO_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_DESERT"
+            },
+            {
+                "card_skill": "SK_GS2_DESERT_ASUWADO_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_DESERT_ASUWADO_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_DESERT_ASUWADO_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ASUWADO"
+            },
+            {
+                "statusup_skill": "SK_DESERT_DESERT_ASUWADO_01"
+            }
+        ]
     },
     "TS_DESERT_SUTORIE_01": {
         "iname": "TS_DESERT_SUTORIE_01",
@@ -593,7 +1303,18 @@
         "sell": 600,
         "en_cost": 1400,
         "en_exp": 4000,
-        "trust_reward": "CARD_TS_DESERT_SUTORIE_01"
+        "trust_reward": "CARD_TS_DESERT_SUTORIE_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_DESERT_SUTORIE_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_DESERT_SUTORIE_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_DESERT_SUTORIE_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ARKILL_CHATNOIR_AISHA_SUTORIE"
+            },
+            {
+                "statusup_skill": "SK_DESERT_SUTORIE_01"
+            }
+        ]
     },
     "TS_SLOTH_TARAS_01": {
         "iname": "TS_SLOTH_TARAS_01",
@@ -606,7 +1327,23 @@
         "en_cost": 2000,
         "en_exp": 20000,
         "trust_reward": "CARD_TS_SLOTH_DON_TARAS_01",
-        "first_get_unit": "UN_V2_DON_TARAS"
+        "first_get_unit": "UN_V2_DON_TARAS",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_SLOTH_DON_TARAS_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_SLOTH_DON_TARAS_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SLOTH"
+            },
+            {
+                "card_skill": "SK_GS2_SLOTH_DON_TARAS_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_SLOTH_DON_TARAS_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_SLOTH_DON_TARAS_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_DON_TARAS"
+            },
+            {
+                "statusup_skill": "SK_SLOTH_DON_TARAS_01"
+            }
+        ]
     },
     "TS_VISION_01": {
         "iname": "TS_VISION_01",
@@ -644,7 +1381,30 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_ENVYRIA_CANON_01"
+        "trust_reward": "CARD_TS_ENVYRIA_CANON_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_CANON_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_CANON_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SEIKYOU_NIGHT"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_CANON_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_CANON_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_CANON_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_CANON"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_CANON_01"
+            },
+            {
+                "abil_iname": "AB_01_ENVYRIA_CANON_01"
+            },
+            {
+                "skin": "AF_SK_CANON_SEISEKI",
+                "cnds_iname": "CARD_CNDS_CANON"
+            }
+        ]
     },
     "TS_WRATH_KUDHANSTEIN_01": {
         "iname": "TS_WRATH_KUDHANSTEIN_01",
@@ -656,7 +1416,28 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_WRATH_KUDHANSTEIN_01"
+        "trust_reward": "CARD_TS_WRATH_KUDHANSTEIN_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WRATH_KUDHANSTEIN_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATH_KUDHANSTEIN_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_WRATHTRIZ"
+            },
+            {
+                "card_skill": "SK_GS2_WRATH_KUDHANSTEIN_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_WRATH_KUDHANSTEIN_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SEIKYOU_NIGHT"
+            },
+            {
+                "card_skill": "SK_GS3_WRATH_KUDHANSTEIN_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_WRATH_KUDHANSTEIN_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS3_WRATH_KUDHANSTEIN_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_KUDHANSTEIN"
+            },
+            {
+                "statusup_skill": "SK_WRATH_KUDHANSTEIN_01"
+            }
+        ]
     },
     "TS_LOST_ACHAD_01": {
         "iname": "TS_LOST_ACHAD_01",
@@ -668,7 +1449,23 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_LOST_ACHAD_01"
+        "trust_reward": "CARD_TS_LOST_ACHAD_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_LOST_ACHAD_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_LOST_ACHAD_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_TEN_CMNDMNTS"
+            },
+            {
+                "card_skill": "SK_GS2_LOST_ACHAD_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_LOST_ACHAD_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LOST_ACHAD_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_ACHAD"
+            },
+            {
+                "statusup_skill": "SK_LOST_ACHAD_01"
+            }
+        ]
     },
     "TS_LUST_YAULAS_01": {
         "iname": "TS_LUST_YAULAS_01",
@@ -680,7 +1477,28 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_LUST_YAULAS_01"
+        "trust_reward": "CARD_TS_LUST_YAULAS_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_LUST_YAULAS_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_LUST_YAULAS_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_LUST"
+            },
+            {
+                "card_skill": "SK_GS2_LUST_YAULAS_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_LUST_YAULAS_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_SEIKYOU_NIGHT"
+            },
+            {
+                "card_skill": "SK_GS3_LUST_YAULAS_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_LUST_YAULAS_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS3_LUST_YAULAS_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_YAULAS"
+            },
+            {
+                "statusup_skill": "SK_LUST_YAULAS_01"
+            }
+        ]
     },
     "TS_ENVYRIA_MONZOTM_02": {
         "iname": "TS_ENVYRIA_MONZOTM_02",
@@ -692,7 +1510,28 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_ENVYRIA_MONZOTM_02"
+        "trust_reward": "CARD_TS_ENVYRIA_MONZOTM_02",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVYRIA_MONZOTM_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_MONZOTM_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_MONZOTM_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_MONZOTM_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_SEIKYOU_NIGHT"
+            },
+            {
+                "card_skill": "SK_GS3_ENVYRIA_MONZOTM_02",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_ENVYRIA_MONZOTM_02_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS3_ENVYRIA_MONZOTM_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_MONZOTM"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_MONZOTM_02"
+            }
+        ]
     },
     "TS_CRY_MERL_01": {
         "iname": "TS_CRY_MERL_01",
@@ -704,7 +1543,23 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_CRY_MERL_01"
+        "trust_reward": "CARD_TS_CRY_MERL_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_CRY_MERL_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_CRY_MERL_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_CRY_COLABO"
+            },
+            {
+                "card_skill": "SK_GS2_CRY_MERL_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_CRY_MERL_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_CRY_MERL_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_MERLNUS"
+            },
+            {
+                "statusup_skill": "SK_CRY_MERL_01"
+            }
+        ]
     },
     "TS_REALEVENT_01": {
         "iname": "TS_REALEVENT_01",
@@ -3206,7 +4061,28 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_WADA_SETSUNA_01"
+        "trust_reward": "CARD_TS_WADA_SETSUNA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WADA_SETSUNA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WADA_SETSUNA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_WADA"
+            },
+            {
+                "card_skill": "SK_GS2_WADA_SETSUNA_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_WADA_SETSUNA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_LOGI_DIOS_SETSUNA"
+            },
+            {
+                "card_skill": "SK_GS3_WADA_SETSUNA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_WADA_SETSUNA_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS3_WADA_SETSUNA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_SETSUNA"
+            },
+            {
+                "statusup_skill": "SK_WADA_SETSUNA_01"
+            }
+        ]
     },
     "TS_WADA_IZAYOI_01": {
         "iname": "TS_WADA_IZAYOI_01",
@@ -3218,7 +4094,28 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_WADA_IZAYOI_01"
+        "trust_reward": "CARD_TS_WADA_IZAYOI_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WADA_IZAYOI_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WADA_IZAYOI_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_WADA"
+            },
+            {
+                "card_skill": "SK_GS2_WADA_IZAYOI_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_WADA_IZAYOI_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_RINN_TAMAMO_HAYATE_IZAYOI"
+            },
+            {
+                "card_skill": "SK_GS3_WADA_IZAYOI_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_WADA_IZAYOI_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS3_WADA_IZAYOI_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_IZAYOI"
+            },
+            {
+                "statusup_skill": "SK_WADA_IZAYOI_01"
+            }
+        ]
     },
     "TS_WADA_ZIN_01": {
         "iname": "TS_WADA_ZIN_01",
@@ -3230,7 +4127,30 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_WADA_ZIN_01"
+        "trust_reward": "CARD_TS_WADA_ZIN_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WADA_ZIN_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WADA_ZIN_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_WADA"
+            },
+            {
+                "card_skill": "SK_GS2_WADA_ZIN_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_WADA_ZIN_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_WADA_ZIN_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_ZIN_YOMI"
+            },
+            {
+                "abil_iname": "AB_01_WADA_ZIN_01"
+            },
+            {
+                "statusup_skill": "SK_WADA_ZIN_01"
+            },
+            {
+                "skin": "AF_SK_ZIN_BABEL",
+                "cnds_iname": "CARD_CNDS_ZIN"
+            }
+        ]
     },
     "TS_DESERT_UZUMA_01": {
         "iname": "TS_DESERT_UZUMA_01",
@@ -3242,7 +4162,32 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_DESERT_UZUMA_01"
+        "trust_reward": "CARD_TS_DESERT_UZUMA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_DESERT_UZUMA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_DESERT_UZUMA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_DESERT"
+            },
+            {
+                "card_skill": "SK_GS2_DESERT_UZUMA_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_DESERT_UZUMA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_MARRIAGE"
+            },
+            {
+                "card_skill": "SK_GS3_DESERT_UZUMA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_DESERT_UZUMA_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS3_DESERT_UZUMA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UZUMA_SHEHERAZADE"
+            },
+            {
+                "statusup_skill": "SK_DESERT_UZUMA_01"
+            },
+            {
+                "skin": "AF_SK_UZUM_MARR",
+                "cnds_iname": "CARD_CNDS_UZUMA"
+            }
+        ]
     },
     "TS_ENVYRIA_LUCRETIA_02": {
         "iname": "TS_ENVYRIA_LUCRETIA_02",
@@ -3254,7 +4199,27 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_ENVYRIA_LUCRETIA_02"
+        "trust_reward": "CARD_TS_ENVYRIA_LUCRETIA_02",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_ENVY_LUCRETIA_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVY_LUCRETIA_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_MARRIAGE"
+            },
+            {
+                "card_skill": "SK_GS2_ENVY_LUCRETIA_02",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVY_LUCRETIA_02_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVY_LUCRETIA_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_LUCRETIA"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_LUCRETIA_02"
+            },
+            {
+                "skin": "AF_SK_LUCR_MARR",
+                "cnds_iname": "CARD_CNDS_LUCRETIA"
+            }
+        ]
     },
     "TS_CRY_ARTH_01": {
         "iname": "TS_CRY_ARTH_01",
@@ -3266,7 +4231,29 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_CRY_ARTH_01"
+        "trust_reward": "CARD_TS_CRY_ARTH_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_CRY_ARTH_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_CRY_ARTH_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_CRY_COLABO_TAGA"
+            },
+            {
+                "card_skill": "SK_GS2_CRY_ARTH_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_CRY_ARTH_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_CRY_ARTH_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_ARTHUR"
+            },
+            {
+                "card_skill": "SK_GS2_CRY_ARTH_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_CRY_ARTH_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_CRY_ARTH_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_SEI_HOLY"
+            },
+            {
+                "statusup_skill": "SK_CRY_ARTH_01"
+            }
+        ]
     },
     "TS_LOST_ACHAD_02": {
         "iname": "TS_LOST_ACHAD_02",
@@ -3278,7 +4265,46 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_LOST_ACHAD_02"
+        "trust_reward": "CARD_TS_LOST_ACHAD_02",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_LOST_ACHAD_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_LOST_ACHAD_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_LOST"
+            },
+            {
+                "card_skill": "SK_GS1_LOST_ACHAD_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_LOST_ACHAD_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_LOST_ACHAD_02",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_LOST_ACHAD_02_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LOST_ACHAD_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_TEN_CMNDMNTS"
+            },
+            {
+                "card_skill": "SK_GS2_LOST_ACHAD_02",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_LOST_ACHAD_02_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LOST_ACHAD_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "abil_iname": "AB_01_LOST_ACHAD_02",
+                "cnds_iname": "CARD_CNDS_ACHAD_SWIM"
+            },
+            {
+                "abil_iname": "AB_01_LOST_ACHAD_02",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "statusup_skill": "SK_LOST_ACHAD_02"
+            },
+            {
+                "skin": "AF_SK_ACHAD_SWIM",
+                "cnds_iname": "CARD_CNDS_ACHAD"
+            }
+        ]
     },
     "TS_WADA_YOMI_01": {
         "iname": "TS_WADA_YOMI_01",
@@ -3290,7 +4316,49 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_WADA_YOMI_01"
+        "trust_reward": "CARD_TS_WADA_YOMI_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WADA_YOMI_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_WADA_YOMI_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_WADA_YOMI_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_WADA"
+            },
+            {
+                "card_skill": "SK_GS1_WADA_YOMI_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_WADA_YOMI_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_WADA_YOMI_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_WADA_YOMI_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_WADA_YOMI_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_YOMI"
+            },
+            {
+                "card_skill": "SK_GS2_WADA_YOMI_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_WADA_YOMI_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "abil_iname": "AB_01_WADA_YOMI_01"
+            },
+            {
+                "abil_iname": "AB_02_WADA_YOMI_01",
+                "cnds_iname": "CARD_CNDS_WADA"
+            },
+            {
+                "abil_iname": "AB_02_WADA_YOMI_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "statusup_skill": "SK_WADA_YOMI_01"
+            },
+            {
+                "skin": "AF_SK_YOMI_BABEL",
+                "cnds_iname": "CARD_CNDS_YOMI"
+            }
+        ]
     },
     "TS_WADA_FUJICA_01": {
         "iname": "TS_WADA_FUJICA_01",
@@ -3302,7 +4370,58 @@
         "sell": 800,
         "en_cost": 1600,
         "en_exp": 10000,
-        "trust_reward": "CARD_TS_WADA_FUJICA_01"
+        "trust_reward": "CARD_TS_WADA_FUJICA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WADA_FUJICA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_WADA_FUJICA_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_WADA_FUJICA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_WADA"
+            },
+            {
+                "card_skill": "SK_GS1_WADA_FUJICA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_WADA_FUJICA_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_WADA_FUJICA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_WADA_FUJICA_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_WADA_FUJICA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_FUJICA_HAZUKI"
+            },
+            {
+                "card_skill": "SK_GS2_WADA_FUJICA_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_WADA_FUJICA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "abil_iname": "AB_01_WADA_FUJICA_01",
+                "cnds_iname": "CARD_CNDS_FUJICA_GEN"
+            },
+            {
+                "abil_iname": "AB_01_WADA_FUJICA_01",
+                "cnds_iname": "CARD_CNDS_FUJICA_ENC"
+            },
+            {
+                "abil_iname": "AB_01_WADA_FUJICA_01",
+                "cnds_iname": "CARD_CNDS_HAZUKI"
+            },
+            {
+                "abil_iname": "AB_01_WADA_FUJICA_01",
+                "cnds_iname": "CARD_CNDS_RINN"
+            },
+            {
+                "abil_iname": "AB_01_WADA_FUJICA_01",
+                "cnds_iname": "CARD_CNDS_CHIHAYA"
+            },
+            {
+                "abil_iname": "AB_01_WADA_FUJICA_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "statusup_skill": "SK_WADA_FUJICA_01"
+            }
+        ]
     },
     "TS_LUST_ALMA_01": {
         "iname": "TS_LUST_ALMA_01",
@@ -3315,7 +4434,42 @@
         "en_cost": 2000,
         "en_exp": 20000,
         "trust_reward": "CARD_TS_LUST_ALMA_01",
-        "first_get_unit": "UN_V2_ALMA"
+        "first_get_unit": "UN_V2_ALMA",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_LUST_ALMA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_LUST_ALMA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_LUST"
+            },
+            {
+                "card_skill": "SK_GS1_LUST_ALMA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_LUST_ALMA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_LUST_ALMA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_LUST_ALMA_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LUST_ALMA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_ALMA_RIZ_REBE"
+            },
+            {
+                "card_skill": "SK_GS2_LUST_ALMA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_LUST_ALMA_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LUST_ALMA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "abil_iname": "AB_01_LUST_ALMA_01",
+                "cnds_iname": "CARD_CNDS_ALMA_RIZ_REBE"
+            },
+            {
+                "abil_iname": "AB_01_LUST_ALMA_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "statusup_skill": "SK_LUST_ALMA_01"
+            }
+        ]
     },
     "TS_LUST_REBECCA_01": {
         "iname": "TS_LUST_REBECCA_01",
@@ -3328,7 +4482,34 @@
         "en_cost": 2000,
         "en_exp": 20000,
         "trust_reward": "CARD_TS_LUST_REBECCA_01",
-        "first_get_unit": "UN_V2_REBECCA"
+        "first_get_unit": "UN_V2_REBECCA",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_LUST_REBECCA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_LUST_REBECCA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_LUST"
+            },
+            {
+                "card_skill": "SK_GS1_LUST_REBECCA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_LUST_REBECCA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_LUST_REBECCA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_LUST_REBECCA_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LUST_REBECCA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_ALMA_RIZ_REBE"
+            },
+            {
+                "card_skill": "SK_GS2_LUST_REBECCA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_LUST_REBECCA_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LUST_REBECCA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "statusup_skill": "SK_LUST_REBECCA_01"
+            }
+        ]
     },
     "TS_WRATH_TERESA_01": {
         "iname": "TS_WRATH_TERESA_01",
@@ -3340,7 +4521,37 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_WRATH_TERESA_01"
+        "trust_reward": "CARD_TS_WRATH_TERESA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WRATH_TERESA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATH_TERESA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_WRATHTRIZ"
+            },
+            {
+                "card_skill": "SK_GS1_WRATH_TERESA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATH_TERESA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_WRATH_TERESA_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_WRATH_TERESA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_LAMIA_TERESA_UROBOROS"
+            },
+            {
+                "card_skill": "SK_GS3_WRATH_TERESA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_WRATH_TERESA_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS3_WRATH_TERESA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_TERESA_UROBOROS"
+            },
+            {
+                "statusup_skill": "SK_WRATH_TERESA_01"
+            },
+            {
+                "skin": "AF_SK_TERE_SWIM",
+                "cnds_iname": "CARD_CNDS_TERESA"
+            }
+        ]
     },
     "TS_WADA_KURT": {
         "iname": "TS_WADA_KURT",
@@ -3352,6 +4563,35 @@
         "sell": 1000,
         "en_cost": 2000,
         "en_exp": 20000,
-        "trust_reward": "CARD_TS_WADA_KURT"
+        "trust_reward": "CARD_TS_WADA_KURT",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WADA_KURT",
+                "add_card_skill_buff_awake": "BUFF_GS1_WADA_KURT_BONUS01",
+                "cnds_iname": "CARD_CNDS_WADA"
+            },
+            {
+                "card_skill": "SK_GS1_WADA_KURT",
+                "add_card_skill_buff_awake": "BUFF_GS1_WADA_KURT_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_WADA_KURT",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_WADA_KURT_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_WADA_KURT_BONUS01",
+                "cnds_iname": "CARD_CNDS_KURT_REIMEI_UROBOROS"
+            },
+            {
+                "abil_iname": "AB_01_WADA_KURT",
+                "cnds_iname": "CARD_CNDS_FIRE_WADA_01"
+            },
+            {
+                "abil_iname": "AB_01_WADA_KURT",
+                "cnds_iname": "CARD_CNDS_UROBOROS_1"
+            },
+            {
+                "statusup_skill": "SK_WADA_KURT"
+            }
+        ]
     }
 }

@@ -7,6 +7,7 @@ from ParamFunctions.BreakObjParam import BreakObjParam
 from ParamFunctions.BuffEffectParam import BuffEffectParam
 from ParamFunctions.ChallengeCategoryParam import ChallengeCategoryParam
 from ParamFunctions.ChapterParam import ChapterParam
+from ParamFunctions.ConceptCardConditionsParam import ConceptCardConditionsParam
 from ParamFunctions.ConceptCardParam import ConceptCardParam
 from ParamFunctions.CondEffectParam import CondEffectParam
 from ParamFunctions.EvaluationParam import EvaluationParam
@@ -35,6 +36,7 @@ from ParamFunctions.TobiraRecipeParam import TobiraRecipeParam
 from ParamFunctions.TrickParam import TrickParam
 from ParamFunctions.TrophyCategoryParam import TrophyCategoryParam
 from ParamFunctions.TrophyParam import TrophyParam
+from ParamFunctions.UnitGroupParam import UnitGroupParam
 from ParamFunctions.UnitParam import UnitParam
 from ParamFunctions.VipParam import VipParam
 from ParamFunctions.WeaponParam import WeaponParam
