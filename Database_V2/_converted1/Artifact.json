@@ -5204,33 +5204,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -5308,33 +5281,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -5412,33 +5358,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -5516,33 +5435,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -5624,38 +5516,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -5737,38 +5597,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -5850,38 +5678,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -5963,38 +5759,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -6608,53 +6372,15 @@
         ],
         "dif": {
             "abil_inames": [
-                "AB_ARM_SHOCK_TO_KILL",
                 "AB_ARMS_SWO_TYRHUNG"
             ],
-            "abil_levels": [
-                1,
-                1
-            ],
+            "abil_levels": [],
             "abil_rareties": [
-                0,
                 4
             ],
-            "abil_shows": [
-                1,
-                1
-            ],
-            "abil_conds": [
-                "なし",
-                "なし"
-            ],
+            "abil_shows": [],
+            "abil_conds": [],
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -6737,20 +6463,6 @@
         "dif": {
             "rareini": 0,
             "condition_jobs": [
-                "JB_ANK",
-                "JB_BAA",
-                "JB_NEC",
-                "JB_ANAS_BAA",
-                "JB_VARG_VARG1",
-                "JB_VARG_VARG2",
-                "JB_LEAV_BAA_2",
-                "JB_REA",
-                "JB_DT_REA",
-                "JB_DK_REA",
-                "JB_DIS_LAHA",
-                "JB_DIOS_BAA",
-                "JB_FF15_GLAD",
-                "JB_POK_B_LAEV01",
                 "JB_ORION01"
             ]
         }
@@ -6832,20 +6544,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ANK",
-                "JB_BAA",
-                "JB_NEC",
-                "JB_ANAS_BAA",
-                "JB_VARG_VARG1",
-                "JB_VARG_VARG2",
-                "JB_LEAV_BAA_2",
-                "JB_REA",
-                "JB_DT_REA",
-                "JB_DK_REA",
-                "JB_DIS_LAHA",
-                "JB_DIOS_BAA",
-                "JB_FF15_GLAD",
-                "JB_POK_B_LAEV01",
                 "JB_ORION01"
             ]
         }
@@ -6939,33 +6637,6 @@
         "dif": {
             "rareini": 0,
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -7497,33 +7168,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -7605,38 +7249,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -7692,8 +7304,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WED_F",
-                "JB_WED_M",
                 "JB_LUCRE_WED_F"
             ]
         }
@@ -7749,8 +7359,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WED_F",
-                "JB_WED_M",
                 "JB_LUCRE_WED_F"
             ]
         }
@@ -7843,33 +7451,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -7929,12 +7510,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_HUN",
-                "JB_RAN",
-                "JB_SEDA_RAN",
-                "JB_SEDA_RAN2",
-                "JB_DIS_ARCH",
-                "JB_TINA01",
                 "JB_POK_B_ARTE01"
             ]
         }
@@ -7994,12 +7569,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_HUN",
-                "JB_RAN",
-                "JB_SEDA_RAN",
-                "JB_SEDA_RAN2",
-                "JB_DIS_ARCH",
-                "JB_TINA01",
                 "JB_POK_B_ARTE01"
             ]
         }
@@ -8061,18 +7630,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_KAK",
-                "JB_STR",
-                "JB_LUCA_STR",
-                "JB_DIS_KILL",
-                "JB_ACHA_STR",
-                "JB_NOIN01",
-                "JB_FA_EDWA01",
-                "JB_FA_ALPH01",
-                "JB_STRB",
-                "JB_DONTA01",
-                "JB_KAMUI01_KAMUI",
-                "JB_STRB_SHINE",
                 "JB_ALMA01"
             ]
         }
@@ -8134,18 +7691,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_KAK",
-                "JB_STR",
-                "JB_LUCA_STR",
-                "JB_DIS_KILL",
-                "JB_ACHA_STR",
-                "JB_NOIN01",
-                "JB_FA_EDWA01",
-                "JB_FA_ALPH01",
-                "JB_STRB",
-                "JB_DONTA01",
-                "JB_KAMUI01_KAMUI",
-                "JB_STRB_SHINE",
                 "JB_ALMA01"
             ]
         }
@@ -8440,38 +7985,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -8539,33 +8052,13 @@
         ],
         "dif": {
             "abil_inames": [
-                "AB_ARMS_LAN_KUDHAN",
                 "AB_ARMS_LAN_KUDHAN2"
             ],
-            "abil_levels": [
-                1,
-                1
-            ],
-            "abil_rareties": [
-                0,
-                0
-            ],
-            "abil_shows": [
-                1,
-                1
-            ],
-            "abil_conds": [
-                "なし",
-                "なし"
-            ],
+            "abil_levels": [],
+            "abil_rareties": [],
+            "abil_shows": [],
+            "abil_conds": [],
             "condition_jobs": [
-                "JB_LAN",
-                "JB_SPE",
-                "JB_KUDH_LAN",
-                "JB_FATE_LAN",
-                "JB_KUDH_LAN2",
-                "JB_DIS_ETON",
-                "JB_RH_RAIN",
                 "JB_APR_LIZ"
             ]
         }
@@ -8650,33 +8143,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -8750,20 +8216,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ANK",
-                "JB_BAA",
-                "JB_NEC",
-                "JB_ANAS_BAA",
-                "JB_VARG_VARG1",
-                "JB_VARG_VARG2",
-                "JB_LEAV_BAA_2",
-                "JB_REA",
-                "JB_DT_REA",
-                "JB_DK_REA",
-                "JB_DIS_LAHA",
-                "JB_DIOS_BAA",
-                "JB_FF15_GLAD",
-                "JB_POK_B_LAEV01",
                 "JB_ORION01"
             ]
         }
@@ -8889,10 +8341,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_NIN",
-                "JB_ONM",
-                "JB_YUAN_NIN",
-                "JB_HAYA_ONM",
                 "JB_ZIN_ONM"
             ]
         }
@@ -8942,10 +8390,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_NIN",
-                "JB_ONM",
-                "JB_YUAN_NIN",
-                "JB_HAYA_ONM",
                 "JB_ZIN_ONM"
             ]
         }
@@ -9264,13 +8708,7 @@
             "JB_MONZ_WOR2"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_WOR",
-                "JB_BERS",
-                "JB_MONZ_WOR",
-                "JB_MONZ_WOR2",
-                "JB_DIS_REDM"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMS_AXE_03": {
@@ -9317,13 +8755,7 @@
             "JB_MONZ_WOR2"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_WOR",
-                "JB_BERS",
-                "JB_MONZ_WOR",
-                "JB_MONZ_WOR2",
-                "JB_DIS_REDM"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMS_SEDA_BOW": {
@@ -9388,12 +8820,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_HUN",
-                "JB_RAN",
-                "JB_SEDA_RAN",
-                "JB_SEDA_RAN2",
-                "JB_DIS_ARCH",
-                "JB_TINA01",
                 "JB_POK_B_ARTE01"
             ]
         }
@@ -9457,13 +8883,7 @@
             "JB_MONZ_WOR2"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_WOR",
-                "JB_BERS",
-                "JB_MONZ_WOR",
-                "JB_MONZ_WOR2",
-                "JB_DIS_REDM"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ACCS_CANO_HEAD": {
@@ -9527,9 +8947,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
                 "JB_CANO_LORD_CC"
             ]
         }
@@ -9748,20 +9165,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ANK",
-                "JB_BAA",
-                "JB_NEC",
-                "JB_ANAS_BAA",
-                "JB_VARG_VARG1",
-                "JB_VARG_VARG2",
-                "JB_LEAV_BAA_2",
-                "JB_REA",
-                "JB_DT_REA",
-                "JB_DK_REA",
-                "JB_DIS_LAHA",
-                "JB_DIOS_BAA",
-                "JB_FF15_GLAD",
-                "JB_POK_B_LAEV01",
                 "JB_ORION01"
             ]
         }
@@ -9820,20 +9223,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ANK",
-                "JB_BAA",
-                "JB_NEC",
-                "JB_ANAS_BAA",
-                "JB_VARG_VARG1",
-                "JB_VARG_VARG2",
-                "JB_LEAV_BAA_2",
-                "JB_REA",
-                "JB_DT_REA",
-                "JB_DK_REA",
-                "JB_DIS_LAHA",
-                "JB_DIOS_BAA",
-                "JB_FF15_GLAD",
-                "JB_POK_B_LAEV01",
                 "JB_ORION01"
             ]
         }
@@ -9904,18 +9293,7 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_SOL",
-                "JB_YAUL_SOL",
-                "JB_BALT_SOL",
-                "JB_FATE_EMIYA",
-                "JB_BASI_SOL",
-                "JB_FF15_INGI",
-                "JB_YAUL_SOL2",
-                "JB_RH_ATO",
-                "JB_ZYVA01",
-                "JB_FA_WRAT01"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMS_DSWO_03": {
@@ -9969,18 +9347,7 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_SOL",
-                "JB_YAUL_SOL",
-                "JB_BALT_SOL",
-                "JB_FATE_EMIYA",
-                "JB_BASI_SOL",
-                "JB_FF15_INGI",
-                "JB_YAUL_SOL2",
-                "JB_RH_ATO",
-                "JB_ZYVA01",
-                "JB_FA_WRAT01"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMS_ROD_02": {
@@ -10067,38 +9434,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -10172,38 +9507,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -10274,18 +9577,7 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_SOL",
-                "JB_YAUL_SOL",
-                "JB_BALT_SOL",
-                "JB_FATE_EMIYA",
-                "JB_BASI_SOL",
-                "JB_FF15_INGI",
-                "JB_YAUL_SOL2",
-                "JB_RH_ATO",
-                "JB_ZYVA01",
-                "JB_FA_WRAT01"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMO_TOWER_01": {
@@ -10953,33 +10245,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -11115,20 +10380,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ANK",
-                "JB_BAA",
-                "JB_NEC",
-                "JB_ANAS_BAA",
-                "JB_VARG_VARG1",
-                "JB_VARG_VARG2",
-                "JB_LEAV_BAA_2",
-                "JB_REA",
-                "JB_DT_REA",
-                "JB_DK_REA",
-                "JB_DIS_LAHA",
-                "JB_DIOS_BAA",
-                "JB_FF15_GLAD",
-                "JB_POK_B_LAEV01",
                 "JB_ORION01"
             ]
         }
@@ -11195,12 +10446,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_HUN",
-                "JB_RAN",
-                "JB_SEDA_RAN",
-                "JB_SEDA_RAN2",
-                "JB_DIS_ARCH",
-                "JB_TINA01",
                 "JB_POK_B_ARTE01"
             ]
         }
@@ -11264,13 +10509,7 @@
             "JB_MONZ_WOR2"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_WOR",
-                "JB_BERS",
-                "JB_MONZ_WOR",
-                "JB_MONZ_WOR2",
-                "JB_DIS_REDM"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMS_NEC_02": {
@@ -11342,20 +10581,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ANK",
-                "JB_BAA",
-                "JB_NEC",
-                "JB_ANAS_BAA",
-                "JB_VARG_VARG1",
-                "JB_VARG_VARG2",
-                "JB_LEAV_BAA_2",
-                "JB_REA",
-                "JB_DT_REA",
-                "JB_DK_REA",
-                "JB_DIS_LAHA",
-                "JB_DIOS_BAA",
-                "JB_FF15_GLAD",
-                "JB_POK_B_LAEV01",
                 "JB_ORION01"
             ]
         }
@@ -11711,38 +10936,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -12048,33 +11241,6 @@
                 0
             ],
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -12319,18 +11485,7 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_SOL",
-                "JB_YAUL_SOL",
-                "JB_FATE_EMIYA",
-                "JB_BALT_SOL",
-                "JB_BASI_SOL",
-                "JB_FF15_INGI",
-                "JB_YAUL_SOL2",
-                "JB_RH_ATO",
-                "JB_ZYVA01",
-                "JB_FA_WRAT01"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ACCS_DOREI": {
@@ -12501,16 +11656,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_SAM",
-                "JB_MFEN",
-                "JB_MAS",
-                "JB_FATE_ASS",
-                "JB_DIS_SAM",
-                "JB_REIMEI_MFEN",
-                "JB_ZENN01",
-                "JB_FF15_COR01",
-                "JB_CADA_GUA_CC",
-                "JB_RAP_WATER",
                 "JB_YOMI_KAM"
             ]
         }
@@ -12562,16 +11707,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_SAM",
-                "JB_MFEN",
-                "JB_MAS",
-                "JB_FATE_ASS",
-                "JB_DIS_SAM",
-                "JB_REIMEI_MFEN",
-                "JB_ZENN01",
-                "JB_FF15_COR01",
-                "JB_CADA_GUA_CC",
-                "JB_RAP_WATER",
                 "JB_YOMI_KAM"
             ]
         }
@@ -12819,38 +11954,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -13261,33 +12364,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -13354,16 +12430,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_SAM",
-                "JB_MFEN",
-                "JB_MAS",
-                "JB_FATE_ASS",
-                "JB_DIS_SAM",
-                "JB_REIMEI_MFEN",
-                "JB_ZENN01",
-                "JB_FF15_COR01",
-                "JB_CADA_GUA_CC",
-                "JB_RAP_WATER",
                 "JB_YOMI_KAM"
             ]
         }
@@ -13545,12 +12611,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_HUN",
-                "JB_RAN",
-                "JB_SEDA_RAN",
-                "JB_SEDA_RAN2",
-                "JB_DIS_ARCH",
-                "JB_TINA01",
                 "JB_POK_B_ARTE01"
             ]
         }
@@ -13692,38 +12752,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -13794,18 +12822,7 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_SOL",
-                "JB_YAUL_SOL",
-                "JB_BALT_SOL",
-                "JB_FATE_EMIYA",
-                "JB_BASI_SOL",
-                "JB_FF15_INGI",
-                "JB_YAUL_SOL2",
-                "JB_RH_ATO",
-                "JB_ZYVA01",
-                "JB_FA_WRAT01"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMS_BASINI_01": {
@@ -13874,18 +12891,7 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_SOL",
-                "JB_YAUL_SOL",
-                "JB_BALT_SOL",
-                "JB_FATE_EMIYA",
-                "JB_BASI_SOL",
-                "JB_FF15_INGI",
-                "JB_YAUL_SOL2",
-                "JB_RH_ATO",
-                "JB_ZYVA01",
-                "JB_FA_WRAT01"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMS_DIS_USAL_01": {
@@ -14172,18 +13178,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_KAK",
-                "JB_STR",
-                "JB_LUCA_STR",
-                "JB_DIS_KILL",
-                "JB_ACHA_STR",
-                "JB_NOIN01",
-                "JB_FA_EDWA01",
-                "JB_FA_ALPH01",
-                "JB_STRB",
-                "JB_DONTA01",
-                "JB_KAMUI01_KAMUI",
-                "JB_STRB_SHINE",
                 "JB_ALMA01"
             ]
         }
@@ -14311,13 +13305,7 @@
             "JB_MONZ_WOR2"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_WOR",
-                "JB_BERS",
-                "JB_MONZ_WOR",
-                "JB_MONZ_WOR2",
-                "JB_DIS_REDM"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMS_DIS_LAHA_01": {
@@ -14389,20 +13377,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ANK",
-                "JB_BAA",
-                "JB_NEC",
-                "JB_ANAS_BAA",
-                "JB_VARG_VARG1",
-                "JB_VARG_VARG2",
-                "JB_LEAV_BAA_2",
-                "JB_REA",
-                "JB_DT_REA",
-                "JB_DK_REA",
-                "JB_DIS_LAHA",
-                "JB_DIOS_BAA",
-                "JB_FF15_GLAD",
-                "JB_POK_B_LAEV01",
                 "JB_ORION01"
             ]
         }
@@ -14470,13 +13444,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_LAN",
-                "JB_SPE",
-                "JB_KUDH_LAN",
-                "JB_FATE_LAN",
-                "JB_KUDH_LAN2",
-                "JB_DIS_ETON",
-                "JB_RH_RAIN",
                 "JB_APR_LIZ"
             ]
         }
@@ -14603,13 +13570,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_LAN",
-                "JB_SPE",
-                "JB_KUDH_LAN",
-                "JB_KUDH_LAN2",
-                "JB_FATE_LAN",
-                "JB_DIS_ETON",
-                "JB_RH_RAIN",
                 "JB_APR_LIZ"
             ]
         }
@@ -14662,13 +13622,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_LAN",
-                "JB_SPE",
-                "JB_KUDH_LAN",
-                "JB_KUDH_LAN2",
-                "JB_FATE_LAN",
-                "JB_DIS_ETON",
-                "JB_RH_RAIN",
                 "JB_APR_LIZ"
             ]
         }
@@ -14735,12 +13688,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_HUN",
-                "JB_RAN",
-                "JB_SEDA_RAN",
-                "JB_SEDA_RAN2",
-                "JB_DIS_ARCH",
-                "JB_TINA01",
                 "JB_POK_B_ARTE01"
             ]
         }
@@ -14911,10 +13858,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_NIN",
-                "JB_ONM",
-                "JB_YUAN_NIN",
-                "JB_HAYA_ONM",
                 "JB_ZIN_ONM"
             ]
         }
@@ -14979,10 +13922,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_NIN",
-                "JB_ONM",
-                "JB_YUAN_NIN",
-                "JB_HAYA_ONM",
                 "JB_ZIN_ONM"
             ]
         }
@@ -15056,20 +13995,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ANK",
-                "JB_BAA",
-                "JB_NEC",
-                "JB_ANAS_BAA",
-                "JB_VARG_VARG1",
-                "JB_VARG_VARG2",
-                "JB_LEAV_BAA_2",
-                "JB_REA",
-                "JB_DT_REA",
-                "JB_DK_REA",
-                "JB_DIS_LAHA",
-                "JB_DIOS_BAA",
-                "JB_FF15_GLAD",
-                "JB_POK_B_LAEV01",
                 "JB_ORION01"
             ]
         }
@@ -15308,50 +14233,12 @@
         "condition_lv": 1,
         "dif": {
             "abil_inames": [
-                "AB_AF_ACCS_RING_02_ACHAD",
-                "AB_AF_ACCS_RING_02_VIER",
-                "AB_AF_ACCS_RING_02_ZYVA",
-                "AB_AF_ACCS_RING_02_NOIN",
-                "AB_AF_ACCS_RING_02_FURY",
-                "AB_AF_ACCS_RING_02_ZENN",
                 "AB_AF_ACCS_RING_02_THOL"
             ],
-            "abil_levels": [
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1
-            ],
-            "abil_rareties": [
-                4,
-                4,
-                4,
-                4,
-                4,
-                4,
-                4
-            ],
-            "abil_shows": [
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1
-            ],
-            "abil_conds": [
-                "なし",
-                "なし",
-                "なし",
-                "なし",
-                "なし",
-                "なし",
-                "なし"
-            ]
+            "abil_levels": [],
+            "abil_rareties": [],
+            "abil_shows": [],
+            "abil_conds": []
         }
     },
     "AF_ARMS_FF15_PROM_01": {
@@ -15487,33 +14374,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -15584,18 +14444,7 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_SOL",
-                "JB_YAUL_SOL",
-                "JB_BALT_SOL",
-                "JB_FATE_EMIYA",
-                "JB_BASI_SOL",
-                "JB_FF15_INGI",
-                "JB_YAUL_SOL2",
-                "JB_RH_ATO",
-                "JB_ZYVA01",
-                "JB_FA_WRAT01"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMS_FF15_GLAD_01": {
@@ -15667,20 +14516,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ANK",
-                "JB_BAA",
-                "JB_NEC",
-                "JB_ANAS_BAA",
-                "JB_VARG_VARG1",
-                "JB_VARG_VARG2",
-                "JB_LEAV_BAA_2",
-                "JB_REA",
-                "JB_DT_REA",
-                "JB_DK_REA",
-                "JB_DIS_LAHA",
-                "JB_DIOS_BAA",
-                "JB_FF15_GLAD",
-                "JB_POK_B_LAEV01",
                 "JB_ORION01"
             ]
         }
@@ -15880,33 +14715,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -15995,38 +14803,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -16168,38 +14944,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -16284,33 +15028,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -16378,13 +15095,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_LAN",
-                "JB_SPE",
-                "JB_KUDH_LAN",
-                "JB_KUDH_LAN2",
-                "JB_FATE_LAN",
-                "JB_DIS_ETON",
-                "JB_RH_RAIN",
                 "JB_APR_LIZ"
             ]
         }
@@ -16674,18 +15384,7 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_SOL",
-                "JB_YAUL_SOL",
-                "JB_BALT_SOL",
-                "JB_FATE_EMIYA",
-                "JB_BASI_SOL",
-                "JB_FF15_INGI",
-                "JB_YAUL_SOL2",
-                "JB_RH_ATO",
-                "JB_ZYVA01",
-                "JB_FA_WRAT01"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMS_S_AMAT_00": {
@@ -16810,18 +15509,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_KAK",
-                "JB_STR",
-                "JB_LUCA_STR",
-                "JB_DIS_KILL",
-                "JB_ACHA_STR",
-                "JB_NOIN01",
-                "JB_FA_EDWA01",
-                "JB_FA_ALPH01",
-                "JB_STRB",
-                "JB_DONTA01",
-                "JB_KAMUI01_KAMUI",
-                "JB_STRB_SHINE",
                 "JB_ALMA01"
             ]
         }
@@ -16926,12 +15613,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_HUN",
-                "JB_RAN",
-                "JB_SEDA_RAN",
-                "JB_SEDA_RAN2",
-                "JB_DIS_ARCH",
-                "JB_TINA01",
                 "JB_POK_B_ARTE01"
             ]
         }
@@ -16998,16 +15679,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_SAM",
-                "JB_MFEN",
-                "JB_MAS",
-                "JB_FATE_ASS",
-                "JB_DIS_SAM",
-                "JB_REIMEI_MFEN",
-                "JB_ZENN01",
-                "JB_FF15_COR01",
-                "JB_CADA_GUA_CC",
-                "JB_RAP_WATER",
                 "JB_YOMI_KAM"
             ]
         }
@@ -17189,18 +15860,7 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": [
-                "JB_SOL",
-                "JB_YAUL_SOL",
-                "JB_BALT_SOL",
-                "JB_FATE_EMIYA",
-                "JB_BASI_SOL",
-                "JB_FF15_INGI",
-                "JB_YAUL_SOL2",
-                "JB_RH_ATO",
-                "JB_ZYVA01",
-                "JB_FA_WRAT01"
-            ]
+            "condition_jobs": []
         }
     },
     "AF_ARMO_NOIN_01": {
@@ -17340,38 +16000,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -17438,16 +16066,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_SAM",
-                "JB_MFEN",
-                "JB_MAS",
-                "JB_FATE_ASS",
-                "JB_DIS_SAM",
-                "JB_REIMEI_MFEN",
-                "JB_ZENN01",
-                "JB_FF15_COR01",
-                "JB_CADA_GUA_CC",
-                "JB_RAP_WATER",
                 "JB_YOMI_KAM"
             ]
         }
@@ -17769,33 +16387,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }
@@ -18036,38 +16627,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_NOAH_HWIZ",
                 "JB_CRY_MERL01"
             ]
         }
@@ -18135,13 +16694,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_LAN",
-                "JB_SPE",
-                "JB_KUDH_LAN",
-                "JB_KUDH_LAN2",
-                "JB_FATE_LAN",
-                "JB_DIS_ETON",
-                "JB_RH_RAIN",
                 "JB_APR_LIZ"
             ]
         }
@@ -18451,10 +17003,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_NIN",
-                "JB_ONM",
-                "JB_YUAN_NIN",
-                "JB_HAYA_ONM",
                 "JB_ZIN_ONM"
             ]
         }
@@ -18595,43 +17143,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_WIZ",
-                "JB_YUJ",
-                "JB_PRI",
-                "JB_ENC",
-                "JB_GEN",
-                "JB_DAI",
-                "JB_SYO",
-                "JB_SHN",
-                "JB_ROFI_GEN",
-                "JB_ALEX_PRI",
-                "JB_MARE_DAI",
-                "JB_LIES_PRI",
-                "JB_LIES_2",
-                "JB_KAGU_WIZ",
-                "JB_KAGU_DAI",
-                "JB_OTHI_WIZ",
-                "JB_FATE_CAS",
-                "JB_KAGU_DAI2",
-                "JB_RAHU_GEN",
-                "JB_HWIZ",
-                "JB_DIS_WIZ",
-                "JB_LIES_2CC",
-                "JB_WEA",
-                "JB_VIER_WIZ",
-                "JB_VANE_DAI",
-                "JB_MIEL_PRI",
-                "JB_FURY01",
-                "JB_SQ_PRI",
-                "JB_OTHI_WIZ_CC",
-                "JB_SHN_FINANCIAL_KYARORU",
-                "JB_FF15_REGI01",
-                "JB_LUROB01",
-                "JB_LUROB03",
-                "JB_NOAH_HWIZ",
-                "JB_THOL01",
-                "JB_HENC_WATER",
-                "JB_CRY_MERL01",
                 "JB_HENC_WIND"
             ]
         }
@@ -18723,50 +17234,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_SEI",
-                "JB_GUA",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_LAN",
-                "JB_SPE",
-                "JB_DGR",
-                "JB_DGN",
-                "JB_LAMI_DGN",
-                "JB_FREE_DGN",
-                "JB_WOR",
-                "JB_KAJ",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_KUDH_LAN",
-                "JB_KUDH_LAN2",
-                "JB_MONZ_WOR",
-                "JB_MONZ_WOR2",
-                "JB_ZAYI_LORD",
-                "JB_MIUN_KAJ",
-                "JB_MIUN_KAJ_CC",
-                "JB_FATE_SABR",
-                "JB_FATE_LAN",
-                "JB_DIS_ETON",
-                "JB_SQ_PAL",
-                "JB_TEM",
-                "JB_VAL",
-                "JB_FA_PRID01",
-                "JB_POK_B_TYRH01",
-                "JB_FF15_GLAD",
-                "JB_BERS",
-                "JB_GUNL",
-                "JB_CADA_GUA_CC",
-                "JB_GUNL_WATER",
-                "JB_STRB",
-                "JB_APR_LIZ",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
-                "JB_STRB_SHINE",
                 "JB_GUIL_TEM"
             ]
         }
@@ -19075,33 +17542,6 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ARM",
-                "JB_SEI",
-                "JB_GUA",
-                "JB_MAH",
-                "JB_SELE_SELE1",
-                "JB_SELE_SELE2",
-                "JB_CANO_ARM",
-                "JB_CANO_SEI",
-                "JB_CANO_LORD",
-                "JB_CADA_SEI",
-                "JB_CADA_GUA",
-                "JB_ZAYI_LORD",
-                "JB_FEN",
-                "JB_H_FEN",
-                "JB_FEN_N",
-                "JB_FATE_SABR",
-                "JB_DILG_GUA",
-                "JB_LOGI_GUA",
-                "JB_ARKI_MAH",
-                "JB_FF15_NOCT",
-                "JB_RH_STOC",
-                "JB_SQ_PAL",
-                "JB_SQ_DAN",
-                "JB_TEM",
-                "JB_POK_B_TYRH01",
-                "JB_CANO_LORD_CC",
-                "JB_CRY_ARTH01",
                 "JB_GUIL_TEM"
             ]
         }

@@ -4934,10 +4934,6 @@
             "Category": "【期間限定】FFXVコラボイベントクエストEX",
             "Items": [
                 {
-                    "iname": "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
-                    "num": 30
-                },
-                {
                     "iname": "IT_AF_ARMS_FF15_GLAD_01",
                     "num": 10
                 }
@@ -4972,10 +4968,6 @@
             "Category": "【期間限定】FFXVコラボイベントクエストEX",
             "Items": [
                 {
-                    "iname": "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
-                    "num": 30
-                },
-                {
                     "iname": "IT_AF_ARMS_FF15_GLAD_01",
                     "num": 10
                 }
@@ -5009,10 +5001,6 @@
         "dif": {
             "Category": "【期間限定】FFXVコラボイベントクエストEX",
             "Items": [
-                {
-                    "iname": "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
-                    "num": 30
-                },
                 {
                     "iname": "IT_AF_ARMS_FF15_GLAD_01",
                     "num": 10
@@ -5049,10 +5037,6 @@
             "Category": "【期間限定】FFXVコラボイベントクエストEX",
             "Items": [
                 {
-                    "iname": "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
-                    "num": 30
-                },
-                {
                     "iname": "IT_AF_ARMS_FF15_GLAD_01",
                     "num": 10
                 }
@@ -5085,16 +5069,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【期間限定】【マルチ】FFXVコラボイベントクエストEX",
-            "Items": [
-                {
-                    "iname": "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
-                    "num": 50
-                },
-                {
-                    "iname": "IT_SG_POT3",
-                    "num": 5
-                }
-            ]
+            "Items": []
         }
     },
     "RECORD_FF15_EX2_M_02": {
@@ -5182,10 +5157,6 @@
             "Category": "【期間限定】FFXVコラボイベントクエストEX",
             "Items": [
                 {
-                    "iname": "IT_EQ_DIAGRAMPIECE_FF15_NOCT",
-                    "num": 30
-                },
-                {
                     "iname": "IT_AF_ARMS_FF15_NOCT_01",
                     "num": 10
                 }
@@ -5220,10 +5191,6 @@
             "Category": "【期間限定】FFXVコラボイベントクエストEX",
             "Items": [
                 {
-                    "iname": "IT_EQ_DIAGRAMPIECE_FF15_NOCT",
-                    "num": 30
-                },
-                {
                     "iname": "IT_AF_ARMS_FF15_NOCT_01",
                     "num": 10
                 }
@@ -5257,10 +5224,6 @@
         "dif": {
             "Category": "【期間限定】FFXVコラボイベントクエストEX",
             "Items": [
-                {
-                    "iname": "IT_EQ_DIAGRAMPIECE_FF15_NOCT",
-                    "num": 30
-                },
                 {
                     "iname": "IT_AF_ARMS_FF15_NOCT_01",
                     "num": 10
@@ -5297,10 +5260,6 @@
             "Category": "【期間限定】FFXVコラボイベントクエストEX",
             "Items": [
                 {
-                    "iname": "IT_EQ_DIAGRAMPIECE_FF15_NOCT",
-                    "num": 30
-                },
-                {
                     "iname": "IT_AF_ARMS_FF15_NOCT_01",
                     "num": 10
                 }
@@ -5333,16 +5292,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【期間限定】【マルチ】FFXVコラボイベントクエストEX",
-            "Items": [
-                {
-                    "iname": "IT_EQ_DIAGRAMPIECE_FF15_NOCT",
-                    "num": 50
-                },
-                {
-                    "iname": "IT_SG_POT3",
-                    "num": 5
-                }
-            ]
+            "Items": []
         }
     },
     "RECORD_FF15_EX3_M_02": {
@@ -7583,16 +7533,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【聖石の追憶】託された正義",
-            "Items": [
-                {
-                    "iname": "UN_V2_CANON",
-                    "num": 1
-                },
-                {
-                    "iname": "IT_PI_CANON",
-                    "num": 50
-                }
-            ]
+            "Items": []
         }
     },
     "SEISEKI_DJ_02": {
@@ -10952,11 +10893,7 @@
         "ConceptCards": [],
         "dif": {
             "Objectives": {
-                "type": "winquest",
-                "ival": 10,
-                "sval": [
-                    "QE_SO_ZEKE_3"
-                ]
+                "ival": 10
             },
             "Category": "【期間限定】血狼と呼ばれても"
         }
@@ -10985,11 +10922,7 @@
         "ConceptCards": [],
         "dif": {
             "Objectives": {
-                "type": "winquest",
-                "ival": 15,
-                "sval": [
-                    "QE_SO_ZEKE_3"
-                ]
+                "ival": 15
             },
             "Category": "【期間限定】血狼と呼ばれても"
         }
@@ -11460,12 +11393,7 @@
         "dif": {
             "Exp": 100,
             "Category": "【期間限定】木漏れ日は遠く過ぎて ",
-            "Items": [
-                {
-                    "iname": "IT_PI_PERIDOT",
-                    "num": 10
-                }
-            ]
+            "Items": []
         }
     },
     "SO_PERI_05_03": {
@@ -11496,12 +11424,7 @@
         "dif": {
             "Exp": 100,
             "Category": "【期間限定】木漏れ日は遠く過ぎて ",
-            "Items": [
-                {
-                    "iname": "IT_PI_PERIDOT",
-                    "num": 10
-                }
-            ]
+            "Items": []
         }
     },
     "SO_PERI_05_04": {
@@ -11626,12 +11549,7 @@
         "dif": {
             "Exp": 200,
             "Category": "【期間限定】木漏れ日は遠く過ぎて ",
-            "Items": [
-                {
-                    "iname": "IT_PI_PERIDOT",
-                    "num": 15
-                }
-            ]
+            "Items": []
         }
     },
     "SO_PERI_06_04": {
@@ -11662,12 +11580,7 @@
         "dif": {
             "Exp": 200,
             "Category": "【期間限定】木漏れ日は遠く過ぎて ",
-            "Items": [
-                {
-                    "iname": "IT_PI_PERIDOT",
-                    "num": 15
-                }
-            ]
+            "Items": []
         }
     },
     "SO_PERI_06_05": {
@@ -11744,10 +11657,6 @@
         "dif": {
             "Category": "【期間限定】木漏れ日は遠く過ぎて ",
             "Items": [
-                {
-                    "iname": "IT_EQ_SOUL_FLAM_KEM",
-                    "num": 6
-                },
                 {
                     "iname": "IT_UG_APPLE5",
                     "num": 3
@@ -12298,7 +12207,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -12329,7 +12238,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -12388,7 +12297,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -12419,7 +12328,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -12478,7 +12387,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -12509,7 +12418,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -12568,7 +12477,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -12599,7 +12508,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -12666,7 +12575,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -12701,7 +12610,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -12768,7 +12677,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "レコード終了"
         }
     },
@@ -12803,7 +12712,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "レコード終了"
         }
     },
@@ -12838,7 +12747,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "レコード終了"
         }
     },
@@ -12873,7 +12782,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "レコード終了"
         }
     },
@@ -12934,7 +12843,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -12970,7 +12879,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】クリスマス・タイム・イン・バベル"
         }
     },
@@ -13027,7 +12936,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】【EX】【マルチ】クリスマス・タイム・イン・バベル"
         }
     },
@@ -13063,7 +12972,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】【EX】【マルチ】クリスマス・タイム・イン・バベル"
         }
     },
@@ -13874,7 +13783,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "レコード終了"
         }
     },
@@ -13921,7 +13830,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "レコード終了"
         }
     },
@@ -13968,7 +13877,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "レコード終了"
         }
     },
@@ -14674,7 +14583,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【ストーリー】１章1話",
-            "Items": []
+            "Items": {}
         }
     },
     "WINQUEST_002": {
@@ -17097,20 +17006,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【ストーリー】１章3話",
-            "Items": [
-                {
-                    "iname": "IT_US_2016APR_ARTIFACT_TICKET",
-                    "num": 3
-                },
-                {
-                    "iname": "IT_UG_APPLE4",
-                    "num": 6
-                },
-                {
-                    "iname": "IT_CV_GOLD2",
-                    "num": 20
-                }
-            ]
+            "Items": []
         }
     },
     "WINQUEST_091": {
@@ -17381,20 +17277,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【ストーリー】１章4話",
-            "Items": [
-                {
-                    "iname": "IT_US_SOULTICKET",
-                    "num": 3
-                },
-                {
-                    "iname": "IT_UG_APPLE4",
-                    "num": 6
-                },
-                {
-                    "iname": "IT_SG_POT2",
-                    "num": 1
-                }
-            ]
+            "Items": []
         }
     },
     "WINQUEST_101N": {
@@ -17661,20 +17544,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【ストーリー】１章4話",
-            "Items": [
-                {
-                    "iname": "IT_US_2016APR_SOUBI02_TICKET",
-                    "num": 1
-                },
-                {
-                    "iname": "IT_UG_APPLE4",
-                    "num": 6
-                },
-                {
-                    "iname": "IT_SG_POT2",
-                    "num": 1
-                }
-            ]
+            "Items": []
         }
     },
     "WINQUEST_111N": {
@@ -17949,20 +17819,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【ストーリー】１章4話",
-            "Items": [
-                {
-                    "iname": "IT_US_2016APR_ARTIFACT_TICKET",
-                    "num": 3
-                },
-                {
-                    "iname": "IT_UG_APPLE4",
-                    "num": 6
-                },
-                {
-                    "iname": "IT_CV_GOLD2",
-                    "num": 20
-                }
-            ]
+            "Items": []
         }
     },
     "WINQUEST_121": {
@@ -18503,20 +18360,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【ストーリー】１章5話",
-            "Items": [
-                {
-                    "iname": "IT_US_2016APR_JOB_SOUBI_TICKET",
-                    "num": 1
-                },
-                {
-                    "iname": "IT_UG_APPLE4",
-                    "num": 9
-                },
-                {
-                    "iname": "IT_SG_POT3",
-                    "num": 1
-                }
-            ]
+            "Items": []
         }
     },
     "WINQUEST_141": {
@@ -18787,20 +18631,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【ストーリー】１章5話",
-            "Items": [
-                {
-                    "iname": "IT_US_2016APR_SOUBI03_TICKET",
-                    "num": 1
-                },
-                {
-                    "iname": "IT_UG_APPLE4",
-                    "num": 9
-                },
-                {
-                    "iname": "IT_CV_GOLD3",
-                    "num": 10
-                }
-            ]
+            "Items": []
         }
     },
     "WINQUEST_151N": {
@@ -23655,12 +23486,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 5
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_23": {
@@ -23688,12 +23514,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 5
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_24": {
@@ -23721,12 +23542,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 5
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_25": {
@@ -23754,12 +23570,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 5
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_26": {
@@ -23787,12 +23598,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 5
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_27": {
@@ -23824,12 +23630,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 5
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_28": {
@@ -23863,12 +23664,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 5
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_29": {
@@ -23896,12 +23692,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 8
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_30": {
@@ -23929,12 +23720,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 8
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_31": {
@@ -23962,12 +23748,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 8
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_32": {
@@ -23995,12 +23776,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 8
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_33": {
@@ -24028,12 +23804,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "【育成】プレイヤーレベルを上げよう",
-            "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 8
-                }
-            ]
+            "Items": []
         }
     },
     "PLAYERLV_34": {
@@ -24383,10 +24154,6 @@
             "Category": "【育成】プレイヤーレベルを上げよう",
             "Items": [
                 {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 13
-                },
-                {
                     "iname": "IT_CV_GOLD3",
                     "num": 8
                 }
@@ -24421,10 +24188,6 @@
             "Category": "【育成】プレイヤーレベルを上げよう",
             "Items": [
                 {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 13
-                },
-                {
                     "iname": "IT_CV_GOLD3",
                     "num": 8
                 }
@@ -24458,10 +24221,6 @@
             "Stamina": 240,
             "Category": "【育成】プレイヤーレベルを上げよう",
             "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 13
-                },
                 {
                     "iname": "IT_CV_GOLD3",
                     "num": 8
@@ -24500,10 +24259,6 @@
             "Stamina": 240,
             "Category": "【育成】プレイヤーレベルを上げよう",
             "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 13
-                },
                 {
                     "iname": "IT_CV_GOLD3",
                     "num": 8
@@ -24544,10 +24299,6 @@
             "Stamina": 240,
             "Category": "【育成】プレイヤーレベルを上げよう",
             "Items": [
-                {
-                    "iname": "IT_UG_APPLE5",
-                    "num": 13
-                },
                 {
                     "iname": "IT_CV_GOLD3",
                     "num": 8
@@ -32251,7 +32002,7 @@
         "ConceptCards": [],
         "dif": {
             "Category": "レコード終了",
-            "Items": []
+            "Items": {}
         }
     },
     "RECORD_2017_JAN_RENA_EV_WIN08": {
@@ -32495,11 +32246,7 @@
         "ConceptCards": [],
         "dif": {
             "Objectives": {
-                "type": "winquest",
-                "ival": 5,
-                "sval": [
-                    "QE_EV_POK_SAM_06"
-                ]
+                "ival": 5
             },
             "Category": "レコード終了"
         }
@@ -32526,11 +32273,7 @@
         "ConceptCards": [],
         "dif": {
             "Objectives": {
-                "type": "winquest",
-                "ival": 10,
-                "sval": [
-                    "QE_EV_POK_SAM_06"
-                ]
+                "ival": 10
             },
             "Category": "レコード終了"
         }
@@ -32558,11 +32301,7 @@
         "ConceptCards": [],
         "dif": {
             "Objectives": {
-                "type": "winquest",
-                "ival": 15,
-                "sval": [
-                    "QE_EV_POK_SAM_06"
-                ]
+                "ival": 15
             },
             "Category": "レコード終了",
             "Items": [
@@ -32619,11 +32358,7 @@
         "ConceptCards": [],
         "dif": {
             "Objectives": {
-                "type": "winquest",
-                "ival": 5,
-                "sval": [
-                    "QE_EV_POK_SAM_07"
-                ]
+                "ival": 5
             },
             "Category": "レコード終了"
         }
@@ -32650,11 +32385,7 @@
         "ConceptCards": [],
         "dif": {
             "Objectives": {
-                "type": "winquest",
-                "ival": 10,
-                "sval": [
-                    "QE_EV_POK_SAM_07"
-                ]
+                "ival": 10
             },
             "Category": "レコード終了"
         }
@@ -32682,11 +32413,7 @@
         "ConceptCards": [],
         "dif": {
             "Objectives": {
-                "type": "winquest",
-                "ival": 20,
-                "sval": [
-                    "QE_EV_POK_SAM_07"
-                ]
+                "ival": 20
             },
             "Category": "レコード終了",
             "Items": [
@@ -33173,7 +32900,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33200,7 +32927,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33251,7 +32978,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33278,7 +33005,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33329,7 +33056,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33356,7 +33083,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33407,7 +33134,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33435,7 +33162,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33491,7 +33218,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33522,7 +33249,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33553,7 +33280,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33605,7 +33332,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33632,7 +33359,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33659,7 +33386,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },
@@ -33687,7 +33414,7 @@
         "Artifacts": [],
         "ConceptCards": [],
         "dif": {
-            "RequiredTrophies": [],
+            "RequiredTrophies": {},
             "Category": "【期間限定】チョコレート・トイボックス"
         }
     },

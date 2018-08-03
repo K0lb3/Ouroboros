@@ -1511,24 +1511,7 @@
             }
         ],
         "dif": {
-            "skills": [
-                {
-                    "iname": "SK_DILG_GUA_GRANFORTRESS",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_DILG_GUA_SACRED_SABER",
-                    "locklv": 7
-                },
-                {
-                    "iname": "SK_GUA_IMORTAL_SPIRIT",
-                    "locklv": 16
-                },
-                {
-                    "iname": "SK_GUA_LION_HEART",
-                    "locklv": 20
-                }
-            ],
+            "skills": [],
             "type_detail": "Job_Unique"
         }
     },
@@ -2441,22 +2424,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_BAA_LIFE_DRAIN",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_BAA_JEWEL_DRAIN",
-                    "locklv": 6
-                },
-                {
-                    "iname": "SK_BAA_SOUL_HEET",
-                    "locklv": 11
-                },
-                {
-                    "iname": "SK_BAA_SOUL_BRINGER",
-                    "locklv": 20
-                },
-                {
                     "iname": "SK_ANA_BAA_HP_DOWN_SLASH",
                     "locklv": 20
                 }
@@ -2498,22 +2465,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_BAA_SOUL_REAPER",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_BAA_EVIL_BROSE",
-                    "locklv": 7
-                },
-                {
-                    "iname": "SK_BAA_SOUL_CIRCULAR",
-                    "locklv": 16
-                },
-                {
-                    "iname": "SK_BAA_SOUL_SACRIFICE",
-                    "locklv": 18
-                },
                 {
                     "iname": "SK_ANA_BAA_JUGGERNAUT",
                     "locklv": 20
@@ -3259,32 +3210,7 @@
             }
         ],
         "dif": {
-            "skills": [
-                {
-                    "iname": "SK_DGN_DRAGON_BREATH",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_DGN_KINMANOYARI",
-                    "locklv": 6
-                },
-                {
-                    "iname": "SK_DGN_SENMANOYARI",
-                    "locklv": 12
-                },
-                {
-                    "iname": "SK_DGN_DRAGON_BAIN",
-                    "locklv": 16
-                },
-                {
-                    "iname": "SK_LAMI_DGN_CHAGE",
-                    "locklv": 20
-                },
-                {
-                    "iname": "SK_LAMI_DGN_GRAND_CROSS",
-                    "locklv": 20
-                }
-            ],
+            "skills": [],
             "type_detail": "Job_Unique"
         }
     },
@@ -3596,26 +3522,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_DGN_DRAGON_BREATH",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_DGN_KINMANOYARI_RUDRA",
-                    "locklv": 6
-                },
-                {
-                    "iname": "SK_DGN_SENMANOYARI",
-                    "locklv": 12
-                },
-                {
-                    "iname": "SK_DGN_DRAGON_BAIN",
-                    "locklv": 16
-                },
-                {
-                    "iname": "SK_DGN_GRAND_CROSS_RUDRA",
-                    "locklv": 20
-                },
                 {
                     "iname": "SK_DGN_GRAND_CROSS",
                     "locklv": 20
@@ -4907,26 +4813,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_KIL_01",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_KIL_02",
-                    "locklv": 6
-                },
-                {
-                    "iname": "SK_KIL_03",
-                    "locklv": 13
-                },
-                {
-                    "iname": "SK_KIL_04",
-                    "locklv": 20
-                },
-                {
-                    "iname": "SK_SUTO_KIL_09",
-                    "locklv": 20
-                },
                 {
                     "iname": "SK_SUTO_KIL_CC_01",
                     "locklv": 20
@@ -6588,22 +6474,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_SNI_CHARGE_SNIPE",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_SNI_AIMING",
-                    "locklv": 7
-                },
-                {
-                    "iname": "SK_SNI_CAMOUFLAGE",
-                    "locklv": 13
-                },
-                {
-                    "iname": "SK_SNI_BULLET_SNIPE",
-                    "locklv": 20
-                },
-                {
                     "iname": "SK_SNI_SHORT_ATTACK",
                     "locklv": 20
                 }
@@ -6641,22 +6511,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_SNI_LEG_SNIPE",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_SNI_HEAD_SNIPE",
-                    "locklv": 7
-                },
-                {
-                    "iname": "SK_CHAL_SNI_PIERCING_SNIPE",
-                    "locklv": 14
-                },
-                {
-                    "iname": "SK_SNI_A_MATERIAL_BURST",
-                    "locklv": 20
-                },
                 {
                     "iname": "SK_SNI_ZERO_ATTACK",
                     "locklv": 20
@@ -7136,28 +6990,7 @@
             }
         ],
         "dif": {
-            "skills": [
-                {
-                    "iname": "SK_FLAM_KEM_CAT_PUNCH",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_KEM_SNAKE_BITE",
-                    "locklv": 5
-                },
-                {
-                    "iname": "SK_KEM_YASEI_NO_KAN",
-                    "locklv": 9
-                },
-                {
-                    "iname": "SK_KEM_HOUKOU",
-                    "locklv": 14
-                },
-                {
-                    "iname": "SK_KEM_SHUSHIN",
-                    "locklv": 20
-                }
-            ],
+            "skills": [],
             "type_detail": "Job_Basic"
         }
     },
@@ -7191,22 +7024,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_KEM_IKAKU",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_KEM_STAMPEDE",
-                    "locklv": 8
-                },
-                {
-                    "iname": "SK_KEM_BORE_TACKLE",
-                    "locklv": 14
-                },
-                {
-                    "iname": "SK_FLAM_KEM_DEMONS_KILLING",
-                    "locklv": 20
-                },
                 {
                     "iname": "SK_FLAM_KEM_SKILL_ELEM_UP",
                     "locklv": 20
@@ -7415,28 +7232,7 @@
             }
         ],
         "dif": {
-            "skills": [
-                {
-                    "iname": "SK_PRI_CURE",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_ALEX_PRI_REGENERATE",
-                    "locklv": 5
-                },
-                {
-                    "iname": "SK_PRI_PURIFICATION",
-                    "locklv": 9
-                },
-                {
-                    "iname": "SK_PRI_CURE_SQUARE",
-                    "locklv": 12
-                },
-                {
-                    "iname": "SK_ALEX_PRI_REGENERATE_SQUARE",
-                    "locklv": 20
-                }
-            ],
+            "skills": [],
             "type_detail": "Job_Basic"
         }
     },
@@ -7470,26 +7266,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_PRI_CURE_EMBRACE",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_PRI_JUDGEMENT_RAY",
-                    "locklv": 7
-                },
-                {
-                    "iname": "SK_PRI_HEAVEN_GATE",
-                    "locklv": 14
-                },
-                {
-                    "iname": "SK_PRI_AMAZING_GRACE",
-                    "locklv": 20
-                },
-                {
-                    "iname": "SK_ALEX_PRI_RANDOM_EIGHT",
-                    "locklv": 20
-                },
                 {
                     "iname": "SK_ALEX_PRI_GROUP_RECOVERY",
                     "locklv": 20
@@ -8719,26 +8495,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_DAI_ELEMENTAL_BURST",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_DAI_MEGA_FLARE",
-                    "locklv": 8
-                },
-                {
-                    "iname": "SK_DAI_MEGA_BLIZZARD",
-                    "locklv": 12
-                },
-                {
-                    "iname": "SK_DAI_MEGA_TORNADO",
-                    "locklv": 16
-                },
-                {
-                    "iname": "SK_DAI_MEGA_BOLT",
-                    "locklv": 20
-                },
-                {
                     "iname": "SK_DAI_MARE_DARK",
                     "locklv": 20
                 }
@@ -8778,28 +8534,7 @@
             }
         ],
         "dif": {
-            "skills": [
-                {
-                    "iname": "SK_DAI_MEGA_FIRE",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_DAI_MEGA_ICE",
-                    "locklv": 5
-                },
-                {
-                    "iname": "SK_DAI_MEGA_WIND",
-                    "locklv": 10
-                },
-                {
-                    "iname": "SK_DAI_VANE_MEGA_THUNDER",
-                    "locklv": 15
-                },
-                {
-                    "iname": "SK_DAI_POISON_MIST",
-                    "locklv": 20
-                }
-            ],
+            "skills": [],
             "type_detail": "Job_Basic"
         }
     },
@@ -8939,30 +8674,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_GEN_PHANTOM_VISION",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_GEN_CLOCK_UP",
-                    "locklv": 7
-                },
-                {
-                    "iname": "SK_GEN_CLOCK_DOWN",
-                    "locklv": 13
-                },
-                {
-                    "iname": "SK_GEN_REST_ABN",
-                    "locklv": 17
-                },
-                {
-                    "iname": "SK_GEN_CLOCK_BREAK",
-                    "locklv": 20
-                },
-                {
-                    "iname": "SK_ROFI_GEN_CC_GRAVITY",
-                    "locklv": 20
-                },
                 {
                     "iname": "SK_ROFI_GEN_CC_CLOCK",
                     "locklv": 20
@@ -9391,22 +9102,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_BAR_ATK_UP",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_BAR_DEF_UP",
-                    "locklv": 5
-                },
-                {
-                    "iname": "SK_BAR_MAG_UP",
-                    "locklv": 10
-                },
-                {
-                    "iname": "SK_BAR_MND_UP",
-                    "locklv": 15
-                },
-                {
                     "iname": "SK_BAR_LUK_UP_HEAL_POLLIN",
                     "locklv": 20
                 }
@@ -9448,26 +9143,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_BAR_SLEEP_SONG_POLLIN",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_BAR_DEX_UP",
-                    "locklv": 6
-                },
-                {
-                    "iname": "SK_BAR_SPD_UP",
-                    "locklv": 14
-                },
-                {
-                    "iname": "SK_BAR_RECOVERY_HEAL_POLLIN",
-                    "locklv": 17
-                },
-                {
-                    "iname": "SK_BAR_ALL_UP",
-                    "locklv": 20
-                },
                 {
                     "iname": "SK_BAR_RANGE_RES_POLLIN",
                     "locklv": 20
@@ -9601,26 +9276,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_ODO_ATK_DOWN_2",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_ODO_ATK_DOWN_3",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_ODO_ATK_DOWN_4",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_ODO_ATK_DOWN_5",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_ODO_ATK_DOWN_6",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_ODO_ATK_DOWN_7",
                     "locklv": 1
@@ -10025,18 +9680,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_SOL_SONIC_EDGE",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_SOL_MIKIRI",
-                    "locklv": 5
-                },
-                {
-                    "iname": "SK_SOL_CHARGE_EDGE",
-                    "locklv": 10
-                },
-                {
                     "iname": "SK_SOL_SHARP_EDGE_MOVE",
                     "locklv": 20
                 }
@@ -10073,24 +9716,7 @@
             }
         ],
         "dif": {
-            "skills": [
-                {
-                    "iname": "SK_SOL_TWIN_EDGE",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_SOL_KAITENGIRI_MOVE",
-                    "locklv": 5
-                },
-                {
-                    "iname": "SK_BALT_SOL_KAMAITACHI",
-                    "locklv": 20
-                },
-                {
-                    "iname": "SK_SOL_TRI_EDGE",
-                    "locklv": 20
-                }
-            ],
+            "skills": [],
             "type_detail": "Job_Unique"
         }
     },
@@ -13812,24 +13438,7 @@
             }
         ],
         "dif": {
-            "skills": [
-                {
-                    "iname": "SK_MONZ_WOR_NANORI",
-                    "locklv": 7
-                },
-                {
-                    "iname": "SK_MONZ_WOR_GUADIAN",
-                    "locklv": 14
-                },
-                {
-                    "iname": "SK_MONZ_WOR2_RISING_AX",
-                    "locklv": 20
-                },
-                {
-                    "iname": "SK_MONZ_WOR_JUSTICE_STORM",
-                    "locklv": 20
-                }
-            ],
+            "skills": [],
             "type_detail": "Job_Basic"
         }
     },
@@ -13863,18 +13472,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_MONZ_WOR_BREAK_AX",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_MONZ_WOR_UPPER_2B",
-                    "locklv": 20
-                },
-                {
-                    "iname": "SK_MONZ_WOR2_SHOOT_THE_AX",
-                    "locklv": 20
-                },
                 {
                     "iname": "SK_MONZ_WOR2_BONE_BREAK_CC",
                     "locklv": 20
@@ -14109,24 +13706,7 @@
             }
         ],
         "dif": {
-            "skills": [
-                {
-                    "iname": "SK_YAUL_SOL2_LOWER_1",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_YAUL_SOL2_LOWER_2_CC",
-                    "locklv": 7
-                },
-                {
-                    "iname": "SK_YAUL_SOL2_LOWER_3",
-                    "locklv": 14
-                },
-                {
-                    "iname": "SK_YAUL_SOL2_LOWER_4",
-                    "locklv": 20
-                }
-            ],
+            "skills": [],
             "type_detail": "Job_Basic"
         }
     },
@@ -14160,18 +13740,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_YAUL_SOL2_UPPER_1",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_YAUL_SOL2_UPPER_2",
-                    "locklv": 10
-                },
-                {
-                    "iname": "SK_YAUL_SOL2_UPPER_3",
-                    "locklv": 15
-                },
                 {
                     "iname": "SK_YAUL_SOL2_UPPER_4_CC",
                     "locklv": 20
@@ -16849,24 +16417,7 @@
             }
         ],
         "dif": {
-            "skills": [
-                {
-                    "iname": "SK_KUDH_LAN_CRI_UP_CC",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_KUDH_LAN_PIERCING_SPEAR",
-                    "locklv": 7
-                },
-                {
-                    "iname": "SK_KUDH_LAN_LASER_SPEAR_CC",
-                    "locklv": 15
-                },
-                {
-                    "iname": "SK_KUDH_LAN_RANGE_SPEAR",
-                    "locklv": 20
-                }
-            ],
+            "skills": [],
             "type_detail": "Job_Basic"
         }
     },
@@ -16899,24 +16450,7 @@
             }
         ],
         "dif": {
-            "skills": [
-                {
-                    "iname": "SK_KUDH_LAN_HP_DRAIN",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_KUDH_LAN_DISABLEMOVE_SPEAR",
-                    "locklv": 7
-                },
-                {
-                    "iname": "SK_KUDH_LAN_CROSS_SPEAR_CC",
-                    "locklv": 15
-                },
-                {
-                    "iname": "SK_KUDH_LAN_SACRIFICE_SPEAR",
-                    "locklv": 20
-                }
-            ],
+            "skills": [],
             "type_detail": "Job_Unique"
         }
     },
@@ -24238,10 +23772,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_RAT_JEWEL_DRAIN_WIDE_S",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_RAT_JEWEL_DRAIN_WIDE_R",
                     "locklv": 1
                 }
@@ -24283,26 +23813,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_RAT_WIZ_FIRE",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAT_WIZ_FIRE2",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_XMA_RAT_GOTOHELL",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAT_WIZ_FIRE_LONG",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAT_WIZ_FIRE_RENKEI_CLASH",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_RAT_WIZ_FIRE3",
                     "locklv": 1
                 }
@@ -24340,22 +23850,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_RAT_WIZ_ICE",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAT_WIZ_ICE2",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_XMA_RAT_DEFDOWN",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_XMA_RAT_HEALING",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_RAT_WIZ_ICE3",
                     "locklv": 1
                 }
@@ -24384,14 +23878,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_RAT_WIZ_WIND",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAT_WIZ_WIND2",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_RAT_WIZ_WIND3",
                     "locklv": 1
@@ -24422,14 +23908,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_RAT_WIZ_THUNDER",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAT_WIZ_THUNDER2",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_RAT_WIZ_THUNDER3",
                     "locklv": 1
                 }
@@ -24459,14 +23937,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_RAT_WIZ_SHINE",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAT_WIZ_SHINE2",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_RAT_WIZ_SHINE3",
                     "locklv": 1
                 }
@@ -24495,14 +23965,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_RAT_WIZ_DARK",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAT_WIZ_DARK2",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_RAT_WIZ_DARK3",
                     "locklv": 1
@@ -24670,34 +24132,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_RAT_WIZ_METEO1_SP",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAT_WIZ_METEO2_SP",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_RAT_WIZ_METEO3_SP",
-                    "locklv": 3
-                },
-                {
-                    "iname": "SK_RAT_WIZ_METEO4_SP",
-                    "locklv": 4
-                },
-                {
-                    "iname": "SK_RAT_WIZ_METEO1_MOBIUS_25F",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAT_WIZ_NAMIBOM",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAT_WIZ_LUCKBOM",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_RAT_WIZ_NAMIBOM_VEDA106",
                     "locklv": 1
@@ -25483,30 +24917,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_LIZ_HUN_DIRECT_ARROW",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_LIZ_HUN_DIRECT_BOLT",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_LIZ_HUN_DIRECT_SHOWER",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_HUN_DIRECT_SHOWER_S",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_LIZ_HUN_DIRECT_ARROW_2",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_LIZ_HUN_DIRECT_ARROW_KNOCK",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_LIZ_HUN_DIRECT_ARROW_KNOCK_RAIN",
                     "locklv": 1
                 }
@@ -25941,18 +25351,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_LIZ_HUN_SLOW",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_LIZ_HUN_SLOW_NOROI",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_LIZ_HUN_SLOW_HIT",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_LIZ_HUN_SLOW_SHOWER",
                     "locklv": 1
@@ -29203,10 +28601,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_DMN_WIZ_PSYCHIC_SHIELD",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_BARRIER_BABEL_01_EX",
                     "locklv": 1
                 }
@@ -29708,18 +29102,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_VEDA_BOSS_SHIFT_F",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_VEDA_BOSS_GALLERY",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_VEDA_BOSS_GALLERY_2",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_DMN_WIZ_MAP_SHIFT_01",
                     "locklv": 1
@@ -30480,34 +29862,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_RAN_BURNISHING_SHOOT",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAN_SNIPE_SHOOTING",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAN_SHADOW_SHOOT",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAN_WIDE_SHOOTING",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAN_TOUSEKI",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAN_WIDE_SHOOTING_DEF_DOWN",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_RAN_WIDE_SHOOTING_LUCK_DOWN",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_RAN_WIDE_SHOOTING_KAIHI_DOWN",
                     "locklv": 1
                 }
@@ -30999,22 +30353,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_AJ2000_NAGIBARAI",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_AJ2000_KAITENGIRI_2",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_AJ2000_ASYUKUHOU",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_AJ2000_KAITENGIRI_3",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_AJ2000_SHIELD_FM_03",
                     "locklv": 1
                 }
@@ -31464,22 +30802,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_AJ6000_WIZ_CHANGING_1_P",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_AJ6000_WIZ_CHANGING_2_P",
-                    "locklv": 2
-                },
-                {
-                    "iname": "SK_AJ6000_WIZ_CHANGING_3_P",
-                    "locklv": 3
-                },
-                {
-                    "iname": "SK_AJ6000_WIZ_CHANGING_4_P",
-                    "locklv": 4
-                },
-                {
                     "iname": "SK_AJ6000_WIZ_CHANGING_5_P",
                     "locklv": 1
                 }
@@ -31667,22 +30989,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_AJ7000_INSTALL",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_AJ7000_SPINNING_EX",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_AJ7000_INSTALL_SP",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_AJ7000_INSTALL_SP2",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_AJ7000_INSTALL_SP3",
                     "locklv": 1
@@ -32471,34 +31777,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_DIAB_WIZ_ATK_MAG_ROAR_HEIGHT_UP",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_DIAB_WIZ_ATK_ATK_ROAR_HEIGHT_UP",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_DIAB_WIZ_HOUKOU",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_DIAB_WIZ_ATK_2",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_DIAB_WIZ_ATK_3",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_DIAB_DISPEL_MAGIC",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_DIAB_WIZ_ATK_4",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_DIAB_DISPEL_MAGIC_MOBIUS30F",
                     "locklv": 1
@@ -33465,38 +32743,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_FAMILIAR_VENOMSLASH",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_FAMILIAR_MIND_DISPEL",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_FAMILIAR_BORN_DISPEL",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_FAMILIAR_DRAGON_ROAR",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_FAMILIAR_DRAGON_BREATH",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_FAMILIAR_DRAGON_BREATH_CTPLUS",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_FAMILIAR_VEDA_CUREALL",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_FAMILIAR_DRAGON_ROAR_02",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_FAMILIAR_DRAGON_ROAR_03",
                     "locklv": 1
                 }
@@ -33687,38 +32933,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_VENUS_SEC_BLIZZARD_WALL",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_VENUS_SEC_METEOR_L_FALL",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_VENUS_SEC_LIGHTING_RAIN",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_VENUS_SEC_HIREFUSE",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_VENUS_SEC_ZERO_SOUTEN",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_VENUS_SEC_DARK_MIST",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_VENUS_SEC_KING_GOVRNANCE",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_VENUS_SEC_DARK_MIST_PLUS",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_VENUS_SEC_HIREFUSE_BUGFIX",
                     "locklv": 1
@@ -35100,22 +34314,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_BAR_TAISEI_UP01",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_BAR_TAISEI_UP02",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_BAR_ATK_UP_MOBIUS",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_BAR_BUFF_TRUN_UP",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_BAR_TAISEI_UP03",
                     "locklv": 1
                 }
@@ -35249,18 +34447,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_FF15_M_CACT_01",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_FF15_M_CACT_02",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_FF15_M_CACT_02_99",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_FF15_M_CACT_02_ADV",
                     "locklv": 1
@@ -35563,14 +34749,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_EN_SO_CELLIERS_01",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_EN_SO_CELLIERS_02",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_EN_SO_CELLIERS_SP_01",
                     "locklv": 1
@@ -36638,36 +35816,7 @@
             }
         ],
         "dif": {
-            "skills": [
-                {
-                    "iname": "SK_WOL_ARM_BOSS_HAGAREN_EX3_01",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_WOL_ARM_BOSS_HAGAREN_EX3_02",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_WOL_ARM_BOSS_HAGAREN_EX3_03",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_WOL_ARM_BOSS_HAGAREN_EX3_04",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_WOL_ARM_BOSS_HAGAREN_EX3_05",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_WOL_ARM_BOSS_HAGAREN_EX3_05_1",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_WOL_ARM_BOSS_HAGAREN_EX3_06",
-                    "locklv": 1
-                }
-            ],
+            "skills": [],
             "type_detail": "Default"
         }
     },
@@ -47462,7 +46611,6 @@
         ],
         "dif": {
             "condition_units": [
-                "UN_V2_TYRHUNG",
                 "UN_V2_POK_BLK_TYRHUNG"
             ],
             "type_detail": "WeaponAbility"
@@ -47513,7 +46661,6 @@
         ],
         "dif": {
             "condition_units": [
-                "UN_V2_LAEVATEINN",
                 "UN_V2_POK_BLK_LAEVATEINN"
             ],
             "type_detail": "WeaponAbility"
@@ -54347,14 +53494,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_ME_PLA_WARRIOR",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_ME_WLA_WARRIOR",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_ME_DES_WARRIOR",
                     "locklv": 1
                 }
@@ -54879,18 +54018,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_ME_PLA_SUPPORT",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_ME_FRS_SUPPORT",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_ME_OCE_SUPPORT",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_ME_DES_SUPPORT",
                     "locklv": 1
                 }
@@ -55086,10 +54213,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_ME_OCE_WARRIOR_AGI",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_ME_DES_WARRIOR_DOWN",
                     "locklv": 1
@@ -55557,10 +54680,6 @@
         "dif": {
             "skills": [
                 {
-                    "iname": "SK_ME_PLA_WARRIOR",
-                    "locklv": 1
-                },
-                {
                     "iname": "SK_ME_DES_WARRIOR",
                     "locklv": 1
                 }
@@ -55669,18 +54788,6 @@
         ],
         "dif": {
             "skills": [
-                {
-                    "iname": "SK_ME_PLA_WARRIOR",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_ME_WLA_WARRIOR",
-                    "locklv": 1
-                },
-                {
-                    "iname": "SK_ME_WLA_WARRIOR",
-                    "locklv": 1
-                },
                 {
                     "iname": "SK_ME_DES_WARRIOR",
                     "locklv": 1

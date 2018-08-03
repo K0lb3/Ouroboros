@@ -50,10 +50,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -109,11 +105,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "DisableAvoid",
-                "CastSkillFriendlyFire",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -170,11 +161,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "DisableAvoid",
-                "CastSkillFriendlyFire",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -231,12 +217,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "DisableSkill",
-                "DisableAvoid",
-                "CastSkillFriendlyFire",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -333,7 +313,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableAvoid",
                 "UseOldSort"
             ]
         }
@@ -383,7 +362,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableAvoid",
                 "UseOldSort"
             ]
         }
@@ -674,7 +652,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableSkill",
                 "UseOldSort"
             ]
         }
@@ -724,8 +701,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableSkill",
-                "DisableAvoid",
                 "UseOldSort"
             ]
         }
@@ -778,7 +753,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableSkill",
                 "UseOldSort"
             ]
         }
@@ -932,7 +906,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -986,7 +959,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -1040,7 +1012,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -1092,7 +1063,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableSkill",
                 "UseOldSort"
             ]
         }
@@ -1243,7 +1213,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -1296,7 +1265,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -1349,7 +1317,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -1402,7 +1369,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableSkill",
                 "UseOldSort"
             ]
         }
@@ -1556,7 +1522,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -1610,7 +1575,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -1664,7 +1628,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -1718,7 +1681,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -1769,7 +1731,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableSkill",
                 "UseOldSort"
             ]
         }
@@ -1917,7 +1878,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -1970,7 +1930,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -2023,7 +1982,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -2075,7 +2033,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableSkill",
                 "UseOldSort"
             ]
         }
@@ -2226,7 +2183,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -2279,7 +2235,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -2332,7 +2287,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -2383,7 +2337,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableSkill",
                 "UseOldSort"
             ]
         }
@@ -2531,7 +2484,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -2583,7 +2535,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -2635,7 +2586,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -2785,7 +2735,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -2837,7 +2786,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -2889,7 +2837,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -2941,7 +2888,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableSkill",
                 "UseOldSort"
             ]
         }
@@ -3092,7 +3038,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -3145,7 +3090,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -3198,7 +3142,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -3247,7 +3190,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableMove",
                 "UseOldSort"
             ]
         }
@@ -3300,10 +3242,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3356,10 +3294,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3412,10 +3346,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3468,10 +3398,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3524,10 +3450,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3580,10 +3502,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3637,10 +3555,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3694,10 +3608,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3750,10 +3660,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3806,10 +3712,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3862,10 +3764,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3920,11 +3818,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -3978,11 +3871,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4036,11 +3924,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4094,11 +3977,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4152,11 +4030,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4210,11 +4083,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4269,11 +4137,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4328,11 +4191,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4386,11 +4244,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4444,11 +4297,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4503,11 +4351,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4561,11 +4404,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4618,10 +4456,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4674,10 +4508,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4730,10 +4560,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4786,10 +4612,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4845,11 +4667,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4905,11 +4722,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -4965,11 +4777,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5025,11 +4832,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5085,11 +4887,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5145,11 +4942,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5205,11 +4997,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5264,11 +5051,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5323,11 +5105,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5381,11 +5158,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5442,11 +5214,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5502,11 +5269,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5562,11 +5324,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5622,11 +5379,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5682,11 +5434,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5740,11 +5487,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5803,12 +5545,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "SelfBuffOnly",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5867,12 +5603,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "SelfBuffOnly",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5923,10 +5653,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -5985,12 +5711,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "SelfBuffOnly",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6043,10 +5763,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6102,10 +5818,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6160,11 +5872,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6220,11 +5927,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6277,10 +5979,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6333,10 +6031,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6391,11 +6085,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6451,11 +6140,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6511,10 +6195,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6567,10 +6247,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6623,10 +6299,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6679,10 +6351,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6735,10 +6403,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6793,11 +6457,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6851,11 +6510,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6908,10 +6562,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -6964,10 +6614,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7021,11 +6667,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7079,10 +6720,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7137,11 +6774,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7194,10 +6826,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7253,10 +6881,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7309,10 +6933,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7365,10 +6985,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7421,10 +7037,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7478,11 +7090,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7535,10 +7142,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7594,11 +7197,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7654,11 +7252,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7714,10 +7307,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7773,10 +7362,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7832,10 +7417,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7890,10 +7471,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -7947,10 +7524,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8005,11 +7578,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8064,11 +7632,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8123,10 +7686,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8181,10 +7740,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8239,10 +7794,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8295,10 +7846,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8351,10 +7898,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8407,10 +7950,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8464,10 +8003,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8520,10 +8055,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8579,11 +8110,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8639,11 +8165,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8699,11 +8220,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8758,11 +8274,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8815,10 +8326,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8873,11 +8380,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8930,10 +8432,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -8986,10 +8484,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9043,11 +8537,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9100,10 +8589,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9156,10 +8641,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9215,11 +8696,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9272,10 +8748,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9329,11 +8801,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9387,11 +8854,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9445,11 +8907,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9502,10 +8959,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9558,10 +9011,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9620,12 +9069,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "SelfBuffOnly",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9678,10 +9121,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9732,11 +9171,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9789,10 +9223,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9846,11 +9276,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9904,10 +9329,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -9962,10 +9383,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10020,10 +9437,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10076,10 +9489,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10132,10 +9541,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10188,10 +9593,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10246,10 +9647,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10304,11 +9701,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10362,10 +9754,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10418,10 +9806,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10474,7 +9858,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -10526,7 +9909,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -10576,7 +9958,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -10626,7 +10007,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
                 "UseOldSort"
             ]
         }
@@ -10683,11 +10063,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10726,9 +10101,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
                 "UseOldSort"
             ]
         }
@@ -10788,11 +10160,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10847,9 +10214,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "DisableAction",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -10907,11 +10271,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -11011,7 +10370,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -11063,7 +10421,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -11115,7 +10472,6 @@
         ],
         "dif": {
             "flags": [
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
@@ -11221,9 +10577,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
                 "UseOldSort"
             ]
         }
@@ -11279,9 +10632,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
                 "UseOldSort"
             ]
         }
@@ -11337,9 +10687,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
                 "UseOldSort"
             ]
         }
@@ -11395,9 +10742,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
                 "UseOldSort"
             ]
         }
@@ -11553,11 +10897,6 @@
         ],
         "dif": {
             "flags": [
-                "Positioning",
-                "Sneaking",
-                "CastSkillFriendlyFire",
-                "DisableJewelAttack",
-                "DisableTargetPriority",
                 "UseOldSort"
             ]
         }
