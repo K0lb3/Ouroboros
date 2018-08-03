@@ -73,8 +73,7 @@ def UnitParam(json):
         this['ma_rarity'] = json['ma_rarity']
     if 'ma_lv' in json:
         this['ma_lv'] = json['ma_lv']
-    if 'skins' in json:
-        this['skins'] = json['skins']
+    this['skins'] = json['skins'] if 'skins' in json else []
     if 'djob' in json:
         this['djob'] = json['djob']
     if 'dbuki' in json:

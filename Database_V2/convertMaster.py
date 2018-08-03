@@ -2,8 +2,9 @@ from MainFunctions import *
 import ParamFunctions
 
 PATH_convert=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converted1')
+PATH_convert2=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converted2')
 
-def createAIO():
+def convertRaws(save=True):
     masters=loadFiles(
     ['MasterParam.json', 'MasterParamJP.json', 'QuestParam.json','QuestParamJP.json', 'QuestDropParam.json'])
     #loc = Translation()
@@ -52,12 +53,73 @@ def createAIO():
             else:
                 export[main]=converted
 
-    for main in export:
-        saveAsJSON(PATH_convert, main+'.json',export[main])
-    saveAsJSON(PATH_convert, 'AIO.json',export)
+    if save:
+        for main in export:
+            saveAsJSON(PATH_convert, main+'.json',export[main])
+        #saveAsJSON(PATH_convert, 'AIO.json',export)
+    return export
 
-createAIO()
+def Fixes(master):
+    #units
+    for key,unit in master['Unit'].items():
+        #add skins from dif
+        if 'dif' in unit and 'skins' in unit['dif']:
+            unit['skins']+=unit['dif']['skins']
 
+        #change js to job
+        if 'jobsets' in unit:
+            unit['jobs']=[
+                master['JobSet'][js]['job']
+                for js in unit['jobsets']
+                ]
+            del unit['jobsets']
+
+    #add job+
+    for key,js in master['JobSet'].items():
+        if 'jobchange' in js:
+            unit = master['Unit'][js['target_unit']]
+            if 'jobchanges' not in unit:
+                unit['jobchanges']=[None]*len(unit['jobs'])
+
+            for index,job in enumerate(unit['jobs']):
+                if job == js['lock_jobs']['iname']:
+                    unit['jobchanges'][index]=js['job']
+
+    #add kaigan
+    for kaigan in master['Tobira']:
+        unit = master['Unit'][kaigan['mUnitIname']]
+        if 'kaigan' not in unit:
+            unit['kaigan']={}
+        unit['kaigan'][kaigan['mCategory']]=kaigan
+
+    #add nensou
+    for key,card in master['ConceptCard'].items():
+        if 'effects' not in card:
+            continue
+
+        for effect in card['effects']:
+            if 'cnds_iname' not in effect:
+                continue
+
+            conds = master['ConceptCardConditions'][effect['cnds_iname']]
+            if 'unit_group' not in conds:
+                continue
+            units = master['UnitGroup'][conds['unit_group']]['units']
+
+            if len(units)==1:
+                #skin
+                if 'skin' in effect:
+                    master['Unit'][units[0]]['skins'].append(effect['skin'])
+                #normal stuff
+                master['Unit'][units[0]]['conceptcard']=key
+
+
+
+    saveAsJSON(PATH_convert2, 'Unit.json',master['Unit'])
+
+
+Con1=convertRaws()
+Fixes(Con1)
 
 
 
