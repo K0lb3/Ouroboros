@@ -32,11 +32,11 @@ def ConceptCardParam(json):
             this['is_override_lvcap'] = False
             this['lvcap']=this['rare']*5+10
 
-        if 'effects' in json:
-            this['effects'] = [
-                ConceptCardEffectsParam(effect)
-                for effect in json['effects']
-            ]
+    if 'effects' in json:
+        this['effects'] = [
+            ConceptCardEffectsParam(effect)
+            for effect in json['effects']
+        ]
 
     if 'not_sale' in json:
         this['not_sale'] = json['not_sale']==1
