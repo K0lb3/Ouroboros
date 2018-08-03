@@ -60,8 +60,16 @@ def convertRaws(save=True):
     return export
 
 def Fixes(master):
-    #units
-    for key,unit in master['Unit'].items():
+    UNIT=master['Unit']
+    SKILL=master['Skill']
+    BUFF=master['Buff']
+    ITEM=master['Item']
+    JOB=master['Job']
+
+    ##units##########################################################
+    print('Fix - Unit')
+    # jobset to job and add skins
+    for key,unit in UNIT.items():
         #add skins from dif
         if 'dif' in unit and 'skins' in unit['dif']:
             unit['skins']+=unit['dif']['skins']
@@ -77,7 +85,7 @@ def Fixes(master):
     #add job+
     for key,js in master['JobSet'].items():
         if 'jobchange' in js:
-            unit = master['Unit'][js['target_unit']]
+            unit = UNIT[js['target_unit']]
             if 'jobchanges' not in unit:
                 unit['jobchanges']=[None]*len(unit['jobs'])
 
@@ -87,7 +95,7 @@ def Fixes(master):
 
     #add kaigan
     for kaigan in master['Tobira']:
-        unit = master['Unit'][kaigan['mUnitIname']]
+        unit = UNIT[kaigan['mUnitIname']]
         if 'kaigan' not in unit:
             unit['kaigan']={}
         unit['kaigan'][kaigan['mCategory']]=kaigan
@@ -109,13 +117,58 @@ def Fixes(master):
             if len(units)==1:
                 #skin
                 if 'skin' in effect:
-                    master['Unit'][units[0]]['skins'].append(effect['skin'])
+                    UNIT[units[0]]['skins'].append(effect['skin'])
                 #normal stuff
-                master['Unit'][units[0]]['conceptcard']=key
+                UNIT[units[0]]['conceptcard']=key
+
+    #save
+    saveAsJSON(PATH_convert2, 'Unit.json',UNIT)
+
+    ##job############################################################
+    print('Fix - Job')
+    #abilities and stats
+    for key,job in master['Job'].items():
+        if 'fixed_ability' not in job:
+            continue
+        #abilities
+        abilities={
+            'main': job['fixed_ability'],
+            'sub' : '',
+            'reaction': [],
+            'passive': []
+        }
+        for abil in job['abilities']:
+            slot = master['Ability'][abil]['slot']
+            if slot=='Action':
+                abilities['sub']=abil
+            elif slot == 'Reaction':
+                abilities['reaction']+=[abil]
+            elif slot == 'Support':
+                abilities['passive']+=[abil]
+
+        job['abilities']=abilities
+        del job['fixed_ability']
+
+        #stats
+        stats={}
+        for i,rank in enumerate(job['ranks']):
+            if i == 0:
+                continue
+            for item in rank['equips']:
+                for buff in BUFF[SKILL[ITEM[item]['skill']]['target_buff_iname']]['buffs']:
+                    if buff['type'] not in stats:
+                        stats[buff['type']]=0
+                    if i<len(job['ranks'])-1:
+                        stats[buff['type']]+=buff['value_ini']
+                    else:
+                        stats[buff['type']]+=buff['value_max']
+        job['stats']=stats
+
+    #save
+    saveAsJSON(PATH_convert2, 'Job.json',JOB)
 
 
-
-    saveAsJSON(PATH_convert2, 'Unit.json',master['Unit'])
+    
 
 
 Con1=convertRaws()
