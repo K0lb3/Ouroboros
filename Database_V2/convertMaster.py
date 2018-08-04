@@ -68,8 +68,15 @@ def Fixes(master):
 
     ##units##########################################################
     print('Fix - Unit')
-    # jobset to job and add skins
+    # jobset to job and add skins and seperate unit and NPC
+    (eUnit, eEnemy)=({},{})
     for key,unit in UNIT.items():
+        #unit or enemy
+        if 'lore' in unit or ('piece' in unit and 'ai' in unit and unit['ai']=='AI_PLAYER' and 'EN' != key[6]+key[7] and 'role' not in unit):
+            eUnit[key]=unit
+        else:
+            eEnemy[key]=unit
+
         #add skins from dif
         if 'dif' in unit and 'skins' in unit['dif']:
             unit['skins']+=unit['dif']['skins']
@@ -122,8 +129,8 @@ def Fixes(master):
                 UNIT[units[0]]['conceptcard']=key
 
     #save
-    saveAsJSON(PATH_convert2, 'Unit.json',UNIT)
-
+    saveAsJSON(PATH_convert2, 'Unit.json',eUnit)
+    saveAsJSON(PATH_convert2, 'Enemy.json',eEnemy)
     ##job############################################################
     print('Fix - Job')
     #abilities and stats
