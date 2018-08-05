@@ -15,13 +15,13 @@ def convertRaws(save=True):
         for main in master:
             #get right method for convertion
             mName=main[0].upper()+main[1:]
-            method= getattr(ParamFunctions, mName+'Param',  getattr(ParamFunctions, mName+'EffectParam',False))
+            method= getattr(ParamFunctions, mName+'Param',  getattr(ParamFunctions, mName+'EffectParam',getattr(ParamFunctions, mName[:-1]+'Param',False)))
             if not method:
-               continue
-               #print('Not Found: '+main)
+                print('Not Found: '+main)
+                continue
 
             #convert the main
-            print(main)
+            #print(main)
             converted={}
             if 'iname' in master[main][0]:#most Params
                 converted={
@@ -68,114 +68,131 @@ def Fixes(master):
 
     ##units##########################################################
     print('Fix - Unit')
-    # jobset to job and add skins and seperate unit and NPC
-    (eUnit, eEnemy)=({},{})
-    for key,unit in UNIT.items():
-        #unit or enemy
-        if 'lore' in unit or ('piece' in unit and 'ai' in unit and unit['ai']=='AI_PLAYER' and 'EN' != key[6]+key[7] and 'role' not in unit):
-            eUnit[key]=unit
-        else:
-            eEnemy[key]=unit
+    if 1:
+        # jobset to job and add skins and seperate unit and NPC
+        (eUnit, eEnemy)=({},{})
+        for key,unit in UNIT.items():
+            #unit or enemy
+            if 'lore' in unit or ('piece' in unit and 'ai' in unit and unit['ai']=='AI_PLAYER' and 'EN' != key[6]+key[7] and 'role' not in unit):
+                eUnit[key]=unit
+            else:
+                eEnemy[key]=unit
 
-        #add skins from dif
-        if 'dif' in unit and 'skins' in unit['dif']:
-            unit['skins']+=unit['dif']['skins']
+            #add skins from dif
+            if 'dif' in unit and 'skins' in unit['dif']:
+                unit['skins']+=unit['dif']['skins']
 
-        #change js to job
-        if 'jobsets' in unit:
-            unit['jobs']=[
-                master['JobSet'][js]['job']
-                for js in unit['jobsets']
-                ]
-            del unit['jobsets']
+            #change js to job
+            if 'jobsets' in unit:
+                unit['jobs']=[
+                    master['JobSet'][js]['job']
+                    for js in unit['jobsets']
+                    ]
+                del unit['jobsets']
 
-    #add job+
-    for key,js in master['JobSet'].items():
-        if 'jobchange' in js:
-            unit = UNIT[js['target_unit']]
-            if 'jobchanges' not in unit:
-                unit['jobchanges']=[None]*len(unit['jobs'])
+        #add job+
+        for key,js in master['JobSet'].items():
+            if 'jobchange' in js:
+                unit = UNIT[js['target_unit']]
+                if 'jobchanges' not in unit:
+                    unit['jobchanges']=[None]*len(unit['jobs'])
 
-            for index,job in enumerate(unit['jobs']):
-                if job == js['lock_jobs']['iname']:
-                    unit['jobchanges'][index]=js['job']
+                for index,job in enumerate(unit['jobs']):
+                    if job == js['lock_jobs']['iname']:
+                        unit['jobchanges'][index]=js['job']
 
-    #add kaigan
-    for kaigan in master['Tobira']:
-        unit = UNIT[kaigan['mUnitIname']]
-        if 'kaigan' not in unit:
-            unit['kaigan']={}
-        unit['kaigan'][kaigan['mCategory']]=kaigan
+        #add kaigan
+        for kaigan in master['Tobira']:
+            unit = UNIT[kaigan['mUnitIname']]
+            if 'kaigan' not in unit:
+                unit['kaigan']={}
+            unit['kaigan'][kaigan['mCategory']]=kaigan
 
-    #add nensou
-    for key,card in master['ConceptCard'].items():
-        if 'effects' not in card:
-            continue
-
-        for effect in card['effects']:
-            if 'cnds_iname' not in effect:
+        #add nensou
+        for key,card in master['ConceptCard'].items():
+            if 'effects' not in card:
                 continue
 
-            conds = master['ConceptCardConditions'][effect['cnds_iname']]
-            if 'unit_group' not in conds:
-                continue
-            units = master['UnitGroup'][conds['unit_group']]['units']
+            for effect in card['effects']:
+                if 'cnds_iname' not in effect:
+                    continue
 
-            if len(units)==1:
-                #skin
-                if 'skin' in effect:
-                    UNIT[units[0]]['skins'].append(effect['skin'])
-                #normal stuff
-                UNIT[units[0]]['conceptcard']=key
+                conds = master['ConceptCardConditions'][effect['cnds_iname']]
+                if 'unit_group' not in conds:
+                    continue
+                units = master['UnitGroup'][conds['unit_group']]['units']
 
-    #save
-    saveAsJSON(PATH_convert2, 'Unit.json',eUnit)
-    saveAsJSON(PATH_convert2, 'Enemy.json',eEnemy)
+                if len(units)==1:
+                    #skin
+                    if 'skin' in effect:
+                        UNIT[units[0]]['skins'].append(effect['skin'])
+                    #normal stuff
+                    UNIT[units[0]]['conceptcard']=key
+
+        #save
+        saveAsJSON(PATH_convert2, 'Unit.json',eUnit)
+        saveAsJSON(PATH_convert2, 'Enemy.json',eEnemy)
     ##job############################################################
     print('Fix - Job')
-    #abilities and stats
-    for key,job in master['Job'].items():
-        if 'fixed_ability' not in job:
-            continue
-        #abilities
-        abilities={
-            'main': job['fixed_ability'],
-            'sub' : '',
-            'reaction': [],
-            'passive': []
-        }
-        for abil in job['abilities']:
-            slot = master['Ability'][abil]['slot']
-            if slot=='Action':
-                abilities['sub']=abil
-            elif slot == 'Reaction':
-                abilities['reaction']+=[abil]
-            elif slot == 'Support':
-                abilities['passive']+=[abil]
-
-        job['abilities']=abilities
-        del job['fixed_ability']
-
-        #stats
-        stats={}
-        for i,rank in enumerate(job['ranks']):
-            if i == 0:
+    if 1:
+        #abilities and stats
+        for key,job in master['Job'].items():
+            if 'fixed_ability' not in job:
                 continue
-            for item in rank['equips']:
-                for buff in BUFF[SKILL[ITEM[item]['skill']]['target_buff_iname']]['buffs']:
-                    if buff['type'] not in stats:
-                        stats[buff['type']]=0
-                    if i<len(job['ranks'])-1:
-                        stats[buff['type']]+=buff['value_ini']
-                    else:
-                        stats[buff['type']]+=buff['value_max']
-        job['stats']=stats
+            #abilities
+            abilities={
+                'main': job['fixed_ability'],
+                'sub' : '',
+                'reaction': [],
+                'passive': []
+            }
+            for abil in job['abilities']:
+                slot = master['Ability'][abil]['slot']
+                if slot=='Action':
+                    abilities['sub']=abil
+                elif slot == 'Reaction':
+                    abilities['reaction']+=[abil]
+                elif slot == 'Support':
+                    abilities['passive']+=[abil]
 
-    #save
-    saveAsJSON(PATH_convert2, 'Job.json',JOB)
+            job['abilities']=abilities
+            del job['fixed_ability']
+
+            #stats
+            stats={}
+            for i,rank in enumerate(job['ranks']):
+                if i == 0:
+                    continue
+                for item in rank['equips']:
+                    for buff in BUFF[SKILL[ITEM[item]['skill']]['target_buff_iname']]['buffs']:
+                        if buff['type'] not in stats:
+                            stats[buff['type']]=0
+                        if i<len(job['ranks'])-1:
+                            stats[buff['type']]+=buff['value_ini']
+                        else:
+                            stats[buff['type']]+=buff['value_max']
+            job['stats']=stats
+
+        #save
+        saveAsJSON(PATH_convert2, 'Job.json',JOB)
+    ##quests#########################################################
+    print('Fix - Quests')
+    if 1:
+        #load in scene and set
+        PATH_maps=os.path.join(PATH,*['resources','GameFiles','LocalMaps'])
+        for key,quest in master['quests'].items():
+            if 'map' in quest:
+                for map in quest['map']:
+                    if os.path.exists(os.path.join(PATH_maps, map['mapSceneName'])):
+                        with open(os.path.join(PATH_maps, map['mapSceneName']), "rt", encoding='utf-8-sig') as f:
+                            map['Scene']=(json.loads(f.read()))
+                    if os.path.exists(os.path.join(PATH_maps, map['mapSetName'])):
+                        with open(os.path.join(PATH_maps, map['mapSetName']), "rt", encoding='utf-8-sig') as f:
+                            map['Set']=(json.loads(f.read()))   
+        #save
+        saveAsJSON(PATH_convert2, 'Quests.json',master['quests'])
 
 
-    
 
 
 Con1=convertRaws()

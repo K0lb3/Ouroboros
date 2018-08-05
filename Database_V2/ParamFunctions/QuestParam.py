@@ -1,4 +1,5 @@
 from ParamFunctions._variables import ENUM
+from ParamFunctions.MapParam import MapParam
 def QuestParam(json):
     this={}#QuestParamjson)
     if 'iname' in json:
@@ -24,7 +25,7 @@ def QuestParam(json):
     if 'multi' in json:
         this['multi'] = json['multi']
     if 'multi_dead' in json:
-        this['multiDead'] = son['multi_dead']
+        this['multiDead'] = json['multi_dead']
     if 'pnum' in json:
         this['playerNum'] = json['pnum']
     this['unitNum'] = json['unum'] if 'unum' in json else 2#QuestParam.MULTI_MAX_PLAYER_UNIT)
