@@ -35,7 +35,7 @@ GEAR_TAG = {
     "大剣": "Greatsword/Scythe",
     "短剣": "Dagger",
     "銃": "Gun",
-    "ランス": "Spear",
+    "ランス": "Lance",
     "ウェディングソード": "Wedding Sword",
     "弓": "Bow",
     "グローブ": "Gloves",
