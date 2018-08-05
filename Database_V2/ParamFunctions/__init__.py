@@ -19,6 +19,7 @@ from ParamFunctions.JobSetParam import JobSetParam
 from ParamFunctions.MagnificationParam import MagnificationParam
 from ParamFunctions.MapEffectParam import MapEffectParam
 from ParamFunctions.MapParam import MapParam
+from ParamFunctions.MapSetting import MapSetting
 from ParamFunctions.ObjectiveParam import ObjectiveParam
 from ParamFunctions.QuestClearUnlockUnitDataParam import QuestClearUnlockUnitDataParam
 from ParamFunctions.QuestCondParam import QuestCondParam

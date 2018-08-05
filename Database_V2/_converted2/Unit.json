@@ -184,7 +184,13 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_OP_0003",
+            "QE_OP_0004",
+            "QE_MULTI_EVT_0006",
+            "QE_MULTI_EVT_0006_PEAR"
+        ]
     },
     "UN_V2_DIOS": {
         "no": 999,
@@ -370,7 +376,12 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_OP_0003",
+            "QE_OP_0004",
+            "QE_OP_0006"
+        ]
     },
     "UN_V2_EDGAR": {
         "no": 999,
@@ -482,6 +493,20 @@
         "jobchanges": [
             null,
             "JB_EDGA_DRI2"
+        ],
+        "occurrence": [
+            "QE_EV_HAGAREN_8",
+            "QE_EV_HAGAREN_9",
+            "QE_EV_HAGAREN_11",
+            "QE_EV_HAGAREN_12",
+            "QE_EV_HAGAREN_2_8",
+            "QE_EV_HAGAREN_2_9",
+            "QE_EV_HAGAREN_2_11",
+            "QE_EV_HAGAREN_2_12",
+            "QE_EV_HAGAREN_3_8",
+            "QE_EV_HAGAREN_3_9",
+            "QE_EV_HAGAREN_3_11",
+            "QE_EV_HAGAREN_3_12"
         ]
     },
     "UN_V2_LIESBET": {
@@ -1459,6 +1484,9 @@
             "JB_ARM",
             "JB_THI",
             "JB_KEM"
+        ],
+        "occurrence": [
+            "QE_EV_UNDOUKAI_2017_ATTACK"
         ]
     },
     "UN_V2_ALEXIS": {
@@ -1755,7 +1783,11 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_CH_FUNGLIU_1",
+            "QE_CH_FUNGLIU_3"
+        ]
     },
     "UN_V2_ANJOU": {
         "no": 999,
@@ -2483,6 +2515,9 @@
             "JB_BAR_HEAL",
             null,
             null
+        ],
+        "occurrence": [
+            "QE_LIMIT_LONGRANGE_Lv1"
         ]
     },
     "UN_V2_HAZUKI": {
@@ -3215,6 +3250,9 @@
             null,
             "JB_BAR_DARK",
             null
+        ],
+        "occurrence": [
+            "QE_WK_JOB_SUN_LV2"
         ]
     },
     "UN_V2_ISHUNA": {
@@ -4095,7 +4133,10 @@
                 "mLearnAbilities": []
             }
         },
-        "conceptcard": "TS_ENVYRIA_DECEL_01"
+        "conceptcard": "TS_ENVYRIA_DECEL_01",
+        "occurrence": [
+            "QE_CH_ELIZABETH_3"
+        ]
     },
     "UN_V2_ENNIS": {
         "no": 999,
@@ -4424,6 +4465,9 @@
             null,
             "JB_DOC_TYPE_POISON",
             null
+        ],
+        "occurrence": [
+            "QE_EV_UNDOUKAI_2017_ATTACK"
         ]
     },
     "UN_V2_AYLLU": {
@@ -4865,6 +4909,11 @@
             null,
             null,
             "JB_ENC_WIND"
+        ],
+        "occurrence": [
+            "QE_EV_HAGAREN_7",
+            "QE_EV_HAGAREN_2_7",
+            "QE_EV_HAGAREN_3_7"
         ]
     },
     "UN_V2_ALMILA": {
@@ -4977,6 +5026,11 @@
             null,
             null,
             "JB_SNI_SNIPE"
+        ],
+        "occurrence": [
+            "QE_MULTI_EVT_0001",
+            "QE_MULTI_KETSUJIN_0001",
+            "QE_MULTI_EVT_0001_PEAR"
         ]
     },
     "UN_V2_MICHAEL": {
@@ -5089,6 +5143,9 @@
             null,
             "JB_MICH_DOC",
             null
+        ],
+        "occurrence": [
+            "QE_WK_JOB_SUN_LV2"
         ]
     },
     "UN_V2_ARKILL": {
@@ -5272,7 +5329,11 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_WK_JOB_SAT_LV2",
+            "QE_MULTI_JOB_LV2_02"
+        ]
     },
     "UN_V2_KUON": {
         "no": 999,
@@ -5492,6 +5553,9 @@
             null,
             "JB_DAI_WATER",
             null
+        ],
+        "occurrence": [
+            "QE_LIMIT_LONGRANGE_Lv1"
         ]
     },
     "UN_V2_MARE": {
@@ -5679,7 +5743,11 @@
                 "mLearnAbilities": []
             }
         },
-        "conceptcard": "TS_WRATH_MARE_01"
+        "conceptcard": "TS_WRATH_MARE_01",
+        "occurrence": [
+            "QE_WK_JOB_SUN_LV2",
+            "QE_CH_MAGNUS_3"
+        ]
     },
     "UN_V2_CELINE": {
         "no": 999,
@@ -5972,7 +6040,10 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_EV_UNDOUKAI_2017_ATTACK"
+        ]
     },
     "UN_V2_DILGA": {
         "no": 999,
@@ -6341,7 +6412,11 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_WK_JOB_SAT_LV2",
+            "QE_MULTI_JOB_LV2_02"
+        ]
     },
     "UN_V2_CHIHAYA": {
         "no": 999,
@@ -6458,7 +6533,12 @@
             null,
             null
         ],
-        "conceptcard": "TS_WADA_FUJICA_01"
+        "conceptcard": "TS_WADA_FUJICA_01",
+        "occurrence": [
+            "QE_WK_JOB_SAT_LV2",
+            "QE_MULTI_JOB_LV2_02",
+            "QE_CH_REIMEI_3"
+        ]
     },
     "UN_V2_ROFIA": {
         "no": 999,
@@ -6648,7 +6728,10 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_SO_MILIS_2"
+        ]
     },
     "UN_V2_LAMIA": {
         "no": 999,
@@ -6836,7 +6919,10 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_CH_TEONA_3"
+        ]
     },
     "UN_V2_ZANGETSU": {
         "no": 999,
@@ -7023,7 +7109,11 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_WK_JOB_FRI_LV2",
+            "QE_MULTI_JOB_LV2_01"
+        ]
     },
     "UN_V2_MEGISTOS": {
         "no": 999,
@@ -7133,6 +7223,11 @@
             "JB_MEGI_LNC",
             null,
             null
+        ],
+        "occurrence": [
+            "QE_WK_JOB_SAT_LV2",
+            "QE_LIMIT_LONGRANGE_Lv1",
+            "QE_MULTI_JOB_LV2_02"
         ]
     },
     "UN_V2_LUCIA": {
@@ -7313,7 +7408,11 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_WK_JOB_SAT_LV2",
+            "QE_MULTI_JOB_LV2_02"
+        ]
     },
     "UN_V2_CHALICE": {
         "no": 999,
@@ -8062,7 +8161,11 @@
                 "mLearnAbilities": []
             }
         },
-        "conceptcard": "TS_WRATH_ZAHAR_01"
+        "conceptcard": "TS_WRATH_ZAHAR_01",
+        "occurrence": [
+            "QE_WK_JOB_FRI_LV2",
+            "QE_MULTI_JOB_LV2_01"
+        ]
     },
     "UN_V2_CLOE": {
         "no": 999,
@@ -8258,7 +8361,12 @@
                 "mLearnAbilities": []
             }
         },
-        "conceptcard": "TS_ENVYRIA_CLOE_01"
+        "conceptcard": "TS_ENVYRIA_CLOE_01",
+        "occurrence": [
+            "QE_WK_JOB_FRI_LV2",
+            "QE_MULTI_JOB_LV2_01",
+            "QE_EV_APRIL_2017_04"
+        ]
     },
     "UN_V2_YOMI": {
         "no": 999,
@@ -9459,7 +9567,10 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_LIMIT_LONGRANGE_Lv1"
+        ]
     },
     "UN_V2_FLAMEL": {
         "no": 999,
@@ -9839,7 +9950,11 @@
                 "mLearnAbilities": []
             }
         },
-        "conceptcard": "TS_DESERT_BALT_01"
+        "conceptcard": "TS_DESERT_BALT_01",
+        "occurrence": [
+            "QE_SO_ERURIKE_1",
+            "QE_SO_ERURIKE_2"
+        ]
     },
     "UN_V2_MIELIKKI": {
         "no": 999,
@@ -10989,7 +11104,14 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_CH_DENEB_1",
+            "QE_CH_DENEB_2",
+            "QE_CH_DENEB_3",
+            "QE_EV_WEDDING_2017_01",
+            "QE_EV_WEDDING_2017_04"
+        ]
     },
     "UN_V2_FRAISE": {
         "no": 999,
@@ -11176,7 +11298,14 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_CH_EVE_2",
+            "QE_CH_EVE_3",
+            "QE_MULTI_EVT_0005",
+            "QE_MULTI_EVT_0005_PEAR",
+            "QE_MULTI_EVT_0005_CHECK"
+        ]
     },
     "UN_V2_HAYATE": {
         "no": 999,
@@ -11857,7 +11986,10 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_CH_ZANG_2"
+        ]
     },
     "UN_V2_CANON": {
         "no": 999,
@@ -12726,7 +12858,13 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_EV_HAGAREN_14",
+            "QE_EV_HAGAREN_2_14",
+            "QE_EV_HAGAREN_3_14",
+            "QE_MULTI_HAGAREN_3_14"
+        ]
     },
     "UN_V2_SHAYNA": {
         "no": 999,
@@ -12916,7 +13054,12 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_CH_SUZUKA_1",
+            "QE_CH_SUZUKA_2",
+            "QE_CH_SUZUKA_3"
+        ]
     },
     "UN_V2_REIMEI": {
         "no": 999,
@@ -13328,6 +13471,9 @@
             null,
             null,
             "JB_RAN_TYPE_MONS"
+        ],
+        "occurrence": [
+            "QE_SO_MILIS_1"
         ]
     },
     "UN_V2_SHENMEI": {
@@ -14037,6 +14183,12 @@
             "JB_GORM_KAI",
             null,
             "JB_STR_SENJYU"
+        ],
+        "occurrence": [
+            "QE_EV_HAGAREN_14",
+            "QE_EV_HAGAREN_2_14",
+            "QE_EV_HAGAREN_3_14",
+            "QE_MULTI_HAGAREN_3_14"
         ]
     },
     "UN_V2_SEIDA": {
@@ -15187,6 +15339,12 @@
             null,
             null,
             "JB_DAI_THUNDER"
+        ],
+        "occurrence": [
+            "QE_SO_PERI_03",
+            "QE_CH_LUPINUS_1",
+            "QE_CH_LUPINUS_2",
+            "QE_CH_LUPINUS_3"
         ]
     },
     "UN_V2_YAULAS": {
@@ -15373,7 +15531,10 @@
                 "mLearnAbilities": []
             }
         },
-        "conceptcard": "TS_LUST_YAULAS_01"
+        "conceptcard": "TS_LUST_YAULAS_01",
+        "occurrence": [
+            "QE_EV_SEISEKI_DJ_5_08"
+        ]
     },
     "UN_V2_ZAYIN": {
         "no": 999,
@@ -15856,7 +16017,12 @@
                 "mLearnAbilities": []
             }
         },
-        "conceptcard": "TS_ENVYRIA_VICTOR_01"
+        "conceptcard": "TS_ENVYRIA_VICTOR_01",
+        "occurrence": [
+            "QE_MULTI_EVT_0005",
+            "QE_MULTI_EVT_0005_PEAR",
+            "QE_MULTI_EVT_0005_CHECK"
+        ]
     },
     "UN_V2_OTHIMA": {
         "no": 999,
@@ -16153,6 +16319,11 @@
             null,
             null,
             "JB_DGN_GARUDA"
+        ],
+        "occurrence": [
+            "QE_SO_YUTO_1",
+            "QE_SO_YUTO_2",
+            "QE_SO_YUTO_3"
         ]
     },
     "UN_V2_SHEKINAH": {
@@ -16856,7 +17027,10 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_CH_RYLE_2"
+        ]
     },
     "UN_V2_DOROTHEA": {
         "no": 999,
@@ -17383,7 +17557,13 @@
                 "mLearnAbilities": []
             }
         },
-        "conceptcard": "TS_DESERT_ASUWADO_01"
+        "conceptcard": "TS_DESERT_ASUWADO_01",
+        "occurrence": [
+            "QE_EV_HAGAREN_14",
+            "QE_EV_HAGAREN_2_14",
+            "QE_EV_HAGAREN_3_14",
+            "QE_MULTI_HAGAREN_3_14"
+        ]
     },
     "UN_V2_SOPHIA": {
         "no": 999,
@@ -17803,7 +17983,10 @@
                 "mLearnAbilities": []
             }
         },
-        "conceptcard": "TS_WADA_SETSUNA_01"
+        "conceptcard": "TS_WADA_SETSUNA_01",
+        "occurrence": [
+            "QE_LIMIT_UEXP_03"
+        ]
     },
     "UN_V2_HAZEL": {
         "no": 999,
@@ -18026,6 +18209,12 @@
             "JB_FATE_SABR",
             "JB_SEI",
             "JB_VAL"
+        ],
+        "occurrence": [
+            "QE_EV_FATE_2",
+            "QE_EV_FATE_3",
+            "QE_EV_FATE_5",
+            "QE_EV_FATE_6"
         ]
     },
     "UN_V2_GILGAMESH": {
@@ -18232,6 +18421,16 @@
             "JB_FATE_TMAG",
             "JB_KAK",
             "JB_DAI"
+        ],
+        "occurrence": [
+            "QE_EV_FATE_3",
+            "QE_EV_FATE_4",
+            "QE_EV_FATE_5",
+            "QE_EV_FATE_6",
+            "QE_EV_FATE_HA_1",
+            "QE_EV_FATE_EX_2_EASY",
+            "QE_EV_FATE_EX_2",
+            "QE_MULTI_EV_FATE_EX_2"
         ]
     },
     "UN_V2_IRIYA": {
@@ -18439,6 +18638,11 @@
             "JB_FATE_EMIYA",
             "JB_SOL",
             "JB_RAN"
+        ],
+        "occurrence": [
+            "QE_EV_FATE_1",
+            "QE_EV_FATE_2",
+            "QE_EV_FATE_4"
         ]
     },
     "UN_V2_FATE_YOMI": {
@@ -18544,6 +18748,11 @@
             "JB_FATE_RIDR",
             "JB_NEC",
             "JB_FATE_CAS"
+        ],
+        "occurrence": [
+            "QE_EV_FATE_EX_4_EASY",
+            "QE_EV_FATE_EX_4",
+            "QE_MULTI_EV_FATE_EX_4"
         ]
     },
     "UN_V2_FATE_LAMIA": {
@@ -18941,7 +19150,11 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_MULTI_EVT_0006",
+            "QE_MULTI_EVT_0006_PEAR"
+        ]
     },
     "UN_V2_S_SAKURA": {
         "no": 999,
@@ -19049,6 +19262,11 @@
             null,
             "JB_NIN_SEIRYU",
             null
+        ],
+        "occurrence": [
+            "QE_EV_POK_SAM_02",
+            "QE_EV_POK_SAM_06",
+            "QE_EV_POK_SAM_07"
         ]
     },
     "UN_V2_S_YOMI": {
@@ -19482,6 +19700,9 @@
             "JB_SHN_HEEL",
             "JB_MAH_WATER",
             null
+        ],
+        "occurrence": [
+            "QE_MT_TOWER_TEST21"
         ]
     },
     "UN_V2_MEIFAN": {
@@ -19977,7 +20198,10 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_MT_TOWER_TEST23"
+        ]
     },
     "UN_V2_MARIANNU": {
         "no": 999,
@@ -20430,6 +20654,14 @@
             null,
             null,
             "JB_STR_FUDOU"
+        ],
+        "occurrence": [
+            "QE_CH_ROSA_1",
+            "QE_CH_ROSA_2",
+            "QE_CH_ROSA_3",
+            "QE_MULTI_EVT_0005",
+            "QE_MULTI_EVT_0005_PEAR",
+            "QE_MULTI_EVT_0005_CHECK"
         ]
     },
     "UN_V2_GL_SIEG": {
@@ -21154,6 +21386,11 @@
             null,
             null,
             "JB_WOR_MUSPELL"
+        ],
+        "occurrence": [
+            "QE_MULTI_EVT_0005",
+            "QE_MULTI_EVT_0005_PEAR",
+            "QE_MULTI_EVT_0005_CHECK"
         ]
     },
     "UN_V2_NASARIO": {
@@ -21843,6 +22080,14 @@
             null,
             "JB_BAR_DARK",
             "JB_DAI_WATER"
+        ],
+        "occurrence": [
+            "QE_CH_ARUBA_2",
+            "QE_CH_ARUBA_3",
+            "QE_EV_HAGAREN_13",
+            "QE_EV_HAGAREN_2_13",
+            "QE_EV_HAGAREN_3_13",
+            "QE_MULTI_HAGAREN_3_13"
         ]
     },
     "UN_V2_THILLIE": {
@@ -22551,7 +22796,14 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_MULTI_EVT_0005",
+            "QE_MULTI_EVT_0006",
+            "QE_MULTI_EVT_0005_PEAR",
+            "QE_MULTI_EVT_0006_PEAR",
+            "QE_MULTI_EVT_0005_CHECK"
+        ]
     },
     "UN_V2_DIS_KILLIA": {
         "no": 999,
@@ -22649,6 +22901,12 @@
             null,
             null,
             "JB_KIL_SCOUT"
+        ],
+        "occurrence": [
+            "QE_EV_DISGAEA_2",
+            "QE_EV_DISGAEA_5",
+            "QE_EV_DISGAEA_EX_1",
+            "QE_MULTI_EV_DISGAEA_EX_1"
         ]
     },
     "UN_V2_DIS_SERAPHINA": {
@@ -22746,6 +23004,12 @@
             null,
             null,
             "JB_MAJ_WATER"
+        ],
+        "occurrence": [
+            "QE_EV_DISGAEA_4",
+            "QE_EV_DISGAEA_5",
+            "QE_EV_DISGAEA_EX_2",
+            "QE_MULTI_EV_DISGAEA_EX_2"
         ]
     },
     "UN_V2_DIS_REDMAGNUS": {
@@ -22839,6 +23103,12 @@
             "JB_DIS_REDM",
             "JB_DGR",
             "JB_WOR"
+        ],
+        "occurrence": [
+            "QE_EV_DISGAEA_3",
+            "QE_EV_DISGAEA_5",
+            "QE_EV_DISGAEA_EX_3",
+            "QE_MULTI_EV_DISGAEA_EX_3"
         ]
     },
     "UN_V2_DIS_RINN": {
@@ -23030,6 +23300,9 @@
             "JB_DIS_USAL",
             "JB_THI",
             "JB_GEN"
+        ],
+        "occurrence": [
+            "QE_EV_DISGAEA_1"
         ]
     },
     "UN_V2_CHAO": {
@@ -23205,7 +23478,14 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_MT_TOWER_TEST23",
+            "QE_EV_HAGAREN_7",
+            "QE_EV_HAGAREN_2_7",
+            "QE_EV_HAGAREN_3_7",
+            "QE_MULTI_HAGAREN_3_7"
+        ]
     },
     "UN_V2_DAISY": {
         "no": 999,
@@ -23473,6 +23753,11 @@
             "JB_DIS_LAHA",
             "JB_MAH",
             "JB_NEC"
+        ],
+        "occurrence": [
+            "QE_EV_DISGAEA2_3",
+            "QE_EV_DISGAEA2_EX_1",
+            "QE_MULTI_EV_DISGAEA2_EX_1"
         ]
     },
     "UN_V2_DIS_ETONA": {
@@ -23571,6 +23856,11 @@
             null,
             "JB_NIN_SUZAKU",
             null
+        ],
+        "occurrence": [
+            "QE_EV_DISGAEA2_2",
+            "QE_EV_DISGAEA2_EX_2",
+            "QE_MULTI_EV_DISGAEA2_EX_2"
         ]
     },
     "UN_V2_DIS_PRINNY": {
@@ -23663,6 +23953,14 @@
             "JB_DIS_PRIN2",
             "JB_DIS_PRIN3",
             "JB_DIS_PRIN1"
+        ],
+        "occurrence": [
+            "QE_EV_DISGAEA2_1",
+            "QE_EV_DISGAEA2_5",
+            "QE_EV_DISGAEA2_EX_1",
+            "QE_EV_DISGAEA2_EX_2",
+            "QE_MULTI_EV_DISGAEA2_EX_1",
+            "QE_MULTI_EV_DISGAEA2_EX_2"
         ]
     },
     "UN_V2_DIS_ALMILA": {
@@ -23756,6 +24054,9 @@
             "JB_DIS_THI",
             "JB_VAL",
             "JB_DIS_SAM"
+        ],
+        "occurrence": [
+            "QE_EV_DISGAEA2_4"
         ]
     },
     "UN_V2_DIS_ROSA": {
@@ -23854,6 +24155,9 @@
             null,
             "JB_ENC_ANTI_BUFF",
             null
+        ],
+        "occurrence": [
+            "QE_EV_DISGAEA2_4"
         ]
     },
     "UN_V2_LAVINA": {
@@ -24031,7 +24335,10 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_LIMIT_UEXP_03"
+        ]
     },
     "UN_V2_SUIRAN": {
         "no": 999,
@@ -24129,6 +24436,10 @@
             null,
             null,
             "JB_LNC_WIND"
+        ],
+        "occurrence": [
+            "QE_WA_ZIN_EX_1",
+            "QE_MULTI_WA_ZIN_EX_1"
         ]
     },
     "UN_V2_BLANCHETT": {
@@ -24475,7 +24786,13 @@
                 "mLearnAbilities": []
             }
         },
-        "conceptcard": "TS_WADA_ZIN_01"
+        "conceptcard": "TS_WADA_ZIN_01",
+        "occurrence": [
+            "QE_WA_ZIN_1",
+            "QE_WA_ZIN_2",
+            "QE_WA_ZIN_5",
+            "QE_LIMIT_UEXP_03"
+        ]
     },
     "UN_V2_NOAH": {
         "no": 999,
@@ -24648,7 +24965,10 @@
                 "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
                 "mLearnAbilities": []
             }
-        }
+        },
+        "occurrence": [
+            "QE_LIMIT_UEXP_03"
+        ]
     },
     "UN_V2_ZOPHIE": {
         "no": 999,
@@ -24844,6 +25164,9 @@
             "JB_BLA_TYPE_TK_MONS",
             null,
             null
+        ],
+        "occurrence": [
+            "QE_LIMIT_UEXP_03"
         ]
     },
     "UN_V2_CHATNOIR": {
@@ -25040,6 +25363,10 @@
             null,
             null,
             "JB_SNI_SNIPE"
+        ],
+        "occurrence": [
+            "QE_SO_JUSTIN_1",
+            "QE_SO_JUSTIN_2"
         ]
     },
     "UN_V2_KLIMA": {
@@ -29073,6 +29400,12 @@
             "JB_SYO_HEL",
             null,
             null
+        ],
+        "occurrence": [
+            "QE_EV_HAGAREN_14",
+            "QE_EV_HAGAREN_2_14",
+            "QE_EV_HAGAREN_3_14",
+            "QE_MULTI_HAGAREN_3_14"
         ]
     },
     "UN_V2_FA_EDWARD": {
@@ -29164,6 +29497,11 @@
             "JB_FA_EDWA01",
             "JB_KAK",
             "JB_MFEN"
+        ],
+        "occurrence": [
+            "QE_EV_HAGAREN_13",
+            "QE_EV_HAGAREN_2_13",
+            "QE_EV_HAGAREN_3_13"
         ]
     },
     "UN_V2_FA_PRIDE": {
@@ -29914,6 +30252,9 @@
             "JB_VAL_LAN_JUMP",
             null,
             "JB_BAA_TYPE_MOVE"
+        ],
+        "occurrence": [
+            "QE_EV_HAGAREN_EX_SP_2"
         ]
     },
     "UN_V2_ITSUKI": {

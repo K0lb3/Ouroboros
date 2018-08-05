@@ -66,6 +66,74 @@ def Fixes(master):
     ITEM=master['Item']
     JOB=master['Job']
 
+     ##job############################################################
+    print('Fix - Job')
+    if 1:
+        #abilities and stats
+        for key,job in master['Job'].items():
+            if 'fixed_ability' not in job:
+                continue
+            #abilities
+            abilities={
+                'main': job['fixed_ability'],
+                'sub' : '',
+                'reaction': [],
+                'passive': []
+            }
+            for abil in job['abilities']:
+                slot = master['Ability'][abil]['slot']
+                if slot=='Action':
+                    abilities['sub']=abil
+                elif slot == 'Reaction':
+                    abilities['reaction']+=[abil]
+                elif slot == 'Support':
+                    abilities['passive']+=[abil]
+
+            job['abilities']=abilities
+            del job['fixed_ability']
+
+            #stats
+            stats={}
+            for i,rank in enumerate(job['ranks']):
+                if i == 0:
+                    continue
+                for item in rank['equips']:
+                    for buff in BUFF[SKILL[ITEM[item]['skill']]['target_buff_iname']]['buffs']:
+                        if buff['type'] not in stats:
+                            stats[buff['type']]=0
+                        if i<len(job['ranks'])-1:
+                            stats[buff['type']]+=buff['value_ini']
+                        else:
+                            stats[buff['type']]+=buff['value_max']
+            job['stats']=stats
+
+        #save
+        saveAsJSON(PATH_convert2, 'Job.json',JOB)
+    ##quests#########################################################
+    print('Fix - Quests')
+    if 1:
+        #load in scene and set
+        PATH_maps=os.path.join(PATH,*['resources','GameFiles','LocalMaps'])
+        for key,quest in master['quests'].items():
+            #maps
+            if 'map' in quest:
+                for map in quest['map']:
+                    if os.path.exists(os.path.join(PATH_maps, map['mapSceneName'])):
+                        with open(os.path.join(PATH_maps, map['mapSceneName']), "rt", encoding='utf-8-sig') as f:
+                            map['Scene']=(json.loads(f.read()))
+                    if os.path.exists(os.path.join(PATH_maps, map['mapSetName'])):
+                        with open(os.path.join(PATH_maps, map['mapSetName']), "rt", encoding='utf-8-sig') as f:
+                            map['Set']=(json.loads(f.read()))   
+                        party=['party','enemy']
+                        for p in party:
+                            if p in map['Set']:
+                                for index,value in enumerate(map['Set'][p]):
+                                    map['Set'][p][index] = ParamFunctions.MapSetting(value)
+            #drop list
+        #save
+        saveAsJSON(PATH_convert2, 'Quests.json',master['quests'])
+
+    
     ##units##########################################################
     print('Fix - Unit')
     if 1:
@@ -129,70 +197,24 @@ def Fixes(master):
                     #normal stuff
                     UNIT[units[0]]['conceptcard']=key
 
-        #save
-        saveAsJSON(PATH_convert2, 'Unit.json',eUnit)
-        saveAsJSON(PATH_convert2, 'Enemy.json',eEnemy)
-    ##job############################################################
-    print('Fix - Job')
-    if 1:
-        #abilities and stats
-        for key,job in master['Job'].items():
-            if 'fixed_ability' not in job:
-                continue
-            #abilities
-            abilities={
-                'main': job['fixed_ability'],
-                'sub' : '',
-                'reaction': [],
-                'passive': []
-            }
-            for abil in job['abilities']:
-                slot = master['Ability'][abil]['slot']
-                if slot=='Action':
-                    abilities['sub']=abil
-                elif slot == 'Reaction':
-                    abilities['reaction']+=[abil]
-                elif slot == 'Support':
-                    abilities['passive']+=[abil]
-
-            job['abilities']=abilities
-            del job['fixed_ability']
-
-            #stats
-            stats={}
-            for i,rank in enumerate(job['ranks']):
-                if i == 0:
-                    continue
-                for item in rank['equips']:
-                    for buff in BUFF[SKILL[ITEM[item]['skill']]['target_buff_iname']]['buffs']:
-                        if buff['type'] not in stats:
-                            stats[buff['type']]=0
-                        if i<len(job['ranks'])-1:
-                            stats[buff['type']]+=buff['value_ini']
-                        else:
-                            stats[buff['type']]+=buff['value_max']
-            job['stats']=stats
-
-        #save
-        saveAsJSON(PATH_convert2, 'Job.json',JOB)
-    ##quests#########################################################
-    print('Fix - Quests')
-    if 1:
-        #load in scene and set
-        PATH_maps=os.path.join(PATH,*['resources','GameFiles','LocalMaps'])
+        #add occurence
         for key,quest in master['quests'].items():
             if 'map' in quest:
                 for map in quest['map']:
-                    if os.path.exists(os.path.join(PATH_maps, map['mapSceneName'])):
-                        with open(os.path.join(PATH_maps, map['mapSceneName']), "rt", encoding='utf-8-sig') as f:
-                            map['Scene']=(json.loads(f.read()))
-                    if os.path.exists(os.path.join(PATH_maps, map['mapSetName'])):
-                        with open(os.path.join(PATH_maps, map['mapSetName']), "rt", encoding='utf-8-sig') as f:
-                            map['Set']=(json.loads(f.read()))   
+                    if 'Set' in map and 'enemy' in map['Set']:
+                        for enemy in map['Set']['enemy']:
+                            if enemy['iname'] in UNIT:
+                                if 'occurrence' not in UNIT[enemy['iname']]:
+                                    UNIT[enemy['iname']]['occurrence']=[]
+                                if key not in UNIT[enemy['iname']]['occurrence']:
+                                    UNIT[enemy['iname']]['occurrence'].append(key)
+                            else:
+                                print(enemy['iname'])
+
         #save
-        saveAsJSON(PATH_convert2, 'Quests.json',master['quests'])
-
-
+        saveAsJSON(PATH_convert2, 'Unit.json',eUnit)
+        saveAsJSON(PATH_convert2, 'Enemy.json',eEnemy)
+   
 
 
 Con1=convertRaws()
