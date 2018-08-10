@@ -99,106 +99,6 @@
         "name": "",
         "kanji": "エンヴィーを1回ジョブチェンジさせる"
     },
-    "FF15_01": {
-        "iname": "FF15_01",
-        "name": "",
-        "kanji": "チャレンジミッションをクリアする"
-    },
-    "FF15_01_00": {
-        "iname": "FF15_01_00",
-        "name": "",
-        "kanji": "EP1　Prologue をクリアする"
-    },
-    "FF15_01_01": {
-        "iname": "FF15_01_01",
-        "name": "",
-        "kanji": "EP2　Meeting をクリアする"
-    },
-    "FF15_01_02": {
-        "iname": "FF15_01_02",
-        "name": "",
-        "kanji": "EP3　Hunt をクリアする"
-    },
-    "FF15_01_03": {
-        "iname": "FF15_01_03",
-        "name": "",
-        "kanji": "EP4　Camp をクリアする"
-    },
-    "FF15_01_04": {
-        "iname": "FF15_01_04",
-        "name": "",
-        "kanji": "EP5　Alchemy をクリアする"
-    },
-    "FF15_01_05": {
-        "iname": "FF15_01_05",
-        "name": "",
-        "kanji": "EP6　Encounter をクリアする"
-    },
-    "FF15_01_06": {
-        "iname": "FF15_01_06",
-        "name": "",
-        "kanji": "EP7　Rest をクリアする"
-    },
-    "FF15_01_07": {
-        "iname": "FF15_01_07",
-        "name": "",
-        "kanji": "EP8　Father をクリアする"
-    },
-    "FF15_01_08": {
-        "iname": "FF15_01_08",
-        "name": "",
-        "kanji": "EP9　Highwind をクリアする"
-    },
-    "FF15_02": {
-        "iname": "FF15_02",
-        "name": "",
-        "kanji": "チャレンジミッションをクリアする"
-    },
-    "FF15_02_00": {
-        "iname": "FF15_02_00",
-        "name": "",
-        "kanji": "EP10　Good bye をクリアする"
-    },
-    "FF15_02_01": {
-        "iname": "FF15_02_01",
-        "name": "",
-        "kanji": "5回限界突破する"
-    },
-    "FF15_02_02": {
-        "iname": "FF15_02_02",
-        "name": "",
-        "kanji": "ユニットに装備品を装備させる"
-    },
-    "FF15_02_03": {
-        "iname": "FF15_02_03",
-        "name": "",
-        "kanji": "ジョブチェンジを1回する"
-    },
-    "FF15_02_04": {
-        "iname": "FF15_02_04",
-        "name": "",
-        "kanji": "ユニットのジョブレベルを2あげる"
-    },
-    "FF15_02_05": {
-        "iname": "FF15_02_05",
-        "name": "",
-        "kanji": "武具を1回錬成する"
-    },
-    "FF15_02_06": {
-        "iname": "FF15_02_06",
-        "name": "",
-        "kanji": "武具を1回強化する"
-    },
-    "FF15_02_07": {
-        "iname": "FF15_02_07",
-        "name": "",
-        "kanji": "武具を1回進化する"
-    },
-    "FF15_02_08": {
-        "iname": "FF15_02_08",
-        "name": "",
-        "kanji": "武具をLV30まで強化する"
-    },
     "POK2_01": {
         "iname": "POK2_01",
         "name": "",
@@ -898,5 +798,305 @@
         "iname": "Challenge_Babel_Wada_01_08",
         "name": "",
         "kanji": "ﾊﾞﾍﾞﾙ戦記ﾜﾀﾞﾂﾐ編で全ﾐｯｼｮﾝ達成ｸｴｽﾄが5以上"
+    },
+    "Valentine_01": {
+        "iname": "Valentine_01",
+        "name": "",
+        "kanji": "チャレンジミッションをクリアする"
+    },
+    "Valentine_01_00": {
+        "iname": "Valentine_01_00",
+        "name": "",
+        "kanji": "エンチャントクエストを1回クリアする"
+    },
+    "Valentine_01_01": {
+        "iname": "Valentine_01_01",
+        "name": "",
+        "kanji": "ユニットを1回ジョブチェンジさせる"
+    },
+    "Valentine_01_02": {
+        "iname": "Valentine_01_02",
+        "name": "",
+        "kanji": "ユニットのジョブレベルを2にする"
+    },
+    "Valentine_01_03": {
+        "iname": "Valentine_01_03",
+        "name": "",
+        "kanji": "ユニットのジョブレベルを4にする"
+    },
+    "Valentine_01_04": {
+        "iname": "Valentine_01_04",
+        "name": "",
+        "kanji": "チョコレート・トイボックス　1話をクリアする"
+    },
+    "Valentine_01_05": {
+        "iname": "Valentine_01_05",
+        "name": "",
+        "kanji": "チョコレート・トイボックス　2話をクリアする"
+    },
+    "Valentine_01_06": {
+        "iname": "Valentine_01_06",
+        "name": "",
+        "kanji": "チョコレート・トイボックス　3話をクリアする"
+    },
+    "Valentine_01_07": {
+        "iname": "Valentine_01_07",
+        "name": "",
+        "kanji": "チョコレート・トイボックス　4話をクリアする"
+    },
+    "Valentine_01_08": {
+        "iname": "Valentine_01_08",
+        "name": "",
+        "kanji": "チョコレート・トイボックス　5話をクリアする"
+    },
+    "Valentine_02": {
+        "iname": "Valentine_02",
+        "name": "",
+        "kanji": "チャレンジミッションをクリアする"
+    },
+    "Valentine_02_00": {
+        "iname": "Valentine_02_00",
+        "name": "",
+        "kanji": "エンチャントクエストを3回クリアする"
+    },
+    "Valentine_02_01": {
+        "iname": "Valentine_02_01",
+        "name": "",
+        "kanji": "ユニットを3回ジョブチェンジさせる"
+    },
+    "Valentine_02_02": {
+        "iname": "Valentine_02_02",
+        "name": "",
+        "kanji": "ユニットのジョブレベルを6にする"
+    },
+    "Valentine_02_03": {
+        "iname": "Valentine_02_03",
+        "name": "",
+        "kanji": "ユニットのジョブレベルを8にする"
+    },
+    "Valentine_02_04": {
+        "iname": "Valentine_02_04",
+        "name": "",
+        "kanji": "ちょこれいと☆まじっく　1話をクリアする"
+    },
+    "Valentine_02_05": {
+        "iname": "Valentine_02_05",
+        "name": "",
+        "kanji": "ちょこれいと☆まじっく　2話をクリアする"
+    },
+    "Valentine_02_06": {
+        "iname": "Valentine_02_06",
+        "name": "",
+        "kanji": "ちょこれいと☆まじっく　3話をクリアする"
+    },
+    "Valentine_02_07": {
+        "iname": "Valentine_02_07",
+        "name": "",
+        "kanji": "ちょこれいと☆まじっく　4話をクリアする"
+    },
+    "Valentine_02_08": {
+        "iname": "Valentine_02_08",
+        "name": "",
+        "kanji": "ちょこれいと☆まじっく　5話をクリアする"
+    },
+    "Challenge_ALMA_REBECCA_Story_01": {
+        "iname": "Challenge_ALMA_REBECCA_Story_01",
+        "name": "",
+        "kanji": "チャレンジミッションをｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Story_01_00": {
+        "iname": "Challenge_ALMA_REBECCA_Story_01_00",
+        "name": "",
+        "kanji": "１章2話1-1をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Story_01_01": {
+        "iname": "Challenge_ALMA_REBECCA_Story_01_01",
+        "name": "",
+        "kanji": "１章3話1-1をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Story_01_02": {
+        "iname": "Challenge_ALMA_REBECCA_Story_01_02",
+        "name": "",
+        "kanji": "１章4話1-1をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Story_01_03": {
+        "iname": "Challenge_ALMA_REBECCA_Story_01_03",
+        "name": "",
+        "kanji": "１章5話1-1をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Story_01_04": {
+        "iname": "Challenge_ALMA_REBECCA_Story_01_04",
+        "name": "",
+        "kanji": "２章1話1-1をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Story_01_05": {
+        "iname": "Challenge_ALMA_REBECCA_Story_01_05",
+        "name": "",
+        "kanji": "２章2話1-1をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Story_01_06": {
+        "iname": "Challenge_ALMA_REBECCA_Story_01_06",
+        "name": "",
+        "kanji": "２章3話1-1をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Story_01_07": {
+        "iname": "Challenge_ALMA_REBECCA_Story_01_07",
+        "name": "",
+        "kanji": "２章4話1-1をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Story_01_08": {
+        "iname": "Challenge_ALMA_REBECCA_Story_01_08",
+        "name": "",
+        "kanji": "３章1話1-1をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Kaiko_01": {
+        "iname": "Challenge_ALMA_REBECCA_Kaiko_01",
+        "name": "",
+        "kanji": "チャレンジミッションをｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Kaiko_01_00": {
+        "iname": "Challenge_ALMA_REBECCA_Kaiko_01_00",
+        "name": "",
+        "kanji": "ｱﾙﾏ&ﾚﾍﾞｯｶ邂逅ｲﾍﾞﾝﾄ第一話をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Kaiko_01_01": {
+        "iname": "Challenge_ALMA_REBECCA_Kaiko_01_01",
+        "name": "",
+        "kanji": "レベッカを1回進化させる"
+    },
+    "Challenge_ALMA_REBECCA_Kaiko_01_02": {
+        "iname": "Challenge_ALMA_REBECCA_Kaiko_01_02",
+        "name": "",
+        "kanji": "ｱﾙﾏ&ﾚﾍﾞｯｶ邂逅ｲﾍﾞﾝﾄ第二話をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Kaiko_01_03": {
+        "iname": "Challenge_ALMA_REBECCA_Kaiko_01_03",
+        "name": "",
+        "kanji": "レベッカのレベルを30にする"
+    },
+    "Challenge_ALMA_REBECCA_Kaiko_01_04": {
+        "iname": "Challenge_ALMA_REBECCA_Kaiko_01_04",
+        "name": "",
+        "kanji": "ｱﾙﾏ&ﾚﾍﾞｯｶ邂逅ｲﾍﾞﾝﾄ第三話をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Kaiko_01_05": {
+        "iname": "Challenge_ALMA_REBECCA_Kaiko_01_05",
+        "name": "",
+        "kanji": "レベッカを2回進化させる"
+    },
+    "Challenge_ALMA_REBECCA_Kaiko_01_06": {
+        "iname": "Challenge_ALMA_REBECCA_Kaiko_01_06",
+        "name": "",
+        "kanji": "ｱﾙﾏ&ﾚﾍﾞｯｶ邂逅ｲﾍﾞﾝﾄ第四話をｸﾘｱする"
+    },
+    "Challenge_ALMA_REBECCA_Kaiko_01_07": {
+        "iname": "Challenge_ALMA_REBECCA_Kaiko_01_07",
+        "name": "",
+        "kanji": "レベッカを5回限界突破させる"
+    },
+    "Challenge_ALMA_REBECCA_Kaiko_01_08": {
+        "iname": "Challenge_ALMA_REBECCA_Kaiko_01_08",
+        "name": "",
+        "kanji": "ｱﾙﾏ&ﾚﾍﾞｯｶ邂逅ｲﾍﾞﾝﾄ第五話をｸﾘｱする"
+    },
+    "Challenge_SEKAIJU_2018_01": {
+        "iname": "Challenge_SEKAIJU_2018_01",
+        "name": "",
+        "kanji": "チャレンジミッションをｸﾘｱする"
+    },
+    "Challenge_SEKAIJU_2018_01_00": {
+        "iname": "Challenge_SEKAIJU_2018_01_00",
+        "name": "",
+        "kanji": "世界樹ｺﾗﾎﾞ1話『新たな依頼』をｸﾘｱする"
+    },
+    "Challenge_SEKAIJU_2018_01_01": {
+        "iname": "Challenge_SEKAIJU_2018_01_01",
+        "name": "",
+        "kanji": "ユニットに装備品を装備させる"
+    },
+    "Challenge_SEKAIJU_2018_01_02": {
+        "iname": "Challenge_SEKAIJU_2018_01_02",
+        "name": "",
+        "kanji": "世界樹ｺﾗﾎﾞ2話『交錯する森』をｸﾘｱする"
+    },
+    "Challenge_SEKAIJU_2018_01_03": {
+        "iname": "Challenge_SEKAIJU_2018_01_03",
+        "name": "",
+        "kanji": "ユニットのレベルを40にする"
+    },
+    "Challenge_SEKAIJU_2018_01_04": {
+        "iname": "Challenge_SEKAIJU_2018_01_04",
+        "name": "",
+        "kanji": "世界樹ｺﾗﾎﾞ3話『黒い女騎士』をｸﾘｱする"
+    },
+    "Challenge_SEKAIJU_2018_01_05": {
+        "iname": "Challenge_SEKAIJU_2018_01_05",
+        "name": "",
+        "kanji": "ユニットのJobLvを8にする"
+    },
+    "Challenge_SEKAIJU_2018_01_06": {
+        "iname": "Challenge_SEKAIJU_2018_01_06",
+        "name": "",
+        "kanji": "世界樹ｺﾗﾎﾞ4話『鳴き声をたどって』をｸﾘｱする"
+    },
+    "Challenge_SEKAIJU_2018_01_07": {
+        "iname": "Challenge_SEKAIJU_2018_01_07",
+        "name": "",
+        "kanji": "いずれかの真理念装のレベルを10上げる"
+    },
+    "Challenge_SEKAIJU_2018_01_08": {
+        "iname": "Challenge_SEKAIJU_2018_01_08",
+        "name": "",
+        "kanji": "世界樹ｺﾗﾎﾞ5話『禍々しい賢者の石』をｸﾘｱする"
+    },
+    "Challenge_HISHARMU_2018_01": {
+        "iname": "Challenge_HISHARMU_2018_01",
+        "name": "",
+        "kanji": "チャレンジミッションをｸﾘｱする"
+    },
+    "Challenge_HISHARMU_2018_01_00": {
+        "iname": "Challenge_HISHARMU_2018_01_00",
+        "name": "",
+        "kanji": "ノーマルクエストを1回ｸﾘｱする"
+    },
+    "Challenge_HISHARMU_2018_01_01": {
+        "iname": "Challenge_HISHARMU_2018_01_01",
+        "name": "",
+        "kanji": "ユニットに装備品を装備させる"
+    },
+    "Challenge_HISHARMU_2018_01_02": {
+        "iname": "Challenge_HISHARMU_2018_01_02",
+        "name": "",
+        "kanji": "アビリティを1回強化"
+    },
+    "Challenge_HISHARMU_2018_01_03": {
+        "iname": "Challenge_HISHARMU_2018_01_03",
+        "name": "",
+        "kanji": "ユニットのレベルを30にする"
+    },
+    "Challenge_HISHARMU_2018_01_04": {
+        "iname": "Challenge_HISHARMU_2018_01_04",
+        "name": "",
+        "kanji": "限界突破を5回させる"
+    },
+    "Challenge_HISHARMU_2018_01_05": {
+        "iname": "Challenge_HISHARMU_2018_01_05",
+        "name": "",
+        "kanji": "闘技場を1回プレイする"
+    },
+    "Challenge_HISHARMU_2018_01_06": {
+        "iname": "Challenge_HISHARMU_2018_01_06",
+        "name": "",
+        "kanji": "傭兵を連れて1回クエストをｸﾘｱする"
+    },
+    "Challenge_HISHARMU_2018_01_07": {
+        "iname": "Challenge_HISHARMU_2018_01_07",
+        "name": "",
+        "kanji": "マルチプレイを1回行う"
+    },
+    "Challenge_HISHARMU_2018_01_08": {
+        "iname": "Challenge_HISHARMU_2018_01_08",
+        "name": "",
+        "kanji": "５章1話1-1をｸﾘｱする"
     }
 }

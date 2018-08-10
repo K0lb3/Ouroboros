@@ -168,16 +168,18 @@ SRPG_ChapterParam_AR_WA_CLOE_NAME	Call of the Scarlet Flame
 SRPG_ChapterParam_AR_WA_CLOE_EXPR	Chloe Gear Quest
 SRPG_ChapterParam_AR_EVENT_UEXP_02_NAME	[EXP Quest]
 SRPG_ChapterParam_AR_EVENT_UEXP_02_EXPR	Ultra EXP! The Way to True Skill
-SRPG_ChapterParam_AR_3TITLE_NAME	For Whom the Princess Vanishes - The Sun God and the Golden Key -
-SRPG_ChapterParam_AR_3TITLE_EXPR	For Whom the Princess Vanishes - The Sun God and the Golden Key -
-SRPG_ChapterParam_AR_3TITLE_EX_NAME	For Whom the Princess Vanishes - The Sun God and the Golden Key - Ex
-SRPG_ChapterParam_AR_3TITLE_EX_EXPR	For Whom the Princess Vanishes - The Sun God and the Golden Key - Ex
-SRPG_ChapterParam_AR_3TITLE_END1_NAME	For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 1
-SRPG_ChapterParam_AR_3TITLE_END1_EXPR	For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 1
-SRPG_ChapterParam_AR_3TITLE_END2_NAME	For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 2
-SRPG_ChapterParam_AR_3TITLE_END2_EXPR	For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 2
-SRPG_ChapterParam_AR_3TITLE_END3_NAME	For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 3
-SRPG_ChapterParam_AR_3TITLE_END3_EXPR	For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 3
+SRPG_ChapterParam_AR_3TITLE_NAME	The Sun God and the Golden Key
+SRPG_ChapterParam_AR_3TITLE_EXPR	The Sun God and the Golden Key
+SRPG_ChapterParam_AR_3TITLE_EX_NAME	The Sun God and the Golden Key - Ex
+SRPG_ChapterParam_AR_3TITLE_EX_EXPR	The Sun God and the Golden Key - Ex
+SRPG_ChapterParam_AR_3TITLE_GL_END_TOP_NAME	[True Ending] The Sun God and the Golden Key
+SRPG_ChapterParam_AR_3TITLE_GL_END_TOP_EXPR	[True Ending] The Sun God and the Golden Key
+SRPG_ChapterParam_AR_3TITLE_END1_NAME	The Sun God and the Golden Key - Episode 1
+SRPG_ChapterParam_AR_3TITLE_END1_EXPR	The Sun God and the Golden Key - Episode 1
+SRPG_ChapterParam_AR_3TITLE_END2_NAME	The Sun God and the Golden Key - Episode 2
+SRPG_ChapterParam_AR_3TITLE_END2_EXPR	The Sun God and the Golden Key - Episode 2
+SRPG_ChapterParam_AR_3TITLE_END3_NAME	The Sun God and the Golden Key - Episode 3
+SRPG_ChapterParam_AR_3TITLE_END3_EXPR	The Sun God and the Golden Key - Episode 3
 SRPG_ChapterParam_AR_ZOKUSEI_NAME	[Limited Time]
 SRPG_ChapterParam_AR_ZOKUSEI_EXPR	Elemental Quest
 SRPG_ChapterParam_AR_150CP_NAME	1.5M Downloads Celebration Present Quest
@@ -658,8 +660,8 @@ SRPG_ChapterParam_MULTI_SEISEKI_DJ_NAME	Max
 SRPG_ChapterParam_MULTI_SEISEKI_DJ_EXPR	Sacred Stone Memories
 SRPG_ChapterParam_MULTI_POK_SAM_EX_NAME	3 Titles Collaboration
 SRPG_ChapterParam_MULTI_POK_SAM_EX_EXPR	3 Titles Collaboration
-SRPG_ChapterParam_MULTI_3TITLE_EX_NAME	For Whom the Princess Vanishes - The Sun God and the Golden Key - Ex
-SRPG_ChapterParam_MULTI_3TITLE_EX_EXPR	For Whom the Princess Vanishes - The Sun God and the Golden Key - Ex
+SRPG_ChapterParam_MULTI_3TITLE_EX_NAME	The Sun God and the Golden Key - Ex
+SRPG_ChapterParam_MULTI_3TITLE_EX_EXPR	The Sun God and the Golden Key - Ex
 SRPG_ChapterParam_MULTI_SWIM_GORM_NAME	Max
 SRPG_ChapterParam_MULTI_SWIM_GORM_EXPR	Savage Sea Warrior -Storm Legend- [EX]
 SRPG_ChapterParam_MULTI_SO_FEIRIN_NAME	Max
@@ -1298,7 +1300,7 @@ SRPG_QuestParam_QE_ST_NO_010149_NAME	Logi and Dias
 SRPG_QuestParam_QE_ST_NO_010149_EXPR	Episode 5: Act 3-9
 SRPG_QuestParam_QE_ST_NO_010149_COND	Fight off Dias!
 SRPG_QuestParam_QE_ST_NO_010149_TITLE	Ch 1: Ep 5 [3-9]
-SRPG_QuestParam_QE_ST_NO_010150_NAME	For Whom...
+SRPG_QuestParam_QE_ST_NO_010150_NAME	The Code...
 SRPG_QuestParam_QE_ST_NO_010150_EXPR	Episode 5: Act 3-10
 SRPG_QuestParam_QE_ST_NO_010150_COND	Fight off Dias!
 SRPG_QuestParam_QE_ST_NO_010150_TITLE	Ch 1: Ep 5 [3-10]
@@ -1926,7 +1928,7 @@ SRPG_QuestParam_QE_ST_NO_030036_NAME	Reach for the Sky
 SRPG_QuestParam_QE_ST_NO_030036_EXPR	Episode 2: Act 1-6
 SRPG_QuestParam_QE_ST_NO_030036_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_030036_TITLE	Ch 3: Ep 2 [1-6]
-SRPG_QuestParam_QE_ST_NO_030037_NAME	What's Wrong with Helping a Friend?
+SRPG_QuestParam_QE_ST_NO_030037_NAME	Get to the Root of the Problem!
 SRPG_QuestParam_QE_ST_NO_030037_EXPR	Episode 2: Act 1-7
 SRPG_QuestParam_QE_ST_NO_030037_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_030037_TITLE	Ch 3: Ep 2 [1-7]
@@ -2504,7 +2506,7 @@ SRPG_QuestParam_QE_ST_NO_040060_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040060_TITLE	Ch 4: Ep 2 [3-10]
 SRPG_QuestParam_QE_ST_NO_040061_NAME	For Asena
 SRPG_QuestParam_QE_ST_NO_040061_EXPR	Episode 3: Act 1-1
-SRPG_QuestParam_QE_ST_NO_040061_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040061_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040061_TITLE	Ch 4: Ep 3 [1-1]
 SRPG_QuestParam_QE_ST_NO_040062_NAME	Breeze of Purification
 SRPG_QuestParam_QE_ST_NO_040062_EXPR	Episode 3: Act 1-2
@@ -2524,7 +2526,7 @@ SRPG_QuestParam_QE_ST_NO_040065_COND	Fight off Georgios!
 SRPG_QuestParam_QE_ST_NO_040065_TITLE	Ch 4: Ep 3 [1-5]
 SRPG_QuestParam_QE_ST_NO_040066_NAME	Sprite of the Lands
 SRPG_QuestParam_QE_ST_NO_040066_EXPR	Episode 3: Act 1-6
-SRPG_QuestParam_QE_ST_NO_040066_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040066_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040066_TITLE	Ch 4: Ep 3 [1-6]
 SRPG_QuestParam_QE_ST_NO_040067_NAME	Horizon
 SRPG_QuestParam_QE_ST_NO_040067_EXPR	Episode 3: Act 1-7
@@ -2544,23 +2546,23 @@ SRPG_QuestParam_QE_ST_NO_040070_COND	Fight off Tehre!
 SRPG_QuestParam_QE_ST_NO_040070_TITLE	Ch 4: Ep 3 [1-10]
 SRPG_QuestParam_QE_ST_NO_040071_NAME	Conditions for Positions
 SRPG_QuestParam_QE_ST_NO_040071_EXPR	Episode 3: Act 2-1
-SRPG_QuestParam_QE_ST_NO_040071_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040071_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040071_TITLE	Ch 4: Ep 3 [2-1]
 SRPG_QuestParam_QE_ST_NO_040072_NAME	Showing Determination
 SRPG_QuestParam_QE_ST_NO_040072_EXPR	Episode 3: Act 2-2
-SRPG_QuestParam_QE_ST_NO_040072_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040072_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040072_TITLE	Ch 4: Ep 3 [2-2]
 SRPG_QuestParam_QE_ST_NO_040073_NAME	Brother and Sister
 SRPG_QuestParam_QE_ST_NO_040073_EXPR	Episode 3: Act 2-3
-SRPG_QuestParam_QE_ST_NO_040073_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040073_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040073_TITLE	Ch 4: Ep 3 [2-3]
 SRPG_QuestParam_QE_ST_NO_040074_NAME	Tamis's Considerations
 SRPG_QuestParam_QE_ST_NO_040074_EXPR	Episode 3: Act 2-4
-SRPG_QuestParam_QE_ST_NO_040074_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040074_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040074_TITLE	Ch 4: Ep 3 [2-4]
 SRPG_QuestParam_QE_ST_NO_040075_NAME	To Asena
 SRPG_QuestParam_QE_ST_NO_040075_EXPR	Episode 3: Act 2-5
-SRPG_QuestParam_QE_ST_NO_040075_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040075_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040075_TITLE	Ch 4: Ep 3 [2-5]
 SRPG_QuestParam_QE_ST_NO_040076_NAME	Trial
 SRPG_QuestParam_QE_ST_NO_040076_EXPR	Episode 3: Act 2-6
@@ -2584,39 +2586,39 @@ SRPG_QuestParam_QE_ST_NO_040080_COND	Fight off Tina's Shadow!
 SRPG_QuestParam_QE_ST_NO_040080_TITLE	Ch 4: Ep 3 [2-10]
 SRPG_QuestParam_QE_ST_NO_040081_NAME	Motives
 SRPG_QuestParam_QE_ST_NO_040081_EXPR	Episode 3: Act 3-1
-SRPG_QuestParam_QE_ST_NO_040081_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040081_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040081_TITLE	Ch 4: Ep 3 [3-1]
 SRPG_QuestParam_QE_ST_NO_040082_NAME	Four Winds
 SRPG_QuestParam_QE_ST_NO_040082_EXPR	Episode 3: Act 3-2
-SRPG_QuestParam_QE_ST_NO_040082_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040082_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040082_TITLE	Ch 4: Ep 3 [3-2]
 SRPG_QuestParam_QE_ST_NO_040083_NAME	Legend
 SRPG_QuestParam_QE_ST_NO_040083_EXPR	Episode 3: Act 3-3
-SRPG_QuestParam_QE_ST_NO_040083_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040083_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040083_TITLE	Ch 4: Ep 3 [3-3]
 SRPG_QuestParam_QE_ST_NO_040084_NAME	Return
 SRPG_QuestParam_QE_ST_NO_040084_EXPR	Episode 3: Act 3-4
-SRPG_QuestParam_QE_ST_NO_040084_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040084_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040084_TITLE	Ch 4: Ep 3 [3-4]
 SRPG_QuestParam_QE_ST_NO_040085_NAME	The Last Hurdle
 SRPG_QuestParam_QE_ST_NO_040085_EXPR	Episode 3: Act 3-5
-SRPG_QuestParam_QE_ST_NO_040085_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040085_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040085_TITLE	Ch 4: Ep 3 [3-5]
 SRPG_QuestParam_QE_ST_NO_040086_NAME	Rega's Wind
 SRPG_QuestParam_QE_ST_NO_040086_EXPR	Episode 3: Act 3-6
-SRPG_QuestParam_QE_ST_NO_040086_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040086_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040086_TITLE	Ch 4: Ep 3 [3-6]
 SRPG_QuestParam_QE_ST_NO_040087_NAME	Cycle
 SRPG_QuestParam_QE_ST_NO_040087_EXPR	Episode 3: Act 3-7
-SRPG_QuestParam_QE_ST_NO_040087_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040087_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040087_TITLE	Ch 4: Ep 3 [3-7]
 SRPG_QuestParam_QE_ST_NO_040088_NAME	Distrust
 SRPG_QuestParam_QE_ST_NO_040088_EXPR	Episode 3: Act 3-8
-SRPG_QuestParam_QE_ST_NO_040088_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040088_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040088_TITLE	Ch 4: Ep 3 [3-8]
 SRPG_QuestParam_QE_ST_NO_040089_NAME	Meeting of Three Sprites
 SRPG_QuestParam_QE_ST_NO_040089_EXPR	Episode 3: Act 3-9
-SRPG_QuestParam_QE_ST_NO_040089_COND	Defeat All Enemies!
+SRPG_QuestParam_QE_ST_NO_040089_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_040089_TITLE	Ch 4: Ep 3 [3-9]
 SRPG_QuestParam_QE_ST_NO_040090_NAME	Foreseen Future
 SRPG_QuestParam_QE_ST_NO_040090_EXPR	Episode 3: Act 3-10
@@ -2818,7 +2820,7 @@ SRPG_QuestParam_QE_ST_HA_010049_NAME	Riot in the Capital
 SRPG_QuestParam_QE_ST_HA_010049_EXPR	[Hard] Episode 5: Act 3-4
 SRPG_QuestParam_QE_ST_HA_010049_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_ST_HA_010049_TITLE	[Hard] Ch 1: Ep 5 [3-4]
-SRPG_QuestParam_QE_ST_HA_010050_NAME	For Whom...
+SRPG_QuestParam_QE_ST_HA_010050_NAME	The Code...
 SRPG_QuestParam_QE_ST_HA_010050_EXPR	[Hard] Episode 5: Act 3-10
 SRPG_QuestParam_QE_ST_HA_010050_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_ST_HA_010050_TITLE	[Hard] Ch 1: Ep 5 [3-10]
@@ -3205,7 +3207,7 @@ SRPG_QuestParam_QE_TM_EXP_GOLD_3TITLE_TITLE	[1/Day]
 SRPG_QuestParam_QE_TM_EXP_FF15_LV1_NAME	Apple Garden FINAL FANTASY XV
 SRPG_QuestParam_QE_TM_EXP_FF15_LV1_EXPR	EXP Quest: Apples/Gold Ingots
 SRPG_QuestParam_QE_TM_EXP_FF15_LV1_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_TM_EXP_FF15_LV1_TITLE	[Max 1/d]
+SRPG_QuestParam_QE_TM_EXP_FF15_LV1_TITLE	[1/Day]
 SRPG_QuestParam_QE_TM_ZEN_LV1_NAME	Gold Rush [Bgn]
 SRPG_QuestParam_QE_TM_ZEN_LV1_EXPR	Zeni Quest: Zeni Conversion Items
 SRPG_QuestParam_QE_TM_ZEN_LV1_COND	Defeat all enemy units!
@@ -5422,15 +5424,15 @@ SRPG_QuestParam_QE_EV_POK2_EX2_EXPR	PotK Collab Ep2 [EX2]
 SRPG_QuestParam_QE_EV_POK2_EX2_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_POK2_EX2_TITLE	[Featuring Dazzling Shekinah Bow]
 SRPG_QuestParam_QE_EV_POK_SAM_EX1_NAME	Phantom of the Alchemist II [EX 3]
-SRPG_QuestParam_QE_EV_POK_SAM_EX1_EXPR	PotK / Shinobi Collab EX (Move to PotK Collab Quest)
+SRPG_QuestParam_QE_EV_POK_SAM_EX1_EXPR	PotK / Shinobi Collab EX 
 SRPG_QuestParam_QE_EV_POK_SAM_EX1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_POK_SAM_EX1_TITLE	[Featuring Forcas Hell Lance]
 SRPG_QuestParam_QE_EV_POK_SAM_EX3_NAME	Phantom of the Alchemist II [EX 4]
-SRPG_QuestParam_QE_EV_POK_SAM_EX3_EXPR	PotK / Shinobi Collab EX (Move to PotK Collab Quest)
+SRPG_QuestParam_QE_EV_POK_SAM_EX3_EXPR	PotK / Shinobi Collab EX 
 SRPG_QuestParam_QE_EV_POK_SAM_EX3_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_POK_SAM_EX3_TITLE	[Featuring Bashosen Artifact]
-SRPG_QuestParam_QE_EV_3TITLE_EX1_NAME	Phantom of the Alchemist 2 [EX5]
-SRPG_QuestParam_QE_EV_3TITLE_EX1_EXPR	3-Title Swimsuit Collab Quest [EX1] (Move to PotK Collab Quest)
+SRPG_QuestParam_QE_EV_3TITLE_EX1_NAME	The Sun God and the Golden Key [EX1]
+SRPG_QuestParam_QE_EV_3TITLE_EX1_EXPR	3-Title Swimsuit Collab Quest [EX1] 
 SRPG_QuestParam_QE_EV_3TITLE_EX1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_3TITLE_EX1_TITLE	[Featuring Eros Love Bow]
 SRPG_QuestParam_QE_EV_POK3_SAM_EX_NAME	Phantom of the Alchemist III [EX]
@@ -5466,11 +5468,11 @@ SRPG_QuestParam_QE_EV_POK_SAM_07_EXPR	PotK / Shinobi Collab
 SRPG_QuestParam_QE_EV_POK_SAM_07_COND	Defeat Rayvner(?)!
 SRPG_QuestParam_QE_EV_POK_SAM_07_TITLE	[JobLv7+ Recommended]
 SRPG_QuestParam_QE_EV_POK_SAM_EX2_NAME	FgG Collaboration Event [EX] 
-SRPG_QuestParam_QE_EV_POK_SAM_EX2_EXPR	PotK / Shinobi Collab EX
+SRPG_QuestParam_QE_EV_POK_SAM_EX2_EXPR	PotK / Shinobi Collab EX 
 SRPG_QuestParam_QE_EV_POK_SAM_EX2_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_POK_SAM_EX2_TITLE	[Featuring Sakura Blade]
 SRPG_QuestParam_QE_EV_POK_SAM_EX4_NAME	FgG Collaboration Event [EX] 
-SRPG_QuestParam_QE_EV_POK_SAM_EX4_EXPR	PotK / Shinobi Collab EX
+SRPG_QuestParam_QE_EV_POK_SAM_EX4_EXPR	PotK / Shinobi Collab EX 
 SRPG_QuestParam_QE_EV_POK_SAM_EX4_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_POK_SAM_EX4_TITLE	[Featuring Bow of Darkness]
 SRPG_QuestParam_QE_EV_POK_SAM_KEY_EX1_NAME	For Whom the Princess Vanishes [EX]
@@ -5517,7 +5519,7 @@ SRPG_QuestParam_QE_EV_FF15_10_NAME	EP10 Goodbye
 SRPG_QuestParam_QE_EV_FF15_10_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_10_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_FF15_10_TITLE	Unit Lv65 JobLv10 Recommended
-SRPG_QuestParam_QE_EV_FF15_HA_NAME	FINAL FANTASY XV Collab [Hard]
+SRPG_QuestParam_QE_EV_FF15_HA_NAME	FINAL FANTASY XV Collab
 SRPG_QuestParam_QE_EV_FF15_HA_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_HA_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_FF15_HA_TITLE	[Limited Time]
@@ -5588,7 +5590,7 @@ SRPG_QuestParam_QE_EV_3TITLE_END3_TITLE	Unit Lv60 JobLv10 Recommended
 SRPG_QuestParam_QE_EV_3TITLE_EX2_NAME	The Sun God and the Golden Key [EX2]
 SRPG_QuestParam_QE_EV_3TITLE_EX2_EXPR	3-Title Swimsuit Collab Quest [EX2]
 SRPG_QuestParam_QE_EV_3TITLE_EX2_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_3TITLE_EX2_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_3TITLE_EX2_TITLE	[Featuring White-Lily Katana]
 SRPG_QuestParam_QE_EV_150CP_NAME	1.5M Downloads Celebration Present Quest
 SRPG_QuestParam_QE_EV_150CP_EXPR	1.5M Downloads Celebration Present Quest
 SRPG_QuestParam_QE_EV_150CP_COND	Collect the treasure within the time limit!
@@ -6096,13 +6098,13 @@ SRPG_QuestParam_QE_MULTI_BF_LV2_3_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_MULTI_3TITLE_EX2_NAME	The Sun God and the Golden Key [EX2]
 SRPG_QuestParam_QE_EV_MULTI_3TITLE_EX2_EXPR	3-Title Swimsuit Collab Quest [EX2]
 SRPG_QuestParam_QE_EV_MULTI_3TITLE_EX2_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_MULTI_3TITLE_EX2_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_MULTI_3TITLE_EX2_TITLE	[Limited Time]
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX2_NAME	[Featuring Sakura Blade] For Whom the Princess Weeps [EX]
-SRPG_QuestParam_QE_MULTI_POK_SAM_EX2_EXPR	PotK / Shinobi Collab EX
+SRPG_QuestParam_QE_MULTI_POK_SAM_EX2_EXPR	PotK / Shinobi Collab EX 
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX2_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX2_TITLE	[JobLv11+ Recommended]
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX4_NAME	[Featuring Bow of Darkness] For Whom the Princess Weeps [EX]
-SRPG_QuestParam_QE_MULTI_POK_SAM_EX4_EXPR	PotK / Shinobi Collab EX
+SRPG_QuestParam_QE_MULTI_POK_SAM_EX4_EXPR	PotK / Shinobi Collab EX 
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX4_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX4_TITLE	[JobLv11+ Recommended]
 SRPG_QuestParam_QE_MULTI_POK2_01_NAME	Phantom of the Alchemist II [Bgn]
@@ -6134,15 +6136,15 @@ SRPG_QuestParam_QE_MULTI_POK2_EX2_EXPR	PotK Collab Ep2 [EX2]
 SRPG_QuestParam_QE_MULTI_POK2_EX2_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_MULTI_POK2_EX2_TITLE	[Limited Time]
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX1_NAME	Phantom of the Alchemist II [EX 3]
-SRPG_QuestParam_QE_MULTI_POK_SAM_EX1_EXPR	PotK / Shinobi Collab EX (Move to PotK Collab Quest)
+SRPG_QuestParam_QE_MULTI_POK_SAM_EX1_EXPR	PotK / Shinobi Collab EX 
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX1_TITLE	[Limited Time]
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX3_NAME	Phantom of the Alchemist II [EX 4]
-SRPG_QuestParam_QE_MULTI_POK_SAM_EX3_EXPR	PotK / Shinobi Collab EX (Move to PotK Collab Quest)
+SRPG_QuestParam_QE_MULTI_POK_SAM_EX3_EXPR	PotK / Shinobi Collab EX 
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX3_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_MULTI_POK_SAM_EX3_TITLE	[Limited Time]
-SRPG_QuestParam_QE_EV_MULTI_3TITLE_EX1_NAME	Phantom of the Alchemist 2 [EX5]
-SRPG_QuestParam_QE_EV_MULTI_3TITLE_EX1_EXPR	3-Title Swimsuit Collab Quest [EX1] (Move to PotK Collab Quest)
+SRPG_QuestParam_QE_EV_MULTI_3TITLE_EX1_NAME	The Sun God and the Golden Key [EX1]
+SRPG_QuestParam_QE_EV_MULTI_3TITLE_EX1_EXPR	3-Title Swimsuit Collab Quest [EX1] 
 SRPG_QuestParam_QE_EV_MULTI_3TITLE_EX1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_MULTI_3TITLE_EX1_TITLE	[Limited Time]
 SRPG_QuestParam_QE_MULTI_RETZIUS_RENEWAL_EX_NAME	Sandy Journey under Stars [EX]
@@ -6645,7 +6647,7 @@ SRPG_QuestParam_QE_TW_BABEL_NAME	Mystic Tower Veda
 SRPG_QuestParam_QE_TW_BABEL_EXPR	 
 SRPG_QuestParam_QE_TW_BABEL_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_TW_BABEL_TITLE	 
-SRPG_QuestParam_QE_TW_ITEM_NAME	Item Realm
+SRPG_QuestParam_QE_TW_ITEM_NAME	Item World
 SRPG_QuestParam_QE_TW_ITEM_EXPR	 
 SRPG_QuestParam_QE_TW_ITEM_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_TW_ITEM_TITLE	 
@@ -6775,7 +6777,7 @@ SRPG_QuestParam_QE_MT_TOWER_TEST30_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_MT_TOWER_TEST30_TITLE	Mobius_Test_Fl30
 SRPG_TowerParam_QE_TW_BABEL_NAME	Mystic Tower Veda
 SRPG_TowerParam_QE_TW_BABEL_EXPR	 
-SRPG_TowerParam_QE_TW_ITEM_NAME	Item Realm
+SRPG_TowerParam_QE_TW_ITEM_NAME	Item World
 SRPG_TowerParam_QE_TW_ITEM_EXPR	 
 SRPG_QuestParam_QE_GL_HARVEST_1_NAME	Harvest Revelry! [Bgn]
 SRPG_QuestParam_QE_GL_HARVEST_1_COND	Defeat all enemy units!
@@ -7075,47 +7077,47 @@ SRPG_TowerFloorParam_TW_BABEL_FLOOR_070_TITLE	Mystic Tower Veda
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_001_NAME	Fl1 [Fire]
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_001_EXPR	 
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_001_COND	Defeat all enemy units!
-SRPG_TowerFloorParam_TW_ITEM_FLOOR_001_TITLE	Item Realm
+SRPG_TowerFloorParam_TW_ITEM_FLOOR_001_TITLE	Item World
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_002_NAME	Fl2 [Fire]
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_002_EXPR	 
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_002_COND	Defeat all enemy units!
-SRPG_TowerFloorParam_TW_ITEM_FLOOR_002_TITLE	Item Realm
+SRPG_TowerFloorParam_TW_ITEM_FLOOR_002_TITLE	Item World
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_003_NAME	Fl3 [Fire]
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_003_EXPR	 
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_003_COND	Defeat all enemy units!
-SRPG_TowerFloorParam_TW_ITEM_FLOOR_003_TITLE	Item Realm
+SRPG_TowerFloorParam_TW_ITEM_FLOOR_003_TITLE	Item World
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_004_NAME	Fl4 [Water]
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_004_EXPR	 
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_004_COND	Defeat all enemy units!
-SRPG_TowerFloorParam_TW_ITEM_FLOOR_004_TITLE	Item Realm
+SRPG_TowerFloorParam_TW_ITEM_FLOOR_004_TITLE	Item World
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_005_NAME	Fl5 [Water]
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_005_EXPR	 
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_005_COND	Defeat all enemy units!
-SRPG_TowerFloorParam_TW_ITEM_FLOOR_005_TITLE	Item Realm
+SRPG_TowerFloorParam_TW_ITEM_FLOOR_005_TITLE	Item World
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_006_NAME	Fl6 [Water]
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_006_EXPR	 
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_006_COND	Defeat all enemy units!
-SRPG_TowerFloorParam_TW_ITEM_FLOOR_006_TITLE	Item Realm
+SRPG_TowerFloorParam_TW_ITEM_FLOOR_006_TITLE	Item World
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_007_NAME	Fl7 [Wind]
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_007_EXPR	 
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_007_COND	Defeat all enemy units!
-SRPG_TowerFloorParam_TW_ITEM_FLOOR_007_TITLE	Item Realm
+SRPG_TowerFloorParam_TW_ITEM_FLOOR_007_TITLE	Item World
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_008_NAME	Fl8 [Wind]
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_008_EXPR	 
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_008_COND	Defeat all enemy units!
-SRPG_TowerFloorParam_TW_ITEM_FLOOR_008_TITLE	Item Realm
+SRPG_TowerFloorParam_TW_ITEM_FLOOR_008_TITLE	Item World
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_009_NAME	Fl9 [Wind]
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_009_EXPR	 
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_009_COND	Defeat all enemy units!
-SRPG_TowerFloorParam_TW_ITEM_FLOOR_009_TITLE	Item Realm
+SRPG_TowerFloorParam_TW_ITEM_FLOOR_009_TITLE	Item World
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_010_NAME	Fl10 [Multiple]
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_010_EXPR	 
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_010_COND	Defeat all enemy units!
-SRPG_TowerFloorParam_TW_ITEM_FLOOR_010_TITLE	Item Realm
+SRPG_TowerFloorParam_TW_ITEM_FLOOR_010_TITLE	Item World
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_011_NAME	Fl11 [Thunder]
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_011_EXPR	 
 SRPG_TowerFloorParam_TW_ITEM_FLOOR_011_COND	Defeat all enemy units!
-SRPG_TowerFloorParam_TW_ITEM_FLOOR_011_TITLE	Item Realm
+SRPG_TowerFloorParam_TW_ITEM_FLOOR_011_TITLE	Item World
 SRPG_MultiTowerFloorParam_QE_MT_TOWER_1_NAME	Layer 1
 SRPG_MultiTowerFloorParam_QE_MT_TOWER_1_EXPR	 
 SRPG_MultiTowerFloorParam_QE_MT_TOWER_1_COND	Defeat all enemy units!

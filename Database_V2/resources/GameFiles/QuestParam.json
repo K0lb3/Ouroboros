@@ -405,14 +405,6 @@
             "item": "quest_tue"
         },
         {
-            "iname": "AR_SO_MIAN",
-            "name": "【期間限定】",
-            "expr": "魂の邂逅キャラ編",
-            "world": "AREA_DAILY",
-            "chap": "WD_DAILY",
-            "item": "quest_miannu"
-        },
-        {
             "iname": "AR_KEY_GOLD",
             "name": "【30分限定】",
             "expr": "ゴールドラッシュ",
@@ -617,60 +609,6 @@
             "world": "AREA_DAILY",
             "chap": "WD_DAILY",
             "item": "quest_uexp_02"
-        },
-        {
-            "iname": "AR_3TITLE",
-            "name": "誰ガ為に姫は泣く-太陽神と黄金の鍵-",
-            "expr": "誰ガ為に姫は泣く-太陽神と黄金の鍵-",
-            "world": "AREA_DAILY",
-            "chap": "WD_DAILY",
-            "item": "quest_ev_3title",
-            "nil": "/notice/detail/event/ar_3title"
-        },
-        {
-            "iname": "AR_3TITLE_EX",
-            "name": "誰ガ為に姫は泣く-太陽神と黄金の鍵-EX",
-            "expr": "誰ガ為に姫は泣く-太陽神と黄金の鍵-EX",
-            "world": "AREA_DAILY",
-            "chap": "WD_DAILY",
-            "item": "quest_ev_3title_ex",
-            "nil": "/notice/detail/event/ar_3title_ex"
-        },
-        {
-            "iname": "AR_3TITLE_END1",
-            "name": "誰ガ為に姫は無く-太陽神と黄金の鍵-1話",
-            "expr": "誰ガ為に姫は無く-太陽神と黄金の鍵-1話",
-            "world": "AREA_DAILY",
-            "chap": "WD_DAILY",
-            "item": "quest_ev_3title_end1",
-            "keyitem1": "IT_KEY_QUEST_3TITLE_SUN",
-            "keynum1": 1,
-            "keytime": 1296000,
-            "nil": "/notice/detail/event/ar_3title_end1"
-        },
-        {
-            "iname": "AR_3TITLE_END2",
-            "name": "誰ガ為に姫は無く-太陽神と黄金の鍵-2話",
-            "expr": "誰ガ為に姫は無く-太陽神と黄金の鍵-2話",
-            "world": "AREA_DAILY",
-            "chap": "WD_DAILY",
-            "item": "quest_ev_3title_end2",
-            "keyitem1": "IT_KEY_QUEST_3TITLE_SUN",
-            "keynum1": 1,
-            "keytime": 1296000,
-            "nil": "/notice/detail/event/ar_3title_end2"
-        },
-        {
-            "iname": "AR_3TITLE_END3",
-            "name": "誰ガ為に姫は無く-太陽神と黄金の鍵-3話",
-            "expr": "誰ガ為に姫は無く-太陽神と黄金の鍵-3話",
-            "world": "AREA_DAILY",
-            "chap": "WD_DAILY",
-            "item": "quest_ev_3title_end3",
-            "keyitem1": "IT_KEY_QUEST_3TITLE_SUN",
-            "keynum1": 1,
-            "keytime": 1296000,
-            "nil": "/notice/detail/event/ar_3title_end3"
         },
         {
             "iname": "AR_ZOKUSEI",
@@ -1119,6 +1057,14 @@
             "item": "quest_ev_seiseki9"
         },
         {
+            "iname": "AR_SO_MIAN",
+            "name": "【期間限定】",
+            "expr": "魂の邂逅キャラ編",
+            "world": "AREA_DAILY",
+            "chap": "WD_DAILY",
+            "item": "quest_miannu"
+        },
+        {
             "iname": "AR_EV_NICO2_FUKUDA_01",
             "name": "LLR福田の『開門！タガタメ道場』",
             "expr": "タガタメ芸人に挑戦！？LLR福田クエスト",
@@ -1524,6 +1470,62 @@
             "world": "AREA_DAILY",
             "chap": "WD_DAILY",
             "item": "quest_exp_00"
+        },
+        {
+            "iname": "AR_3TITLE",
+            "name": "誰ガ為に姫は泣く-太陽神と黄金の鍵-",
+            "expr": "誰ガ為に姫は泣く-太陽神と黄金の鍵-",
+            "world": "AREA_DAILY",
+            "chap": "WD_DAILY",
+            "item": "quest_ev_3title",
+            "nil": "/notice/detail/event/ar_3title"
+        },
+        {
+            "iname": "AR_3TITLE_EX",
+            "name": "誰ガ為に姫は泣く-太陽神と黄金の鍵-EX",
+            "expr": "誰ガ為に姫は泣く-太陽神と黄金の鍵-EX",
+            "world": "AREA_DAILY",
+            "chap": "WD_DAILY",
+            "item": "quest_ev_3title_ex",
+            "nil": "/notice/detail/event/ar_3title_ex"
+        },
+        {
+            "iname": "AR_3TITLE_GL_END_TOP",
+            "name": "誰ガ為に姫は泣く-太陽神と黄金の鍵-ENDINGS",
+            "expr": "誰ガ為に姫は泣く-太陽神と黄金の鍵-ENDINGS",
+            "world": "AREA_DAILY",
+            "chap": "WD_DAILY",
+            "item": "quest_ev_g_3title_parent"
+        },
+        {
+            "iname": "AR_3TITLE_END1",
+            "name": "誰ガ為に姫は無く-太陽神と黄金の鍵-1話",
+            "expr": "誰ガ為に姫は無く-太陽神と黄金の鍵-1話",
+            "world": "AREA_DAILY",
+            "chap": "WD_DAILY",
+            "parent": "AR_3TITLE_GL_END_TOP",
+            "item": "quest_ev_3title_end1",
+            "nil": "/notice/detail/event/ar_3title_end1"
+        },
+        {
+            "iname": "AR_3TITLE_END2",
+            "name": "誰ガ為に姫は無く-太陽神と黄金の鍵-2話",
+            "expr": "誰ガ為に姫は無く-太陽神と黄金の鍵-2話",
+            "world": "AREA_DAILY",
+            "chap": "WD_DAILY",
+            "parent": "AR_3TITLE_GL_END_TOP",
+            "item": "quest_ev_3title_end2",
+            "nil": "/notice/detail/event/ar_3title_end2"
+        },
+        {
+            "iname": "AR_3TITLE_END3",
+            "name": "誰ガ為に姫は無く-太陽神と黄金の鍵-3話",
+            "expr": "誰ガ為に姫は無く-太陽神と黄金の鍵-3話",
+            "world": "AREA_DAILY",
+            "chap": "WD_DAILY",
+            "parent": "AR_3TITLE_GL_END_TOP",
+            "item": "quest_ev_3title_end3",
+            "nil": "/notice/detail/event/ar_3title_end3"
         },
         {
             "iname": "AR_HAGAREN_TOP",
@@ -6197,8 +6199,8 @@
         },
         {
             "iname": "CAP_DROP_2_002",
-            "begin_at": "1/1/2016 12:00:00 PM",
-            "end_at": "1/1/2017 12:00:00 PM",
+            "begin_at": "8/13/2018",
+            "end_at": "8/15/2018 11:59:59 PM",
             "children": [
                 "CAC_DROP_2_001_HARD"
             ]
@@ -64435,6 +64437,392 @@
             ]
         },
         {
+            "iname": "QE_ST_NO_030041",
+            "title": "３章２話2-1",
+            "name": "学園長室突入",
+            "expr": "第二話：第二幕－１",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_NO_030041",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA",
+                "IT_EQ_DIAGRAMPIECE_PENDANT",
+                "IT_EQ_MND_CHARM"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030040"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "lose": 1,
+            "evst": "QE03_2_2_01_a_3d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_001",
+                    "set": "main_no_030041_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030042",
+            "title": "３章２話2-2",
+            "name": "呪われた力",
+            "expr": "第二話：第二幕－２",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_NO_030042",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_HOLYSHIELD",
+                "IT_EQ_DIAGRAMPIECE_CHESS",
+                "IT_EQ_PIECE_CAPE"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030041"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "lose": 1,
+            "evst": "QE03_2_2_02_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_001",
+                    "set": "main_no_030042_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030043",
+            "title": "３章２話2-3",
+            "name": "力の使い方",
+            "expr": "第二話：第二幕－３",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_NO_030043",
+            "drops": [
+                "IT_EQ_PIECE_WATCH",
+                "IT_EQ_PIECE_COAT",
+                "IT_EQ_SPD_FEATHER"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030042"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "lose": 1,
+            "evst": "QE03_2_2_03_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_001",
+                    "set": "main_no_030043_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030044",
+            "title": "３章２話2-4",
+            "name": "全能の魔女",
+            "expr": "第二話：第二幕－４",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_NO_030044",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_DARKSWORD",
+                "IT_EQ_PIECE_LANCE",
+                "IT_EQ_SPD_GEAR"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030043"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "lose": 1,
+            "evst": "QE03_2_2_04_a_3d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_002",
+                    "set": "main_no_030044_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030045",
+            "title": "３章２話2-5",
+            "name": "魔女の理念",
+            "expr": "第二話：第二幕－５",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_NO_030045",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_SUZU",
+                "IT_EQ_DIAGRAMPIECE_DRAGON",
+                "IT_EQ_PIECE_FURO"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030044"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "lose": 1,
+            "evst": "QE03_2_2_05_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_002",
+                    "set": "main_no_030045_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030046",
+            "title": "３章２話2-6",
+            "name": "怨念対信念",
+            "expr": "第二話：第二幕－６",
+            "cond": "エレオノーラを退けろ！",
+            "mission": "OB_ST_NO_030046",
+            "drops": [
+                "IT_EQ_PIECE_TWOSWORDS",
+                "IT_EQ_PIECE_STAFF",
+                "IT_EQ_ATK_WOODENSWORD"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030045"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "win": 1,
+            "lose": 1,
+            "evst": "QE03_2_2_06_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_002_1",
+                    "set": "main_no_030046_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030047",
+            "title": "３章２話2-7",
+            "name": "意外な人物",
+            "expr": "第二話：第二幕－７",
+            "cond": "エレオノーラを退けろ！",
+            "mission": "OB_ST_NO_030047",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_RIFLE",
+                "IT_EQ_DIAGRAMPIECE_BELT",
+                "IT_EQ_CRI_DAGGER"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030046"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "win": 1,
+            "lose": 1,
+            "evst": "QE03_2_2_07_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_002_1",
+                    "set": "main_no_030047_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030048",
+            "title": "３章２話2-8",
+            "name": "衝撃の事実",
+            "expr": "第二話：第二幕－８",
+            "cond": "エレオノーラを退けろ！",
+            "mission": "OB_ST_NO_030048",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_WAISTCLOTH",
+                "IT_EQ_PIECE_SHIELD",
+                "IT_EQ_PIECE_HOURGLASS"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030047"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "win": 1,
+            "lose": 1,
+            "evst": "QE03_2_2_08_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_002_1",
+                    "set": "main_no_030048_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030049",
+            "title": "３章２話2-9",
+            "name": "愛を守る砦",
+            "expr": "第二話：第二幕－９",
+            "cond": "エレオノーラを退けろ！",
+            "mission": "OB_ST_NO_030049",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_HOLYARMOR",
+                "IT_EQ_PIECE_GLASSPEN",
+                "IT_EQ_MAG_BRANCH"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030048"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "win": 1,
+            "lose": 1,
+            "evst": "QE03_2_2_09_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_003",
+                    "set": "main_no_030049_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030050",
+            "title": "３章２話2-10",
+            "name": "氷を溶かす者",
+            "expr": "第二話：第二幕－１０",
+            "cond": "エレオノーラを倒せ！",
+            "mission": "OB_ST_NO_030050",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_DARKKABUTO",
+                "IT_EQ_DIAGRAMPIECE_NECRO",
+                "IT_EQ_DIAGRAMPIECE_OTHI_ARMOR"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030049"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "win": 1,
+            "lose": 1,
+            "evst": "QE03_2_2_10_a_2d",
+            "evw": "QE03_2_2_10_b_3d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_003",
+                    "set": "main_no_030050_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
             "iname": "QE_ST_HA_010001",
             "title": "【ハード】１章１話1-1",
             "name": "騒がしき旅立ち",
@@ -65735,7 +66123,7 @@
             "cond": "敵を全滅させろ",
             "mission": "OB_ST_HA_010030",
             "pieces": [
-                "IT_PI_RIGARUTO"
+                "IT_PI_ROSA"
             ],
             "drops": [
                 "IT_PI_RIGARUTO",
@@ -65915,10 +66303,10 @@
             "cond": "敵を全滅させろ",
             "mission": "OB_ST_HA_010034",
             "pieces": [
-                "IT_PI_LUCIDO"
+                "IT_PI_GLANZ"
             ],
             "drops": [
-                "IT_PI_LUCIDO",
+                "IT_PI_GLANZ",
                 "IT_EQ_HP_CAP",
                 "IT_EQ_PIECE_ROD",
                 "IT_EQ_DIAGRAMPIECE_MIRROR",
@@ -66375,10 +66763,10 @@
             "cond": "敵を全滅させろ",
             "mission": "OB_ST_HA_010044",
             "pieces": [
-                "IT_PI_RIGARUTO"
+                "IT_PI_REIMEI"
             ],
             "drops": [
-                "IT_PI_RIGARUTO",
+                "IT_PI_REIMEI",
                 "IT_EQ_DIAGRAMPIECE_CHESS",
                 "IT_EQ_PIECE_TWOSWORDS",
                 "IT_EQ_DIAGRAMPIECE_SUZU",
@@ -68272,7 +68660,7 @@
             "cond": "敵を全滅させろ",
             "mission": "OB_ST_HA_020036",
             "pieces": [
-                "IT_PI_GAIN"
+                "IT_PI_ARUBA"
             ],
             "drops": [
                 "IT_PI_GAIN",
@@ -69019,6 +69407,186 @@
                     "set": "main_ha_030040_set",
                     "btl": "plain01",
                     "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_HA_030013",
+            "title": "【ハード】３章２話2-4",
+            "name": "全能の魔女",
+            "expr": "【ハード】第二話：第二幕－４",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_HA_030013",
+            "pieces": [
+                "IT_PI_JAKE"
+            ],
+            "drops": [
+                "IT_PI_JAKE",
+                "IT_EQ_DIAGRAMPIECE_DARKSWORD",
+                "IT_EQ_PIECE_LANCE",
+                "IT_EQ_SPD_GEAR"
+            ],
+            "type": 4,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030044"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 920,
+            "gold": 7200,
+            "lose": 1,
+            "mode": 1,
+            "lv": 75,
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "limit": 3,
+            "dayreset": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_002",
+                    "set": "main_ha_030044_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_HA_030014",
+            "title": "【ハード】３章２話2-5",
+            "name": "魔女の理念",
+            "expr": "【ハード】第二話：第二幕－５",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_HA_030014",
+            "pieces": [
+                "IT_PI_AYLLU"
+            ],
+            "drops": [
+                "IT_PI_AYLLU",
+                "IT_EQ_DIAGRAMPIECE_SUZU",
+                "IT_EQ_DIAGRAMPIECE_DRAGON",
+                "IT_EQ_PIECE_FURO"
+            ],
+            "type": 4,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030045"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 920,
+            "gold": 7200,
+            "lose": 1,
+            "mode": 1,
+            "lv": 75,
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "limit": 3,
+            "dayreset": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_002",
+                    "set": "main_ha_030045_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_HA_030015",
+            "title": "【ハード】３章２話2-9",
+            "name": "愛を守る砦",
+            "expr": "【ハード】第二話：第二幕－９",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_HA_030015",
+            "pieces": [
+                "IT_PI_ARKILL"
+            ],
+            "drops": [
+                "IT_PI_ARKILL",
+                "IT_EQ_DIAGRAMPIECE_HOLYARMOR",
+                "IT_EQ_PIECE_GLASSPEN",
+                "IT_EQ_MAG_BRANCH"
+            ],
+            "type": 4,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030049"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 920,
+            "gold": 7200,
+            "lose": 1,
+            "mode": 1,
+            "lv": 75,
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "limit": 3,
+            "dayreset": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_003",
+                    "set": "main_ha_030049_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_HA_030016",
+            "title": "【ハード】３章２話2-10",
+            "name": "氷を溶かす者",
+            "expr": "【ハード】第二話：第二幕－１０",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_HA_030016",
+            "pieces": [
+                "IT_PI_SARAUZU"
+            ],
+            "drops": [
+                "IT_PI_SARAUZU",
+                "IT_EQ_DIAGRAMPIECE_DARKKABUTO",
+                "IT_EQ_DIAGRAMPIECE_NECRO",
+                "IT_EQ_DEX_TRIANGLE"
+            ],
+            "type": 4,
+            "world": "WD_10",
+            "area": "AR_03_05",
+            "cond_quests": [
+                "QE_ST_NO_030050"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 920,
+            "gold": 7200,
+            "lose": 1,
+            "mode": 1,
+            "lv": 80,
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "limit": 3,
+            "dayreset": 1,
+            "map": [
+                {
+                    "scn": "bg_03_gakutyositu_003",
+                    "set": "main_ha_030050_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
                 }
             ]
         },
@@ -71758,240 +72326,6 @@
             ]
         },
         {
-            "iname": "QE_SO_MIANNU_LV0",
-            "title": "【期間限定】",
-            "name": "魂の邂逅　ミアンヌ編[初級]",
-            "expr": "キャライベント",
-            "cond": "敵を全滅させろ",
-            "mission": "OB_CH_MIANNU_LV0",
-            "drops": [
-                "IT_PI_MIANNU"
-            ],
-            "type": 5,
-            "subtype": 1,
-            "world": "WD_DAILY",
-            "area": "AR_SO_MIAN",
-            "hide": 1,
-            "pt": 10,
-            "pexp": 10,
-            "uexp": 55,
-            "gold": 1000,
-            "lv": 15,
-            "aplv": 1,
-            "not_search": 1,
-            "map": [
-                {
-                    "scn": "bg_01_mori_H_007_A",
-                    "set": "ch_miannu_lv0_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0011"
-                }
-            ]
-        },
-        {
-            "iname": "QE_SO_MIANNU_LV1",
-            "title": "【期間限定】",
-            "name": "魂の邂逅　ミアンヌ編[中級]",
-            "expr": "キャライベント",
-            "cond": "敵を全滅させろ",
-            "mission": "OB_CH_MIANNU_LV1",
-            "drops": [
-                "IT_PI_MIANNU"
-            ],
-            "type": 5,
-            "subtype": 1,
-            "world": "WD_DAILY",
-            "area": "AR_SO_MIAN",
-            "hide": 1,
-            "cond_quests": [
-                "QE_SO_MIANNU_LV0"
-            ],
-            "pt": 20,
-            "pexp": 20,
-            "uexp": 75,
-            "gold": 1500,
-            "lv": 45,
-            "evst": "EQ_MIANNU_KAIKOU_01",
-            "aplv": 1,
-            "not_search": 1,
-            "map": [
-                {
-                    "scn": "bg_01_mori_H_007_A",
-                    "set": "ch_miannu_lv1_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0011"
-                }
-            ]
-        },
-        {
-            "iname": "QE_SO_MIANNU_LV2",
-            "title": "【期間限定】",
-            "name": "魂の邂逅ミアンヌ編[上級]",
-            "expr": "キャライベント",
-            "cond": "敵を全滅させろ",
-            "mission": "OB_CH_MIANNU_LV2",
-            "drops": [
-                "IT_PI_MIANNU"
-            ],
-            "type": 5,
-            "subtype": 1,
-            "world": "WD_DAILY",
-            "area": "AR_SO_MIAN",
-            "hide": 1,
-            "cond_quests": [
-                "QE_SO_MIANNU_LV1"
-            ],
-            "pt": 30,
-            "pexp": 30,
-            "uexp": 200,
-            "gold": 3500,
-            "lv": 60,
-            "evst": "EQ_MIANNU_KAIKOU_02",
-            "aplv": 1,
-            "not_search": 1,
-            "map": [
-                {
-                    "scn": "bg_01_mori_H_007_A",
-                    "set": "ch_miannu_lv2_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0011"
-                }
-            ]
-        },
-        {
-            "iname": "QE_SO_RETZIUS_LV1",
-            "title": "【期間限定】",
-            "name": "レシウス邂逅[初級]",
-            "expr": "キャライベント",
-            "cond": "敵を全滅させろ",
-            "mission": "OB_SO_RETZIUS_LV1",
-            "drops": [
-                "IT_PI_RETZIUS"
-            ],
-            "type": 5,
-            "subtype": 1,
-            "world": "WD_DAILY",
-            "area": "AR_SO_RETZIUS",
-            "hide": 1,
-            "pt": 10,
-            "pexp": 10,
-            "uexp": 55,
-            "gold": 1000,
-            "lv": 10,
-            "aplv": 1,
-            "not_search": 1,
-            "map": [
-                {
-                    "scn": "bg_01_areti_008_A",
-                    "set": "ch_retzius_lv1_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0015"
-                }
-            ]
-        },
-        {
-            "iname": "QE_SO_RETZIUS_LV2",
-            "title": "【期間限定】",
-            "name": "レシウス邂逅[中級]",
-            "expr": "キャライベント",
-            "cond": "敵を全滅させろ",
-            "mission": "OB_SO_RETZIUS_LV2",
-            "drops": [
-                "IT_PI_RETZIUS"
-            ],
-            "type": 5,
-            "subtype": 1,
-            "world": "WD_DAILY",
-            "area": "AR_SO_RETZIUS",
-            "hide": 1,
-            "cond_quests": [
-                "QE_SO_RETZIUS_LV1"
-            ],
-            "pt": 20,
-            "pexp": 20,
-            "uexp": 75,
-            "gold": 1500,
-            "lv": 35,
-            "aplv": 1,
-            "not_search": 1,
-            "map": [
-                {
-                    "scn": "bg_01_areti_009_A",
-                    "set": "ch_retzius_lv2_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0015"
-                }
-            ]
-        },
-        {
-            "iname": "QE_SO_RETZIUS_LV3",
-            "title": "【期間限定】",
-            "name": "レシウス邂逅[上級]",
-            "expr": "キャライベント",
-            "cond": "敵を全滅させろ",
-            "mission": "OB_SO_RETZIUS_LV3",
-            "drops": [
-                "IT_PI_RETZIUS"
-            ],
-            "type": 5,
-            "subtype": 1,
-            "world": "WD_DAILY",
-            "area": "AR_SO_RETZIUS",
-            "hide": 1,
-            "cond_quests": [
-                "QE_SO_RETZIUS_LV2"
-            ],
-            "pt": 30,
-            "pexp": 30,
-            "uexp": 200,
-            "gold": 3500,
-            "lv": 60,
-            "aplv": 1,
-            "not_search": 1,
-            "map": [
-                {
-                    "scn": "bg_01_areti_009_A",
-                    "set": "ch_retzius_lv3_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0015"
-                }
-            ]
-        },
-        {
-            "iname": "QE_LIMIT_MELEE_Lv1",
-            "title": "【期間限定】",
-            "name": "白兵の修練戦",
-            "expr": "スポット召還対応のコース、JobLv5程度向け",
-            "cond": "敵を全滅させろ",
-            "mission": "OB_LIMIT_MELEE_Lv1",
-            "drops": [
-                "IT_EQ_PIECE_SABER",
-                "IT_EQ_PIECE_SHELM",
-                "IT_EQ_CRI_NEEDLE"
-            ],
-            "type": 5,
-            "subtype": 0,
-            "world": "WD_DAILY",
-            "area": "AR_EVENT_IT_EQ02",
-            "hide": 1,
-            "pt": 20,
-            "pexp": 20,
-            "uexp": 250,
-            "gold": 2000,
-            "lv": 35,
-            "aplv": 1,
-            "atk_mag": "ATK_MAG_MELEE",
-            "not_search": 1,
-            "map": [
-                {
-                    "scn": "bg_01_env_shiro_zyouheki_001_A",
-                    "set": "limit_melee_lv1_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0011"
-                }
-            ]
-        },
-        {
             "iname": "QE_LIMIT_LONGRANGE_Lv1",
             "title": "【期間限定】",
             "name": "遠戦の修練戦",
@@ -73482,6 +73816,317 @@
             ]
         },
         {
+            "iname": "QE_EV_3TITLE_1",
+            "title": "UnitLv5 JobLv1推奨",
+            "name": "太陽神と黄金の鍵 1話",
+            "expr": "3タイトル水着コラボクエスト",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_3TITLE_1",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_3TITLE",
+            "hide": 1,
+            "pt": 8,
+            "pexp": 8,
+            "uexp": 150,
+            "gold": 1000,
+            "lv": 5,
+            "evst": "EQ_3APPLI_2017_01_a_2d_SG",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_003",
+                    "set": "ev_3title_01_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_1010"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_3TITLE_2",
+            "title": "UnitLv15 JobLv2推奨",
+            "name": "太陽神と黄金の鍵 2話",
+            "expr": "3タイトル水着コラボクエスト",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_3TITLE_2",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_3TITLE",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_3TITLE_1"
+            ],
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 200,
+            "gold": 1200,
+            "lv": 15,
+            "evst": "EQ_3APPLI_2017_02_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_event_beach_001",
+                    "set": "ev_3title_02_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_1028"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_3TITLE_3",
+            "title": "UnitLv30 JobLv4推奨",
+            "name": "太陽神と黄金の鍵 3話",
+            "expr": "3タイトル水着コラボクエスト",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_3TITLE_3",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_3TITLE",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_3TITLE_2"
+            ],
+            "pt": 12,
+            "pexp": 12,
+            "uexp": 250,
+            "gold": 1500,
+            "lv": 30,
+            "evst": "EQ_3APPLI_2017_03_a_2d",
+            "evw": "EQ_3APPLI_2017_03_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "pvp_event_beach_001",
+                    "set": "ev_3title_03_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_1028"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_3TITLE_4",
+            "title": "UnitLv40 JobLv5推奨",
+            "name": "太陽神と黄金の鍵 4話",
+            "expr": "3タイトル水着コラボクエスト",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_3TITLE_4",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_3TITLE",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_3TITLE_3"
+            ],
+            "pt": 14,
+            "pexp": 14,
+            "uexp": 350,
+            "gold": 1800,
+            "lv": 40,
+            "evst": "EQ_3APPLI_2017_04_a_2d",
+            "evw": "EQ_3APPLI_2017_04_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_004",
+                    "set": "ev_3title_04_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0109"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_3TITLE_5",
+            "title": "UnitLv50 JobLv7推奨",
+            "name": "太陽神と黄金の鍵 5話",
+            "expr": "3タイトル水着コラボクエスト",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_3TITLE_5",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_3TITLE",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_3TITLE_4"
+            ],
+            "pt": 16,
+            "pexp": 16,
+            "uexp": 500,
+            "gold": 2000,
+            "lv": 50,
+            "evst": "EQ_3APPLI_2017_05_a_2d",
+            "evw": "EQ_3APPLI_2017_05_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_004",
+                    "set": "ev_3title_05_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_1028"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_3TITLE_END1",
+            "title": "UnitLv55 JobLv8推奨",
+            "name": "太陽神と黄金の鍵 1話",
+            "expr": "3タイトル水着コラボクエスト",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_3TITLE_END1",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_3TITLE_END1",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_3TITLE_5"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 500,
+            "gold": 3000,
+            "lv": 55,
+            "evst": "EQ_3APPLI_2017_END_01_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_004",
+                    "set": "ev_3title_06_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_1028"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_3TITLE_END2",
+            "title": "UnitLv55 JobLv9推奨",
+            "name": "太陽神と黄金の鍵 2話",
+            "expr": "3タイトル水着コラボクエスト",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_3TITLE_END2",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_3TITLE_END2",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_3TITLE_END1"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 500,
+            "gold": 3000,
+            "lv": 55,
+            "evst": "EQ_3APPLI_2017_END_02_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_005",
+                    "set": "ev_3title_07_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_1028"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_3TITLE_END3",
+            "title": "UnitLv60 JobLv10推奨",
+            "name": "太陽神と黄金の鍵 3話",
+            "expr": "3タイトル水着コラボクエスト",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_3TITLE_END3",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_3TITLE_END3",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_3TITLE_END2"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 500,
+            "gold": 3000,
+            "lv": 60,
+            "evst": "EQ_3APPLI_2017_END_03_a_2d",
+            "evw": "EQ_3APPLI_2017_END_03_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_005",
+                    "set": "ev_3title_08_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_1028"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_3TITLE_EX1",
+            "title": "【恋愛弓エロース登場】",
+            "name": "ファントム オブ アルケミスト2[EX5]",
+            "expr": "3タイトル水着コラボクエスト[EX1](後にファンキルコラボクエストへ移動)",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_3TITLE_EX1",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_3TITLE_EX",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_3TITLE_5"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 500,
+            "gold": 5000,
+            "lv": 75,
+            "aplv": 1,
+            "extra": 1,
+            "map": [
+                {
+                    "scn": "tower_normal_0a_14",
+                    "set": "ev_3title_ex1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_1028"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_3TITLE_EX2",
+            "title": "高難易度クエスト",
+            "name": "太陽神と黄金の鍵 [EX2]",
+            "expr": "3タイトル水着コラボクエスト[EX2]",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_3TITLE_EX2",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_3TITLE_EX",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_3TITLE_5"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 500,
+            "gold": 5000,
+            "lv": 75,
+            "aplv": 1,
+            "extra": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_004",
+                    "set": "ev_3title_ex2_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_1028"
+                }
+            ]
+        },
+        {
             "iname": "QE_EV_FATE_1",
             "title": "【ジョブレベル１以上推奨】",
             "name": "Fate/stay night [UBW]ステージ1",
@@ -74238,6 +74883,500 @@
                     "set": "ev_fate_ex_04_set",
                     "btl": "plain01",
                     "bgm": "BGM_1009"
+                }
+            ]
+        },
+        {
+            "iname": "QE_WA_ZIN_1",
+            "title": "UnitLv10 JobLv2推奨",
+            "name": "黄泉路への帰郷1話　ヤミとカゼ",
+            "expr": "ジン武具1",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_WA_ZIN_1",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ARKI_HOOKAH",
+                "IT_EQ_DIAGRAMPIECE_ARKI_TURBAN",
+                "IT_EQ_ATK_WOODENSWORD",
+                "IT_EQ_DIAGRAM_VEST",
+                "IT_EQ_DIAGRAM_PEN",
+                "IT_EQ_SPD_FEATHER",
+                "IT_EQ_LUK_SILVERCOIN",
+                "IT_EQ_CRI_NEEDLE"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_WA_ZIN",
+            "hide": 1,
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 100,
+            "gold": 1500,
+            "lv": 10,
+            "evst": "EQ_ZIN_WA_01_a_2d",
+            "evw": "EQ_ZIN_WA_01_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mori_M_004_N",
+                    "set": "qe_wa_zin_1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_WA_ZIN_2",
+            "title": "UnitLv20 JobLv4推奨",
+            "name": "黄泉路への帰郷2話　ハビコル、ヤミ",
+            "expr": "ジン武具2",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_WA_ZIN_2",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ARKI_JACKET",
+                "IT_EQ_DIAGRAMPIECE_ARKI_GAUNTLET",
+                "IT_EQ_ATK_MACE",
+                "IT_EQ_DIAGRAM_VEST",
+                "IT_EQ_DIAGRAM_PEN",
+                "IT_EQ_MAG_BRANCH",
+                "IT_EQ_DIAGRAM_GROVE",
+                "IT_EQ_HP_CAP"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_WA_ZIN",
+            "hide": 1,
+            "cond_quests": [
+                "QE_WA_ZIN_1"
+            ],
+            "pt": 15,
+            "pexp": 15,
+            "uexp": 150,
+            "gold": 2000,
+            "lv": 20,
+            "evst": "EQ_ZIN_WA_02_a_2d",
+            "evw": "EQ_ZIN_WA_02_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mori_M_007_N",
+                    "set": "qe_wa_zin_2_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_WA_ZIN_3",
+            "title": "UnitLv35 JobLv6推奨",
+            "name": "黄泉路への帰郷3話　オニはウチ、フクはソト",
+            "expr": "ジン武具3",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_WA_ZIN_3",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ARKI_HOOKAH",
+                "IT_EQ_DIAGRAMPIECE_ARKI_TURBAN",
+                "IT_EQ_PIECE_ROD",
+                "IT_EQ_DEF_MANTLE",
+                "IT_EQ_DEX_INK",
+                "IT_EQ_SPD_GEAR",
+                "IT_EQ_LUK_KEY",
+                "IT_EQ_CRI_NEEDLE"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_WA_ZIN",
+            "hide": 1,
+            "cond_quests": [
+                "QE_WA_ZIN_2"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 200,
+            "gold": 3000,
+            "lv": 35,
+            "evst": "EQ_ZIN_WA_03_a_2d",
+            "evw": "EQ_ZIN_WA_03_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mori_M_009_N",
+                    "set": "qe_wa_zin_3_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_WA_ZIN_4",
+            "title": "UnitLv55 JobLv9推奨",
+            "name": "黄泉路への帰郷4話　ムシバムモノ",
+            "expr": "ジン武具4",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_WA_ZIN_4",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ARKI_JACKET",
+                "IT_EQ_DIAGRAMPIECE_ARKI_GAUNTLET",
+                "IT_EQ_DIAGRAMPIECE_ONM_SOUBI",
+                "IT_EQ_SOUL_ARKI_MAH",
+                "IT_EQ_PIECE_SHELM",
+                "IT_EQ_DEF_MANTLE",
+                "IT_EQ_DEX_INK",
+                "IT_EQ_MAG_WAND",
+                "IT_EQ_MND_MUFFLER",
+                "IT_EQ_DIAGRAM_EARRING"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_WA_ZIN",
+            "hide": 1,
+            "cond_quests": [
+                "QE_WA_ZIN_3"
+            ],
+            "pt": 25,
+            "pexp": 25,
+            "uexp": 250,
+            "gold": 3500,
+            "lv": 50,
+            "evst": "EQ_ZIN_WA_04_a_2d",
+            "evw": "EQ_ZIN_WA_04_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_yama_007_A",
+                    "set": "qe_wa_zin_4_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_WA_ZIN_5",
+            "title": "UnitLv65 JobLv10推奨",
+            "name": "黄泉路への帰郷5話　スクウ、ヤミ",
+            "expr": "ジン武具5",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_WA_ZIN_5",
+            "drops": [
+                "IT_AF_ARMS_ZIN_00",
+                "IT_EQ_DIAGRAMPIECE_ARKI_BOOTS",
+                "IT_EQ_DIAGRAMPIECE_ARKI_REVOLVER",
+                "IT_EQ_SOUL_ARKI_MAH",
+                "IT_EQ_DIAGRAMPIECE_ONM_SOUBI",
+                "IT_EQ_PIECE_SWORD",
+                "IT_EQ_PIECE_SHIELD",
+                "IT_EQ_DIAGRAMPIECE_COMPASS",
+                "IT_EQ_PIECE_NOTEBOOK",
+                "IT_EQ_DIAGRAMPIECE_CIRCLET",
+                "IT_EQ_PIECE_MACHINEWING",
+                "IT_EQ_PIECE_HOURGLASS",
+                "IT_EQ_DIAGRAM_SMALL",
+                "IT_EQ_DIAGRAM_CHOKER",
+                "IT_EQ_PIECE_ARMOR",
+                "IT_EQ_DIAGRAMPIECE_MND_CAP",
+                "IT_EQ_PIECE_PARKA",
+                "IT_EQ_PIECE_TWOSWORDS",
+                "IT_EQ_DIAGRAMPIECE_AX"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_WA_ZIN",
+            "hide": 1,
+            "cond_quests": [
+                "QE_WA_ZIN_4"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 300,
+            "gold": 4000,
+            "lv": 65,
+            "evst": "EQ_ZIN_WA_05_a_2d",
+            "evw": "EQ_ZIN_WA_05_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_02_yama_002",
+                    "set": "qe_wa_zin_5_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_WA_ZIN_EX_1",
+            "title": "高難易度クエスト",
+            "name": "【エクストラ】黄泉路への帰郷",
+            "expr": "ジン武具EX",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_WA_ZIN_EX_1",
+            "drops": [
+                "IT_AF_ARMS_ZIN_00",
+                "IT_EQ_DIAGRAMPIECE_ARKI_BOOTS",
+                "IT_EQ_DIAGRAMPIECE_ARKI_REVOLVER",
+                "IT_EQ_PIECE_SHIELD",
+                "IT_EQ_PIECE_NOTEBOOK",
+                "IT_EQ_PIECE_SWORD",
+                "IT_EQ_PIECE_GEARROD"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_WA_ZIN",
+            "hide": 1,
+            "cond_quests": [
+                "QE_WA_ZIN_5"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 400,
+            "gold": 5000,
+            "lv": 75,
+            "aplv": 1,
+            "extra": 1,
+            "map": [
+                {
+                    "scn": "bg_02_yama_002",
+                    "set": "qe_wa_zin_ex_01_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_SO_MIANNU_LV0",
+            "title": "【期間限定】",
+            "name": "魂の邂逅　ミアンヌ編[初級]",
+            "expr": "キャライベント",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_MIANNU_LV0",
+            "drops": [
+                "IT_PI_MIANNU"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SO_MIAN",
+            "hide": 1,
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 55,
+            "gold": 1000,
+            "lv": 15,
+            "aplv": 1,
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mori_H_007_A",
+                    "set": "ch_miannu_lv0_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_SO_MIANNU_LV1",
+            "title": "【期間限定】",
+            "name": "魂の邂逅　ミアンヌ編[中級]",
+            "expr": "キャライベント",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_MIANNU_LV1",
+            "drops": [
+                "IT_PI_MIANNU"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SO_MIAN",
+            "hide": 1,
+            "cond_quests": [
+                "QE_SO_MIANNU_LV0"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 75,
+            "gold": 1500,
+            "lv": 45,
+            "evst": "EQ_MIANNU_KAIKOU_01",
+            "aplv": 1,
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mori_H_007_A",
+                    "set": "ch_miannu_lv1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_SO_MIANNU_LV2",
+            "title": "【期間限定】",
+            "name": "魂の邂逅ミアンヌ編[上級]",
+            "expr": "キャライベント",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_MIANNU_LV2",
+            "drops": [
+                "IT_PI_MIANNU"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SO_MIAN",
+            "hide": 1,
+            "cond_quests": [
+                "QE_SO_MIANNU_LV1"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 200,
+            "gold": 3500,
+            "lv": 60,
+            "evst": "EQ_MIANNU_KAIKOU_02",
+            "aplv": 1,
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mori_H_007_A",
+                    "set": "ch_miannu_lv2_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_SO_RETZIUS_LV1",
+            "title": "【期間限定】",
+            "name": "レシウス邂逅[初級]",
+            "expr": "キャライベント",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_SO_RETZIUS_LV1",
+            "drops": [
+                "IT_PI_RETZIUS"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SO_RETZIUS",
+            "hide": 1,
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 55,
+            "gold": 1000,
+            "lv": 10,
+            "aplv": 1,
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_areti_008_A",
+                    "set": "ch_retzius_lv1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0015"
+                }
+            ]
+        },
+        {
+            "iname": "QE_SO_RETZIUS_LV2",
+            "title": "【期間限定】",
+            "name": "レシウス邂逅[中級]",
+            "expr": "キャライベント",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_SO_RETZIUS_LV2",
+            "drops": [
+                "IT_PI_RETZIUS"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SO_RETZIUS",
+            "hide": 1,
+            "cond_quests": [
+                "QE_SO_RETZIUS_LV1"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 75,
+            "gold": 1500,
+            "lv": 35,
+            "aplv": 1,
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_areti_009_A",
+                    "set": "ch_retzius_lv2_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0015"
+                }
+            ]
+        },
+        {
+            "iname": "QE_SO_RETZIUS_LV3",
+            "title": "【期間限定】",
+            "name": "レシウス邂逅[上級]",
+            "expr": "キャライベント",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_SO_RETZIUS_LV3",
+            "drops": [
+                "IT_PI_RETZIUS"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SO_RETZIUS",
+            "hide": 1,
+            "cond_quests": [
+                "QE_SO_RETZIUS_LV2"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 200,
+            "gold": 3500,
+            "lv": 60,
+            "aplv": 1,
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_areti_009_A",
+                    "set": "ch_retzius_lv3_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0015"
+                }
+            ]
+        },
+        {
+            "iname": "QE_LIMIT_MELEE_Lv1",
+            "title": "【期間限定】",
+            "name": "白兵の修練戦",
+            "expr": "スポット召還対応のコース、JobLv5程度向け",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_LIMIT_MELEE_Lv1",
+            "drops": [
+                "IT_EQ_PIECE_SABER",
+                "IT_EQ_PIECE_SHELM",
+                "IT_EQ_CRI_NEEDLE"
+            ],
+            "type": 5,
+            "subtype": 0,
+            "world": "WD_DAILY",
+            "area": "AR_EVENT_IT_EQ02",
+            "hide": 1,
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 250,
+            "gold": 2000,
+            "lv": 35,
+            "aplv": 1,
+            "atk_mag": "ATK_MAG_MELEE",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_env_shiro_zyouheki_001_A",
+                    "set": "limit_melee_lv1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
                 }
             ]
         },
@@ -84043,6 +85182,104 @@
             ]
         },
         {
+            "iname": "QE_EV_MULTI_3TITLE_EX1",
+            "title": "【期間限定】",
+            "name": "ファントム オブ アルケミスト2[EX5]",
+            "expr": "3タイトル水着コラボクエスト[EX1](後にファンキルコラボクエストへ移動)",
+            "cond": "敵を全滅させろ",
+            "type": 1,
+            "world": "WD_01",
+            "area": "MULTI_3TITLE_EX",
+            "hide": 1,
+            "pt": 20,
+            "pexp": 40,
+            "uexp": 400,
+            "mcoin": 80,
+            "lv": 75,
+            "multi": 1,
+            "pnum": 4,
+            "unum": 1,
+            "multi_dead": 1,
+            "aplv": 1,
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "tower_normal_0a_14",
+                    "set": "ev_3title_ex1_m_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_1028"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_MULTI_3TITLE_EX2",
+            "title": "高難易度クエスト",
+            "name": "太陽神と黄金の鍵 [EX2]",
+            "expr": "3タイトル水着コラボクエスト[EX2]",
+            "cond": "敵を全滅させろ",
+            "type": 1,
+            "world": "WD_01",
+            "area": "MULTI_3TITLE_EX",
+            "hide": 1,
+            "pt": 20,
+            "pexp": 40,
+            "uexp": 400,
+            "mcoin": 80,
+            "lv": 75,
+            "multi": 1,
+            "pnum": 4,
+            "unum": 1,
+            "multi_dead": 1,
+            "aplv": 1,
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_004",
+                    "set": "ev_3title_ex2_m_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_1028"
+                }
+            ]
+        },
+        {
+            "iname": "QE_MULTI_WA_ZIN_EX_1",
+            "title": "高難易度クエスト",
+            "name": "【エクストラ】黄泉路への帰郷",
+            "expr": "ジン武具EXマルチ",
+            "cond": "敵を全滅させろ",
+            "drops": [
+                "IT_AF_ARMS_ZIN_00",
+                "IT_EQ_DIAGRAMPIECE_ARKI_BOOTS",
+                "IT_EQ_DIAGRAMPIECE_ARKI_REVOLVER",
+                "IT_EQ_PIECE_SHIELD",
+                "IT_EQ_PIECE_NOTEBOOK",
+                "IT_EQ_PIECE_SWORD",
+                "IT_EQ_PIECE_GEARROD"
+            ],
+            "type": 1,
+            "world": "WD_01",
+            "area": "MULTI_AR_WA_ZIN_EX",
+            "hide": 1,
+            "pt": 20,
+            "pexp": 40,
+            "uexp": 400,
+            "mcoin": 80,
+            "lv": 75,
+            "multi": 1,
+            "pnum": 4,
+            "unum": 1,
+            "multi_dead": 1,
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_02_yama_002",
+                    "set": "qe_wa_zin_ex_01_m_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
             "iname": "QE_MULTI_SO_YUTO_EX_1",
             "title": "【期間限定】",
             "name": "【エクストラ】森の護り人",
@@ -84266,6 +85503,68 @@
                     "set": "qe_so_milis_multi_set",
                     "btl": "plain01",
                     "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_MULTI_SO_MIAN_LV0",
+            "title": "【期間限定】",
+            "name": "魂の邂逅 ミアンヌ編[初級]",
+            "expr": "マルチ：キャライベント",
+            "cond": "敵を全滅させろ",
+            "drops": [
+                "IT_PI_MIANNU"
+            ],
+            "type": 1,
+            "world": "WD_01",
+            "area": "MULTI_MIAN",
+            "hide": 1,
+            "pt": 5,
+            "pexp": 10,
+            "uexp": 55,
+            "mcoin": 10,
+            "lv": 15,
+            "multi": 1,
+            "pnum": 4,
+            "unum": 1,
+            "multi_dead": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mori_H_007_A",
+                    "set": "ch_miannu_lv0_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_MULTI_SO_MIAN_LV2",
+            "title": "【期間限定】",
+            "name": "魂の邂逅 ミアンヌ編[上級]",
+            "expr": "マルチ：キャライベント",
+            "cond": "敵を全滅させろ",
+            "drops": [
+                "IT_PI_MIANNU"
+            ],
+            "type": 1,
+            "world": "WD_01",
+            "area": "MULTI_MIAN",
+            "hide": 1,
+            "pt": 15,
+            "pexp": 30,
+            "uexp": 200,
+            "mcoin": 30,
+            "lv": 60,
+            "multi": 1,
+            "pnum": 4,
+            "unum": 1,
+            "multi_dead": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mori_H_007_A",
+                    "set": "ch_miannu_lv2_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
                 }
             ]
         },
@@ -85389,68 +86688,6 @@
                 {
                     "scn": "bg_01_toride_naka_004_N",
                     "set": "qe_zokusei_16_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0011"
-                }
-            ]
-        },
-        {
-            "iname": "QE_MULTI_SO_MIAN_LV0",
-            "title": "【期間限定】",
-            "name": "魂の邂逅 ミアンヌ編[初級]",
-            "expr": "マルチ：キャライベント",
-            "cond": "敵を全滅させろ",
-            "drops": [
-                "IT_PI_MIANNU"
-            ],
-            "type": 1,
-            "world": "WD_01",
-            "area": "MULTI_MIAN",
-            "hide": 1,
-            "pt": 5,
-            "pexp": 10,
-            "uexp": 55,
-            "mcoin": 10,
-            "lv": 15,
-            "multi": 1,
-            "pnum": 4,
-            "unum": 1,
-            "multi_dead": 1,
-            "map": [
-                {
-                    "scn": "bg_01_mori_H_007_A",
-                    "set": "ch_miannu_lv0_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0011"
-                }
-            ]
-        },
-        {
-            "iname": "QE_MULTI_SO_MIAN_LV2",
-            "title": "【期間限定】",
-            "name": "魂の邂逅 ミアンヌ編[上級]",
-            "expr": "マルチ：キャライベント",
-            "cond": "敵を全滅させろ",
-            "drops": [
-                "IT_PI_MIANNU"
-            ],
-            "type": 1,
-            "world": "WD_01",
-            "area": "MULTI_MIAN",
-            "hide": 1,
-            "pt": 15,
-            "pexp": 30,
-            "uexp": 200,
-            "mcoin": 30,
-            "lv": 60,
-            "multi": 1,
-            "pnum": 4,
-            "unum": 1,
-            "multi_dead": 1,
-            "map": [
-                {
-                    "scn": "bg_01_mori_H_007_A",
-                    "set": "ch_miannu_lv2_set",
                     "btl": "plain01",
                     "bgm": "BGM_0011"
                 }

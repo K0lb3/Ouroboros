@@ -89,6 +89,11 @@
         "name": "",
         "kanji": "【世界樹の冒険者たち】【エクストラ】シャーマンステージをクリア[5]"
     },
+    "SEKAIJU_EX_1_06": {
+        "iname": "SEKAIJU_EX_1_06",
+        "name": "",
+        "kanji": "【世界樹の冒険者たち】【エクストラ】シャーマンステージをクリア[6]"
+    },
     "SEKAIJU_EX_2_01": {
         "iname": "SEKAIJU_EX_2_01",
         "name": "",
@@ -113,6 +118,11 @@
         "iname": "SEKAIJU_EX_2_05",
         "name": "",
         "kanji": "【世界樹の冒険者たち】【エクストラ】リーパーステージをクリア[5]"
+    },
+    "SEKAIJU_EX_2_06": {
+        "iname": "SEKAIJU_EX_2_06",
+        "name": "",
+        "kanji": "【世界樹の冒険者たち】【エクストラ】リーパーステージをクリア[6]"
     },
     "MULTI_SEKAIJU_1_HA_01": {
         "iname": "MULTI_SEKAIJU_1_HA_01",
@@ -159,6 +169,11 @@
         "name": "",
         "kanji": "【世界樹の冒険者たち】【マルチ】【エクストラ】シャーマンステージをクリア[4]"
     },
+    "MULTI_SEKAIJU_EX_1_05": {
+        "iname": "MULTI_SEKAIJU_EX_1_05",
+        "name": "",
+        "kanji": "【世界樹の冒険者たち】【マルチ】【エクストラ】シャーマンステージをクリア[5]"
+    },
     "MULTI_SEKAIJU_EX_2_01": {
         "iname": "MULTI_SEKAIJU_EX_2_01",
         "name": "",
@@ -179,6 +194,11 @@
         "name": "",
         "kanji": "【世界樹の冒険者たち】【マルチ】【エクストラ】リーパーステージをクリア[4]"
     },
+    "MULTI_SEKAIJU_EX_2_05": {
+        "iname": "MULTI_SEKAIJU_EX_2_05",
+        "name": "",
+        "kanji": "【世界樹の冒険者たち】【マルチ】【エクストラ】リーパーステージをクリア[5]"
+    },
     "SEKAIJU_FOE01": {
         "iname": "SEKAIJU_FOE01",
         "name": "",
@@ -193,6 +213,21 @@
         "iname": "SEKAIJU_FOE03",
         "name": "",
         "kanji": "【世界樹の冒険者たち】コラボイベントで【極・猛る梟獣】を10体倒す"
+    },
+    "SEKAIJU_2018_08_FOE01": {
+        "iname": "SEKAIJU_2018_08_FOE01",
+        "name": "",
+        "kanji": "【世界樹の冒険者たち】コラボイベントで【危険な花びら】を10体倒す"
+    },
+    "SEKAIJU_2018_08_FOE02": {
+        "iname": "SEKAIJU_2018_08_FOE02",
+        "name": "",
+        "kanji": "【世界樹の冒険者たち】コラボイベントで【危険な花びら】を30体倒す"
+    },
+    "SEKAIJU_2018_08_FOE03": {
+        "iname": "SEKAIJU_2018_08_FOE03",
+        "name": "",
+        "kanji": "【世界樹の冒険者たち】コラボイベントで【危険な花びら】を50体倒す"
     },
     "RECORD_SQ_GUNNER_0１": {
         "iname": "RECORD_SQ_GUNNER_0１",
@@ -423,6 +458,36 @@
         "iname": "DAILY_SEKAIJU2_20170914_3",
         "name": "",
         "kanji": "【期間限定】討伐依頼　上級"
+    },
+    "RECORD_SWIM_HISHARMU_EX_1_01": {
+        "iname": "RECORD_SWIM_HISHARMU_EX_1_01",
+        "name": "",
+        "kanji": "【EX】ヒシャーム100%していますか？をクリア[1/10回]"
+    },
+    "RECORD_SWIM_HISHARMU_EX_1_02": {
+        "iname": "RECORD_SWIM_HISHARMU_EX_1_02",
+        "name": "",
+        "kanji": "【EX】ヒシャーム100%していますか？をクリア[3/10回]"
+    },
+    "RECORD_SWIM_HISHARMU_EX_1_03": {
+        "iname": "RECORD_SWIM_HISHARMU_EX_1_03",
+        "name": "",
+        "kanji": "【EX】ヒシャーム100%していますか？をクリア[5/10回]"
+    },
+    "RECORD_SWIM_HISHARMU_EX_1_04": {
+        "iname": "RECORD_SWIM_HISHARMU_EX_1_04",
+        "name": "",
+        "kanji": "【EX】ヒシャーム100%していますか？をクリア[7/10回]"
+    },
+    "RECORD_SWIM_HISHARMU_EX_1_05": {
+        "iname": "RECORD_SWIM_HISHARMU_EX_1_05",
+        "name": "",
+        "kanji": "【EX】ヒシャーム100%していますか？をクリア[10/10回]"
+    },
+    "RECORD_SWIM_HISHARMU_EX_M_01": {
+        "iname": "RECORD_SWIM_HISHARMU_EX_M_01",
+        "name": "",
+        "kanji": "【EX】【マルチ】ヒシャーム100%していますか？をクリア"
     },
     "SO_TARAS_1_01": {
         "iname": "SO_TARAS_1_01",
@@ -664,6 +729,251 @@
         "name": "",
         "kanji": "【EX】【マルチ】Happy Happy Crazy Wedding!をクリア[10/10回]"
     },
+    "SO_ALMA_REBECCA_1_01": {
+        "iname": "SO_ALMA_REBECCA_1_01",
+        "name": "",
+        "kanji": "第一話「春一番は唐突に」をクリア [1/5回]"
+    },
+    "SO_ALMA_REBECCA_1_02": {
+        "iname": "SO_ALMA_REBECCA_1_02",
+        "name": "",
+        "kanji": "第一話「春一番は唐突に」をクリア [3/5回]"
+    },
+    "SO_ALMA_REBECCA_1_03": {
+        "iname": "SO_ALMA_REBECCA_1_03",
+        "name": "",
+        "kanji": "第一話「春一番は唐突に」をクリア [5/5回]"
+    },
+    "SO_ALMA_REBECCA_2_01": {
+        "iname": "SO_ALMA_REBECCA_2_01",
+        "name": "",
+        "kanji": "第二話「空の守護神再び」をクリア [1/5回]"
+    },
+    "SO_ALMA_REBECCA_2_02": {
+        "iname": "SO_ALMA_REBECCA_2_02",
+        "name": "",
+        "kanji": "第二話「空の守護神再び」をクリア [3/5回]"
+    },
+    "SO_ALMA_REBECCA_2_03": {
+        "iname": "SO_ALMA_REBECCA_2_03",
+        "name": "",
+        "kanji": "第二話「空の守護神再び」をクリア [5/5回]"
+    },
+    "SO_ALMA_REBECCA_3_01": {
+        "iname": "SO_ALMA_REBECCA_3_01",
+        "name": "",
+        "kanji": "第三話「古の女帝」をクリア [1/5回]"
+    },
+    "SO_ALMA_REBECCA_3_02": {
+        "iname": "SO_ALMA_REBECCA_3_02",
+        "name": "",
+        "kanji": "第三話「古の女帝」をクリア [3/5回]"
+    },
+    "SO_ALMA_REBECCA_3_03": {
+        "iname": "SO_ALMA_REBECCA_3_03",
+        "name": "",
+        "kanji": "第三話「古の女帝」をクリア [5/5回]"
+    },
+    "SO_ALMA_REBECCA_4_01": {
+        "iname": "SO_ALMA_REBECCA_4_01",
+        "name": "",
+        "kanji": "第四話「地獄より蘇った男」をクリア [1/5回]"
+    },
+    "SO_ALMA_REBECCA_4_02": {
+        "iname": "SO_ALMA_REBECCA_4_02",
+        "name": "",
+        "kanji": "第四話「地獄より蘇った男」をクリア [3/5回]"
+    },
+    "SO_ALMA_REBECCA_4_03": {
+        "iname": "SO_ALMA_REBECCA_4_03",
+        "name": "",
+        "kanji": "第四話「地獄より蘇った男」をクリア [5/5回]"
+    },
+    "SO_ALMA_REBECCA_5_01": {
+        "iname": "SO_ALMA_REBECCA_5_01",
+        "name": "",
+        "kanji": "第五話「見出した答え」をクリア [1/10回]"
+    },
+    "SO_ALMA_REBECCA_5_02": {
+        "iname": "SO_ALMA_REBECCA_5_02",
+        "name": "",
+        "kanji": "第五話「見出した答え」をクリア [3/10回]"
+    },
+    "SO_ALMA_REBECCA_5_03": {
+        "iname": "SO_ALMA_REBECCA_5_03",
+        "name": "",
+        "kanji": "第五話「見出した答え」をクリア [5/10回]"
+    },
+    "SO_ALMA_REBECCA_5_04": {
+        "iname": "SO_ALMA_REBECCA_5_04",
+        "name": "",
+        "kanji": "第五話「見出した答え」をクリア [10/10回]"
+    },
+    "SO_ALMA_REBECCA_EX_1_01": {
+        "iname": "SO_ALMA_REBECCA_EX_1_01",
+        "name": "",
+        "kanji": "【EX1】残雪を踏む少女たちをクリア [1/10回]"
+    },
+    "SO_ALMA_REBECCA_EX_1_02": {
+        "iname": "SO_ALMA_REBECCA_EX_1_02",
+        "name": "",
+        "kanji": "【EX1】残雪を踏む少女たちをクリア [3/10回]"
+    },
+    "SO_ALMA_REBECCA_EX_1_03": {
+        "iname": "SO_ALMA_REBECCA_EX_1_03",
+        "name": "",
+        "kanji": "【EX1】残雪を踏む少女たちをクリア [5/10回]"
+    },
+    "SO_ALMA_REBECCA_EX_1_04": {
+        "iname": "SO_ALMA_REBECCA_EX_1_04",
+        "name": "",
+        "kanji": "【EX1】残雪を踏む少女たちをクリア [10/10回]"
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_1_01": {
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_1_01",
+        "name": "",
+        "kanji": "【EX1】【マルチ】残雪を踏む少女たちをクリア [1/5回]"
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_1_02": {
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_1_02",
+        "name": "",
+        "kanji": "【EX1】【マルチ】残雪を踏む少女たちをクリア [3/5回]"
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_1_03": {
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_1_03",
+        "name": "",
+        "kanji": "【EX1】【マルチ】残雪を踏む少女たちをクリア [5/5回]"
+    },
+    "SO_ALMA_REBECCA_EX_2_01": {
+        "iname": "SO_ALMA_REBECCA_EX_2_01",
+        "name": "",
+        "kanji": "【EX2】残雪を踏む少女たちをクリア[1/10回]"
+    },
+    "SO_ALMA_REBECCA_EX_2_02": {
+        "iname": "SO_ALMA_REBECCA_EX_2_02",
+        "name": "",
+        "kanji": "【EX2】残雪を踏む少女たちをクリア[3/10回]"
+    },
+    "SO_ALMA_REBECCA_EX_2_03": {
+        "iname": "SO_ALMA_REBECCA_EX_2_03",
+        "name": "",
+        "kanji": "【EX2】残雪を踏む少女たちをクリア[5/10回]"
+    },
+    "SO_ALMA_REBECCA_EX_2_04": {
+        "iname": "SO_ALMA_REBECCA_EX_2_04",
+        "name": "",
+        "kanji": "【EX2】残雪を踏む少女たちをクリア[7/10回]"
+    },
+    "SO_ALMA_REBECCA_EX_2_05": {
+        "iname": "SO_ALMA_REBECCA_EX_2_05",
+        "name": "",
+        "kanji": "【EX2】残雪を踏む少女たちをクリア[10/10回]"
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_2_01": {
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_2_01",
+        "name": "",
+        "kanji": "【EX2】【マルチ】残雪を踏む少女たちをクリア [1/5回]"
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_2_02": {
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_2_02",
+        "name": "",
+        "kanji": "【EX2】【マルチ】残雪を踏む少女たちをクリア [3/5回]"
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_2_03": {
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_2_03",
+        "name": "",
+        "kanji": "【EX2】【マルチ】残雪を踏む少女たちをクリア [5/5回]"
+    },
+    "SO_ALMA_REBECCA_EX_SP_01": {
+        "iname": "SO_ALMA_REBECCA_EX_SP_01",
+        "name": "",
+        "kanji": "【EX・極】残雪を踏む少女たちをクリア [1/5回]"
+    },
+    "SO_ALMA_REBECCA_EX_SP_02": {
+        "iname": "SO_ALMA_REBECCA_EX_SP_02",
+        "name": "",
+        "kanji": "【EX・極】残雪を踏む少女たちをクリア [3/5回]"
+    },
+    "SO_ALMA_REBECCA_EX_SP_03": {
+        "iname": "SO_ALMA_REBECCA_EX_SP_03",
+        "name": "",
+        "kanji": "【EX・極】残雪を踏む少女たちをクリア [5/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_1_01": {
+        "iname": "RECORD_SWIM_DOROTHEA_1_01",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 1話をクリア[1/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_1_02": {
+        "iname": "RECORD_SWIM_DOROTHEA_1_02",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 1話をクリア[3/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_1_03": {
+        "iname": "RECORD_SWIM_DOROTHEA_1_03",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 1話をクリア[5/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_2_01": {
+        "iname": "RECORD_SWIM_DOROTHEA_2_01",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 2話をクリア[1/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_2_02": {
+        "iname": "RECORD_SWIM_DOROTHEA_2_02",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 2話をクリア[3/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_2_03": {
+        "iname": "RECORD_SWIM_DOROTHEA_2_03",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 2話をクリア[5/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_3_01": {
+        "iname": "RECORD_SWIM_DOROTHEA_3_01",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 3話をクリア[1/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_3_02": {
+        "iname": "RECORD_SWIM_DOROTHEA_3_02",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 3話をクリア[3/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_3_03": {
+        "iname": "RECORD_SWIM_DOROTHEA_3_03",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 3話をクリア[5/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_4_01": {
+        "iname": "RECORD_SWIM_DOROTHEA_4_01",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 4話をクリア[1/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_4_02": {
+        "iname": "RECORD_SWIM_DOROTHEA_4_02",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 4話をクリア[3/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_4_03": {
+        "iname": "RECORD_SWIM_DOROTHEA_4_03",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 4話をクリア[5/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_5_01": {
+        "iname": "RECORD_SWIM_DOROTHEA_5_01",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 5話をクリア[1/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_5_02": {
+        "iname": "RECORD_SWIM_DOROTHEA_5_02",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 5話をクリア[3/5回]"
+    },
+    "RECORD_SWIM_DOROTHEA_5_03": {
+        "iname": "RECORD_SWIM_DOROTHEA_5_03",
+        "name": "",
+        "kanji": "ワンダフル☆SUMMER 5話をクリア[5/5回]"
+    },
     "SO_CRYUNI_1_01": {
         "iname": "SO_CRYUNI_1_01",
         "name": "",
@@ -903,6 +1213,111 @@
         "iname": "RECORD_2018_1_3TITEL_EX3_M_02",
         "name": "",
         "kanji": "【EX】【マルチ】ツクヨミお手製人形獲得をクリア[2/2回]"
+    },
+    "RECORD_SINOBI_SAKURA_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_SINOBI_SAKURA_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【千本桜登場】のクエストミッションコンプリート"
+    },
+    "RECORD_SINOBI_YOMI_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_SINOBI_YOMI_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【深遠冥弓登場】のクエストミッションコンプリート"
+    },
+    "RECORD_SINOBI_YURI_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_SINOBI_YURI_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【白百合刀登場】のクエストミッションコンプリート"
+    },
+    "RECORD_SINOBI_TSUKUYOMI_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_SINOBI_TSUKUYOMI_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【ツクヨミお手製人形登場】のクエストミッションコンプリート"
+    },
+    "RECORD_3TITLE_EX_1801_2_MISSIONCOMP_01": {
+        "iname": "RECORD_3TITLE_EX_1801_2_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "誰ガ為に姫は泣く　高難度エクストラステージのクエストミッション全達成[1/4回]"
+    },
+    "RECORD_3TITLE_EX_1801_2_MISSIONCOMP_02": {
+        "iname": "RECORD_3TITLE_EX_1801_2_MISSIONCOMP_02",
+        "name": "",
+        "kanji": "誰ガ為に姫は泣く　高難度エクストラステージのクエストミッション全達成[4/4回]"
+    },
+    "RECORD_2018HOMEWORK_1_01": {
+        "iname": "RECORD_2018HOMEWORK_1_01",
+        "name": "",
+        "kanji": "【夏休みの宿題】ﾊﾞﾍﾞﾙ戦記(ｴﾝｳﾞｨﾘｱ編)の10話ｸﾘｱ(ﾉｰﾏﾙorｲｰｼﾞｰ)"
+    },
+    "RECORD_2018HOMEWORK_1_02": {
+        "iname": "RECORD_2018HOMEWORK_1_02",
+        "name": "",
+        "kanji": "【夏休みの宿題】ﾊﾞﾍﾞﾙ戦記(ﾗｰｽﾄﾘｽ編)の10話ｸﾘｱ(ﾉｰﾏﾙorｲｰｼﾞｰ)"
+    },
+    "RECORD_2018HOMEWORK_1_03": {
+        "iname": "RECORD_2018HOMEWORK_1_03",
+        "name": "",
+        "kanji": "【夏休みの宿題】ﾊﾞﾍﾞﾙ戦記(砂漠編)の10話ｸﾘｱ(ﾉｰﾏﾙorｲｰｼﾞｰ)"
+    },
+    "RECORD_2018HOMEWORK_1_04": {
+        "iname": "RECORD_2018HOMEWORK_1_04",
+        "name": "",
+        "kanji": "【夏休みの宿題】ﾊﾞﾍﾞﾙ戦記(ﾜﾀﾞﾂﾐ編)の7話ｸﾘｱ(ﾉｰﾏﾙorｲｰｼﾞｰ)"
+    },
+    "RECORD_2018HOMEWORK_1_05": {
+        "iname": "RECORD_2018HOMEWORK_1_05",
+        "name": "",
+        "kanji": "【夏休みの宿題】全ミッション達成！"
+    },
+    "RECORD_2018HOMEWORK_DAILY_1_01": {
+        "iname": "RECORD_2018HOMEWORK_DAILY_1_01",
+        "name": "",
+        "kanji": "【夏休みの宿題】ｲﾍﾞﾝﾄｸｴｽﾄを1回ｸﾘｱする"
+    },
+    "RECORD_2018HOMEWORK_DAILY_1_02": {
+        "iname": "RECORD_2018HOMEWORK_DAILY_1_02",
+        "name": "",
+        "kanji": "【夏休みの宿題】ｲﾍﾞﾝﾄｸｴｽﾄを3回ｸﾘｱする"
+    },
+    "RECORD_2018HOMEWORK_DAILY_1_03": {
+        "iname": "RECORD_2018HOMEWORK_DAILY_1_03",
+        "name": "",
+        "kanji": "【夏休みの宿題】ｲﾍﾞﾝﾄｸｴｽﾄを5回ｸﾘｱする"
+    },
+    "RECORD_2018HOMEWORK_2_01": {
+        "iname": "RECORD_2018HOMEWORK_2_01",
+        "name": "",
+        "kanji": "【夏休みの宿題】俺は、大地と水の流れを読む者・・・たまには、身体を鍛えるか！"
+    },
+    "RECORD_2018HOMEWORK_2_02": {
+        "iname": "RECORD_2018HOMEWORK_2_02",
+        "name": "",
+        "kanji": "【夏休みの宿題】この砂漠を生き抜くためには、装備が必要だ！"
+    },
+    "RECORD_2018HOMEWORK_2_03": {
+        "iname": "RECORD_2018HOMEWORK_2_03",
+        "name": "",
+        "kanji": "【夏休みの宿題】俺も風水師としてまだまだ先があるな！"
+    },
+    "RECORD_2018HOMEWORK_2_04": {
+        "iname": "RECORD_2018HOMEWORK_2_04",
+        "name": "",
+        "kanji": "【夏休みの宿題】俺も新しいことに挑戦だ！"
+    },
+    "RECORD_2018HOMEWORK_DAILY_2_01": {
+        "iname": "RECORD_2018HOMEWORK_DAILY_2_01",
+        "name": "",
+        "kanji": "【夏休みの宿題】ふむ、暑いがお店までいくか！"
+    },
+    "RECORD_2018HOMEWORK_DAILY_2_02": {
+        "iname": "RECORD_2018HOMEWORK_DAILY_2_02",
+        "name": "",
+        "kanji": "【夏休みの宿題】特別な戦に参加だ！"
+    },
+    "RECORD_2018HOMEWORK_DAILY_2_03": {
+        "iname": "RECORD_2018HOMEWORK_DAILY_2_03",
+        "name": "",
+        "kanji": "【夏休みの宿題】壮大な物語を読むとしよう！"
     },
     "RECORD_RADIANT_EP1_1": {
         "iname": "RECORD_RADIANT_EP1_1",
@@ -1257,82 +1672,112 @@
     "RECORD_SEKAIJU2_EX_1_01": {
         "iname": "RECORD_SEKAIJU2_EX_1_01",
         "name": "",
-        "kanji": "世界樹10周年記念コラボ [EX1]をクリア[1/8回]"
+        "kanji": "世界樹10周年記念コラボ [EX1]をクリア[1/10回]"
     },
     "RECORD_SEKAIJU2_EX_1_02": {
         "iname": "RECORD_SEKAIJU2_EX_1_02",
         "name": "",
-        "kanji": "世界樹10周年記念コラボ [EX1]をクリア[3/8回]"
+        "kanji": "世界樹10周年記念コラボ [EX1]をクリア[3/10回]"
     },
     "RECORD_SEKAIJU2_EX_1_03": {
         "iname": "RECORD_SEKAIJU2_EX_1_03",
         "name": "",
-        "kanji": "世界樹10周年記念コラボ [EX1]をクリア[5/8回]"
+        "kanji": "世界樹10周年記念コラボ [EX1]をクリア[5/10回]"
     },
     "RECORD_SEKAIJU2_EX_1_04": {
         "iname": "RECORD_SEKAIJU2_EX_1_04",
         "name": "",
-        "kanji": "世界樹10周年記念コラボ [EX1]をクリア[8/8回]"
+        "kanji": "世界樹10周年記念コラボ [EX1]をクリア[8/10回]"
+    },
+    "RECORD_SEKAIJU2_EX_1_05": {
+        "iname": "RECORD_SEKAIJU2_EX_1_05",
+        "name": "",
+        "kanji": "世界樹10周年記念コラボ [EX1]をクリア[10/10回]"
     },
     "RECORD_SEKAIJU2_EX_SP_1_01": {
         "iname": "RECORD_SEKAIJU2_EX_SP_1_01",
         "name": "",
-        "kanji": "世界樹10周年記念コラボ [EX1極]をクリア"
+        "kanji": "世界樹10周年記念コラボ [EX1極]をクリア[1/2回]"
+    },
+    "RECORD_SEKAIJU2_EX_SP_1_02": {
+        "iname": "RECORD_SEKAIJU2_EX_SP_1_02",
+        "name": "",
+        "kanji": "世界樹10周年記念コラボ [EX1極]をクリア[2/2回]"
     },
     "RECORD_SEKAIJU2_EX_1M_01": {
         "iname": "RECORD_SEKAIJU2_EX_1M_01",
         "name": "",
-        "kanji": "【マルチ】世界樹10周年記念コラボ [EX1]をクリア[1/5回]"
+        "kanji": "【マルチ】世界樹10周年記念コラボ [EX1]をクリア[1/7回]"
     },
     "RECORD_SEKAIJU2_EX_1M_02": {
         "iname": "RECORD_SEKAIJU2_EX_1M_02",
         "name": "",
-        "kanji": "【マルチ】世界樹10周年記念コラボ [EX1]をクリア[3/5回]"
+        "kanji": "【マルチ】世界樹10周年記念コラボ [EX1]をクリア[3/7回]"
     },
     "RECORD_SEKAIJU2_EX_1M_03": {
         "iname": "RECORD_SEKAIJU2_EX_1M_03",
         "name": "",
-        "kanji": "【マルチ】世界樹10周年記念コラボ [EX1]をクリア[5/5回]"
+        "kanji": "【マルチ】世界樹10周年記念コラボ [EX1]をクリア[5/7回]"
+    },
+    "RECORD_SEKAIJU2_EX_1M_04": {
+        "iname": "RECORD_SEKAIJU2_EX_1M_04",
+        "name": "",
+        "kanji": "【マルチ】世界樹10周年記念コラボ [EX1]をクリア[7/7回]"
     },
     "RECORD_SEKAIJU2_EX_2_01": {
         "iname": "RECORD_SEKAIJU2_EX_2_01",
         "name": "",
-        "kanji": "世界樹10周年記念コラボ [EX2]をクリア[1/8回]"
+        "kanji": "世界樹10周年記念コラボ [EX2]をクリア[1/10回]"
     },
     "RECORD_SEKAIJU2_EX_2_02": {
         "iname": "RECORD_SEKAIJU2_EX_2_02",
         "name": "",
-        "kanji": "世界樹10周年記念コラボ [EX2]をクリア[3/8回]"
+        "kanji": "世界樹10周年記念コラボ [EX2]をクリア[3/10回]"
     },
     "RECORD_SEKAIJU2_EX_2_03": {
         "iname": "RECORD_SEKAIJU2_EX_2_03",
         "name": "",
-        "kanji": "世界樹10周年記念コラボ [EX2]をクリア[5/8回]"
+        "kanji": "世界樹10周年記念コラボ [EX2]をクリア[5/10回]"
     },
     "RECORD_SEKAIJU2_EX_2_04": {
         "iname": "RECORD_SEKAIJU2_EX_2_04",
         "name": "",
-        "kanji": "世界樹10周年記念コラボ [EX2]をクリア[8/8回]"
+        "kanji": "世界樹10周年記念コラボ [EX2]をクリア[8/10回]"
+    },
+    "RECORD_SEKAIJU2_EX_2_05": {
+        "iname": "RECORD_SEKAIJU2_EX_2_05",
+        "name": "",
+        "kanji": "世界樹10周年記念コラボ [EX2]をクリア[10/10回]"
     },
     "RECORD_SEKAIJU2_EX_SP_2_01": {
         "iname": "RECORD_SEKAIJU2_EX_SP_2_01",
         "name": "",
-        "kanji": "世界樹10周年記念コラボ [EX2極]をクリア"
+        "kanji": "世界樹10周年記念コラボ [EX2極]をクリア[1/2回]"
+    },
+    "RECORD_SEKAIJU2_EX_SP_2_02": {
+        "iname": "RECORD_SEKAIJU2_EX_SP_2_02",
+        "name": "",
+        "kanji": "世界樹10周年記念コラボ [EX2極]をクリア[2/2回]"
     },
     "RECORD_SEKAIJU2_EX_2M_01": {
         "iname": "RECORD_SEKAIJU2_EX_2M_01",
         "name": "",
-        "kanji": "【マルチ】世界樹10周年記念コラボ [EX2]をクリア[1/5回]"
+        "kanji": "【マルチ】世界樹10周年記念コラボ [EX2]をクリア[1/7回]"
     },
     "RECORD_SEKAIJU2_EX_2M_02": {
         "iname": "RECORD_SEKAIJU2_EX_2M_02",
         "name": "",
-        "kanji": "【マルチ】世界樹10周年記念コラボ [EX2]をクリア[3/5回]"
+        "kanji": "【マルチ】世界樹10周年記念コラボ [EX2]をクリア[3/7回]"
     },
     "RECORD_SEKAIJU2_EX_2M_03": {
         "iname": "RECORD_SEKAIJU2_EX_2M_03",
         "name": "",
-        "kanji": "【マルチ】世界樹10周年記念コラボ [EX2]をクリア[5/5回]"
+        "kanji": "【マルチ】世界樹10周年記念コラボ [EX2]をクリア[5/7回]"
+    },
+    "RECORD_SEKAIJU2_EX_2M_04": {
+        "iname": "RECORD_SEKAIJU2_EX_2M_04",
+        "name": "",
+        "kanji": "【マルチ】世界樹10周年記念コラボ [EX2]をクリア[7/7回]"
     },
     "SO_CELLIERS_EX1_SP_01": {
         "iname": "SO_CELLIERS_EX1_SP_01",
@@ -1353,361 +1798,6 @@
         "iname": "SO_CELLIERS_EX_SP_01",
         "name": "",
         "kanji": "【EX極】水晶に心撃たれてをクリア[3/3回]"
-    },
-    "RECORD_FF15_EP1_N_1": {
-        "iname": "RECORD_FF15_EP1_N_1",
-        "name": "",
-        "kanji": "EP1　Prologueを1回クリアする"
-    },
-    "RECORD_FF15_EP1_N_2": {
-        "iname": "RECORD_FF15_EP1_N_2",
-        "name": "",
-        "kanji": "EP1　Prologueを3回クリアする"
-    },
-    "RECORD_FF15_EP1_N_3": {
-        "iname": "RECORD_FF15_EP1_N_3",
-        "name": "",
-        "kanji": "EP1　Prologueを5回クリアする"
-    },
-    "RECORD_FF15_EP2_N_1": {
-        "iname": "RECORD_FF15_EP2_N_1",
-        "name": "",
-        "kanji": "EP2　Meetingを1回クリアする"
-    },
-    "RECORD_FF15_EP2_N_2": {
-        "iname": "RECORD_FF15_EP2_N_2",
-        "name": "",
-        "kanji": "EP2　Meetingを3回クリアする"
-    },
-    "RECORD_FF15_EP2_N_3": {
-        "iname": "RECORD_FF15_EP2_N_3",
-        "name": "",
-        "kanji": "EP2　Meetingを5回クリアする"
-    },
-    "RECORD_FF15_EP3_N_1": {
-        "iname": "RECORD_FF15_EP3_N_1",
-        "name": "",
-        "kanji": "EP3　Huntを1回クリアする"
-    },
-    "RECORD_FF15_EP3_N_2": {
-        "iname": "RECORD_FF15_EP3_N_2",
-        "name": "",
-        "kanji": "EP3　Huntを3回クリアする"
-    },
-    "RECORD_FF15_EP3_N_3": {
-        "iname": "RECORD_FF15_EP3_N_3",
-        "name": "",
-        "kanji": "EP3　Huntを5回クリアする"
-    },
-    "RECORD_FF15_EP4_N_1": {
-        "iname": "RECORD_FF15_EP4_N_1",
-        "name": "",
-        "kanji": "EP4　Campを1回クリアする"
-    },
-    "RECORD_FF15_EP4_N_2": {
-        "iname": "RECORD_FF15_EP4_N_2",
-        "name": "",
-        "kanji": "EP4　Campを5回クリアする"
-    },
-    "RECORD_FF15_EP4_N_3": {
-        "iname": "RECORD_FF15_EP4_N_3",
-        "name": "",
-        "kanji": "EP4　Campを10回クリアする"
-    },
-    "RECORD_FF15_EP5_N_1": {
-        "iname": "RECORD_FF15_EP5_N_1",
-        "name": "",
-        "kanji": "EP5　Alchemyを1回クリアする"
-    },
-    "RECORD_FF15_EP5_N_2": {
-        "iname": "RECORD_FF15_EP5_N_2",
-        "name": "",
-        "kanji": "EP5　Alchemyを5回クリアする"
-    },
-    "RECORD_FF15_EP5_N_3": {
-        "iname": "RECORD_FF15_EP5_N_3",
-        "name": "",
-        "kanji": "EP5　Alchemyを10回クリアする"
-    },
-    "RECORD_FF15_EP6_N_1": {
-        "iname": "RECORD_FF15_EP6_N_1",
-        "name": "",
-        "kanji": "EP6　Encounterを1回クリアする"
-    },
-    "RECORD_FF15_EP6_N_2": {
-        "iname": "RECORD_FF15_EP6_N_2",
-        "name": "",
-        "kanji": "EP6　Encounterを5回クリアする"
-    },
-    "RECORD_FF15_EP6_N_3": {
-        "iname": "RECORD_FF15_EP6_N_3",
-        "name": "",
-        "kanji": "EP6　Encounterを10回クリアする"
-    },
-    "RECORD_FF15_EP7_N_1": {
-        "iname": "RECORD_FF15_EP7_N_1",
-        "name": "",
-        "kanji": "EP7　Restを1回クリアする"
-    },
-    "RECORD_FF15_EP7_N_2": {
-        "iname": "RECORD_FF15_EP7_N_2",
-        "name": "",
-        "kanji": "EP7　Restを5回クリアする"
-    },
-    "RECORD_FF15_EP7_N_3": {
-        "iname": "RECORD_FF15_EP7_N_3",
-        "name": "",
-        "kanji": "EP7　Restを10回クリアする"
-    },
-    "RECORD_FF15_EP8_N_1": {
-        "iname": "RECORD_FF15_EP8_N_1",
-        "name": "",
-        "kanji": "EP8　Fatherを1回クリアする"
-    },
-    "RECORD_FF15_EP8_N_2": {
-        "iname": "RECORD_FF15_EP8_N_2",
-        "name": "",
-        "kanji": "EP8　Fatherを5回クリアする"
-    },
-    "RECORD_FF15_EP8_N_3": {
-        "iname": "RECORD_FF15_EP8_N_3",
-        "name": "",
-        "kanji": "EP8　Fatherを10回クリアする"
-    },
-    "RECORD_FF15_EP9_N_1": {
-        "iname": "RECORD_FF15_EP9_N_1",
-        "name": "",
-        "kanji": "EP9　Highwindを1回クリアする"
-    },
-    "RECORD_FF15_EP9_N_2": {
-        "iname": "RECORD_FF15_EP9_N_2",
-        "name": "",
-        "kanji": "EP9　Highwindを5回クリアする"
-    },
-    "RECORD_FF15_EP9_N_3": {
-        "iname": "RECORD_FF15_EP9_N_3",
-        "name": "",
-        "kanji": "EP9　Highwindを10回クリアする"
-    },
-    "RECORD_FF15_EP10_N_1": {
-        "iname": "RECORD_FF15_EP10_N_1",
-        "name": "",
-        "kanji": "EP10　Good byeを1回クリアする"
-    },
-    "RECORD_FF15_EP10_N_2": {
-        "iname": "RECORD_FF15_EP10_N_2",
-        "name": "",
-        "kanji": "EP10　Good byeを5回クリアする"
-    },
-    "RECORD_FF15_EP10_N_3": {
-        "iname": "RECORD_FF15_EP10_N_3",
-        "name": "",
-        "kanji": "EP10　Good byeを10回クリアする"
-    },
-    "RECORD_FF15_METAL_01": {
-        "iname": "RECORD_FF15_METAL_01",
-        "name": "",
-        "kanji": "メタルサボテンダーを10体倒せ"
-    },
-    "RECORD_FF15_METAL_02": {
-        "iname": "RECORD_FF15_METAL_02",
-        "name": "",
-        "kanji": "メタルサボテンダーを25体倒せ"
-    },
-    "RECORD_FF15_METAL_03": {
-        "iname": "RECORD_FF15_METAL_03",
-        "name": "",
-        "kanji": "メタルサボテンダーを50体倒せ"
-    },
-    "RECORD_FF15_METAL_04": {
-        "iname": "RECORD_FF15_METAL_04",
-        "name": "",
-        "kanji": "メタルサボテンダーを75体倒せ"
-    },
-    "RECORD_FF15_METAL_05": {
-        "iname": "RECORD_FF15_METAL_05",
-        "name": "",
-        "kanji": "メタルサボテンダーを100体倒せ"
-    },
-    "RECORD_FF15_PROMPUTO_0１": {
-        "iname": "RECORD_FF15_PROMPUTO_0１",
-        "name": "",
-        "kanji": "プロンプトをLV30にする"
-    },
-    "RECORD_FF15_PROMPUTO_02": {
-        "iname": "RECORD_FF15_PROMPUTO_02",
-        "name": "",
-        "kanji": "プロンプトを★4にする"
-    },
-    "RECORD_FF15_PROMPUTO_03": {
-        "iname": "RECORD_FF15_PROMPUTO_03",
-        "name": "",
-        "kanji": "プロンプトをLV50にする"
-    },
-    "RECORD_FF15_PROMPUTO_04": {
-        "iname": "RECORD_FF15_PROMPUTO_04",
-        "name": "",
-        "kanji": "プロンプトを★5にする"
-    },
-    "RECORD_FF15_EX1_01": {
-        "iname": "RECORD_FF15_EX1_01",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX1]を1回クリアする"
-    },
-    "RECORD_FF15_EX1_02": {
-        "iname": "RECORD_FF15_EX1_02",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX1]を3回クリアする"
-    },
-    "RECORD_FF15_EX1_03": {
-        "iname": "RECORD_FF15_EX1_03",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX1]を5回クリアする"
-    },
-    "RECORD_FF15_EX1_04": {
-        "iname": "RECORD_FF15_EX1_04",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX1]を10回クリアする"
-    },
-    "RECORD_FF15_EX1_M_01": {
-        "iname": "RECORD_FF15_EX1_M_01",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX1]を1回クリアする"
-    },
-    "RECORD_FF15_EX1_M_02": {
-        "iname": "RECORD_FF15_EX1_M_02",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX1]を3回クリアする"
-    },
-    "RECORD_FF15_EX1_M_03": {
-        "iname": "RECORD_FF15_EX1_M_03",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX1]を5回クリアする"
-    },
-    "RECORD_FF15_EX2_01": {
-        "iname": "RECORD_FF15_EX2_01",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX2]を1回クリアする"
-    },
-    "RECORD_FF15_EX2_02": {
-        "iname": "RECORD_FF15_EX2_02",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX2]を3回クリアする"
-    },
-    "RECORD_FF15_EX2_03": {
-        "iname": "RECORD_FF15_EX2_03",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX2]を5回クリアする"
-    },
-    "RECORD_FF15_EX2_04": {
-        "iname": "RECORD_FF15_EX2_04",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX2]を10回クリアする"
-    },
-    "RECORD_FF15_EX2_M_01": {
-        "iname": "RECORD_FF15_EX2_M_01",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX2]を1回クリアする"
-    },
-    "RECORD_FF15_EX2_M_02": {
-        "iname": "RECORD_FF15_EX2_M_02",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX2]を3回クリアする"
-    },
-    "RECORD_FF15_EX2_M_03": {
-        "iname": "RECORD_FF15_EX2_M_03",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX2]を5回クリアする"
-    },
-    "RECORD_FF15_EX3_01": {
-        "iname": "RECORD_FF15_EX3_01",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX3]を1回クリアする"
-    },
-    "RECORD_FF15_EX3_02": {
-        "iname": "RECORD_FF15_EX3_02",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX3]を3回クリアする"
-    },
-    "RECORD_FF15_EX3_03": {
-        "iname": "RECORD_FF15_EX3_03",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX3]を5回クリアする"
-    },
-    "RECORD_FF15_EX3_04": {
-        "iname": "RECORD_FF15_EX3_04",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX3]を10回クリアする"
-    },
-    "RECORD_FF15_EX3_M_01": {
-        "iname": "RECORD_FF15_EX3_M_01",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX3]を1回クリアする"
-    },
-    "RECORD_FF15_EX3_M_02": {
-        "iname": "RECORD_FF15_EX3_M_02",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX3]を3回クリアする"
-    },
-    "RECORD_FF15_EX3_M_03": {
-        "iname": "RECORD_FF15_EX3_M_03",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX3]を5回クリアする"
-    },
-    "RECORD_FF15_EX4_01": {
-        "iname": "RECORD_FF15_EX4_01",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX4]を1回クリアする"
-    },
-    "RECORD_FF15_EX4_02": {
-        "iname": "RECORD_FF15_EX4_02",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX4]を3回クリアする"
-    },
-    "RECORD_FF15_EX4_03": {
-        "iname": "RECORD_FF15_EX4_03",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX4]を5回クリアする"
-    },
-    "RECORD_FF15_EX4_04": {
-        "iname": "RECORD_FF15_EX4_04",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX4]を10回クリアする"
-    },
-    "RECORD_FF15_EX4_M_01": {
-        "iname": "RECORD_FF15_EX4_M_01",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX4]を1回クリアする"
-    },
-    "RECORD_FF15_EX4_M_02": {
-        "iname": "RECORD_FF15_EX4_M_02",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX4]を3回クリアする"
-    },
-    "RECORD_FF15_EX4_M_03": {
-        "iname": "RECORD_FF15_EX4_M_03",
-        "name": "",
-        "kanji": "【マルチ】FINAL FANTASY XV コラボ[EX4]を5回クリアする"
-    },
-    "RECORD_FF15_EX1_SP_01": {
-        "iname": "RECORD_FF15_EX1_SP_01",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX1極]を1回クリアする"
-    },
-    "RECORD_FF15_EX2_SP_01": {
-        "iname": "RECORD_FF15_EX2_SP_01",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX2極]を1回クリアする"
-    },
-    "RECORD_FF15_EX3_SP_01": {
-        "iname": "RECORD_FF15_EX3_SP_01",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX3極]を1回クリアする"
-    },
-    "RECORD_FF15_EX4_SP_01": {
-        "iname": "RECORD_FF15_EX4_SP_01",
-        "name": "",
-        "kanji": "FINAL FANTASY XV コラボ[EX4極]を1回クリアする"
     },
     "RECORD_FF15_EX5_01": {
         "iname": "RECORD_FF15_EX5_01",
@@ -2058,6 +2148,406 @@
         "iname": "DAILY_HAGAREN_20171031_3",
         "name": "",
         "kanji": "【期間限定】討伐依頼　上級"
+    },
+    "DAILY_SUMMER_20180720_1": {
+        "iname": "DAILY_SUMMER_20180720_1",
+        "name": "",
+        "kanji": "【サマーキャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180720_2": {
+        "iname": "DAILY_SUMMER_20180720_2",
+        "name": "",
+        "kanji": "【サマーキャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180720_3": {
+        "iname": "DAILY_SUMMER_20180720_3",
+        "name": "",
+        "kanji": "【サマーキャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_SUMMER_20180720_4": {
+        "iname": "DAILY_SUMMER_20180720_4",
+        "name": "",
+        "kanji": "【サマーキャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_SUMMER_20180720_5": {
+        "iname": "DAILY_SUMMER_20180720_5",
+        "name": "",
+        "kanji": "【サマーキャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_SUMMER_20180721_1": {
+        "iname": "DAILY_SUMMER_20180721_1",
+        "name": "",
+        "kanji": "【サマーキャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180721_2": {
+        "iname": "DAILY_SUMMER_20180721_2",
+        "name": "",
+        "kanji": "【サマーキャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180721_3": {
+        "iname": "DAILY_SUMMER_20180721_3",
+        "name": "",
+        "kanji": "【サマーキャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_SUMMER_20180721_4": {
+        "iname": "DAILY_SUMMER_20180721_4",
+        "name": "",
+        "kanji": "【サマーキャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_SUMMER_20180721_5": {
+        "iname": "DAILY_SUMMER_20180721_5",
+        "name": "",
+        "kanji": "【サマーキャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_SUMMER_20180722_1": {
+        "iname": "DAILY_SUMMER_20180722_1",
+        "name": "",
+        "kanji": "【サマーキャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180722_2": {
+        "iname": "DAILY_SUMMER_20180722_2",
+        "name": "",
+        "kanji": "【サマーキャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180722_3": {
+        "iname": "DAILY_SUMMER_20180722_3",
+        "name": "",
+        "kanji": "【サマーキャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_SUMMER_20180722_4": {
+        "iname": "DAILY_SUMMER_20180722_4",
+        "name": "",
+        "kanji": "【サマーキャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_SUMMER_20180722_5": {
+        "iname": "DAILY_SUMMER_20180722_5",
+        "name": "",
+        "kanji": "【サマーキャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_SUMMER_20180723_1": {
+        "iname": "DAILY_SUMMER_20180723_1",
+        "name": "",
+        "kanji": "【サマーキャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180723_2": {
+        "iname": "DAILY_SUMMER_20180723_2",
+        "name": "",
+        "kanji": "【サマーキャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180723_3": {
+        "iname": "DAILY_SUMMER_20180723_3",
+        "name": "",
+        "kanji": "【サマーキャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_SUMMER_20180723_4": {
+        "iname": "DAILY_SUMMER_20180723_4",
+        "name": "",
+        "kanji": "【サマーキャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_SUMMER_20180723_5": {
+        "iname": "DAILY_SUMMER_20180723_5",
+        "name": "",
+        "kanji": "【サマーキャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_SUMMER_20180724_1": {
+        "iname": "DAILY_SUMMER_20180724_1",
+        "name": "",
+        "kanji": "【サマーキャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180724_2": {
+        "iname": "DAILY_SUMMER_20180724_2",
+        "name": "",
+        "kanji": "【サマーキャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180724_3": {
+        "iname": "DAILY_SUMMER_20180724_3",
+        "name": "",
+        "kanji": "【サマーキャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_SUMMER_20180724_4": {
+        "iname": "DAILY_SUMMER_20180724_4",
+        "name": "",
+        "kanji": "【サマーキャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_SUMMER_20180724_5": {
+        "iname": "DAILY_SUMMER_20180724_5",
+        "name": "",
+        "kanji": "【サマーキャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_SUMMER_20180725_1": {
+        "iname": "DAILY_SUMMER_20180725_1",
+        "name": "",
+        "kanji": "【サマーキャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180725_2": {
+        "iname": "DAILY_SUMMER_20180725_2",
+        "name": "",
+        "kanji": "【サマーキャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180725_3": {
+        "iname": "DAILY_SUMMER_20180725_3",
+        "name": "",
+        "kanji": "【サマーキャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_SUMMER_20180725_4": {
+        "iname": "DAILY_SUMMER_20180725_4",
+        "name": "",
+        "kanji": "【サマーキャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_SUMMER_20180725_5": {
+        "iname": "DAILY_SUMMER_20180725_5",
+        "name": "",
+        "kanji": "【サマーキャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_SUMMER_20180726_1": {
+        "iname": "DAILY_SUMMER_20180726_1",
+        "name": "",
+        "kanji": "【サマーキャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180726_2": {
+        "iname": "DAILY_SUMMER_20180726_2",
+        "name": "",
+        "kanji": "【サマーキャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_SUMMER_20180726_3": {
+        "iname": "DAILY_SUMMER_20180726_3",
+        "name": "",
+        "kanji": "【サマーキャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_SUMMER_20180726_4": {
+        "iname": "DAILY_SUMMER_20180726_4",
+        "name": "",
+        "kanji": "【サマーキャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_SUMMER_20180726_5": {
+        "iname": "DAILY_SUMMER_20180726_5",
+        "name": "",
+        "kanji": "【サマーキャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_RELEASE_20180801_1": {
+        "iname": "DAILY_RELEASE_20180801_1",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180801_2": {
+        "iname": "DAILY_RELEASE_20180801_2",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180801_3": {
+        "iname": "DAILY_RELEASE_20180801_3",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_RELEASE_20180801_4": {
+        "iname": "DAILY_RELEASE_20180801_4",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_RELEASE_20180801_5": {
+        "iname": "DAILY_RELEASE_20180801_5",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_RELEASE_20180802_1": {
+        "iname": "DAILY_RELEASE_20180802_1",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180802_2": {
+        "iname": "DAILY_RELEASE_20180802_2",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180802_3": {
+        "iname": "DAILY_RELEASE_20180802_3",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_RELEASE_20180802_4": {
+        "iname": "DAILY_RELEASE_20180802_4",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_RELEASE_20180802_5": {
+        "iname": "DAILY_RELEASE_20180802_5",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_RELEASE_20180803_1": {
+        "iname": "DAILY_RELEASE_20180803_1",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180803_2": {
+        "iname": "DAILY_RELEASE_20180803_2",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180803_3": {
+        "iname": "DAILY_RELEASE_20180803_3",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_RELEASE_20180803_4": {
+        "iname": "DAILY_RELEASE_20180803_4",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_RELEASE_20180803_5": {
+        "iname": "DAILY_RELEASE_20180803_5",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_RELEASE_20180804_1": {
+        "iname": "DAILY_RELEASE_20180804_1",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180804_2": {
+        "iname": "DAILY_RELEASE_20180804_2",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180804_3": {
+        "iname": "DAILY_RELEASE_20180804_3",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_RELEASE_20180804_4": {
+        "iname": "DAILY_RELEASE_20180804_4",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_RELEASE_20180804_5": {
+        "iname": "DAILY_RELEASE_20180804_5",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_RELEASE_20180805_1": {
+        "iname": "DAILY_RELEASE_20180805_1",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180805_2": {
+        "iname": "DAILY_RELEASE_20180805_2",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180805_3": {
+        "iname": "DAILY_RELEASE_20180805_3",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_RELEASE_20180805_4": {
+        "iname": "DAILY_RELEASE_20180805_4",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_RELEASE_20180805_5": {
+        "iname": "DAILY_RELEASE_20180805_5",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_RELEASE_20180806_1": {
+        "iname": "DAILY_RELEASE_20180806_1",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180806_2": {
+        "iname": "DAILY_RELEASE_20180806_2",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180806_3": {
+        "iname": "DAILY_RELEASE_20180806_3",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_RELEASE_20180806_4": {
+        "iname": "DAILY_RELEASE_20180806_4",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_RELEASE_20180806_5": {
+        "iname": "DAILY_RELEASE_20180806_5",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_RELEASE_20180807_1": {
+        "iname": "DAILY_RELEASE_20180807_1",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180807_2": {
+        "iname": "DAILY_RELEASE_20180807_2",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180807_3": {
+        "iname": "DAILY_RELEASE_20180807_3",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_RELEASE_20180807_4": {
+        "iname": "DAILY_RELEASE_20180807_4",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_RELEASE_20180807_5": {
+        "iname": "DAILY_RELEASE_20180807_5",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_RELEASE_20180808_1": {
+        "iname": "DAILY_RELEASE_20180808_1",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180808_2": {
+        "iname": "DAILY_RELEASE_20180808_2",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180808_3": {
+        "iname": "DAILY_RELEASE_20180808_3",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_RELEASE_20180808_4": {
+        "iname": "DAILY_RELEASE_20180808_4",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_RELEASE_20180808_5": {
+        "iname": "DAILY_RELEASE_20180808_5",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】特別デイリーミッションを全て達成する"
+    },
+    "DAILY_RELEASE_20180809_1": {
+        "iname": "DAILY_RELEASE_20180809_1",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】ノーマルクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180809_2": {
+        "iname": "DAILY_RELEASE_20180809_2",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】イベントクエストをクリアしよう"
+    },
+    "DAILY_RELEASE_20180809_3": {
+        "iname": "DAILY_RELEASE_20180809_3",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】マルチクエストをプレイしよう"
+    },
+    "DAILY_RELEASE_20180809_4": {
+        "iname": "DAILY_RELEASE_20180809_4",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】傭兵を連れて1回クリアする"
+    },
+    "DAILY_RELEASE_20180809_5": {
+        "iname": "DAILY_RELEASE_20180809_5",
+        "name": "",
+        "kanji": "【『夜明け前、罪の扉に至りて』公開記念キャンペーン】特別デイリーミッションを全て達成する"
     },
     "DAILY_WEDDING_20180615_1": {
         "iname": "DAILY_WEDDING_20180615_1",
@@ -5912,7 +6402,7 @@
     "BABEL_1_01_2": {
         "iname": "BABEL_1_01_2",
         "name": "",
-        "kanji": "1話 緋色の誓いのクエストミッションコンプリート"
+        "kanji": "1話 緋色の誓いのクエストミッションを1度でコンプリート"
     },
     "BABEL_1_02_1": {
         "iname": "BABEL_1_02_1",
@@ -5922,7 +6412,7 @@
     "BABEL_1_02_2": {
         "iname": "BABEL_1_02_2",
         "name": "",
-        "kanji": "2話 踏み出す一歩のクエストミッションコンプリート"
+        "kanji": "2話 踏み出す一歩のクエストミッションを1度でコンプリート"
     },
     "BABEL_1_03_1": {
         "iname": "BABEL_1_03_1",
@@ -5932,7 +6422,7 @@
     "BABEL_1_03_2": {
         "iname": "BABEL_1_03_2",
         "name": "",
-        "kanji": "3話 不穏のクエストミッションコンプリート"
+        "kanji": "3話 不穏のクエストミッションを1度でコンプリート"
     },
     "BABEL_1_04_1": {
         "iname": "BABEL_1_04_1",
@@ -5942,7 +6432,7 @@
     "BABEL_1_04_2": {
         "iname": "BABEL_1_04_2",
         "name": "",
-        "kanji": "4話 緋炎の騎士のクエストミッションコンプリート"
+        "kanji": "4話 緋炎の騎士のクエストミッションを1度でコンプリート"
     },
     "BABEL_1_05_1": {
         "iname": "BABEL_1_05_1",
@@ -5952,7 +6442,7 @@
     "BABEL_1_05_2": {
         "iname": "BABEL_1_05_2",
         "name": "",
-        "kanji": "5話 初任務のクエストミッションコンプリート"
+        "kanji": "5話 初任務のクエストミッションを1度でコンプリート"
     },
     "BABEL_1_06_1": {
         "iname": "BABEL_1_06_1",
@@ -5962,7 +6452,7 @@
     "BABEL_1_06_2": {
         "iname": "BABEL_1_06_2",
         "name": "",
-        "kanji": "6話 問われる信念のクエストミッションコンプリート"
+        "kanji": "6話 問われる信念のクエストミッションを1度でコンプリート"
     },
     "BABEL_1_07_1": {
         "iname": "BABEL_1_07_1",
@@ -5972,7 +6462,7 @@
     "BABEL_1_07_2": {
         "iname": "BABEL_1_07_2",
         "name": "",
-        "kanji": "7話 急襲のクエストミッションコンプリート"
+        "kanji": "7話 急襲のクエストミッションを1度でコンプリート"
     },
     "BABEL_1_08_1": {
         "iname": "BABEL_1_08_1",
@@ -5982,7 +6472,7 @@
     "BABEL_1_08_2": {
         "iname": "BABEL_1_08_2",
         "name": "",
-        "kanji": "8話 見つけた信念のクエストミッションコンプリート"
+        "kanji": "8話 見つけた信念のクエストミッションを1度でコンプリート"
     },
     "BABEL_1_09_1": {
         "iname": "BABEL_1_09_1",
@@ -5992,7 +6482,7 @@
     "BABEL_1_09_2": {
         "iname": "BABEL_1_09_2",
         "name": "",
-        "kanji": "9話 消えない炎のクエストミッションコンプリート"
+        "kanji": "9話 消えない炎のクエストミッションを1度でコンプリート"
     },
     "BABEL_1_10_1": {
         "iname": "BABEL_1_10_1",
@@ -6002,7 +6492,7 @@
     "BABEL_1_10_2": {
         "iname": "BABEL_1_10_2",
         "name": "",
-        "kanji": "10話 終わりなき緋炎のクエストミッションコンプリート"
+        "kanji": "10話 終わりなき緋炎のクエストミッションを1度でコンプリート"
     },
     "BABEL_1_EX_1": {
         "iname": "BABEL_1_EX_1",
@@ -6032,7 +6522,7 @@
     "BABEL_1_EX_6": {
         "iname": "BABEL_1_EX_6",
         "name": "",
-        "kanji": "【エクストラ】鋼の炎、その緋色のクエストミッションコンプリート"
+        "kanji": "【エクストラ】鋼の炎、その緋色のクエストミッションを1度でコンプリート"
     },
     "MULTI_BABEL_1_EX_1": {
         "iname": "MULTI_BABEL_1_EX_1",
@@ -6047,7 +6537,7 @@
     "BABEL_2_01_2": {
         "iname": "BABEL_2_01_2",
         "name": "",
-        "kanji": "1話 正義のクエストミッションコンプリート"
+        "kanji": "1話 正義のクエストミッションを1度でコンプリート"
     },
     "BABEL_2_02_1": {
         "iname": "BABEL_2_02_1",
@@ -6057,7 +6547,7 @@
     "BABEL_2_02_2": {
         "iname": "BABEL_2_02_2",
         "name": "",
-        "kanji": "2話 世界のクエストミッションコンプリート"
+        "kanji": "2話 世界のクエストミッションを1度でコンプリート"
     },
     "BABEL_2_03_1": {
         "iname": "BABEL_2_03_1",
@@ -6067,7 +6557,7 @@
     "BABEL_2_03_2": {
         "iname": "BABEL_2_03_2",
         "name": "",
-        "kanji": "3話 理想と力のクエストミッションコンプリート"
+        "kanji": "3話 理想と力のクエストミッションを1度でコンプリート"
     },
     "BABEL_2_04_1": {
         "iname": "BABEL_2_04_1",
@@ -6077,7 +6567,7 @@
     "BABEL_2_04_2": {
         "iname": "BABEL_2_04_2",
         "name": "",
-        "kanji": "4話 ラーストリスの英雄のクエストミッションコンプリート"
+        "kanji": "4話 ラーストリスの英雄のクエストミッションを1度でコンプリート"
     },
     "BABEL_2_05_1": {
         "iname": "BABEL_2_05_1",
@@ -6087,7 +6577,7 @@
     "BABEL_2_05_2": {
         "iname": "BABEL_2_05_2",
         "name": "",
-        "kanji": "5話 好敵手のクエストミッションコンプリート"
+        "kanji": "5話 好敵手のクエストミッションを1度でコンプリート"
     },
     "BABEL_2_06_1": {
         "iname": "BABEL_2_06_1",
@@ -6097,7 +6587,7 @@
     "BABEL_2_06_2": {
         "iname": "BABEL_2_06_2",
         "name": "",
-        "kanji": "6話 シャドウメサイヤのクエストミッションコンプリート"
+        "kanji": "6話 シャドウメサイヤのクエストミッションを1度でコンプリート"
     },
     "BABEL_2_07_1": {
         "iname": "BABEL_2_07_1",
@@ -6107,7 +6597,7 @@
     "BABEL_2_07_2": {
         "iname": "BABEL_2_07_2",
         "name": "",
-        "kanji": "7話 魔道学園のクエストミッションコンプリート"
+        "kanji": "7話 魔道学園のクエストミッションを1度でコンプリート"
     },
     "BABEL_2_08_1": {
         "iname": "BABEL_2_08_1",
@@ -6117,7 +6607,7 @@
     "BABEL_2_08_2": {
         "iname": "BABEL_2_08_2",
         "name": "",
-        "kanji": "8話 血のクエストミッションコンプリート"
+        "kanji": "8話 血のクエストミッションを1度でコンプリート"
     },
     "BABEL_2_09_1": {
         "iname": "BABEL_2_09_1",
@@ -6127,7 +6617,7 @@
     "BABEL_2_09_2": {
         "iname": "BABEL_2_09_2",
         "name": "",
-        "kanji": "9話 約束の時のクエストミッションコンプリート"
+        "kanji": "9話 約束の時のクエストミッションを1度でコンプリート"
     },
     "BABEL_2_10_1": {
         "iname": "BABEL_2_10_1",
@@ -6137,7 +6627,7 @@
     "BABEL_2_10_2": {
         "iname": "BABEL_2_10_2",
         "name": "",
-        "kanji": "10話 闇の王のクエストミッションコンプリート"
+        "kanji": "10話 闇の王のクエストミッションを1度でコンプリート"
     },
     "BABEL_2_EX_1": {
         "iname": "BABEL_2_EX_1",
@@ -6167,7 +6657,7 @@
     "BABEL_2_EX_6": {
         "iname": "BABEL_2_EX_6",
         "name": "",
-        "kanji": "【エクストラ】漆黒の血脈は、煌々とのクエストミッションコンプリート"
+        "kanji": "【エクストラ】漆黒の血脈は、煌々とのクエストミッションを1度でコンプリート"
     },
     "MULTI_BABEL_2_EX_1": {
         "iname": "MULTI_BABEL_2_EX_1",
@@ -6182,7 +6672,7 @@
     "BABEL_3_01_2": {
         "iname": "BABEL_3_01_2",
         "name": "",
-        "kanji": "1話 混ざらぬ砂のクエストミッションコンプリート"
+        "kanji": "1話 混ざらぬ砂のクエストミッションを1度でコンプリート"
     },
     "BABEL_3_02_1": {
         "iname": "BABEL_3_02_1",
@@ -6192,7 +6682,7 @@
     "BABEL_3_02_2": {
         "iname": "BABEL_3_02_2",
         "name": "",
-        "kanji": "2話 砂のそれぞれのクエストミッションコンプリート"
+        "kanji": "2話 砂のそれぞれのクエストミッションを1度でコンプリート"
     },
     "BABEL_3_03_1": {
         "iname": "BABEL_3_03_1",
@@ -6202,7 +6692,7 @@
     "BABEL_3_03_2": {
         "iname": "BABEL_3_03_2",
         "name": "",
-        "kanji": "3話 蠢く思惑のクエストミッションコンプリート"
+        "kanji": "3話 蠢く思惑のクエストミッションを1度でコンプリート"
     },
     "BABEL_3_04_1": {
         "iname": "BABEL_3_04_1",
@@ -6212,7 +6702,7 @@
     "BABEL_3_04_2": {
         "iname": "BABEL_3_04_2",
         "name": "",
-        "kanji": "4話 守りたいもののクエストミッションコンプリート"
+        "kanji": "4話 守りたいもののクエストミッションを1度でコンプリート"
     },
     "BABEL_3_05_1": {
         "iname": "BABEL_3_05_1",
@@ -6222,7 +6712,7 @@
     "BABEL_3_05_2": {
         "iname": "BABEL_3_05_2",
         "name": "",
-        "kanji": "5話 託されし希望のクエストミッションコンプリート"
+        "kanji": "5話 託されし希望のクエストミッションを1度でコンプリート"
     },
     "BABEL_3_06_1": {
         "iname": "BABEL_3_06_1",
@@ -6232,7 +6722,7 @@
     "BABEL_3_06_2": {
         "iname": "BABEL_3_06_2",
         "name": "",
-        "kanji": "6話 託される砂の意思のクエストミッションコンプリート"
+        "kanji": "6話 託される砂の意思のクエストミッションを1度でコンプリート"
     },
     "BABEL_3_07_1": {
         "iname": "BABEL_3_07_1",
@@ -6242,7 +6732,7 @@
     "BABEL_3_07_2": {
         "iname": "BABEL_3_07_2",
         "name": "",
-        "kanji": "7話 生き残りのクエストミッションコンプリート"
+        "kanji": "7話 生き残りのクエストミッションを1度でコンプリート"
     },
     "BABEL_3_08_1": {
         "iname": "BABEL_3_08_1",
@@ -6252,7 +6742,7 @@
     "BABEL_3_08_2": {
         "iname": "BABEL_3_08_2",
         "name": "",
-        "kanji": "8話 交戦のクエストミッションコンプリート"
+        "kanji": "8話 交戦のクエストミッションを1度でコンプリート"
     },
     "BABEL_3_09_1": {
         "iname": "BABEL_3_09_1",
@@ -6262,7 +6752,7 @@
     "BABEL_3_09_2": {
         "iname": "BABEL_3_09_2",
         "name": "",
-        "kanji": "9話 砂の交わる時のクエストミッションコンプリート"
+        "kanji": "9話 砂の交わる時のクエストミッションを1度でコンプリート"
     },
     "BABEL_3_10_1": {
         "iname": "BABEL_3_10_1",
@@ -6302,7 +6792,7 @@
     "BABEL_3_EX_6": {
         "iname": "BABEL_3_EX_6",
         "name": "",
-        "kanji": "【エクストラ】祈りの緑、渇きの大地のクエストミッションコンプリート"
+        "kanji": "【エクストラ】祈りの緑、渇きの大地のクエストミッションを1度でコンプリート"
     },
     "MULTI_BABEL_3_EX_1": {
         "iname": "MULTI_BABEL_3_EX_1",
@@ -6382,7 +6872,7 @@
     "BABEL_4_01_2": {
         "iname": "BABEL_4_01_2",
         "name": "",
-        "kanji": "1話 月夜は闇か、星空かのクエストミッションコンプリート"
+        "kanji": "1話 月夜は闇か、星空かのクエストミッションを1度でコンプリート"
     },
     "BABEL_4_02_1": {
         "iname": "BABEL_4_02_1",
@@ -6392,7 +6882,7 @@
     "BABEL_4_02_2": {
         "iname": "BABEL_4_02_2",
         "name": "",
-        "kanji": "2話 背中を背負えばのクエストミッションコンプリート"
+        "kanji": "2話 背中を背負えばのクエストミッションを1度でコンプリート"
     },
     "BABEL_4_03_1": {
         "iname": "BABEL_4_03_1",
@@ -6402,7 +6892,7 @@
     "BABEL_4_03_2": {
         "iname": "BABEL_4_03_2",
         "name": "",
-        "kanji": "3話 逃げ道の交差点のクエストミッションコンプリート"
+        "kanji": "3話 逃げ道の交差点のクエストミッションを1度でコンプリート"
     },
     "BABEL_4_04_1": {
         "iname": "BABEL_4_04_1",
@@ -6412,7 +6902,7 @@
     "BABEL_4_04_2": {
         "iname": "BABEL_4_04_2",
         "name": "",
-        "kanji": "4話 同じ目と口とのクエストミッションコンプリート"
+        "kanji": "4話 同じ目と口とのクエストミッションを1度でコンプリート"
     },
     "BABEL_4_05_1": {
         "iname": "BABEL_4_05_1",
@@ -6422,7 +6912,7 @@
     "BABEL_4_05_2": {
         "iname": "BABEL_4_05_2",
         "name": "",
-        "kanji": "5話 神鬼は血の海よりのクエストミッションコンプリート"
+        "kanji": "5話 神鬼は血の海よりのクエストミッションを1度でコンプリート"
     },
     "BABEL_4_06_1": {
         "iname": "BABEL_4_06_1",
@@ -6432,7 +6922,7 @@
     "BABEL_4_06_2": {
         "iname": "BABEL_4_06_2",
         "name": "",
-        "kanji": "6話 黄泉への旅路の終着点のクエストミッションコンプリート"
+        "kanji": "6話 黄泉への旅路の終着点のクエストミッションを1度でコンプリート"
     },
     "BABEL_4_07_1": {
         "iname": "BABEL_4_07_1",
@@ -6442,7 +6932,7 @@
     "BABEL_4_07_2": {
         "iname": "BABEL_4_07_2",
         "name": "",
-        "kanji": "7話 約束は流星に願った頃のクエストミッションコンプリート"
+        "kanji": "7話 約束は流星に願った頃のクエストミッションを1度でコンプリート"
     },
     "BABEL_HA_4_01_1": {
         "iname": "BABEL_HA_4_01_1",
@@ -6478,6 +6968,111 @@
         "iname": "BABEL_HA_4_07_1",
         "name": "",
         "kanji": "7話 約束は流星に願った頃をクリア"
+    },
+    "BABEL_4_08_1": {
+        "iname": "BABEL_4_08_1",
+        "name": "",
+        "kanji": "1話 夕陽と籠を背負い来たをクリア"
+    },
+    "BABEL_4_08_2": {
+        "iname": "BABEL_4_08_2",
+        "name": "",
+        "kanji": "1話 夕陽と籠を背負い来たのクエストミッションコンプリート"
+    },
+    "BABEL_4_09_1": {
+        "iname": "BABEL_4_09_1",
+        "name": "",
+        "kanji": "2話 正義と真実は交わらずをクリア"
+    },
+    "BABEL_4_09_2": {
+        "iname": "BABEL_4_09_2",
+        "name": "",
+        "kanji": "2話 正義と真実は交わらずのクエストミッションコンプリート"
+    },
+    "BABEL_4_10_1": {
+        "iname": "BABEL_4_10_1",
+        "name": "",
+        "kanji": "3話 誤り謝り叫び声をクリア"
+    },
+    "BABEL_4_10_2": {
+        "iname": "BABEL_4_10_2",
+        "name": "",
+        "kanji": "3話 誤り謝り叫び声のクエストミッションコンプリート"
+    },
+    "BABEL_4_11_1": {
+        "iname": "BABEL_4_11_1",
+        "name": "",
+        "kanji": "4話 子供が描く夢じゃなくをクリア"
+    },
+    "BABEL_4_11_2": {
+        "iname": "BABEL_4_11_2",
+        "name": "",
+        "kanji": "4話 子供が描く夢じゃなくのクエストミッションコンプリート"
+    },
+    "BABEL_4_12_1": {
+        "iname": "BABEL_4_12_1",
+        "name": "",
+        "kanji": "5話 やがて穢れは花と咲きをクリア"
+    },
+    "BABEL_4_12_2": {
+        "iname": "BABEL_4_12_2",
+        "name": "",
+        "kanji": "5話 やがて穢れは花と咲きのクエストミッションを1度でコンプリート"
+    },
+    "BABEL_4_13_1": {
+        "iname": "BABEL_4_13_1",
+        "name": "",
+        "kanji": "6話 刃に心で鞘をしてをクリア"
+    },
+    "BABEL_4_13_2": {
+        "iname": "BABEL_4_13_2",
+        "name": "",
+        "kanji": "6話 刃に心で鞘をしてのクエストミッションを1度でコンプリート"
+    },
+    "BABEL_4_14_1": {
+        "iname": "BABEL_4_14_1",
+        "name": "",
+        "kanji": "7話 黄泉還れば人鬼一体をクリア"
+    },
+    "BABEL_4_14_2": {
+        "iname": "BABEL_4_14_2",
+        "name": "",
+        "kanji": "7話 黄泉還れば人鬼一体のクエストミッションを1度でコンプリート"
+    },
+    "BABEL_4_EX_1": {
+        "iname": "BABEL_4_EX_1",
+        "name": "",
+        "kanji": "【エクストラ】亡国の乱、時代の岐路に咲くをクリア[1/10回]"
+    },
+    "BABEL_4_EX_2": {
+        "iname": "BABEL_4_EX_2",
+        "name": "",
+        "kanji": "【エクストラ】亡国の乱、時代の岐路に咲くをクリア[3/10回]"
+    },
+    "BABEL_4_EX_3": {
+        "iname": "BABEL_4_EX_3",
+        "name": "",
+        "kanji": "【エクストラ】亡国の乱、時代の岐路に咲くをクリア[5/10回]"
+    },
+    "BABEL_4_EX_4": {
+        "iname": "BABEL_4_EX_4",
+        "name": "",
+        "kanji": "【エクストラ】亡国の乱、時代の岐路に咲くをクリア[7/10回]"
+    },
+    "BABEL_4_EX_5": {
+        "iname": "BABEL_4_EX_5",
+        "name": "",
+        "kanji": "【エクストラ】亡国の乱、時代の岐路に咲くをクリア[10/10回]"
+    },
+    "BABEL_4_EX_6": {
+        "iname": "BABEL_4_EX_6",
+        "name": "",
+        "kanji": "【エクストラ】亡国の乱、時代の岐路に咲くのクエストミッションをコンプリート"
+    },
+    "MULTI_BABEL_4_EX_1": {
+        "iname": "MULTI_BABEL_4_EX_1",
+        "name": "",
+        "kanji": "【エクストラ】【マルチ】亡国の乱、時代の岐路に咲くをクリア"
     },
     "SEISEKI_DJ_6_EX_2": {
         "iname": "SEISEKI_DJ_6_EX_2",
@@ -7004,6 +7599,166 @@
         "name": "",
         "kanji": "【聖石の追憶】【EX・極】その願い、時空を超えて（後編）をクリア"
     },
+    "SO_WA_SEISEKI_KAYA_1_01": {
+        "iname": "SO_WA_SEISEKI_KAYA_1_01",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて1話をクリア[1/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_1_02": {
+        "iname": "SO_WA_SEISEKI_KAYA_1_02",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて1話をクリア[3/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_1_03": {
+        "iname": "SO_WA_SEISEKI_KAYA_1_03",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて1話をクリア[5/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_1_04": {
+        "iname": "SO_WA_SEISEKI_KAYA_1_04",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて1話をクリア[7/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_2_01": {
+        "iname": "SO_WA_SEISEKI_KAYA_2_01",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて2話をクリア[1/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_2_02": {
+        "iname": "SO_WA_SEISEKI_KAYA_2_02",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて2話をクリア[3/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_2_03": {
+        "iname": "SO_WA_SEISEKI_KAYA_2_03",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて2話をクリア[5/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_2_04": {
+        "iname": "SO_WA_SEISEKI_KAYA_2_04",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて2話をクリア[7/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_3_01": {
+        "iname": "SO_WA_SEISEKI_KAYA_3_01",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて3話をクリア[1/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_3_02": {
+        "iname": "SO_WA_SEISEKI_KAYA_3_02",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて3話をクリア[3/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_3_03": {
+        "iname": "SO_WA_SEISEKI_KAYA_3_03",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて3話をクリア[5/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_3_04": {
+        "iname": "SO_WA_SEISEKI_KAYA_3_04",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて3話をクリア[7/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_4_01": {
+        "iname": "SO_WA_SEISEKI_KAYA_4_01",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて4話をクリア[1/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_4_02": {
+        "iname": "SO_WA_SEISEKI_KAYA_4_02",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて4話をクリア[3/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_4_03": {
+        "iname": "SO_WA_SEISEKI_KAYA_4_03",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて4話をクリア[5/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_4_04": {
+        "iname": "SO_WA_SEISEKI_KAYA_4_04",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて4話をクリア[7/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_5_01": {
+        "iname": "SO_WA_SEISEKI_KAYA_5_01",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて5話をクリア[1/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_5_02": {
+        "iname": "SO_WA_SEISEKI_KAYA_5_02",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて5話をクリア[3/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_5_03": {
+        "iname": "SO_WA_SEISEKI_KAYA_5_03",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて5話をクリア[5/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_5_04": {
+        "iname": "SO_WA_SEISEKI_KAYA_5_04",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて5話をクリア[7/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_6_01": {
+        "iname": "SO_WA_SEISEKI_KAYA_6_01",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて6話をクリア[1/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_6_02": {
+        "iname": "SO_WA_SEISEKI_KAYA_6_02",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて6話をクリア[3/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_6_03": {
+        "iname": "SO_WA_SEISEKI_KAYA_6_03",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて6話をクリア[5/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_6_04": {
+        "iname": "SO_WA_SEISEKI_KAYA_6_04",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて6話をクリア[7/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_7_01": {
+        "iname": "SO_WA_SEISEKI_KAYA_7_01",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて7話をクリア[1/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_7_02": {
+        "iname": "SO_WA_SEISEKI_KAYA_7_02",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて7話をクリア[3/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_7_03": {
+        "iname": "SO_WA_SEISEKI_KAYA_7_03",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて7話をクリア[5/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_7_04": {
+        "iname": "SO_WA_SEISEKI_KAYA_7_04",
+        "name": "",
+        "kanji": "夜明け前、罪の扉に至りて7話をクリア[7/7回]"
+    },
+    "SO_WA_SEISEKI_KAYA_EX_01": {
+        "iname": "SO_WA_SEISEKI_KAYA_EX_01",
+        "name": "",
+        "kanji": "【期間限定】【EX】夜明け前、罪の扉に至りてをクリア[1/5回]"
+    },
+    "SO_WA_SEISEKI_KAYA_EX_02": {
+        "iname": "SO_WA_SEISEKI_KAYA_EX_02",
+        "name": "",
+        "kanji": "【期間限定】【EX】夜明け前、罪の扉に至りてをクリア[3/5回]"
+    },
+    "SO_WA_SEISEKI_KAYA_EX_03": {
+        "iname": "SO_WA_SEISEKI_KAYA_EX_03",
+        "name": "",
+        "kanji": "【期間限定】【EX】夜明け前、罪の扉に至りてをクリア[5/5回]"
+    },
+    "SO_WA_SEISEKI_KAYA_EX_MULTI_01": {
+        "iname": "SO_WA_SEISEKI_KAYA_EX_MULTI_01",
+        "name": "",
+        "kanji": "【期間限定】【EX】【マルチ】夜明け前、罪の扉に至りてをクリア"
+    },
     "RECORD_NIKO_7_1": {
         "iname": "RECORD_NIKO_7_1",
         "name": "",
@@ -7148,6 +7903,81 @@
         "iname": "RECORD_POK5_EX_M_2",
         "name": "",
         "kanji": "【EX】【マルチ】黒奏弓『骸撃』獲得をクリア[2/2回]"
+    },
+    "RECORD_POK_SHIELD_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_POK_SHIELD_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【守護盾アイギス登場】のクエストミッションコンプリート"
+    },
+    "RECORD_POK_SITA_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_POK_SITA_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【旋風斧シタ登場】のクエストミッションコンプリート"
+    },
+    "RECORD_POK_SHEKINAH_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_POK_SHEKINAH_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【輝弓シェキナー登場】のクエストミッションコンプリート"
+    },
+    "RECORD_POK_FOLCAS_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_POK_FOLCAS_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【地獄槍フォルカス登場】のクエストミッションコンプリート"
+    },
+    "RECORD_POK_BASYOSEN_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_POK_BASYOSEN_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【霊宝芭蕉扇登場】のクエストミッションコンプリート"
+    },
+    "RECORD_POK_EROS_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_POK_EROS_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【恋愛弓エロース登場】のクエストミッションコンプリート"
+    },
+    "RECORD_POK_LONG_ALTE_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_POK_LONG_ALTE_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【聖槍ロンギヌス&純潔神弓アルテミス登場】のクエストミッションコンプリート"
+    },
+    "RECORD_POK_TYRHUNG_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_POK_TYRHUNG_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【黒奏剣『骸斬』登場】のクエストミッションコンプリート"
+    },
+    "RECORD_POK_LAEVATEINN_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_POK_LAEVATEINN_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【黒奏刃『骸斬』登場】のクエストミッションコンプリート"
+    },
+    "RECORD_POK_KUGEL_PARASHU_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_POK_KUGEL_PARASHU_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【魔砲フライクーゲル&聖斧パラシュ登場】のクエストミッションコンプリート"
+    },
+    "RECORD_POK_BLK_ARTEMIS_EV_MISSIONCOMP_01": {
+        "iname": "RECORD_POK_BLK_ARTEMIS_EV_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "【EX】【黒奏弓『骸撃』登場】のクエストミッションコンプリート"
+    },
+    "RECORD_3TITLE_EX_1801_1_MISSIONCOMP_01": {
+        "iname": "RECORD_3TITLE_EX_1801_1_MISSIONCOMP_01",
+        "name": "",
+        "kanji": "ファントム オブ アルケミスト　高難度エクストラステージのクエストミッション全達成[1/10回]"
+    },
+    "RECORD_3TITLE_EX_1801_1_MISSIONCOMP_02": {
+        "iname": "RECORD_3TITLE_EX_1801_1_MISSIONCOMP_02",
+        "name": "",
+        "kanji": "ファントム オブ アルケミスト　高難度エクストラステージのクエストミッション全達成[3/10回]"
+    },
+    "RECORD_3TITLE_EX_1801_1_MISSIONCOMP_03": {
+        "iname": "RECORD_3TITLE_EX_1801_1_MISSIONCOMP_03",
+        "name": "",
+        "kanji": "ファントム オブ アルケミスト　高難度エクストラステージのクエストミッション全達成[7/10回]"
+    },
+    "RECORD_3TITLE_EX_1801_1_MISSIONCOMP_04": {
+        "iname": "RECORD_3TITLE_EX_1801_1_MISSIONCOMP_04",
+        "name": "",
+        "kanji": "ファントム オブ アルケミスト　高難度エクストラステージのクエストミッション全達成[10/10回]"
     },
     "VELOZ_EX01_SP_01": {
         "iname": "VELOZ_EX01_SP_01",
@@ -7477,7 +8307,7 @@
     "DAILY_2018MAY_FRENDP_01": {
         "iname": "DAILY_2018MAY_FRENDP_01",
         "name": "",
-        "kanji": "【期間限定】フレンドにプレゼントを贈ろう！"
+        "kanji": "フレンドにプレゼントを贈ろう！"
     },
     "DAILY_QE_222MAN_DL_0301": {
         "iname": "DAILY_QE_222MAN_DL_0301",
@@ -7859,6 +8689,11 @@
         "name": "",
         "kanji": "【期間限定】光属性ハードクエストをクリアしよう"
     },
+    "SO_STORY_5_2EX_01": {
+        "iname": "SO_STORY_5_2EX_01",
+        "name": "",
+        "kanji": "5章2話公開直前EXをクリア[1/1回]"
+    },
     "SO_KIKAIZOME_01": {
         "iname": "SO_KIKAIZOME_01",
         "name": "",
@@ -7888,236 +8723,6 @@
         "iname": "MULTI_SO_KIKAIZOME_03",
         "name": "",
         "kanji": "機械の魔宮 をクリア[10/10回]"
-    },
-    "DAILY_FFXV_20170526_1": {
-        "iname": "DAILY_FFXV_20170526_1",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170526_2": {
-        "iname": "DAILY_FFXV_20170526_2",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170526_3": {
-        "iname": "DAILY_FFXV_20170526_3",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170527_1": {
-        "iname": "DAILY_FFXV_20170527_1",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170527_2": {
-        "iname": "DAILY_FFXV_20170527_2",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170527_3": {
-        "iname": "DAILY_FFXV_20170527_3",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170528_1": {
-        "iname": "DAILY_FFXV_20170528_1",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170528_2": {
-        "iname": "DAILY_FFXV_20170528_2",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170528_3": {
-        "iname": "DAILY_FFXV_20170528_3",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170529_1": {
-        "iname": "DAILY_FFXV_20170529_1",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170529_2": {
-        "iname": "DAILY_FFXV_20170529_2",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170529_3": {
-        "iname": "DAILY_FFXV_20170529_3",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170530_1": {
-        "iname": "DAILY_FFXV_20170530_1",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170530_2": {
-        "iname": "DAILY_FFXV_20170530_2",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170530_3": {
-        "iname": "DAILY_FFXV_20170530_3",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170531_1": {
-        "iname": "DAILY_FFXV_20170531_1",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170531_2": {
-        "iname": "DAILY_FFXV_20170531_2",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170531_3": {
-        "iname": "DAILY_FFXV_20170531_3",
-        "name": "",
-        "kanji": "【期間限定】討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170609_1": {
-        "iname": "DAILY_FFXV_20170609_1",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170609_2": {
-        "iname": "DAILY_FFXV_20170609_2",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170609_3": {
-        "iname": "DAILY_FFXV_20170609_3",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170610_1": {
-        "iname": "DAILY_FFXV_20170610_1",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170610_2": {
-        "iname": "DAILY_FFXV_20170610_2",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170610_3": {
-        "iname": "DAILY_FFXV_20170610_3",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170611_1": {
-        "iname": "DAILY_FFXV_20170611_1",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170611_2": {
-        "iname": "DAILY_FFXV_20170611_2",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170611_3": {
-        "iname": "DAILY_FFXV_20170611_3",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170612_1": {
-        "iname": "DAILY_FFXV_20170612_1",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170612_2": {
-        "iname": "DAILY_FFXV_20170612_2",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170612_3": {
-        "iname": "DAILY_FFXV_20170612_3",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170613_1": {
-        "iname": "DAILY_FFXV_20170613_1",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170613_2": {
-        "iname": "DAILY_FFXV_20170613_2",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170613_3": {
-        "iname": "DAILY_FFXV_20170613_3",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170614_1": {
-        "iname": "DAILY_FFXV_20170614_1",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170614_2": {
-        "iname": "DAILY_FFXV_20170614_2",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170614_3": {
-        "iname": "DAILY_FFXV_20170614_3",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170615_1": {
-        "iname": "DAILY_FFXV_20170615_1",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　初級"
-    },
-    "DAILY_FFXV_20170615_2": {
-        "iname": "DAILY_FFXV_20170615_2",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　中級"
-    },
-    "DAILY_FFXV_20170615_3": {
-        "iname": "DAILY_FFXV_20170615_3",
-        "name": "",
-        "kanji": "【期間限定】第二次 討伐依頼　上級"
-    },
-    "DAILY_FFXV_20170616_1": {
-        "iname": "DAILY_FFXV_20170616_1",
-        "name": "",
-        "kanji": "【期間限定】「EP1　Prologue」を１回クリアする"
-    },
-    "DAILY_FFXV_20170617_1": {
-        "iname": "DAILY_FFXV_20170617_1",
-        "name": "",
-        "kanji": "【期間限定】メタルサボテンダーを3体倒す"
-    },
-    "DAILY_FFXV_20170618_1": {
-        "iname": "DAILY_FFXV_20170618_1",
-        "name": "",
-        "kanji": "【期間限定】魔導兵を5体倒す"
-    },
-    "DAILY_FFXV_20170619_1": {
-        "iname": "DAILY_FFXV_20170619_1",
-        "name": "",
-        "kanji": "【期間限定】「EP3　Hunt」を１回クリアする"
-    },
-    "DAILY_FFXV_20170620_1": {
-        "iname": "DAILY_FFXV_20170620_1",
-        "name": "",
-        "kanji": "【期間限定】スモークアイを1体倒す"
-    },
-    "DAILY_FFXV_20170621_1": {
-        "iname": "DAILY_FFXV_20170621_1",
-        "name": "",
-        "kanji": "【期間限定】「EP5　Alchemy」を１回クリアする"
-    },
-    "DAILY_FFXV_20170622_1": {
-        "iname": "DAILY_FFXV_20170622_1",
-        "name": "",
-        "kanji": "【期間限定】「聖石の追憶1-1　最終試練」を１回クリアする "
     },
     "DAILY_2017DEC_01": {
         "iname": "DAILY_2017DEC_01",
@@ -8504,10 +9109,165 @@
         "name": "",
         "kanji": "5章1話3-10をクリア"
     },
+    "WINQUEST_548": {
+        "iname": "WINQUEST_548",
+        "name": "",
+        "kanji": "5章2話1-1をクリア"
+    },
+    "WINQUEST_549": {
+        "iname": "WINQUEST_549",
+        "name": "",
+        "kanji": "5章2話1-2をクリア"
+    },
+    "WINQUEST_550": {
+        "iname": "WINQUEST_550",
+        "name": "",
+        "kanji": "5章2話1-3をクリア"
+    },
+    "WINQUEST_551": {
+        "iname": "WINQUEST_551",
+        "name": "",
+        "kanji": "5章2話1-4をクリア"
+    },
+    "WINQUEST_552": {
+        "iname": "WINQUEST_552",
+        "name": "",
+        "kanji": "5章2話1-5をクリア"
+    },
+    "WINQUEST_553": {
+        "iname": "WINQUEST_553",
+        "name": "",
+        "kanji": "5章2話1-6をクリア"
+    },
+    "WINQUEST_554": {
+        "iname": "WINQUEST_554",
+        "name": "",
+        "kanji": "5章2話1-7をクリア"
+    },
+    "WINQUEST_555": {
+        "iname": "WINQUEST_555",
+        "name": "",
+        "kanji": "5章2話1-8をクリア"
+    },
+    "WINQUEST_556": {
+        "iname": "WINQUEST_556",
+        "name": "",
+        "kanji": "5章2話1-9をクリア"
+    },
+    "WINQUEST_557": {
+        "iname": "WINQUEST_557",
+        "name": "",
+        "kanji": "5章2話1-10をクリア"
+    },
+    "WINQUEST_558": {
+        "iname": "WINQUEST_558",
+        "name": "",
+        "kanji": "5章2話2-1をクリア"
+    },
+    "WINQUEST_559": {
+        "iname": "WINQUEST_559",
+        "name": "",
+        "kanji": "5章2話2-2をクリア"
+    },
+    "WINQUEST_560": {
+        "iname": "WINQUEST_560",
+        "name": "",
+        "kanji": "5章2話2-3をクリア"
+    },
+    "WINQUEST_561": {
+        "iname": "WINQUEST_561",
+        "name": "",
+        "kanji": "5章2話2-4をクリア"
+    },
+    "WINQUEST_562": {
+        "iname": "WINQUEST_562",
+        "name": "",
+        "kanji": "5章2話2-5をクリア"
+    },
+    "WINQUEST_563": {
+        "iname": "WINQUEST_563",
+        "name": "",
+        "kanji": "5章2話2-6をクリア"
+    },
+    "WINQUEST_564": {
+        "iname": "WINQUEST_564",
+        "name": "",
+        "kanji": "5章2話2-7をクリア"
+    },
+    "WINQUEST_565": {
+        "iname": "WINQUEST_565",
+        "name": "",
+        "kanji": "5章2話2-8をクリア"
+    },
+    "WINQUEST_566": {
+        "iname": "WINQUEST_566",
+        "name": "",
+        "kanji": "5章2話2-9をクリア"
+    },
+    "WINQUEST_567": {
+        "iname": "WINQUEST_567",
+        "name": "",
+        "kanji": "5章2話2-10をクリア"
+    },
+    "WINQUEST_568": {
+        "iname": "WINQUEST_568",
+        "name": "",
+        "kanji": "5章2話3-1をクリア"
+    },
+    "WINQUEST_569": {
+        "iname": "WINQUEST_569",
+        "name": "",
+        "kanji": "5章2話3-2をクリア"
+    },
+    "WINQUEST_570": {
+        "iname": "WINQUEST_570",
+        "name": "",
+        "kanji": "5章2話3-3をクリア"
+    },
+    "WINQUEST_571": {
+        "iname": "WINQUEST_571",
+        "name": "",
+        "kanji": "5章2話3-4をクリア"
+    },
+    "WINQUEST_572": {
+        "iname": "WINQUEST_572",
+        "name": "",
+        "kanji": "5章2話3-5をクリア"
+    },
+    "WINQUEST_573": {
+        "iname": "WINQUEST_573",
+        "name": "",
+        "kanji": "5章2話3-6をクリア"
+    },
+    "WINQUEST_574": {
+        "iname": "WINQUEST_574",
+        "name": "",
+        "kanji": "5章2話3-7をクリア"
+    },
+    "WINQUEST_575": {
+        "iname": "WINQUEST_575",
+        "name": "",
+        "kanji": "5章2話3-8をクリア"
+    },
+    "WINQUEST_576": {
+        "iname": "WINQUEST_576",
+        "name": "",
+        "kanji": "5章2話3-9をクリア"
+    },
+    "WINQUEST_577": {
+        "iname": "WINQUEST_577",
+        "name": "",
+        "kanji": "5章2話3-10をクリア"
+    },
     "KAMUI_KAKERA_01": {
         "iname": "KAMUI_KAKERA_01",
         "name": "",
         "kanji": "カムイ限界突破ルート・ハードクエスト［5章1話1-1］"
+    },
+    "KAMUI_KAKERA_02": {
+        "iname": "KAMUI_KAKERA_02",
+        "name": "",
+        "kanji": "カムイ限界突破ルート・ハードクエスト［5章2話1-1］"
     },
     "DAILY_STAMINA126": {
         "iname": "DAILY_STAMINA126",
@@ -8633,6 +9393,16 @@
         "iname": "SO_LEAFA_LV85_GET_KEY",
         "name": "",
         "kanji": "リーファのレベルを上げよう"
+    },
+    "SO_ALMA_LV85_GET_KEY": {
+        "iname": "SO_ALMA_LV85_GET_KEY",
+        "name": "",
+        "kanji": "アルマのレベルを上げよう"
+    },
+    "SO_KAYA_LV85_GET_KEY": {
+        "iname": "SO_KAYA_LV85_GET_KEY",
+        "name": "",
+        "kanji": "カヤのレベルを上げよう"
     },
     "RECORD_AREA_SUMMIT_KOBE": {
         "iname": "RECORD_AREA_SUMMIT_KOBE",

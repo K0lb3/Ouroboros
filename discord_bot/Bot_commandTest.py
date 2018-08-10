@@ -48,5 +48,5 @@ async def emoji(ctx):
     embed = discord.Embed(title="Emoji to Unicode", description='~emoji~', color=8355711)
     await ctx.send(embed=embed)
 
-BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
+BOT_TOKEN =  'NDU0MDQ5MTYyMTQ1NjkzNjk2.Dfnxwg.nEcjc4TqBb00V41IGRyPeYa0lJ8'# os.environ.get('DISCORD_BOT_TOKEN')
 bot.run(BOT_TOKEN)

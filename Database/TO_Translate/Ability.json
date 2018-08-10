@@ -299,6 +299,46 @@
         "name": "",
         "kanji": "パンドラの箱"
     },
+    "AB_POLLIN_BAR_LOWER_2": {
+        "iname": "AB_POLLIN_BAR_LOWER_2",
+        "name": "",
+        "kanji": "基本詩歌"
+    },
+    "AB_POLLIN_BAR_UPPER_2": {
+        "iname": "AB_POLLIN_BAR_UPPER_2",
+        "name": "",
+        "kanji": "詩歌"
+    },
+    "AB_BAR_LOWER_HEAL": {
+        "iname": "AB_BAR_LOWER_HEAL",
+        "name": "",
+        "kanji": "基本詩歌"
+    },
+    "AB_BAR_UPPER_HEAL": {
+        "iname": "AB_BAR_UPPER_HEAL",
+        "name": "",
+        "kanji": "詩歌"
+    },
+    "AB_BAR_LOWER_DEF": {
+        "iname": "AB_BAR_LOWER_DEF",
+        "name": "",
+        "kanji": "基本詩歌"
+    },
+    "AB_BAR_UPPER_DEF": {
+        "iname": "AB_BAR_UPPER_DEF",
+        "name": "",
+        "kanji": "詩歌"
+    },
+    "AB_BAR_LOWER_RES_SHINE": {
+        "iname": "AB_BAR_LOWER_RES_SHINE",
+        "name": "",
+        "kanji": "基本詩歌"
+    },
+    "AB_BAR_UPPER_RES_SHINE": {
+        "iname": "AB_BAR_UPPER_RES_SHINE",
+        "name": "",
+        "kanji": "詩歌"
+    },
     "AB_SOL_LOWER_ATK": {
         "iname": "AB_SOL_LOWER_ATK",
         "name": "",
@@ -519,6 +559,16 @@
         "name": "",
         "kanji": "祝技"
     },
+    "AB_FIRE_WED_F_LOWER": {
+        "iname": "AB_FIRE_WED_F_LOWER",
+        "name": "",
+        "kanji": "基本婚技"
+    },
+    "AB_FIRE_WED_F_UPPER": {
+        "iname": "AB_FIRE_WED_F_UPPER",
+        "name": "",
+        "kanji": "婚技"
+    },
     "AB_SHINE_WED_M_LOWER": {
         "iname": "AB_SHINE_WED_M_LOWER",
         "name": "",
@@ -563,6 +613,36 @@
         "iname": "AB_EC_WED_F_SUPPORT_01",
         "name": "",
         "kanji": "キラースマイル"
+    },
+    "AB_KAI_LOWER_ALWIDA": {
+        "iname": "AB_KAI_LOWER_ALWIDA",
+        "name": "",
+        "kanji": "基本海技"
+    },
+    "AB_KAI_UPPER_ALWIDA": {
+        "iname": "AB_KAI_UPPER_ALWIDA",
+        "name": "",
+        "kanji": "海技"
+    },
+    "AB_KAI_REACTION_ALWIDA": {
+        "iname": "AB_KAI_REACTION_ALWIDA",
+        "name": "",
+        "kanji": "三角逆波"
+    },
+    "AB_KAI_LOWER_TEACH": {
+        "iname": "AB_KAI_LOWER_TEACH",
+        "name": "",
+        "kanji": "基本海技"
+    },
+    "AB_KAI_UPPER_TEACH": {
+        "iname": "AB_KAI_UPPER_TEACH",
+        "name": "",
+        "kanji": "海技"
+    },
+    "AB_KAI_REACTION_TEACH": {
+        "iname": "AB_KAI_REACTION_TEACH",
+        "name": "",
+        "kanji": "三角荒波"
     },
     "AB_SHN_LOWER_CT": {
         "iname": "AB_SHN_LOWER_CT",
@@ -1234,131 +1314,6 @@
         "name": "",
         "kanji": "プリニガービーム"
     },
-    "AB_FF15_NOCT_UPPER": {
-        "iname": "AB_FF15_NOCT_UPPER",
-        "name": "",
-        "kanji": "王子技"
-    },
-    "AB_FF15_NOCT_LOWER": {
-        "iname": "AB_FF15_NOCT_LOWER",
-        "name": "",
-        "kanji": "基本王子技"
-    },
-    "AB_FF15_NOCT_REACTION_01": {
-        "iname": "AB_FF15_NOCT_REACTION_01",
-        "name": "",
-        "kanji": "パリィ"
-    },
-    "AB_FF15_NOCT_SUPPORT_01": {
-        "iname": "AB_FF15_NOCT_SUPPORT_01",
-        "name": "",
-        "kanji": "王家の力"
-    },
-    "AB_FF15_NOCT_SUPPORT_02": {
-        "iname": "AB_FF15_NOCT_SUPPORT_02",
-        "name": "",
-        "kanji": "マイティリカバー"
-    },
-    "AB_FF15_INGI_UPPER": {
-        "iname": "AB_FF15_INGI_UPPER",
-        "name": "",
-        "kanji": "側付き技"
-    },
-    "AB_FF15_INGI_LOWER": {
-        "iname": "AB_FF15_INGI_LOWER",
-        "name": "",
-        "kanji": "基本側付き技"
-    },
-    "AB_FF15_INGI_REACTION_01": {
-        "iname": "AB_FF15_INGI_REACTION_01",
-        "name": "",
-        "kanji": "応急処置"
-    },
-    "AB_FF15_INGI_SUPPORT_01": {
-        "iname": "AB_FF15_INGI_SUPPORT_01",
-        "name": "",
-        "kanji": "リベンジリカバー"
-    },
-    "AB_FF15_INGI_SUPPORT_02": {
-        "iname": "AB_FF15_INGI_SUPPORT_02",
-        "name": "",
-        "kanji": "シンクラッシュ強化"
-    },
-    "AB_FF15_GLAD_UPPER": {
-        "iname": "AB_FF15_GLAD_UPPER",
-        "name": "",
-        "kanji": "護衛技"
-    },
-    "AB_FF15_GLAD_LOWER": {
-        "iname": "AB_FF15_GLAD_LOWER",
-        "name": "",
-        "kanji": "基本護衛技"
-    },
-    "AB_FF15_GLAD_REACTION_01": {
-        "iname": "AB_FF15_GLAD_REACTION_01",
-        "name": "",
-        "kanji": "ガード"
-    },
-    "AB_FF15_GLAD_SUPPORT_01": {
-        "iname": "AB_FF15_GLAD_SUPPORT_01",
-        "name": "",
-        "kanji": "王の盾"
-    },
-    "AB_FF15_GLAD_SUPPORT_02": {
-        "iname": "AB_FF15_GLAD_SUPPORT_02",
-        "name": "",
-        "kanji": "プロテスリカバー"
-    },
-    "AB_FF15_PROM_UPPER": {
-        "iname": "AB_FF15_PROM_UPPER",
-        "name": "",
-        "kanji": "親友技"
-    },
-    "AB_FF15_PROM_LOWER": {
-        "iname": "AB_FF15_PROM_LOWER",
-        "name": "",
-        "kanji": "基本親友技"
-    },
-    "AB_FF15_PROM_REACTION_01": {
-        "iname": "AB_FF15_PROM_REACTION_01",
-        "name": "",
-        "kanji": "閃光撃ち"
-    },
-    "AB_FF15_PROM_SUPPORT_01": {
-        "iname": "AB_FF15_PROM_SUPPORT_01",
-        "name": "",
-        "kanji": "旅の記録者"
-    },
-    "AB_FF15_PROM_SUPPORT_02": {
-        "iname": "AB_FF15_PROM_SUPPORT_02",
-        "name": "",
-        "kanji": "フルリカバー"
-    },
-    "AB_FF15_ARAN_UPPER": {
-        "iname": "AB_FF15_ARAN_UPPER",
-        "name": "",
-        "kanji": "帝国准将技"
-    },
-    "AB_FF15_ARAN_LOWER": {
-        "iname": "AB_FF15_ARAN_LOWER",
-        "name": "",
-        "kanji": "基本帝国准将技"
-    },
-    "AB_FF15_ARAN_REACTION_01": {
-        "iname": "AB_FF15_ARAN_REACTION_01",
-        "name": "",
-        "kanji": "カウンター突き"
-    },
-    "AB_FF15_ARAN_SUPPORT_01": {
-        "iname": "AB_FF15_ARAN_SUPPORT_01",
-        "name": "",
-        "kanji": "慣性制御装置"
-    },
-    "AB_FF15_ARAN_SUPPORT_02": {
-        "iname": "AB_FF15_ARAN_SUPPORT_02",
-        "name": "",
-        "kanji": "空中機動師団の力"
-    },
     "AB_RH_STOCK_UPPER": {
         "iname": "AB_RH_STOCK_UPPER",
         "name": "",
@@ -1663,6 +1618,16 @@
         "iname": "AB_FA_PRID01_REACTION",
         "name": "",
         "kanji": "影使『感知』"
+    },
+    "AB_GUIL_TEM_UPPER": {
+        "iname": "AB_GUIL_TEM_UPPER",
+        "name": "",
+        "kanji": "神殿剣"
+    },
+    "AB_GUIL_TEM_LOWER": {
+        "iname": "AB_GUIL_TEM_LOWER",
+        "name": "",
+        "kanji": "基本神殿剣"
     },
     "AB_FA_ALPH01_UPPER": {
         "iname": "AB_FA_ALPH01_UPPER",
@@ -2389,6 +2354,86 @@
         "name": "",
         "kanji": "活彩ドライアード"
     },
+    "AB_ALMA01_UPPER": {
+        "iname": "AB_ALMA01_UPPER",
+        "name": "",
+        "kanji": "闘魔技"
+    },
+    "AB_ALMA01_LOWER": {
+        "iname": "AB_ALMA01_LOWER",
+        "name": "",
+        "kanji": "基本闘魔技"
+    },
+    "AB_ALMA01_REACTION": {
+        "iname": "AB_ALMA01_REACTION",
+        "name": "",
+        "kanji": "魔法結界"
+    },
+    "AB_ALMA01_SUPPORT_1": {
+        "iname": "AB_ALMA01_SUPPORT_1",
+        "name": "",
+        "kanji": "ハス家の血脈"
+    },
+    "AB_ALMA01_SUPPORT_2": {
+        "iname": "AB_ALMA01_SUPPORT_2",
+        "name": "",
+        "kanji": "情報通の気概"
+    },
+    "AB_KAYA01_UPPER": {
+        "iname": "AB_KAYA01_UPPER",
+        "name": "",
+        "kanji": "紅竜技"
+    },
+    "AB_KAYA01_LOWER": {
+        "iname": "AB_KAYA01_LOWER",
+        "name": "",
+        "kanji": "基本紅竜技"
+    },
+    "AB_KAYA01_REACTION": {
+        "iname": "AB_KAYA01_REACTION",
+        "name": "",
+        "kanji": "機紅竜の逆鱗"
+    },
+    "AB_KAYA01_SUPPORT_1": {
+        "iname": "AB_KAYA01_SUPPORT_1",
+        "name": "",
+        "kanji": "真錬種"
+    },
+    "AB_KAYA01_SUPPORT_2": {
+        "iname": "AB_KAYA01_SUPPORT_2",
+        "name": "",
+        "kanji": "紅竜姫の本気"
+    },
+    "AB_ZAYI_LORD_CC_LOWER": {
+        "iname": "AB_ZAYI_LORD_CC_LOWER",
+        "name": "",
+        "kanji": "基本陽剣技"
+    },
+    "AB_ZAYI_LORD_CC_UPPER": {
+        "iname": "AB_ZAYI_LORD_CC_UPPER",
+        "name": "",
+        "kanji": "陽剣技"
+    },
+    "AB_ZAYI_LORD_CC_REACTION": {
+        "iname": "AB_ZAYI_LORD_CC_REACTION",
+        "name": "",
+        "kanji": "不退転の誓い"
+    },
+    "AB_ZAYI_LORD_CC_SUPPORT": {
+        "iname": "AB_ZAYI_LORD_CC_SUPPORT",
+        "name": "",
+        "kanji": "白夜の聖剣"
+    },
+    "AB_NEW_HUU_HISHARMU_LOWER": {
+        "iname": "AB_NEW_HUU_HISHARMU_LOWER",
+        "name": "",
+        "kanji": "基本風水術"
+    },
+    "AB_NEW_HUU_HISHARMU_UPPER": {
+        "iname": "AB_NEW_HUU_HISHARMU_UPPER",
+        "name": "",
+        "kanji": "風水術"
+    },
     "AB_ARM_LOWER_LOGI_TUTORIAL": {
         "iname": "AB_ARM_LOWER_LOGI_TUTORIAL",
         "name": "",
@@ -2486,6 +2531,16 @@
     },
     "AB_YUNAGI_MA_01": {
         "iname": "AB_YUNAGI_MA_01",
+        "name": "",
+        "kanji": "マスターアビリティ"
+    },
+    "AB_DAISY_MA_01": {
+        "iname": "AB_DAISY_MA_01",
+        "name": "",
+        "kanji": "マスターアビリティ"
+    },
+    "AB_LAVINA_MA_01": {
+        "iname": "AB_LAVINA_MA_01",
         "name": "",
         "kanji": "マスターアビリティ"
     },
@@ -3189,6 +3244,266 @@
         "name": "",
         "kanji": "イタズラ狐っ娘"
     },
+    "AB_LAVINA_TB_1": {
+        "iname": "AB_LAVINA_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_LAVINA_TB_2": {
+        "iname": "AB_LAVINA_TB_2",
+        "name": "",
+        "kanji": "眠れる氷姫"
+    },
+    "AB_DAISY_TB_1": {
+        "iname": "AB_DAISY_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_DAISY_TB_2": {
+        "iname": "AB_DAISY_TB_2",
+        "name": "",
+        "kanji": "じゃじゃ馬魂"
+    },
+    "AB_NOAH_TB_1": {
+        "iname": "AB_NOAH_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_NOAH_TB_2": {
+        "iname": "AB_NOAH_TB_2",
+        "name": "",
+        "kanji": "優等生の怒り"
+    },
+    "AB_ROFIA_TB_1": {
+        "iname": "AB_ROFIA_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_ROFIA_TB_2": {
+        "iname": "AB_ROFIA_TB_2",
+        "name": "",
+        "kanji": "お砂糖チャージ"
+    },
+    "AB_KURT_TB_1": {
+        "iname": "AB_KURT_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_KURT_TB_2": {
+        "iname": "AB_KURT_TB_2",
+        "name": "",
+        "kanji": "双閃光の継承者"
+    },
+    "AB_TEONA_TB_1": {
+        "iname": "AB_TEONA_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_TEONA_TB_2": {
+        "iname": "AB_TEONA_TB_2",
+        "name": "",
+        "kanji": "コロッセオの英雄"
+    },
+    "AB_MIELIKKI_TB_1": {
+        "iname": "AB_MIELIKKI_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_MIELIKKI_TB_2": {
+        "iname": "AB_MIELIKKI_TB_2",
+        "name": "",
+        "kanji": "あたちのそこぢから"
+    },
+    "AB_CHALICE_TB_1": {
+        "iname": "AB_CHALICE_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_CHALICE_TB_2": {
+        "iname": "AB_CHALICE_TB_2",
+        "name": "",
+        "kanji": "アルケミィライダー"
+    },
+    "AB_POLLIN_TB_1": {
+        "iname": "AB_POLLIN_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_POLLIN_TB_2": {
+        "iname": "AB_POLLIN_TB_2",
+        "name": "",
+        "kanji": "お花がいっぱい"
+    },
+    "AB_GUILDFORD_TB_1": {
+        "iname": "AB_GUILDFORD_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_GUILDFORD_TB_2": {
+        "iname": "AB_GUILDFORD_TB_2",
+        "name": "",
+        "kanji": "冷厳なる異端審問官"
+    },
+    "AB_FENCER_TB_1": {
+        "iname": "AB_FENCER_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_FENCER_TB_2": {
+        "iname": "AB_FENCER_TB_2",
+        "name": "",
+        "kanji": "フェンサーの剣舞"
+    },
+    "AB_REAPER_TB_1": {
+        "iname": "AB_REAPER_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_REAPER_TB_2": {
+        "iname": "AB_REAPER_TB_2",
+        "name": "",
+        "kanji": "リーパーの瘴気"
+    },
+    "AB_SHERMAN_TB_1": {
+        "iname": "AB_SHERMAN_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_SHERMAN_TB_2": {
+        "iname": "AB_SHERMAN_TB_2",
+        "name": "",
+        "kanji": "シャーマンの神託"
+    },
+    "AB_SEK_CLOE_TB_1": {
+        "iname": "AB_SEK_CLOE_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_SEK_CLOE_TB_2": {
+        "iname": "AB_SEK_CLOE_TB_2",
+        "name": "",
+        "kanji": "バベルのドラグーン"
+    },
+    "AB_ZAYIN_TB_1": {
+        "iname": "AB_ZAYIN_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_ZAYIN_TB_2": {
+        "iname": "AB_ZAYIN_TB_2",
+        "name": "",
+        "kanji": "正義の体現者"
+    },
+    "AB_VIER_TB_1": {
+        "iname": "AB_VIER_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_VIER_TB_2": {
+        "iname": "AB_VIER_TB_2",
+        "name": "",
+        "kanji": "気まぐれな香幻"
+    },
+    "AB_GOR_TB_1": {
+        "iname": "AB_GOR_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_GOR_TB_2": {
+        "iname": "AB_GOR_TB_2",
+        "name": "",
+        "kanji": "北の大海賊"
+    },
+    "AB_SQ_PALADIN_TB_1": {
+        "iname": "AB_SQ_PALADIN_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_SQ_PALADIN_TB_2": {
+        "iname": "AB_SQ_PALADIN_TB_2",
+        "name": "",
+        "kanji": "パラディンの鉄壁"
+    },
+    "AB_SQ_PRINCESS_TB_1": {
+        "iname": "AB_SQ_PRINCESS_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_SQ_PRINCESS_TB_2": {
+        "iname": "AB_SQ_PRINCESS_TB_2",
+        "name": "",
+        "kanji": "プリンセスの威光"
+    },
+    "AB_SQ_SHENMEI_TB_1": {
+        "iname": "AB_SQ_SHENMEI_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_SQ_SHENMEI_TB_2": {
+        "iname": "AB_SQ_SHENMEI_TB_2",
+        "name": "",
+        "kanji": "バベルのダンサー"
+    },
+    "AB_SQ_GUNNER_TB_1": {
+        "iname": "AB_SQ_GUNNER_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_SQ_GUNNER_TB_2": {
+        "iname": "AB_SQ_GUNNER_TB_2",
+        "name": "",
+        "kanji": "ガンナーの魔弾"
+    },
+    "AB_SAKURA_TB_1": {
+        "iname": "AB_SAKURA_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_SAKURA_TB_2": {
+        "iname": "AB_SAKURA_TB_2",
+        "name": "",
+        "kanji": "始まりの子"
+    },
+    "AB_S_YOMI_TB_1": {
+        "iname": "AB_S_YOMI_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_S_YOMI_TB_2": {
+        "iname": "AB_S_YOMI_TB_2",
+        "name": "",
+        "kanji": "闇の眷属"
+    },
+    "AB_SHENMEI_TB_1": {
+        "iname": "AB_SHENMEI_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_SHENMEI_TB_2": {
+        "iname": "AB_SHENMEI_TB_2",
+        "name": "",
+        "kanji": "キャプテン方向音痴"
+    },
+    "AB_RIGARUTO_TB_1": {
+        "iname": "AB_RIGARUTO_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_RIGARUTO_TB_2": {
+        "iname": "AB_RIGARUTO_TB_2",
+        "name": "",
+        "kanji": "アクティブエージェント"
+    },
+    "AB_HISHARMU_TB_1": {
+        "iname": "AB_HISHARMU_TB_1",
+        "name": "",
+        "kanji": "能力アップ【開罪:嫉妬】"
+    },
+    "AB_HISHARMU_TB_2": {
+        "iname": "AB_HISHARMU_TB_2",
+        "name": "",
+        "kanji": "砂漠の救い手"
+    },
     "AB_LIZD_LAN_UPPER2": {
         "iname": "AB_LIZD_LAN_UPPER2",
         "name": "",
@@ -3198,6 +3513,11 @@
         "iname": "AB_YUJ_MOBIUS_22F_01",
         "name": "",
         "kanji": "メビウス22F　幻影兵僧侶　冥界の幻薬"
+    },
+    "AB_EN_KAJ_REACTION_02": {
+        "iname": "AB_EN_KAJ_REACTION_02",
+        "name": "",
+        "kanji": "敵鍛冶師リアクション"
     },
     "AB_EN_KAJ_REACTION_HAGOITA": {
         "iname": "AB_EN_KAJ_REACTION_HAGOITA",
@@ -3278,6 +3598,26 @@
         "iname": "AB_RAT_WIZ_REACTION_TOWER2",
         "name": "",
         "kanji": "【ヴェーダ106】ネズミ狂化リアクション"
+    },
+    "AB_RAT_SHIELD_CHENGE_MEBI": {
+        "iname": "AB_RAT_SHIELD_CHENGE_MEBI",
+        "name": "",
+        "kanji": "メビウスラットン用シールドチェンジ"
+    },
+    "AB_RAT__METAL_POET_MEBI_REACTION": {
+        "iname": "AB_RAT__METAL_POET_MEBI_REACTION",
+        "name": "",
+        "kanji": "メビウスラットン用リアクションアビリティ"
+    },
+    "AB_RAT_ARM_THUNDER_BUFF_MEBI": {
+        "iname": "AB_RAT_ARM_THUNDER_BUFF_MEBI",
+        "name": "",
+        "kanji": "メビウスラットン用バフ"
+    },
+    "AB_RAT_HEALING_ALL": {
+        "iname": "AB_RAT_HEALING_ALL",
+        "name": "",
+        "kanji": "メビウスラットン用"
     },
     "AB_RAT_3TITLE_01": {
         "iname": "AB_RAT_3TITLE_01",
@@ -3374,76 +3714,6 @@
         "name": "",
         "kanji": "マンドラゴラ癒術・魅了_ディスガイアクエスト用"
     },
-    "AB_MAN_WIZ_FF15EX1": {
-        "iname": "AB_MAN_WIZ_FF15EX1",
-        "name": "",
-        "kanji": "マンドラゴラスキル【FF15EX1】"
-    },
-    "AB_MAN_WIZ_FF15EX1_REACTION": {
-        "iname": "AB_MAN_WIZ_FF15EX1_REACTION",
-        "name": "",
-        "kanji": "マンドラゴラリアク魅了【FF15EX1】"
-    },
-    "AB_MAN_WIZ_FF15EX1_REACTION2": {
-        "iname": "AB_MAN_WIZ_FF15EX1_REACTION2",
-        "name": "",
-        "kanji": "マンドラリアク全ゼロ2【FF15EX1】"
-    },
-    "AB_MAN_WIZ_FF15EX1_REACTION3": {
-        "iname": "AB_MAN_WIZ_FF15EX1_REACTION3",
-        "name": "",
-        "kanji": "マンドラリアクグランテクト【FF15EX1】"
-    },
-    "AB_MAN_WIZ_FF15EX1_REACTION4": {
-        "iname": "AB_MAN_WIZ_FF15EX1_REACTION4",
-        "name": "",
-        "kanji": "マンドラリアクストップ【FF15EX1】"
-    },
-    "AB_MAN_WIZ_FF15EX1_REACTION6": {
-        "iname": "AB_MAN_WIZ_FF15EX1_REACTION6",
-        "name": "",
-        "kanji": "マンドラリアクリジュエルジェネ【FF15EX1】"
-    },
-    "AB_MAN_WIZ_FF15EX1_REACTION9": {
-        "iname": "AB_MAN_WIZ_FF15EX1_REACTION9",
-        "name": "",
-        "kanji": "マンドラリアクスタン【FF15EX1】"
-    },
-    "AB_MAN_YUJ_COND_POI_FF": {
-        "iname": "AB_MAN_YUJ_COND_POI_FF",
-        "name": "",
-        "kanji": "マンドラゴラFFコラボ用[猛毒]"
-    },
-    "AB_MAN_YUJ_COND_PAR_FF": {
-        "iname": "AB_MAN_YUJ_COND_PAR_FF",
-        "name": "",
-        "kanji": "マンドラゴラFFコラボ用[麻痺]"
-    },
-    "AB_MAN_YUJ_COND_CHA_FF": {
-        "iname": "AB_MAN_YUJ_COND_CHA_FF",
-        "name": "",
-        "kanji": "マンドラゴラFFコラボ用[魅了]"
-    },
-    "AB_MAN_WIZ_FF15EX1_REACTION5": {
-        "iname": "AB_MAN_WIZ_FF15EX1_REACTION5",
-        "name": "",
-        "kanji": "マンドラリアクはずれ全体ダメージ【FF15EX1】"
-    },
-    "AB_MAN_WIZ_FF15EX1_REACTION5_S": {
-        "iname": "AB_MAN_WIZ_FF15EX1_REACTION5_S",
-        "name": "",
-        "kanji": "マンドラリアク小はずれ全体ダメージ【FF15EX1】"
-    },
-    "AB_MAN_WIZ_FF15EX1_REACTION7": {
-        "iname": "AB_MAN_WIZ_FF15EX1_REACTION7",
-        "name": "",
-        "kanji": "マンドラリアクセット（個別ジュエル回復＆全体スタン）【FF15EX1】"
-    },
-    "AB_MAN_WIZ_FF15EX1_REACTION10": {
-        "iname": "AB_MAN_WIZ_FF15EX1_REACTION10",
-        "name": "",
-        "kanji": "マンドラリアク珍味【FF15EX1】"
-    },
     "AB__MAN_WIZ_RADIANT_DEF_DOWN": {
         "iname": "AB__MAN_WIZ_RADIANT_DEF_DOWN",
         "name": "",
@@ -3453,6 +3723,46 @@
         "iname": "AB__MAN_WIZ_RADIANT_ELEMENT_DOWN",
         "name": "",
         "kanji": "マンドラゴラ・属性防御効果ダウン【ラジアントEX1】"
+    },
+    "AB_MAN_YUJ_D_DEF_1": {
+        "iname": "AB_MAN_YUJ_D_DEF_1",
+        "name": "",
+        "kanji": "斬撃耐性ダウン"
+    },
+    "AB_MAN_YUJ_D_DEF_2": {
+        "iname": "AB_MAN_YUJ_D_DEF_2",
+        "name": "",
+        "kanji": "刺突耐性ダウン"
+    },
+    "AB_MAN_YUJ_D_DEF_3": {
+        "iname": "AB_MAN_YUJ_D_DEF_3",
+        "name": "",
+        "kanji": "打撃耐性ダウン"
+    },
+    "AB_MAN_YUJ_D_DEF_4": {
+        "iname": "AB_MAN_YUJ_D_DEF_4",
+        "name": "",
+        "kanji": "魔法耐性ダウン"
+    },
+    "AB_MAN_YUJ_D_DEF_5": {
+        "iname": "AB_MAN_YUJ_D_DEF_5",
+        "name": "",
+        "kanji": "射撃耐性ダウン"
+    },
+    "AB_MAN_YUJ_D_DEF_6": {
+        "iname": "AB_MAN_YUJ_D_DEF_6",
+        "name": "",
+        "kanji": "ジャンプ耐性ダウン"
+    },
+    "AB_MAN_YUJ_D_DEF_7": {
+        "iname": "AB_MAN_YUJ_D_DEF_7",
+        "name": "",
+        "kanji": "全体強化薬"
+    },
+    "AB_MAN_WIZ_M_38_TOWER_REINFORCEMENT": {
+        "iname": "AB_MAN_WIZ_M_38_TOWER_REINFORCEMENT",
+        "name": "",
+        "kanji": "マンドラ増援スイッチセット【M-ＴＯＷＥＲ_38F】"
     },
     "AB_MAN_YUJ_UPPER_SEISEKI_10EX": {
         "iname": "AB_MAN_YUJ_UPPER_SEISEKI_10EX",
@@ -3474,10 +3784,30 @@
         "name": "",
         "kanji": "マンドラゴラ・魔神弱体化"
     },
+    "AB_MAN_MAD_UPPER_3": {
+        "iname": "AB_MAN_MAD_UPPER_3",
+        "name": "",
+        "kanji": "ニトロバナ8月降臨用スキル"
+    },
+    "AB_MAN_YUJ_NITRO_JAM": {
+        "iname": "AB_MAN_YUJ_NITRO_JAM",
+        "name": "",
+        "kanji": "マンドラリアクション不定形特攻8月降臨用スキル"
+    },
     "AB_DMN_WIZ_LOWER_BLAN_VEDA": {
         "iname": "AB_DMN_WIZ_LOWER_BLAN_VEDA",
         "name": "",
         "kanji": "魔人魔法・レーザー_高低差無制限ヴェーダ"
+    },
+    "AB_DMN_WIZ_LASER_MEBI": {
+        "iname": "AB_DMN_WIZ_LASER_MEBI",
+        "name": "",
+        "kanji": "魔人魔法・レーザー系"
+    },
+    "AB_DMN_WIZ_UPPER_MOBIUS": {
+        "iname": "AB_DMN_WIZ_UPPER_MOBIUS",
+        "name": "",
+        "kanji": "魔人魔法・メビウス用"
     },
     "AB_DMN_WIZ_BABEL_EX_01": {
         "iname": "AB_DMN_WIZ_BABEL_EX_01",
@@ -3489,10 +3819,30 @@
         "name": "",
         "kanji": "魔人：リアクションレーザー"
     },
+    "AB_DMN_WIZ_2018_8_REAC": {
+        "iname": "AB_DMN_WIZ_2018_8_REAC",
+        "name": "",
+        "kanji": "魔人・魔力暴走 魔人特攻"
+    },
     "AB_DMN_WIZ_WATER_UNHEAL": {
         "iname": "AB_DMN_WIZ_WATER_UNHEAL",
         "name": "",
         "kanji": "アンヒール・ブリザード"
+    },
+    "AB_DMN_WIZ_BOUSOU_MOBIUS": {
+        "iname": "AB_DMN_WIZ_BOUSOU_MOBIUS",
+        "name": "",
+        "kanji": "魔人・魔力暴発"
+    },
+    "AB_DMN_WIZ_REGENERATER": {
+        "iname": "AB_DMN_WIZ_REGENERATER",
+        "name": "",
+        "kanji": "魔人リジェネレーター"
+    },
+    "AB_DMN_WIZ_ALL_ELEMENT_DOWN": {
+        "iname": "AB_DMN_WIZ_ALL_ELEMENT_DOWN",
+        "name": "",
+        "kanji": "浄化の光（メビウス用全属性耐性ダウン）"
     },
     "AB_DMN_WIZ_BOUSOU_KNOCK_ALL": {
         "iname": "AB_DMN_WIZ_BOUSOU_KNOCK_ALL",
@@ -3519,10 +3869,25 @@
         "name": "",
         "kanji": "魔人スキル　クリユニEX2"
     },
+    "AB_DMN_WAZA_MOBIUS": {
+        "iname": "AB_DMN_WAZA_MOBIUS",
+        "name": "",
+        "kanji": "魔人スキル　メビウス34F"
+    },
     "AB_BAA_LOWER_WIDE_MOBIUS_22": {
         "iname": "AB_BAA_LOWER_WIDE_MOBIUS_22",
         "name": "",
         "kanji": "黒騎士エネミー用基本漆黒剣メビウス22F用"
+    },
+    "AB_BLACK_KNIGHT_MOBIUS_32": {
+        "iname": "AB_BLACK_KNIGHT_MOBIUS_32",
+        "name": "",
+        "kanji": "メビウス32F黒騎士用"
+    },
+    "AB_WIZ_UPPER_MEBI": {
+        "iname": "AB_WIZ_UPPER_MEBI",
+        "name": "",
+        "kanji": "魔術"
     },
     "AB_EN_WIZ_ENC": {
         "iname": "AB_EN_WIZ_ENC",
@@ -3654,6 +4019,11 @@
         "name": "",
         "kanji": "AJ7000タラス邂逅EX用全攻撃耐性&リジェネ"
     },
+    "AB_AJ7000_KOUSEN_MOBIUS": {
+        "iname": "AB_AJ7000_KOUSEN_MOBIUS",
+        "name": "",
+        "kanji": "メビウスAJ7000用"
+    },
     "AB_DIAB_WIZ_MOBIUS_22": {
         "iname": "AB_DIAB_WIZ_MOBIUS_22",
         "name": "",
@@ -3663,6 +4033,11 @@
         "iname": "AB_DIAB_VEDA110",
         "name": "",
         "kanji": "VEDA110Fディアブロ用セット"
+    },
+    "AB_DMN_WIZ_WAZA_1808": {
+        "iname": "AB_DMN_WIZ_WAZA_1808",
+        "name": "",
+        "kanji": "ディアブロ1808降臨"
     },
     "AB_BUG01_REACTION_VEDA": {
         "iname": "AB_BUG01_REACTION_VEDA",
@@ -3694,20 +4069,35 @@
         "name": "",
         "kanji": "カイザー下位　VEDA108"
     },
+    "AB_KAISER_NEEDLE_POI_MOBIUS": {
+        "iname": "AB_KAISER_NEEDLE_POI_MOBIUS",
+        "name": "",
+        "kanji": "メビウスカイザー用"
+    },
     "AB_FAMILIAR_BARRIER": {
         "iname": "AB_FAMILIAR_BARRIER",
         "name": "",
         "kanji": "使い魔上位(バリア)"
+    },
+    "AB_FAMILIAR_DRAGON_ROAR_MOBIUS": {
+        "iname": "AB_FAMILIAR_DRAGON_ROAR_MOBIUS",
+        "name": "",
+        "kanji": "メビウス巨大使い魔用"
+    },
+    "AB_MEL_WIZ_UPPER_2": {
+        "iname": "AB_MEL_WIZ_UPPER_2",
+        "name": "",
+        "kanji": "メルヴィ上位（邂逅）"
     },
     "AB_FAMILIAR_REACTION_VEDA": {
         "iname": "AB_FAMILIAR_REACTION_VEDA",
         "name": "",
         "kanji": "使い魔リアクション(バリアチェンジ）"
     },
-    "AB_VENUS_SEC_FF15_EX1": {
-        "iname": "AB_VENUS_SEC_FF15_EX1",
+    "AB_VENUS_SEC_UPPER_KING_ONCE": {
+        "iname": "AB_VENUS_SEC_UPPER_KING_ONCE",
         "name": "",
-        "kanji": "ビーナス（第2形態）FF15EX用　塔用"
+        "kanji": "ビーナス（第2形態）上位(王の統治一回)"
     },
     "AB_VENUS_IN_WONDERLAND": {
         "iname": "AB_VENUS_IN_WONDERLAND",
@@ -3744,60 +4134,20 @@
         "name": "",
         "kanji": "【機械の魔宮】ＡＪ４０００"
     },
-    "AB_BAA_FF_15_DIOS": {
-        "iname": "AB_BAA_FF_15_DIOS",
-        "name": "",
-        "kanji": "ディオスファントム錬成"
-    },
-    "AB_BEHEMOTH_WAZA": {
-        "iname": "AB_BEHEMOTH_WAZA",
-        "name": "",
-        "kanji": "FF15コラボベヒーモス技"
-    },
     "AB_BEHEMOTH_WAZA_ADV": {
         "iname": "AB_BEHEMOTH_WAZA_ADV",
         "name": "",
         "kanji": "FF15コラボベヒーモス技"
-    },
-    "AB_BEHEMOTH_REACTION": {
-        "iname": "AB_BEHEMOTH_REACTION",
-        "name": "",
-        "kanji": "FF15コラボベヒーモスリアクション"
     },
     "AB_BEHEMOTH_REACTION_ADV": {
         "iname": "AB_BEHEMOTH_REACTION_ADV",
         "name": "",
         "kanji": "FF15コラボベヒーモスリアクション"
     },
-    "AB_M_CACT_WAZA": {
-        "iname": "AB_M_CACT_WAZA",
-        "name": "",
-        "kanji": "FF15コラボメタルサボテンダー技"
-    },
-    "AB_M_CACT_REACTION": {
-        "iname": "AB_M_CACT_REACTION",
-        "name": "",
-        "kanji": "FF15コラボメタルサボテンダーリアクション"
-    },
-    "AB_MAGIC_ARM_WAZA": {
-        "iname": "AB_MAGIC_ARM_WAZA",
-        "name": "",
-        "kanji": "FF15コラボ魔道アーマー(大型)技"
-    },
-    "AB_MAGIC_ARM_REACTION": {
-        "iname": "AB_MAGIC_ARM_REACTION",
-        "name": "",
-        "kanji": "FF15コラボ魔道アーマー(大型)リアクション"
-    },
     "AB_MAGIC_ARM_REACTION_ADV": {
         "iname": "AB_MAGIC_ARM_REACTION_ADV",
         "name": "",
         "kanji": "FF15コラボ魔道アーマー(大型)リアクション"
-    },
-    "AB_MAGIC_SOL_WAZA": {
-        "iname": "AB_MAGIC_SOL_WAZA",
-        "name": "",
-        "kanji": "FF15コラボ魔道アーマー(人型)技"
     },
     "AB_GARURA_WAZA": {
         "iname": "AB_GARURA_WAZA",
@@ -3869,6 +4219,16 @@
         "name": "",
         "kanji": "砂漠鳥リアクション02"
     },
+    "AB_DESERT_MONSTER_WAZA_REACTION_01_STORY5EX": {
+        "iname": "AB_DESERT_MONSTER_WAZA_REACTION_01_STORY5EX",
+        "name": "",
+        "kanji": "砂漠鳥リアクション01_5章直前EX用"
+    },
+    "AB_DESERT_MONSTER_WAZA_REACTION_02_STORY5EX": {
+        "iname": "AB_DESERT_MONSTER_WAZA_REACTION_02_STORY5EX",
+        "name": "",
+        "kanji": "砂漠鳥リアクション02_5章直前EX用"
+    },
     "AB_WAGINAO_01_WAZA": {
         "iname": "AB_WAGINAO_01_WAZA",
         "name": "",
@@ -3888,6 +4248,16 @@
         "iname": "AB_WAGINAO_01_WAZA_SUPPORT",
         "name": "",
         "kanji": "ワギナオサポート"
+    },
+    "AB_WAGINAO_01_WAZA_SHIELD": {
+        "iname": "AB_WAGINAO_01_WAZA_SHIELD",
+        "name": "",
+        "kanji": "ワギナオサポート[物理シールド3回]"
+    },
+    "AB_STORY_5-2_1-9": {
+        "iname": "AB_STORY_5-2_1-9",
+        "name": "",
+        "kanji": "ストーリー5章2話演出用"
     },
     "AB_SQ_ALRUNA": {
         "iname": "AB_SQ_ALRUNA",
@@ -3993,6 +4363,76 @@
         "iname": "AB_ART_LOWER_MOBIUS30F",
         "name": "",
         "kanji": "【メビウス】基本仕掛技"
+    },
+    "AB_DGN_MOBIUS_32": {
+        "iname": "AB_DGN_MOBIUS_32",
+        "name": "",
+        "kanji": "メビウス32Fドラゴンナイト用"
+    },
+    "AB_LS_JEWEL_DOWN_3": {
+        "iname": "AB_LS_JEWEL_DOWN_3",
+        "name": "",
+        "kanji": "【メビウス32F_LS】初期ジュエル減"
+    },
+    "AB_RAT_WIZ_COUNT_TO_METEO_MOBIUS_36": {
+        "iname": "AB_RAT_WIZ_COUNT_TO_METEO_MOBIUS_36",
+        "name": "",
+        "kanji": "【メビウス36階】カウント後爆散・自爆"
+    },
+    "AB_RAT_WIZ_COUNT_TO_BOMBER_MOBIUS_36BOSS": {
+        "iname": "AB_RAT_WIZ_COUNT_TO_BOMBER_MOBIUS_36BOSS",
+        "name": "",
+        "kanji": "【メビウス36階】フラグ用スキル（ドン・タラス用）"
+    },
+    "AB_RAT_WIZ_COUNT_TO_BOMBER_MOBIUS_36MOB": {
+        "iname": "AB_RAT_WIZ_COUNT_TO_BOMBER_MOBIUS_36MOB",
+        "name": "",
+        "kanji": "【メビウス36階】フラグ用スキル（マフィアモブ用）"
+    },
+    "AB_RAT_WIZ_COUNT_TO_METEO_MOBIUS_36RE": {
+        "iname": "AB_RAT_WIZ_COUNT_TO_METEO_MOBIUS_36RE",
+        "name": "",
+        "kanji": "【メビウス36階】指定範囲の味方に強烈な攻撃&自爆"
+    },
+    "AB_RAT_WIZ_COUNT_TO_METEO_MOBIUS_36RE2": {
+        "iname": "AB_RAT_WIZ_COUNT_TO_METEO_MOBIUS_36RE2",
+        "name": "",
+        "kanji": "【メビウス36階】指定範囲の味方に強烈な攻撃&自爆(範囲減少ver)"
+    },
+    "AB_RAT_WIZ_COUNT_TO_METEO_MOBIUS_36ANTI2": {
+        "iname": "AB_RAT_WIZ_COUNT_TO_METEO_MOBIUS_36ANTI2",
+        "name": "",
+        "kanji": "【メビウス36】move&jump+5"
+    },
+    "AB_4000_KNOCK_WAZA_MOBIUS_36": {
+        "iname": "AB_4000_KNOCK_WAZA_MOBIUS_36",
+        "name": "",
+        "kanji": "【メビウス36階用】AJ4000ノックバック技"
+    },
+    "AB_RAT_WIZ_COUNT_TO_METEO_MOBIUS_36RE3": {
+        "iname": "AB_RAT_WIZ_COUNT_TO_METEO_MOBIUS_36RE3",
+        "name": "",
+        "kanji": "【メビウス36階】不発弾。何もせず自爆"
+    },
+    "AB__MOBIUS_36_BUFF": {
+        "iname": "AB__MOBIUS_36_BUFF",
+        "name": "",
+        "kanji": "【メビウス36階】AJ7000、エドガー用"
+    },
+    "AB_KAYA_EX_JUMP": {
+        "iname": "AB_KAYA_EX_JUMP",
+        "name": "",
+        "kanji": "カヤEX用敵アビリティ"
+    },
+    "AB_CTR_DEF_ALMA_REBECCA_EX_SP": {
+        "iname": "AB_CTR_DEF_ALMA_REBECCA_EX_SP",
+        "name": "",
+        "kanji": "物防・魔防ダウン"
+    },
+    "AB_CTR_DEF_02_ALMA_REBECCA_EX_SP": {
+        "iname": "AB_CTR_DEF_02_ALMA_REBECCA_EX_SP",
+        "name": "",
+        "kanji": "全防御ダウン"
     },
     "AB_ART_LOWER_HAGOITA": {
         "iname": "AB_ART_LOWER_HAGOITA",
@@ -4729,6 +5169,11 @@
         "name": "",
         "kanji": "ハナチラシ技/リアクション"
     },
+    "AB_SPFLOWER01_LOWER_MOBIUS": {
+        "iname": "AB_SPFLOWER01_LOWER_MOBIUS",
+        "name": "",
+        "kanji": "メビウス用ハナチラシ技"
+    },
     "AB_CRY_EX_SP_HANA": {
         "iname": "AB_CRY_EX_SP_HANA",
         "name": "",
@@ -4743,6 +5188,11 @@
         "iname": "AB_STR_SPECTER_YOMI_UPPER",
         "name": "",
         "kanji": "拳技"
+    },
+    "AB_DGN_HYPER_HIGH_JUMP_ENEMY": {
+        "iname": "AB_DGN_HYPER_HIGH_JUMP_ENEMY",
+        "name": "",
+        "kanji": "ハイパージャンプ（敵専用）"
     },
     "AB_NIN_JLV11_MAX": {
         "iname": "AB_NIN_JLV11_MAX",
@@ -5354,16 +5804,6 @@
         "name": "",
         "kanji": "ジンCC：JLV11最大"
     },
-    "AB_FF15_ARAN_JLV11": {
-        "iname": "AB_FF15_ARAN_JLV11",
-        "name": "",
-        "kanji": "【FF15】アラネア：ジョブLv11装備一式セット"
-    },
-    "AB_FF15_ARAN_JOBMASTER": {
-        "iname": "AB_FF15_ARAN_JOBMASTER",
-        "name": "",
-        "kanji": "【FF15】アラネア：ジョブマスターボーナスセット"
-    },
     "AB_SQ_PAL_PAL_LV11": {
         "iname": "AB_SQ_PAL_PAL_LV11",
         "name": "",
@@ -5383,11 +5823,6 @@
         "iname": "AB_POK_B_TYRH_LV11",
         "name": "",
         "kanji": "（黒ティルフィング）：ジョブ11装備一式セット"
-    },
-    "AB_EN_FF15_ARAN_UPPER": {
-        "iname": "AB_EN_FF15_ARAN_UPPER",
-        "name": "",
-        "kanji": "帝国准将技"
     },
     "AB_OTHIMA_OTHI_WIZ_SEISEKI_10EX_ST": {
         "iname": "AB_OTHIMA_OTHI_WIZ_SEISEKI_10EX_ST",
@@ -5413,6 +5848,21 @@
         "iname": "AB_02_DESERT_BALT_01_BABEL",
         "name": "",
         "kanji": "熱砂の烈風"
+    },
+    "AB_ARM_FEN_WEPON_B": {
+        "iname": "AB_ARM_FEN_WEPON_B",
+        "name": "",
+        "kanji": "シンフォニックスタブ"
+    },
+    "AB_ARM_REA_WEPON_B": {
+        "iname": "AB_ARM_REA_WEPON_B",
+        "name": "",
+        "kanji": "瘴気兵装-贄-"
+    },
+    "AB_ARM_SHE_WEPON_B": {
+        "iname": "AB_ARM_SHE_WEPON_B",
+        "name": "",
+        "kanji": "敬謙なる守りの光"
     },
     "AB_AF_ARMS_DIS_USAL_01": {
         "iname": "AB_AF_ARMS_DIS_USAL_01",
@@ -5469,31 +5919,6 @@
         "name": "",
         "kanji": "十戒衆限定アビリティ"
     },
-    "AB_AF_ARMS_FF15_PROM_01": {
-        "iname": "AB_AF_ARMS_FF15_PROM_01",
-        "name": "",
-        "kanji": "トリガーハッピー"
-    },
-    "AB_AF_ARMS_FF15_NOCT_01": {
-        "iname": "AB_AF_ARMS_FF15_NOCT_01",
-        "name": "",
-        "kanji": "ファントムソード"
-    },
-    "AB_AF_ARMS_FF15_INGI_01": {
-        "iname": "AB_AF_ARMS_FF15_INGI_01",
-        "name": "",
-        "kanji": "賢者の炎"
-    },
-    "AB_AF_ARMS_FF15_GLAD_01": {
-        "iname": "AB_AF_ARMS_FF15_GLAD_01",
-        "name": "",
-        "kanji": "ライジングインパルス"
-    },
-    "AB_AF_ARMS_FF15_ARAN_01": {
-        "iname": "AB_AF_ARMS_FF15_ARAN_01",
-        "name": "",
-        "kanji": "エア・スペリオリティ"
-    },
     "AB_AF_ARMS_APR_LIZ_01": {
         "iname": "AB_AF_ARMS_APR_LIZ_01",
         "name": "",
@@ -5544,10 +5969,10 @@
         "name": "",
         "kanji": "聖教騎士団長限定アビリティ"
     },
-    "AB_AF_ARMO_FF15_SHIELD_01": {
-        "iname": "AB_AF_ARMO_FF15_SHIELD_01",
+    "AB_ACCS_BRACELET_03_KAYA": {
+        "iname": "AB_ACCS_BRACELET_03_KAYA",
         "name": "",
-        "kanji": "ラジエートジュエル"
+        "kanji": "聖教騎士団長限定アビリティ"
     },
     "AB_AF_ARMS_RH_STOC_01": {
         "iname": "AB_AF_ARMS_RH_STOC_01",
@@ -5574,13 +5999,28 @@
         "name": "",
         "kanji": "至高の魔弾"
     },
+    "AB_AF_ARMS_SQ_GUN_01_B": {
+        "iname": "AB_AF_ARMS_SQ_GUN_01_B",
+        "name": "",
+        "kanji": "至高の魔弾"
+    },
     "AB_AF_ARMS_SQ_PAL_01": {
         "iname": "AB_AF_ARMS_SQ_PAL_01",
         "name": "",
         "kanji": "渾身ディフェンス"
     },
+    "AB_AF_ARMS_SQ_PAL_01_B": {
+        "iname": "AB_AF_ARMS_SQ_PAL_01_B",
+        "name": "",
+        "kanji": "渾身ディフェンス"
+    },
     "AB_AF_ARMS_SQ_PRI_01": {
         "iname": "AB_AF_ARMS_SQ_PRI_01",
+        "name": "",
+        "kanji": "キングスマーチ"
+    },
+    "AB_AF_ARMS_SQ_PRI_01_B": {
+        "iname": "AB_AF_ARMS_SQ_PRI_01_B",
         "name": "",
         "kanji": "キングスマーチ"
     },
@@ -5838,6 +6278,11 @@
         "iname": "AB_01_ENVYRIA_CANON_01",
         "name": "",
         "kanji": "大陸の絶対正義"
+    },
+    "AB_01_ENVYRIA_ZAYIN_01": {
+        "iname": "AB_01_ENVYRIA_ZAYIN_01",
+        "name": "",
+        "kanji": "世界を導く正義の光"
     },
     "AB_01_REALEVENT_01": {
         "iname": "AB_01_REALEVENT_01",
@@ -6149,6 +6594,101 @@
         "name": "",
         "kanji": "彩光の祝詞"
     },
+    "AB_AF_ARMS_ALMA_01_WA": {
+        "iname": "AB_AF_ARMS_ALMA_01_WA",
+        "name": "",
+        "kanji": "アルマチャージ"
+    },
+    "AB_AF_ARMS_REVE_00_WA": {
+        "iname": "AB_AF_ARMS_REVE_00_WA",
+        "name": "",
+        "kanji": "増幅現像スカッド"
+    },
+    "AB_AF_ARMS_REVE_00_WA_2": {
+        "iname": "AB_AF_ARMS_REVE_00_WA_2",
+        "name": "",
+        "kanji": "群像現像バタリオン"
+    },
+    "AB_01_LUST_ALMA_01": {
+        "iname": "AB_01_LUST_ALMA_01",
+        "name": "",
+        "kanji": "アルマシュート"
+    },
+    "AB_AF_ACCS_TERESA_01_WA": {
+        "iname": "AB_AF_ACCS_TERESA_01_WA",
+        "name": "",
+        "kanji": "ヴァルナの救済"
+    },
+    "AB_AF_ARMO_KURT_01_WA": {
+        "iname": "AB_AF_ARMO_KURT_01_WA",
+        "name": "",
+        "kanji": "焔閃華"
+    },
+    "AB_01_WADA_KURT": {
+        "iname": "AB_01_WADA_KURT",
+        "name": "",
+        "kanji": "活人剣の志"
+    },
+    "AB_AF_ACCS_ZAYI_01_WA": {
+        "iname": "AB_AF_ACCS_ZAYI_01_WA",
+        "name": "",
+        "kanji": "不退転の気迫"
+    },
+    "AB_AF_ACCS_ZAYI_01_WA_B": {
+        "iname": "AB_AF_ACCS_ZAYI_01_WA_B",
+        "name": "",
+        "kanji": "不退転の気迫"
+    },
+    "AB_AF_ACCS_ZAYI_01_WA_2": {
+        "iname": "AB_AF_ACCS_ZAYI_01_WA_2",
+        "name": "",
+        "kanji": "マスターシールド"
+    },
+    "AB_AF_ACCS_ZAYI_01_WA_2_B": {
+        "iname": "AB_AF_ACCS_ZAYI_01_WA_2_B",
+        "name": "",
+        "kanji": "マスターシールド"
+    },
+    "AB_AF_ACCS_CADA_01_WA": {
+        "iname": "AB_AF_ACCS_CADA_01_WA",
+        "name": "",
+        "kanji": "焔竜の飛翔"
+    },
+    "AB_AF_ACCS_VIER_01_WA": {
+        "iname": "AB_AF_ACCS_VIER_01_WA",
+        "name": "",
+        "kanji": "『惑雷』インパルス"
+    },
+    "AB_AF_ACCS_VIER_01_WA_B": {
+        "iname": "AB_AF_ACCS_VIER_01_WA_B",
+        "name": "",
+        "kanji": "『惑雷』インパルス"
+    },
+    "AB_AF_ACCS_KAYA_01_WA": {
+        "iname": "AB_AF_ACCS_KAYA_01_WA",
+        "name": "",
+        "kanji": "騎士道バカの朴念仁！"
+    },
+    "AB_AF_ACCS_LEYDOW_01": {
+        "iname": "AB_AF_ACCS_LEYDOW_01",
+        "name": "",
+        "kanji": "秘技・堅撃の構え"
+    },
+    "AB_AF_ARMS_AISHA_01": {
+        "iname": "AB_AF_ARMS_AISHA_01",
+        "name": "",
+        "kanji": "ルミナスファンタジア"
+    },
+    "AB_AF_ACCS_DOROTHEA_01": {
+        "iname": "AB_AF_ACCS_DOROTHEA_01",
+        "name": "",
+        "kanji": "愛情★熟成"
+    },
+    "AB_AF_ACCS_COMIKE_01": {
+        "iname": "AB_AF_ACCS_COMIKE_01",
+        "name": "",
+        "kanji": "シノビステップ"
+    },
     "AB_MAH_KAGO_FIRE_MIN": {
         "iname": "AB_MAH_KAGO_FIRE_MIN",
         "name": "",
@@ -6179,6 +6719,21 @@
         "name": "",
         "kanji": "闇属性用耐性+（小）"
     },
+    "AB_DEF_FIRE": {
+        "iname": "AB_DEF_FIRE",
+        "name": "",
+        "kanji": "火属性耐性アップ+1～999"
+    },
+    "AB_DEF_DARK": {
+        "iname": "AB_DEF_DARK",
+        "name": "",
+        "kanji": "闇属性耐性アップ+1～999"
+    },
+    "AB_LS_1-999_U_ATK_MAG": {
+        "iname": "AB_LS_1-999_U_ATK_MAG",
+        "name": "",
+        "kanji": "物攻・魔攻1-999アップ"
+    },
     "AB_UP_TIME_SKILL": {
         "iname": "AB_UP_TIME_SKILL",
         "name": "",
@@ -6193,6 +6748,21 @@
         "iname": "AB_UP_NOT_SHOT_DEF_1_999",
         "name": "",
         "kanji": "△射撃以外物攻耐性魔攻耐性+1～999"
+    },
+    "AB_UP_NOT_BLOWSTAB_DEF_1_999": {
+        "iname": "AB_UP_NOT_BLOWSTAB_DEF_1_999",
+        "name": "",
+        "kanji": "打撃刺突以外物攻耐性+1～999"
+    },
+    "AB_LS_999_TAISEI_MEBI": {
+        "iname": "AB_LS_999_TAISEI_MEBI",
+        "name": "",
+        "kanji": "擬似全属性耐性仕込み用"
+    },
+    "AB_ALL_ELEMENT_UP": {
+        "iname": "AB_ALL_ELEMENT_UP",
+        "name": "",
+        "kanji": "全属性耐性+1～999"
     },
     "AB_UP_AREA_DEF_F_1_100": {
         "iname": "AB_UP_AREA_DEF_F_1_100",
@@ -6214,6 +6784,36 @@
         "name": "",
         "kanji": "反撃回避+1～999[100段階]"
     },
+    "AB_UP_SLASH_ATK_1_999": {
+        "iname": "AB_UP_SLASH_ATK_1_999",
+        "name": "",
+        "kanji": "斬撃補正＋1～999[100段階]"
+    },
+    "AB_UP_STAB_ATK_1_999": {
+        "iname": "AB_UP_STAB_ATK_1_999",
+        "name": "",
+        "kanji": "刺突補正＋1～999[100段階]"
+    },
+    "AB_UP_BLOW_ATK_1_999": {
+        "iname": "AB_UP_BLOW_ATK_1_999",
+        "name": "",
+        "kanji": "打撃補正＋1～999[100段階]"
+    },
+    "AB_UP_SHOT_ATK_1_999": {
+        "iname": "AB_UP_SHOT_ATK_1_999",
+        "name": "",
+        "kanji": "射撃補正＋1～999[100段階]"
+    },
+    "AB_UP_MAGIC_ATK_1_999": {
+        "iname": "AB_UP_MAGIC_ATK_1_999",
+        "name": "",
+        "kanji": "魔法攻撃補正+1～999[100段階]"
+    },
+    "AB_UP_JUMP_ATK_1_999": {
+        "iname": "AB_UP_JUMP_ATK_1_999",
+        "name": "",
+        "kanji": "ジャンプ補正＋1～999[100段階]"
+    },
     "AB_DOWN_CRI_1_999": {
         "iname": "AB_DOWN_CRI_1_999",
         "name": "",
@@ -6223,6 +6823,11 @@
         "iname": "AB_UP_LACK_1_999",
         "name": "",
         "kanji": "△【幸運】1～999加算"
+    },
+    "AB_DOWN_MAG_PER_1_50_P": {
+        "iname": "AB_DOWN_MAG_PER_1_50_P",
+        "name": "",
+        "kanji": "▼【魔攻】-1～-50％"
     },
     "AB_DOWN_LACK_1_999": {
         "iname": "AB_DOWN_LACK_1_999",
@@ -6373,6 +6978,11 @@
         "iname": "AB_CTR_M_KOURIN4",
         "name": "",
         "kanji": "リアクション石　降臨 防衛システム【マジックカウンター】"
+    },
+    "AB_CTR_CHA_MEBI": {
+        "iname": "AB_CTR_CHA_MEBI",
+        "name": "",
+        "kanji": "リアクション秘石支援 魅了属性付与"
     },
     "AB_CTR_SUP_U_WINDATK_1_999": {
         "iname": "AB_CTR_SUP_U_WINDATK_1_999",
@@ -6589,31 +7199,6 @@
         "name": "",
         "kanji": "密偵：マップ効果アビリティ"
     },
-    "AB_ME_FF15_NOCT": {
-        "iname": "AB_ME_FF15_NOCT",
-        "name": "",
-        "kanji": "ルシスの王子：マップ効果アビリティ"
-    },
-    "AB_ME_FF15_INGI": {
-        "iname": "AB_ME_FF15_INGI",
-        "name": "",
-        "kanji": "王子の側付き：マップ効果アビリティ"
-    },
-    "AB_ME_FF15_GLAD": {
-        "iname": "AB_ME_FF15_GLAD",
-        "name": "",
-        "kanji": "王子の護衛：マップ効果アビリティ"
-    },
-    "AB_ME_FF15_PROM": {
-        "iname": "AB_ME_FF15_PROM",
-        "name": "",
-        "kanji": "王子の親友：マップ効果アビリティ"
-    },
-    "AB_ME_FF15_ARAN": {
-        "iname": "AB_ME_FF15_ARAN",
-        "name": "",
-        "kanji": "帝国准将：マップ効果アビリティ"
-    },
     "AB_ME_SQ_PAL": {
         "iname": "AB_ME_SQ_PAL",
         "name": "",
@@ -6748,5 +7333,20 @@
         "iname": "AB_ME_CRY_ARTH01",
         "name": "",
         "kanji": "アーサー：マップ効果アビリティ"
+    },
+    "AB_ME_ALMA01": {
+        "iname": "AB_ME_ALMA01",
+        "name": "",
+        "kanji": "武闘家&拳聖：マップ効果アビリティ"
+    },
+    "AB_ME_KAYA01": {
+        "iname": "AB_ME_KAYA01",
+        "name": "",
+        "kanji": "カヤ：マップ効果アビリティ"
+    },
+    "AB_CORPSE_HEAVEN_GATE_MEBI": {
+        "iname": "AB_CORPSE_HEAVEN_GATE_MEBI",
+        "name": "",
+        "kanji": "骸用魔法"
     }
 }

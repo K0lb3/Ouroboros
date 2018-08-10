@@ -9532,12 +9532,12 @@
         "expr": "Enemy Unit Abilities (Winter Holiday)"
     },
     "AB_ARM_LOWER_ITEM": {
-        "name": "[Item Realm] Basic War Arts",
-        "expr": "Enemy Unit Abilities (Item Realm)"
+        "name": "[Item World] Basic War Arts",
+        "expr": "Enemy Unit Abilities (Item World)"
     },
     "AB_ARM_LOWER_ITEM2": {
-        "name": "[Item Realm] Basic War Arts 2",
-        "expr": "Enemy Unit Abilities (Item Realm)"
+        "name": "[Item World] Basic War Arts 2",
+        "expr": "Enemy Unit Abilities (Item World)"
     },
     "AB_ARM_LOWER_TOUSEKI": {
         "name": "[Amazing Stone Throw] Basic War Arts",
@@ -9636,11 +9636,11 @@
         "expr": "Enemy Unit Abilities"
     },
     "AB_RAT_WIZ_METEO": {
-        "name": "[For Item Realm] Rat Magic - Item Realm Meteor",
+        "name": "[For Item World] Rat Magic - Item World Meteor",
         "expr": "Enemy Unit Abilities"
     },
     "AB_RAT_WIZ_METEO_SP": {
-        "name": "[For Item Realm] Rat Magic - Item Realm Meteor",
+        "name": "[For Item World] Rat Magic - Item World Meteor",
         "expr": "Enemy Unit Abilities"
     },
     "AB_RAT_WIZ_CONGRATULATIONS": {
@@ -10012,11 +10012,11 @@
         "expr": "Enemy Unit Abilities"
     },
     "AB_MAN_YUJ_ITEM_ZERO": {
-        "name": "Mandragora Item Realm Null Wave Long Barrier",
+        "name": "Mandragora Item World Null Wave Long Barrier",
         "expr": "Enemy Unit Abilities"
     },
     "AB_MAN_YUJ_ITEM_ZERO_RE": {
-        "name": "Mandragora Item Realm Null Wave Reaction",
+        "name": "Mandragora Item World Null Wave Reaction",
         "expr": "Enemy Unit Abilities"
     },
     "AB_MAN_YUJ_POI": {
@@ -10896,8 +10896,8 @@
         "expr": "Enemy Unit Abilities"
     },
     "AB_TOWER_FUHSI_HP1": {
-        "name": "Limited to Health No Buffs Item Realm 90F+ Step",
-        "expr": "Item Realm 80F+ Stats Up"
+        "name": "Limited to Health No Buffs Item World 90F+ Stats Up",
+        "expr": "Item World 80F+ Stats Up"
     },
     "AB_OWLBEAR_WAZA": {
         "name": "Fierce Owlbear",
@@ -11041,23 +11041,23 @@
     },
     "AB_EN_HUN_DIRECT_ARROW": {
         "name": "Direct Arrow",
-        "expr": "[Item Realm] Inflicts fixed Dmg (1-1000) on target."
+        "expr": "[Item World] Inflicts fixed Dmg (1-1000) on target."
     },
     "AB_EN_LAN_DIRECT_LANCE": {
         "name": "Direct Lance",
-        "expr": "[Item Realm] Inflicts fixed Dmg (1-1000) on target."
+        "expr": "[Item World] Inflicts fixed Dmg (1-1000) on target."
     },
     "AB_EN_FIS_DIRECT_FIST": {
         "name": "Direct Punch",
-        "expr": "[Item Realm] Inflicts fixed Dmg (1-1000) on target."
+        "expr": "[Item World] Inflicts fixed Dmg (1-1000) on target."
     },
     "AB_EN_SWO_DIRECT_SWORD": {
         "name": "Direct Sword",
-        "expr": "[Item Realm] Inflicts fixed Dmg (1-1000) on target."
+        "expr": "[Item World] Inflicts fixed Dmg (1-1000) on target."
     },
     "AB_EN_ARM_DIRECT_ARM": {
         "name": "Direct Shot",
-        "expr": "[Item Realm] Inflicts fixed Dmg (1-1000) on target."
+        "expr": "[Item World] Inflicts fixed Dmg (1-1000) on target."
     },
     "AB_RELIGION_FIGTHER_MFEN": {
         "name": "[Veda] For Knight Rook Bishop Chopper Technique",
@@ -11312,7 +11312,7 @@
         "expr": "Enemy Unit Abilities"
     },
     "AB_RAT_WIZ_MOBIUS": {
-        "name": "[For Mobius] Rat Magic - Item Realm Meteor",
+        "name": "[For Mobius] Rat Magic - Item World Meteor",
         "expr": "Enemy Unit Abilities"
     },
     "AB_ARM_JLV01": {
@@ -14556,24 +14556,24 @@
         "expr": "Constant Confuse Status"
     },
     "AB_ITEM_TOWER_50": {
-        "name": "Item Realm 50F+ Step",
-        "expr": "Item Realm 50F+ Step"
+        "name": "Item World 50F+ Stats Up",
+        "expr": "Item World 50F+ Stats Up"
     },
     "AB_ITEM_TOWER_60": {
-        "name": "Item Realm 60F+ Step",
-        "expr": "Item Realm 60F+ Step"
+        "name": "Item World 60F+ Stats Up",
+        "expr": "Item World 60F+ Stats Up"
     },
     "AB_ITEM_TOWER_70": {
-        "name": "Item Realm 70F+ Step",
-        "expr": "Item Realm 70F+ Step"
+        "name": "Item World 70F+ Stats Up",
+        "expr": "Item World 70F+ Stats Up"
     },
     "AB_ITEM_TOWER_80": {
-        "name": "Item Realm 80F+ Stats Up",
-        "expr": "Item Realm 80F+ Stats Up"
+        "name": "Item World 80F+ Stats Up",
+        "expr": "Item World 80F+ Stats Up"
     },
     "AB_ITEM_TOWER_90": {
-        "name": "Item Realm 90F+ Step",
-        "expr": "Item Realm 80F+ Stats Up"
+        "name": "Item World 90F+ Stats Up",
+        "expr": "Item World 80F+ Stats Up"
     },
     "AB_MAH_KAGO_SUPER": {
         "name": "Disable all ATKs",
@@ -14992,7 +14992,7 @@
         "expr": "[Map Effect Set]"
     },
     "AB_ME_KUDH_LAN": {
-        "name": "Magic Lancer: Map Effect Ability",
+        "name": "Demonic Spearman: Map Effect Ability",
         "expr": "[Map Effect Set]"
     },
     "AB_ME_SEDA_RAN": {
@@ -24818,42 +24818,42 @@
     },
     "SK_RAT_WIZ_METEO1": {
         "name": "Meteor of a Blink",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map",
         "mapeff": " "
     },
     "SK_RAT_WIZ_METEO2": {
         "name": "Meteor of a Blink",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map",
         "mapeff": " "
     },
     "SK_RAT_WIZ_METEO3": {
         "name": "Meteor of a Blink",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map",
         "mapeff": " "
     },
     "SK_RAT_WIZ_METEO4": {
         "name": "Meteor of a Blink",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map",
         "mapeff": " "
     },
     "SK_RAT_WIZ_METEO1_SP": {
         "name": "Meteor of Life",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map",
         "mapeff": " "
     },
     "SK_RAT_WIZ_METEO2_SP": {
         "name": "Meteor of Life",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map",
         "mapeff": " "
     },
     "SK_RAT_WIZ_METEO3_SP": {
         "name": "Meteor of Life",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map",
         "mapeff": " "
     },
     "SK_RAT_WIZ_METEO4_SP": {
         "name": "Meteor of Life",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map",
         "mapeff": " "
     },
     "SK_RAT_WIZ_DYNAMITE": {
@@ -26401,6 +26401,11 @@
         "expr": "Inflicts Thunder Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak",
         "mapeff": " "
     },
+    "SK_MAN_WIZ_THUNDER4_FA": {
+        "name": "Thunder Spores III (Def Down)",
+        "expr": "Inflicts Thunder Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak",
+        "mapeff": " "
+    },
     "SK_MAN_WIZ_SHINE4": {
         "name": "Light Spores II",
         "expr": "Inflicts Light Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak",
@@ -26608,12 +26613,12 @@
     },
     "SK_MAN_YUJ_STO_NOMAL": {
         "name": "Petrifying Spores (Normal ATK)",
-        "expr": "[Item Realm] Casts Petrify on units in area around self",
+        "expr": "[Item World] Casts Petrify on units in area around self",
         "mapeff": " "
     },
     "SK_MAN_YUJ_STO_ZERO_RE": {
         "name": "All Null Waves+",
-        "expr": "[Item Realm] Reaction Ability: Cancels all buffs/debuffs [Area: Whole Map, Height Range: Unlimited]",
+        "expr": "[Item World] Reaction Ability: Cancels all buffs/debuffs [Area: Whole Map, Height Range: Unlimited]",
         "mapeff": " "
     },
     "SK_MAN_YUJ_STO_ZERO_RE_FF15EX1": {
@@ -26653,7 +26658,7 @@
     },
     "SK_MAN_YUJ_STO_ZERO": {
         "name": "Null Wave+",
-        "expr": "[Item Realm] Cancels all buff/debuffs cast on enemy units [Area: Whole Map, Height Range: Unlimited]",
+        "expr": "[Item World] Cancels all buff/debuffs cast on enemy units [Area: Whole Map, Height Range: Unlimited]",
         "mapeff": " "
     },
     "SK_MAN_YUJ_ZAN_DOWN_ALL": {
@@ -34117,12 +34122,12 @@
         "mapeff": " "
     },
     "SK_EQ_YUAN_ARROW": {
-        "name": "Survive Arrow",
+        "name": "Survival Arrow",
         "expr": "DEX +12, PATK +30, AGI +2, Jewels Obtained +2, Wind Res +1",
         "mapeff": " "
     },
     "SK_EQ_YUAN_BELT": {
-        "name": "Survive Belt",
+        "name": "Survival Belt",
         "expr": "HP +40, PDEF +12, LCK +6, Fire Res +1, Poison Res +1",
         "mapeff": " "
     },
@@ -34132,7 +34137,7 @@
         "mapeff": " "
     },
     "SK_EQ_YUAN_BUNDLE": {
-        "name": "Survive Bundle",
+        "name": "Survival Bundle",
         "expr": "DEX +16, CRIT +12, LCK +12, AGI +2, Wind Res +1",
         "mapeff": " "
     },
@@ -34142,7 +34147,7 @@
         "mapeff": " "
     },
     "SK_EQ_YUAN_BLADE": {
-        "name": "Survive Blade",
+        "name": "Survival Blade",
         "expr": "PATK +24, AGI +1, CRIT +14, Charm Res +2, Petrify Res +2",
         "mapeff": " "
     },
@@ -34182,7 +34187,7 @@
         "mapeff": " "
     },
     "SK_EQ_ARKI_TURBAN": {
-        "name": "Sabre Turban",
+        "name": "Sabel Turban",
         "expr": "PDEF +24, MATK +26, AGI +2, Poison Res +2, Water Res +3",
         "mapeff": " "
     },
@@ -36452,17 +36457,17 @@
         "mapeff": " "
     },
     "SK_AF_ARMS_S_YURI_00_4": {
-        "name": "White-Lily Knife 4★",
+        "name": "White-Lily Katana 4★",
         "expr": "Attributes: PATK/PDEF/AGI Up",
         "mapeff": " "
     },
     "SK_AF_ARMS_S_YURI_00_5": {
-        "name": "White-Lily Knife 5★",
+        "name": "White-Lily Katana 5★",
         "expr": "Attributes: PATK/PDEF/AGI Up",
         "mapeff": " "
     },
     "SK_AF_ARMS_S_YURI_00_AS": {
-        "name": "White-Lily Knife AS",
+        "name": "White-Lily Katana AS",
         "expr": "Chance of raising PATK/PDEF for two turns",
         "mapeff": " "
     },
@@ -40722,33 +40727,33 @@
         "mapeff": " "
     },
     "SK_ITEM_TOWER_50": {
-        "name": "Item Realm 50F+ Step",
-        "expr": "Item Realm 50F+ Step",
+        "name": "Item World 50F+ Stats Up",
+        "expr": "Item World 50F+ Stats Up",
         "mapeff": " "
     },
     "SK_ITEM_TOWER_60": {
-        "name": "Item Realm 60F+ Step",
-        "expr": "Item Realm 60F+ Step",
+        "name": "Item World 60F+ Stats Up",
+        "expr": "Item World 60F+ Stats Up",
         "mapeff": " "
     },
     "SK_ITEM_TOWER_70": {
-        "name": "Item Realm 70F+ Step",
-        "expr": "Item Realm 70F+ Step",
+        "name": "Item World 70F+ Stats Up",
+        "expr": "Item World 70F+ Stats Up",
         "mapeff": " "
     },
     "SK_ITEM_TOWER_80": {
-        "name": "Item Realm 80F+ Stats Up",
-        "expr": "Item Realm 80F+ Stats Up",
+        "name": "Item World 80F+ Stats Up",
+        "expr": "Item World 80F+ Stats Up",
         "mapeff": " "
     },
     "SK_ITEM_TOWER_90": {
-        "name": "Item Realm 90F+ Step",
-        "expr": "Item Realm 80F+ Stats Up",
+        "name": "Item World 90F+ Stats Up",
+        "expr": "Item World 80F+ Stats Up",
         "mapeff": " "
     },
     "SK_TOWER_FUHSI_HP1": {
-        "name": "Limited to Health No Buffs Item Realm 90F+ Step",
-        "expr": "Limited to Health No Buffs Item Realm 90F+ Step",
+        "name": "Limited to Health No Buffs Item World 90F+ Stats Up",
+        "expr": "Limited to Health No Buffs Item World 90F+ Stats Up",
         "mapeff": " "
     },
     "SK_MAH_KAGO_SUPER": {
@@ -41127,7 +41132,7 @@
         "mapeff": "<color=cyan>Hit Rate +20%</color>"
     },
     "SK_ME_RUINS_KUDH_LAN": {
-        "name": "[Unused: Ruins] Magic Lancer",
+        "name": "[Unused: Ruins] Demonic Spearman",
         "expr": "[Map Effect] PDEF +20%",
         "mapeff": "<color=cyan>PDEF +20%</color>"
     },
@@ -41407,7 +41412,7 @@
         "mapeff": "<color=cyan>HP +20%, PDEF +20%</color>"
     },
     "SK_ME_FORT_KUDH_LAN": {
-        "name": "[Unused: Fortress] Magic Lancer",
+        "name": "[Unused: Fortress] Demonic Spearman",
         "expr": "[Map Effect] MOVE +1",
         "mapeff": "<color=cyan>MOVE +1</color>"
     },
@@ -46483,32 +46488,32 @@
     },
     "IT_EQ_KUDH_LAN2_01": {
         "name": "Piercing Dawn Spear",
-        "expr": "[Kudan/Magic Lancer+-Only Equipment] HP +38, PATK +24, DEX +24, LCK +24, Jewels Obtained +10, Charm Res +8, Sleep Res +8, Slow Res +8",
+        "expr": "[Kudan/Demonic Spearman+-Only Equipment] HP +38, PATK +24, DEX +24, LCK +24, Jewels Obtained +10, Charm Res +8, Sleep Res +8, Slow Res +8",
         "flavor": "Kudanstein's trusty lance, now clad in a dark aura. Kudan used and customized it over a long period, from before it became steeped in darkness, and it is said that no one other than him is able to use the weapon to its full potential."
     },
     "IT_EQ_KUDH_LAN2_02": {
         "name": "Dark Cell Shell-Armor",
-        "expr": "[Kudan/Magic Lancer+-Only Equipment] HP +42, PDEF +12, MDEF +30, Wind Res +2, Stun Res +7",
+        "expr": "[Kudan/Demonic Spearman+-Only Equipment] HP +42, PDEF +12, MDEF +30, Wind Res +2, Stun Res +7",
         "flavor": "Kudanstein's trusty armor, now clad in a dark aura. This light shell-armor has been designed mainly with ease-of-movement in mind, but the dark aura surrounding it means that it now provides ample protection."
     },
     "IT_EQ_KUDH_LAN2_03": {
         "name": "Dark Cell Armor",
-        "expr": "[Kudan/Magic Lancer+-Only Equipment] HP +28, PDEF +20, LCK +12, AGI +3, Paralyze Res +7",
+        "expr": "[Kudan/Demonic Spearman+-Only Equipment] HP +28, PDEF +20, LCK +12, AGI +3, Paralyze Res +7",
         "flavor": "Kudanstein's trusty leg greaves, now clad in a dark aura. These leg greaves are designed to allow for agile movement, but the dark aura around them means that they now also provide increased defensive power and protection against paralysis."
     },
     "IT_EQ_KUDH_LAN2_04": {
         "name": "Dark Cell Cleaver",
-        "expr": "[Kudan/Magic Lancer+-Only Equipment] PATK +18, DEX +30, CRIT +30, Water Res +2, Sleep Res +7",
+        "expr": "[Kudan/Demonic Spearman+-Only Equipment] PATK +18, DEX +30, CRIT +30, Water Res +2, Sleep Res +7",
         "flavor": "Kudanstein's trusty gauntlet, now clad in a dark aura. He needs it in order to best deliver swift lance thrusts and blows, and the dark aura surrounding it means that it now provides not only boosted attack power but also strengthened resistances."
     },
     "IT_EQ_KUDH_LAN2_05": {
         "name": "Dark Cell Mantle",
-        "expr": "[Kudan/Magic Lancer+-Only Equipment] MATK +24, AGI +6, Fire Res +2, Light Res +2, Petrify Res +7",
+        "expr": "[Kudan/Demonic Spearman+-Only Equipment] MATK +24, AGI +6, Fire Res +2, Light Res +2, Petrify Res +7",
         "flavor": "Kudanstein's trusty cloak, now clad in a dark aura. This cloak has proved invaluable during covert activities, but the dark aura now surrounding it makes it somewhat conspicuous... However, its resistance-boosting capabilities have been vastly enhanced."
     },
     "IT_EQ_KUDH_LAN2_06": {
         "name": "Dark Cell Scarf",
-        "expr": "[Kudan/Magic Lancer+-Only Equipment] CRIT +24, DEX +24, AGI +6, Poison Res +7, Charm Res +7",
+        "expr": "[Kudan/Demonic Spearman+-Only Equipment] CRIT +24, DEX +24, AGI +6, Poison Res +7, Charm Res +7",
         "flavor": "Kudanstein's trusty scarf, now clad in a dark aura. Kudan has worn it since before he joined the knighthood, and although it's a little worn and frayed he'd never dream of getting rid of it."
     },
     "IT_EQ_FREE_LANCE": {
@@ -46597,12 +46602,12 @@
         "flavor": "This badge signifies that the bearer is a student at Venus Academy of Magic. Lisbeth usually wears it without fail, but the one time she did forget it was the day they had a uniform check! She borrowed Alma's spare, apparently..."
     },
     "IT_EQ_YUAN_ARROW": {
-        "name": "Survive Arrow",
+        "name": "Survival Arrow",
         "expr": "[Yuan/Ninja+-Only Equipment] DEX +32, PATK +50, AGI +2, Jewels Obtained +2, Wind Res +1, Paralyze Res +8, Daze Res +8, Bind Res +8",
         "flavor": "Yuan's treasured bow. He has used it for many years, and it's seen him through some pretty dangerous spots and shady missions. It's the most important thing in his life apart from Lucido, and apparently he doesn't plan on ever getting rid of it, no matter how old it gets."
     },
     "IT_EQ_YUAN_BELT": {
-        "name": "Survive Belt",
+        "name": "Survival Belt",
         "expr": "[Yuan/Ninja+-Only Equipment] HP +90, PDEF +36, LCK +16, Fire Res +2, Poison Res +25",
         "flavor": "The belt that Yuan wears around his waist. It's fitted with a range of professional tools, and is actually pretty heavy. His younger brother, Lucido, says it's goofy-looking, but Yuan finds it very useful and doesn't plan on getting rid of it any time soon."
     },
@@ -46612,7 +46617,7 @@
         "flavor": "Yuan's sturdy single shoulder pad. He chose it for its functionality above all else, and as a result hasn't sustained a shoulder wound since he bought it. Yuan would like Lucido to wear one as well, but Lucido isn't interested at all."
     },
     "IT_EQ_YUAN_BUNDLE": {
-        "name": "Survive Bundle",
+        "name": "Survival Bundle",
         "expr": "[Yuan/Ninja+-Only Equipment] DEX +48, CRIT +32, LCK +26, AGI +2, Wind Res +2",
         "flavor": "Yuan carries this quiver with him when he heads into battle. Yuan is always practical and well-equipped, whereas his younger brother, Lucido, refuses flat-out to wear anything that doesn't look good--which is a constant source of worry for his older brother."
     },
@@ -46622,7 +46627,7 @@
         "flavor": "Yuan wears these boots to protect his feet. He treasures them for their particularly thick soles, which help prevent needless injuries during battle. He often worries that the pointy tipped shoes worn by Lucido must be hurting his feet..."
     },
     "IT_EQ_YUAN_BLADE": {
-        "name": "Survive Blade",
+        "name": "Survival Blade",
         "expr": "[Yuan/Ninja+-Only Equipment] PATK +50, AGI +2, CRIT +32, Charm Res +25, Petrify Res +25",
         "flavor": "Yuan carries these knives concealed around his body. They have a wide range of uses, so he always makes sure he has plenty spare. Lucido, on the other hand, finds the thought of having a knife hidden on your body scary because you might cut yourself..."
     },
@@ -46632,7 +46637,7 @@
         "flavor": "This fabled shisha pipe increases magical energy. It's used only with special tobacco that has a high concentration of Alchemia, and purified water. Arkil likes nothing more than relaxing with a smoke after a hard day's work."
     },
     "IT_EQ_ARKI_TURBAN": {
-        "name": "Sabre Turban",
+        "name": "Sabel Turban",
         "expr": "[Arkil/Magic Swordsman+-Only Equipment] PDEF +24, MATK +26, AGI +2, Poison Res +7, Water Res +3",
         "flavor": "The ornate turban that adorns Arkil's head. The long piece of fabric hanging down from it that flutters in the wind is like his trademark. Not only is it beautiful, it's made from a very strong material that firmly guards/protects the head."
     },
@@ -48517,13 +48522,13 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_YUAN_ARROW": {
-        "name": "Survive Arrow Diagram",
-        "expr": "Required in order to create: Survive Arrow",
+        "name": "Survival Arrow Diagram",
+        "expr": "Required in order to create: Survival Arrow",
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_YUAN_BELT": {
-        "name": "Survive Belt Diagram",
-        "expr": "Required in order to create: Survive Belt",
+        "name": "Survival Belt Diagram",
+        "expr": "Required in order to create: Survival Belt",
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_YUAN_GEAR": {
@@ -48532,8 +48537,8 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_YUAN_BUNDLE": {
-        "name": "Survive Bundle Diagram",
-        "expr": "Required in order to create: Survive Bundle",
+        "name": "Survival Bundle Diagram",
+        "expr": "Required in order to create: Survival Bundle",
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_YUAN_BOOTS": {
@@ -48542,8 +48547,8 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_YUAN_BLADE": {
-        "name": "Survive Blade Diagram",
-        "expr": "Required in order to create: Survive Blade",
+        "name": "Survival Blade Diagram",
+        "expr": "Required in order to create: Survival Blade",
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_ARKI_HOOKAH": {
@@ -48552,8 +48557,8 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_ARKI_TURBAN": {
-        "name": "Sabre Turban Diagram",
-        "expr": "Required in order to create: Sabre Turban",
+        "name": "Sabel Turban Diagram",
+        "expr": "Required in order to create: Sabel Turban",
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_ARKI_JACKET": {
@@ -50052,13 +50057,13 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_YUAN_ARROW": {
-        "name": "Survive Arrow Diagram Piece",
-        "expr": "Collect 80 of these to create: Survive Arrow Diagram",
+        "name": "Survival Arrow Diagram Piece",
+        "expr": "Collect 80 of these to create: Survival Arrow Diagram",
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_YUAN_BELT": {
-        "name": "Survive Belt Diagram Piece",
-        "expr": "Collect 80 of these to create: Survive Belt Diagram",
+        "name": "Survival Belt Diagram Piece",
+        "expr": "Collect 80 of these to create: Survival Belt Diagram",
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_YUAN_GEAR": {
@@ -50067,8 +50072,8 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_YUAN_BUNDLE": {
-        "name": "Survive Bundle Diagram Piece",
-        "expr": "Collect 80 of these to create: Survive Bundle Diagram",
+        "name": "Survival Bundle Diagram Piece",
+        "expr": "Collect 80 of these to create: Survival Bundle Diagram",
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_YUAN_BOOTS": {
@@ -50077,8 +50082,8 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_YUAN_BLADE": {
-        "name": "Survive Blade Diagram Piece",
-        "expr": "Collect 80 of these to create: Survive Blade Diagram",
+        "name": "Survival Blade Diagram Piece",
+        "expr": "Collect 80 of these to create: Survival Blade Diagram",
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_ARKI_HOOKAH": {
@@ -50087,8 +50092,8 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_ARKI_TURBAN": {
-        "name": "Sabre Turban Diagram Piece",
-        "expr": "Collect 80 of these to create: Sabre Turban Diagram",
+        "name": "Sabel Turban Diagram Piece",
+        "expr": "Collect 80 of these to create: Sabel Turban Diagram",
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_ARKI_JACKET": {
@@ -50558,7 +50563,7 @@
     },
     "IT_KEY_QUEST_3TITLE_SUN": {
         "name": "Key of the Sun",
-        "expr": "Using this item at the Key Quest menu will unlock For Whom the Princess Weeps: The Sun God and the Golden Key.",
+        "expr": "Using this item at the Key Quest menu will unlock The Sun God and the Golden Key.",
         "flavor": "This sacred key is able to control and manipulate the power of the sun. It is also known as the \"Golden Key,\" and its purpose is to save the shining sun and its guardian. It is imbued with a powerful energy, and the key itself is dazzling to behold."
     },
     "IT_EQ_SOUL_ARM": {
@@ -53287,8 +53292,8 @@
         "flavor": " "
     },
     "IT_AF_ARMS_S_YURI_00": {
-        "name": "White-Lily Knife Shard",
-        "expr": "Collect 80 of these to create: White-Lily Knife",
+        "name": "White-Lily Katana Shard",
+        "expr": "Collect 80 of these to create: White-Lily Katana",
         "flavor": " "
     },
     "IT_AF_ARMS_KAI_04": {
@@ -53507,7 +53512,7 @@
         "flavor": " "
     },
     "IT_SK_S_AMAT_SWIM": {
-        "name": "Yauras Swimsuit Skin",
+        "name": "Amaterasu Swimsuit Skin",
         "expr": "This skin is only for use with the unit Amaterasu. In order to use it, you must own the unit.",
         "flavor": " "
     },
@@ -57979,7 +57984,7 @@
     "IT_EVENT_DISCOIN": {
         "name": "Demonic Coin",
         "expr": " ",
-        "flavor": "A coin that can be obtained from the Item Realm."
+        "flavor": "A coin that can be obtained from the Item World."
     },
     "IT_EVENT_VEDACOIN": {
         "name": "Veda Coins",
@@ -62972,7 +62977,7 @@
         "flavor": "This bow is said to have been wielded by a goddess of love and sex. It's made from the same Killium as Eros. It is said that when equipped by one who bears the name Eros, the Killium and Alchemia will react with each other and unleash a special power."
     },
     "AF_ARMS_S_YURI_00": {
-        "name": "White-Lily Knife",
+        "name": "White-Lily Katana",
         "expr": "Attributes: PATK Up, PDEF Up, AGI Up, Chance of PATK/PDEF Up for two turns (Added when evolving to 5★.)<br>Enables Master Ability when equipped on Yuri (3-hit Thunder Slash Dmg to single target & greatly raises own PDEF/MDEF until next turn [Range: 1, Height Range: 2])",
         "spec": "No requirements to equip",
         "flavor": "The beauty of this exquisite short sword has been compared to the white lilies of the land of Crimson Summer when in full bloom. A smith from a ninja village is said to have crafted it especially with Yuri in mind, and it possesses both sharp and graceful in equal measure. Only Yuri is able to utilize its full power."
@@ -66433,10 +66438,10 @@
         "name": "Raise a unit of your choice to Level 20"
     },
     "RECORD_2017_MAR_DIS2_04": {
-        "name": "Clear the Item Realm once"
+        "name": "Clear the Item World once"
     },
     "RECORD_2017_MAR_DIS2_05": {
-        "name": "Clear the Item Realm three times"
+        "name": "Clear the Item World three times"
     },
     "RECORD_2017_MAR_DIS2_06": {
         "name": "Enhance Gear once"
@@ -74041,10 +74046,10 @@
         "name": "[Limited Time] Fight! Manliness Lessons (Now Accepting Second-Term Students!)"
     },
     "3TITLE_TROPHY": {
-        "name": "[Limited Time] For Whom the Princess Vanishes - The Sun God and the Golden Key"
+        "name": "[Limited Time] The Sun God and the Golden Key"
     },
     "3TITLE_TRUEEND": {
-        "name": "[Limited Time] [True Ending] For Whom the Princess Vanishes - The Sun God and the Golden Key"
+        "name": "[Limited Time] [True Ending] The Sun God and the Golden Key"
     },
     "3TITLE_AMATERASU_GROWTH": {
         "name": "[Limited Time] Amaterasu Training Mission"
@@ -74053,7 +74058,7 @@
         "name": "[Limited Time] Defeat Uzushiomaru!"
     },
     "3TITLE_TROPHY_EX": {
-        "name": "[Limited Time] For Whom the Princess Vanishes - The Sun God and the Golden Key [EX]"
+        "name": "[Limited Time] The Sun God and the Golden Key [EX]"
     },
     "POTK_TROPHY_EX_MULTI": {
         "name": "[Revival] [FgG Collab] For Whom the Princess Weeps [EX] [Multiplay]"
@@ -74404,7 +74409,7 @@
         "name": "[Limited Time] Wadatsumi's Dance [Hard]"
     },
     "3TITLE_TROPHY_EX_MULTI": {
-        "name": "[Limited Time] For Whom the Princess Vanishes -The Sun God and the Golden Key- [EX] [Multiplay]"
+        "name": "[Limited Time] The Sun God and the Golden Key [EX] [Multiplay]"
     },
     "SO_BLAN_TROPHY": {
         "name": "[Limited Time] Beyond Life or Death"
@@ -75873,6 +75878,11 @@
         "expr": "This coin can be exchanged for fabulous items in the [5 Million Downloads Worldwide!] Coin Exchange Shop.",
         "flavor": "Thank you for your continued support in THE ALCHEMIST CODE!"
     },
+    "IT_EVENT_GL_SUMMERCOIN_AUGUST": {
+        "name": "[Summer Celebration] Coin",
+        "expr": "Use this coin to exchange for items in the Summer Celebration Coin Exchange Shop",
+        "flavor": "A coin that can be obtained from Login Bonus during Summer Celebration"
+    },
     "GL_5_MILLION_LOGIN": {
         "name": "[5 Million Downloads Worldwide!] 100-Gem Milestone"
     },
@@ -76093,6 +76103,36 @@
         "name": "[Monday] Clear any Multiplay Quest once"
     },
     "GL_MM_05_30July": {
+        "name": "[Monday] Clear any quest with a mercenary once"
+    },
+    "GL_MM_01_6August": {
+        "name": "[Monday] Level up any Unit"
+    },
+    "GL_MM_02_6August": {
+        "name": "[Monday] Level up any Ability"
+    },
+    "GL_MM_03_6August": {
+        "name": "[Monday] Raise any unit's Job Level once"
+    },
+    "GL_MM_04_6August": {
+        "name": "[Monday] Clear any Multiplay Quest once"
+    },
+    "GL_MM_05_6August": {
+        "name": "[Monday] Clear any quest with a mercenary once"
+    },
+    "GL_MM_01_13August": {
+        "name": "[Monday] Level up any Unit"
+    },
+    "GL_MM_02_13August": {
+        "name": "[Monday] Level up any Ability"
+    },
+    "GL_MM_03_13August": {
+        "name": "[Monday] Raise any unit's Job Level once"
+    },
+    "GL_MM_04_13August": {
+        "name": "[Monday] Clear any Multiplay Quest once"
+    },
+    "GL_MM_05_13August": {
         "name": "[Monday] Clear any quest with a mercenary once"
     },
     "GL_SO_ZEKE_01_01": {
@@ -76502,37 +76542,37 @@
     "IT_SI_GL_5STAR_5SOUL_TICKET_FF15": {
         "name": "[FFXV] 5★ 5-Soul Shard Selector",
         "expr": "Use this ticket to summon 5 5★ Soul Shards of your choice from FINAL FANTASY XV. (Noctis/Ignis/Aranea/Gladiolus)",
-        "flavor": ""
+        "flavor": " "
     },
     "IT_US_GL_5STAR_25SOUL_TICKET_F15": {
         "name": "Featured 5★ Soul Shard 25-Summon Ticket",
         "expr": "Use this ticket to summon 25 Soul Shards.",
-        "flavor": ""
+        "flavor": " "
     },
     "IT_US_GL_5STAR_UNIT_TICKET_B15": {
         "name": "5★ Unit Summon Ticket",
         "expr": "Use this ticket to summon one 5★ unit.",
-        "flavor": ""
+        "flavor": " "
     },
     "IT_US_GL_4STAR_GEAR_TICKET_B15": {
         "name": "4★ Gear Summon Ticket",
         "expr": "Use this ticket to summon a 4★ gear item.",
-        "flavor": ""
+        "flavor": " "
     },
     "IT_SU_GL_5STAR_UNIT_TICKET_F15": {
         "name": "Featured 5★ Unit Selector",
         "expr": "Use this ticket to summon the 5★ unit of your choice.",
-        "flavor": ""
+        "flavor": " "
     },
     "IT_US_GL_5STAR_10EQ_TICKET_B15": {
         "name": "5★ Equipment 10-Summon Ticket",
         "expr": "Use this ticket to summon ten 5★ equipment items.",
-        "flavor": ""
+        "flavor": " "
     },
     "IT_SI_GL_5STAR_50SOUL_TICKET_F15": {
         "name": "Featured 5★ 50-Soul Shard Selector",
         "expr": "Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.",
-        "flavor": ""
+        "flavor": " "
     },
     "IT_SA_GL_4STAR_GEAR_TICKET_B14FF15": {
         "name": "4★ Gear Selector",
@@ -76553,6 +76593,96 @@
         "name": "Daily Event Quest Skip Ticket",
         "expr": "A ticket used to skip selected battles.",
         "flavor": "This ticket-like item allows the user to sense the presence of hostile beings. The mark in its center glows red when detecting animosity, growing brighter according to the hostile being's proximity to the bearer, and allowing him or her to effectively avoid combat."
+    },
+    "IT_US_GL_5STAR_SOUL_TICKET_SUNGOD": {
+        "name": "[The Sun God and the Golden Key] 5★ Unit Soul Shard Summon Ticket",
+        "expr": "Use this ticket to obtain 1 Eros/Yuri Soul Shard.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_25SOUL_TICKET_POTKSHINOBI3": {
+        "name": "Featured 5★ Soul Shard 25-Summon Ticket",
+        "expr": "Use this ticket to summon 25 Soul Shards. (Eros/Yuri/Cita/Forcas)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_POTKSHINOBI3": {
+        "name": "5★ Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_4STAR_GEAR_TICKET_POTKSHINOBI3": {
+        "name": "4★ Gear Summon Ticket",
+        "expr": "Use this ticket to summon a 4★ gear item.",
+        "flavor": " "
+    },
+    "IT_SU_GL_5STAR_UNIT_TICKET_POTKSHINOBI3": {
+        "name": "Featured 5★ Unit Selector",
+        "expr": "Use this ticket to summon the 5★ unit of your choice. (Eros/Yuri/Cita/Forcas)",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_50SOUL_TICKET_POTKSHINOBI3": {
+        "name": "Featured 5★ 50-Soul Shard Selector",
+        "expr": "Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.  (Eros/Yuri/Cita/Forcas)",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_POTKSHINOBI3": {
+        "name": "Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon the 25 Soul Shards of your choice for 5★ units. (Eros/Yuri/Bashosen)",
+        "flavor": " "
+    },
+    "IT_US_GL_4PLUS_10EQ_TICKET_B15": {
+        "name": "4+★ Equipment 10-Summon Ticket",
+        "expr": "Use this ticket to summon ten 4+★ equipment items.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_10PER_TICKET_POTKSHINOBI3": {
+        "name": "Featured Unit 10% Summon Ticket",
+        "expr": "Use this ticket to summon a unit with a 10% chance of it being a featured unit. (Eros/Yuri)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_25SOUL_TICKET_F16": {
+        "name": "Featured 5★ Soul Shard 25-Summon Ticket",
+        "expr": "Use this ticket to summon 25 Soul Shards.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_B16": {
+        "name": "5★ Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_4STAR_GEAR_TICKET_B16": {
+        "name": "4★ Gear Summon Ticket",
+        "expr": "Use this ticket to summon a 4★ gear item.",
+        "flavor": " "
+    },
+    "IT_SU_GL_5STAR_UNIT_TICKET_F16": {
+        "name": "Featured 5★ Unit Selector",
+        "expr": "Use this ticket to summon the 5★ unit of your choice.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_10EQ_TICKET_B16": {
+        "name": "5★ Equipment 10-Summon Ticket",
+        "expr": "Use this ticket to summon ten 5★ equipment items.",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_50SOUL_TICKET_F16": {
+        "name": "Featured 5★ 50-Soul Shard Selector",
+        "expr": "Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.",
+        "flavor": " "
+    },
+    "IT_US_GL_4PLUS_10EQ_TICKET_B16": {
+        "name": "4+★ Equipment 10-Summon Ticket",
+        "expr": "Use this ticket to summon ten 4+★ equipment items.",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_F16": {
+        "name": "Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon the 25 Soul Shards of your choice for 5★ units. ",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_15SOUL_TICKET_SUNGOD": {
+        "name": "[The Sun God and the Golden Key] 5★ 15-Soul Shard Selector",
+        "expr": "Use this Ticket to select 15 Eros/Yuri Soul Shards.",
+        "flavor": " "
     },
     "IT_SA_GL_4STAR_GEAR_TICKET_S01": {
         "name": "4★ Gear Selector",
@@ -77277,5 +77407,425 @@
     },
     "GL_WINTERHOLIDAY_DAILY_02": {
         "name": "[Daily] Winter Holiday - Raise any unit's Job Level"
+    },
+    "GL_DAILY_3TITLE_20180802_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180802_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180802_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180803_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180803_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180803_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180804_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180804_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180804_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180805_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180805_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180805_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180806_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180806_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180806_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180807_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180807_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180807_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180808_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180808_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180808_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180809_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180809_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180809_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180810_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180810_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180810_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180811_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180811_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180811_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180812_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180812_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180812_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180813_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180813_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180813_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180814_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180814_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180814_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_20180815_1": {
+        "name": "[Limited Time] The Sun God's Daily Mission 1"
+    },
+    "GL_DAILY_3TITLE_20180815_2": {
+        "name": "[Limited Time] The Sun God's Daily Mission 2"
+    },
+    "GL_DAILY_3TITLE_20180815_3": {
+        "name": "[Limited Time] The Sun God's Daily Mission 3"
+    },
+    "GL_DAILY_3TITLE_AUG2": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG3": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG4": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG5": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG6": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG7": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG8": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG9": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG10": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG11": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG12": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG13": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG14": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_DAILY_3TITLE_AUG15": {
+        "name": "[Daily] The Sun God and the Golden Key"
+    },
+    "GL_SUMMER_BONUS_MISSION": {
+        "name": "Summer Bonus Mission"
+    },
+    "DAILY_GLCLEARALL_SUMMER2018": {
+        "name": "[Summer Bonus Mission] Clear all Essential Daily Missions"
+    },
+    "DAILY_GL_SUMMER2018_01": {
+        "name": "[Summer Bonus Mission] Bust Some Heads in the Arena [1]"
+    },
+    "DAILY_GL_SUMMER2018_02": {
+        "name": "[Summer Bonus Mission] Bust Some Heads in the Arena [2]"
+    },
+    "GL_SUMMER_COIN_AUG02": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [1/35]"
+    },
+    "GL_SUMMER_COIN_AUG03": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [2/35]"
+    },
+    "GL_SUMMER_COIN_AUG04": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [3/35]"
+    },
+    "GL_SUMMER_COIN_AUG05": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [4/35]"
+    },
+    "GL_SUMMER_COIN_AUG06": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [5/35]"
+    },
+    "GL_SUMMER_COIN_AUG07": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [6/35]"
+    },
+    "GL_SUMMER_COIN_AUG08": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [7/35]"
+    },
+    "GL_SUMMER_COIN_AUG09": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [8/35]"
+    },
+    "GL_SUMMER_COIN_AUG10": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [9/35]"
+    },
+    "GL_SUMMER_COIN_AUG11": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [10/35]"
+    },
+    "GL_SUMMER_COIN_AUG12": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [11/35]"
+    },
+    "GL_SUMMER_COIN_AUG13": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [12/35]"
+    },
+    "GL_SUMMER_COIN_AUG14": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [13/35]"
+    },
+    "GL_SUMMER_COIN_AUG15": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [14/35]"
+    },
+    "GL_SUMMER_COIN_AUG16": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [15/35]"
+    },
+    "GL_SUMMER_COIN_AUG17": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [16/35]"
+    },
+    "GL_SUMMER_COIN_AUG18": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [17/35]"
+    },
+    "GL_SUMMER_COIN_AUG19": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [18/35]"
+    },
+    "GL_SUMMER_COIN_AUG20": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [19/35]"
+    },
+    "GL_SUMMER_COIN_AUG21": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [20/35]"
+    },
+    "GL_SUMMER_COIN_AUG22": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [21/35]"
+    },
+    "GL_SUMMER_COIN_AUG23": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [22/35]"
+    },
+    "GL_SUMMER_COIN_AUG24": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [23/35]"
+    },
+    "GL_SUMMER_COIN_AUG25": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [24/35]"
+    },
+    "GL_SUMMER_COIN_AUG26": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [25/35]"
+    },
+    "GL_SUMMER_COIN_AUG27": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [26/35]"
+    },
+    "GL_SUMMER_COIN_AUG28": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [27/35]"
+    },
+    "GL_SUMMER_COIN_AUG29": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [28/35]"
+    },
+    "GL_SUMMER_COIN_AUG30": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [29/35]"
+    },
+    "GL_SUMMER_COIN_AUG31": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [30/35]"
+    },
+    "GL_SUMMER_COIN_SEP01": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [31/35]"
+    },
+    "GL_SUMMER_COIN_SEP02": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [32/35]"
+    },
+    "GL_SUMMER_COIN_SEP03": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [33/35]"
+    },
+    "GL_SUMMER_COIN_SEP04": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [34/35]"
+    },
+    "GL_SUMMER_COIN_SEP05": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [35/35]"
+    },
+    "SUMMER2018_01": {
+        "name": "Clear Challenge Set"
+    },
+    "SUMMER2018_01_00": {
+        "name": "Clear The Sun God and the Golden Key Episode 1 3 times"
+    },
+    "SUMMER2018_01_01": {
+        "name": "Clear The Sun God and the Golden Key Episode 3 3 times"
+    },
+    "SUMMER2018_01_02": {
+        "name": "Clear The Sun God and the Golden Key Episode 5 3 times"
+    },
+    "SUMMER2018_01_03": {
+        "name": "Win 1 battle in the Arena"
+    },
+    "SUMMER2018_01_04": {
+        "name": "Battle in the Arena 3 times"
+    },
+    "SUMMER2018_01_05": {
+        "name": "Limit Break Amateratsu 15 Times"
+    },
+    "SUMMER2018_01_06": {
+        "name": "Change Amateratsu's Job"
+    },
+    "SUMMER2018_01_07": {
+        "name": "Defeat Metal Maiden"
+    },
+    "SUMMER2018_01_08": {
+        "name": "Defeat Uzushiomaru"
+    },
+    "GL_SUMMER_DAILY_AUG02": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [1/35]"
+    },
+    "GL_SUMMER_DAILY_AUG03": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [2/35]"
+    },
+    "GL_SUMMER_DAILY_AUG04": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [3/35]"
+    },
+    "GL_SUMMER_DAILY_AUG05": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [4/35]"
+    },
+    "GL_SUMMER_DAILY_AUG06": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [5/35]"
+    },
+    "GL_SUMMER_DAILY_AUG07": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [6/35]"
+    },
+    "GL_SUMMER_DAILY_AUG08": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [7/35]"
+    },
+    "GL_SUMMER_DAILY_AUG09": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [8/35]"
+    },
+    "GL_SUMMER_DAILY_AUG10": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [9/35]"
+    },
+    "GL_SUMMER_DAILY_AUG11": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [10/35]"
+    },
+    "GL_SUMMER_DAILY_AUG12": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [11/35]"
+    },
+    "GL_SUMMER_DAILY_AUG13": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [12/35]"
+    },
+    "GL_SUMMER_DAILY_AUG14": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [13/35]"
+    },
+    "GL_SUMMER_DAILY_AUG15": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [14/35]"
+    },
+    "GL_SUMMER_DAILY_AUG16": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [15/35]"
+    },
+    "GL_SUMMER_DAILY_AUG17": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [16/35]"
+    },
+    "GL_SUMMER_DAILY_AUG18": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [17/35]"
+    },
+    "GL_SUMMER_DAILY_AUG19": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [18/35]"
+    },
+    "GL_SUMMER_DAILY_AUG20": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [19/35]"
+    },
+    "GL_SUMMER_DAILY_AUG21": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [20/35]"
+    },
+    "GL_SUMMER_DAILY_AUG22": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [21/35]"
+    },
+    "GL_SUMMER_DAILY_AUG23": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [22/35]"
+    },
+    "GL_SUMMER_DAILY_AUG24": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [23/35]"
+    },
+    "GL_SUMMER_DAILY_AUG25": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [24/35]"
+    },
+    "GL_SUMMER_DAILY_AUG26": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [25/35]"
+    },
+    "GL_SUMMER_DAILY_AUG27": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [26/35]"
+    },
+    "GL_SUMMER_DAILY_AUG28": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [27/35]"
+    },
+    "GL_SUMMER_DAILY_AUG29": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [28/35]"
+    },
+    "GL_SUMMER_DAILY_AUG30": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [29/35]"
+    },
+    "GL_SUMMER_DAILY_AUG31": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [30/35]"
+    },
+    "GL_SUMMER_DAILY_SEP01": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [31/35]"
+    },
+    "GL_SUMMER_DAILY_SEP02": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [32/35]"
+    },
+    "GL_SUMMER_DAILY_SEP03": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [33/35]"
+    },
+    "GL_SUMMER_DAILY_SEP04": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [34/35]"
+    },
+    "GL_SUMMER_DAILY_SEP05": {
+        "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [35/35]"
     }
 }

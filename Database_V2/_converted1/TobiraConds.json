@@ -6398,5 +6398,1285 @@
                 "mCondType": "Unit"
             }
         ]
+    },
+    {
+        "mUnitIname": "UN_V2_FENCER",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_FENCER",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_FENCER",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_FENCER_H_FEN",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_FENCER",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_FENCER",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_FENCER",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_FENCER",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_FENCER",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_REAPER",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_REAPER",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_REAPER",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_REAPER_REA",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_REAPER",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_REAPER",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_REAPER",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_REAPER",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_REAPER",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHERMAN",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHERMAN",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHERMAN",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_SHERMAN_SHE_N",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHERMAN",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHERMAN",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHERMAN",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHERMAN",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHERMAN",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SEK_CLOE",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SEK_CLOE",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SEK_CLOE",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_SEK_CLOE_MAS",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SEK_CLOE",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SEK_CLOE",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SEK_CLOE",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SEK_CLOE",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SEK_CLOE",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_ZAYIN",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_ZAYIN",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_ZAYIN",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_ZAYIN_ZAYI_LORD_CC",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_ZAYIN",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_ZAYIN",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_ZAYIN",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_ZAYIN",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_ZAYIN",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_VIER",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_VIER",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_VIER",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_VIER_SYO_AGA",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_VIER",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_VIER",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_VIER",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_VIER",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_VIER",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_GORMALAS",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_GORMALAS",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_GORMALAS",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_GOL_STR_SENJYU",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_GORMALAS",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_GORMALAS",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_GORMALAS",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_GORMALAS",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_GORMALAS",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PALADIN",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PALADIN",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PALADIN",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_SQ_PALADIN_VAL_LAN_JUMP",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PALADIN",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PALADIN",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PALADIN",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PALADIN",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PALADIN",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PRINCESS",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PRINCESS",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PRINCESS",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "ETB_CNDS_ENV_2_SQ_PRINCESS_ENC_THUNDER",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PRINCESS",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PRINCESS",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PRINCESS",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PRINCESS",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_PRINCESS",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_SHENMEI",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_SHENMEI",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_SHENMEI",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_SQ_SHENMEI_SHN_HEEL",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_SHENMEI",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_SHENMEI",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_SHENMEI",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_SHENMEI",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_SHENMEI",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_GUNNER",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_GUNNER",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_GUNNER",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "ETB_CNDS_ENV_2_SQ_GUNNER_RAN_TYPE_MONS",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_GUNNER",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_GUNNER",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_GUNNER",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_GUNNER",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SQ_GUNNER",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_SAKURA",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_SAKURA",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_SAKURA",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_SAKURA_NIN_SEIRYU",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_SAKURA",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_SAKURA",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_SAKURA",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_SAKURA",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_SAKURA",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_YOMI",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_YOMI",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_YOMI",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_S_YOMI_RAN_TYPE_JEWELDAMEGE",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_YOMI",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_YOMI",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_YOMI",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_YOMI",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_S_YOMI",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHENMEI",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHENMEI",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHENMEI",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_SHENMEI_KAI",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHENMEI",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHENMEI",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHENMEI",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHENMEI",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_SHENMEI",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_RIGARUTO",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_RIGARUTO",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_RIGARUTO",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_RIGARUTO_KAI",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_RIGARUTO",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_RIGARUTO",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_RIGARUTO",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_RIGARUTO",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_RIGARUTO",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_HISHARMU",
+        "mCategory": "Unlock",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_LV85_AW25",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_HISHARMU",
+        "mCategory": "Envy",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_NON",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_HISHARMU",
+        "mCategory": "Wrath",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_ENV_2_HISHARMU_KAI",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_HISHARMU",
+        "mCategory": "Sloth",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_HISHARMU",
+        "mCategory": "Lust",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_HISHARMU",
+        "mCategory": "Gluttony",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_HISHARMU",
+        "mCategory": "Greed",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_HISHARMU",
+        "mCategory": "Pride",
+        "mConditions": [
+            {
+                "mCondIname": "TB_CNDS_SELF_SLO_2",
+                "mCondType": "Unit"
+            }
+        ]
     }
 ]

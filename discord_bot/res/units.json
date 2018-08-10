@@ -225,6 +225,7 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/lies.png",
         "farm": [
             "GL: [40 AP] [Hard] Ch 3: Ep 1 [1-1]",
+            "GL: [40 AP] [Hard] Ch 3: Ep 2 [1-1]",
             "JP: [16 AP] [Hard] Ch 3: Ep 1 [1-1]",
             "JP: [16 AP] [Hard] Ch 3: Ep 2 [1-1]",
             "JP: [16 AP] [Hard] Ch 3: Ep 3 [1-1]"
@@ -520,7 +521,6 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/luci.png",
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [2-9]",
-            "GL: [32 AP] [Hard] Ch 1: Ep 4 [2-5]",
             "GL: [40 AP] [Hard] Ch 1: Ep 5 [3-1]",
             "GL: [40 AP] [Hard] Ch 2: Ep 2 [2-9]",
             "GL: [40 AP] [Hard] Ch 2: Ep 4 [2-4]",
@@ -589,8 +589,6 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/riga.png",
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [1-10]",
-            "GL: [32 AP] [Hard] Ch 1: Ep 3 [3-10]",
-            "GL: [32 AP] [Hard] Ch 1: Ep 5 [2-4]",
             "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-10]",
             "JP: [16 AP] [Hard] Ch 1: Ep 1 [1-10]",
             "JP: [28 AP] [Hard] Ch 2: Ep 1 [3-10]"
@@ -603,7 +601,7 @@
         "job 3": "Pirate",
         "jc 1": "",
         "jc 2": "Ranger [Lupus]ᴶ\n[bonus damage against monsters]",
-        "jc 3": "",
+        "jc 3": "Pirate: Alwida",
         "inputs": [
             "Rigalt",
             "Regart"
@@ -731,7 +729,6 @@
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [3-2]",
             "GL: [40 AP] [Hard] Ch 2: Ep 2 [3-2]",
-            "GL: [40 AP] [Hard] Ch 2: Ep 4 [2-10]",
             "JP: [16 AP] [Hard] Ch 1: Ep 1 [3-2]",
             "JP: [32 AP] [Hard] Ch 2: Ep 2 [3-2]"
         ],
@@ -1414,6 +1411,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/jake.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 2 [2-4]",
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [2-4]"
         ],
         "leader skill": "+5 Silence Res",
@@ -2063,6 +2061,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/dece.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 2 [1-10]",
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [1-10]"
         ],
         "leader skill": "+5 Blind Res",
@@ -2321,6 +2320,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/ayll.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 2 [2-5]",
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [2-5]"
         ],
         "leader skill": "+10 All Status Res",
@@ -2385,6 +2385,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/sara.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 2 [2-10]",
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [2-10]"
         ],
         "leader skill": "+10 Missile ATK",
@@ -2714,6 +2715,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/arki.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 2 [2-9]",
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [2-9]"
         ],
         "leader skill": "+10 Slash ATK",
@@ -4993,6 +4995,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/rosa.png",
         "farm": [
+            "GL: [32 AP] [Hard] Ch 1: Ep 3 [3-10]",
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [3-10]"
         ],
         "leader skill": "Dark: +20% PATK, +10% HP",
@@ -5695,14 +5698,7 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/ryle_babel.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/ryle_babel-closeup.png"
             }
-        ],
-        "tierlist": {
-            "job 1": "B",
-            "job 2": "A",
-            "job 3": "B",
-            "jc": "",
-            "total": "A"
-        }
+        ]
     },
     "UN_V2_ALBELL": {
         "iname": "UN_V2_ALBELL",
@@ -5852,6 +5848,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/reim.png",
         "farm": [
+            "GL: [32 AP] [Hard] Ch 1: Ep 5 [2-4]",
             "JP: [32 AP] [Hard] Ch 1: Ep 5 [2-4]"
         ],
         "leader skill": "Fire: +50% PATK",
@@ -6092,7 +6089,7 @@
         "job 1": "Pirate",
         "job 2": "Thief",
         "job 3": "Crafter",
-        "jc 1": "",
+        "jc 1": "Pirate: Teach",
         "jc 2": "Shadow Assassin : Eveningᴶ\n[spell evasion and resistance]",
         "jc 3": "",
         "inputs": [
@@ -6688,7 +6685,7 @@
             }
         ],
         "tierlist": {
-            "job 1": "S",
+            "job 1": "A",
             "job 2": "B",
             "job 3": "SS",
             "jc": "",
@@ -7097,6 +7094,7 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/glan.png",
         "farm": [
+            "GL: [32 AP] [Hard] Ch 1: Ep 4 [2-5]",
             "JP: [28 AP] [Hard] Ch 2: Ep 2 [2-10]"
         ],
         "leader skill": "Dark: +30% PATK",
@@ -7554,6 +7552,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/arub.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 2: Ep 4 [2-10]",
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [2-10]"
         ],
         "leader skill": "Thunder: +30% HP, +20% PATK",
@@ -8636,7 +8635,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/thil.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/thil-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_SABER": {
         "iname": "UN_V2_SABER",
@@ -9378,7 +9384,7 @@
         ],
         "tierlist": {
             "job 1": "S",
-            "job 2": "B",
+            "job 2": "A",
             "job 3": "S",
             "jc": "",
             "total": "S"
@@ -10064,7 +10070,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/yuna.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/yuna-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_MARIANNU": {
         "iname": "UN_V2_MARIANNU",
@@ -11133,7 +11146,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/zin_babel.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/zin_babel-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "A",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_NOAH": {
         "iname": "UN_V2_NOAH",
@@ -12511,11 +12531,11 @@
             }
         ],
         "tierlist": {
-            "job 1": "",
-            "job 2": "",
-            "job 3": "",
+            "job 1": "A",
+            "job 2": "C",
+            "job 3": "S",
             "jc": "",
-            "total": ""
+            "total": "S"
         }
     },
     "UN_V2_S_AMATERASU": {
@@ -12577,7 +12597,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/s_amat_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/s_amat_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_S_YURI": {
         "iname": "UN_V2_S_YURI",
@@ -12640,11 +12667,11 @@
             }
         ],
         "tierlist": {
-            "job 1": "",
-            "job 2": "",
-            "job 3": "",
+            "job 1": "S",
+            "job 2": "A",
+            "job 3": "S",
             "jc": "",
-            "total": ""
+            "total": "S"
         }
     },
     "UN_V2_PRISCILA": {
@@ -13110,7 +13137,7 @@
         "job 3": "Valkyrie",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "",
+        "jc 3": "Valkyrie: Dayfallᴶ\n[jump focused]",
         "inputs": [
             "Paladin",
             "Paladin EMD",
@@ -13165,7 +13192,7 @@
         "job 2": "Enchanter",
         "job 3": "Diviner",
         "jc 1": "",
-        "jc 2": "",
+        "jc 2": "Roaring Thunder Enchanterᴶ\n[buff that increases thunder damage against water]",
         "jc 3": "",
         "inputs": [
             "Princess",
@@ -13221,7 +13248,7 @@
         "job 2": "Merchant",
         "job 3": "Gunner",
         "jc 1": "",
-        "jc 2": "",
+        "jc 2": "Merchant : Grace Craneᴶ\n[stronger heal delivery and full leverage +15 jewels]",
         "jc 3": "",
         "inputs": [
             "Shenmei EMD",
@@ -13275,7 +13302,7 @@
         "job 1": "Hunter",
         "job 2": "Crafter",
         "job 3": "Gunner",
-        "jc 1": "",
+        "jc 1": "Ranger [Lupus]ᴶ\n[bonus damage against monsters]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -13444,9 +13471,9 @@
         "job 1": "Geomancer",
         "job 2": "Crafter",
         "job 3": "Pirate",
-        "jc 1": "",
+        "jc 1": "Hisharmu: Huu",
         "jc 2": "",
-        "jc 3": "",
+        "jc 3": "Pirate: Teach",
         "inputs": [
             "Hisham",
             "Hishamu"
@@ -13664,7 +13691,7 @@
         "job 3": "Pirate",
         "jc 1": "",
         "jc 2": "Holy Brawler [Miroku]ᴶ\n[12% regen &  5% jewel regen buff]",
-        "jc 3": "",
+        "jc 3": "Pirate: Alwida",
         "inputs": [
             "Won",
             "Wong"

@@ -3672,10 +3672,10 @@ SRPG_AbilityParam_AB_ARM_LOWER_SEISEKI4_NAME	Basic War Arts
 SRPG_AbilityParam_AB_ARM_LOWER_SEISEKI4_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_ARM_LOWER_XMAS_NAME	Basic War Arts
 SRPG_AbilityParam_AB_ARM_LOWER_XMAS_EXPR	Enemy Unit Abilities (Winter Holiday)
-SRPG_AbilityParam_AB_ARM_LOWER_ITEM_NAME	[Item Realm] Basic War Arts
-SRPG_AbilityParam_AB_ARM_LOWER_ITEM_EXPR	Enemy Unit Abilities (Item Realm)
-SRPG_AbilityParam_AB_ARM_LOWER_ITEM2_NAME	[Item Realm] Basic War Arts 2
-SRPG_AbilityParam_AB_ARM_LOWER_ITEM2_EXPR	Enemy Unit Abilities (Item Realm)
+SRPG_AbilityParam_AB_ARM_LOWER_ITEM_NAME	[Item World] Basic War Arts
+SRPG_AbilityParam_AB_ARM_LOWER_ITEM_EXPR	Enemy Unit Abilities (Item World)
+SRPG_AbilityParam_AB_ARM_LOWER_ITEM2_NAME	[Item World] Basic War Arts 2
+SRPG_AbilityParam_AB_ARM_LOWER_ITEM2_EXPR	Enemy Unit Abilities (Item World)
 SRPG_AbilityParam_AB_ARM_LOWER_TOUSEKI_NAME	[Amazing Stone Throw] Basic War Arts
 SRPG_AbilityParam_AB_ARM_LOWER_TOUSEKI_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_ARM_MAGIC_GUARD_SEISEKI4_NAME	Immunity vs Magic
@@ -3724,9 +3724,9 @@ SRPG_AbilityParam_AB_RAT_WIZ_THUNDER_XMAS_NAME	Rat Magic - Winter Holiday Thunde
 SRPG_AbilityParam_AB_RAT_WIZ_THUNDER_XMAS_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_RAT_WIZ_SHINE_TOU_NAME	Rat Magic - Light_Tower
 SRPG_AbilityParam_AB_RAT_WIZ_SHINE_TOU_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_RAT_WIZ_METEO_NAME	[For Item Realm] Rat Magic - Item Realm Meteor
+SRPG_AbilityParam_AB_RAT_WIZ_METEO_NAME	[For Item World] Rat Magic - Item World Meteor
 SRPG_AbilityParam_AB_RAT_WIZ_METEO_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_RAT_WIZ_METEO_SP_NAME	[For Item Realm] Rat Magic - Item Realm Meteor
+SRPG_AbilityParam_AB_RAT_WIZ_METEO_SP_NAME	[For Item World] Rat Magic - Item World Meteor
 SRPG_AbilityParam_AB_RAT_WIZ_METEO_SP_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_RAT_WIZ_CONGRATULATIONS_NAME	[Veda] Rat Magic - Self Destruction
 SRPG_AbilityParam_AB_RAT_WIZ_CONGRATULATIONS_EXPR	Enemy Unit Abilities
@@ -3912,9 +3912,9 @@ SRPG_AbilityParam_AB_MAN_YUJ_STO_RANDOM_HALL_NAME	Mandragora Halloween Pinpoint 
 SRPG_AbilityParam_AB_MAN_YUJ_STO_RANDOM_HALL_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_MAN_YUJ_STATE_NAME	Mandragora Healing - Heal Status
 SRPG_AbilityParam_AB_MAN_YUJ_STATE_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_MAN_YUJ_ITEM_ZERO_NAME	Mandragora Item Realm Null Wave Long Barrier
+SRPG_AbilityParam_AB_MAN_YUJ_ITEM_ZERO_NAME	Mandragora Item World Null Wave Long Barrier
 SRPG_AbilityParam_AB_MAN_YUJ_ITEM_ZERO_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_MAN_YUJ_ITEM_ZERO_RE_NAME	Mandragora Item Realm Null Wave Reaction
+SRPG_AbilityParam_AB_MAN_YUJ_ITEM_ZERO_RE_NAME	Mandragora Item World Null Wave Reaction
 SRPG_AbilityParam_AB_MAN_YUJ_ITEM_ZERO_RE_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_MAN_YUJ_POI_NAME	Mandragora Healing - Poison
 SRPG_AbilityParam_AB_MAN_YUJ_POI_EXPR	Enemy Unit Abilities
@@ -4354,8 +4354,8 @@ SRPG_AbilityParam_AB_VENUS_SEC_REACTION_100F_NAME	Venus (2nd Form) Reaction for 
 SRPG_AbilityParam_AB_VENUS_SEC_REACTION_100F_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_VENUS_SEC_FF15_EX1_NAME	Venus (2nd Form) For FFXVEX Tower
 SRPG_AbilityParam_AB_VENUS_SEC_FF15_EX1_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_TOWER_FUHSI_HP1_NAME	Limited to Health No Buffs Item Realm 90F+ Step
-SRPG_AbilityParam_AB_TOWER_FUHSI_HP1_EXPR	Item Realm 80F+ Stats Up
+SRPG_AbilityParam_AB_TOWER_FUHSI_HP1_NAME	Limited to Health No Buffs Item World 90F+ Stats Up
+SRPG_AbilityParam_AB_TOWER_FUHSI_HP1_EXPR	Item World 80F+ Stats Up
 SRPG_AbilityParam_AB_OWLBEAR_WAZA_NAME	Fierce Owlbear
 SRPG_AbilityParam_AB_OWLBEAR_WAZA_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_OWLBEAR_SMASH_NAME	Fierce Owlbear Reaction
@@ -4427,15 +4427,15 @@ SRPG_AbilityParam_AB_AFFECTION_WIZARD_MAGIC_EXPR
 SRPG_AbilityParam_AB_EN_NIKONAMA06_NAME	[Nico Live 6] AJ4000
 SRPG_AbilityParam_AB_EN_NIKONAMA06_EXPR	 
 SRPG_AbilityParam_AB_EN_HUN_DIRECT_ARROW_NAME	Direct Arrow
-SRPG_AbilityParam_AB_EN_HUN_DIRECT_ARROW_EXPR	[Item Realm] Inflicts fixed Dmg (1-1000) on target.
+SRPG_AbilityParam_AB_EN_HUN_DIRECT_ARROW_EXPR	[Item World] Inflicts fixed Dmg (1-1000) on target.
 SRPG_AbilityParam_AB_EN_LAN_DIRECT_LANCE_NAME	Direct Lance
-SRPG_AbilityParam_AB_EN_LAN_DIRECT_LANCE_EXPR	[Item Realm] Inflicts fixed Dmg (1-1000) on target.
+SRPG_AbilityParam_AB_EN_LAN_DIRECT_LANCE_EXPR	[Item World] Inflicts fixed Dmg (1-1000) on target.
 SRPG_AbilityParam_AB_EN_FIS_DIRECT_FIST_NAME	Direct Punch
-SRPG_AbilityParam_AB_EN_FIS_DIRECT_FIST_EXPR	[Item Realm] Inflicts fixed Dmg (1-1000) on target.
+SRPG_AbilityParam_AB_EN_FIS_DIRECT_FIST_EXPR	[Item World] Inflicts fixed Dmg (1-1000) on target.
 SRPG_AbilityParam_AB_EN_SWO_DIRECT_SWORD_NAME	Direct Sword
-SRPG_AbilityParam_AB_EN_SWO_DIRECT_SWORD_EXPR	[Item Realm] Inflicts fixed Dmg (1-1000) on target.
+SRPG_AbilityParam_AB_EN_SWO_DIRECT_SWORD_EXPR	[Item World] Inflicts fixed Dmg (1-1000) on target.
 SRPG_AbilityParam_AB_EN_ARM_DIRECT_ARM_NAME	Direct Shot
-SRPG_AbilityParam_AB_EN_ARM_DIRECT_ARM_EXPR	[Item Realm] Inflicts fixed Dmg (1-1000) on target.
+SRPG_AbilityParam_AB_EN_ARM_DIRECT_ARM_EXPR	[Item World] Inflicts fixed Dmg (1-1000) on target.
 SRPG_AbilityParam_AB_RELIGION_FIGTHER_MFEN_NAME	[Veda] For Knight Rook Bishop Chopper Technique
 SRPG_AbilityParam_AB_RELIGION_FIGTHER_MFEN_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_BAR_LOWER_BLA_NAME	Basic Poetry_3_Blanshett Encounter
@@ -4562,7 +4562,7 @@ SRPG_AbilityParam_AB_MOBIUS_19F_01_NAME	[For Mobius] Machine Learning (Enhance A
 SRPG_AbilityParam_AB_MOBIUS_19F_01_EXPR	[For Mobius]
 SRPG_AbilityParam_AB_AJ4000_WAZA_MOBIUS_NAME	[For Mobius] AJ4000_Mobius F11
 SRPG_AbilityParam_AB_AJ4000_WAZA_MOBIUS_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_RAT_WIZ_MOBIUS_NAME	[For Mobius] Rat Magic - Item Realm Meteor
+SRPG_AbilityParam_AB_RAT_WIZ_MOBIUS_NAME	[For Mobius] Rat Magic - Item World Meteor
 SRPG_AbilityParam_AB_RAT_WIZ_MOBIUS_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_ARM_JLV01_NAME	Soldier: JobLv01 Complete Equipment Set
 SRPG_AbilityParam_AB_ARM_JLV01_EXPR	Enemy Unit Abilities
@@ -6184,16 +6184,16 @@ SRPG_AbilityParam_AB_PERMANENTLY_CLOCK_DOWN_S_NAME	Permanent Delay Skills
 SRPG_AbilityParam_AB_PERMANENTLY_CLOCK_DOWN_S_EXPR	Constant Delay Status (Test)
 SRPG_AbilityParam_AB_PERMANENTLY_BERSERK_NAME	Permanent Berserk
 SRPG_AbilityParam_AB_PERMANENTLY_BERSERK_EXPR	Constant Confuse Status
-SRPG_AbilityParam_AB_ITEM_TOWER_50_NAME	Item Realm 50F+ Step
-SRPG_AbilityParam_AB_ITEM_TOWER_50_EXPR	Item Realm 50F+ Step
-SRPG_AbilityParam_AB_ITEM_TOWER_60_NAME	Item Realm 60F+ Step
-SRPG_AbilityParam_AB_ITEM_TOWER_60_EXPR	Item Realm 60F+ Step
-SRPG_AbilityParam_AB_ITEM_TOWER_70_NAME	Item Realm 70F+ Step
-SRPG_AbilityParam_AB_ITEM_TOWER_70_EXPR	Item Realm 70F+ Step
-SRPG_AbilityParam_AB_ITEM_TOWER_80_NAME	Item Realm 80F+ Stats Up
-SRPG_AbilityParam_AB_ITEM_TOWER_80_EXPR	Item Realm 80F+ Stats Up
-SRPG_AbilityParam_AB_ITEM_TOWER_90_NAME	Item Realm 90F+ Step
-SRPG_AbilityParam_AB_ITEM_TOWER_90_EXPR	Item Realm 80F+ Stats Up
+SRPG_AbilityParam_AB_ITEM_TOWER_50_NAME	Item World 50F+ Stats Up
+SRPG_AbilityParam_AB_ITEM_TOWER_50_EXPR	Item World 50F+ Stats Up
+SRPG_AbilityParam_AB_ITEM_TOWER_60_NAME	Item World 60F+ Stats Up
+SRPG_AbilityParam_AB_ITEM_TOWER_60_EXPR	Item World 60F+ Stats Up
+SRPG_AbilityParam_AB_ITEM_TOWER_70_NAME	Item World 70F+ Stats Up
+SRPG_AbilityParam_AB_ITEM_TOWER_70_EXPR	Item World 70F+ Stats Up
+SRPG_AbilityParam_AB_ITEM_TOWER_80_NAME	Item World 80F+ Stats Up
+SRPG_AbilityParam_AB_ITEM_TOWER_80_EXPR	Item World 80F+ Stats Up
+SRPG_AbilityParam_AB_ITEM_TOWER_90_NAME	Item World 90F+ Stats Up
+SRPG_AbilityParam_AB_ITEM_TOWER_90_EXPR	Item World 80F+ Stats Up
 SRPG_AbilityParam_AB_MAH_KAGO_SUPER_NAME	Disable all ATKs
 SRPG_AbilityParam_AB_MAH_KAGO_SUPER_EXPR	Support techniques for use with all jobs
 SRPG_AbilityParam_AB_MAH_KAGO_SUPER_RELAY_NAME	Nullify All Attacks [For Sports Day Relay]
@@ -6402,7 +6402,7 @@ SRPG_AbilityParam_AB_ME_CADA_GUA_NAME	*Unused
 SRPG_AbilityParam_AB_ME_CADA_GUA_EXPR	[Map Effect Set]
 SRPG_AbilityParam_AB_ME_KAGU_WIZ_NAME	Flame-Orb Princess & Blaze-Orb Princess: Map Effect Ability
 SRPG_AbilityParam_AB_ME_KAGU_WIZ_EXPR	[Map Effect Set]
-SRPG_AbilityParam_AB_ME_KUDH_LAN_NAME	Magic Lancer: Map Effect Ability
+SRPG_AbilityParam_AB_ME_KUDH_LAN_NAME	Demonic Spearman: Map Effect Ability
 SRPG_AbilityParam_AB_ME_KUDH_LAN_EXPR	[Map Effect Set]
 SRPG_AbilityParam_AB_ME_SEDA_RAN_NAME	Venom Archer: Map Effect Ability
 SRPG_AbilityParam_AB_ME_SEDA_RAN_EXPR	[Map Effect Set]
@@ -12244,28 +12244,28 @@ SRPG_SkillParam_SK_RAT_WIZ_FIRE_RENKEI_CLASH_NAME	Don't help☆Kiss
 SRPG_SkillParam_SK_RAT_WIZ_FIRE_RENKEI_CLASH_EXPR	Inflicts Fire Mag Dmg on units within target area [Range: 3]
 SRPG_SkillParam_SK_RAT_WIZ_FIRE_RENKEI_CLASH_MAPEFF	 
 SRPG_SkillParam_SK_RAT_WIZ_METEO1_NAME	Meteor of a Blink
-SRPG_SkillParam_SK_RAT_WIZ_METEO1_EXPR	[Item Realm Special Skill] Powerful Dmg to whole map
+SRPG_SkillParam_SK_RAT_WIZ_METEO1_EXPR	[Item World Special Skill] Powerful Dmg to whole map
 SRPG_SkillParam_SK_RAT_WIZ_METEO1_MAPEFF	 
 SRPG_SkillParam_SK_RAT_WIZ_METEO2_NAME	Meteor of a Blink
-SRPG_SkillParam_SK_RAT_WIZ_METEO2_EXPR	[Item Realm Special Skill] Powerful Dmg to whole map
+SRPG_SkillParam_SK_RAT_WIZ_METEO2_EXPR	[Item World Special Skill] Powerful Dmg to whole map
 SRPG_SkillParam_SK_RAT_WIZ_METEO2_MAPEFF	 
 SRPG_SkillParam_SK_RAT_WIZ_METEO3_NAME	Meteor of a Blink
-SRPG_SkillParam_SK_RAT_WIZ_METEO3_EXPR	[Item Realm Special Skill] Powerful Dmg to whole map
+SRPG_SkillParam_SK_RAT_WIZ_METEO3_EXPR	[Item World Special Skill] Powerful Dmg to whole map
 SRPG_SkillParam_SK_RAT_WIZ_METEO3_MAPEFF	 
 SRPG_SkillParam_SK_RAT_WIZ_METEO4_NAME	Meteor of a Blink
-SRPG_SkillParam_SK_RAT_WIZ_METEO4_EXPR	[Item Realm Special Skill] Powerful Dmg to whole map
+SRPG_SkillParam_SK_RAT_WIZ_METEO4_EXPR	[Item World Special Skill] Powerful Dmg to whole map
 SRPG_SkillParam_SK_RAT_WIZ_METEO4_MAPEFF	 
 SRPG_SkillParam_SK_RAT_WIZ_METEO1_SP_NAME	Meteor of Life
-SRPG_SkillParam_SK_RAT_WIZ_METEO1_SP_EXPR	[Item Realm Special Skill] Powerful Dmg to whole map
+SRPG_SkillParam_SK_RAT_WIZ_METEO1_SP_EXPR	[Item World Special Skill] Powerful Dmg to whole map
 SRPG_SkillParam_SK_RAT_WIZ_METEO1_SP_MAPEFF	 
 SRPG_SkillParam_SK_RAT_WIZ_METEO2_SP_NAME	Meteor of Life
-SRPG_SkillParam_SK_RAT_WIZ_METEO2_SP_EXPR	[Item Realm Special Skill] Powerful Dmg to whole map
+SRPG_SkillParam_SK_RAT_WIZ_METEO2_SP_EXPR	[Item World Special Skill] Powerful Dmg to whole map
 SRPG_SkillParam_SK_RAT_WIZ_METEO2_SP_MAPEFF	 
 SRPG_SkillParam_SK_RAT_WIZ_METEO3_SP_NAME	Meteor of Life
-SRPG_SkillParam_SK_RAT_WIZ_METEO3_SP_EXPR	[Item Realm Special Skill] Powerful Dmg to whole map
+SRPG_SkillParam_SK_RAT_WIZ_METEO3_SP_EXPR	[Item World Special Skill] Powerful Dmg to whole map
 SRPG_SkillParam_SK_RAT_WIZ_METEO3_SP_MAPEFF	 
 SRPG_SkillParam_SK_RAT_WIZ_METEO4_SP_NAME	Meteor of Life
-SRPG_SkillParam_SK_RAT_WIZ_METEO4_SP_EXPR	[Item Realm Special Skill] Powerful Dmg to whole map
+SRPG_SkillParam_SK_RAT_WIZ_METEO4_SP_EXPR	[Item World Special Skill] Powerful Dmg to whole map
 SRPG_SkillParam_SK_RAT_WIZ_METEO4_SP_MAPEFF	 
 SRPG_SkillParam_SK_RAT_WIZ_DYNAMITE_NAME	Realm Exploding Bomber
 SRPG_SkillParam_SK_RAT_WIZ_DYNAMITE_EXPR	Inflicts Phys Dmg (Extra-High) on units in area around self & self-destructs [Area: Diamond (5), Height Range: 2]
@@ -13194,6 +13194,9 @@ SRPG_SkillParam_SK_MAN_WIZ_WIND4_FA_MAPEFF
 SRPG_SkillParam_SK_MAN_WIZ_THUNDER4_NAME	Thunder Spores II
 SRPG_SkillParam_SK_MAN_WIZ_THUNDER4_EXPR	Inflicts Thunder Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak
 SRPG_SkillParam_SK_MAN_WIZ_THUNDER4_MAPEFF	 
+SRPG_SkillParam_SK_MAN_WIZ_THUNDER4_FA_NAME	Thunder Spores III (Def Down)
+SRPG_SkillParam_SK_MAN_WIZ_THUNDER4_FA_EXPR	Inflicts Thunder Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak
+SRPG_SkillParam_SK_MAN_WIZ_THUNDER4_FA_MAPEFF	 
 SRPG_SkillParam_SK_MAN_WIZ_SHINE4_NAME	Light Spores II
 SRPG_SkillParam_SK_MAN_WIZ_SHINE4_EXPR	Inflicts Light Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak
 SRPG_SkillParam_SK_MAN_WIZ_SHINE4_MAPEFF	 
@@ -13318,10 +13321,10 @@ SRPG_SkillParam_SK_MAN_YUJ_STO_RANDOM_NAME	Pinpoint Petrify
 SRPG_SkillParam_SK_MAN_YUJ_STO_RANDOM_EXPR	Inflicts Paralyze on all enemy units (Casts)
 SRPG_SkillParam_SK_MAN_YUJ_STO_RANDOM_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_STO_NOMAL_NAME	Petrifying Spores (Normal ATK)
-SRPG_SkillParam_SK_MAN_YUJ_STO_NOMAL_EXPR	[Item Realm] Casts Petrify on units in area around self
+SRPG_SkillParam_SK_MAN_YUJ_STO_NOMAL_EXPR	[Item World] Casts Petrify on units in area around self
 SRPG_SkillParam_SK_MAN_YUJ_STO_NOMAL_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_STO_ZERO_RE_NAME	All Null Waves+
-SRPG_SkillParam_SK_MAN_YUJ_STO_ZERO_RE_EXPR	[Item Realm] Reaction Ability: Cancels all buffs/debuffs [Area: Whole Map, Height Range: Unlimited]
+SRPG_SkillParam_SK_MAN_YUJ_STO_ZERO_RE_EXPR	[Item World] Reaction Ability: Cancels all buffs/debuffs [Area: Whole Map, Height Range: Unlimited]
 SRPG_SkillParam_SK_MAN_YUJ_STO_ZERO_RE_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_STO_ZERO_RE_FF15EX1_NAME	Barrier-Removal Hit
 SRPG_SkillParam_SK_MAN_YUJ_STO_ZERO_RE_FF15EX1_EXPR	[FFXVEX1] Reaction Ability: Cancels all buffs/debuffs [Area: Whole Map, Height Range: Unlimited]
@@ -13345,7 +13348,7 @@ SRPG_SkillParam_SK_MAN_YUJ_KAIFUKU_FF15_NAME	(2nd) Rare Treat! Mandragora
 SRPG_SkillParam_SK_MAN_YUJ_KAIFUKU_FF15_EXPR	Recovers Jewels of all ally units [Area: Whole Map, Height Range: Unlimited]
 SRPG_SkillParam_SK_MAN_YUJ_KAIFUKU_FF15_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_STO_ZERO_NAME	Null Wave+
-SRPG_SkillParam_SK_MAN_YUJ_STO_ZERO_EXPR	[Item Realm] Cancels all buff/debuffs cast on enemy units [Area: Whole Map, Height Range: Unlimited]
+SRPG_SkillParam_SK_MAN_YUJ_STO_ZERO_EXPR	[Item World] Cancels all buff/debuffs cast on enemy units [Area: Whole Map, Height Range: Unlimited]
 SRPG_SkillParam_SK_MAN_YUJ_STO_ZERO_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_ZAN_DOWN_ALL_NAME	Anti-Swords [Slash ATK Down]
 SRPG_SkillParam_SK_MAN_YUJ_ZAN_DOWN_ALL_EXPR	Lowers Slash ATK of all enemy units for three turns
@@ -17823,22 +17826,22 @@ SRPG_SkillParam_SK_EQ_KAM_MAGATAMA_MAPEFF
 SRPG_SkillParam_SK_EQ_ONM_SOUBI_NAME	Hidden Scroll
 SRPG_SkillParam_SK_EQ_ONM_SOUBI_EXPR	PATK +24, DEX +24, AGI +4, CRIT +8, Stop Res +2
 SRPG_SkillParam_SK_EQ_ONM_SOUBI_MAPEFF	 
-SRPG_SkillParam_SK_EQ_YUAN_ARROW_NAME	Survive Arrow
+SRPG_SkillParam_SK_EQ_YUAN_ARROW_NAME	Survival Arrow
 SRPG_SkillParam_SK_EQ_YUAN_ARROW_EXPR	DEX +12, PATK +30, AGI +2, Jewels Obtained +2, Wind Res +1
 SRPG_SkillParam_SK_EQ_YUAN_ARROW_MAPEFF	 
-SRPG_SkillParam_SK_EQ_YUAN_BELT_NAME	Survive Belt
+SRPG_SkillParam_SK_EQ_YUAN_BELT_NAME	Survival Belt
 SRPG_SkillParam_SK_EQ_YUAN_BELT_EXPR	HP +40, PDEF +12, LCK +6, Fire Res +1, Poison Res +1
 SRPG_SkillParam_SK_EQ_YUAN_BELT_MAPEFF	 
 SRPG_SkillParam_SK_EQ_YUAN_GEAR_NAME	Reida's Gear
 SRPG_SkillParam_SK_EQ_YUAN_GEAR_EXPR	PDEF +12, MDEF +12, HP +24, Stun Res +2, Water Res +1
 SRPG_SkillParam_SK_EQ_YUAN_GEAR_MAPEFF	 
-SRPG_SkillParam_SK_EQ_YUAN_BUNDLE_NAME	Survive Bundle
+SRPG_SkillParam_SK_EQ_YUAN_BUNDLE_NAME	Survival Bundle
 SRPG_SkillParam_SK_EQ_YUAN_BUNDLE_EXPR	DEX +16, CRIT +12, LCK +12, AGI +2, Wind Res +1
 SRPG_SkillParam_SK_EQ_YUAN_BUNDLE_MAPEFF	 
 SRPG_SkillParam_SK_EQ_YUAN_BOOTS_NAME	Reida's Boots
 SRPG_SkillParam_SK_EQ_YUAN_BOOTS_EXPR	AGI +4, DEX +10, MDEF +12, Sleep Res +2, Paralyze Res +2
 SRPG_SkillParam_SK_EQ_YUAN_BOOTS_MAPEFF	 
-SRPG_SkillParam_SK_EQ_YUAN_BLADE_NAME	Survive Blade
+SRPG_SkillParam_SK_EQ_YUAN_BLADE_NAME	Survival Blade
 SRPG_SkillParam_SK_EQ_YUAN_BLADE_EXPR	PATK +24, AGI +1, CRIT +14, Charm Res +2, Petrify Res +2
 SRPG_SkillParam_SK_EQ_YUAN_BLADE_MAPEFF	 
 SRPG_SkillParam_SK_EQ_KAGU2_PEARL_NAME	Lantern Orbs
@@ -17862,7 +17865,7 @@ SRPG_SkillParam_SK_EQ_KAGU2_COMB_MAPEFF
 SRPG_SkillParam_SK_EQ_ARKI_HOOKAH_NAME	Sabel Shisha
 SRPG_SkillParam_SK_EQ_ARKI_HOOKAH_EXPR	MDEF +24, MATK +26, LCK +16, Paralyze Res +2, Fire Res +3
 SRPG_SkillParam_SK_EQ_ARKI_HOOKAH_MAPEFF	 
-SRPG_SkillParam_SK_EQ_ARKI_TURBAN_NAME	Sabre Turban
+SRPG_SkillParam_SK_EQ_ARKI_TURBAN_NAME	Sabel Turban
 SRPG_SkillParam_SK_EQ_ARKI_TURBAN_EXPR	PDEF +24, MATK +26, AGI +2, Poison Res +2, Water Res +3
 SRPG_SkillParam_SK_EQ_ARKI_TURBAN_MAPEFF	 
 SRPG_SkillParam_SK_EQ_ARKI_JACKET_NAME	Sabel Veston
@@ -19224,13 +19227,13 @@ SRPG_SkillParam_SK_AF_ARMS_POK_EROS_00_5_MAPEFF
 SRPG_SkillParam_SK_AF_ARMS_POK_EROS_00_AS_NAME	Cupid Bow Eros AS
 SRPG_SkillParam_SK_AF_ARMS_POK_EROS_00_AS_EXPR	Chance of raising Hit Rate
 SRPG_SkillParam_SK_AF_ARMS_POK_EROS_00_AS_MAPEFF	 
-SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_4_NAME	White-Lily Knife 4★
+SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_4_NAME	White-Lily Katana 4★
 SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_4_EXPR	Attributes: PATK/PDEF/AGI Up
 SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_4_MAPEFF	 
-SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_5_NAME	White-Lily Knife 5★
+SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_5_NAME	White-Lily Katana 5★
 SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_5_EXPR	Attributes: PATK/PDEF/AGI Up
 SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_5_MAPEFF	 
-SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_AS_NAME	White-Lily Knife AS
+SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_AS_NAME	White-Lily Katana AS
 SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_AS_EXPR	Chance of raising PATK/PDEF for two turns
 SRPG_SkillParam_SK_AF_ARMS_S_YURI_00_AS_MAPEFF	 
 SRPG_SkillParam_SK_AF_ARMS_KAI_04_4_NAME	Ocean Espada 4★
@@ -21786,23 +21789,23 @@ SRPG_SkillParam_SK_PERMANENTLY_CLOCK_DOWN_S_MAPEFF
 SRPG_SkillParam_SK_PERMANENTLY_BERSERK_NAME	Permanent Berserk
 SRPG_SkillParam_SK_PERMANENTLY_BERSERK_EXPR	Constant Confuse Status
 SRPG_SkillParam_SK_PERMANENTLY_BERSERK_MAPEFF	 
-SRPG_SkillParam_SK_ITEM_TOWER_50_NAME	Item Realm 50F+ Step
-SRPG_SkillParam_SK_ITEM_TOWER_50_EXPR	Item Realm 50F+ Step
+SRPG_SkillParam_SK_ITEM_TOWER_50_NAME	Item World 50F+ Stats Up
+SRPG_SkillParam_SK_ITEM_TOWER_50_EXPR	Item World 50F+ Stats Up
 SRPG_SkillParam_SK_ITEM_TOWER_50_MAPEFF	 
-SRPG_SkillParam_SK_ITEM_TOWER_60_NAME	Item Realm 60F+ Step
-SRPG_SkillParam_SK_ITEM_TOWER_60_EXPR	Item Realm 60F+ Step
+SRPG_SkillParam_SK_ITEM_TOWER_60_NAME	Item World 60F+ Stats Up
+SRPG_SkillParam_SK_ITEM_TOWER_60_EXPR	Item World 60F+ Stats Up
 SRPG_SkillParam_SK_ITEM_TOWER_60_MAPEFF	 
-SRPG_SkillParam_SK_ITEM_TOWER_70_NAME	Item Realm 70F+ Step
-SRPG_SkillParam_SK_ITEM_TOWER_70_EXPR	Item Realm 70F+ Step
+SRPG_SkillParam_SK_ITEM_TOWER_70_NAME	Item World 70F+ Stats Up
+SRPG_SkillParam_SK_ITEM_TOWER_70_EXPR	Item World 70F+ Stats Up
 SRPG_SkillParam_SK_ITEM_TOWER_70_MAPEFF	 
-SRPG_SkillParam_SK_ITEM_TOWER_80_NAME	Item Realm 80F+ Stats Up
-SRPG_SkillParam_SK_ITEM_TOWER_80_EXPR	Item Realm 80F+ Stats Up
+SRPG_SkillParam_SK_ITEM_TOWER_80_NAME	Item World 80F+ Stats Up
+SRPG_SkillParam_SK_ITEM_TOWER_80_EXPR	Item World 80F+ Stats Up
 SRPG_SkillParam_SK_ITEM_TOWER_80_MAPEFF	 
-SRPG_SkillParam_SK_ITEM_TOWER_90_NAME	Item Realm 90F+ Step
-SRPG_SkillParam_SK_ITEM_TOWER_90_EXPR	Item Realm 80F+ Stats Up
+SRPG_SkillParam_SK_ITEM_TOWER_90_NAME	Item World 90F+ Stats Up
+SRPG_SkillParam_SK_ITEM_TOWER_90_EXPR	Item World 80F+ Stats Up
 SRPG_SkillParam_SK_ITEM_TOWER_90_MAPEFF	 
-SRPG_SkillParam_SK_TOWER_FUHSI_HP1_NAME	Limited to Health No Buffs Item Realm 90F+ Step
-SRPG_SkillParam_SK_TOWER_FUHSI_HP1_EXPR	Limited to Health No Buffs Item Realm 90F+ Step
+SRPG_SkillParam_SK_TOWER_FUHSI_HP1_NAME	Limited to Health No Buffs Item World 90F+ Stats Up
+SRPG_SkillParam_SK_TOWER_FUHSI_HP1_EXPR	Limited to Health No Buffs Item World 90F+ Stats Up
 SRPG_SkillParam_SK_TOWER_FUHSI_HP1_MAPEFF	 
 SRPG_SkillParam_SK_MAH_KAGO_SUPER_NAME	Divine Shelter+
 SRPG_SkillParam_SK_MAH_KAGO_SUPER_EXPR	Disable all ATKs
@@ -22029,7 +22032,7 @@ SRPG_SkillParam_SK_ME_RUINS_CANO3_MAPEFF	<color=cyan>Evasion Rate +10%, PDEF +20
 SRPG_SkillParam_SK_ME_RUINS_OTHI_WIZ_NAME	[Unused: Ruins] Phantom Master
 SRPG_SkillParam_SK_ME_RUINS_OTHI_WIZ_EXPR	[Map Effect] Hit Rate +20%
 SRPG_SkillParam_SK_ME_RUINS_OTHI_WIZ_MAPEFF	<color=cyan>Hit Rate +20%</color>
-SRPG_SkillParam_SK_ME_RUINS_KUDH_LAN_NAME	[Unused: Ruins] Magic Lancer
+SRPG_SkillParam_SK_ME_RUINS_KUDH_LAN_NAME	[Unused: Ruins] Demonic Spearman
 SRPG_SkillParam_SK_ME_RUINS_KUDH_LAN_EXPR	[Map Effect] PDEF +20%
 SRPG_SkillParam_SK_ME_RUINS_KUDH_LAN_MAPEFF	<color=cyan>PDEF +20%</color>
 SRPG_SkillParam_SK_ME_RUINS_MIK_NAME	[Unused: Ruins] Shrine Maiden
@@ -22197,7 +22200,7 @@ SRPG_SkillParam_SK_ME_FORT_ZAYI_LORD_MAPEFF	<color=cyan>MATK +20%, PDEF +20%</co
 SRPG_SkillParam_SK_ME_FORT_MONZ_WOR_NAME	[Unused: Fortress] Indomitable Axe Knight
 SRPG_SkillParam_SK_ME_FORT_MONZ_WOR_EXPR	[Map Effect] HP +20%, PDEF +20%
 SRPG_SkillParam_SK_ME_FORT_MONZ_WOR_MAPEFF	<color=cyan>HP +20%, PDEF +20%</color>
-SRPG_SkillParam_SK_ME_FORT_KUDH_LAN_NAME	[Unused: Fortress] Magic Lancer
+SRPG_SkillParam_SK_ME_FORT_KUDH_LAN_NAME	[Unused: Fortress] Demonic Spearman
 SRPG_SkillParam_SK_ME_FORT_KUDH_LAN_EXPR	[Map Effect] MOVE +1
 SRPG_SkillParam_SK_ME_FORT_KUDH_LAN_MAPEFF	<color=cyan>MOVE +1</color>
 SRPG_SkillParam_SK_ME_FORT_WEA_NAME	[Unused: Fortress] Diviner
@@ -25243,22 +25246,22 @@ SRPG_ItemParam_IT_EQ_LUCA_SWORDS_NAME	Elphinda Guards
 SRPG_ItemParam_IT_EQ_LUCA_SWORDS_EXPR	[Lucian/Holy Brawler+-Only Equipment] Stun Res +7, Paralyze Res +7, Sleep Res +7, Petrify Res +7, Poison Res +7
 SRPG_ItemParam_IT_EQ_LUCA_SWORDS_FLAVOR	Lucian freely wields these throwing daggers using the powers of Alchemia. Apparently he has a pretty large stock of them, but no one other than him knows exactly how many. They're also effectively defensively if thrown when attacked from a blind spot.
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_01_NAME	Piercing Dawn Spear
-SRPG_ItemParam_IT_EQ_KUDH_LAN2_01_EXPR	[Kudan/Magic Lancer+-Only Equipment] HP +38, PATK +24, DEX +24, LCK +24, Jewels Obtained +10, Charm Res +8, Sleep Res +8, Slow Res +8
+SRPG_ItemParam_IT_EQ_KUDH_LAN2_01_EXPR	[Kudan/Demonic Spearman+-Only Equipment] HP +38, PATK +24, DEX +24, LCK +24, Jewels Obtained +10, Charm Res +8, Sleep Res +8, Slow Res +8
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_01_FLAVOR	Kudanstein's trusty lance, now clad in a dark aura. Kudan used and customized it over a long period, from before it became steeped in darkness, and it is said that no one other than him is able to use the weapon to its full potential.
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_02_NAME	Dark Cell Shell-Armor
-SRPG_ItemParam_IT_EQ_KUDH_LAN2_02_EXPR	[Kudan/Magic Lancer+-Only Equipment] HP +42, PDEF +12, MDEF +30, Wind Res +2, Stun Res +7
+SRPG_ItemParam_IT_EQ_KUDH_LAN2_02_EXPR	[Kudan/Demonic Spearman+-Only Equipment] HP +42, PDEF +12, MDEF +30, Wind Res +2, Stun Res +7
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_02_FLAVOR	Kudanstein's trusty armor, now clad in a dark aura. This light shell-armor has been designed mainly with ease-of-movement in mind, but the dark aura surrounding it means that it now provides ample protection.
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_03_NAME	Dark Cell Armor
-SRPG_ItemParam_IT_EQ_KUDH_LAN2_03_EXPR	[Kudan/Magic Lancer+-Only Equipment] HP +28, PDEF +20, LCK +12, AGI +3, Paralyze Res +7
+SRPG_ItemParam_IT_EQ_KUDH_LAN2_03_EXPR	[Kudan/Demonic Spearman+-Only Equipment] HP +28, PDEF +20, LCK +12, AGI +3, Paralyze Res +7
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_03_FLAVOR	Kudanstein's trusty leg greaves, now clad in a dark aura. These leg greaves are designed to allow for agile movement, but the dark aura around them means that they now also provide increased defensive power and protection against paralysis.
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_04_NAME	Dark Cell Cleaver
-SRPG_ItemParam_IT_EQ_KUDH_LAN2_04_EXPR	[Kudan/Magic Lancer+-Only Equipment] PATK +18, DEX +30, CRIT +30, Water Res +2, Sleep Res +7
+SRPG_ItemParam_IT_EQ_KUDH_LAN2_04_EXPR	[Kudan/Demonic Spearman+-Only Equipment] PATK +18, DEX +30, CRIT +30, Water Res +2, Sleep Res +7
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_04_FLAVOR	Kudanstein's trusty gauntlet, now clad in a dark aura. He needs it in order to best deliver swift lance thrusts and blows, and the dark aura surrounding it means that it now provides not only boosted attack power but also strengthened resistances.
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_05_NAME	Dark Cell Mantle
-SRPG_ItemParam_IT_EQ_KUDH_LAN2_05_EXPR	[Kudan/Magic Lancer+-Only Equipment] MATK +24, AGI +6, Fire Res +2, Light Res +2, Petrify Res +7
+SRPG_ItemParam_IT_EQ_KUDH_LAN2_05_EXPR	[Kudan/Demonic Spearman+-Only Equipment] MATK +24, AGI +6, Fire Res +2, Light Res +2, Petrify Res +7
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_05_FLAVOR	Kudanstein's trusty cloak, now clad in a dark aura. This cloak has proved invaluable during covert activities, but the dark aura now surrounding it makes it somewhat conspicuous... However, its resistance-boosting capabilities have been vastly enhanced.
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_06_NAME	Dark Cell Scarf
-SRPG_ItemParam_IT_EQ_KUDH_LAN2_06_EXPR	[Kudan/Magic Lancer+-Only Equipment] CRIT +24, DEX +24, AGI +6, Poison Res +7, Charm Res +7
+SRPG_ItemParam_IT_EQ_KUDH_LAN2_06_EXPR	[Kudan/Demonic Spearman+-Only Equipment] CRIT +24, DEX +24, AGI +6, Poison Res +7, Charm Res +7
 SRPG_ItemParam_IT_EQ_KUDH_LAN2_06_FLAVOR	Kudanstein's trusty scarf, now clad in a dark aura. Kudan has worn it since before he joined the knighthood, and although it's a little worn and frayed he'd never dream of getting rid of it.
 SRPG_ItemParam_IT_EQ_FREE_LANCE_NAME	Silver Dragon Bone Spear
 SRPG_ItemParam_IT_EQ_FREE_LANCE_EXPR	[Freed/Dragon Cavalier+-Only Equipment] PATK +30, CRIT +20, HP +30, DEX +9, MATK +16, Charm Res +8, Sleep Res +8, Slow Res +8
@@ -25311,28 +25314,28 @@ SRPG_ItemParam_IT_EQ_LIES_2CC_BARRETTE_FLAVOR	Lisbeth's favorite hair barrette. 
 SRPG_ItemParam_IT_EQ_LIES_2CC_BADGE_NAME	Student Badge
 SRPG_ItemParam_IT_EQ_LIES_2CC_BADGE_EXPR	[Lisbeth/Wizard+-Only Equipment] Jewels +16, LCK +12, CRIT +9, AGI +3, Fire Res +5
 SRPG_ItemParam_IT_EQ_LIES_2CC_BADGE_FLAVOR	This badge signifies that the bearer is a student at Venus Academy of Magic. Lisbeth usually wears it without fail, but the one time she did forget it was the day they had a uniform check! She borrowed Alma's spare, apparently...
-SRPG_ItemParam_IT_EQ_YUAN_ARROW_NAME	Survive Arrow
+SRPG_ItemParam_IT_EQ_YUAN_ARROW_NAME	Survival Arrow
 SRPG_ItemParam_IT_EQ_YUAN_ARROW_EXPR	[Yuan/Ninja+-Only Equipment] DEX +32, PATK +50, AGI +2, Jewels Obtained +2, Wind Res +1, Paralyze Res +8, Daze Res +8, Bind Res +8
 SRPG_ItemParam_IT_EQ_YUAN_ARROW_FLAVOR	Yuan's treasured bow. He has used it for many years, and it's seen him through some pretty dangerous spots and shady missions. It's the most important thing in his life apart from Lucido, and apparently he doesn't plan on ever getting rid of it, no matter how old it gets.
-SRPG_ItemParam_IT_EQ_YUAN_BELT_NAME	Survive Belt
+SRPG_ItemParam_IT_EQ_YUAN_BELT_NAME	Survival Belt
 SRPG_ItemParam_IT_EQ_YUAN_BELT_EXPR	[Yuan/Ninja+-Only Equipment] HP +90, PDEF +36, LCK +16, Fire Res +2, Poison Res +25
 SRPG_ItemParam_IT_EQ_YUAN_BELT_FLAVOR	The belt that Yuan wears around his waist. It's fitted with a range of professional tools, and is actually pretty heavy. His younger brother, Lucido, says it's goofy-looking, but Yuan finds it very useful and doesn't plan on getting rid of it any time soon.
 SRPG_ItemParam_IT_EQ_YUAN_GEAR_NAME	Reida's Gear
 SRPG_ItemParam_IT_EQ_YUAN_GEAR_EXPR	[Yuan/Ninja+-Only Equipment] PDEF +26, MDEF +26, HP +80, Stun Res +25, Water Res +2
 SRPG_ItemParam_IT_EQ_YUAN_GEAR_FLAVOR	Yuan's sturdy single shoulder pad. He chose it for its functionality above all else, and as a result hasn't sustained a shoulder wound since he bought it. Yuan would like Lucido to wear one as well, but Lucido isn't interested at all.
-SRPG_ItemParam_IT_EQ_YUAN_BUNDLE_NAME	Survive Bundle
+SRPG_ItemParam_IT_EQ_YUAN_BUNDLE_NAME	Survival Bundle
 SRPG_ItemParam_IT_EQ_YUAN_BUNDLE_EXPR	[Yuan/Ninja+-Only Equipment] DEX +48, CRIT +32, LCK +26, AGI +2, Wind Res +2
 SRPG_ItemParam_IT_EQ_YUAN_BUNDLE_FLAVOR	Yuan carries this quiver with him when he heads into battle. Yuan is always practical and well-equipped, whereas his younger brother, Lucido, refuses flat-out to wear anything that doesn't look good--which is a constant source of worry for his older brother.
 SRPG_ItemParam_IT_EQ_YUAN_BOOTS_NAME	Reida's Boots
 SRPG_ItemParam_IT_EQ_YUAN_BOOTS_EXPR	[Yuan/Ninja+-Only Equipment] AGI +6, DEX +20, MDEF +32, Sleep Res +25, Paralyze Res +25
 SRPG_ItemParam_IT_EQ_YUAN_BOOTS_FLAVOR	Yuan wears these boots to protect his feet. He treasures them for their particularly thick soles, which help prevent needless injuries during battle. He often worries that the pointy tipped shoes worn by Lucido must be hurting his feet...
-SRPG_ItemParam_IT_EQ_YUAN_BLADE_NAME	Survive Blade
+SRPG_ItemParam_IT_EQ_YUAN_BLADE_NAME	Survival Blade
 SRPG_ItemParam_IT_EQ_YUAN_BLADE_EXPR	[Yuan/Ninja+-Only Equipment] PATK +50, AGI +2, CRIT +32, Charm Res +25, Petrify Res +25
 SRPG_ItemParam_IT_EQ_YUAN_BLADE_FLAVOR	Yuan carries these knives concealed around his body. They have a wide range of uses, so he always makes sure he has plenty spare. Lucido, on the other hand, finds the thought of having a knife hidden on your body scary because you might cut yourself...
 SRPG_ItemParam_IT_EQ_ARKI_HOOKAH_NAME	Sabel Shisha
 SRPG_ItemParam_IT_EQ_ARKI_HOOKAH_EXPR	[Arkil/Magic Swordsman+-Only Equipment] MDEF +24, MATK +26, LCK +16, Paralyze Res +7, Fire Res +3, Charm Res +8, Sleep Res +8, Slow Res +8
 SRPG_ItemParam_IT_EQ_ARKI_HOOKAH_FLAVOR	This fabled shisha pipe increases magical energy. It's used only with special tobacco that has a high concentration of Alchemia, and purified water. Arkil likes nothing more than relaxing with a smoke after a hard day's work.
-SRPG_ItemParam_IT_EQ_ARKI_TURBAN_NAME	Sabre Turban
+SRPG_ItemParam_IT_EQ_ARKI_TURBAN_NAME	Sabel Turban
 SRPG_ItemParam_IT_EQ_ARKI_TURBAN_EXPR	[Arkil/Magic Swordsman+-Only Equipment] PDEF +24, MATK +26, AGI +2, Poison Res +7, Water Res +3
 SRPG_ItemParam_IT_EQ_ARKI_TURBAN_FLAVOR	The ornate turban that adorns Arkil's head. The long piece of fabric hanging down from it that flutters in the wind is like his trademark. Not only is it beautiful, it's made from a very strong material that firmly guards/protects the head.
 SRPG_ItemParam_IT_EQ_ARKI_JACKET_NAME	Sabel Veston
@@ -26463,29 +26466,29 @@ SRPG_ItemParam_IT_EQ_DIAGRAM_LIES_2CC_BARRETTE_FLAVOR
 SRPG_ItemParam_IT_EQ_DIAGRAM_LIES_2CC_BADGE_NAME	Student Badge Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAM_LIES_2CC_BADGE_EXPR	Required in order to create: Student Badge
 SRPG_ItemParam_IT_EQ_DIAGRAM_LIES_2CC_BADGE_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_ARROW_NAME	Survive Arrow Diagram
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_ARROW_EXPR	Required in order to create: Survive Arrow
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_ARROW_NAME	Survival Arrow Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_ARROW_EXPR	Required in order to create: Survival Arrow
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_ARROW_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BELT_NAME	Survive Belt Diagram
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BELT_EXPR	Required in order to create: Survive Belt
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BELT_NAME	Survival Belt Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BELT_EXPR	Required in order to create: Survival Belt
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BELT_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_GEAR_NAME	Reida's Gear Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_GEAR_EXPR	Required in order to create: Reida's Gear
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_GEAR_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BUNDLE_NAME	Survive Bundle Diagram
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BUNDLE_EXPR	Required in order to create: Survive Bundle
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BUNDLE_NAME	Survival Bundle Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BUNDLE_EXPR	Required in order to create: Survival Bundle
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BUNDLE_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BOOTS_NAME	Reida's Boots Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BOOTS_EXPR	Required in order to create: Reida's Boots
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BOOTS_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BLADE_NAME	Survive Blade Diagram
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BLADE_EXPR	Required in order to create: Survive Blade
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BLADE_NAME	Survival Blade Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BLADE_EXPR	Required in order to create: Survival Blade
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BLADE_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAM_ARKI_HOOKAH_NAME	Sabel Shisha Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAM_ARKI_HOOKAH_EXPR	Required in order to create: Sabel Shisha
 SRPG_ItemParam_IT_EQ_DIAGRAM_ARKI_HOOKAH_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAM_ARKI_TURBAN_NAME	Sabre Turban Diagram
-SRPG_ItemParam_IT_EQ_DIAGRAM_ARKI_TURBAN_EXPR	Required in order to create: Sabre Turban
+SRPG_ItemParam_IT_EQ_DIAGRAM_ARKI_TURBAN_NAME	Sabel Turban Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAM_ARKI_TURBAN_EXPR	Required in order to create: Sabel Turban
 SRPG_ItemParam_IT_EQ_DIAGRAM_ARKI_TURBAN_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAM_ARKI_JACKET_NAME	Sabel Veston Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAM_ARKI_JACKET_EXPR	Required in order to create: Sabel Veston
@@ -27384,29 +27387,29 @@ SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_LIES_2CC_BARRETTE_FLAVOR
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_LIES_2CC_BADGE_NAME	Student Badge Diagram Piece
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_LIES_2CC_BADGE_EXPR	Collect 80 of these to create: Student Badge Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_LIES_2CC_BADGE_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_ARROW_NAME	Survive Arrow Diagram Piece
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_ARROW_EXPR	Collect 80 of these to create: Survive Arrow Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_ARROW_NAME	Survival Arrow Diagram Piece
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_ARROW_EXPR	Collect 80 of these to create: Survival Arrow Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_ARROW_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BELT_NAME	Survive Belt Diagram Piece
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BELT_EXPR	Collect 80 of these to create: Survive Belt Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BELT_NAME	Survival Belt Diagram Piece
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BELT_EXPR	Collect 80 of these to create: Survival Belt Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BELT_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_GEAR_NAME	Reida's Gear Diagram Piece
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_GEAR_EXPR	Collect 80 of these to create: Reida's Gear Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_GEAR_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BUNDLE_NAME	Survive Bundle Diagram Piece
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BUNDLE_EXPR	Collect 80 of these to create: Survive Bundle Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BUNDLE_NAME	Survival Bundle Diagram Piece
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BUNDLE_EXPR	Collect 80 of these to create: Survival Bundle Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BUNDLE_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BOOTS_NAME	Reida's Boots Diagram Piece
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BOOTS_EXPR	Collect 80 of these to create: Reida's Boots Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BOOTS_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BLADE_NAME	Survive Blade Diagram Piece
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BLADE_EXPR	Collect 80 of these to create: Survive Blade Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BLADE_NAME	Survival Blade Diagram Piece
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BLADE_EXPR	Collect 80 of these to create: Survival Blade Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BLADE_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_ARKI_HOOKAH_NAME	Sabel Shisha Diagram Piece
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_ARKI_HOOKAH_EXPR	Collect 80 of these to create: Sabel Shisha Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_ARKI_HOOKAH_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_ARKI_TURBAN_NAME	Sabre Turban Diagram Piece
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_ARKI_TURBAN_EXPR	Collect 80 of these to create: Sabre Turban Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_ARKI_TURBAN_NAME	Sabel Turban Diagram Piece
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_ARKI_TURBAN_EXPR	Collect 80 of these to create: Sabel Turban Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_ARKI_TURBAN_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_ARKI_JACKET_NAME	Sabel Veston Diagram Piece
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_ARKI_JACKET_EXPR	Collect 80 of these to create: Sabel Veston Diagram
@@ -27688,7 +27691,7 @@ SRPG_ItemParam_IT_KEY_QUEST_POK_SAM_NAME	Key of Truth
 SRPG_ItemParam_IT_KEY_QUEST_POK_SAM_EXPR	Once you collect three of this item, you can go to the Key Quest menu and use them to unlock For Whom the Princess Vanishes - Episode 1.
 SRPG_ItemParam_IT_KEY_QUEST_POK_SAM_FLAVOR	This key can only be obtained by those who have traversed each of the three worlds. It allows the bearer to travel past the Door of Truth, to the land where the three worlds meet, and be granted any one wish.
 SRPG_ItemParam_IT_KEY_QUEST_3TITLE_SUN_NAME	Key of the Sun
-SRPG_ItemParam_IT_KEY_QUEST_3TITLE_SUN_EXPR	Using this item at the Key Quest menu will unlock For Whom the Princess Weeps: The Sun God and the Golden Key.
+SRPG_ItemParam_IT_KEY_QUEST_3TITLE_SUN_EXPR	Using this item at the Key Quest menu will unlock The Sun God and the Golden Key.
 SRPG_ItemParam_IT_KEY_QUEST_3TITLE_SUN_FLAVOR	This sacred key is able to control and manipulate the power of the sun. It is also known as the "Golden Key," and its purpose is to save the shining sun and its guardian. It is imbued with a powerful energy, and the key itself is dazzling to behold.
 SRPG_ItemParam_IT_EQ_SOUL_ARM_NAME	Soldier Token
 SRPG_ItemParam_IT_EQ_SOUL_ARM_EXPR	Required in order to change to the "Soldier" job type
@@ -29325,8 +29328,8 @@ SRPG_ItemParam_IT_AF_ARMO_ARMOR_05_FLAVOR
 SRPG_ItemParam_IT_AF_ARMS_POK_EROS_00_NAME	Cupid Bow Eros Shard
 SRPG_ItemParam_IT_AF_ARMS_POK_EROS_00_EXPR	Collect 80 of these to create: Cupid Bow Eros
 SRPG_ItemParam_IT_AF_ARMS_POK_EROS_00_FLAVOR	 
-SRPG_ItemParam_IT_AF_ARMS_S_YURI_00_NAME	White-Lily Knife Shard
-SRPG_ItemParam_IT_AF_ARMS_S_YURI_00_EXPR	Collect 80 of these to create: White-Lily Knife
+SRPG_ItemParam_IT_AF_ARMS_S_YURI_00_NAME	White-Lily Katana Shard
+SRPG_ItemParam_IT_AF_ARMS_S_YURI_00_EXPR	Collect 80 of these to create: White-Lily Katana
 SRPG_ItemParam_IT_AF_ARMS_S_YURI_00_FLAVOR	 
 SRPG_ItemParam_IT_AF_ARMS_KAI_04_NAME	Ocean Espada Shard
 SRPG_ItemParam_IT_AF_ARMS_KAI_04_EXPR	Collect 150 of these to create: Ocean Espada
@@ -29457,7 +29460,7 @@ SRPG_ItemParam_IT_SK_YAUL_SWIM_FLAVOR
 SRPG_ItemParam_IT_SK_POK_EROS_SWIM_NAME	Eros Swimsuit Skin
 SRPG_ItemParam_IT_SK_POK_EROS_SWIM_EXPR	This skin is only for use with the unit Eros. In order to use it, you must own the unit.
 SRPG_ItemParam_IT_SK_POK_EROS_SWIM_FLAVOR	 
-SRPG_ItemParam_IT_SK_S_AMAT_SWIM_NAME	Yauras Swimsuit Skin
+SRPG_ItemParam_IT_SK_S_AMAT_SWIM_NAME	Amaterasu Swimsuit Skin
 SRPG_ItemParam_IT_SK_S_AMAT_SWIM_EXPR	This skin is only for use with the unit Amaterasu. In order to use it, you must own the unit.
 SRPG_ItemParam_IT_SK_S_AMAT_SWIM_FLAVOR	 
 SRPG_ItemParam_IT_SK_S_YURI_SWIM_NAME	Yuri Swimsuit Skin
@@ -32141,7 +32144,7 @@ SRPG_ItemParam_IT_US_EVENT_HALLOWEEN_2016_08_EXPR	For use during battle. Recover
 SRPG_ItemParam_IT_US_EVENT_HALLOWEEN_2016_08_FLAVOR	Caesar had these crunchy cookies ready as treats for Halloween. They come in containers shaped like jack-o'-lanterns. They're piping hot, and a little on the spicy side, but they've got a delicious, delicately balanced flavor.
 SRPG_ItemParam_IT_EVENT_DISCOIN_NAME	Demonic Coin
 SRPG_ItemParam_IT_EVENT_DISCOIN_EXPR	 
-SRPG_ItemParam_IT_EVENT_DISCOIN_FLAVOR	A coin that can be obtained from the Item Realm.
+SRPG_ItemParam_IT_EVENT_DISCOIN_FLAVOR	A coin that can be obtained from the Item World.
 SRPG_ItemParam_IT_EVENT_VEDACOIN_NAME	Veda Coins
 SRPG_ItemParam_IT_EVENT_VEDACOIN_EXPR	 
 SRPG_ItemParam_IT_EVENT_VEDACOIN_FLAVOR	A coin that can be obtained in Mystic Tower Veda.
@@ -35258,7 +35261,7 @@ SRPG_ArtifactParam_AF_ARMS_POK_EROS_00_NAME	Cupid Bow Eros
 SRPG_ArtifactParam_AF_ARMS_POK_EROS_00_EXPR	Attributes: PATK Up, AGI Up, DEX Up, Chance of Hit Rate Up (Added when evolving to 5★.)<br>Enables Master Ability when equipped on Eros (4-hit Light Missile Dmg (100% Hit) on single target & absorbs part of Dmg inflicted as HP [Range: 5, Height Range: Unlimited])
 SRPG_ArtifactParam_AF_ARMS_POK_EROS_00_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ARMS_POK_EROS_00_FLAVOR	This bow is said to have been wielded by a goddess of love and sex. It's made from the same Killium as Eros. It is said that when equipped by one who bears the name Eros, the Killium and Alchemia will react with each other and unleash a special power.
-SRPG_ArtifactParam_AF_ARMS_S_YURI_00_NAME	White-Lily Knife
+SRPG_ArtifactParam_AF_ARMS_S_YURI_00_NAME	White-Lily Katana
 SRPG_ArtifactParam_AF_ARMS_S_YURI_00_EXPR	Attributes: PATK Up, PDEF Up, AGI Up, Chance of PATK/PDEF Up for two turns (Added when evolving to 5★.)<br>Enables Master Ability when equipped on Yuri (3-hit Thunder Slash Dmg to single target & greatly raises own PDEF/MDEF until next turn [Range: 1, Height Range: 2])
 SRPG_ArtifactParam_AF_ARMS_S_YURI_00_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ARMS_S_YURI_00_FLAVOR	The beauty of this exquisite short sword has been compared to the white lilies of the land of Crimson Summer when in full bloom. A smith from a ninja village is said to have crafted it especially with Yuri in mind, and it possesses both sharp and graceful in equal measure. Only Yuri is able to utilize its full power.
@@ -37007,8 +37010,8 @@ SRPG_TrophyParam_RECORD_2017_APR_2_08_NAME	[Limited Time] Clear Chapter 3: Episo
 SRPG_TrophyParam_RECORD_2017_MAR_DIS2_01_NAME	Clear [Tutorial Quest] Raise Unit Lv
 SRPG_TrophyParam_RECORD_2017_MAR_DIS2_02_NAME	Clear [Tutorial Quest] Checking Out Unit Evolving
 SRPG_TrophyParam_RECORD_2017_MAR_DIS2_03_NAME	Raise a unit of your choice to Level 20
-SRPG_TrophyParam_RECORD_2017_MAR_DIS2_04_NAME	Clear the Item Realm once
-SRPG_TrophyParam_RECORD_2017_MAR_DIS2_05_NAME	Clear the Item Realm three times
+SRPG_TrophyParam_RECORD_2017_MAR_DIS2_04_NAME	Clear the Item World once
+SRPG_TrophyParam_RECORD_2017_MAR_DIS2_05_NAME	Clear the Item World three times
 SRPG_TrophyParam_RECORD_2017_MAR_DIS2_06_NAME	Enhance Gear once
 SRPG_TrophyParam_RECORD_2017_MAR_DIS2_07_NAME	Clear all the missions
 SRPG_TrophyParam_DAILY_STAMINA_DIS1_01_NAME	[Collab Celebration] Free AP500!
@@ -39543,11 +39546,11 @@ SRPG_TrophyCategoryParam_SWIM_GORM_TROPHY_EX_NAME	[Limited Time] Savage Sea Warr
 SRPG_TrophyCategoryParam_SWIM_GORM_TROPHY_EX_MULTI_NAME	[Limited Time] Savage Sea Warrior -Storm Legend- [EX] [Multiplay]
 SRPG_TrophyCategoryParam_SWIM_GORM_TROPHY_NAME	[Limited Time] Savage Sea Warrior -Storm Legend-
 SRPG_TrophyCategoryParam_SWIM_PRESENT_TROPHY_NAME	[Limited Time] Fight! Manliness Lessons (Now Accepting Second-Term Students!)
-SRPG_TrophyCategoryParam_3TITLE_TROPHY_NAME	[Limited Time] For Whom the Princess Vanishes - The Sun God and the Golden Key
-SRPG_TrophyCategoryParam_3TITLE_TRUEEND_NAME	[Limited Time] [True Ending] For Whom the Princess Vanishes - The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_3TITLE_TROPHY_NAME	[Limited Time] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_3TITLE_TRUEEND_NAME	[Limited Time] [True Ending] The Sun God and the Golden Key
 SRPG_TrophyCategoryParam_3TITLE_AMATERASU_GROWTH_NAME	[Limited Time] Amaterasu Training Mission
 SRPG_TrophyCategoryParam_3TITLE_DEFEAT_UZUSHARU_NAME	[Limited Time] Defeat Uzushiomaru!
-SRPG_TrophyCategoryParam_3TITLE_TROPHY_EX_NAME	[Limited Time] For Whom the Princess Vanishes - The Sun God and the Golden Key [EX]
+SRPG_TrophyCategoryParam_3TITLE_TROPHY_EX_NAME	[Limited Time] The Sun God and the Golden Key [EX]
 SRPG_TrophyCategoryParam_POTK_TROPHY_EX_MULTI_NAME	[Revival] [FgG Collab] For Whom the Princess Weeps [EX] [Multiplay]
 SRPG_TrophyCategoryParam_POTK_TROPHY_EX_NAME	[Revival] [FgG Collab] For Whom the Princess Weeps [EX]
 SRPG_TrophyCategoryParam_FF15_TROPHY_NAME	[Limited Time] FFXV Collab Event Quest
@@ -39664,7 +39667,7 @@ SRPG_TrophyCategoryParam_SO_YUTO_TROPHY_NAME	[Limited Time] Forest Protector
 SRPG_TrophyCategoryParam_SO_YUTO_TROPHY_EX_NAME	[Limited Time] Forest Protector [EX]
 SRPG_TrophyCategoryParam_SO_YUTO_TROPHY_EX_MULTI_NAME	[Limited Time] Forest Protector [EX] [Multiplay]
 SRPG_TrophyCategoryParam_TIHAYA_TROPHY_MULTI_NAME	[Limited Time] Wadatsumi's Dance [Hard]
-SRPG_TrophyCategoryParam_3TITLE_TROPHY_EX_MULTI_NAME	[Limited Time] For Whom the Princess Vanishes -The Sun God and the Golden Key- [EX] [Multiplay]
+SRPG_TrophyCategoryParam_3TITLE_TROPHY_EX_MULTI_NAME	[Limited Time] The Sun God and the Golden Key [EX] [Multiplay]
 SRPG_TrophyCategoryParam_SO_BLAN_TROPHY_NAME	[Limited Time] Beyond Life or Death
 SRPG_TrophyCategoryParam_SO_BLAN_TROPHY_EX_NAME	[Limited Time] Beyond Life or Death [EX]
 SRPG_TrophyCategoryParam_SO_BLAN_TROPHY_EX_MULTI_NAME	[Limited Time] Beyond Life or Death [EX] [Multiplay]
@@ -39792,6 +39795,11 @@ SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL29_NAME	[FFXV] Daily Mission
 SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL30_NAME	[FFXV] Daily Mission
 SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL31_NAME	[FFXV] Daily Mission
 SRPG_TrophyCategoryParam_GL_FF15_DAILY_AUG1_NAME	[FFXV] Daily Mission
+SRPG_TrophyCategoryParam_3TITLE_TROPHY_NAME	[Limited Time] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_3TITLE_TRUEEND_NAME	[Limited Time] [True Ending] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_3TITLE_AMATERASU_GROWTH_NAME	[Limited Time] Amaterasu Training Mission
+SRPG_TrophyCategoryParam_3TITLE_TROPHY_EX_NAME	[Limited Time] The Sun God and the Golden Key [EX]
+SRPG_TrophyCategoryParam_3TITLE_TROPHY_EX_MULTI_NAME	[Limited Time] The Sun God and the Golden Key [EX] [Multiplay]
 SRPG_TrickParam_TR_MAP_POI_01_NAME	Poison Grid
 SRPG_TrickParam_TR_MAP_POI_01_EXPR	Poison Status Grid (Disappears once activated)
 SRPG_TrickParam_TR_MAP_POI_02_NAME	Poison Grid
@@ -40406,6 +40414,9 @@ SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_POTK_MAY2018_FLAVOR
 SRPG_ItemParam_IT_EVENT_GL_5MILLIONCOIN_NAME	[5 Million Downloads Worldwide!] Coin
 SRPG_ItemParam_IT_EVENT_GL_5MILLIONCOIN_EXPR	This coin can be exchanged for fabulous items in the [5 Million Downloads Worldwide!] Coin Exchange Shop.
 SRPG_ItemParam_IT_EVENT_GL_5MILLIONCOIN_FLAVOR	Thank you for your continued support in THE ALCHEMIST CODE!
+SRPG_ItemParam_IT_EVENT_GL_SUMMERCOIN_AUGUST_NAME	[Summer Celebration] Coin
+SRPG_ItemParam_IT_EVENT_GL_SUMMERCOIN_AUGUST_EXPR	Use this coin to exchange for items in the Summer Celebration Coin Exchange Shop
+SRPG_ItemParam_IT_EVENT_GL_SUMMERCOIN_AUGUST_FLAVOR	A coin that can be obtained from Login Bonus during Summer Celebration
 SRPG_TrophyParam_GL_5_MILLION_LOGIN_NAME	[5 Million Downloads Worldwide!] 100-Gem Milestone
 SRPG_TrophyParam_DAILY_GLCLEARALL_5MILLION_NAME	[5 Million Downloads Worldwide!] Clear all Essential Daily Missions
 SRPG_TrophyParam_DAILY_GL2018MAY_5MILLION_01_NAME	[5 Million Downloads Worldwide!] Let's Go on a Quest [1]
@@ -40480,6 +40491,16 @@ SRPG_TrophyParam_GL_MM_02_30July_NAME	[Monday] Level up any Ability
 SRPG_TrophyParam_GL_MM_03_30July_NAME	[Monday] Raise any unit's Job Level once
 SRPG_TrophyParam_GL_MM_04_30July_NAME	[Monday] Clear any Multiplay Quest once
 SRPG_TrophyParam_GL_MM_05_30July_NAME	[Monday] Clear any quest with a mercenary once
+SRPG_TrophyParam_GL_MM_01_6August_NAME	[Monday] Level up any Unit
+SRPG_TrophyParam_GL_MM_02_6August_NAME	[Monday] Level up any Ability
+SRPG_TrophyParam_GL_MM_03_6August_NAME	[Monday] Raise any unit's Job Level once
+SRPG_TrophyParam_GL_MM_04_6August_NAME	[Monday] Clear any Multiplay Quest once
+SRPG_TrophyParam_GL_MM_05_6August_NAME	[Monday] Clear any quest with a mercenary once
+SRPG_TrophyParam_GL_MM_01_13August_NAME	[Monday] Level up any Unit
+SRPG_TrophyParam_GL_MM_02_13August_NAME	[Monday] Level up any Ability
+SRPG_TrophyParam_GL_MM_03_13August_NAME	[Monday] Raise any unit's Job Level once
+SRPG_TrophyParam_GL_MM_04_13August_NAME	[Monday] Clear any Multiplay Quest once
+SRPG_TrophyParam_GL_MM_05_13August_NAME	[Monday] Clear any quest with a mercenary once
 SRPG_TrophyParam_GL_SO_ZEKE_01_01_NAME	Clear Blood Wolf by Any Other Name - Episode 1 [1]
 SRPG_TrophyParam_GL_SO_ZEKE_01_02_NAME	Clear Blood Wolf by Any Other Name - Episode 1 [2]
 SRPG_TrophyParam_GL_SO_ZEKE_01_03_NAME	Clear Blood Wolf by Any Other Name - Episode 1 [3]
@@ -40678,25 +40699,25 @@ SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_FF15_NAME	[FFXV] 5★ 50-Soul Shard 
 SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_FF15_EXPR	Use this ticket to summon 50 5★ Soul Shards of your choice from FINAL FANTASY XV. (Noctis/Ignis/Aranea/Gladiolus)
 SRPG_ItemParam_IT_SI_GL_5STAR_5SOUL_TICKET_FF15_NAME	[FFXV] 5★ 5-Soul Shard Selector
 SRPG_ItemParam_IT_SI_GL_5STAR_5SOUL_TICKET_FF15_EXPR	Use this ticket to summon 5 5★ Soul Shards of your choice from FINAL FANTASY XV. (Noctis/Ignis/Aranea/Gladiolus)
-SRPG_ItemParam_IT_SI_GL_5STAR_5SOUL_TICKET_FF15_FLAVOR	
+SRPG_ItemParam_IT_SI_GL_5STAR_5SOUL_TICKET_FF15_FLAVOR	 
 SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F15_NAME	Featured 5★ Soul Shard 25-Summon Ticket
 SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F15_EXPR	Use this ticket to summon 25 Soul Shards.
-SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F15_FLAVOR	
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F15_FLAVOR	 
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B15_NAME	5★ Unit Summon Ticket
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B15_EXPR	Use this ticket to summon one 5★ unit.
-SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B15_FLAVOR	
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B15_FLAVOR	 
 SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B15_NAME	4★ Gear Summon Ticket
 SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B15_EXPR	Use this ticket to summon a 4★ gear item.
-SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B15_FLAVOR	
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B15_FLAVOR	 
 SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F15_NAME	Featured 5★ Unit Selector
 SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F15_EXPR	Use this ticket to summon the 5★ unit of your choice.
-SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F15_FLAVOR	
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F15_FLAVOR	 
 SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B15_NAME	5★ Equipment 10-Summon Ticket
 SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B15_EXPR	Use this ticket to summon ten 5★ equipment items.
-SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B15_FLAVOR	
+SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B15_FLAVOR	 
 SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F15_NAME	Featured 5★ 50-Soul Shard Selector
 SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F15_EXPR	Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.
-SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F15_FLAVOR	
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F15_FLAVOR	 
 SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_B14FF15_NAME	4★ Gear Selector
 SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_B14FF15_EXPR	Use this ticket to summon the 4★ gear item of your choice. (Some 4★ gear not available.)
 SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_B14FF15_FLAVOR	 
@@ -40709,6 +40730,60 @@ SRPG_ItemParam_IT_US_GL_5STAR_10PER_TICKET_FF15_FLAVOR
 SRPG_ItemParam_IT_US_GL_DAILY_TICKET_NAME	Daily Event Quest Skip Ticket
 SRPG_ItemParam_IT_US_GL_DAILY_TICKET_EXPR	A ticket used to skip selected battles.
 SRPG_ItemParam_IT_US_GL_DAILY_TICKET_FLAVOR	This ticket-like item allows the user to sense the presence of hostile beings. The mark in its center glows red when detecting animosity, growing brighter according to the hostile being's proximity to the bearer, and allowing him or her to effectively avoid combat.
+SRPG_ItemParam_IT_US_GL_5STAR_SOUL_TICKET_SUNGOD_NAME	[The Sun God and the Golden Key] 5★ Unit Soul Shard Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_SOUL_TICKET_SUNGOD_EXPR	Use this ticket to obtain 1 Eros/Yuri Soul Shard.
+SRPG_ItemParam_IT_US_GL_5STAR_SOUL_TICKET_SUNGOD_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_POTKSHINOBI3_NAME	Featured 5★ Soul Shard 25-Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_POTKSHINOBI3_EXPR	Use this ticket to summon 25 Soul Shards. (Eros/Yuri/Cita/Forcas)
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_POTKSHINOBI3_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_POTKSHINOBI3_NAME	5★ Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_POTKSHINOBI3_EXPR	Use this ticket to summon one 5★ unit.
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_POTKSHINOBI3_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_POTKSHINOBI3_NAME	4★ Gear Summon Ticket
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_POTKSHINOBI3_EXPR	Use this ticket to summon a 4★ gear item.
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_POTKSHINOBI3_FLAVOR	 
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_POTKSHINOBI3_NAME	Featured 5★ Unit Selector
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_POTKSHINOBI3_EXPR	Use this ticket to summon the 5★ unit of your choice. (Eros/Yuri/Cita/Forcas)
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_POTKSHINOBI3_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_POTKSHINOBI3_NAME	Featured 5★ 50-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_POTKSHINOBI3_EXPR	Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.  (Eros/Yuri/Cita/Forcas)
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_POTKSHINOBI3_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_POTKSHINOBI3_NAME	Featured 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_POTKSHINOBI3_EXPR	Use this ticket to summon the 25 Soul Shards of your choice for 5★ units. (Eros/Yuri/Bashosen)
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_POTKSHINOBI3_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B15_NAME	4+★ Equipment 10-Summon Ticket
+SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B15_EXPR	Use this ticket to summon ten 4+★ equipment items.
+SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B15_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_10PER_TICKET_POTKSHINOBI3_NAME	Featured Unit 10% Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_10PER_TICKET_POTKSHINOBI3_EXPR	Use this ticket to summon a unit with a 10% chance of it being a featured unit. (Eros/Yuri)
+SRPG_ItemParam_IT_US_GL_5STAR_10PER_TICKET_POTKSHINOBI3_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F16_NAME	Featured 5★ Soul Shard 25-Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F16_EXPR	Use this ticket to summon 25 Soul Shards.
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F16_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B16_NAME	5★ Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B16_EXPR	Use this ticket to summon one 5★ unit.
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B16_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B16_NAME	4★ Gear Summon Ticket
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B16_EXPR	Use this ticket to summon a 4★ gear item.
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B16_FLAVOR	 
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F16_NAME	Featured 5★ Unit Selector
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F16_EXPR	Use this ticket to summon the 5★ unit of your choice.
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F16_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B16_NAME	5★ Equipment 10-Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B16_EXPR	Use this ticket to summon ten 5★ equipment items.
+SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B16_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F16_NAME	Featured 5★ 50-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F16_EXPR	Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F16_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B16_NAME	4+★ Equipment 10-Summon Ticket
+SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B16_EXPR	Use this ticket to summon ten 4+★ equipment items.
+SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B16_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_F16_NAME	Featured 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_F16_EXPR	Use this ticket to summon the 25 Soul Shards of your choice for 5★ units. 
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_F16_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_15SOUL_TICKET_SUNGOD_NAME	[The Sun God and the Golden Key] 5★ 15-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_15SOUL_TICKET_SUNGOD_EXPR	Use this Ticket to select 15 Eros/Yuri Soul Shards.
+SRPG_ItemParam_IT_SI_GL_5STAR_15SOUL_TICKET_SUNGOD_FLAVOR	 
 SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S01_NAME	4★ Gear Selector
 SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S01_EXPR	Use this ticket to summon the 4★ gear item of your choice.
 SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S01_FLAVOR	 
@@ -40961,3 +41036,184 @@ SRPG_TrophyParam_GL_BF_DAILY_05_NAME	[Daily] Brave Frontier - Play Multi Quest 3
 SRPG_TrophyParam_GL_WINTERHOLIDAY_PRESENT_NAME	Winter Holiday Special Present
 SRPG_TrophyParam_GL_WINTERHOLIDAY_DAILY_01_NAME	[Daily] Winter Holiday - Buy any item from any normal Shop
 SRPG_TrophyParam_GL_WINTERHOLIDAY_DAILY_02_NAME	[Daily] Winter Holiday - Raise any unit's Job Level
+SRPG_TrophyParam_RECORD_3TITLE_1_1_NAME	Clear The Sun God and the Golden Key - Act 1 once [1/5]
+SRPG_TrophyParam_RECORD_3TITLE_1_2_NAME	Clear The Sun God and the Golden Key - Act 1 three times [3/5]
+SRPG_TrophyParam_RECORD_3TITLE_1_3_NAME	Clear The Sun God and the Golden Key - Act 1 five times [5/5]
+SRPG_TrophyParam_RECORD_3TITLE_2_1_NAME	Clear The Sun God and the Golden Key - Act 2 once [1/5]
+SRPG_TrophyParam_RECORD_3TITLE_2_2_NAME	Clear The Sun God and the Golden Key - Act 2 three times [3/5]
+SRPG_TrophyParam_RECORD_3TITLE_2_3_NAME	Clear The Sun God and the Golden Key - Act 2 five times [5/5]
+SRPG_TrophyParam_RECORD_3TITLE_3_1_NAME	Clear The Sun God and the Golden Key - Act 3 once [1/10]
+SRPG_TrophyParam_RECORD_3TITLE_3_2_NAME	Clear The Sun God and the Golden Key - Act 3 five times [5/10]
+SRPG_TrophyParam_RECORD_3TITLE_3_3_NAME	Clear The Sun God and the Golden Key - Act 3 ten times [10/10]
+SRPG_TrophyParam_RECORD_3TITLE_4_1_NAME	Clear The Sun God and the Golden Key - Act 4 once [1/10]
+SRPG_TrophyParam_RECORD_3TITLE_4_2_NAME	Clear The Sun God and the Golden Key - Act 4 five times [5/10]
+SRPG_TrophyParam_RECORD_3TITLE_4_3_NAME	Clear The Sun God and the Golden Key - Act 4 ten times [10/10]
+SRPG_TrophyParam_RECORD_3TITLE_5_1_NAME	Clear The Sun God and the Golden Key - Act 5 once [1/20]
+SRPG_TrophyParam_RECORD_3TITLE_5_2_NAME	Clear The Sun God and the Golden Key - Act 5 five times [5/20]
+SRPG_TrophyParam_RECORD_3TITLE_5_3_NAME	Clear The Sun God and the Golden Key - Act 5 ten times [10/20]
+SRPG_TrophyParam_RECORD_3TITLE_5_4_NAME	Clear The Sun God and the Golden Key - Act 5 fifteen times [15/20]
+SRPG_TrophyParam_RECORD_3TITLE_5_5_NAME	Clear The Sun God and the Golden Key - Act 5 twenty times [20/20]
+SRPG_TrophyParam_RECORD_3TITLE_AMATERASU_01_NAME	Raise Amaterasu's Level to 30
+SRPG_TrophyParam_RECORD_3TITLE_AMATERASU_02_NAME	Evolve Amaterasu to 4★
+SRPG_TrophyParam_RECORD_3TITLE_AMATERASU_03_NAME	Raise Amaterasu's Level to 50
+SRPG_TrophyParam_RECORD_3TITLE_AMATERASU_04_NAME	Evolve Amaterasu to 5★
+SRPG_TrophyParam_RECORD_3TITLE_END1_1_NAME	Clear [True Ending] The Sun God and the Golden Key - Act 1 once [1/5]
+SRPG_TrophyParam_RECORD_3TITLE_END1_2_NAME	Clear [True Ending] The Sun God and the Golden Key - Act 1 five times [5/5]
+SRPG_TrophyParam_RECORD_3TITLE_END2_1_NAME	Clear [True Ending] The Sun God and the Golden Key - Act 2 once [1/5]
+SRPG_TrophyParam_RECORD_3TITLE_END2_2_NAME	Clear [True Ending] The Sun God and the Golden Key - Act 2 five times [5/5]
+SRPG_TrophyParam_RECORD_3TITLE_END3_1_NAME	Clear [True Ending] The Sun God and the Golden Key - Act 3 once [1/5]
+SRPG_TrophyParam_RECORD_3TITLE_END3_2_NAME	Clear [True Ending] The Sun God and the Golden Key - Act 3 five times [5/5]
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX2_01_NAME	Clear The Sun God and the Golden Key [EX2] once
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX2_02_NAME	Clear The Sun God and the Golden Key [EX2] three times
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX2_03_NAME	Clear The Sun God and the Golden Key [EX2] five times
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX2_04_NAME	Clear The Sun God and the Golden Key [EX2] ten times
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX2_M_01_NAME	Clear The Sun God and the Golden Key [EX2] [Multiplay] once
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX2_M_02_NAME	Clear The Sun God and the Golden Key [EX2] [Multiplay] three times
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX2_M_03_NAME	Clear The Sun God and the Golden Key [EX2] [Multiplay] five times
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX1_01_NAME	Clear Phantom of the Alchemist 2 [EX5] once
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX1_02_NAME	Clear Phantom of the Alchemist 2 [EX5] three times
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX1_03_NAME	Clear Phantom of the Alchemist 2 [EX5] five times
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX1_04_NAME	Clear Phantom of the Alchemist 2 [EX5] ten times
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX1_M_01_NAME	Clear Phantom of the Alchemist 2 [EX5] [Multiplay] once
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX1_M_02_NAME	Clear Phantom of the Alchemist 2 [EX5] [Multiplay] three times
+SRPG_TrophyParam_RECORD_2017_7_3TITEL_EX1_M_03_NAME	Clear Phantom of the Alchemist 2 [EX5] [Multiplay] five times
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180802_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180802_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180802_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180803_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180803_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180803_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180804_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180804_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180804_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180805_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180805_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180805_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180806_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180806_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180806_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180807_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180807_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180807_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180808_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180808_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180808_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180809_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180809_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180809_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180810_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180810_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180810_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180811_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180811_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180811_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180812_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180812_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180812_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180813_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180813_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180813_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180814_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180814_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180814_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180815_1_NAME	[Limited Time] The Sun God's Daily Mission 1
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180815_2_NAME	[Limited Time] The Sun God's Daily Mission 2
+SRPG_TrophyParam_GL_DAILY_3TITLE_20180815_3_NAME	[Limited Time] The Sun God's Daily Mission 3
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG2_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG3_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG4_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG5_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG6_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG7_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG8_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG9_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG10_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG11_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG12_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG13_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG14_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_DAILY_3TITLE_AUG15_NAME	[Daily] The Sun God and the Golden Key
+SRPG_TrophyCategoryParam_GL_SUMMER_BONUS_MISSION_NAME	Summer Bonus Mission
+SRPG_TrophyParam_DAILY_GLCLEARALL_SUMMER2018_NAME	[Summer Bonus Mission] Clear all Essential Daily Missions
+SRPG_TrophyParam_DAILY_GL_SUMMER2018_01_NAME	[Summer Bonus Mission] Bust Some Heads in the Arena [1]
+SRPG_TrophyParam_DAILY_GL_SUMMER2018_02_NAME	[Summer Bonus Mission] Bust Some Heads in the Arena [2]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG02_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [1/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG03_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [2/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG04_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [3/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG05_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [4/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG06_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [5/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG07_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [6/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG08_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [7/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG09_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [8/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG10_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [9/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG11_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [10/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG12_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [11/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG13_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [12/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG14_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [13/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG15_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [14/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG16_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [15/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG17_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [16/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG18_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [17/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG19_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [18/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG20_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [19/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG21_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [20/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG22_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [21/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG23_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [22/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG24_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [23/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG25_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [24/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG26_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [25/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG27_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [26/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG28_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [27/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG29_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [28/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG30_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [29/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_AUG31_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [30/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_SEP01_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [31/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_SEP02_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [32/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_SEP03_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [33/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_SEP04_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [34/35]
+SRPG_TrophyParam_GL_SUMMER_COIN_SEP05_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [35/35]
+SRPG_TrophyParam_SUMMER2018_01_NAME	Clear Challenge Set
+SRPG_TrophyParam_SUMMER2018_01_00_NAME	Clear The Sun God and the Golden Key Episode 1 3 times
+SRPG_TrophyParam_SUMMER2018_01_01_NAME	Clear The Sun God and the Golden Key Episode 3 3 times
+SRPG_TrophyParam_SUMMER2018_01_02_NAME	Clear The Sun God and the Golden Key Episode 5 3 times
+SRPG_TrophyParam_SUMMER2018_01_03_NAME	Win 1 battle in the Arena
+SRPG_TrophyParam_SUMMER2018_01_04_NAME	Battle in the Arena 3 times
+SRPG_TrophyParam_SUMMER2018_01_05_NAME	Limit Break Amateratsu 15 Times
+SRPG_TrophyParam_SUMMER2018_01_06_NAME	Change Amateratsu's Job
+SRPG_TrophyParam_SUMMER2018_01_07_NAME	Defeat Metal Maiden
+SRPG_TrophyParam_SUMMER2018_01_08_NAME	Defeat Uzushiomaru
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG02_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [1/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG03_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [2/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG04_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [3/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG05_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [4/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG06_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [5/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG07_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [6/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG08_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [7/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG09_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [8/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG10_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [9/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG11_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [10/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG12_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [11/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG13_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [12/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG14_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [13/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG15_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [14/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG16_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [15/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG17_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [16/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG18_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [17/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG19_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [18/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG20_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [19/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG21_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [20/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG22_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [21/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG23_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [22/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG24_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [23/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG25_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [24/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG26_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [25/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG27_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [26/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG28_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [27/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG29_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [28/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG30_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [29/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG31_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [30/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_SEP01_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [31/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_SEP02_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [32/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_SEP03_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [33/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_SEP04_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [34/35]
+SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_SEP05_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [35/35]

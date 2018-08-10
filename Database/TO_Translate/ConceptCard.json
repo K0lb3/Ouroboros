@@ -1278,5 +1278,135 @@
         "iname": "TS_WADA_FUJICA_01",
         "name": "",
         "kanji": "神童と呼ばれた友"
+    },
+    "TS_LUST_ALMA_01": {
+        "iname": "TS_LUST_ALMA_01",
+        "name": "",
+        "kanji": "アルマは楽しそう、でも…"
+    },
+    "TS_LUST_REBECCA_01": {
+        "iname": "TS_LUST_REBECCA_01",
+        "name": "",
+        "kanji": "レベッカは完璧、でも…"
+    },
+    "TS_WRATH_TERESA_01": {
+        "iname": "TS_WRATH_TERESA_01",
+        "name": "",
+        "kanji": "可能性は広き海の如く"
+    },
+    "TS_WADA_KURT": {
+        "iname": "TS_WADA_KURT",
+        "name": "",
+        "kanji": "閃光、交わりし瞬間"
+    },
+    "TS_ENVYRIA_ZAYIN_01": {
+        "iname": "TS_ENVYRIA_ZAYIN_01",
+        "name": "",
+        "kanji": "大陸の正義、ここに在り"
+    },
+    "TS_NORTH_CADANOVA_01": {
+        "iname": "TS_NORTH_CADANOVA_01",
+        "name": "",
+        "kanji": "在りし日の二人と憧れと"
+    },
+    "TS_LOST_VIER_01": {
+        "iname": "TS_LOST_VIER_01",
+        "name": "",
+        "kanji": "空腹アンサンブル"
+    },
+    "TS_SEKAIJU_01": {
+        "iname": "TS_SEKAIJU_01",
+        "name": "",
+        "kanji": "運命の交差"
+    },
+    "TS_SWIM_2018_MIELIKKI": {
+        "iname": "TS_SWIM_2018_MIELIKKI",
+        "name": "",
+        "kanji": "ミエリッキ水着verの主張"
+    },
+    "TS_SWIM_2018_CHALICE": {
+        "iname": "TS_SWIM_2018_CHALICE",
+        "name": "",
+        "kanji": "カリス水着verの主張"
+    },
+    "TS_SWIM_2018_TEONA": {
+        "iname": "TS_SWIM_2018_TEONA",
+        "name": "",
+        "kanji": "テオナ水着verの主張"
+    },
+    "TS_SWIM_2018_YAULAS": {
+        "iname": "TS_SWIM_2018_YAULAS",
+        "name": "",
+        "kanji": "ヤウラス水着verの主張"
+    },
+    "TS_SWIM_2018_YOMI": {
+        "iname": "TS_SWIM_2018_YOMI",
+        "name": "",
+        "kanji": "ヨミ水着verの主張"
+    },
+    "TS_SWIM_2018_GRANZ": {
+        "iname": "TS_SWIM_2018_GRANZ",
+        "name": "",
+        "kanji": "グランツ水着verの主張"
+    },
+    "TS_SWIM_2018_VETEL": {
+        "iname": "TS_SWIM_2018_VETEL",
+        "name": "",
+        "kanji": "ヴェテル水着verの主張"
+    },
+    "TS_SWIM_2018_RINN": {
+        "iname": "TS_SWIM_2018_RINN",
+        "name": "",
+        "kanji": "リン水着verの主張"
+    },
+    "TS_SWIM_2018_ALMILA": {
+        "iname": "TS_SWIM_2018_ALMILA",
+        "name": "",
+        "kanji": "アルミラ水着verの主張"
+    },
+    "TS_SWIM_2018_ACHAD": {
+        "iname": "TS_SWIM_2018_ACHAD",
+        "name": "",
+        "kanji": "アハト水着verの主張"
+    },
+    "TS_SWIM_2018_TERESA": {
+        "iname": "TS_SWIM_2018_TERESA",
+        "name": "",
+        "kanji": "テレサ水着verの主張"
+    },
+    "TS_SWIM_2018_DILGA": {
+        "iname": "TS_SWIM_2018_DILGA",
+        "name": "",
+        "kanji": "ディルガ水着verの主張"
+    },
+    "TS_SWIM_2018_GORMALAS": {
+        "iname": "TS_SWIM_2018_GORMALAS",
+        "name": "",
+        "kanji": "ゴルマラス水着verの主張"
+    },
+    "TS_OFFEVENT_02": {
+        "iname": "TS_OFFEVENT_02",
+        "name": "",
+        "kanji": "うどんの修行だモノ"
+    },
+    "TS_WADA_LEYDOW_01": {
+        "iname": "TS_WADA_LEYDOW_01",
+        "name": "",
+        "kanji": "古の装い"
+    },
+    "TS_SLOTH_AISHA_01": {
+        "iname": "TS_SLOTH_AISHA_01",
+        "name": "",
+        "kanji": "悩殺パフォーマンス"
+    },
+    "TS_WRATH_DOROTHEA_01": {
+        "iname": "TS_WRATH_DOROTHEA_01",
+        "name": "",
+        "kanji": "断崖ディスティニー"
+    },
+    "TS_COMIKE_01": {
+        "iname": "TS_COMIKE_01",
+        "name": "",
+        "kanji": "クノイチの青春"
     }
 }

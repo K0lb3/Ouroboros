@@ -1,0 +1,2 @@
+set DISCORD_BOT_TOKEN=NDU0MDQ5MTYyMTQ1NjkzNjk2.Dfnxwg.nEcjc4TqBb00V41IGRyPeYa0lJ8
+python %~dp0\Discord_Bot_V2\Bot.py

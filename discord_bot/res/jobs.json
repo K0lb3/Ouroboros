@@ -2389,9 +2389,9 @@
             "Liz"
         ],
         "jobe": [
+            "Ranger [Lupus]",
             "Ranger [Serpent]",
-            "Ranger [Falcon]",
-            "Ranger [Lupus]"
+            "Ranger [Falcon]"
         ],
         "main": {
             "iname": "AB_HUN_UPPER",
@@ -3092,7 +3092,9 @@
             "Ankh"
         ],
         "jobe": [
-            "Pirate+"
+            "Pirate+",
+            "Pirate: ALWIDA",
+            "Pirate: TEACH"
         ],
         "main": {
             "iname": "AB_KAI_UPPER",
@@ -4625,10 +4627,10 @@
             "Fiona"
         ],
         "jobe": [
+            "Roaring Thunder Enchanter",
             "Zero Enchanter",
             "Blue Water Enchanter",
-            "Tender Wind Enchanter",
-            "Roaring Thunder Enchanter"
+            "Tender Wind Enchanter"
         ],
         "main": {
             "iname": "AB_ENC_UPPER",
@@ -6010,7 +6012,7 @@
                 }
             ]
         },
-        "weapon": "Spear",
+        "weapon": "Lance",
         "modifiers": {
             "HP": 5,
             "Max Jewels": -5,
@@ -6521,7 +6523,7 @@
                 }
             ]
         },
-        "weapon": "Spear",
+        "weapon": "Lance",
         "modifiers": {
             "HP": 7,
             "Max Jewels": -5,
@@ -12991,9 +12993,9 @@
         ],
         "jobe": [
             "Merchant+  : Armored Battle Maid",
+            "Merchant : Grace Crane",
             "Merchant : Scheming Tanuki",
-            "Merchant : Charming Daruma",
-            "Merchant : Grace Crane"
+            "Merchant : Charming Daruma"
         ],
         "main": {
             "iname": "AB_SHN_UPPER",
@@ -13158,8 +13160,8 @@
             "Carla"
         ],
         "jobe": [
-            "Valkyrie: Sting",
-            "Valkyrie: Dayfall"
+            "Valkyrie: Dayfall",
+            "Valkyrie: Sting"
         ],
         "main": {
             "iname": "AB_VAL_UPPER",
@@ -13225,7 +13227,7 @@
                 }
             ]
         },
-        "weapon": "Spear",
+        "weapon": "Lance",
         "modifiers": {
             "HP": 15,
             "Max Jewels": -5,
@@ -17023,7 +17025,7 @@
                 }
             ]
         },
-        "weapon": "Spear",
+        "weapon": "Lance",
         "modifiers": {
             "HP": 52,
             "Max Jewels": 10,
@@ -23354,7 +23356,9 @@
             "Hisham",
             "Tsang Lei"
         ],
-        "jobe": [],
+        "jobe": [
+            "Hisharmu Huu"
+        ],
         "main": {
             "iname": "AB_NEW_HUU_UPPER",
             "name": "Geomancy",
@@ -33422,7 +33426,7 @@
                 }
             ]
         },
-        "weapon": "Spear",
+        "weapon": "Lance",
         "modifiers": {
             "HP": 7,
             "Max Jewels": 5,
@@ -34789,7 +34793,7 @@
                 }
             ]
         },
-        "weapon": "Spear",
+        "weapon": "Lance",
         "modifiers": {
             "HP": 7,
             "Max Jewels": -5,
@@ -37249,7 +37253,7 @@
     "JB_ZAYI_LORD_CC": {
         "iname": "JB_ZAYI_LORD_CC",
         "name": "Zayi Lord Ccᴶ",
-        "japan": "N/A",
+        "japan": "Light That Guides The World\n世界を導く光",
         "kanji": "世界を導く光",
         "short description": "",
         "long description": "",
@@ -37411,8 +37415,8 @@
         "inputs": [
             "Zain Zayi Lord Cc",
             "Zayi Lord Cc",
-            "Zain N/A",
-            "N/A"
+            "Zain Light That Guides The World",
+            "Light That Guides The World"
         ]
     },
     "JB_SHN_FINANCIAL_KYARORU": {
@@ -38943,6 +38947,699 @@
             "Sword Master[+]"
         ]
     },
+    "JB_VAL_LAN_JUMP": {
+        "iname": "JB_VAL_LAN_JUMP",
+        "name": "Valkyrie: Dayfallᴶ",
+        "japan": "Sky Sinking Valkyrie\n天墜のヴァルキリー",
+        "kanji": "天墜のヴァルキリー",
+        "short description": "jump focused",
+        "long description": "jump focused",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/val00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_VAL_LAN_JUMP.png",
+        "origin": "Valkyrie",
+        "units": [
+            "Paladin EMD",
+            "Ahato",
+            "Carla",
+            "Cordelia"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_VAL_UPPER_LAN_JUMP",
+            "name": "戦姫技",
+            "expr": "ジョブ固有の戦姫技",
+            "skills": [
+                {
+                    "name": "Valkyrie's Aspiration",
+                    "expr": "Lowers PATK/MATK of enemy units within target area for three turns & raises own PATK [Range: 4, Area: Cross (3), Height Range: 3]"
+                },
+                {
+                    "name": "Wall of Light - Hervor",
+                    "expr": "Inflicts Light Phys Dmg (Low) on units within target area & raises own PDEF for three turns [Range: 3, Area: Cross (3), Height Range: 1]"
+                },
+                {
+                    "name": "聖光鎧・ゲンドゥル",
+                    "expr": "自身を中心とした範囲内の対象に光属性の刺突攻撃&闇属性特効[範囲:菱形2マス,高低差:2]"
+                },
+                {
+                    "name": "Battle Lance - Brunhilde",
+                    "expr": "Penetrating attack that inflicts Light Phys Dmg (High/strong vs demons) & raises own All Elements Res for three turns [Range: 5, Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_VAL_LOWER_LAN_JUMP",
+            "name": "基本戦姫技",
+            "expr": "ジョブ汎用の戦姫技",
+            "skills": [
+                {
+                    "name": "スクルドの看破",
+                    "expr": "3ターン自身の物攻・素早さアップ&状態異常を無効化&使用後3ターン【スクルドの看破】が【強襲・レギンレイヴ】に変化"
+                },
+                {
+                    "name": "Whistling Arrow",
+                    "expr": "Inflicts Light Phys Dmg (Low) & Penetrating & raises own Dark Res for three turns [Range: 2, Height Range: 2]"
+                },
+                {
+                    "name": "Geirolul's Charge",
+                    "expr": "Inflicts Light Phys Dmg (Medium) & raises own MOVE by 1 for three turns [Range: 4, Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Revenge of Odin",
+                    "expr": "Performs physical counter when receiving Dmg & Penetrating [Range: 2, Height Range: 2]"
+                },
+                {
+                    "name": "天蓋・ロスヴァイセ",
+                    "expr": "刺突攻撃・ジャンプ攻撃による被ダメージ時に確率でダメージを大幅に軽減"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "エインフェリアの堅護",
+                    "expr": "物防・HP上限・ジャンプ耐性アップ"
+                }
+            ]
+        },
+        "weapon": "Lance",
+        "modifiers": {
+            "HP": 21,
+            "Max Jewels": 5,
+            "Initial Jewels": 30,
+            "PATK": 22,
+            "PDEF": 23,
+            "MATK": -5,
+            "MDEF": 12,
+            "DEX": 10,
+            "AGI": 7,
+            "LUCK": 3,
+            "CRIT": 12,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 30,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "PDEF",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "MDEF",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 150,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "PATK": 269,
+            "PDEF": 170,
+            "DEX": 165,
+            "AGI": 27,
+            "CRIT": 88,
+            "HP": 385,
+            "MATK": 57,
+            "MDEF": 106,
+            "Jewels Obtained": 32,
+            "LUCK": 63,
+            "Fire Res": 7,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Dark Res": 7,
+            "Charm Res": 38,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Light Res": 1,
+            "Poison Res": 10
+        },
+        "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sq-paladin#天墜のヴァルキリー",
+        "inputs": [
+            "Valkyrie: Dayfall",
+            "Sky Sinking Valkyrie"
+        ]
+    },
+    "JB_ENC_THUNDER": {
+        "iname": "JB_ENC_THUNDER",
+        "name": "Roaring Thunder Enchanterᴶ",
+        "japan": "Roaring Thunder Enhancer\n轟雷のエンハンサー",
+        "kanji": "轟雷のエンハンサー",
+        "short description": "buff that increases thunder damage against water",
+        "long description": "buff that increases thunder damage against water",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/enc00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ENC_THUNDER.png",
+        "origin": "Enchanter",
+        "units": [
+            "Princess EMD",
+            "Fujika",
+            "Vanekis"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_ENC_UPPER_THUNDER",
+            "name": "付術",
+            "expr": "ジョブ固有の付術",
+            "skills": [
+                {
+                    "name": "Fire Enchantment",
+                    "expr": "Raises Fire Res [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Water Enchantment",
+                    "expr": "Raises Water Res [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Wind Enchantment",
+                    "expr": "Raises Wind Res [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Thunder Enchantment",
+                    "expr": "Raises Thunder Res [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Light Enchantment",
+                    "expr": "Raises Light Res [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Dark Enchantment",
+                    "expr": "Raises Dark Res [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Healing Enchantment",
+                    "expr": "Slightly recovers target's HP & casts Auto Heal during turn used [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "移動付術・轟雷",
+                    "expr": "味方の移動力+1&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
+                },
+                {
+                    "name": "Null Wave",
+                    "expr": "Cancels all buffs/debuffs cast on units within target area [Range: 3, Area: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "天雷の刻印",
+                    "expr": "3ターン味方の雷属性攻撃に水属性特効を付与[射程:4,高低差:2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_ENC_LOWER_THUNDER",
+            "name": "基本付術",
+            "expr": "ジョブ汎用の付術",
+            "skills": [
+                {
+                    "name": "力付術・轟雷",
+                    "expr": "味方の物攻アップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
+                },
+                {
+                    "name": "守備付術・轟雷",
+                    "expr": "味方の物防アップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
+                },
+                {
+                    "name": "魔力付術・轟雷",
+                    "expr": "味方の魔攻アップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
+                },
+                {
+                    "name": "精神付術・轟雷",
+                    "expr": "味方の魔防アップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
+                },
+                {
+                    "name": "技巧付術・轟雷",
+                    "expr": "味方の器用さアップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
+                },
+                {
+                    "name": "速度付術・轟雷",
+                    "expr": "味方の素早さアップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
+                },
+                {
+                    "name": "Dark Poison Enchant",
+                    "expr": "Inflicts non-elemental Dmg & Poison & Blind [Range: 4, Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Cancel Magic",
+                    "expr": "When attacked, cancels all buffs cast on attacker [Range: Unlimited, Height Range: Unlimited]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Resist Magic",
+                    "expr": "Raises Debuff Res/MDEF"
+                },
+                {
+                    "name": "Swift Charge",
+                    "expr": "Reduces cast time by 1/3"
+                }
+            ]
+        },
+        "weapon": "Rod",
+        "modifiers": {
+            "HP": 15,
+            "Max Jewels": 12,
+            "Initial Jewels": 100,
+            "PATK": -10,
+            "PDEF": 0,
+            "MATK": 12,
+            "MDEF": 15,
+            "DEX": 10,
+            "AGI": 12,
+            "LUCK": 0,
+            "CRIT": -8,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 28,
+                "calc": "Scale"
+            },
+            {
+                "type": "MATK",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "MDEF",
+                "value": 5,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 125,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 1,
+            "MATK": 251,
+            "MDEF": 170,
+            "LUCK": 162,
+            "AGI": 34,
+            "CRIT": 113,
+            "HP": 249,
+            "PATK": 75,
+            "PDEF": 50,
+            "Jewels Obtained": 36,
+            "DEX": 54,
+            "Fire Res": 3,
+            "Water Res": 8,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Petrify Res": 71,
+            "Stop Res": 28,
+            "Silence Res": 28,
+            "Dark Res": 4,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Sleep Res": 15,
+            "Blind Res": 10,
+            "Light Res": 1
+        },
+        "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sq-princess#轟雷のエンハンサー",
+        "inputs": [
+            "Roaring Thunder Enchanter",
+            "Roaring Thunder Enhancer"
+        ]
+    },
+    "JB_RAN_TYPE_MONS": {
+        "iname": "JB_RAN_TYPE_MONS",
+        "name": "Ranger [Lupus]",
+        "japan": "Ranger: Wolf\nレンジャー【狼】",
+        "kanji": "レンジャー【狼】",
+        "short description": "bonus damage against monsters",
+        "long description": "bonus damage against monsters",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ran00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RAN_TYPE_MONS.png",
+        "origin": "Ranger",
+        "units": [
+            "Gunner EMD",
+            "Eros POTK",
+            "Milis",
+            "Rigalt",
+            "Yuan"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_RAN_UPPER_MONS",
+            "name": "Hunting",
+            "expr": "Hunting techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Hound Shot",
+                    "expr": "Inflicts Phys Dmg (Very strong vs monsters) [Range: 5, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Hunter's Eyes",
+                    "expr": "Inflicts Phys Dmg (100% Hit/strong vs airborne) [Range: 4, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Piercing Bolt",
+                    "expr": "Inflicts Phys Dmg on units within line of fire & Penetrating [Range: 4, Area: 1 sq line, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Cerberos Rain",
+                    "expr": "Inflicts Phys Dmg (100% hit/strong vs beasts) [Range: 4, Area: Diamond (5), Height Range: Unlimited]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_RAN_LOWER_MONS",
+            "name": "Basic Hunting",
+            "expr": "Hunting techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Punishing Shot",
+                    "expr": "Inflicts Phys Dmg (High) & chance of critical [Range: 4, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Sniping Shot",
+                    "expr": "Inflicts Phys Dmg (strong vs airborne) & chance of inflicting Bind [Range: 4, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Shadow Shot",
+                    "expr": "Inflicts Phys Dmg with chance of inflicting Daze [Range: 4, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Wide Barrage",
+                    "expr": "Inflicts 2-hit Phys Dmg on random enemy within target area [Range: 3, Area: Square (3), Height Range: Unlimited]"
+                },
+                {
+                    "name": "Arrow of Care",
+                    "expr": "Inflicts non-elemental Missile Dmg (Very Low) with chance of removing Paralyze/Stun/Bind/Daze/Delay [Range: 4, Height Range: Unlimited]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Hide Trap",
+                    "expr": "Chance of inflicting Daze on attacking unit when receiving Phys Dmg [Range: 4, Height Range: Unlimited]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Eagle Eye",
+                    "expr": "Range +2"
+                },
+                {
+                    "name": "Deep Focus",
+                    "expr": "ATK/Hit Rate modifier for Missile ATK Type"
+                }
+            ]
+        },
+        "weapon": "Bow",
+        "modifiers": {
+            "HP": 20,
+            "Max Jewels": -5,
+            "Initial Jewels": 25,
+            "PATK": 26,
+            "PDEF": 5,
+            "MATK": -2,
+            "MDEF": -5,
+            "DEX": 24,
+            "AGI": 10,
+            "LUCK": 0,
+            "CRIT": 15,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 16,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "DEX",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "CRIT",
+                "value": 1,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 3,
+            "PATK": 265,
+            "PDEF": 113,
+            "LUCK": 189,
+            "DEX": 215,
+            "MDEF": 35,
+            "AGI": 22,
+            "CRIT": 130,
+            "HP": 204,
+            "Jewels Obtained": 16,
+            "Fire Res": 6,
+            "Water Res": 4,
+            "Thunder Res": 4,
+            "Wind Res": 9,
+            "Paralyze Res": 43,
+            "Daze Res": 28,
+            "Bind Res": 28,
+            "Dark Res": 3,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "MATK": 24,
+            "Poison Res": 10,
+            "Charm Res": 10
+        },
+        "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sq-gunner#レンジャー【狼】",
+        "inputs": [
+            "Ranger [Lupus]",
+            "Ranger: Wolf"
+        ]
+    },
+    "JB_SHN_HEEL": {
+        "iname": "JB_SHN_HEEL",
+        "name": "Merchant : Grace Craneᴶ",
+        "japan": "Merchant: Grace Crane\n商人【恵み鶴】",
+        "kanji": "商人【恵み鶴】",
+        "short description": "stronger heal delivery and full leverage +15 jewels",
+        "long description": "stronger heal delivery and full leverage +15 jewels",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/shn00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SHN_RUCK_HEEL.png",
+        "origin": "Merchant",
+        "units": [
+            "Shenmei EMD",
+            "Mirianne",
+            "Margaret"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_SHN_UPPER_HEEL",
+            "name": "商売術",
+            "expr": "ジョブ固有の商売術",
+            "skills": [
+                {
+                    "name": "Low Leverage",
+                    "expr": "Transfers Jewels used by self to target ally unit [Range: 4, Height Range: 3]"
+                },
+                {
+                    "name": "Jewel Investment",
+                    "expr": "Greatly reduces time until next turn for target ally unit [Range: 4, Height Range: 3]"
+                },
+                {
+                    "name": "ギガレバレッジ",
+                    "expr": "自身のジュエルを消費して味方にジュエルを付与[射程:3,高低差:2]"
+                },
+                {
+                    "name": "Jewels Rule Everything Around Me",
+                    "expr": "Casts Auto Jewel Charge on target ally unit for three turns [Range: 4, Height Range: 3]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_SHN_LOWER_HEEL",
+            "name": "基本商売術",
+            "expr": "ジョブ汎用の商売術",
+            "skills": [
+                {
+                    "name": "Imminent Crisis",
+                    "expr": "Inflicts Blind status on target [Range: 4, Height Range: 3]"
+                },
+                {
+                    "name": "Pyramid Scheme",
+                    "expr": "Inflicts Charm on enemy units within area around self [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Poison Pill",
+                    "expr": "Nullifies all statuses inflicted on ally units within area around self [Area: Square (3) around self, Height Range: 2]"
+                },
+                {
+                    "name": "ヒーリングデリバリー",
+                    "expr": "自身を中心とした範囲内の味方のHPを回復[範囲:正方形3×3マス,高低差:2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Risk Hedge",
+                    "expr": "Chance of casting Auto Jewel Charge on self when receiving Dmg"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "How's Business?",
+                    "expr": "Raises Initial Jewels"
+                },
+                {
+                    "name": "Not too bad",
+                    "expr": "Raises Jewels Obtained"
+                }
+            ]
+        },
+        "weapon": "Rod",
+        "modifiers": {
+            "HP": 22,
+            "Max Jewels": 15,
+            "Initial Jewels": 50,
+            "PATK": -10,
+            "PDEF": 3,
+            "MATK": 25,
+            "MDEF": 5,
+            "DEX": 12,
+            "AGI": -5,
+            "LUCK": 10,
+            "CRIT": 0,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 32,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "LUCK",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 150,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 1,
+            "PATK": 181,
+            "PDEF": 175,
+            "DEX": 161,
+            "AGI": 25,
+            "MATK": 85,
+            "LUCK": 95,
+            "CRIT": 99,
+            "HP": 384,
+            "Jewels Obtained": 31,
+            "MDEF": 38,
+            "Fire Res": 7,
+            "Water Res": 5,
+            "Thunder Res": 9,
+            "Wind Res": 5,
+            "Charm Res": 38,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10
+        },
+        "formula": "50% (PATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sq-shenmei#商人【恵み鶴】",
+        "inputs": [
+            "Merchant : Grace Crane",
+            "Merchant: Grace Crane"
+        ]
+    },
     "JB_MIUN_KAJ_CC": {
         "iname": "JB_MIUN_KAJ_CC",
         "name": "Master Blacksmith+",
@@ -39862,7 +40559,7 @@
                 }
             ]
         },
-        "weapon": "Spear",
+        "weapon": "Lance",
         "modifiers": {
             "HP": 31,
             "Max Jewels": 0,
@@ -41385,7 +42082,7 @@
                 }
             ]
         },
-        "weapon": "Spear",
+        "weapon": "Lance",
         "modifiers": {
             "HP": 28,
             "Max Jewels": -2,
@@ -47314,336 +48011,6 @@
             "Merchant: Charming Daruma"
         ]
     },
-    "JB_SHN_HEEL": {
-        "iname": "JB_SHN_HEEL",
-        "name": "Merchant : Grace Craneᴶ",
-        "japan": "Merchant: Grace Crane\n商人【恵み鶴】",
-        "kanji": "商人【恵み鶴】",
-        "short description": "stronger heal delivery and full leverage +15 jewels",
-        "long description": "stronger heal delivery and full leverage +15 jewels",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/shn00.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SHN_RUCK_HEEL.png",
-        "origin": "Merchant",
-        "units": [
-            "Mirianne",
-            "Margaret"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_SHN_UPPER_HEEL",
-            "name": "商売術",
-            "expr": "ジョブ固有の商売術",
-            "skills": [
-                {
-                    "name": "Low Leverage",
-                    "expr": "Transfers Jewels used by self to target ally unit [Range: 4, Height Range: 3]"
-                },
-                {
-                    "name": "Jewel Investment",
-                    "expr": "Greatly reduces time until next turn for target ally unit [Range: 4, Height Range: 3]"
-                },
-                {
-                    "name": "ギガレバレッジ",
-                    "expr": "自身のジュエルを消費して味方にジュエルを付与[射程:3,高低差:2]"
-                },
-                {
-                    "name": "Jewels Rule Everything Around Me",
-                    "expr": "Casts Auto Jewel Charge on target ally unit for three turns [Range: 4, Height Range: 3]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_SHN_LOWER_HEEL",
-            "name": "基本商売術",
-            "expr": "ジョブ汎用の商売術",
-            "skills": [
-                {
-                    "name": "Imminent Crisis",
-                    "expr": "Inflicts Blind status on target [Range: 4, Height Range: 3]"
-                },
-                {
-                    "name": "Pyramid Scheme",
-                    "expr": "Inflicts Charm on enemy units within area around self [Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Poison Pill",
-                    "expr": "Nullifies all statuses inflicted on ally units within area around self [Area: Square (3) around self, Height Range: 2]"
-                },
-                {
-                    "name": "ヒーリングデリバリー",
-                    "expr": "自身を中心とした範囲内の味方のHPを回復[範囲:正方形3×3マス,高低差:2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Risk Hedge",
-                    "expr": "Chance of casting Auto Jewel Charge on self when receiving Dmg"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "How's Business?",
-                    "expr": "Raises Initial Jewels"
-                },
-                {
-                    "name": "Not too bad",
-                    "expr": "Raises Jewels Obtained"
-                }
-            ]
-        },
-        "weapon": "Rod",
-        "modifiers": {
-            "HP": 22,
-            "Max Jewels": 15,
-            "Initial Jewels": 50,
-            "PATK": -10,
-            "PDEF": 3,
-            "MATK": 25,
-            "MDEF": 5,
-            "DEX": 12,
-            "AGI": -5,
-            "LUCK": 10,
-            "CRIT": 0,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "type": "HP",
-                "value": 32,
-                "calc": "Scale"
-            },
-            {
-                "type": "PATK",
-                "value": 2,
-                "calc": "Scale"
-            },
-            {
-                "type": "AGI",
-                "value": 4,
-                "calc": "Scale"
-            },
-            {
-                "type": "LUCK",
-                "value": 2,
-                "calc": "Scale"
-            },
-            {
-                "type": "HP",
-                "value": 150,
-                "calc": "Add"
-            }
-        ],
-        "stats": {
-            "Move": 4,
-            "Jump": 1,
-            "PATK": 181,
-            "PDEF": 175,
-            "DEX": 161,
-            "AGI": 25,
-            "MATK": 85,
-            "LUCK": 95,
-            "CRIT": 99,
-            "HP": 384,
-            "Jewels Obtained": 31,
-            "MDEF": 38,
-            "Fire Res": 7,
-            "Water Res": 5,
-            "Thunder Res": 9,
-            "Wind Res": 5,
-            "Charm Res": 38,
-            "Sleep Res": 43,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Petrify Res": 15,
-            "Poison Res": 10
-        },
-        "formula": "50% (PATK + LUCK)",
-        "link": "http://www.alchemistcodedb.com/jp/unit/mariannu#商人【恵み鶴】",
-        "inputs": [
-            "Merchant : Grace Crane",
-            "Merchant: Grace Crane"
-        ]
-    },
-    "JB_RAN_TYPE_MONS": {
-        "iname": "JB_RAN_TYPE_MONS",
-        "name": "Ranger [Lupus]",
-        "japan": "Ranger: Wolf\nレンジャー【狼】",
-        "kanji": "レンジャー【狼】",
-        "short description": "bonus damage against monsters",
-        "long description": "bonus damage against monsters",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ran00.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RAN_TYPE_MONS.png",
-        "origin": "Ranger",
-        "units": [
-            "Eros POTK",
-            "Milis",
-            "Rigalt",
-            "Yuan"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_RAN_UPPER_MONS",
-            "name": "Hunting",
-            "expr": "Hunting techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Hound Shot",
-                    "expr": "Inflicts Phys Dmg (Very strong vs monsters) [Range: 5, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Hunter's Eyes",
-                    "expr": "Inflicts Phys Dmg (100% Hit/strong vs airborne) [Range: 4, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Piercing Bolt",
-                    "expr": "Inflicts Phys Dmg on units within line of fire & Penetrating [Range: 4, Area: 1 sq line, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Cerberos Rain",
-                    "expr": "Inflicts Phys Dmg (100% hit/strong vs beasts) [Range: 4, Area: Diamond (5), Height Range: Unlimited]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_RAN_LOWER_MONS",
-            "name": "Basic Hunting",
-            "expr": "Hunting techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Punishing Shot",
-                    "expr": "Inflicts Phys Dmg (High) & chance of critical [Range: 4, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Sniping Shot",
-                    "expr": "Inflicts Phys Dmg (strong vs airborne) & chance of inflicting Bind [Range: 4, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Shadow Shot",
-                    "expr": "Inflicts Phys Dmg with chance of inflicting Daze [Range: 4, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Wide Barrage",
-                    "expr": "Inflicts 2-hit Phys Dmg on random enemy within target area [Range: 3, Area: Square (3), Height Range: Unlimited]"
-                },
-                {
-                    "name": "Arrow of Care",
-                    "expr": "Inflicts non-elemental Missile Dmg (Very Low) with chance of removing Paralyze/Stun/Bind/Daze/Delay [Range: 4, Height Range: Unlimited]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Hide Trap",
-                    "expr": "Chance of inflicting Daze on attacking unit when receiving Phys Dmg [Range: 4, Height Range: Unlimited]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Eagle Eye",
-                    "expr": "Range +2"
-                },
-                {
-                    "name": "Deep Focus",
-                    "expr": "ATK/Hit Rate modifier for Missile ATK Type"
-                }
-            ]
-        },
-        "weapon": "Bow",
-        "modifiers": {
-            "HP": 20,
-            "Max Jewels": -5,
-            "Initial Jewels": 25,
-            "PATK": 26,
-            "PDEF": 5,
-            "MATK": -2,
-            "MDEF": -5,
-            "DEX": 24,
-            "AGI": 10,
-            "LUCK": 0,
-            "CRIT": 15,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "type": "HP",
-                "value": 16,
-                "calc": "Scale"
-            },
-            {
-                "type": "PATK",
-                "value": 3,
-                "calc": "Scale"
-            },
-            {
-                "type": "DEX",
-                "value": 4,
-                "calc": "Scale"
-            },
-            {
-                "type": "AGI",
-                "value": 4,
-                "calc": "Scale"
-            },
-            {
-                "type": "CRIT",
-                "value": 1,
-                "calc": "Scale"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 3,
-            "PATK": 265,
-            "PDEF": 113,
-            "LUCK": 189,
-            "DEX": 215,
-            "MDEF": 35,
-            "AGI": 22,
-            "CRIT": 130,
-            "HP": 204,
-            "Jewels Obtained": 16,
-            "Fire Res": 6,
-            "Water Res": 4,
-            "Thunder Res": 4,
-            "Wind Res": 9,
-            "Paralyze Res": 43,
-            "Daze Res": 28,
-            "Bind Res": 28,
-            "Dark Res": 3,
-            "Stun Res": 15,
-            "Sleep Res": 15,
-            "Petrify Res": 15,
-            "MATK": 24,
-            "Poison Res": 10,
-            "Charm Res": 10
-        },
-        "formula": "65% (PATK + DEX)",
-        "link": "http://www.alchemistcodedb.com/unit/pokeros#ranger-[lupus]",
-        "inputs": [
-            "Ranger [Lupus]",
-            "Ranger: Wolf"
-        ]
-    },
     "JB_GUA_TYPE_GEAR_TYRHUNG": {
         "iname": "JB_GUA_TYPE_GEAR_TYRHUNG",
         "name": "Holy Cavalier [Ghia]",
@@ -48076,7 +48443,7 @@
                 }
             ]
         },
-        "weapon": "Spear",
+        "weapon": "Lance",
         "modifiers": {
             "HP": 35,
             "Max Jewels": -5,
@@ -50095,205 +50462,6 @@
             "Tender Wind Enhancer"
         ]
     },
-    "JB_ENC_THUNDER": {
-        "iname": "JB_ENC_THUNDER",
-        "name": "Roaring Thunder Enchanterᴶ",
-        "japan": "Roaring Thunder Enhancer\n轟雷のエンハンサー",
-        "kanji": "轟雷のエンハンサー",
-        "short description": "buff that increases thunder damage against water",
-        "long description": "buff that increases thunder damage against water",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/enc00.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ENC_THUNDER.png",
-        "origin": "Enchanter",
-        "units": [
-            "Fujika",
-            "Vanekis"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_ENC_UPPER_THUNDER",
-            "name": "付術",
-            "expr": "ジョブ固有の付術",
-            "skills": [
-                {
-                    "name": "Fire Enchantment",
-                    "expr": "Raises Fire Res [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Water Enchantment",
-                    "expr": "Raises Water Res [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Wind Enchantment",
-                    "expr": "Raises Wind Res [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Thunder Enchantment",
-                    "expr": "Raises Thunder Res [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Light Enchantment",
-                    "expr": "Raises Light Res [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Dark Enchantment",
-                    "expr": "Raises Dark Res [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Healing Enchantment",
-                    "expr": "Slightly recovers target's HP & casts Auto Heal during turn used [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "移動付術・轟雷",
-                    "expr": "味方の移動力+1&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
-                },
-                {
-                    "name": "Null Wave",
-                    "expr": "Cancels all buffs/debuffs cast on units within target area [Range: 3, Area: Cross (3), Height Range: 2]"
-                },
-                {
-                    "name": "天雷の刻印",
-                    "expr": "3ターン味方の雷属性攻撃に水属性特効を付与[射程:4,高低差:2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_ENC_LOWER_THUNDER",
-            "name": "基本付術",
-            "expr": "ジョブ汎用の付術",
-            "skills": [
-                {
-                    "name": "力付術・轟雷",
-                    "expr": "味方の物攻アップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
-                },
-                {
-                    "name": "守備付術・轟雷",
-                    "expr": "味方の物防アップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
-                },
-                {
-                    "name": "魔力付術・轟雷",
-                    "expr": "味方の魔攻アップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
-                },
-                {
-                    "name": "精神付術・轟雷",
-                    "expr": "味方の魔防アップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
-                },
-                {
-                    "name": "技巧付術・轟雷",
-                    "expr": "味方の器用さアップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
-                },
-                {
-                    "name": "速度付術・轟雷",
-                    "expr": "味方の素早さアップ&対象が雷属性ユニットの場合全攻撃アップ[射程:3,高低差:2]"
-                },
-                {
-                    "name": "Dark Poison Enchant",
-                    "expr": "Inflicts non-elemental Dmg & Poison & Blind [Range: 4, Height Range: 2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Cancel Magic",
-                    "expr": "When attacked, cancels all buffs cast on attacker [Range: Unlimited, Height Range: Unlimited]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Resist Magic",
-                    "expr": "Raises Debuff Res/MDEF"
-                },
-                {
-                    "name": "Swift Charge",
-                    "expr": "Reduces cast time by 1/3"
-                }
-            ]
-        },
-        "weapon": "Rod",
-        "modifiers": {
-            "HP": 15,
-            "Max Jewels": 12,
-            "Initial Jewels": 100,
-            "PATK": -10,
-            "PDEF": 0,
-            "MATK": 12,
-            "MDEF": 15,
-            "DEX": 10,
-            "AGI": 12,
-            "LUCK": 0,
-            "CRIT": -8,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "type": "HP",
-                "value": 28,
-                "calc": "Scale"
-            },
-            {
-                "type": "MATK",
-                "value": 3,
-                "calc": "Scale"
-            },
-            {
-                "type": "MDEF",
-                "value": 5,
-                "calc": "Scale"
-            },
-            {
-                "type": "AGI",
-                "value": 2,
-                "calc": "Scale"
-            },
-            {
-                "type": "HP",
-                "value": 125,
-                "calc": "Add"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 1,
-            "MATK": 251,
-            "MDEF": 170,
-            "LUCK": 162,
-            "AGI": 34,
-            "CRIT": 113,
-            "HP": 249,
-            "PATK": 75,
-            "PDEF": 50,
-            "Jewels Obtained": 36,
-            "DEX": 54,
-            "Fire Res": 3,
-            "Water Res": 8,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Petrify Res": 71,
-            "Stop Res": 28,
-            "Silence Res": 28,
-            "Dark Res": 4,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Sleep Res": 15,
-            "Blind Res": 10,
-            "Light Res": 1
-        },
-        "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/fujica#轟雷のエンハンサー",
-        "inputs": [
-            "Roaring Thunder Enchanter",
-            "Roaring Thunder Enhancer"
-        ]
-    },
     "JB_SYO_AGA": {
         "iname": "JB_SYO_AGA",
         "name": "Summoner of Agarthaᴶ",
@@ -50793,7 +50961,7 @@
     "JB_SOL_ATK": {
         "iname": "JB_SOL_ATK",
         "name": "Twin-Blade Swordsman : Ogre Exterminatorᴶ",
-        "japan": "Twin Bladed Ogre Exterminator\n鬼滅の双剣士",
+        "japan": "Twin Bladed Oni Exterminator\n鬼滅の双剣士",
         "kanji": "鬼滅の双剣士",
         "short description": "increased damage against humans",
         "long description": "increased damage against humans",
@@ -50959,7 +51127,7 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/chao#鬼滅の双剣士",
         "inputs": [
             "Twin-Blade Swordsman : Ogre Exterminator",
-            "Twin Bladed Ogre Exterminator"
+            "Twin Bladed Oni Exterminator"
         ]
     },
     "JB_SOL_MONS": {
@@ -53442,7 +53610,7 @@
                 }
             ]
         },
-        "weapon": "Spear",
+        "weapon": "Lance",
         "modifiers": {
             "HP": 18,
             "Max Jewels": 5,
@@ -53520,166 +53688,6 @@
             "Teona",
             "Teona Holy Binding Valkyrie",
             "Holy Binding Valkyrie"
-        ]
-    },
-    "JB_VAL_LAN_JUMP": {
-        "iname": "JB_VAL_LAN_JUMP",
-        "name": "Valkyrie: Dayfallᴶ",
-        "japan": "Sky Sinking Valkyrie\n天墜のヴァルキリー",
-        "kanji": "天墜のヴァルキリー",
-        "short description": "jump focused",
-        "long description": "jump focused",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/val00.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_VAL_LAN_JUMP.png",
-        "origin": "Valkyrie",
-        "units": [
-            "Ahato",
-            "Carla",
-            "Cordelia"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_VAL_UPPER_LAN_JUMP",
-            "name": "戦姫技",
-            "expr": "ジョブ固有の戦姫技",
-            "skills": [
-                {
-                    "name": "Valkyrie's Aspiration",
-                    "expr": "Lowers PATK/MATK of enemy units within target area for three turns & raises own PATK [Range: 4, Area: Cross (3), Height Range: 3]"
-                },
-                {
-                    "name": "Wall of Light - Hervor",
-                    "expr": "Inflicts Light Phys Dmg (Low) on units within target area & raises own PDEF for three turns [Range: 3, Area: Cross (3), Height Range: 1]"
-                },
-                {
-                    "name": "聖光鎧・ゲンドゥル",
-                    "expr": "自身を中心とした範囲内の対象に光属性の刺突攻撃&闇属性特効[範囲:菱形2マス,高低差:2]"
-                },
-                {
-                    "name": "Battle Lance - Brunhilde",
-                    "expr": "Penetrating attack that inflicts Light Phys Dmg (High/strong vs demons) & raises own All Elements Res for three turns [Range: 5, Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_VAL_LOWER_LAN_JUMP",
-            "name": "基本戦姫技",
-            "expr": "ジョブ汎用の戦姫技",
-            "skills": [
-                {
-                    "name": "スクルドの看破",
-                    "expr": "3ターン自身の物攻・素早さアップ&状態異常を無効化&使用後3ターン【スクルドの看破】が【強襲・レギンレイヴ】に変化"
-                },
-                {
-                    "name": "Whistling Arrow",
-                    "expr": "Inflicts Light Phys Dmg (Low) & Penetrating & raises own Dark Res for three turns [Range: 2, Height Range: 2]"
-                },
-                {
-                    "name": "Geirolul's Charge",
-                    "expr": "Inflicts Light Phys Dmg (Medium) & raises own MOVE by 1 for three turns [Range: 4, Height Range: 2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Revenge of Odin",
-                    "expr": "Performs physical counter when receiving Dmg & Penetrating [Range: 2, Height Range: 2]"
-                },
-                {
-                    "name": "天蓋・ロスヴァイセ",
-                    "expr": "刺突攻撃・ジャンプ攻撃による被ダメージ時に確率でダメージを大幅に軽減"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "エインフェリアの堅護",
-                    "expr": "物防・HP上限・ジャンプ耐性アップ"
-                }
-            ]
-        },
-        "weapon": "Spear",
-        "modifiers": {
-            "HP": 21,
-            "Max Jewels": 5,
-            "Initial Jewels": 30,
-            "PATK": 22,
-            "PDEF": 23,
-            "MATK": -5,
-            "MDEF": 12,
-            "DEX": 10,
-            "AGI": 7,
-            "LUCK": 3,
-            "CRIT": 12,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "type": "HP",
-                "value": 30,
-                "calc": "Scale"
-            },
-            {
-                "type": "PATK",
-                "value": 4,
-                "calc": "Scale"
-            },
-            {
-                "type": "PDEF",
-                "value": 2,
-                "calc": "Scale"
-            },
-            {
-                "type": "MDEF",
-                "value": 4,
-                "calc": "Scale"
-            },
-            {
-                "type": "HP",
-                "value": 150,
-                "calc": "Add"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 2,
-            "PATK": 269,
-            "PDEF": 170,
-            "DEX": 165,
-            "AGI": 27,
-            "CRIT": 88,
-            "HP": 385,
-            "MATK": 57,
-            "MDEF": 106,
-            "Jewels Obtained": 32,
-            "LUCK": 63,
-            "Fire Res": 7,
-            "Water Res": 4,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Dark Res": 7,
-            "Charm Res": 38,
-            "Sleep Res": 43,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Petrify Res": 15,
-            "Light Res": 1,
-            "Poison Res": 10
-        },
-        "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/achad#天墜のヴァルキリー",
-        "inputs": [
-            "Valkyrie: Dayfall",
-            "Sky Sinking Valkyrie"
         ]
     },
     "JB_BAR_HEAL": {
@@ -54212,6 +54220,506 @@
         "inputs": [
             "Bard: DARK",
             "Bard of Twilight"
+        ]
+    },
+    "JB_KAI_ALWIDA": {
+        "iname": "JB_KAI_ALWIDA",
+        "name": "Pirate: ALWIDAᴶ",
+        "japan": "N/A",
+        "kanji": "海賊皇【アルビダ】",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/kai00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_KAI_ALWIDA.png",
+        "origin": "Pirate",
+        "units": [
+            "Won",
+            "Rigalt"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_KAI_UPPER_ALWIDA",
+            "name": "海技",
+            "expr": "ジョブ固有の海技",
+            "skills": [
+                {
+                    "name": "Skull Slash",
+                    "expr": "Inflicts Dark Phys Dmg with chance of inflicting Death Sentence [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "海賊たちの凱歌",
+                    "expr": "自身を中心とした範囲内の敵に狂化効果&3ターン自身の物防アップ[範囲:菱形2マス,高低差:2]"
+                },
+                {
+                    "name": "閃投錨",
+                    "expr": "敵に水属性の無区分攻撃&確率で麻痺効果&水棲特効[射程:5,高低差:2]"
+                },
+                {
+                    "name": "Jewel Greed",
+                    "expr": "After moving, absorbs Jewels from target & interrupts skill charging [Range: Diamond (13), Height Range: 2] (Cannot move after using skill)"
+                },
+                {
+                    "name": "Maelstrom",
+                    "expr": "Inflicts Water Phys Dmg on units within target area & inflicts debuff effect that reduces targets' chance of being affected by Quicken and special statuses to 0 for three turns [Range: 3, Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "災厄の黒煙",
+                    "expr": "敵に無区分攻撃&猛毒効果&対人特効[射程:4,高低差:4]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_KAI_LOWER_ALWIDA",
+            "name": "基本海技",
+            "expr": "ジョブ汎用の海技",
+            "skills": [
+                {
+                    "name": "Mad Sea Song",
+                    "expr": "Recovers HP (Medium) of units within target area & inflicts Rage [Range: 3, Area: 3x3 Cross, Height Range: 2]"
+                },
+                {
+                    "name": "Physical Wave",
+                    "expr": "Inflicts Water Phys Dmg with chance of lowering enemy unit's PATK/PDEF [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Psycho Wave",
+                    "expr": "Inflicts Water Phys Dmg with chance of lowering enemy unit's MATK/MDEF [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "艦砲榴弾",
+                    "expr": "範囲内の対象に射撃攻撃&確率で強力な暗闇効果[射程:3,範囲:十字1マス,高低差:4]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "三角逆波",
+                    "expr": "被ダメージ時に反撃&スタン効果&スキル攻撃にも発動[範囲:特殊（扇レーザー）,高低差:2]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Spirit of the Sea God",
+                    "expr": "Raises Fire Res/Water Res/AGI"
+                }
+            ]
+        },
+        "weapon": "Saber",
+        "modifiers": {
+            "HP": 20,
+            "Max Jewels": 5,
+            "Initial Jewels": 25,
+            "PATK": 20,
+            "PDEF": 12,
+            "MATK": -5,
+            "MDEF": -5,
+            "DEX": 20,
+            "AGI": 8,
+            "LUCK": 0,
+            "CRIT": 5,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 24,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 7,
+                "calc": "Scale"
+            },
+            {
+                "type": "PDEF",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "CRIT",
+                "value": 1,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 100,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "PATK": 262,
+            "PDEF": 170,
+            "DEX": 165,
+            "AGI": 13,
+            "CRIT": 88,
+            "HP": 406,
+            "MATK": 57,
+            "MDEF": 50,
+            "Jewels Obtained": 50,
+            "LUCK": 105,
+            "Fire Res": 7,
+            "Water Res": 11,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Charm Res": 38,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Light Res": 1,
+            "Poison Res": 10
+        },
+        "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/won#海賊皇【アルビダ】",
+        "inputs": [
+            "Pirate: ALWIDA"
+        ]
+    },
+    "JB_KAI_TEACH": {
+        "iname": "JB_KAI_TEACH",
+        "name": "Pirate: TEACHᴶ",
+        "japan": "N/A",
+        "kanji": "海賊帝【ティーチ】",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/kai00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_KAI_TEACH.png",
+        "origin": "Pirate",
+        "units": [
+            "Shenmei",
+            "Hisham"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_KAI_UPPER_TEACH",
+            "name": "海技",
+            "expr": "ジョブ固有の海技",
+            "skills": [
+                {
+                    "name": "スカルクラッシャー",
+                    "expr": "自身を中心とした範囲内の敵に闇属性の斬撃攻撃&確率で死の宣告効果[範囲:正方形3×3マス,高低差:2]"
+                },
+                {
+                    "name": "Pirate Song",
+                    "expr": "Raises PATK/MATK of units within area around self [Area: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "Anchor Cast",
+                    "expr": "Inflicts Water Phys Dmg (strong vs aquatic) [Range: 5, Height Range: 2]"
+                },
+                {
+                    "name": "Jewel Greed",
+                    "expr": "After moving, absorbs Jewels from target & interrupts skill charging [Range: Diamond (13), Height Range: 2] (Cannot move after using skill)"
+                },
+                {
+                    "name": "Maelstrom",
+                    "expr": "Inflicts Water Phys Dmg on units within target area & inflicts debuff effect that reduces targets' chance of being affected by Quicken and special statuses to 0 for three turns [Range: 3, Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "海賊の流儀",
+                    "expr": "敵に4連続の水属性無区分攻撃&HPを吸収[射程:1,高低差:2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_KAI_LOWER_TEACH",
+            "name": "基本海技",
+            "expr": "ジョブ汎用の海技",
+            "skills": [
+                {
+                    "name": "Mad Sea Song",
+                    "expr": "Recovers HP (Medium) of units within target area & inflicts Rage [Range: 3, Area: 3x3 Cross, Height Range: 2]"
+                },
+                {
+                    "name": "フィジカルストローム",
+                    "expr": "範囲内の敵に水属性の斬撃攻撃&物攻・物防ダウン[射程:3,範囲:十字1マス,高低差:2]"
+                },
+                {
+                    "name": "サイコストローム",
+                    "expr": "範囲内の敵に水属性の斬撃攻撃&魔攻・魔防ダウン[射程:3,範囲:十字1マス,高低差:2]"
+                },
+                {
+                    "name": "Bombard",
+                    "expr": "Inflicts Phys Dmg on units within target area [Range: 3, Area: Cross (3), Height Range: 4]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "三角荒波",
+                    "expr": "被ダメージ時に反撃&斬撃耐性ダウン（3回まで重複可）&スキル攻撃にも発動[範囲:特殊（扇レーザー）,高低差:2]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Spirit of the Sea God",
+                    "expr": "Raises Fire Res/Water Res/AGI"
+                }
+            ]
+        },
+        "weapon": "Saber",
+        "modifiers": {
+            "HP": 25,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 25,
+            "PDEF": 15,
+            "MATK": -5,
+            "MDEF": -5,
+            "DEX": 15,
+            "AGI": 10,
+            "LUCK": 0,
+            "CRIT": 5,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 24,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 7,
+                "calc": "Scale"
+            },
+            {
+                "type": "PDEF",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "CRIT",
+                "value": 1,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 100,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "PATK": 283,
+            "PDEF": 149,
+            "DEX": 165,
+            "AGI": 13,
+            "CRIT": 88,
+            "HP": 441,
+            "MATK": 57,
+            "MDEF": 50,
+            "Jewels Obtained": 43,
+            "LUCK": 105,
+            "Fire Res": 7,
+            "Water Res": 8,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Charm Res": 38,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Light Res": 1,
+            "Poison Res": 10
+        },
+        "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/shenmei#海賊帝【ティーチ】",
+        "inputs": [
+            "Pirate: TEACH",
+            "N/A"
+        ]
+    },
+    "JB_HISHARMU_HUU": {
+        "iname": "JB_HISHARMU_HUU",
+        "name": "Hisharmu Huuᴶ",
+        "japan": "N/A",
+        "kanji": "大地と水の読み人",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/hish_huu.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_HISHARMU_HUU.png",
+        "origin": "Geomancer",
+        "units": [
+            "Hisham"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_NEW_HUU_HISHARMU_UPPER",
+            "name": "風水術",
+            "expr": "ジョブ固有の風水術",
+            "skills": [
+                {
+                    "name": "Divination Fertile Land",
+                    "expr": "Recovers HP of ally units within target area + nullifies all statuses inflicted on them during turn used [Range: 2, Area: Square (3), Height Range: 2] "
+                },
+                {
+                    "name": "Bagua Bottomless Swamp",
+                    "expr": "Places a panel that inflicts Bind (The panel disappears after being activated once) [RNG: 5, Area: Cross (3), Height RNG: 3]"
+                },
+                {
+                    "name": "剛力・地脈活性",
+                    "expr": "指定箇所に物攻・物防アップ&ジュエル回復効果の『パネル』を設置&『パネル』は4回発動すると消滅[射程:4,範囲:十字1マス,高低差:3]"
+                },
+                {
+                    "name": "護陣・龍脈活性",
+                    "expr": "指定箇所に魔攻・魔防アップ&ジュエル回復効果の『パネル』を設置&『パネル』は4回発動すると消滅[射程:4,範囲:十字1マス,高低差:3]"
+                },
+                {
+                    "name": "Divination Fey",
+                    "expr": "Inflicts 3-hit Wind Mag Dmg [Range: 4, Height Range: 3]"
+                },
+                {
+                    "name": "『八卦』太陽光",
+                    "expr": "範囲内の敵に光属性の魔法攻撃&闇属性特効&睡眠効果[射程:4,範囲:菱形2マス,高低差:2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_NEW_HUU_HISHARMU_LOWER",
+            "name": "基本風水術",
+            "expr": "ジョブ汎用の風水術",
+            "skills": [
+                {
+                    "name": "Thunder Fire Collapse",
+                    "expr": "Inflicts Phys Dmg on single target & lowers target's Fire Res for three turns [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Water Wind Collapse",
+                    "expr": "Inflicts Phys Dmg on single target & lowers target's Water Res for three turns [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Divination Eruption",
+                    "expr": "Inflicts Fire Mag Dmg (High) on units within target area [Range: 4, Area: Cross (3), Height Range: 3]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Demon Gate's Temptation",
+                    "expr": "Chance of lowering Fire/Water/Wind/Thunder Res of attacker when receiving Dmg [Range: 3, Height Range: 3]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Fate's Decision",
+                    "expr": "Slightly raises LCK of all party members taking part in battle (does not affect submembers)"
+                },
+                {
+                    "name": "Universe's Protection",
+                    "expr": "Raises Fire/Water/Wind/Thunder Res & slightly raises Hit Rate"
+                }
+            ]
+        },
+        "weapon": "Feng Shui",
+        "modifiers": {
+            "HP": 0,
+            "Max Jewels": 15,
+            "Initial Jewels": 100,
+            "PATK": -5,
+            "PDEF": 45,
+            "MATK": 35,
+            "MDEF": 40,
+            "DEX": 0,
+            "AGI": 10,
+            "LUCK": 25,
+            "CRIT": -5,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 28,
+                "calc": "Scale"
+            },
+            {
+                "type": "PDEF",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "MATK",
+                "value": 5,
+                "calc": "Scale"
+            },
+            {
+                "type": "LUCK",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 100,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "PATK": 116,
+            "PDEF": 148,
+            "LUCK": 254,
+            "AGI": 37,
+            "Jewels Obtained": 40,
+            "MDEF": 120,
+            "MATK": 171,
+            "HP": 362,
+            "DEX": 105,
+            "CRIT": 107,
+            "Fire Res": 6,
+            "Water Res": 9,
+            "Thunder Res": 6,
+            "Wind Res": 11,
+            "Paralyze Res": 44,
+            "Daze Res": 28,
+            "Bind Res": 28,
+            "Dark Res": 6,
+            "Light Res": 4,
+            "Stun Res": 38,
+            "Sleep Res": 50,
+            "Petrify Res": 40,
+            "Healing": 30
+        },
+        "formula": "70% (MATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/hisharmu#大地と水の読み人",
+        "inputs": [
+            "Hisham",
+            "Hisham Hisharmu Huu",
+            "Hisharmu Huu",
+            "Hisham",
+            "Hisham N/A"
         ]
     }
 }

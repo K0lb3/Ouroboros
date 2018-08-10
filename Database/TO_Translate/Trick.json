@@ -24,6 +24,11 @@
         "name": "",
         "kanji": "ポイズントラップ"
     },
+    "TR_SK_ART_TOWER_01": {
+        "iname": "TR_SK_ART_TOWER_01",
+        "name": "",
+        "kanji": "粘着トラップ"
+    },
     "TR_RH_ATO_SKILL_01B": {
         "iname": "TR_RH_ATO_SKILL_01B",
         "name": "",
@@ -43,6 +48,16 @@
         "iname": "TR_RH_ATO_SKILL_04B",
         "name": "",
         "kanji": "雷星陣"
+    },
+    "TR_MAP_NEW_HUU_HISHARMU_BUFF_01": {
+        "iname": "TR_MAP_NEW_HUU_HISHARMU_BUFF_01",
+        "name": "",
+        "kanji": "剛力・地脈活性"
+    },
+    "TR_MAP_NEW_HUU_HISHARMU_BUFF_02": {
+        "iname": "TR_MAP_NEW_HUU_HISHARMU_BUFF_02",
+        "name": "",
+        "kanji": "護陣・龍脈活性"
     },
     "TR_SK_MAD_LOWER_1_MDEF": {
         "iname": "TR_SK_MAD_LOWER_1_MDEF",
@@ -364,6 +379,11 @@
         "name": "",
         "kanji": "打撃攻撃アップパネル"
     },
+    "TR_MAP_RM_PIERCE_TOWER_01": {
+        "iname": "TR_MAP_RM_PIERCE_TOWER_01",
+        "name": "",
+        "kanji": "刺突攻撃&刺突耐性アップパネル"
+    },
     "TR_MAP_RM_PIERCE_CRYUNI": {
         "iname": "TR_MAP_RM_PIERCE_CRYUNI",
         "name": "",
@@ -373,5 +393,50 @@
         "iname": "TR_MAP_SIZUKU",
         "name": "",
         "kanji": "撤退パネル"
+    },
+    "TR_MAP_GUTS": {
+        "iname": "TR_MAP_GUTS",
+        "name": "",
+        "kanji": "ガッツパネル"
+    },
+    "TR_MAP_RM_SHOT_MEBI": {
+        "iname": "TR_MAP_RM_SHOT_MEBI",
+        "name": "",
+        "kanji": "射撃攻撃アップパネル改"
+    },
+    "TR_MAP_ALMA_REBECCA_EX_SP": {
+        "iname": "TR_MAP_ALMA_REBECCA_EX_SP",
+        "name": "",
+        "kanji": "なにかが起こるパネル（敵）"
+    },
+    "TR_MAP_MOBIUS40_01": {
+        "iname": "TR_MAP_MOBIUS40_01",
+        "name": "",
+        "kanji": "異層の陣"
+    },
+    "TR_MAP_MOBIUS40_02": {
+        "iname": "TR_MAP_MOBIUS40_02",
+        "name": "",
+        "kanji": "黄金の陣"
+    },
+    "TR_MAP_MOBIUS40_03": {
+        "iname": "TR_MAP_MOBIUS40_03",
+        "name": "",
+        "kanji": "機械の陣"
+    },
+    "TR_MAP_MOBIUS40_04": {
+        "iname": "TR_MAP_MOBIUS40_04",
+        "name": "",
+        "kanji": "虫の陣"
+    },
+    "TR_MAP_MOBIUS40_05": {
+        "iname": "TR_MAP_MOBIUS40_05",
+        "name": "",
+        "kanji": "獣の陣"
+    },
+    "TR_SK_DAMAGE_MOBIUS": {
+        "iname": "TR_SK_DAMAGE_MOBIUS",
+        "name": "",
+        "kanji": "激痛とらばさみ"
     }
 }

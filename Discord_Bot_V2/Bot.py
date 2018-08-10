@@ -4,7 +4,7 @@ import asyncio
 import json
 from discord.ext import commands
 from functions import *
-from ToEmbed import *
+import ToEmbed
 from settings import *
 
 # Constants
@@ -40,10 +40,12 @@ async def on_ready():
     print(bot.user.id)
     print(bot.guilds)
     print('------')
-    bot.loop.create_task(status_task(PRESENCES))
+    #bot.loop.create_task(status_task(PRESENCES))
 
-
-
-
+@bot.command() 
+async def quest(ctx, *, name):
+    quest = FindBest(ToEmbed.DIRS['quests'], name,True)
+    (embed,image)=ToEmbed.quest(quest,'')
+    await ctx.send(embed=embed,file=discord.file(image,filename='{}.png'.format(quest)))
 
 bot.run(BOT_TOKEN)

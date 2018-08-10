@@ -1,26 +1,30 @@
 {
     "gachas": [
         {
-            "iname": "Weekend_Gacha_D00_PaidFF15d",
+            "iname": "5Step_Gacha_S1_B16",
             "cat": "",
-            "startat": 1532678400,
-            "endat": 1532764799,
+            "startat": 1533801600,
+            "endat": 1534406399,
             "num": 10,
-            "name": "Weekend Grand Summon",
+            "name": "Special Summon Step 1",
             "cost": {
-                "coin_p": 1500
+                "coin": 500
             },
-            "asset_title": "tab_GL_017_08",
-            "asset_bg": "GachaImages_GL_Weekend_Grand_FF15b",
-            "detail_url": "Weekend_Grand_FF15c",
+            "asset_title": "tab_GL_019_06",
+            "asset_bg": "GachaImages_GL_5step_Batch16",
+            "detail_url": "5Step_Gacha_B16",
             "units": [],
             "ext_type": [
-                "limit_cnt",
-                "promise"
+                "step",
+                "limit_cnt"
             ],
             "ext_param": {
+                "step": {
+                    "index": 0,
+                    "num": 5
+                },
                 "limit_cnt": {
-                    "rest": 1,
+                    "rest": 5,
                     "num": 1
                 }
             },
@@ -28,211 +32,60 @@
             "group": "",
             "btext": "",
             "confirm": "",
-            "bonus_items": [
-                {
-                    "iname": "IT_CV_GOLD3",
-                    "num": 20
-                }
-            ],
+            "bonus_items": [],
             "pickup_art": []
         },
         {
-            "iname": "Daily_Gacha_D02_PaidJuly2018b",
-            "cat": "",
-            "startat": 1532678400,
-            "endat": 1532764799,
+            "iname": "9Step_Gacha_S1_B16",
+            "cat": "other",
+            "startat": 1533801600,
+            "endat": 1535011199,
             "num": 10,
-            "name": "Grand Unit Summon",
+            "name": "Premium Summon Step 1",
             "cost": {
-                "coin_p": 1500
+                "coin": 2500
             },
-            "asset_title": "tab_GL_018_01",
-            "asset_bg": "GachaImages_GL_Grand_Unit_July2018b",
-            "detail_url": "Grand_Unit_Summon_July2018b",
+            "asset_title": "tab_GL_018_09",
+            "asset_bg": "GachaImages_GL_9step_Batch16",
+            "detail_url": "9Step_Gacha_B16",
             "units": [],
             "ext_type": [
-                "limit_cnt",
-                "promise"
+                "step",
+                "limit_cnt"
             ],
             "ext_param": {
+                "step": {
+                    "index": 0,
+                    "num": 9
+                },
                 "limit_cnt": {
-                    "rest": 1,
+                    "rest": 9,
                     "num": 1
                 }
             },
             "is_valid": 0,
             "group": "",
-            "btext": "",
-            "confirm": "",
             "bonus_items": [
                 {
-                    "iname": "IT_EVENT_GL_LUCKYDIME_JULY",
+                    "iname": "IT_CV_GOLD3",
                     "num": 100
                 }
             ],
             "pickup_art": []
         },
         {
-            "iname": "7Step_Gacha_S2_FF15d",
+            "iname": "Daily_Gacha_D02_S1_SoulB16",
             "cat": "",
-            "startat": 1532592000,
-            "endat": 1533196799,
-            "num": 10,
-            "name": "Special Summon Step 2",
-            "cost": {
-                "coin": 1500
-            },
-            "asset_title": "tab_GL_018_07",
-            "asset_bg": "GachaImages_GL_7step_FF15d",
-            "detail_url": "7Step_Gacha_FF15d",
-            "units": [],
-            "ext_type": [
-                "step",
-                "limit_cnt"
-            ],
-            "ext_param": {
-                "step": {
-                    "index": 1,
-                    "num": 7
-                },
-                "limit_cnt": {
-                    "rest": 6,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "btext": "",
-            "confirm": "",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "3Step_Gacha_S2_B15a",
-            "cat": "",
-            "startat": 1532592000,
-            "endat": 1533801599,
-            "num": 10,
-            "name": "Promo Summon Step 2",
-            "cost": {
-                "coin": 1500
-            },
-            "asset_title": "tab_GL_018_05",
-            "asset_bg": "GachaImages_GL_3step_Batch15a",
-            "detail_url": "3Step_Gacha_B15a",
-            "units": [],
-            "ext_type": [
-                "step",
-                "limit_cnt"
-            ],
-            "ext_param": {
-                "step": {
-                    "index": 1,
-                    "num": 3
-                },
-                "limit_cnt": {
-                    "rest": 2,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "btext": "",
-            "confirm": "",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "9Step_Gacha_S1_B15",
-            "cat": "other",
-            "startat": 1532592000,
-            "endat": 1533801599,
-            "num": 10,
-            "name": "Premium Summon Step 1",
-            "cost": {
-                "coin": 2500
-            },
-            "asset_title": "tab_GL_018_04",
-            "asset_bg": "GachaImages_GL_9step_Batch15",
-            "detail_url": "9Step_Gacha_B15",
-            "units": [],
-            "ext_type": [
-                "step",
-                "limit_cnt"
-            ],
-            "ext_param": {
-                "step": {
-                    "index": 0,
-                    "num": 9
-                },
-                "limit_cnt": {
-                    "rest": 9,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "bonus_items": [
-                {
-                    "iname": "IT_CV_GOLD3",
-                    "num": 50
-                }
-            ],
-            "pickup_art": []
-        },
-        {
-            "iname": "Daily_Gacha_D02_S1_July2018b",
-            "cat": "",
-            "startat": 1532678400,
-            "endat": 1532764799,
-            "num": 1,
-            "name": "Daily Special Summon Step 1",
-            "cost": {
-                "coin": 250
-            },
-            "asset_title": "tab_GL_018_03",
-            "asset_bg": "GachaImages_GL_3stepDaily_July2018b",
-            "detail_url": "3step_Daily_Gacha_July2018b",
-            "units": [],
-            "ext_type": [
-                "step",
-                "limit_cnt"
-            ],
-            "ext_param": {
-                "step": {
-                    "index": 0,
-                    "num": 3
-                },
-                "limit_cnt": {
-                    "rest": 3,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "btext": "",
-            "confirm": "",
-            "bonus_items": [
-                {
-                    "iname": "IT_CV_GOLD3",
-                    "num": 5
-                }
-            ],
-            "pickup_art": []
-        },
-        {
-            "iname": "Daily_Gacha_D02_S1_SoulB15",
-            "cat": "",
-            "startat": 1532678400,
-            "endat": 1532764799,
+            "startat": 1533888000,
+            "endat": 1533974399,
             "num": 10,
             "name": "Daily Soul Summon",
             "cost": {
                 "coin": 2500
             },
-            "asset_title": "tab_GL_018_06",
-            "asset_bg": "GachaImages_GL_DailySoul_Batch15",
-            "detail_url": "Daily_Gacha_SoulB15",
+            "asset_title": "tab_GL_018_10",
+            "asset_bg": "GachaImages_GL_DailySoul_Batch16",
+            "detail_url": "Daily_Gacha_SoulB16",
             "units": [],
             "ext_type": [
                 "limit_cnt",
@@ -252,137 +105,18 @@
             "pickup_art": []
         },
         {
-            "iname": "Unlimited_Gacha_SoulFF15d",
+            "iname": "3Step_Gacha_S1_Swimsuit2018a",
             "cat": "",
-            "startat": 1532592000,
-            "endat": 1533196799,
-            "num": 10,
-            "name": "Unlimited Soul Summon",
-            "cost": {
-                "coin": 2500
-            },
-            "asset_title": "tab_GL_018_08",
-            "asset_bg": "GachaImages_GL_UnlimitedSoul_FF15d",
-            "detail_url": "Daily_Gacha_SoulFF15d",
-            "units": [],
-            "ext_type": [
-                "promise"
-            ],
-            "ext_param": {},
-            "is_valid": 0,
-            "group": "",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "Unlimited_Gacha_SoulJuly2018b_Paid",
-            "cat": "",
-            "startat": 1532592000,
-            "endat": 1533196799,
+            "startat": 1533196800,
+            "endat": 1534406399,
             "num": 3,
-            "name": "Unlimited Soul Summon",
+            "name": "Special Summon Step 1",
             "cost": {
-                "coin_p": 180
+                "coin": 750
             },
-            "asset_title": "tab_GL_018_02",
-            "asset_bg": "GachaImages_GL_UnlimitedSoul_July2018b",
-            "detail_url": "UnlimitedSoul_July2018b",
-            "units": [],
-            "ext_type": [
-                "promise"
-            ],
-            "ext_param": {},
-            "is_valid": 0,
-            "group": "",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "5Step_Gacha_S2_FF15c",
-            "cat": "",
-            "startat": 1531987200,
-            "endat": 1533196799,
-            "num": 10,
-            "name": "Special Summon Step 2",
-            "cost": {
-                "coin": 1500
-            },
-            "asset_title": "tab_GL_017_07",
-            "asset_bg": "GachaImages_GL_5step_FF15c",
-            "detail_url": "5Step_Gacha_FF15c",
-            "units": [],
-            "ext_type": [
-                "step",
-                "limit_cnt"
-            ],
-            "ext_param": {
-                "step": {
-                    "index": 1,
-                    "num": 5
-                },
-                "limit_cnt": {
-                    "rest": 4,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "btext": "",
-            "confirm": "",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "9Step_Gacha_S1_FF15c",
-            "cat": "other",
-            "startat": 1531987200,
-            "endat": 1533196799,
-            "num": 10,
-            "name": "Premium Summon Step 1",
-            "cost": {
-                "coin": 2500
-            },
-            "asset_title": "tab_GL_017_03",
-            "asset_bg": "GachaImages_GL_9step_FF15",
-            "detail_url": "9Step_Gacha_FF15c",
-            "units": [],
-            "ext_type": [
-                "step",
-                "limit_cnt"
-            ],
-            "ext_param": {
-                "step": {
-                    "index": 0,
-                    "num": 9
-                },
-                "limit_cnt": {
-                    "rest": 9,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "bonus_items": [
-                {
-                    "iname": "IT_CV_GOLD3",
-                    "num": 50
-                }
-            ],
-            "pickup_art": []
-        },
-        {
-            "iname": "Daily_Gacha_D05_S1_FF15c",
-            "cat": "",
-            "startat": 1532678400,
-            "endat": 1532764799,
-            "num": 1,
-            "name": "Daily Special Summon Step 1",
-            "cost": {
-                "coin": 250
-            },
-            "asset_title": "tab_GL_017_09",
-            "asset_bg": "GachaImages_GL_3stepDaily_FF15c",
-            "detail_url": "3step_Daily_Gacha_FF15c",
+            "asset_title": "tab_GL_019_04",
+            "asset_bg": "GachaImages_GL_3step_Swimsuit2018a",
+            "detail_url": "3Step_Gacha_Swimsuit2018a",
             "units": [],
             "ext_type": [
                 "step",
@@ -404,25 +138,25 @@
             "confirm": "",
             "bonus_items": [
                 {
-                    "iname": "IT_CV_GOLD3",
-                    "num": 5
+                    "iname": "IT_UG_APPLE5",
+                    "num": 30
                 }
             ],
             "pickup_art": []
         },
         {
-            "iname": "9Step_Gacha_S1_July2018",
+            "iname": "9Step_Gacha_S1_PotkShinobi3",
             "cat": "other",
-            "startat": 1531987200,
-            "endat": 1533196799,
+            "startat": 1533196800,
+            "endat": 1534406399,
             "num": 10,
             "name": "Premium Summon Step 1",
             "cost": {
                 "coin": 2500
             },
-            "asset_title": "tab_GL_016_09",
-            "asset_bg": "GachaImages_GL_9step_July2018",
-            "detail_url": "9Step_Gacha_July2018",
+            "asset_title": "tab_GL_019_01",
+            "asset_bg": "GachaImages_GL_9step_PotkShinobi3",
+            "detail_url": "9Step_Gacha_PotkShinobi3",
             "units": [],
             "ext_type": [
                 "step",
@@ -443,24 +177,24 @@
             "bonus_items": [
                 {
                     "iname": "IT_CV_GOLD3",
-                    "num": 50
+                    "num": 100
                 }
             ],
             "pickup_art": []
         },
         {
-            "iname": "Unlimited_Gacha_FF15c",
+            "iname": "Unlimited_Gacha_PotkShinobi3",
             "cat": "",
-            "startat": 1531987200,
-            "endat": 1533196799,
+            "startat": 1533196800,
+            "endat": 1534406399,
             "num": 10,
             "name": "Unlimited Unit Summon",
             "cost": {
                 "coin": 2500
             },
-            "asset_title": "tab_GL_017_04",
-            "asset_bg": "GachaImages_GL_Unlimited_FF15c",
-            "detail_url": "Unlimited_FF15c",
+            "asset_title": "tab_GL_019_05",
+            "asset_bg": "GachaImages_GL_Unlimited_PotkShinobi3",
+            "detail_url": "Unlimited_PotkShinobi3",
             "units": [],
             "ext_type": [],
             "ext_param": {},
@@ -468,25 +202,25 @@
             "group": "",
             "bonus_items": [
                 {
-                    "iname": "IT_US_GL_5STAR_10PER_TICKET_FF15",
+                    "iname": "IT_US_GL_5STAR_10PER_TICKET_POTKSHINOBI3",
                     "num": 1
                 }
             ],
             "pickup_art": []
         },
         {
-            "iname": "3Step_Gear_S1_B15",
+            "iname": "3Step_Gear_S1_B16",
             "cat": "",
-            "startat": 1532592000,
-            "endat": 1533801599,
+            "startat": 1533801600,
+            "endat": 1535011199,
             "num": 10,
             "name": "Gear Summon Step 1",
             "cost": {
                 "coin": 300
             },
             "asset_title": "tab_GL_002_01",
-            "asset_bg": "GachaImages_GL_3stepGear_Batch15",
-            "detail_url": "3Step_Gear_B15",
+            "asset_bg": "GachaImages_GL_3stepGear_Batch16",
+            "detail_url": "3Step_Gear_B16",
             "units": [],
             "ext_type": [
                 "step",
@@ -510,18 +244,18 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_GearSummon_01_B15",
+            "iname": "Rare_GearSummon_01_B16",
             "cat": "",
-            "startat": 1532592000,
-            "endat": 1533801599,
+            "startat": 1533801600,
+            "endat": 1535011199,
             "num": 1,
             "name": "Gear Summon",
             "cost": {
                 "coin": 150
             },
             "asset_title": "tab_GL_002_02",
-            "asset_bg": "GachaImages_GL_RareGear_Batch15",
-            "detail_url": "Rare_Gear_B15",
+            "asset_bg": "GachaImages_GL_RareGear_Batch16",
+            "detail_url": "Rare_Gear_B16",
             "units": [],
             "ext_type": [],
             "ext_param": {},
@@ -531,18 +265,18 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_GearSummon_10_B15",
+            "iname": "Rare_GearSummon_10_B16",
             "cat": "",
-            "startat": 1532592000,
-            "endat": 1533801599,
+            "startat": 1533801600,
+            "endat": 1535011199,
             "num": 10,
             "name": "Gear 10-Summon",
             "cost": {
                 "coin": 1500
             },
             "asset_title": "tab_GL_002_02",
-            "asset_bg": "GachaImages_GL_RareGear_Batch15",
-            "detail_url": "Rare_Gear_B15",
+            "asset_bg": "GachaImages_GL_RareGear_Batch16",
+            "detail_url": "Rare_Gear_B16",
             "units": [],
             "ext_type": [
                 "promise"
@@ -554,18 +288,18 @@
             "pickup_art": []
         },
         {
-            "iname": "3Step_Gear_S1_FF15c",
+            "iname": "3Step_Gear_S1_PotkShinobi3",
             "cat": "",
-            "startat": 1531987200,
-            "endat": 1533196799,
+            "startat": 1533196800,
+            "endat": 1534406399,
             "num": 10,
             "name": "Gear Summon Step 1",
             "cost": {
                 "coin": 300
             },
-            "asset_title": "tab_GL_017_06",
-            "asset_bg": "GachaImages_GL_3stepGear_FF15c",
-            "detail_url": "3Step_Gear_FF15c",
+            "asset_title": "tab_GL_019_07",
+            "asset_bg": "GachaImages_GL_3stepGear_PotkShinobi3",
+            "detail_url": "3Step_Gear_PotkShinobi3",
             "units": [],
             "ext_type": [
                 "step",
@@ -589,46 +323,46 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_GearSummon_01_FF15c",
+            "iname": "Rare_GearSummon_01_PotkShinobi3",
             "cat": "",
-            "startat": 1531987200,
-            "endat": 1533196799,
+            "startat": 1533196800,
+            "endat": 1534406399,
             "num": 1,
             "name": "Gear Summon",
             "cost": {
                 "coin": 150
             },
-            "asset_title": "tab_GL_017_05",
-            "asset_bg": "GachaImages_GL_RareGear_FF15c",
-            "detail_url": "Rare_Gear_FF15c",
+            "asset_title": "tab_GL_019_08",
+            "asset_bg": "HASH:47134a10026c47435d463b1b67ae9e4e7659461311f29b9f1ae23927f89aa77c2c6c815726571d3bf9c83bb86b9bab864cd3c5be1690dc6914a6eef607d91958",
+            "detail_url": "Rare_Gear_PotkShinobi3",
             "units": [],
             "ext_type": [],
             "ext_param": {},
             "is_valid": 0,
-            "group": "Gear_FF15c",
+            "group": "Gear_PotkShinobi3",
             "bonus_items": [],
             "pickup_art": []
         },
         {
-            "iname": "Rare_GearSummon_10_FF15c",
+            "iname": "Rare_GearSummon_10_PotkShinobi3",
             "cat": "",
-            "startat": 1531987200,
-            "endat": 1533196799,
+            "startat": 1533196800,
+            "endat": 1534406399,
             "num": 10,
             "name": "Gear 10-Summon",
             "cost": {
                 "coin": 1500
             },
-            "asset_title": "tab_GL_017_05",
-            "asset_bg": "GachaImages_GL_RareGear_FF15c",
-            "detail_url": "Rare_Gear_FF15c",
+            "asset_title": "tab_GL_019_08",
+            "asset_bg": "HASH:47134a10026c47435d463b1b67ae9e4e7659461311f29b9f1ae23927f89aa77c2c6c815726571d3bf9c83bb86b9bab864cd3c5be1690dc6914a6eef607d91958",
+            "detail_url": "Rare_Gear_PotkShinobi3",
             "units": [],
             "ext_type": [
                 "promise"
             ],
             "ext_param": {},
             "is_valid": 0,
-            "group": "Gear_FF15c",
+            "group": "Gear_PotkShinobi3",
             "bonus_items": [],
             "pickup_art": []
         },
@@ -675,766 +409,10 @@
             "pickup_art": []
         },
         {
-            "iname": "GL_5star_01shards_Potk",
-            "cat": "",
-            "startat": 1516867200,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "PotK  5★ Soul Shard Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_5STAR_SOUL_TICKET_POTK",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_5star_01shards_Potk",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Rare_Unit_Ticket_B6",
-            "cat": "",
-            "startat": 1502649360,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "Rare Unit Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_RARE_UNIT_TICKET_B06",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Rare_Unit_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Rare_10Eq_Ticket_B6",
-            "cat": "",
-            "startat": 1502649360,
-            "endat": 4090678560,
-            "num": 10,
-            "name": "Rare Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_RARE_10EQ_TICKET_B06",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Rare_10Eq_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_4plus_10Eq_Ticket_B6",
-            "cat": "",
-            "startat": 1502649360,
-            "endat": 4090678560,
-            "num": 10,
-            "name": "4+★ Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_4STAR_10EQ_TICKET_B06",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_4plus_10Eq_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_3star_Gear_Ticket_S1",
-            "cat": "",
-            "startat": 1502649360,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "3★ Gear Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_3STAR_GEAR_TICKET_S01",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_3star_Gear_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_3to4_Gear_Ticket_S1",
-            "cat": "",
-            "startat": 1502649360,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "3-4★ Gear Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_3TO4_GEAR_TICKET_S01",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_3to4_Gear_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Pollin_Ticket",
-            "cat": "",
-            "startat": 1502649360,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "Pollin Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_POLLIN_TICKET",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Pollin_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_EQ_10-Summon_Ticket",
-            "cat": "",
-            "startat": 1500266520,
-            "endat": 4087946520,
-            "num": 10,
-            "name": "Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_SOUBI10TICKET_2",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_EQ_10-Summon_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Unit_Shard_Ticket",
-            "cat": "",
-            "startat": 1502243280,
-            "endat": 4090009740,
-            "num": 1,
-            "name": "Rare Soul Shard Summon Ticket)",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_SOULTICKET",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Unit_Shard_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_10-Apple_Ticket",
-            "cat": "",
-            "startat": 1502243580,
-            "endat": 4090009980,
-            "num": 10,
-            "name": "10-Apple Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_APPLE_10TICKET",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_10-Apple_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Rare_Unit_Ticket_Default",
-            "cat": "",
-            "startat": 1502644380,
-            "endat": 4094471580,
-            "num": 1,
-            "name": "Rare Unit Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_RARETICKET",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Rare_Unit_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_GEAR_SHADOWS_TICKET",
-            "cat": "",
-            "startat": 1502644620,
-            "endat": 4094475420,
-            "num": 1,
-            "name": "Gear Fragment Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_2016APR_ARTIFACT_TICKET",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_GEAR_SHADOWS_TICKET",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_4plus_10EQ_Ticket_Default",
-            "cat": "",
-            "startat": 1502644860,
-            "endat": 4094475660,
-            "num": 10,
-            "name": "4+★ Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_2016APR_SOUBI02_TICKET",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_4plus_10EQ_Ticket_Sep17",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Job_SpecificEQ_Ticket_Sep17",
-            "cat": "",
-            "startat": 1502646000,
-            "endat": 4094476800,
-            "num": 1,
-            "name": "Job Specific Equipment Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_2016APR_JOB_SOUBI_TICKET",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Job_SpecificEQ_Ticket_Sep17",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Rare_10EQ_Ticket_Sep17",
-            "cat": "",
-            "startat": 1502648400,
-            "endat": 4094479200,
-            "num": 10,
-            "name": "Rare Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_RARESOUBI_10TICKET",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Rare_10EQ_Ticket_Sep17",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_4plus_Unit_Ticket_Default",
-            "cat": "",
-            "startat": 1502648700,
-            "endat": 4094479560,
-            "num": 1,
-            "name": "4+★ Unit Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_RARE4_TICKET",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_4plus_Unit_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_5Star_10EQ_Ticket_Default",
-            "cat": "",
-            "startat": 1502662260,
-            "endat": 4094493060,
-            "num": 10,
-            "name": "5 ★ Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_2016APR_SOUBI03_TICKET",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_5Star_10EQ_Ticket_Sep17",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Rare_10Eq_Ticket_B7",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 10,
-            "name": "Rare Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_RARE_10EQ_TICKET_B07",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Rare_10Eq_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_5star_10Eq_Ticket_B7",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 10,
-            "name": "5★ Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_5STAR_10EQ_TICKET_B07",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_5star_10Eq_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_3to4_Gear_Ticket_B6",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "3-4★ Gear Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_3TO4_GEAR_TICKET_B06",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_3to4_Gear_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_3to4_Gear_Ticket_B7",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "3-4★ Gear Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_3TO4_GEAR_TICKET_B07",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_3to4_Gear_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_3to4_Gear_Ticket_CB",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "3-4★ Gear Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_3TO4_GEAR_TICKET_CB",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_3to4_Gear_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_5star_01shards_Shinobi",
-            "cat": "",
-            "startat": 1516867200,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "[For Whom the Princess Weeps] 5★ Soul Shard Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_5STAR_SOUL_TICKET_SHINOBI",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_5star_01shards_Shinobi",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Rare_10Eq_Ticket_B9",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 10,
-            "name": "Rare Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_RARE_10EQ_TICKET_B09",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Rare_10Eq_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_4plus_Unit_Ticket_B9",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "4★ Unit Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_4PLUS_UNIT_TICKET_B09",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_4plus_Unit_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_4plus_10Eq_Ticket_B9",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 10,
-            "name": "4+★ Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_4PLUS_10EQ_TICKET_B09",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_4plus_10Eq_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_5star_Unit_Ticket_Tutorial",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "5★ Unit Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_5STAR_UNIT_TICKET_TUT",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_5star_Unit_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Rare_Unit_Ticket_B8",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "Rare Unit Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_RARE_UNIT_TICKET_B08",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Rare_Unit_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Rare_10Eq_Ticket_B8",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 10,
-            "name": "Rare Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_RARE_10EQ_TICKET_B08",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Rare_10Eq_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_4plus_Unit_Ticket_B5",
-            "cat": "",
-            "startat": 1502649360,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "4+★ Unit Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_4STAR_UNIT_TICKET_B05",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_4plus_Unit_Ticket_B5",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Rare_10Eq_Ticket_B12",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 10,
-            "name": "Rare Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_RARE_10EQ_TICKET_B12",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Rare_10Eq_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Rare_10Eq_Ticket_B5",
-            "cat": "",
-            "startat": 1502649360,
-            "endat": 4090678560,
-            "num": 10,
-            "name": "Rare Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_RARE_10EQ_TICKET_B05",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Rare_10Eq_Ticket_B5",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_4plus_10Eq_Ticket_B13",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 10,
-            "name": "4+★ Equipment 10-Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_4PLUS_10EQ_TICKET_B13",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_4plus_10Eq_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_Rare_Unit_Ticket_B13",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "Rare Unit Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_RARE_UNIT_TICKET_B13",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_Rare_Unit_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_4plus_Unit_Ticket_B13",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "4★ Unit Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_4PLUS_UNIT_TICKET_B13",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_4plus_Unit_Ticket",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "GL_5Star_FF15",
-            "cat": "",
-            "startat": 1514793600,
-            "endat": 4090678560,
-            "num": 1,
-            "name": "[FFXV] 5★ Unit Summon Ticket",
-            "cost": {
-                "ticket": {
-                    "iname": "IT_US_GL_5STAR_UNIT_TICKET_FF15",
-                    "num": 1
-                }
-            },
-            "detail_url": "GL_5Star_FF15",
-            "ext_type": [
-                "ticket"
-            ],
-            "is_valid": 0,
-            "bonus_items": [],
-            "group": ""
-        },
-        {
-            "iname": "Rare_Gacha_ii",
+            "iname": "Rare_Gacha",
             "cat": "coin_1",
-            "startat": 1532592000,
-            "endat": 1533801599,
+            "startat": 1533801600,
+            "endat": 1535011199,
             "num": 1,
             "name": "Rare Summon",
             "cost": {
@@ -1444,8 +422,8 @@
             "asset_bg": "GachaImages_rare",
             "detail_url": "rare_gacha",
             "units": [
-                "UN_V2_MIKOTO",
-                "UN_V2_NASARIO"
+                "UN_V2_YUNAGI",
+                "UN_V2_ZIN"
             ],
             "ext_type": [],
             "ext_param": {},
@@ -1456,10 +434,10 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_Gacha_10_ii",
+            "iname": "Rare_Gacha_10",
             "cat": "coin_n",
-            "startat": 1532592000,
-            "endat": 1533801599,
+            "startat": 1533801600,
+            "endat": 1535011199,
             "num": 10,
             "name": "Rare Summon x 10",
             "cost": {
@@ -1469,8 +447,8 @@
             "asset_bg": "GachaImages_rare",
             "detail_url": "rare_gacha",
             "units": [
-                "UN_V2_MIKOTO",
-                "UN_V2_NASARIO"
+                "UN_V2_YUNAGI",
+                "UN_V2_ZIN"
             ],
             "ext_type": [],
             "ext_param": {},

@@ -340,24 +340,28 @@
         "expr": "Ultra EXP! The Way to True Skill"
     },
     "AR_3TITLE": {
-        "name": "For Whom the Princess Vanishes - The Sun God and the Golden Key -",
-        "expr": "For Whom the Princess Vanishes - The Sun God and the Golden Key -"
+        "name": "The Sun God and the Golden Key",
+        "expr": "The Sun God and the Golden Key"
     },
     "AR_3TITLE_EX": {
-        "name": "For Whom the Princess Vanishes - The Sun God and the Golden Key - Ex",
-        "expr": "For Whom the Princess Vanishes - The Sun God and the Golden Key - Ex"
+        "name": "The Sun God and the Golden Key - Ex",
+        "expr": "The Sun God and the Golden Key - Ex"
+    },
+    "AR_3TITLE_GL_END_TOP": {
+        "name": "[True Ending] The Sun God and the Golden Key",
+        "expr": "[True Ending] The Sun God and the Golden Key"
     },
     "AR_3TITLE_END1": {
-        "name": "For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 1",
-        "expr": "For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 1"
+        "name": "The Sun God and the Golden Key - Episode 1",
+        "expr": "The Sun God and the Golden Key - Episode 1"
     },
     "AR_3TITLE_END2": {
-        "name": "For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 2",
-        "expr": "For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 2"
+        "name": "The Sun God and the Golden Key - Episode 2",
+        "expr": "The Sun God and the Golden Key - Episode 2"
     },
     "AR_3TITLE_END3": {
-        "name": "For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 3",
-        "expr": "For Whom the Princess Vanishes - The Sun God and the Golden Key - Episode 3"
+        "name": "The Sun God and the Golden Key - Episode 3",
+        "expr": "The Sun God and the Golden Key - Episode 3"
     },
     "AR_ZOKUSEI": {
         "name": "[Limited Time]",
@@ -1320,8 +1324,8 @@
         "expr": "3 Titles Collaboration"
     },
     "MULTI_3TITLE_EX": {
-        "name": "For Whom the Princess Vanishes - The Sun God and the Golden Key - Ex",
-        "expr": "For Whom the Princess Vanishes - The Sun God and the Golden Key - Ex"
+        "name": "The Sun God and the Golden Key - Ex",
+        "expr": "The Sun God and the Golden Key - Ex"
     },
     "MULTI_SWIM_GORM": {
         "name": "Max",
@@ -2290,7 +2294,7 @@
         "title": "Ch 1: Ep 5 [3-9]"
     },
     "QE_ST_NO_010150": {
-        "name": "For Whom...",
+        "name": "The Code...",
         "expr": "Episode 5: Act 3-10",
         "cond": "Fight off Dias!",
         "title": "Ch 1: Ep 5 [3-10]"
@@ -3232,7 +3236,7 @@
         "title": "Ch 3: Ep 2 [1-6]"
     },
     "QE_ST_NO_030037": {
-        "name": "What's Wrong with Helping a Friend?",
+        "name": "Get to the Root of the Problem!",
         "expr": "Episode 2: Act 1-7",
         "cond": "Defeat all enemies!",
         "title": "Ch 3: Ep 2 [1-7]"
@@ -4098,7 +4102,7 @@
     "QE_ST_NO_040061": {
         "name": "For Asena",
         "expr": "Episode 3: Act 1-1",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [1-1]"
     },
     "QE_ST_NO_040062": {
@@ -4128,7 +4132,7 @@
     "QE_ST_NO_040066": {
         "name": "Sprite of the Lands",
         "expr": "Episode 3: Act 1-6",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [1-6]"
     },
     "QE_ST_NO_040067": {
@@ -4158,31 +4162,31 @@
     "QE_ST_NO_040071": {
         "name": "Conditions for Positions",
         "expr": "Episode 3: Act 2-1",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [2-1]"
     },
     "QE_ST_NO_040072": {
         "name": "Showing Determination",
         "expr": "Episode 3: Act 2-2",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [2-2]"
     },
     "QE_ST_NO_040073": {
         "name": "Brother and Sister",
         "expr": "Episode 3: Act 2-3",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [2-3]"
     },
     "QE_ST_NO_040074": {
         "name": "Tamis's Considerations",
         "expr": "Episode 3: Act 2-4",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [2-4]"
     },
     "QE_ST_NO_040075": {
         "name": "To Asena",
         "expr": "Episode 3: Act 2-5",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [2-5]"
     },
     "QE_ST_NO_040076": {
@@ -4218,55 +4222,55 @@
     "QE_ST_NO_040081": {
         "name": "Motives",
         "expr": "Episode 3: Act 3-1",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [3-1]"
     },
     "QE_ST_NO_040082": {
         "name": "Four Winds",
         "expr": "Episode 3: Act 3-2",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [3-2]"
     },
     "QE_ST_NO_040083": {
         "name": "Legend",
         "expr": "Episode 3: Act 3-3",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [3-3]"
     },
     "QE_ST_NO_040084": {
         "name": "Return",
         "expr": "Episode 3: Act 3-4",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [3-4]"
     },
     "QE_ST_NO_040085": {
         "name": "The Last Hurdle",
         "expr": "Episode 3: Act 3-5",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [3-5]"
     },
     "QE_ST_NO_040086": {
         "name": "Rega's Wind",
         "expr": "Episode 3: Act 3-6",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [3-6]"
     },
     "QE_ST_NO_040087": {
         "name": "Cycle",
         "expr": "Episode 3: Act 3-7",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [3-7]"
     },
     "QE_ST_NO_040088": {
         "name": "Distrust",
         "expr": "Episode 3: Act 3-8",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [3-8]"
     },
     "QE_ST_NO_040089": {
         "name": "Meeting of Three Sprites",
         "expr": "Episode 3: Act 3-9",
-        "cond": "Defeat All Enemies!",
+        "cond": "Defeat all enemies!",
         "title": "Ch 4: Ep 3 [3-9]"
     },
     "QE_ST_NO_040090": {
@@ -4570,7 +4574,7 @@
         "title": "[Hard] Ch 1: Ep 5 [3-4]"
     },
     "QE_ST_HA_010050": {
-        "name": "For Whom...",
+        "name": "The Code...",
         "expr": "[Hard] Episode 5: Act 3-10",
         "cond": "Defeat all enemy units!",
         "title": "[Hard] Ch 1: Ep 5 [3-10]"
@@ -5149,7 +5153,7 @@
         "name": "Apple Garden FINAL FANTASY XV",
         "expr": "EXP Quest: Apples/Gold Ingots",
         "cond": "Defeat all enemy units!",
-        "title": "[Max 1/d]"
+        "title": "[1/Day]"
     },
     "QE_TM_ZEN_LV1": {
         "name": "Gold Rush [Bgn]",
@@ -8476,19 +8480,19 @@
     },
     "QE_EV_POK_SAM_EX1": {
         "name": "Phantom of the Alchemist II [EX 3]",
-        "expr": "PotK / Shinobi Collab EX (Move to PotK Collab Quest)",
+        "expr": "PotK / Shinobi Collab EX ",
         "cond": "Defeat all enemy units!",
         "title": "[Featuring Forcas Hell Lance]"
     },
     "QE_EV_POK_SAM_EX3": {
         "name": "Phantom of the Alchemist II [EX 4]",
-        "expr": "PotK / Shinobi Collab EX (Move to PotK Collab Quest)",
+        "expr": "PotK / Shinobi Collab EX ",
         "cond": "Defeat all enemy units!",
         "title": "[Featuring Bashosen Artifact]"
     },
     "QE_EV_3TITLE_EX1": {
-        "name": "Phantom of the Alchemist 2 [EX5]",
-        "expr": "3-Title Swimsuit Collab Quest [EX1] (Move to PotK Collab Quest)",
+        "name": "The Sun God and the Golden Key [EX1]",
+        "expr": "3-Title Swimsuit Collab Quest [EX1] ",
         "cond": "Defeat all enemy units!",
         "title": "[Featuring Eros Love Bow]"
     },
@@ -8542,13 +8546,13 @@
     },
     "QE_EV_POK_SAM_EX2": {
         "name": "FgG Collaboration Event [EX] ",
-        "expr": "PotK / Shinobi Collab EX",
+        "expr": "PotK / Shinobi Collab EX ",
         "cond": "Defeat all enemy units!",
         "title": "[Featuring Sakura Blade]"
     },
     "QE_EV_POK_SAM_EX4": {
         "name": "FgG Collaboration Event [EX] ",
-        "expr": "PotK / Shinobi Collab EX",
+        "expr": "PotK / Shinobi Collab EX ",
         "cond": "Defeat all enemy units!",
         "title": "[Featuring Bow of Darkness]"
     },
@@ -8619,7 +8623,7 @@
         "title": "Unit Lv65 JobLv10 Recommended"
     },
     "QE_EV_FF15_HA": {
-        "name": "FINAL FANTASY XV Collab [Hard]",
+        "name": "FINAL FANTASY XV Collab",
         "expr": "FFXV Collab Quest",
         "cond": "Defeat all enemy units!",
         "title": "[Limited Time]"
@@ -8724,7 +8728,7 @@
         "name": "The Sun God and the Golden Key [EX2]",
         "expr": "3-Title Swimsuit Collab Quest [EX2]",
         "cond": "Defeat all enemy units!",
-        "title": "Hard Quest"
+        "title": "[Featuring White-Lily Katana]"
     },
     "QE_EV_150CP": {
         "name": "1.5M Downloads Celebration Present Quest",
@@ -9486,17 +9490,17 @@
         "name": "The Sun God and the Golden Key [EX2]",
         "expr": "3-Title Swimsuit Collab Quest [EX2]",
         "cond": "Defeat all enemy units!",
-        "title": "Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_MULTI_POK_SAM_EX2": {
         "name": "[Featuring Sakura Blade] For Whom the Princess Weeps [EX]",
-        "expr": "PotK / Shinobi Collab EX",
+        "expr": "PotK / Shinobi Collab EX ",
         "cond": "Defeat all enemy units!",
         "title": "[JobLv11+ Recommended]"
     },
     "QE_MULTI_POK_SAM_EX4": {
         "name": "[Featuring Bow of Darkness] For Whom the Princess Weeps [EX]",
-        "expr": "PotK / Shinobi Collab EX",
+        "expr": "PotK / Shinobi Collab EX ",
         "cond": "Defeat all enemy units!",
         "title": "[JobLv11+ Recommended]"
     },
@@ -9544,19 +9548,19 @@
     },
     "QE_MULTI_POK_SAM_EX1": {
         "name": "Phantom of the Alchemist II [EX 3]",
-        "expr": "PotK / Shinobi Collab EX (Move to PotK Collab Quest)",
+        "expr": "PotK / Shinobi Collab EX ",
         "cond": "Defeat all enemy units!",
         "title": "[Limited Time]"
     },
     "QE_MULTI_POK_SAM_EX3": {
         "name": "Phantom of the Alchemist II [EX 4]",
-        "expr": "PotK / Shinobi Collab EX (Move to PotK Collab Quest)",
+        "expr": "PotK / Shinobi Collab EX ",
         "cond": "Defeat all enemy units!",
         "title": "[Limited Time]"
     },
     "QE_EV_MULTI_3TITLE_EX1": {
-        "name": "Phantom of the Alchemist 2 [EX5]",
-        "expr": "3-Title Swimsuit Collab Quest [EX1] (Move to PotK Collab Quest)",
+        "name": "The Sun God and the Golden Key [EX1]",
+        "expr": "3-Title Swimsuit Collab Quest [EX1] ",
         "cond": "Defeat all enemy units!",
         "title": "[Limited Time]"
     },
@@ -10311,7 +10315,7 @@
         "title": " "
     },
     "QE_TW_ITEM": {
-        "name": "Item Realm",
+        "name": "Item World",
         "expr": " ",
         "cond": "Defeat all enemy units!",
         "title": " "
@@ -10951,67 +10955,67 @@
         "name": "Fl1 [Fire]",
         "expr": " ",
         "cond": "Defeat all enemy units!",
-        "title": "Item Realm"
+        "title": "Item World"
     },
     "TW_ITEM_FLOOR_002": {
         "name": "Fl2 [Fire]",
         "expr": " ",
         "cond": "Defeat all enemy units!",
-        "title": "Item Realm"
+        "title": "Item World"
     },
     "TW_ITEM_FLOOR_003": {
         "name": "Fl3 [Fire]",
         "expr": " ",
         "cond": "Defeat all enemy units!",
-        "title": "Item Realm"
+        "title": "Item World"
     },
     "TW_ITEM_FLOOR_004": {
         "name": "Fl4 [Water]",
         "expr": " ",
         "cond": "Defeat all enemy units!",
-        "title": "Item Realm"
+        "title": "Item World"
     },
     "TW_ITEM_FLOOR_005": {
         "name": "Fl5 [Water]",
         "expr": " ",
         "cond": "Defeat all enemy units!",
-        "title": "Item Realm"
+        "title": "Item World"
     },
     "TW_ITEM_FLOOR_006": {
         "name": "Fl6 [Water]",
         "expr": " ",
         "cond": "Defeat all enemy units!",
-        "title": "Item Realm"
+        "title": "Item World"
     },
     "TW_ITEM_FLOOR_007": {
         "name": "Fl7 [Wind]",
         "expr": " ",
         "cond": "Defeat all enemy units!",
-        "title": "Item Realm"
+        "title": "Item World"
     },
     "TW_ITEM_FLOOR_008": {
         "name": "Fl8 [Wind]",
         "expr": " ",
         "cond": "Defeat all enemy units!",
-        "title": "Item Realm"
+        "title": "Item World"
     },
     "TW_ITEM_FLOOR_009": {
         "name": "Fl9 [Wind]",
         "expr": " ",
         "cond": "Defeat all enemy units!",
-        "title": "Item Realm"
+        "title": "Item World"
     },
     "TW_ITEM_FLOOR_010": {
         "name": "Fl10 [Multiple]",
         "expr": " ",
         "cond": "Defeat all enemy units!",
-        "title": "Item Realm"
+        "title": "Item World"
     },
     "TW_ITEM_FLOOR_011": {
         "name": "Fl11 [Thunder]",
         "expr": " ",
         "cond": "Defeat all enemy units!",
-        "title": "Item Realm"
+        "title": "Item World"
     },
     "QE_MT_TOWER_1": {
         "name": "Layer 1",

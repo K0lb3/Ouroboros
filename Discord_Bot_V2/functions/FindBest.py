@@ -1,4 +1,6 @@
 import jellyfish
+
+
 def FindBest(source, text, print_=False):
     """
     Given a dictionary and a text, find the best matched item from the dictionary using the name
@@ -10,23 +12,15 @@ def FindBest(source, text, print_=False):
     :rtype: dict
     """
     # XXX: Purposely shadowing the text parameter
-    text = text.title()
-    if text in source:
-        best_match=source[text]
-        if print_:
-            print("{name} ~ direct match for {input}".format(
-                name=best_match.get('name'), input=text
-                ))
-    
-    else:
-        # Calculate the match score for each key in the source dictionary using the input text.
-        # Then, create a list of (key, the best score) tuples.
+    # Calculate the match score for each key in the source dictionary using the input text.
+    # Then, create a list of (key, the best score) tuples.
+    if 1:
         similarities = [
-            (key, jellyfish.jaro_winkler(text, key.title()))
-            for key in source.keys()
-            ]  
+            (key, jellyfish.jaro_winkler(text, key['name'].title()))
+            for key in source
+        ]
 
-        #similarities = [
+        # similarities = [
         #    (key, max(jellyfish.jaro_winkler(text, i.title()) for i in value.get('inputs', [])))
         #    for key, value in source.items()
         #    ]
@@ -42,4 +36,4 @@ def FindBest(source, text, print_=False):
             print("{name} is the best match for input '{input}' with score of {score}".format(
                 name=best_match.get('name'), input=text, score=score
             ))
-    return best_match
+    return key

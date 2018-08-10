@@ -213,5 +213,40 @@
         "iname": "AWARD_20002",
         "name": "",
         "kanji": "『英雄』を従えしもの"
+    },
+    "AWARD_20003": {
+        "iname": "AWARD_20003",
+        "name": "",
+        "kanji": "セフィロンに導かれし者"
+    },
+    "AWARD_21001": {
+        "iname": "AWARD_21001",
+        "name": "",
+        "kanji": "第4回 ランクマッチ 1st"
+    },
+    "AWARD_21002": {
+        "iname": "AWARD_21002",
+        "name": "",
+        "kanji": "第4回 ランクマッチ 2nd"
+    },
+    "AWARD_21003": {
+        "iname": "AWARD_21003",
+        "name": "",
+        "kanji": "第4回 ランクマッチ 3rd"
+    },
+    "AWARD_22001": {
+        "iname": "AWARD_22001",
+        "name": "",
+        "kanji": "第5回 ランクマッチ 1st"
+    },
+    "AWARD_22002": {
+        "iname": "AWARD_22002",
+        "name": "",
+        "kanji": "第5回 ランクマッチ 2nd"
+    },
+    "AWARD_22003": {
+        "iname": "AWARD_22003",
+        "name": "",
+        "kanji": "第5回 ランクマッチ 3rd"
     }
 }

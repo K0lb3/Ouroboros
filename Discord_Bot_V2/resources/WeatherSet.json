@@ -9,7 +9,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_BORDER_FIXWEATHER": {
         "mIname": "WS_BORDER_FIXWEATHER",
@@ -21,7 +22,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_ONLY_HEATHAZE": {
         "mIname": "WS_ONLY_HEATHAZE",
@@ -33,7 +35,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_ONLY_RAIN": {
         "mIname": "WS_ONLY_RAIN",
@@ -45,7 +48,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_ONLY_SNOW": {
         "mIname": "WS_ONLY_SNOW",
@@ -57,7 +61,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_ONLY_THUNDERCLOUD": {
         "mIname": "WS_ONLY_THUNDERCLOUD",
@@ -69,7 +74,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_ONLY_GALE": {
         "mIname": "WS_ONLY_GALE",
@@ -81,7 +87,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_ONLY_ANGELSLADDER": {
         "mIname": "WS_ONLY_ANGELSLADDER",
@@ -93,7 +100,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_ONLY_DARKSHADOW": {
         "mIname": "WS_ONLY_DARKSHADOW",
@@ -105,7 +113,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_ONLY_POISONFOG": {
         "mIname": "WS_ONLY_POISONFOG",
@@ -117,7 +126,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_ONLY_SANDSTORM": {
         "mIname": "WS_ONLY_SANDSTORM",
@@ -129,7 +139,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_ONLY_DENSEFOG": {
         "mIname": "WS_ONLY_DENSEFOG",
@@ -141,7 +152,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_ONLY_SAKURAFUBUKI": {
         "mIname": "WS_ONLY_SAKURAFUBUKI",
@@ -153,7 +165,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_BORDER_RANDOMWEATHER": {
         "mIname": "WS_BORDER_RANDOMWEATHER",
@@ -165,7 +178,8 @@
             100
         ],
         "mChangeClockMin": 0,
-        "mChangeClockMax": 0
+        "mChangeClockMax": 0,
+        "dif": {}
     },
     "WS_RANDOM": {
         "mIname": "WS_RANDOM",
@@ -207,7 +221,8 @@
             15,
             15,
             15
-        ]
+        ],
+        "dif": {}
     },
     "WS_RAIN_TO_SUNNY": {
         "mIname": "WS_RAIN_TO_SUNNY",
@@ -227,6 +242,7 @@
         "mChangeWeatherRateLists": [
             50,
             50
-        ]
+        ],
+        "dif": {}
     }
 }

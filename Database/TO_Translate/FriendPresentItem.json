@@ -63,5 +63,25 @@
         "iname": "FP_LIMIT_0016",
         "name": "",
         "kanji": "20000ゼニー"
+    },
+    "FP_LIMIT_0017": {
+        "iname": "FP_LIMIT_0017",
+        "name": "",
+        "kanji": "フレンドコイン×2"
+    },
+    "FP_LIMIT_0018": {
+        "iname": "FP_LIMIT_0018",
+        "name": "",
+        "kanji": "暑中お見舞いはがき×1"
+    },
+    "FP_LIMIT_0019": {
+        "iname": "FP_LIMIT_0019",
+        "name": "",
+        "kanji": "聖獅子の剣片×1"
+    },
+    "FP_LIMIT_0020": {
+        "iname": "FP_LIMIT_0020",
+        "name": "",
+        "kanji": "炎帝の鎧片×1"
     }
 }

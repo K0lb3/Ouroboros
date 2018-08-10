@@ -99,36 +99,6 @@
         "name": "",
         "kanji": "【デフォルト武具】（仮称）暗殺剣士"
     },
-    "AF_FF15_NOCT": {
-        "iname": "AF_FF15_NOCT",
-        "name": "",
-        "kanji": "【デフォルト武具】【FF15】ノクティス"
-    },
-    "AF_FF15_INGI": {
-        "iname": "AF_FF15_INGI",
-        "name": "",
-        "kanji": "【デフォルト武具】【FF15】イグニス"
-    },
-    "AF_FF15_GLAD": {
-        "iname": "AF_FF15_GLAD",
-        "name": "",
-        "kanji": "【デフォルト武具】【FF15】グラディオラス"
-    },
-    "AF_FF15_PROM": {
-        "iname": "AF_FF15_PROM",
-        "name": "",
-        "kanji": "【デフォルト武具】【FF15】プロンプト"
-    },
-    "AF_FF15_ARAN": {
-        "iname": "AF_FF15_ARAN",
-        "name": "",
-        "kanji": "【デフォルト武具】【FF15】アラネア"
-    },
-    "AF_FF15_MAG_SOL": {
-        "iname": "AF_FF15_MAG_SOL",
-        "name": "",
-        "kanji": "【デフォルト武具】【FF15】魔道兵(人型)"
-    },
     "AF_RH_STOCK": {
         "iname": "AF_RH_STOCK",
         "name": "",
@@ -304,6 +274,16 @@
         "name": "",
         "kanji": "【デフォルト武具】ヨミCC"
     },
+    "AF_ALMA01": {
+        "iname": "AF_ALMA01",
+        "name": "",
+        "kanji": "【デフォルト武具】アルマ拳聖"
+    },
+    "AF_KAYA01": {
+        "iname": "AF_KAYA01",
+        "name": "",
+        "kanji": "【デフォルト武具】カヤ"
+    },
     "AF_ACCS_TOWER_01": {
         "iname": "AF_ACCS_TOWER_01",
         "name": "",
@@ -348,36 +328,6 @@
         "iname": "AF_ARMS_DIS_PRIN_01",
         "name": "",
         "kanji": "プリニーソード"
-    },
-    "AF_ARMS_FF15_PROM_01": {
-        "iname": "AF_ARMS_FF15_PROM_01",
-        "name": "",
-        "kanji": "カメラ"
-    },
-    "AF_ARMS_FF15_NOCT_01": {
-        "iname": "AF_ARMS_FF15_NOCT_01",
-        "name": "",
-        "kanji": "父王の剣"
-    },
-    "AF_ARMS_FF15_INGI_01": {
-        "iname": "AF_ARMS_FF15_INGI_01",
-        "name": "",
-        "kanji": "ゾーリンシェイプ"
-    },
-    "AF_ARMS_FF15_GLAD_01": {
-        "iname": "AF_ARMS_FF15_GLAD_01",
-        "name": "",
-        "kanji": "ハードブレイカー"
-    },
-    "AF_ARMS_FF15_ARAN_01": {
-        "iname": "AF_ARMS_FF15_ARAN_01",
-        "name": "",
-        "kanji": "シュトースシュペーア"
-    },
-    "AF_ARMO_FF15_SHIELD": {
-        "iname": "AF_ARMO_FF15_SHIELD",
-        "name": "",
-        "kanji": "アブソーブシールド"
     },
     "AF_ARMS_RH_STOC_01": {
         "iname": "AF_ARMS_RH_STOC_01",
@@ -624,6 +574,16 @@
         "name": "",
         "kanji": "微笑の紅結晶杖"
     },
+    "AF_ACCS_KAYA_01": {
+        "iname": "AF_ACCS_KAYA_01",
+        "name": "",
+        "kanji": "朴念仁のカンテラ"
+    },
+    "AF_ARMS_SUMERAGI_00": {
+        "iname": "AF_ARMS_SUMERAGI_00",
+        "name": "",
+        "kanji": "スメラギ"
+    },
     "AF_ARMS_VETT_00": {
         "iname": "AF_ARMS_VETT_00",
         "name": "",
@@ -869,10 +829,65 @@
         "name": "",
         "kanji": "ワダツミの彩筆"
     },
-    "AF_SK_FF15_ARAN_UNIQUE": {
-        "iname": "AF_SK_FF15_ARAN_UNIQUE",
+    "AF_ARMS_ALMA_01": {
+        "iname": "AF_ARMS_ALMA_01",
         "name": "",
-        "kanji": "キャラスキン"
+        "kanji": "ハス家のガントレット"
+    },
+    "AF_ARMS_REVE_00": {
+        "iname": "AF_ARMS_REVE_00",
+        "name": "",
+        "kanji": "ヘルコヴァーラ家の杖"
+    },
+    "AF_ACCS_TERESA_01": {
+        "iname": "AF_ACCS_TERESA_01",
+        "name": "",
+        "kanji": "師弟の華水晶"
+    },
+    "AF_ARMO_KURT_01": {
+        "iname": "AF_ARMO_KURT_01",
+        "name": "",
+        "kanji": "双閃光の陣羽織"
+    },
+    "AF_ACCS_SEKAIJU_01": {
+        "iname": "AF_ACCS_SEKAIJU_01",
+        "name": "",
+        "kanji": "世界樹のオブジェ"
+    },
+    "AF_ACCS_ZAYI_01": {
+        "iname": "AF_ACCS_ZAYI_01",
+        "name": "",
+        "kanji": "ロードマスター勲章"
+    },
+    "AF_ACCS_CADA_01": {
+        "iname": "AF_ACCS_CADA_01",
+        "name": "",
+        "kanji": "ラムプロード山天然水"
+    },
+    "AF_ACCS_VIER_01": {
+        "iname": "AF_ACCS_VIER_01",
+        "name": "",
+        "kanji": "戒めの香炉"
+    },
+    "AF_ACCS_LEYDOW_01": {
+        "iname": "AF_ACCS_LEYDOW_01",
+        "name": "",
+        "kanji": "ワダツミの古文書"
+    },
+    "AF_ARMS_AISHA_01": {
+        "iname": "AF_ARMS_AISHA_01",
+        "name": "",
+        "kanji": "パフォーマンスタクト"
+    },
+    "AF_ACCS_DOROTHEA_01": {
+        "iname": "AF_ACCS_DOROTHEA_01",
+        "name": "",
+        "kanji": "思慕のぬいぐるみ"
+    },
+    "AF_ACCS_COMIKE_01": {
+        "iname": "AF_ACCS_COMIKE_01",
+        "name": "",
+        "kanji": "シノビナメモリーズ"
     },
     "AF_SK_HAZE_XMAS": {
         "iname": "AF_SK_HAZE_XMAS",
@@ -1068,5 +1083,40 @@
         "iname": "AF_SK_YOMI_BABEL",
         "name": "",
         "kanji": "真理念装スキン"
+    },
+    "AF_SK_TERE_SWIM": {
+        "iname": "AF_SK_TERE_SWIM",
+        "name": "",
+        "kanji": "水着スキン"
+    },
+    "AF_SK_KAMU_GROW_PAST_KAMU": {
+        "iname": "AF_SK_KAMU_GROW_PAST_KAMU",
+        "name": "",
+        "kanji": "壮年期スキン"
+    },
+    "AF_SK_LUPI_UNIQUE": {
+        "iname": "AF_SK_LUPI_UNIQUE",
+        "name": "",
+        "kanji": "キャラスキン"
+    },
+    "AF_SK_ZANG_UNIQUE": {
+        "iname": "AF_SK_ZANG_UNIQUE",
+        "name": "",
+        "kanji": "キャラスキン"
+    },
+    "AF_SK_LEYDOW_SWIM": {
+        "iname": "AF_SK_LEYDOW_SWIM",
+        "name": "",
+        "kanji": "水着スキン"
+    },
+    "AF_SK_AISHA_SWIM": {
+        "iname": "AF_SK_AISHA_SWIM",
+        "name": "",
+        "kanji": "水着スキン"
+    },
+    "AF_SK_DOROTHEA_SWIM": {
+        "iname": "AF_SK_DOROTHEA_SWIM",
+        "name": "",
+        "kanji": "水着スキン"
     }
 }

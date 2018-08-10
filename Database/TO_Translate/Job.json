@@ -4,6 +4,31 @@
         "name": "",
         "kanji": "ダークナイト（羽子板）"
     },
+    "JB_BAR_HEAL": {
+        "iname": "JB_BAR_HEAL",
+        "name": "",
+        "kanji": "黎明の吟遊詩人"
+    },
+    "JB_BAR_MDEF": {
+        "iname": "JB_BAR_MDEF",
+        "name": "",
+        "kanji": "日輪の吟遊詩人"
+    },
+    "JB_BAR_DARK": {
+        "iname": "JB_BAR_DARK",
+        "name": "",
+        "kanji": "黄昏の吟遊詩人"
+    },
+    "JB_KAI_ALWIDA": {
+        "iname": "JB_KAI_ALWIDA",
+        "name": "",
+        "kanji": "海賊皇【アルビダ】"
+    },
+    "JB_KAI_TEACH": {
+        "iname": "JB_KAI_TEACH",
+        "name": "",
+        "kanji": "海賊帝【ティーチ】"
+    },
     "JB_DIS_EN_PRIN": {
         "iname": "JB_DIS_EN_PRIN",
         "name": "",
@@ -13,6 +38,11 @@
         "iname": "JB_DIS_EN_PRIN_EX",
         "name": "",
         "kanji": "EX用メタルプリニー"
+    },
+    "JB_GUIL_TEM": {
+        "iname": "JB_GUIL_TEM",
+        "name": "",
+        "kanji": "断罪の騎士"
     },
     "JB_SHN_FINANCIAL": {
         "iname": "JB_SHN_FINANCIAL",
@@ -28,6 +58,11 @@
         "iname": "JB_SOL_MOVE",
         "name": "",
         "kanji": "神速の双剣士"
+    },
+    "JB_HISHARMU_HUU": {
+        "iname": "JB_HISHARMU_HUU",
+        "name": "",
+        "kanji": "大地と水の読み人"
     },
     "JB_LIZ_GEN": {
         "iname": "JB_LIZ_GEN",
@@ -49,6 +84,26 @@
         "name": "",
         "kanji": "格闘家"
     },
+    "JB_FIRE_WED_F": {
+        "iname": "JB_FIRE_WED_F",
+        "name": "",
+        "kanji": "情熱の花嫁"
+    },
+    "JB_KAYA01": {
+        "iname": "JB_KAYA01",
+        "name": "",
+        "kanji": "紅竜姫"
+    },
+    "JB_ZAYI_LORD_CC": {
+        "iname": "JB_ZAYI_LORD_CC",
+        "name": "",
+        "kanji": "世界を導く光"
+    },
+    "JB_ALMA01": {
+        "iname": "JB_ALMA01",
+        "name": "",
+        "kanji": "武闘魔女"
+    },
     "JB_BUG02_VEDA108": {
         "iname": "JB_BUG02_VEDA108",
         "name": "",
@@ -58,26 +113,6 @@
         "iname": "JB_HWIZ_ACE",
         "name": "",
         "kanji": "鎧魔道師"
-    },
-    "JB_FF15_BEHEMOTH": {
-        "iname": "JB_FF15_BEHEMOTH",
-        "name": "",
-        "kanji": "ベヒーモス"
-    },
-    "JB_FF15_METAL_CACTUAR": {
-        "iname": "JB_FF15_METAL_CACTUAR",
-        "name": "",
-        "kanji": "メタルサボテンダー"
-    },
-    "JB_FF15_MAGIC_ARM": {
-        "iname": "JB_FF15_MAGIC_ARM",
-        "name": "",
-        "kanji": "魔道アーマー(大型)"
-    },
-    "JB_FF15_MAGIC_SOL": {
-        "iname": "JB_FF15_MAGIC_SOL",
-        "name": "",
-        "kanji": "魔道アーマー(人型)"
     },
     "JB_FF15_GARURA": {
         "iname": "JB_FF15_GARURA",

@@ -579,6 +579,76 @@
         "name": "",
         "kanji": "タイムルーラー"
     },
+    "SK_NEW_HUU_HISHARMU_UPPER_3": {
+        "iname": "SK_NEW_HUU_HISHARMU_UPPER_3",
+        "name": "",
+        "kanji": "剛力・地脈活性"
+    },
+    "SK_NEW_HUU_HISHARMU_UPPER_4": {
+        "iname": "SK_NEW_HUU_HISHARMU_UPPER_4",
+        "name": "",
+        "kanji": "護陣・龍脈活性"
+    },
+    "SK_NEW_HUU_HISHARMU_UPPER_6": {
+        "iname": "SK_NEW_HUU_HISHARMU_UPPER_6",
+        "name": "",
+        "kanji": "『八卦』太陽光"
+    },
+    "SK_BAR_ASTRON": {
+        "iname": "SK_BAR_ASTRON",
+        "name": "",
+        "kanji": "暁光の詩"
+    },
+    "SK_BAR_RECOVERY_HEAL": {
+        "iname": "SK_BAR_RECOVERY_HEAL",
+        "name": "",
+        "kanji": "全治癒の詩"
+    },
+    "SK_BAR_LUK_UP_HEAL": {
+        "iname": "SK_BAR_LUK_UP_HEAL",
+        "name": "",
+        "kanji": "大幸運の詩"
+    },
+    "SK_BAR_RECOVERY_HEAL_POLLIN": {
+        "iname": "SK_BAR_RECOVERY_HEAL_POLLIN",
+        "name": "",
+        "kanji": "全治癒の詩"
+    },
+    "SK_BAR_LUK_UP_HEAL_POLLIN": {
+        "iname": "SK_BAR_LUK_UP_HEAL_POLLIN",
+        "name": "",
+        "kanji": "大幸運の詩"
+    },
+    "SK_BAR_MND_UP_DEF": {
+        "iname": "SK_BAR_MND_UP_DEF",
+        "name": "",
+        "kanji": "護魔の詩"
+    },
+    "SK_BAR_AREA_DAMAGE_DEF": {
+        "iname": "SK_BAR_AREA_DAMAGE_DEF",
+        "name": "",
+        "kanji": "ブレイクサーガ"
+    },
+    "SK_BAR_SHINE_RESIST_UP_RES_SHINE": {
+        "iname": "SK_BAR_SHINE_RESIST_UP_RES_SHINE",
+        "name": "",
+        "kanji": "黄昏の詩"
+    },
+    "SK_BAR_SLEEP_SONG_RES_SHINE": {
+        "iname": "SK_BAR_SLEEP_SONG_RES_SHINE",
+        "name": "",
+        "kanji": "常夜の子守唄"
+    },
+    "SK_BAR_JEWEL_DAMAGE_RES_SHINE": {
+        "iname": "SK_BAR_JEWEL_DAMAGE_RES_SHINE",
+        "name": "",
+        "kanji": "スナッチメロディ"
+    },
+    "SK_BAR_RANGE_RES_POLLIN": {
+        "iname": "SK_BAR_RANGE_RES_POLLIN",
+        "name": "",
+        "kanji": "フルールララバイ"
+    },
     "SK_ODO_ATK_DOWN_7": {
         "iname": "SK_ODO_ATK_DOWN_7",
         "name": "",
@@ -834,6 +904,71 @@
         "name": "",
         "kanji": "ヘルヘイムの風"
     },
+    "SK_GORM_KAI_MAD_SEA_SONG": {
+        "iname": "SK_GORM_KAI_MAD_SEA_SONG",
+        "name": "",
+        "kanji": "狂海の舟唄"
+    },
+    "SK_KAI_TEACH_PSYCHO_WAVE": {
+        "iname": "SK_KAI_TEACH_PSYCHO_WAVE",
+        "name": "",
+        "kanji": "フィジカルストローム"
+    },
+    "SK_KAI_TEACH_PHYSICAL_WAVE": {
+        "iname": "SK_KAI_TEACH_PHYSICAL_WAVE",
+        "name": "",
+        "kanji": "サイコストローム"
+    },
+    "SK_KAI_ALWIDA_BOMBARD": {
+        "iname": "SK_KAI_ALWIDA_BOMBARD",
+        "name": "",
+        "kanji": "艦砲榴弾"
+    },
+    "SK_KAI_TEACH_SKULL_LUSH": {
+        "iname": "SK_KAI_TEACH_SKULL_LUSH",
+        "name": "",
+        "kanji": "スカルクラッシャー"
+    },
+    "SK_KAI_ALWIDA_PIRATES_SONG": {
+        "iname": "SK_KAI_ALWIDA_PIRATES_SONG",
+        "name": "",
+        "kanji": "海賊たちの凱歌"
+    },
+    "SK_KAI_ALWIDA_ANCHOR_CAST": {
+        "iname": "SK_KAI_ALWIDA_ANCHOR_CAST",
+        "name": "",
+        "kanji": "閃投錨"
+    },
+    "SK_GORM_KAI_00": {
+        "iname": "SK_GORM_KAI_00",
+        "name": "",
+        "kanji": "ジュエルクライム"
+    },
+    "SK_KAI_ALWIDA_REACTION": {
+        "iname": "SK_KAI_ALWIDA_REACTION",
+        "name": "",
+        "kanji": "三角逆波"
+    },
+    "SK_KAI_TEACH_REACTION": {
+        "iname": "SK_KAI_TEACH_REACTION",
+        "name": "",
+        "kanji": "三角荒波"
+    },
+    "SK_GORM_KAI_UPPER01": {
+        "iname": "SK_GORM_KAI_UPPER01",
+        "name": "",
+        "kanji": "カオスロバリー"
+    },
+    "SK_KAI_TEACH_UPPER01": {
+        "iname": "SK_KAI_TEACH_UPPER01",
+        "name": "",
+        "kanji": "海賊の流儀"
+    },
+    "SK_KAI_ALWIDA_UPPER01": {
+        "iname": "SK_KAI_ALWIDA_UPPER01",
+        "name": "",
+        "kanji": "災厄の黒煙"
+    },
     "SK_SHN_RANDOM_OVER_CLOCK": {
         "iname": "SK_SHN_RANDOM_OVER_CLOCK",
         "name": "",
@@ -946,6 +1081,11 @@
     },
     "SK_FIRE_WED_M_BOUQUET_TOSS": {
         "iname": "SK_FIRE_WED_M_BOUQUET_TOSS",
+        "name": "",
+        "kanji": "バーニングブーケトス"
+    },
+    "SK_FIRE_WED_F_BOUQUET_TOSS": {
+        "iname": "SK_FIRE_WED_F_BOUQUET_TOSS",
         "name": "",
         "kanji": "バーニングブーケトス"
     },
@@ -1183,6 +1323,31 @@
         "iname": "SK_OTHI_WIZ_LOWER_1B",
         "name": "",
         "kanji": "絶対零度"
+    },
+    "SK_ZAYI_LORD_UPPER_01_CC": {
+        "iname": "SK_ZAYI_LORD_UPPER_01_CC",
+        "name": "",
+        "kanji": "ディバインセイバー"
+    },
+    "SK_ZAYI_LORD_UPPER_02_CC": {
+        "iname": "SK_ZAYI_LORD_UPPER_02_CC",
+        "name": "",
+        "kanji": "ライトニングスパーク"
+    },
+    "SK_ZAYI_LORD_UPPER_04_CC": {
+        "iname": "SK_ZAYI_LORD_UPPER_04_CC",
+        "name": "",
+        "kanji": "アルティメットノヴァ"
+    },
+    "SK_ZAYI_LORD_LOWER_02_CC": {
+        "iname": "SK_ZAYI_LORD_LOWER_02_CC",
+        "name": "",
+        "kanji": "世界を導く光"
+    },
+    "SK_SUTO_KIL_CC_01": {
+        "iname": "SK_SUTO_KIL_CC_01",
+        "name": "",
+        "kanji": "出たとこ勝負"
     },
     "SK_KIL_03_ANTI_MAGIC": {
         "iname": "SK_KIL_03_ANTI_MAGIC",
@@ -2219,356 +2384,6 @@
         "name": "",
         "kanji": "口寄・三首竜"
     },
-    "SK_FF15_NOCT_ATK_01": {
-        "iname": "SK_FF15_NOCT_ATK_01",
-        "name": "",
-        "kanji": "攻撃スキル（FF15_NOCT）"
-    },
-    "SK_FF15_NOCT_01": {
-        "iname": "SK_FF15_NOCT_01",
-        "name": "",
-        "kanji": "なぎ払い"
-    },
-    "SK_FF15_NOCT_02": {
-        "iname": "SK_FF15_NOCT_02",
-        "name": "",
-        "kanji": "シフトブレイク"
-    },
-    "SK_FF15_NOCT_03": {
-        "iname": "SK_FF15_NOCT_03",
-        "name": "",
-        "kanji": "マップシフト"
-    },
-    "SK_FF15_NOCT_04": {
-        "iname": "SK_FF15_NOCT_04",
-        "name": "",
-        "kanji": "3連ブリザガ"
-    },
-    "SK_FF15_NOCT_05": {
-        "iname": "SK_FF15_NOCT_05",
-        "name": "",
-        "kanji": "盾殴り"
-    },
-    "SK_FF15_NOCT_06": {
-        "iname": "SK_FF15_NOCT_06",
-        "name": "",
-        "kanji": "射撃"
-    },
-    "SK_FF15_NOCT_07": {
-        "iname": "SK_FF15_NOCT_07",
-        "name": "",
-        "kanji": "ポイズンサンダラ"
-    },
-    "SK_FF15_NOCT_08": {
-        "iname": "SK_FF15_NOCT_08",
-        "name": "",
-        "kanji": "ストップファイラ"
-    },
-    "SK_FF15_NOCT_REACTION_01": {
-        "iname": "SK_FF15_NOCT_REACTION_01",
-        "name": "",
-        "kanji": "パリィ"
-    },
-    "SK_FF15_NOCT_SUPPORT_01": {
-        "iname": "SK_FF15_NOCT_SUPPORT_01",
-        "name": "",
-        "kanji": "王家の力"
-    },
-    "SK_FF15_NOCT_SUPPORT_02": {
-        "iname": "SK_FF15_NOCT_SUPPORT_02",
-        "name": "",
-        "kanji": "マイティリカバー"
-    },
-    "SK_FF15_INGI_ATK_01": {
-        "iname": "SK_FF15_INGI_ATK_01",
-        "name": "",
-        "kanji": "攻撃スキル（FF15_INGI）"
-    },
-    "SK_FF15_INGI_01": {
-        "iname": "SK_FF15_INGI_01",
-        "name": "",
-        "kanji": "ギャザリング"
-    },
-    "SK_FF15_INGI_02": {
-        "iname": "SK_FF15_INGI_02",
-        "name": "",
-        "kanji": "シンクラッシュ"
-    },
-    "SK_FF15_INGI_02B": {
-        "iname": "SK_FF15_INGI_02B",
-        "name": "",
-        "kanji": "シンクラッシュ"
-    },
-    "SK_FF15_INGI_03": {
-        "iname": "SK_FF15_INGI_03",
-        "name": "",
-        "kanji": "フェイタルアタック"
-    },
-    "SK_FF15_INGI_04": {
-        "iname": "SK_FF15_INGI_04",
-        "name": "",
-        "kanji": "マーク"
-    },
-    "SK_FF15_INGI_05": {
-        "iname": "SK_FF15_INGI_05",
-        "name": "",
-        "kanji": "隠しアイテム"
-    },
-    "SK_FF15_INGI_06": {
-        "iname": "SK_FF15_INGI_06",
-        "name": "",
-        "kanji": "なぎ払い"
-    },
-    "SK_FF15_INGI_07": {
-        "iname": "SK_FF15_INGI_07",
-        "name": "",
-        "kanji": "竜剣"
-    },
-    "SK_FF15_INGI_08": {
-        "iname": "SK_FF15_INGI_08",
-        "name": "",
-        "kanji": "槍投げ"
-    },
-    "SK_FF15_INGI_REACTION_01": {
-        "iname": "SK_FF15_INGI_REACTION_01",
-        "name": "",
-        "kanji": "応急処置"
-    },
-    "SK_FF15_INGI_SUPPORT_01": {
-        "iname": "SK_FF15_INGI_SUPPORT_01",
-        "name": "",
-        "kanji": "リベンジリカバー"
-    },
-    "SK_FF15_INGI_SUPPORT_02": {
-        "iname": "SK_FF15_INGI_SUPPORT_02",
-        "name": "",
-        "kanji": "シンクラッシュ強化"
-    },
-    "SK_FF15_GLAD_ATK_01": {
-        "iname": "SK_FF15_GLAD_ATK_01",
-        "name": "",
-        "kanji": "攻撃スキル（FF15_GLAD）"
-    },
-    "SK_FF15_GLAD_01": {
-        "iname": "SK_FF15_GLAD_01",
-        "name": "",
-        "kanji": "ロイヤルガード"
-    },
-    "SK_FF15_GLAD_02": {
-        "iname": "SK_FF15_GLAD_02",
-        "name": "",
-        "kanji": "サイクロン"
-    },
-    "SK_FF15_GLAD_03": {
-        "iname": "SK_FF15_GLAD_03",
-        "name": "",
-        "kanji": "テンペスト"
-    },
-    "SK_FF15_GLAD_04": {
-        "iname": "SK_FF15_GLAD_04",
-        "name": "",
-        "kanji": "ドーンブレイカー"
-    },
-    "SK_FF15_GLAD_05": {
-        "iname": "SK_FF15_GLAD_05",
-        "name": "",
-        "kanji": "フェイタルアタック"
-    },
-    "SK_FF15_GLAD_06": {
-        "iname": "SK_FF15_GLAD_06",
-        "name": "",
-        "kanji": "ファストブレイク"
-    },
-    "SK_FF15_GLAD_07": {
-        "iname": "SK_FF15_GLAD_07",
-        "name": "",
-        "kanji": "シンクガード"
-    },
-    "SK_FF15_GLAD_08": {
-        "iname": "SK_FF15_GLAD_08",
-        "name": "",
-        "kanji": "見切る"
-    },
-    "SK_FF15_GLAD_REACTION_01": {
-        "iname": "SK_FF15_GLAD_REACTION_01",
-        "name": "",
-        "kanji": "ガード"
-    },
-    "SK_FF15_GLAD_SUPPORT_01": {
-        "iname": "SK_FF15_GLAD_SUPPORT_01",
-        "name": "",
-        "kanji": "王の盾"
-    },
-    "SK_FF15_GLAD_SUPPORT_02": {
-        "iname": "SK_FF15_GLAD_SUPPORT_02",
-        "name": "",
-        "kanji": "プロテスリカバー"
-    },
-    "SK_FF15_PROM_ATK_01": {
-        "iname": "SK_FF15_PROM_ATK_01",
-        "name": "",
-        "kanji": "攻撃スキル（FF15_PROM）"
-    },
-    "SK_FF15_PROM_01": {
-        "iname": "SK_FF15_PROM_01",
-        "name": "",
-        "kanji": "ペネトレイト"
-    },
-    "SK_FF15_PROM_02": {
-        "iname": "SK_FF15_PROM_02",
-        "name": "",
-        "kanji": "バレットファン"
-    },
-    "SK_FF15_PROM_03": {
-        "iname": "SK_FF15_PROM_03",
-        "name": "",
-        "kanji": "フェイタルアタック"
-    },
-    "SK_FF15_PROM_04": {
-        "iname": "SK_FF15_PROM_04",
-        "name": "",
-        "kanji": "スターターピストル"
-    },
-    "SK_FF15_PROM_05": {
-        "iname": "SK_FF15_PROM_05",
-        "name": "",
-        "kanji": "スナップショット"
-    },
-    "SK_FF15_PROM_06": {
-        "iname": "SK_FF15_PROM_06",
-        "name": "",
-        "kanji": "シンクレイド"
-    },
-    "SK_FF15_PROM_07": {
-        "iname": "SK_FF15_PROM_07",
-        "name": "",
-        "kanji": "スターシェル"
-    },
-    "SK_FF15_PROM_08": {
-        "iname": "SK_FF15_PROM_08",
-        "name": "",
-        "kanji": "コンダクター"
-    },
-    "SK_FF15_PROM_REACTION_01": {
-        "iname": "SK_FF15_PROM_REACTION_01",
-        "name": "",
-        "kanji": "閃光撃ち"
-    },
-    "SK_FF15_PROM_SUPPORT_01": {
-        "iname": "SK_FF15_PROM_SUPPORT_01",
-        "name": "",
-        "kanji": "旅の記録者"
-    },
-    "SK_FF15_PROM_SUPPORT_02": {
-        "iname": "SK_FF15_PROM_SUPPORT_02",
-        "name": "",
-        "kanji": "フルリカバー"
-    },
-    "SK_FF15_ARAN_ATK_01": {
-        "iname": "SK_FF15_ARAN_ATK_01",
-        "name": "",
-        "kanji": "攻撃スキル（FF15_ARAN）"
-    },
-    "SK_FF15_ARAN_01": {
-        "iname": "SK_FF15_ARAN_01",
-        "name": "",
-        "kanji": "急降下攻撃Ⅰ"
-    },
-    "SK_FF15_ARAN_02": {
-        "iname": "SK_FF15_ARAN_02",
-        "name": "",
-        "kanji": "急降下攻撃Ⅱ"
-    },
-    "SK_FF15_ARAN_03": {
-        "iname": "SK_FF15_ARAN_03",
-        "name": "",
-        "kanji": "急降下攻撃Ⅲ"
-    },
-    "SK_FF15_ARAN_04": {
-        "iname": "SK_FF15_ARAN_04",
-        "name": "",
-        "kanji": "急降下攻撃Ⅳ"
-    },
-    "SK_FF15_ARAN_01B": {
-        "iname": "SK_FF15_ARAN_01B",
-        "name": "",
-        "kanji": "急降下攻撃Ⅰ"
-    },
-    "SK_FF15_ARAN_02B": {
-        "iname": "SK_FF15_ARAN_02B",
-        "name": "",
-        "kanji": "急降下攻撃Ⅱ"
-    },
-    "SK_FF15_ARAN_03B": {
-        "iname": "SK_FF15_ARAN_03B",
-        "name": "",
-        "kanji": "急降下攻撃Ⅲ"
-    },
-    "SK_FF15_ARAN_04B": {
-        "iname": "SK_FF15_ARAN_04B",
-        "name": "",
-        "kanji": "急降下攻撃Ⅳ"
-    },
-    "SK_FF15_ARAN_05": {
-        "iname": "SK_FF15_ARAN_05",
-        "name": "",
-        "kanji": "背面回し蹴り"
-    },
-    "SK_FF15_ARAN_06": {
-        "iname": "SK_FF15_ARAN_06",
-        "name": "",
-        "kanji": "飛行突進突き"
-    },
-    "SK_FF15_ARAN_07": {
-        "iname": "SK_FF15_ARAN_07",
-        "name": "",
-        "kanji": "正面突き"
-    },
-    "SK_FF15_ARAN_08": {
-        "iname": "SK_FF15_ARAN_08",
-        "name": "",
-        "kanji": "上段回し蹴り"
-    },
-    "SK_FF15_ARAN_REACTION_01": {
-        "iname": "SK_FF15_ARAN_REACTION_01",
-        "name": "",
-        "kanji": "カウンター突き"
-    },
-    "SK_FF15_ARAN_SUPPORT_01": {
-        "iname": "SK_FF15_ARAN_SUPPORT_01",
-        "name": "",
-        "kanji": "慣性制御装置"
-    },
-    "SK_FF15_ARAN_SUPPORT_02": {
-        "iname": "SK_FF15_ARAN_SUPPORT_02",
-        "name": "",
-        "kanji": "空中機動師団の力"
-    },
-    "SK_FF15_BEHEMOTH_ATK01": {
-        "iname": "SK_FF15_BEHEMOTH_ATK01",
-        "name": "",
-        "kanji": "攻撃スキル(FF15_BEHEMOTH)"
-    },
-    "SK_FF15_BEHEMOTH_01": {
-        "iname": "SK_FF15_BEHEMOTH_01",
-        "name": "",
-        "kanji": "尻尾攻撃"
-    },
-    "SK_FF15_BEHEMOTH_02": {
-        "iname": "SK_FF15_BEHEMOTH_02",
-        "name": "",
-        "kanji": "咆哮"
-    },
-    "SK_FF15_BEHEMOTH_03": {
-        "iname": "SK_FF15_BEHEMOTH_03",
-        "name": "",
-        "kanji": "しゃくりあげ"
-    },
-    "SK_FF15_BEHEMOTH_04": {
-        "iname": "SK_FF15_BEHEMOTH_04",
-        "name": "",
-        "kanji": "踏みつける"
-    },
     "SK_FF15_BEHEMOTH_01_ADV": {
         "iname": "SK_FF15_BEHEMOTH_01_ADV",
         "name": "",
@@ -2589,95 +2404,15 @@
         "name": "",
         "kanji": "踏みつける"
     },
-    "SK_FF15_M_CACT_ATK01": {
-        "iname": "SK_FF15_M_CACT_ATK01",
-        "name": "",
-        "kanji": "攻撃スキル(FF15_M_CACT)"
-    },
-    "SK_FF15_M_CACT_01": {
-        "iname": "SK_FF15_M_CACT_01",
-        "name": "",
-        "kanji": "針メテオ"
-    },
-    "SK_FF15_M_CACT_02": {
-        "iname": "SK_FF15_M_CACT_02",
-        "name": "",
-        "kanji": "針万本"
-    },
-    "SK_FF15_M_CACT_02_99": {
-        "iname": "SK_FF15_M_CACT_02_99",
-        "name": "",
-        "kanji": "針万本"
-    },
     "SK_FF15_M_CACT_02_ADV": {
         "iname": "SK_FF15_M_CACT_02_ADV",
         "name": "",
         "kanji": "針万本"
     },
-    "SK_FF15_M_CACT_03": {
-        "iname": "SK_FF15_M_CACT_03",
-        "name": "",
-        "kanji": "針千本"
-    },
-    "SK_FF15_MAGIC_ARM_ATK01": {
-        "iname": "SK_FF15_MAGIC_ARM_ATK01",
-        "name": "",
-        "kanji": "攻撃スキル(FF15_MAGIC_ARM)"
-    },
-    "SK_FF15_MAGIC_ARM_01": {
-        "iname": "SK_FF15_MAGIC_ARM_01",
-        "name": "",
-        "kanji": "機銃"
-    },
-    "SK_FF15_MAGIC_ARM_02": {
-        "iname": "SK_FF15_MAGIC_ARM_02",
-        "name": "",
-        "kanji": "垂直ミサイル"
-    },
-    "SK_FF15_MAGIC_ARM_03": {
-        "iname": "SK_FF15_MAGIC_ARM_03",
-        "name": "",
-        "kanji": "榴散弾"
-    },
-    "SK_FF15_MAGIC_ARM_01_2": {
-        "iname": "SK_FF15_MAGIC_ARM_01_2",
-        "name": "",
-        "kanji": "機銃"
-    },
-    "SK_FF15_MAGIC_ARM_02_2": {
-        "iname": "SK_FF15_MAGIC_ARM_02_2",
-        "name": "",
-        "kanji": "垂直ミサイル"
-    },
-    "SK_FF15_MAGIC_ARM_03_2": {
-        "iname": "SK_FF15_MAGIC_ARM_03_2",
-        "name": "",
-        "kanji": "榴散弾"
-    },
-    "SK_FF15_MAGIC_ARM_04": {
-        "iname": "SK_FF15_MAGIC_ARM_04",
-        "name": "",
-        "kanji": "槍雷撃"
-    },
     "SK_FF15_MAGIC_ARM_04_ADV": {
         "iname": "SK_FF15_MAGIC_ARM_04_ADV",
         "name": "",
         "kanji": "槍雷撃"
-    },
-    "SK_FF15_MAGIC_SOL_ATK01": {
-        "iname": "SK_FF15_MAGIC_SOL_ATK01",
-        "name": "",
-        "kanji": "攻撃スキル(FF15_MAGIC_SOL)"
-    },
-    "SK_FF15_MAGIC_SOL_01": {
-        "iname": "SK_FF15_MAGIC_SOL_01",
-        "name": "",
-        "kanji": "エネルギー弾"
-    },
-    "SK_FF15_MAGIC_SOL_02": {
-        "iname": "SK_FF15_MAGIC_SOL_02",
-        "name": "",
-        "kanji": "回し蹴り"
     },
     "SK_FF15_GARURA_ATK01": {
         "iname": "SK_FF15_GARURA_ATK01",
@@ -3538,6 +3273,21 @@
         "iname": "SK_FA_PRID01_SUPPORT_2",
         "name": "",
         "kanji": "再生能力"
+    },
+    "SK_GUIL_TEM_UPPER_1": {
+        "iname": "SK_GUIL_TEM_UPPER_1",
+        "name": "",
+        "kanji": "オールフォーワン"
+    },
+    "SK_GUIL_TEM_UPPER_5": {
+        "iname": "SK_GUIL_TEM_UPPER_5",
+        "name": "",
+        "kanji": "オーダースラッシュ"
+    },
+    "SK_GUIL_TEM_LOWER_3": {
+        "iname": "SK_GUIL_TEM_LOWER_3",
+        "name": "",
+        "kanji": "オーラブレイド"
     },
     "SK_FA_ALPH01_ATK": {
         "iname": "SK_FA_ALPH01_ATK",
@@ -5219,6 +4969,141 @@
         "name": "",
         "kanji": "活彩ドライアード"
     },
+    "SK_ALMA01_ATK": {
+        "iname": "SK_ALMA01_ATK",
+        "name": "",
+        "kanji": "攻撃スキル(STR)"
+    },
+    "SK_ALMA01_UPPER_1": {
+        "iname": "SK_ALMA01_UPPER_1",
+        "name": "",
+        "kanji": "アルマまっしぐら"
+    },
+    "SK_ALMA01_UPPER_2": {
+        "iname": "SK_ALMA01_UPPER_2",
+        "name": "",
+        "kanji": "思い切りぶっ飛ばす"
+    },
+    "SK_ALMA01_UPPER_3": {
+        "iname": "SK_ALMA01_UPPER_3",
+        "name": "",
+        "kanji": "情報屋の口車"
+    },
+    "SK_ALMA01_UPPER_4": {
+        "iname": "SK_ALMA01_UPPER_4",
+        "name": "",
+        "kanji": "水平アルマシュート"
+    },
+    "SK_ALMA01_UPPER_5": {
+        "iname": "SK_ALMA01_UPPER_5",
+        "name": "",
+        "kanji": "アルマ無双"
+    },
+    "SK_ALMA01_LOWER_1": {
+        "iname": "SK_ALMA01_LOWER_1",
+        "name": "",
+        "kanji": "高カロリー強化"
+    },
+    "SK_ALMA01_LOWER_2": {
+        "iname": "SK_ALMA01_LOWER_2",
+        "name": "",
+        "kanji": "アルマの優しさ"
+    },
+    "SK_ALMA01_LOWER_3": {
+        "iname": "SK_ALMA01_LOWER_3",
+        "name": "",
+        "kanji": "アルマ連脚"
+    },
+    "SK_ALMA01_LOWER_4": {
+        "iname": "SK_ALMA01_LOWER_4",
+        "name": "",
+        "kanji": "メルヴィ直伝発勁"
+    },
+    "SK_ALMA01_REACTION": {
+        "iname": "SK_ALMA01_REACTION",
+        "name": "",
+        "kanji": "魔法結界"
+    },
+    "SK_ALMA01_SUPPORT_1": {
+        "iname": "SK_ALMA01_SUPPORT_1",
+        "name": "",
+        "kanji": "ハス家の血脈"
+    },
+    "SK_ALMA01_SUPPORT_2": {
+        "iname": "SK_ALMA01_SUPPORT_2",
+        "name": "",
+        "kanji": "情報通の気概"
+    },
+    "SK_ALMA01_UPPER_6": {
+        "iname": "SK_ALMA01_UPPER_6",
+        "name": "",
+        "kanji": "アルマブースト"
+    },
+    "SK_KAYA01_ATK": {
+        "iname": "SK_KAYA01_ATK",
+        "name": "",
+        "kanji": "攻撃スキル(KAYA)"
+    },
+    "SK_KAYA01_UPPER_1": {
+        "iname": "SK_KAYA01_UPPER_1",
+        "name": "",
+        "kanji": "機竜光灯・宙封じ"
+    },
+    "SK_KAYA01_UPPER_2": {
+        "iname": "SK_KAYA01_UPPER_2",
+        "name": "",
+        "kanji": "紅蓮機刻"
+    },
+    "SK_KAYA01_UPPER_2_B": {
+        "iname": "SK_KAYA01_UPPER_2_B",
+        "name": "",
+        "kanji": "紅蓮真機刻"
+    },
+    "SK_KAYA01_UPPER_3": {
+        "iname": "SK_KAYA01_UPPER_3",
+        "name": "",
+        "kanji": "機竜炎灯・四皇集い"
+    },
+    "SK_KAYA01_UPPER_4": {
+        "iname": "SK_KAYA01_UPPER_4",
+        "name": "",
+        "kanji": "機竜火灯・虚空墜とし"
+    },
+    "SK_KAYA01_LOWER_1": {
+        "iname": "SK_KAYA01_LOWER_1",
+        "name": "",
+        "kanji": "機竜潜灯・逢魔が時"
+    },
+    "SK_KAYA01_LOWER_2": {
+        "iname": "SK_KAYA01_LOWER_2",
+        "name": "",
+        "kanji": "機竜煌灯・月虹掛け"
+    },
+    "SK_KAYA01_LOWER_3": {
+        "iname": "SK_KAYA01_LOWER_3",
+        "name": "",
+        "kanji": "機竜火灯・滅赤放ち"
+    },
+    "SK_KAYA01_LOWER_4": {
+        "iname": "SK_KAYA01_LOWER_4",
+        "name": "",
+        "kanji": "灼熱機竜の息吹"
+    },
+    "SK_KAYA01_REACTION": {
+        "iname": "SK_KAYA01_REACTION",
+        "name": "",
+        "kanji": "機紅竜の逆鱗"
+    },
+    "SK_KAYA01_SUPPORT_1": {
+        "iname": "SK_KAYA01_SUPPORT_1",
+        "name": "",
+        "kanji": "真錬種"
+    },
+    "SK_KAYA01_SUPPORT_2": {
+        "iname": "SK_KAYA01_SUPPORT_2",
+        "name": "",
+        "kanji": "紅竜姫の本気"
+    },
     "SK_COLLABO_LIESBET_DIOS": {
         "iname": "SK_COLLABO_LIESBET_DIOS",
         "name": "",
@@ -5309,6 +5194,31 @@
         "name": "",
         "kanji": "故郷が錦"
     },
+    "SK_DAISY_MA_01": {
+        "iname": "SK_DAISY_MA_01",
+        "name": "",
+        "kanji": "機甲一番槍"
+    },
+    "SK_LAVINA_MA_01": {
+        "iname": "SK_LAVINA_MA_01",
+        "name": "",
+        "kanji": "ヒートコントロール"
+    },
+    "SK_ARM_FEN_WEPON_B": {
+        "iname": "SK_ARM_FEN_WEPON_B",
+        "name": "",
+        "kanji": "シンフォニックスタブ"
+    },
+    "SK_ARM_REA_WEPON_B": {
+        "iname": "SK_ARM_REA_WEPON_B",
+        "name": "",
+        "kanji": "瘴気兵装-贄-"
+    },
+    "SK_ARM_SHE_WEPON_B": {
+        "iname": "SK_ARM_SHE_WEPON_B",
+        "name": "",
+        "kanji": "敬謙なる守りの光"
+    },
     "SK_ARMS_DIS_USAL_01_WA": {
         "iname": "SK_ARMS_DIS_USAL_01_WA",
         "name": "",
@@ -5353,36 +5263,6 @@
         "iname": "SK_AF_ARMS_ZIN_00_WA_B",
         "name": "",
         "kanji": "死毒・三悪趣"
-    },
-    "SK_AF_ARMS_FF15_PROM_01_WA": {
-        "iname": "SK_AF_ARMS_FF15_PROM_01_WA",
-        "name": "",
-        "kanji": "トリガーハッピー"
-    },
-    "SK_AF_ARMS_FF15_NOCT_01_WA": {
-        "iname": "SK_AF_ARMS_FF15_NOCT_01_WA",
-        "name": "",
-        "kanji": "ファントムソード"
-    },
-    "SK_AF_ARMS_FF15_INGI_01_WA": {
-        "iname": "SK_AF_ARMS_FF15_INGI_01_WA",
-        "name": "",
-        "kanji": "賢者の炎"
-    },
-    "SK_AF_ARMS_FF15_GLAD_01_WA": {
-        "iname": "SK_AF_ARMS_FF15_GLAD_01_WA",
-        "name": "",
-        "kanji": "ライジングインパルス"
-    },
-    "SK_AF_ARMS_FF15_ARAN_01_WA": {
-        "iname": "SK_AF_ARMS_FF15_ARAN_01_WA",
-        "name": "",
-        "kanji": "エア・スペリオリティ"
-    },
-    "SK_AF_ARMO_FF15_SHIELD_01_WA": {
-        "iname": "SK_AF_ARMO_FF15_SHIELD_01_WA",
-        "name": "",
-        "kanji": "ラジエートジュエル"
     },
     "SK_AF_ACCS_RING_02_WA_ZENN": {
         "iname": "SK_AF_ACCS_RING_02_WA_ZENN",
@@ -5444,6 +5324,11 @@
         "name": "",
         "kanji": "聖騎・至高の式"
     },
+    "SK_AF_ACCS_BRACELET_03_KAYA": {
+        "iname": "SK_AF_ACCS_BRACELET_03_KAYA",
+        "name": "",
+        "kanji": "聖騎・秘法の式"
+    },
     "SK_AF_ARMS_RH_RAIN_01_WA": {
         "iname": "SK_AF_ARMS_RH_RAIN_01_WA",
         "name": "",
@@ -5464,13 +5349,28 @@
         "name": "",
         "kanji": "至高の魔弾"
     },
+    "SK_AF_ARMS_SQ_GUN_01_WA_B": {
+        "iname": "SK_AF_ARMS_SQ_GUN_01_WA_B",
+        "name": "",
+        "kanji": "至高の魔弾"
+    },
     "SK_AF_ARMS_SQ_PAL_01_WA": {
         "iname": "SK_AF_ARMS_SQ_PAL_01_WA",
         "name": "",
         "kanji": "渾身ディフェンス"
     },
+    "SK_AF_ARMS_SQ_PAL_01_WA_B": {
+        "iname": "SK_AF_ARMS_SQ_PAL_01_WA_B",
+        "name": "",
+        "kanji": "渾身ディフェンス"
+    },
     "SK_AF_ARMS_SQ_PRI_01_WA": {
         "iname": "SK_AF_ARMS_SQ_PRI_01_WA",
+        "name": "",
+        "kanji": "キングスマーチ"
+    },
+    "SK_AF_ARMS_SQ_PRI_01_WA_B": {
+        "iname": "SK_AF_ARMS_SQ_PRI_01_WA_B",
         "name": "",
         "kanji": "キングスマーチ"
     },
@@ -5779,10 +5679,30 @@
         "name": "",
         "kanji": "退場！！"
     },
-    "SK_RAT_WIZ_DYNAMITE_REACTION_FF": {
-        "iname": "SK_RAT_WIZ_DYNAMITE_REACTION_FF",
+    "SK_RAT_MOBIUS36_COUNT_2": {
+        "iname": "SK_RAT_MOBIUS36_COUNT_2",
         "name": "",
-        "kanji": "自爆【魔獣特効】"
+        "kanji": "カウントダウン2"
+    },
+    "SK_RAT_MOBIUS36_COUNT_1": {
+        "iname": "SK_RAT_MOBIUS36_COUNT_1",
+        "name": "",
+        "kanji": "カウントダウン1"
+    },
+    "SK_RAT_WIZ_DYNAMITE_MOBIUS_36F_01": {
+        "iname": "SK_RAT_WIZ_DYNAMITE_MOBIUS_36F_01",
+        "name": "",
+        "kanji": "大爆破☆チュウ"
+    },
+    "SK_RAT_HEALING_ALL": {
+        "iname": "SK_RAT_HEALING_ALL",
+        "name": "",
+        "kanji": "グレートヌミュアー♪"
+    },
+    "SK_RAT_DEF_UP_ALL": {
+        "iname": "SK_RAT_DEF_UP_ALL",
+        "name": "",
+        "kanji": "全区分耐性ヌミュアー♪"
     },
     "SK_RAT_WIZ_FIRE3": {
         "iname": "SK_RAT_WIZ_FIRE3",
@@ -5889,6 +5809,16 @@
         "name": "",
         "kanji": "目覚め【物防】ダウン【斬撃耐性】以外UP"
     },
+    "SK_BAA__MOBIUS_32F_01": {
+        "iname": "SK_BAA__MOBIUS_32F_01",
+        "name": "",
+        "kanji": "憤怒"
+    },
+    "SK_DGN__MOBIUS_32F_01": {
+        "iname": "SK_DGN__MOBIUS_32F_01",
+        "name": "",
+        "kanji": "憤怒"
+    },
     "SK_UP_ELEMENT_FIVE_FIRE_MIN": {
         "iname": "SK_UP_ELEMENT_FIVE_FIRE_MIN",
         "name": "",
@@ -5989,6 +5919,76 @@
         "name": "",
         "kanji": "全属性耐性UP[永続]"
     },
+    "SK_MAN_YUJ_D_DEF_1": {
+        "iname": "SK_MAN_YUJ_D_DEF_1",
+        "name": "",
+        "kanji": "斬撃耐性ダウン"
+    },
+    "SK_MAN_YUJ_D_DEF_2": {
+        "iname": "SK_MAN_YUJ_D_DEF_2",
+        "name": "",
+        "kanji": "刺突耐性ダウン"
+    },
+    "SK_MAN_YUJ_D_DEF_3": {
+        "iname": "SK_MAN_YUJ_D_DEF_3",
+        "name": "",
+        "kanji": "打撃耐性ダウン"
+    },
+    "SK_MAN_YUJ_D_DEF_4": {
+        "iname": "SK_MAN_YUJ_D_DEF_4",
+        "name": "",
+        "kanji": "魔法耐性ダウン"
+    },
+    "SK_MAN_YUJ_D_DEF_5": {
+        "iname": "SK_MAN_YUJ_D_DEF_5",
+        "name": "",
+        "kanji": "射撃耐性ダウン"
+    },
+    "SK_MAN_YUJ_D_DEF_6": {
+        "iname": "SK_MAN_YUJ_D_DEF_6",
+        "name": "",
+        "kanji": "ジャンプ耐性ダウン"
+    },
+    "SK_MAN_YUJ_D_STE_7": {
+        "iname": "SK_MAN_YUJ_D_STE_7",
+        "name": "",
+        "kanji": "全体強化薬"
+    },
+    "SK_MAN_WIZ_M_38_TOWER_REACTION7": {
+        "iname": "SK_MAN_WIZ_M_38_TOWER_REACTION7",
+        "name": "",
+        "kanji": "機能停止"
+    },
+    "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT": {
+        "iname": "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT",
+        "name": "",
+        "kanji": "機能開始"
+    },
+    "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT_1": {
+        "iname": "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT_1",
+        "name": "",
+        "kanji": "ステージ1クリア"
+    },
+    "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT_2": {
+        "iname": "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT_2",
+        "name": "",
+        "kanji": "ステージ2クリア"
+    },
+    "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT_3": {
+        "iname": "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT_3",
+        "name": "",
+        "kanji": "ステージ3クリア"
+    },
+    "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT_4": {
+        "iname": "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT_4",
+        "name": "",
+        "kanji": "ステージ4クリア"
+    },
+    "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT_5": {
+        "iname": "SK_MAN_WIZ_M_38_TOWER_REINFORCEMENT_5",
+        "name": "",
+        "kanji": "ステージ全クリア"
+    },
     "SK_WOL_ENC_KAKURAN_FA": {
         "iname": "SK_WOL_ENC_KAKURAN_FA",
         "name": "",
@@ -6084,30 +6084,40 @@
         "name": "",
         "kanji": "範囲攻撃耐性アップ"
     },
+    "SK_DIAB_WIZ_ATK_ATK_ROAR_EX": {
+        "iname": "SK_DIAB_WIZ_ATK_ATK_ROAR_EX",
+        "name": "",
+        "kanji": "ボーンクラッシュ[物攻ダウン]"
+    },
+    "SK_DIAB_WIZ_ATK_LANS_ROAR": {
+        "iname": "SK_DIAB_WIZ_ATK_LANS_ROAR",
+        "name": "",
+        "kanji": "ランスクラッシュ[刺突ダウン]"
+    },
+    "SK_DIAB_WIZ_ATK_ZAN_ROAR": {
+        "iname": "SK_DIAB_WIZ_ATK_ZAN_ROAR",
+        "name": "",
+        "kanji": "ソードクラッシュ[斬撃ダウン]"
+    },
     "SK_WOL_ARM_BOSS_HAGAREN_EX3_06": {
         "iname": "SK_WOL_ARM_BOSS_HAGAREN_EX3_06",
         "name": "",
         "kanji": "燃え尽きた・・・"
     },
-    "SK_MAN_WIZ_WIND4_FA_ATK_DOWN": {
-        "iname": "SK_MAN_WIZ_WIND4_FA_ATK_DOWN",
+    "SK_MAN_YUJ_MUCHI_BOM": {
+        "iname": "SK_MAN_YUJ_MUCHI_BOM",
         "name": "",
-        "kanji": "ウインドスポアIII(攻撃ダウン)"
+        "kanji": "ムチしばき"
     },
-    "SK_MAN_WIZ_WIND4_FA": {
-        "iname": "SK_MAN_WIZ_WIND4_FA",
+    "SK_MAN_MAD_UPPER_4": {
+        "iname": "SK_MAN_MAD_UPPER_4",
         "name": "",
-        "kanji": "ウインドスポアIII(防御ダウン)"
+        "kanji": "ニトロスポア"
     },
-    "SK_MAN_WIZ_THUNDER4_FA": {
-        "iname": "SK_MAN_WIZ_THUNDER4_FA",
+    "SK_MAN_YUJ_REGENERATE_WIDE_DIE": {
+        "iname": "SK_MAN_YUJ_REGENERATE_WIDE_DIE",
         "name": "",
-        "kanji": "サンダースポアIII(防御ダウン)"
-    },
-    "SK_MAN_YUJ_LONG_SHIELD_FF15": {
-        "iname": "SK_MAN_YUJ_LONG_SHIELD_FF15",
-        "name": "",
-        "kanji": "ロンググランテクト[防御8倍]"
+        "kanji": "ワイドリジェネ"
     },
     "SK_MAN_YUJ_SHIELD_MAG": {
         "iname": "SK_MAN_YUJ_SHIELD_MAG",
@@ -6118,41 +6128,6 @@
         "iname": "SK_MAN_YUJ_STO_ZERO_DEATH",
         "name": "",
         "kanji": "よみがえれ！"
-    },
-    "SK_MAN_YUJ_STO_ZERO_RE_FF15EX1": {
-        "iname": "SK_MAN_YUJ_STO_ZERO_RE_FF15EX1",
-        "name": "",
-        "kanji": "あたり！グランテクト解除"
-    },
-    "SK_MAN_YUJ_STOP_WIDE_RE_FF15EX1": {
-        "iname": "SK_MAN_YUJ_STOP_WIDE_RE_FF15EX1",
-        "name": "",
-        "kanji": "セルフタイマー"
-    },
-    "SK_MAN_YUJ_JEM_RE_FF15EX1": {
-        "iname": "SK_MAN_YUJ_JEM_RE_FF15EX1",
-        "name": "",
-        "kanji": "お薬飲んで"
-    },
-    "SK_MAN_YUJ_STAN_RE_FF15EX1": {
-        "iname": "SK_MAN_YUJ_STAN_RE_FF15EX1",
-        "name": "",
-        "kanji": "死んだふり"
-    },
-    "SK_MAN_YUJ_STAN_RE_FF15EX1_ALL": {
-        "iname": "SK_MAN_YUJ_STAN_RE_FF15EX1_ALL",
-        "name": "",
-        "kanji": "死んだふり"
-    },
-    "SK_MAN_YUJ_STAN_RE_FF15EX1_SOL": {
-        "iname": "SK_MAN_YUJ_STAN_RE_FF15EX1_SOL",
-        "name": "",
-        "kanji": "死んだふり"
-    },
-    "SK_MAN_YUJ_KAIFUKU_FF15": {
-        "iname": "SK_MAN_YUJ_KAIFUKU_FF15",
-        "name": "",
-        "kanji": "（2等）珍味！マンドラゴラ"
     },
     "SK_MAN_CLOCKUP_BAN": {
         "iname": "SK_MAN_CLOCKUP_BAN",
@@ -6209,6 +6184,11 @@
         "name": "",
         "kanji": "魔人マジックディフェンスDOWN【永続】"
     },
+    "SK_MAN_WIZ_NITRO_REACTION": {
+        "iname": "SK_MAN_WIZ_NITRO_REACTION",
+        "name": "",
+        "kanji": "反射ナパーム【不定形特効：菱形5　高10】"
+    },
     "SK_KUSA_OUEN_FA": {
         "iname": "SK_KUSA_OUEN_FA",
         "name": "",
@@ -6239,6 +6219,51 @@
         "name": "",
         "kanji": "魔力暴走（敵味方ノックバック）"
     },
+    "SK_DMN_WIZ_REGENERATER": {
+        "iname": "SK_DMN_WIZ_REGENERATER",
+        "name": "",
+        "kanji": "魔人リジェネレーター"
+    },
+    "SK_DMN_WIZ_DARK_MOBIUS": {
+        "iname": "SK_DMN_WIZ_DARK_MOBIUS",
+        "name": "",
+        "kanji": "サイキック・ダークネス+"
+    },
+    "SK_DMN_WIZ_SHINE_MOBIUS": {
+        "iname": "SK_DMN_WIZ_SHINE_MOBIUS",
+        "name": "",
+        "kanji": "サイキック・シャイニング+"
+    },
+    "SK_DMN_WIZ_WIND_MOBIUS": {
+        "iname": "SK_DMN_WIZ_WIND_MOBIUS",
+        "name": "",
+        "kanji": "サイキック・トルネード+"
+    },
+    "SK_DMN_WIZ_WATER_MOBIUS": {
+        "iname": "SK_DMN_WIZ_WATER_MOBIUS",
+        "name": "",
+        "kanji": "サイキック・ブリザード+"
+    },
+    "SK_DMN_WIZ_FIRE_MOBIUS": {
+        "iname": "SK_DMN_WIZ_FIRE_MOBIUS",
+        "name": "",
+        "kanji": "サイキック・フレイム+"
+    },
+    "SK_DMN_WIZ_FIRE_MOBIUS2": {
+        "iname": "SK_DMN_WIZ_FIRE_MOBIUS2",
+        "name": "",
+        "kanji": "サイキック・バーニング"
+    },
+    "SK_DMN_WIZ_BOUSOU_MOBIUS": {
+        "iname": "SK_DMN_WIZ_BOUSOU_MOBIUS",
+        "name": "",
+        "kanji": "魔力暴発"
+    },
+    "SK_DMN_WIZ_ALL_ELEMENT_DOWN": {
+        "iname": "SK_DMN_WIZ_ALL_ELEMENT_DOWN",
+        "name": "",
+        "kanji": "浄化の光"
+    },
     "SK_KAJ_HAGOITA_REACTION_01": {
         "iname": "SK_KAJ_HAGOITA_REACTION_01",
         "name": "",
@@ -6263,6 +6288,16 @@
         "iname": "SK_DMN_WIZ_RE_LASER",
         "name": "",
         "kanji": "魔力暴走(レーザー)"
+    },
+    "SK_VEDA_BOSS_YAMABIKO": {
+        "iname": "SK_VEDA_BOSS_YAMABIKO",
+        "name": "",
+        "kanji": "魔人の雄叫び【固定ダメージ】"
+    },
+    "SK_DMN_WIZ_BOUSOU_KNOCK_ALL_MAJ": {
+        "iname": "SK_DMN_WIZ_BOUSOU_KNOCK_ALL_MAJ",
+        "name": "",
+        "kanji": "魔力暴走+[魔人特攻]"
     },
     "SK_RAT_JEWEL_DRAIN_WIDE_R": {
         "iname": "SK_RAT_JEWEL_DRAIN_WIDE_R",
@@ -6329,6 +6364,221 @@
         "name": "",
         "kanji": "魔人の憂鬱【1人になると発動】"
     },
+    "SK_DMN_WIZ_SEISHINTOUITSU3": {
+        "iname": "SK_DMN_WIZ_SEISHINTOUITSU3",
+        "name": "",
+        "kanji": "精神統一3"
+    },
+    "SK_DMN_WIZ_SEISHINTOUITSU2": {
+        "iname": "SK_DMN_WIZ_SEISHINTOUITSU2",
+        "name": "",
+        "kanji": "精神統一2"
+    },
+    "SK_DMN_WIZ_SEISHINTOUITSU1": {
+        "iname": "SK_DMN_WIZ_SEISHINTOUITSU1",
+        "name": "",
+        "kanji": "精神統一1"
+    },
+    "SK_DMN_WIZ_SEISHINTOUITSU0": {
+        "iname": "SK_DMN_WIZ_SEISHINTOUITSU0",
+        "name": "",
+        "kanji": "魔力解放"
+    },
+    "SK_DMN_WIZ_SEISHINTOUITSU0_01": {
+        "iname": "SK_DMN_WIZ_SEISHINTOUITSU0_01",
+        "name": "",
+        "kanji": "全魔力解放"
+    },
+    "SK_LS_JEWEL_DOWN_1": {
+        "iname": "SK_LS_JEWEL_DOWN_1",
+        "name": "",
+        "kanji": "ジュエルダウン"
+    },
+    "SK_UP_NOT_WATER_DEF_MEBI": {
+        "iname": "SK_UP_NOT_WATER_DEF_MEBI",
+        "name": "",
+        "kanji": "耐性変化・水通しの詩"
+    },
+    "SK_UP_NOT_SHINE_DEF_MEBI": {
+        "iname": "SK_UP_NOT_SHINE_DEF_MEBI",
+        "name": "",
+        "kanji": "耐性変化・光通しの詩"
+    },
+    "SK_UP_NOT_WIND_DEF_MEBI": {
+        "iname": "SK_UP_NOT_WIND_DEF_MEBI",
+        "name": "",
+        "kanji": "耐性変化・風通しの詩"
+    },
+    "SK_UP_NOT_THUNDER_DEF_MEBI": {
+        "iname": "SK_UP_NOT_THUNDER_DEF_MEBI",
+        "name": "",
+        "kanji": "耐性変化・雷通しの詩"
+    },
+    "SK_UP_NOT_FIRE_DEF_MEBI": {
+        "iname": "SK_UP_NOT_FIRE_DEF_MEBI",
+        "name": "",
+        "kanji": "耐性変化・火通しの詩"
+    },
+    "SK_UP_NOT_DARK_DEF_MEBI": {
+        "iname": "SK_UP_NOT_DARK_DEF_MEBI",
+        "name": "",
+        "kanji": "耐性変化・闇通し&デバフ解除の詩"
+    },
+    "SK_LS_999_TAISEI_MEBI": {
+        "iname": "SK_LS_999_TAISEI_MEBI",
+        "name": "",
+        "kanji": "擬似全属性耐性アップ"
+    },
+    "SK_RAT__METAL_POET_MEBI_REACTION": {
+        "iname": "SK_RAT__METAL_POET_MEBI_REACTION",
+        "name": "",
+        "kanji": "仕返し・悲痛の詩"
+    },
+    "SK_RAT_ARM_THUNDER_BUFF_MEBI": {
+        "iname": "SK_RAT_ARM_THUNDER_BUFF_MEBI",
+        "name": "",
+        "kanji": "雄叫び"
+    },
+    "SK_RAT_ARM_THUNDER_CTUP_MEBI": {
+        "iname": "SK_RAT_ARM_THUNDER_CTUP_MEBI",
+        "name": "",
+        "kanji": "駆け足"
+    },
+    "SK_RAT_ARM_THUNDER_ZOUEN_MEBI": {
+        "iname": "SK_RAT_ARM_THUNDER_ZOUEN_MEBI",
+        "name": "",
+        "kanji": "生贄の舞"
+    },
+    "SK_DEF_FIRE": {
+        "iname": "SK_DEF_FIRE",
+        "name": "",
+        "kanji": "火属性耐性アップ"
+    },
+    "SK_DMN_WIZ_MEBI": {
+        "iname": "SK_DMN_WIZ_MEBI",
+        "name": "",
+        "kanji": "サイキック・シャイニング"
+    },
+    "SK_CTR_CHA_MEBI": {
+        "iname": "SK_CTR_CHA_MEBI",
+        "name": "",
+        "kanji": "魅了属性+999"
+    },
+    "SK_CORPSE_HEAVEN_GATE_MEBI": {
+        "iname": "SK_CORPSE_HEAVEN_GATE_MEBI",
+        "name": "",
+        "kanji": "審判の光"
+    },
+    "SK_DMN_WIZ_DMO_LASER_MEBI": {
+        "iname": "SK_DMN_WIZ_DMO_LASER_MEBI",
+        "name": "",
+        "kanji": "耐性貫通ドンムブレーザー"
+    },
+    "SK_DMN_WIZ_POI_LASER_MEBI": {
+        "iname": "SK_DMN_WIZ_POI_LASER_MEBI",
+        "name": "",
+        "kanji": "耐性貫通ポイズンレーザー"
+    },
+    "SK_DMN_PAR_WIZ_LASER_MEBI": {
+        "iname": "SK_DMN_PAR_WIZ_LASER_MEBI",
+        "name": "",
+        "kanji": "耐性貫通パラライズレーザー"
+    },
+    "SK_DMN_CHA_WIZ_LASER_MEBI": {
+        "iname": "SK_DMN_CHA_WIZ_LASER_MEBI",
+        "name": "",
+        "kanji": "耐性貫通チャームレーザー"
+    },
+    "SK_DEF_DARK": {
+        "iname": "SK_DEF_DARK",
+        "name": "",
+        "kanji": "闇属性耐性アップ"
+    },
+    "SK_ALL_ELEMENT_UP": {
+        "iname": "SK_ALL_ELEMENT_UP",
+        "name": "",
+        "kanji": "全属性耐性+1～999"
+    },
+    "SK_DEF_SHOTMAGIC_MEBI": {
+        "iname": "SK_DEF_SHOTMAGIC_MEBI",
+        "name": "",
+        "kanji": "射撃・魔法ガード"
+    },
+    "SK_RAT_MOBIUS36_FLG_3": {
+        "iname": "SK_RAT_MOBIUS36_FLG_3",
+        "name": "",
+        "kanji": "新型兵器"
+    },
+    "SK_RAT_MOBIUS36_FLG_1": {
+        "iname": "SK_RAT_MOBIUS36_FLG_1",
+        "name": "",
+        "kanji": "やべぇ奴らが来やがった！！"
+    },
+    "SK_RAT_MOBIUS36_FLG_2": {
+        "iname": "SK_RAT_MOBIUS36_FLG_2",
+        "name": "",
+        "kanji": "救援要請"
+    },
+    "SK_RAT_WIZ_DYNAMITE_MOBIUS_36F_02A": {
+        "iname": "SK_RAT_WIZ_DYNAMITE_MOBIUS_36F_02A",
+        "name": "",
+        "kanji": "誤爆（自分中心菱型3マス高低差2）"
+    },
+    "SK_RAT_WIZ_DYNAMITE_MOBIUS_36F_02B": {
+        "iname": "SK_RAT_WIZ_DYNAMITE_MOBIUS_36F_02B",
+        "name": "",
+        "kanji": "誤爆（自分中心十字1マス高低差2)"
+    },
+    "SK_RAT_REACTION_MOBIUS_HUHATU": {
+        "iname": "SK_RAT_REACTION_MOBIUS_HUHATU",
+        "name": "",
+        "kanji": "不発弾"
+    },
+    "SK_AJ4000_GUN_KNOCK_MOBIUS_36F": {
+        "iname": "SK_AJ4000_GUN_KNOCK_MOBIUS_36F",
+        "name": "",
+        "kanji": "自動迎撃システム"
+    },
+    "SK_MAH_KAGO_MOBIUS_36_ANTI": {
+        "iname": "SK_MAH_KAGO_MOBIUS_36_ANTI",
+        "name": "",
+        "kanji": "光属性耐性&魔法攻撃耐性大幅ダウン"
+    },
+    "SK_DMN_WIZ_ELEMENTS_COATING_MOBIUS_36F": {
+        "iname": "SK_DMN_WIZ_ELEMENTS_COATING_MOBIUS_36F",
+        "name": "",
+        "kanji": "敵対勢力の排除を開始します【属性耐性アップ】"
+    },
+    "SK_RAT_WIZ_DYNAMITE_MOBIUS_36F_BUFF": {
+        "iname": "SK_RAT_WIZ_DYNAMITE_MOBIUS_36F_BUFF",
+        "name": "",
+        "kanji": "移動力ブースター（マップ全体）"
+    },
+    "SK_AJ7000_INSTALL_MOBIUS36": {
+        "iname": "SK_AJ7000_INSTALL_MOBIUS36",
+        "name": "",
+        "kanji": "sb1.7.0.0Install(バフ消し不可)"
+    },
+    "SK_KAYA_EX_JUMP_1": {
+        "iname": "SK_KAYA_EX_JUMP_1",
+        "name": "",
+        "kanji": "空中召喚術壱式"
+    },
+    "SK_KAYA_EX_JUMP_2": {
+        "iname": "SK_KAYA_EX_JUMP_2",
+        "name": "",
+        "kanji": "空中召喚術弐式"
+    },
+    "SK_KAYA_EX_JUMP_3": {
+        "iname": "SK_KAYA_EX_JUMP_3",
+        "name": "",
+        "kanji": "空中召喚術参式"
+    },
+    "SK_KAYA_EX_JUMP_4": {
+        "iname": "SK_KAYA_EX_JUMP_4",
+        "name": "",
+        "kanji": "空中召喚術肆式"
+    },
     "SK_VEDA_BOSS_SHIELD_VEDA110": {
         "iname": "SK_VEDA_BOSS_SHIELD_VEDA110",
         "name": "",
@@ -6338,6 +6588,26 @@
         "iname": "SK_DMN_WAZA_CRYUNI01",
         "name": "",
         "kanji": "引寄せ"
+    },
+    "SK_MOBIUS_BOSS_GALLERY": {
+        "iname": "SK_MOBIUS_BOSS_GALLERY",
+        "name": "",
+        "kanji": "異層召喚"
+    },
+    "SK_MOBIUS_BOSS_GALLERY_2": {
+        "iname": "SK_MOBIUS_BOSS_GALLERY_2",
+        "name": "",
+        "kanji": "異層召喚"
+    },
+    "SK_MOBIUS_BOSS_GALLERY_3": {
+        "iname": "SK_MOBIUS_BOSS_GALLERY_3",
+        "name": "",
+        "kanji": "異層召喚"
+    },
+    "SK_VEDA_BOSS_SHIFT_03": {
+        "iname": "SK_VEDA_BOSS_SHIFT_03",
+        "name": "",
+        "kanji": "異層体術"
     },
     "SK_VEDA_BOSS_MOBIUS_22": {
         "iname": "SK_VEDA_BOSS_MOBIUS_22",
@@ -6474,11 +6744,6 @@
         "name": "",
         "kanji": "強制射出"
     },
-    "SK_KERB_ATK_FF15EX3": {
-        "iname": "SK_KERB_ATK_FF15EX3",
-        "name": "",
-        "kanji": "【通常攻撃】ケルベロス"
-    },
     "SK_AJ5000_COUNTER_AVOID": {
         "iname": "SK_AJ5000_COUNTER_AVOID",
         "name": "",
@@ -6573,6 +6838,11 @@
         "iname": "SK_AJ6000_CHARGE_VEDA101",
         "name": "",
         "kanji": "ギアチャージ[3ターン物攻＆素早さUP・重複]"
+    },
+    "SK_AJ7000_KOUSEN_MOBIUS": {
+        "iname": "SK_AJ7000_KOUSEN_MOBIUS",
+        "name": "",
+        "kanji": "共鳴誤爆"
     },
     "SK_AJ4000_SHIELD_DEFENSE": {
         "iname": "SK_AJ4000_SHIELD_DEFENSE",
@@ -6689,6 +6959,11 @@
         "name": "",
         "kanji": "超振動羽ばたき"
     },
+    "SK_KAISER_NEEDLE_POI_MOBIUS": {
+        "iname": "SK_KAISER_NEEDLE_POI_MOBIUS",
+        "name": "",
+        "kanji": "裏切りの毒針"
+    },
     "SK_VENUS_SEC_ATK_VEDA108": {
         "iname": "SK_VENUS_SEC_ATK_VEDA108",
         "name": "",
@@ -6739,30 +7014,15 @@
         "name": "",
         "kanji": "状態治癒"
     },
-    "SK_VENUS_SEC_ATK_FF15_EX1_A": {
-        "iname": "SK_VENUS_SEC_ATK_FF15_EX1_A",
+    "SK_FAMILIAR_DRAGON_ROAR_MOBIUS": {
+        "iname": "SK_FAMILIAR_DRAGON_ROAR_MOBIUS",
         "name": "",
-        "kanji": "クイーン水平撃ち"
+        "kanji": "死穢の遠吠え"
     },
-    "SK_VENUS_SEC_ATK_FF15_EX1_B": {
-        "iname": "SK_VENUS_SEC_ATK_FF15_EX1_B",
+    "SK_MEL_WIZ_KOUKEN_2": {
+        "iname": "SK_MEL_WIZ_KOUKEN_2",
         "name": "",
-        "kanji": "クイーン45°"
-    },
-    "SK_VENUS_SEC_ATK_FF15_EX1_AS": {
-        "iname": "SK_VENUS_SEC_ATK_FF15_EX1_AS",
-        "name": "",
-        "kanji": "クイーン水平撃ち"
-    },
-    "SK_VENUS_SEC_ATK_FF15_EX1_BS": {
-        "iname": "SK_VENUS_SEC_ATK_FF15_EX1_BS",
-        "name": "",
-        "kanji": "クイーン45°"
-    },
-    "SK_VENUS_SEC_ATK_FF15_TOWER": {
-        "iname": "SK_VENUS_SEC_ATK_FF15_TOWER",
-        "name": "",
-        "kanji": "ネイルビーム"
+        "kanji": "攻堅流法（重複）"
     },
     "SK_VENUS_SEC_ATK_BEEM_VEDA108": {
         "iname": "SK_VENUS_SEC_ATK_BEEM_VEDA108",
@@ -6778,6 +7038,11 @@
         "iname": "SK_VENUS_SEC_HIREFUSE_BUGFIX",
         "name": "",
         "kanji": "平伏せ"
+    },
+    "SK_VENUS_SEC_KING_GOVRNANCE_ONCE": {
+        "iname": "SK_VENUS_SEC_KING_GOVRNANCE_ONCE",
+        "name": "",
+        "kanji": "王の統治"
     },
     "SK_VENUS_SEC_BUGS_GOVRNANCE": {
         "iname": "SK_VENUS_SEC_BUGS_GOVRNANCE",
@@ -6823,6 +7088,11 @@
         "iname": "SK_DIAB_WIZ_KAIHUKU_VEDA110",
         "name": "",
         "kanji": "大冥界癒術"
+    },
+    "SK_EN_KAJ_REACTION_02": {
+        "iname": "SK_EN_KAJ_REACTION_02",
+        "name": "",
+        "kanji": "ぶっとばし"
     },
     "SK_FOOD_METEOR_VEDA110": {
         "iname": "SK_FOOD_METEOR_VEDA110",
@@ -6914,6 +7184,16 @@
         "name": "",
         "kanji": "ラピッドスウェイ"
     },
+    "SK_DESERT_MONSTER_WAZA_REACTION_01_STORY5EX": {
+        "iname": "SK_DESERT_MONSTER_WAZA_REACTION_01_STORY5EX",
+        "name": "",
+        "kanji": "カットクウィール[射撃以外に反撃]"
+    },
+    "SK_DESERT_MONSTER_WAZA_REACTION_02_STORY5EX": {
+        "iname": "SK_DESERT_MONSTER_WAZA_REACTION_02_STORY5EX",
+        "name": "",
+        "kanji": "ラピッドスウェイジャンプ"
+    },
     "SK_WAGINAO_01_ATK": {
         "iname": "SK_WAGINAO_01_ATK",
         "name": "",
@@ -6968,6 +7248,16 @@
         "iname": "SK_WAGINAO_01_WAZA_SUPPORT",
         "name": "",
         "kanji": "ミラージュシルエット"
+    },
+    "SK_WAGINAO_01_WAZA_SHIELD": {
+        "iname": "SK_WAGINAO_01_WAZA_SHIELD",
+        "name": "",
+        "kanji": "3回攻撃を受けるまで物理ダメージ半減"
+    },
+    "SK_STORY_5-2_1-9": {
+        "iname": "SK_STORY_5-2_1-9",
+        "name": "",
+        "kanji": "ネガ・エクシエル"
     },
     "SK_WAGI_WIZ_DJ_HAGAREN_EX1SP": {
         "iname": "SK_WAGI_WIZ_DJ_HAGAREN_EX1SP",
@@ -9044,6 +9334,11 @@
         "name": "",
         "kanji": "奪活の棘"
     },
+    "SK_GOD_DEMON_ALL_ELEMENT_DOWN": {
+        "iname": "SK_GOD_DEMON_ALL_ELEMENT_DOWN",
+        "name": "",
+        "kanji": "浄化の光"
+    },
     "SK_BARRIER_WOLF_CRYUNI_EX": {
         "iname": "SK_BARRIER_WOLF_CRYUNI_EX",
         "name": "",
@@ -9084,6 +9379,11 @@
         "name": "",
         "kanji": "打撃・射撃・刺突耐性アップ"
     },
+    "SK_DGN_HYPER_HIGH_JUMP_ENEMY": {
+        "iname": "SK_DGN_HYPER_HIGH_JUMP_ENEMY",
+        "name": "",
+        "kanji": "超・ハイジャンプ"
+    },
     "SK_STR_SENPUKYAKU_SPECTER_YOMI": {
         "iname": "SK_STR_SENPUKYAKU_SPECTER_YOMI",
         "name": "",
@@ -9121,6 +9421,11 @@
     },
     "SK_LS_ELEM_FIRE_50_U_HP_30_U_ATK_10_U_HIT": {
         "iname": "SK_LS_ELEM_FIRE_50_U_HP_30_U_ATK_10_U_HIT",
+        "name": "",
+        "kanji": "烈火の鼓動"
+    },
+    "SK_LS_ELEM_FIRE_50_U_HP_30_U_MAG_10_U_HIT": {
+        "iname": "SK_LS_ELEM_FIRE_50_U_HP_30_U_MAG_10_U_HIT",
         "name": "",
         "kanji": "烈火の鼓動"
     },
@@ -9254,6 +9559,11 @@
         "name": "",
         "kanji": "暁光の神舞"
     },
+    "SK_LS_ELEM_SHINE_40_U_HP_40_U_BLOW_20_U_DARK": {
+        "iname": "SK_LS_ELEM_SHINE_40_U_HP_40_U_BLOW_20_U_DARK",
+        "name": "",
+        "kanji": "暁光の鼓動"
+    },
     "SK_LS_ELEM_DARK_50_U_HP_20_U_SHOT": {
         "iname": "SK_LS_ELEM_DARK_50_U_HP_20_U_SHOT",
         "name": "",
@@ -9279,6 +9589,21 @@
         "name": "",
         "kanji": "宵闇の鼓動"
     },
+    "SK_LS_ELEM_LUST_20_U_HP_20_MAGIC": {
+        "iname": "SK_LS_ELEM_LUST_20_U_HP_20_MAGIC",
+        "name": "",
+        "kanji": "色欲の息吹"
+    },
+    "SK_LS_ELEM_LUST_30_U_HP_20_MAGIC": {
+        "iname": "SK_LS_ELEM_LUST_30_U_HP_20_MAGIC",
+        "name": "",
+        "kanji": "色欲の鼓動"
+    },
+    "SK_LS_ELEM_LUST_40_U_HP_30_MAGIC": {
+        "iname": "SK_LS_ELEM_LUST_40_U_HP_30_MAGIC",
+        "name": "",
+        "kanji": "色欲の鼓動"
+    },
     "SK_LS_APR_LIZ_4_ONLY": {
         "iname": "SK_LS_APR_LIZ_4_ONLY",
         "name": "",
@@ -9299,11 +9624,6 @@
         "name": "",
         "kanji": "神技ハンド"
     },
-    "SK_US_FF_CONS_STEW": {
-        "iname": "SK_US_FF_CONS_STEW",
-        "name": "",
-        "kanji": "王様のシチュー"
-    },
     "SK_US_SQ_RESIST_MIST": {
         "iname": "SK_US_SQ_RESIST_MIST",
         "name": "",
@@ -9323,41 +9643,6 @@
         "iname": "SK_US_TS_JEWEL_HEAL_01",
         "name": "",
         "kanji": "変種のメルポト茸"
-    },
-    "SK_EQ_FF15_NOCT": {
-        "iname": "SK_EQ_FF15_NOCT",
-        "name": "",
-        "kanji": "ノクティス用"
-    },
-    "SK_EQ_FF15_INGI": {
-        "iname": "SK_EQ_FF15_INGI",
-        "name": "",
-        "kanji": "イグニス用"
-    },
-    "SK_EQ_FF15_GLAD": {
-        "iname": "SK_EQ_FF15_GLAD",
-        "name": "",
-        "kanji": "グラディオラス用"
-    },
-    "SK_EQ_FF15_PROM01": {
-        "iname": "SK_EQ_FF15_PROM01",
-        "name": "",
-        "kanji": "プロンプト用①"
-    },
-    "SK_EQ_FF15_PROM02": {
-        "iname": "SK_EQ_FF15_PROM02",
-        "name": "",
-        "kanji": "プロンプト用②"
-    },
-    "SK_EQ_FF15_PROM03": {
-        "iname": "SK_EQ_FF15_PROM03",
-        "name": "",
-        "kanji": "プロンプト用③"
-    },
-    "SK_EQ_FF15_ARAN": {
-        "iname": "SK_EQ_FF15_ARAN",
-        "name": "",
-        "kanji": "アラネア用"
     },
     "SK_EQ_DIS_KILL": {
         "iname": "SK_EQ_DIS_KILL",
@@ -9904,6 +10189,66 @@
         "name": "",
         "kanji": "ヨミCC装備⑥小物入れ、押し花のしおり"
     },
+    "SK_EQ_GUIL_SWORD": {
+        "iname": "SK_EQ_GUIL_SWORD",
+        "name": "",
+        "kanji": "断罪の剣"
+    },
+    "SK_EQ_GUIL_CLOTHES": {
+        "iname": "SK_EQ_GUIL_CLOTHES",
+        "name": "",
+        "kanji": "異端審問官軍装"
+    },
+    "SK_EQ_GUIL_GLOVES": {
+        "iname": "SK_EQ_GUIL_GLOVES",
+        "name": "",
+        "kanji": "異端審問官の篭手"
+    },
+    "SK_EQ_GUIL_WARRANT": {
+        "iname": "SK_EQ_GUIL_WARRANT",
+        "name": "",
+        "kanji": "異端審問断罪状"
+    },
+    "SK_EQ_GUIL_EMBLEM": {
+        "iname": "SK_EQ_GUIL_EMBLEM",
+        "name": "",
+        "kanji": "異端審問官徽章"
+    },
+    "SK_EQ_GUIL_BRUSH": {
+        "iname": "SK_EQ_GUIL_BRUSH",
+        "name": "",
+        "kanji": "秩序の靴磨きセット"
+    },
+    "SK_EQ_HISHARMU_ROD": {
+        "iname": "SK_EQ_HISHARMU_ROD",
+        "name": "",
+        "kanji": "読み人の杖"
+    },
+    "SK_EQ_HISHARMU_HEADBAND": {
+        "iname": "SK_EQ_HISHARMU_HEADBAND",
+        "name": "",
+        "kanji": "獣皮の装身具"
+    },
+    "SK_EQ_HISHARMU_MANTLE": {
+        "iname": "SK_EQ_HISHARMU_MANTLE",
+        "name": "",
+        "kanji": "砂漠民の外套"
+    },
+    "SK_EQ_HISHARMU_EARRINGS": {
+        "iname": "SK_EQ_HISHARMU_EARRINGS",
+        "name": "",
+        "kanji": "砂紋のイヤリング"
+    },
+    "SK_EQ_HISHARMU_BOOKS": {
+        "iname": "SK_EQ_HISHARMU_BOOKS",
+        "name": "",
+        "kanji": "思い出の書物"
+    },
+    "SK_EQ_HISHARMU_WATERBOTTLE": {
+        "iname": "SK_EQ_HISHARMU_WATERBOTTLE",
+        "name": "",
+        "kanji": "浄水の水筒"
+    },
     "SK_EQ_ELEMENTAL_FIRE": {
         "iname": "SK_EQ_ELEMENTAL_FIRE",
         "name": "",
@@ -10084,6 +10429,11 @@
         "name": "",
         "kanji": "水の双剣"
     },
+    "SK_EQ_ALMA01": {
+        "iname": "SK_EQ_ALMA01",
+        "name": "",
+        "kanji": "アルマ固有装備品"
+    },
     "SK_EQ_WEDDING_FIRE": {
         "iname": "SK_EQ_WEDDING_FIRE",
         "name": "",
@@ -10129,9 +10479,69 @@
         "name": "",
         "kanji": "魔弾操師【シンフォニー】"
     },
+    "SK_EQ_ZAYIN_KAMI": {
+        "iname": "SK_EQ_ZAYIN_KAMI",
+        "name": "",
+        "kanji": "ザインCC装備①髪飾り"
+    },
+    "SK_EQ_ZAYIN_MANT": {
+        "iname": "SK_EQ_ZAYIN_MANT",
+        "name": "",
+        "kanji": "ザインCC装備②マント"
+    },
+    "SK_EQ_ZAYIN_GLOVE": {
+        "iname": "SK_EQ_ZAYIN_GLOVE",
+        "name": "",
+        "kanji": "ザインCC装備③手袋"
+    },
+    "SK_EQ_ZAYIN_KOMA": {
+        "iname": "SK_EQ_ZAYIN_KOMA",
+        "name": "",
+        "kanji": "ザインCC装備④ロードマスターの駒"
+    },
+    "SK_EQ_ZAYIN_FRAG": {
+        "iname": "SK_EQ_ZAYIN_FRAG",
+        "name": "",
+        "kanji": "ザインCC装備⑤団章"
+    },
+    "SK_EQ_ZAYIN_PEN": {
+        "iname": "SK_EQ_ZAYIN_PEN",
+        "name": "",
+        "kanji": "ザインCC装備⑥ペンたて"
+    },
+    "SK_EQ_KAYA01": {
+        "iname": "SK_EQ_KAYA01",
+        "name": "",
+        "kanji": "探査魔導具アンティ"
+    },
     "SK_EQ_MAD_GLOBE_DBUFF": {
         "iname": "SK_EQ_MAD_GLOBE_DBUFF",
         "name": "",
         "kanji": "魔弾操師【デバフ】"
+    },
+    "SK_EQ_HARP_HEAL": {
+        "iname": "SK_EQ_HARP_HEAL",
+        "name": "",
+        "kanji": "女神のハープ【回復】"
+    },
+    "SK_EQ_HARP_MDEF": {
+        "iname": "SK_EQ_HARP_MDEF",
+        "name": "",
+        "kanji": "女神のハープ【魔防】"
+    },
+    "SK_EQ_HARP_DARK": {
+        "iname": "SK_EQ_HARP_DARK",
+        "name": "",
+        "kanji": "女神のハープ【対光】"
+    },
+    "SK_EQ_KAI_RUDDER_ALWIDA": {
+        "iname": "SK_EQ_KAI_RUDDER_ALWIDA",
+        "name": "",
+        "kanji": "航海者の操舵輪【アルビダ】"
+    },
+    "SK_EQ_KAI_RUDDER_TEACH": {
+        "iname": "SK_EQ_KAI_RUDDER_TEACH",
+        "name": "",
+        "kanji": "航海者の操舵輪【ティーチ】"
     }
 }

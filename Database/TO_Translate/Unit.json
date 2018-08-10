@@ -49,31 +49,6 @@
         "name": "",
         "kanji": "ローザ"
     },
-    "UN_V2_FF15_NOCTIS": {
-        "iname": "UN_V2_FF15_NOCTIS",
-        "name": "",
-        "kanji": "ノクティス"
-    },
-    "UN_V2_FF15_IGNIS": {
-        "iname": "UN_V2_FF15_IGNIS",
-        "name": "",
-        "kanji": "イグニス"
-    },
-    "UN_V2_FF15_GLADIOLUS": {
-        "iname": "UN_V2_FF15_GLADIOLUS",
-        "name": "",
-        "kanji": "グラディオラス"
-    },
-    "UN_V2_FF15_PROMPUTO": {
-        "iname": "UN_V2_FF15_PROMPUTO",
-        "name": "",
-        "kanji": "プロンプト"
-    },
-    "UN_V2_FF15_ARANEA": {
-        "iname": "UN_V2_FF15_ARANEA",
-        "name": "",
-        "kanji": "アラネア"
-    },
     "UN_V2_RH_STOCK": {
         "iname": "UN_V2_RH_STOCK",
         "name": "",
@@ -339,6 +314,21 @@
         "name": "",
         "kanji": "リーファ"
     },
+    "UN_V2_ALMA": {
+        "iname": "UN_V2_ALMA",
+        "name": "",
+        "kanji": "アルマ"
+    },
+    "UN_V2_REBECCA": {
+        "iname": "UN_V2_REBECCA",
+        "name": "",
+        "kanji": "レベッカ"
+    },
+    "UN_V2_KAYA": {
+        "iname": "UN_V2_KAYA",
+        "name": "",
+        "kanji": "カヤ"
+    },
     "UN_V2_DIS_EN_METALPRINNY": {
         "iname": "UN_V2_DIS_EN_METALPRINNY",
         "name": "",
@@ -358,6 +348,31 @@
         "iname": "UN_V2_DIS_EN_METALPRINNY_4",
         "name": "",
         "kanji": "メタルプリニー"
+    },
+    "UN_V2_EN_ANOTHER_GUA_MOVIUSE": {
+        "iname": "UN_V2_EN_ANOTHER_GUA_MOVIUSE",
+        "name": "",
+        "kanji": "幻影兵・ホーリーナイト"
+    },
+    "UN_V2_EN_ANOTHER_BAA_MOVIUSE": {
+        "iname": "UN_V2_EN_ANOTHER_BAA_MOVIUSE",
+        "name": "",
+        "kanji": "幻影兵・ダークナイト"
+    },
+    "UN_V2_EN_ANOTHER_GEN_MEBI": {
+        "iname": "UN_V2_EN_ANOTHER_GEN_MEBI",
+        "name": "",
+        "kanji": "幻影兵・奇術師"
+    },
+    "UN_V2_EN_ANOTHER_DGN_3_tower": {
+        "iname": "UN_V2_EN_ANOTHER_DGN_3_tower",
+        "name": "",
+        "kanji": "幻影兵・ドラゴンナイト"
+    },
+    "UN_V2_EN_ANOTHER_STR_2_MOVIUSE": {
+        "iname": "UN_V2_EN_ANOTHER_STR_2_MOVIUSE",
+        "name": "",
+        "kanji": "幻影兵・拳聖"
     },
     "UN_V2_EN_ANOTHER_ARM_TRAINING": {
         "iname": "UN_V2_EN_ANOTHER_ARM_TRAINING",
@@ -419,6 +434,11 @@
         "name": "",
         "kanji": "ゴールデンラットン"
     },
+    "UN_V2_EN_RAT_GOLD_MOBIUS": {
+        "iname": "UN_V2_EN_RAT_GOLD_MOBIUS",
+        "name": "",
+        "kanji": "ゴールデンラットン"
+    },
     "UN_V2_EN_RAT_ARM_METAL_3T_SUM": {
         "iname": "UN_V2_EN_RAT_ARM_METAL_3T_SUM",
         "name": "",
@@ -459,6 +479,16 @@
         "name": "",
         "kanji": "詩ってほしいメタルラットン"
     },
+    "UN_V2_EN_RAT_ARM_THUNDER_MEBI": {
+        "iname": "UN_V2_EN_RAT_ARM_THUNDER_MEBI",
+        "name": "",
+        "kanji": "バフビリラットン"
+    },
+    "UN_V2_EN_RAT__METAL_POET_MEBI": {
+        "iname": "UN_V2_EN_RAT__METAL_POET_MEBI",
+        "name": "",
+        "kanji": "詩人メタルラットン"
+    },
     "UN_V2_EN_RAT_ARM_FIRE_SS": {
         "iname": "UN_V2_EN_RAT_ARM_FIRE_SS",
         "name": "",
@@ -473,6 +503,11 @@
         "iname": "UN_V2_EN_RAT_ARM_WIND_SS",
         "name": "",
         "kanji": "隣接バフラットン"
+    },
+    "UN_V2_EN_RAT_ARM_METAL_MOBIUS36": {
+        "iname": "UN_V2_EN_RAT_ARM_METAL_MOBIUS36",
+        "name": "",
+        "kanji": "鼠型時限爆弾"
     },
     "UN_V2_EN_RAT_ARM_TRAINING_01": {
         "iname": "UN_V2_EN_RAT_ARM_TRAINING_01",
@@ -549,6 +584,11 @@
         "name": "",
         "kanji": "運の差ラットン"
     },
+    "UN_V2_EN_RAT_ARM_WATER_tower": {
+        "iname": "UN_V2_EN_RAT_ARM_WATER_tower",
+        "name": "",
+        "kanji": "ミズラットン"
+    },
     "UN_V2_EN_MANDRAGORA_FA": {
         "iname": "UN_V2_EN_MANDRAGORA_FA",
         "name": "",
@@ -584,6 +624,11 @@
         "name": "",
         "kanji": "狂レッドウルフ"
     },
+    "UN_V2_EN_WOLF_ARM_MEBI": {
+        "iname": "UN_V2_EN_WOLF_ARM_MEBI",
+        "name": "",
+        "kanji": "狂レッドウルフ"
+    },
     "UN_V2_EN_WOLF_ENC_VEDA": {
         "iname": "UN_V2_EN_WOLF_ENC_VEDA",
         "name": "",
@@ -598,6 +643,16 @@
         "iname": "UN_V2_EN_DIABLO_MOBIUS_22F",
         "name": "",
         "kanji": "石化ディアブロ"
+    },
+    "UN_V2_EN_DIABLO_WIZ_MOVIUSE": {
+        "iname": "UN_V2_EN_DIABLO_WIZ_MOVIUSE",
+        "name": "",
+        "kanji": "ディアブロ"
+    },
+    "UN_V2_EN_MANDRAGORA_WIZ_KAYA_EX": {
+        "iname": "UN_V2_EN_MANDRAGORA_WIZ_KAYA_EX",
+        "name": "",
+        "kanji": "封印解除バナ"
     },
     "UN_V2_EN_MANDRA_WIZ_FIRE_RADIANT": {
         "iname": "UN_V2_EN_MANDRA_WIZ_FIRE_RADIANT",
@@ -644,6 +699,41 @@
         "name": "",
         "kanji": "射撃が欲しい花"
     },
+    "UN_V2_EN_MANDRA_WIZ_FIRE_RADIANT_MOVIUSE": {
+        "iname": "UN_V2_EN_MANDRA_WIZ_FIRE_RADIANT_MOVIUSE",
+        "name": "",
+        "kanji": "斬撃耐性の花"
+    },
+    "UN_V2_EN_MANDRA_WIZ_WATER_RADIANT_MOVIUSE": {
+        "iname": "UN_V2_EN_MANDRA_WIZ_WATER_RADIANT_MOVIUSE",
+        "name": "",
+        "kanji": "刺突耐性の花"
+    },
+    "UN_V2_EN_MANDRA_WIZ_WIND_MOVIUSE": {
+        "iname": "UN_V2_EN_MANDRA_WIZ_WIND_MOVIUSE",
+        "name": "",
+        "kanji": "打撃耐性の花"
+    },
+    "UN_V2_EN_MANDRA_WIZ_THUNDER_MOVIUSE": {
+        "iname": "UN_V2_EN_MANDRA_WIZ_THUNDER_MOVIUSE",
+        "name": "",
+        "kanji": "射撃耐性の花"
+    },
+    "UN_V2_EN_MANDRA_WIZ_DARK_MOVIUSE": {
+        "iname": "UN_V2_EN_MANDRA_WIZ_DARK_MOVIUSE",
+        "name": "",
+        "kanji": "魔法耐性の花"
+    },
+    "UN_V2_EN_MANDRA_WIZ_SHINE_MOVIUSE": {
+        "iname": "UN_V2_EN_MANDRA_WIZ_SHINE_MOVIUSE",
+        "name": "",
+        "kanji": "強化クスリバナ"
+    },
+    "UN_V2_EN_MANDRAGORA_WIZ_NITRO": {
+        "iname": "UN_V2_EN_MANDRAGORA_WIZ_NITRO",
+        "name": "",
+        "kanji": "ニトロバナ"
+    },
     "UN_V2_EN_DEMON_WIZ_CRY_EX": {
         "iname": "UN_V2_EN_DEMON_WIZ_CRY_EX",
         "name": "",
@@ -653,6 +743,11 @@
         "iname": "UN_V2_EN_DEMON_WIZ_BOSS_2",
         "name": "",
         "kanji": "神域の魔人"
+    },
+    "UN_V2_EN_DEMON_WIZ_MOBIUS_02_MEBI": {
+        "iname": "UN_V2_EN_DEMON_WIZ_MOBIUS_02_MEBI",
+        "name": "",
+        "kanji": "帰ってきた惚れ魔人"
     },
     "UN_V2_EN_DEMON_SUMOU3": {
         "iname": "UN_V2_EN_DEMON_SUMOU3",
@@ -679,6 +774,26 @@
         "name": "",
         "kanji": "アクティブ魔人"
     },
+    "UN_V2_EN_DEMON_WIZ_W_MOVIUSE": {
+        "iname": "UN_V2_EN_DEMON_WIZ_W_MOVIUSE",
+        "name": "",
+        "kanji": "魔人"
+    },
+    "UN_V2_EN_DEMON_WIZ_MOBIUS_34F": {
+        "iname": "UN_V2_EN_DEMON_WIZ_MOBIUS_34F",
+        "name": "",
+        "kanji": "魔人"
+    },
+    "UN_V2_EN_VEDA_DEMON_08": {
+        "iname": "UN_V2_EN_VEDA_DEMON_08",
+        "name": "",
+        "kanji": "雄叫び魔人"
+    },
+    "UN_V2_EN_DEMON_WIZ_MOBIUS_DEMON": {
+        "iname": "UN_V2_EN_DEMON_WIZ_MOBIUS_DEMON",
+        "name": "",
+        "kanji": "異層界魔人"
+    },
     "UN_V2_EN_BLACK_KNIGHT_DIS": {
         "iname": "UN_V2_EN_BLACK_KNIGHT_DIS",
         "name": "",
@@ -689,10 +804,20 @@
         "name": "",
         "kanji": "黒騎士"
     },
+    "UN_V2_EN_BLACK_KNIGHT__MOBIUS_TOWER": {
+        "iname": "UN_V2_EN_BLACK_KNIGHT__MOBIUS_TOWER",
+        "name": "",
+        "kanji": "黒騎士"
+    },
     "UN_V2_EN_BLACK_KNIGHT_ZEKE": {
         "iname": "UN_V2_EN_BLACK_KNIGHT_ZEKE",
         "name": "",
         "kanji": "ジュエルの黒騎士"
+    },
+    "UN_V2_EN_BLACK_KNIGHT_MEBI": {
+        "iname": "UN_V2_EN_BLACK_KNIGHT_MEBI",
+        "name": "",
+        "kanji": "黒騎士"
     },
     "UN_V2_EN_STORY_LOGI_GUA": {
         "iname": "UN_V2_EN_STORY_LOGI_GUA",
@@ -713,6 +838,11 @@
         "iname": "UN_V2_EN_AJ2000_VEDA101",
         "name": "",
         "kanji": "ＡＪ２０００"
+    },
+    "UN_V2_EN_AJ3000_ADV_Tower": {
+        "iname": "UN_V2_EN_AJ3000_ADV_Tower",
+        "name": "",
+        "kanji": "ＡＪ３０００"
     },
     "UN_V2_EN_AJ4000_MAKYU": {
         "iname": "UN_V2_EN_AJ4000_MAKYU",
@@ -744,10 +874,10 @@
         "name": "",
         "kanji": "ＡＪ６０００"
     },
-    "UN_V2_EN_KERBEROS_FF15EX3": {
-        "iname": "UN_V2_EN_KERBEROS_FF15EX3",
+    "UN_V2_EN_KERBEROS_MOBIUS_02": {
+        "iname": "UN_V2_EN_KERBEROS_MOBIUS_02",
         "name": "",
-        "kanji": "忠狼ケルベロス"
+        "kanji": "ケルベロス"
     },
     "UN_V2_EN_MAFIA_RH": {
         "iname": "UN_V2_EN_MAFIA_RH",
@@ -758,6 +888,21 @@
         "iname": "UN_V2_EN_MAFIA_GUN_RH",
         "name": "",
         "kanji": "マフィアのボス"
+    },
+    "UN_V2_EN_THIEF": {
+        "iname": "UN_V2_EN_THIEF",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_THI_ARUBA_Tower": {
+        "iname": "UN_V2_EN_HOOD_THI_ARUBA_Tower",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_THIEF_LEADER": {
+        "iname": "UN_V2_EN_THIEF_LEADER",
+        "name": "",
+        "kanji": "盗賊のリーダー"
     },
     "UN_V2_EN_MAFIA_WEDDING2018": {
         "iname": "UN_V2_EN_MAFIA_WEDDING2018",
@@ -774,20 +919,15 @@
         "name": "",
         "kanji": "ドン・タラス"
     },
-    "UN_V2_EN_ALBURMIN_FF15EX": {
-        "iname": "UN_V2_EN_ALBURMIN_FF15EX",
-        "name": "",
-        "kanji": "アルバーミン100"
-    },
     "UN_V2_EN_ALBURMIN_VEDA108": {
         "iname": "UN_V2_EN_ALBURMIN_VEDA108",
         "name": "",
         "kanji": "アルバーミン"
     },
-    "UN_V2_EN_BEETLE_FF15EX": {
-        "iname": "UN_V2_EN_BEETLE_FF15EX",
+    "UN_V2_EN_ALBURMIN_MOVIUSE": {
+        "iname": "UN_V2_EN_ALBURMIN_MOVIUSE",
         "name": "",
-        "kanji": "リーダービートル"
+        "kanji": "アルバーミン"
     },
     "UN_V2_EN_BEETLE_VEDA108": {
         "iname": "UN_V2_EN_BEETLE_VEDA108",
@@ -808,6 +948,21 @@
         "iname": "UN_V2_EN_KAISER_VEDA_108",
         "name": "",
         "kanji": "アクティブカイザー"
+    },
+    "UN_V2_EN_KAISER_MOBIUS": {
+        "iname": "UN_V2_EN_KAISER_MOBIUS",
+        "name": "",
+        "kanji": "カイザー"
+    },
+    "UN_V2_EN_ELEONORA_SP": {
+        "iname": "UN_V2_EN_ELEONORA_SP",
+        "name": "",
+        "kanji": "エレオノーラ"
+    },
+    "UN_V2_EN_FAMILIAR_MOVIUSE": {
+        "iname": "UN_V2_EN_FAMILIAR_MOVIUSE",
+        "name": "",
+        "kanji": "使い魔"
     },
     "UN_V2_EN_FAMILIAR_SEISEKI_10EX_01": {
         "iname": "UN_V2_EN_FAMILIAR_SEISEKI_10EX_01",
@@ -839,15 +994,20 @@
         "name": "",
         "kanji": "モンスター"
     },
-    "UN_V2_EN_VENUS_SEC_FF15_EX1": {
-        "iname": "UN_V2_EN_VENUS_SEC_FF15_EX1",
-        "name": "",
-        "kanji": "クイーン"
-    },
     "UN_V2_EN_VENUS_VEDA_POI": {
         "iname": "UN_V2_EN_VENUS_VEDA_POI",
         "name": "",
         "kanji": "クイーン"
+    },
+    "UN_V2_EN_VENUS_VEDA_POI_MOBIUS": {
+        "iname": "UN_V2_EN_VENUS_VEDA_POI_MOBIUS",
+        "name": "",
+        "kanji": "クイーン"
+    },
+    "UN_V2_EN_FAMILIAR_G_MOUBIUS": {
+        "iname": "UN_V2_EN_FAMILIAR_G_MOUBIUS",
+        "name": "",
+        "kanji": "巨大使い魔"
     },
     "UN_V2_EN_GLUTTONY_HUN_VEDA2": {
         "iname": "UN_V2_EN_GLUTTONY_HUN_VEDA2",
@@ -866,6 +1026,11 @@
     },
     "UN_V2_EN_JAM_SEISEKI_11EX": {
         "iname": "UN_V2_EN_JAM_SEISEKI_11EX",
+        "name": "",
+        "kanji": "巨大化ジャム"
+    },
+    "UN_V2_EN_JAM_MOBIUS": {
+        "iname": "UN_V2_EN_JAM_MOBIUS",
         "name": "",
         "kanji": "巨大化ジャム"
     },
@@ -1004,18 +1169,53 @@
         "name": "",
         "kanji": "人型ジャム大・召喚師"
     },
-    "UN_V2_EN_DIOS_BAA_LONG_FF15": {
-        "iname": "UN_V2_EN_DIOS_BAA_LONG_FF15",
+    "UN_V2_EN_JAM_HUMAN_BAA_MEBI": {
+        "iname": "UN_V2_EN_JAM_HUMAN_BAA_MEBI",
         "name": "",
-        "kanji": "ディオス"
+        "kanji": "人型ジャム・ダークナイト"
+    },
+    "UN_V2_EN_JAM_HUMAN_RAN_MEBI": {
+        "iname": "UN_V2_EN_JAM_HUMAN_RAN_MEBI",
+        "name": "",
+        "kanji": "人型ジャム・レンジャー"
+    },
+    "UN_V2_EN_JAM_HUMAN_MAJ_MEBI": {
+        "iname": "UN_V2_EN_JAM_HUMAN_MAJ_MEBI",
+        "name": "",
+        "kanji": "人型ジャム・Ｍシューター"
+    },
+    "UN_V2_EN_JAM_HUMAN_KIL_MEBI": {
+        "iname": "UN_V2_EN_JAM_HUMAN_KIL_MEBI",
+        "name": "",
+        "kanji": "人型ジャム・暗殺者"
+    },
+    "UN_V2_EN_JAM_HUMAN_PRI_MEBI": {
+        "iname": "UN_V2_EN_JAM_HUMAN_PRI_MEBI",
+        "name": "",
+        "kanji": "人型ジャム・ビショップ"
     },
     "UN_V2_EN_DIABLO_VEDA110": {
         "iname": "UN_V2_EN_DIABLO_VEDA110",
         "name": "",
         "kanji": "ディアブロ"
     },
+    "UN_V2_EN_DIABLO_MEBI": {
+        "iname": "UN_V2_EN_DIABLO_MEBI",
+        "name": "",
+        "kanji": "ディアブロ"
+    },
+    "UN_V2_EN_DIABLO_1808": {
+        "iname": "UN_V2_EN_DIABLO_1808",
+        "name": "",
+        "kanji": "ディアブロ"
+    },
     "UN_V2_EN_WAGINAO_CRYUNI_EX": {
         "iname": "UN_V2_EN_WAGINAO_CRYUNI_EX",
+        "name": "",
+        "kanji": "ワギナオ"
+    },
+    "UN_V2_EN_WAGINAO_MOBIUS": {
+        "iname": "UN_V2_EN_WAGINAO_MOBIUS",
         "name": "",
         "kanji": "ワギナオ"
     },
@@ -1148,6 +1348,16 @@
         "iname": "UN_V2_POWER_WIZARD_SEKAIZYU",
         "name": "",
         "kanji": "厳格の魔道士"
+    },
+    "UN_V2_EN_COURT_WIZARD_MEBI": {
+        "iname": "UN_V2_EN_COURT_WIZARD_MEBI",
+        "name": "",
+        "kanji": "魔道士の影"
+    },
+    "UN_V2_EN_COURT_WIZARD_MEBI_02": {
+        "iname": "UN_V2_EN_COURT_WIZARD_MEBI_02",
+        "name": "",
+        "kanji": "異界の魔道士"
     },
     "UN_V2_EN_AJ7000_PROTO": {
         "iname": "UN_V2_EN_AJ7000_PROTO",
@@ -1424,6 +1634,11 @@
         "name": "",
         "kanji": "幻影兵"
     },
+    "UN_V2_EN_ANOTHER_WOR_DEISY": {
+        "iname": "UN_V2_EN_ANOTHER_WOR_DEISY",
+        "name": "",
+        "kanji": "強面な斧使い"
+    },
     "UN_V2_EN_WOLF_ENC_CQ_VIVI_3": {
         "iname": "UN_V2_EN_WOLF_ENC_CQ_VIVI_3",
         "name": "",
@@ -1438,46 +1653,6 @@
         "iname": "UN_V2_EN_HOOD_HUN_HAGAREN",
         "name": "",
         "kanji": "聖教会弓兵"
-    },
-    "UN_V2_EN_RELIGION_FIGTHER_ANK_FF": {
-        "iname": "UN_V2_EN_RELIGION_FIGTHER_ANK_FF",
-        "name": "",
-        "kanji": "黒騎士"
-    },
-    "UN_V2_FF15_BEHEMOTH": {
-        "iname": "UN_V2_FF15_BEHEMOTH",
-        "name": "",
-        "kanji": "スモークアイ"
-    },
-    "UN_V2_FF15_METAL_CACTUAR": {
-        "iname": "UN_V2_FF15_METAL_CACTUAR",
-        "name": "",
-        "kanji": "メタルサボテンダー"
-    },
-    "UN_V2_FF15_METAL_CACTUAR2": {
-        "iname": "UN_V2_FF15_METAL_CACTUAR2",
-        "name": "",
-        "kanji": "メタルサボテンダー"
-    },
-    "UN_V2_FF15_METAL_CACTUAR3": {
-        "iname": "UN_V2_FF15_METAL_CACTUAR3",
-        "name": "",
-        "kanji": "メタルサボテンダー"
-    },
-    "UN_V2_FF15_MAGIC_ARMOR": {
-        "iname": "UN_V2_FF15_MAGIC_ARMOR",
-        "name": "",
-        "kanji": "重魔導アーマー"
-    },
-    "UN_V2_FF15_MAGIC_ARMOR_EX": {
-        "iname": "UN_V2_FF15_MAGIC_ARMOR_EX",
-        "name": "",
-        "kanji": "重魔導アーマー"
-    },
-    "UN_V2_FF15_MAGIC_SOL": {
-        "iname": "UN_V2_FF15_MAGIC_SOL",
-        "name": "",
-        "kanji": "魔導兵"
     },
     "UN_V2_FF15_GARURA_EX": {
         "iname": "UN_V2_FF15_GARURA_EX",
@@ -1553,6 +1728,11 @@
         "iname": "UN_V2_EN_PST_UZUSIOMARU_C",
         "name": "",
         "kanji": "海辺のウズシオマル"
+    },
+    "UN_V2_SQ_PETAL": {
+        "iname": "UN_V2_SQ_PETAL",
+        "name": "",
+        "kanji": "危険な花びら"
     },
     "UN_V2_SQ_ALRUNA": {
         "iname": "UN_V2_SQ_ALRUNA",
@@ -2109,6 +2289,36 @@
         "name": "",
         "kanji": "骸"
     },
+    "UN_V2_EN_CORPSE_GUN": {
+        "iname": "UN_V2_EN_CORPSE_GUN",
+        "name": "",
+        "kanji": "骸"
+    },
+    "UN_V2_EN_CORPSE_SNI": {
+        "iname": "UN_V2_EN_CORPSE_SNI",
+        "name": "",
+        "kanji": "骸"
+    },
+    "UN_V2_EN_CORPSE_DAI_3_MEBI": {
+        "iname": "UN_V2_EN_CORPSE_DAI_3_MEBI",
+        "name": "",
+        "kanji": "大賢者　骸"
+    },
+    "UN_V2_EN_CORPSE_KIL_MEBI": {
+        "iname": "UN_V2_EN_CORPSE_KIL_MEBI",
+        "name": "",
+        "kanji": "骸"
+    },
+    "UN_V2_EN_CORPSE_RAN_MEBI": {
+        "iname": "UN_V2_EN_CORPSE_RAN_MEBI",
+        "name": "",
+        "kanji": "骸"
+    },
+    "UN_V2_EN_CORPSE_SNI_MEBI": {
+        "iname": "UN_V2_EN_CORPSE_SNI_MEBI",
+        "name": "",
+        "kanji": "骸"
+    },
     "UN_V2_EN_MACHINE_GUN_ADV": {
         "iname": "UN_V2_EN_MACHINE_GUN_ADV",
         "name": "",
@@ -2141,6 +2351,11 @@
     },
     "UN_V2_EN_AJ7000_ADV": {
         "iname": "UN_V2_EN_AJ7000_ADV",
+        "name": "",
+        "kanji": "ＡＪ７０００"
+    },
+    "UN_V2_EN_AJ7000_ADV_MOBIUS": {
+        "iname": "UN_V2_EN_AJ7000_ADV_MOBIUS",
         "name": "",
         "kanji": "ＡＪ７０００"
     },
@@ -2464,6 +2679,11 @@
         "name": "",
         "kanji": "ミノタウロス"
     },
+    "UN_V2_EN_MINOTAUR_MEBI": {
+        "iname": "UN_V2_EN_MINOTAUR_MEBI",
+        "name": "",
+        "kanji": "ミノタウロス"
+    },
     "UN_V2_EN_SPFLOWER": {
         "iname": "UN_V2_EN_SPFLOWER",
         "name": "",
@@ -2471,6 +2691,11 @@
     },
     "UN_V2_EN_GOD_DEMON": {
         "iname": "UN_V2_EN_GOD_DEMON",
+        "name": "",
+        "kanji": "神鬼"
+    },
+    "UN_V2_EN_GOD_DEMON_MOBIUS": {
+        "iname": "UN_V2_EN_GOD_DEMON_MOBIUS",
         "name": "",
         "kanji": "神鬼"
     },
@@ -2569,6 +2794,331 @@
         "name": "",
         "kanji": "柴閃光・隠密"
     },
+    "UN_V2_EN_WADA_SHIBA_PEOPLE_ONI_SAM": {
+        "iname": "UN_V2_EN_WADA_SHIBA_PEOPLE_ONI_SAM",
+        "name": "",
+        "kanji": "鬼化した柴閃光・侍"
+    },
+    "UN_V2_EN_WADA_SHIBA_PEOPLE_ONI_MFEN": {
+        "iname": "UN_V2_EN_WADA_SHIBA_PEOPLE_ONI_MFEN",
+        "name": "",
+        "kanji": "鬼化した柴閃光・剣豪"
+    },
+    "UN_V2_EN_WADA_SHIBA_PEOPLE_ONI_NIN": {
+        "iname": "UN_V2_EN_WADA_SHIBA_PEOPLE_ONI_NIN",
+        "name": "",
+        "kanji": "鬼化した柴閃光・忍者"
+    },
+    "UN_V2_EN_WADA_SHIBA_PEOPLE_ONI_KIL": {
+        "iname": "UN_V2_EN_WADA_SHIBA_PEOPLE_ONI_KIL",
+        "name": "",
+        "kanji": "鬼化した柴閃光・暗殺者"
+    },
+    "UN_V2_EN_WADA_SHIBA_PEOPLE_ONI_ONM": {
+        "iname": "UN_V2_EN_WADA_SHIBA_PEOPLE_ONI_ONM",
+        "name": "",
+        "kanji": "鬼化した柴閃光・隠密"
+    },
+    "UN_V2_EN_GLUTTONY_SOL_BABEL4_GUA": {
+        "iname": "UN_V2_EN_GLUTTONY_SOL_BABEL4_GUA",
+        "name": "",
+        "kanji": "グリードダイク兵・リーファ隊"
+    },
+    "UN_V2_EN_GLUTTONY_SOL_BABEL4_LAN": {
+        "iname": "UN_V2_EN_GLUTTONY_SOL_BABEL4_LAN",
+        "name": "",
+        "kanji": "グリードダイク兵・リーファ隊"
+    },
+    "UN_V2_EN_GLUTTONY_SOL_BABEL4_WOR": {
+        "iname": "UN_V2_EN_GLUTTONY_SOL_BABEL4_WOR",
+        "name": "",
+        "kanji": "グリードダイク兵・リーファ隊"
+    },
+    "UN_V2_EN_GLUTTONY_SOL_BABEL4_HUN": {
+        "iname": "UN_V2_EN_GLUTTONY_SOL_BABEL4_HUN",
+        "name": "",
+        "kanji": "グリードダイク兵・リーファ隊"
+    },
+    "UN_V2_EN_GLUTTONY_CAP_BABEL4_GUA": {
+        "iname": "UN_V2_EN_GLUTTONY_CAP_BABEL4_GUA",
+        "name": "",
+        "kanji": "グリードダイク兵・本隊"
+    },
+    "UN_V2_EN_GLUTTONY_CAP_BABEL4_LAN": {
+        "iname": "UN_V2_EN_GLUTTONY_CAP_BABEL4_LAN",
+        "name": "",
+        "kanji": "グリードダイク兵・本隊"
+    },
+    "UN_V2_EN_GLUTTONY_CAP_BABEL4_WOR": {
+        "iname": "UN_V2_EN_GLUTTONY_CAP_BABEL4_WOR",
+        "name": "",
+        "kanji": "グリードダイク兵・本隊"
+    },
+    "UN_V2_EN_GLUTTONY_CAP_BABEL4_HUN": {
+        "iname": "UN_V2_EN_GLUTTONY_CAP_BABEL4_HUN",
+        "name": "",
+        "kanji": "グリードダイク兵・本隊"
+    },
+    "UN_V2_EN_GLUTTONY_SOL_BABEL4_GUA2": {
+        "iname": "UN_V2_EN_GLUTTONY_SOL_BABEL4_GUA2",
+        "name": "",
+        "kanji": "グリードダイク兵・本隊"
+    },
+    "UN_V2_EN_GLUTTONY_SOL_BABEL4_LAN2": {
+        "iname": "UN_V2_EN_GLUTTONY_SOL_BABEL4_LAN2",
+        "name": "",
+        "kanji": "グリードダイク兵・本隊"
+    },
+    "UN_V2_EN_GLUTTONY_SOL_BABEL4_WOR2": {
+        "iname": "UN_V2_EN_GLUTTONY_SOL_BABEL4_WOR2",
+        "name": "",
+        "kanji": "グリードダイク兵・本隊"
+    },
+    "UN_V2_EN_GLUTTONY_SOL_BABEL4_HUN2": {
+        "iname": "UN_V2_EN_GLUTTONY_SOL_BABEL4_HUN2",
+        "name": "",
+        "kanji": "グリードダイク兵・本隊"
+    },
+    "UN_V2_EN_GLUTTONY_CAP_BABEL4_DAI": {
+        "iname": "UN_V2_EN_GLUTTONY_CAP_BABEL4_DAI",
+        "name": "",
+        "kanji": "異端査問議長"
+    },
+    "UN_V2_EN_LEORDAS": {
+        "iname": "UN_V2_EN_LEORDAS",
+        "name": "",
+        "kanji": "レオルダス"
+    },
+    "UN_V2_EN_ISHID": {
+        "iname": "UN_V2_EN_ISHID",
+        "name": "",
+        "kanji": "イシド"
+    },
+    "UN_V2_EN_MALTA": {
+        "iname": "UN_V2_EN_MALTA",
+        "name": "",
+        "kanji": "マルタ"
+    },
+    "UN_V2_EN_CECLIDIS": {
+        "iname": "UN_V2_EN_CECLIDIS",
+        "name": "",
+        "kanji": "セクリディス"
+    },
+    "UN_V2_EN_HOOD_THI_GAIDEN_KAYA": {
+        "iname": "UN_V2_EN_HOOD_THI_GAIDEN_KAYA",
+        "name": "",
+        "kanji": "シャドウメサイヤ残党"
+    },
+    "UN_V2_EN_HOOD_ARM_GAIDEN_KAYA": {
+        "iname": "UN_V2_EN_HOOD_ARM_GAIDEN_KAYA",
+        "name": "",
+        "kanji": "シャドウメサイヤ残党"
+    },
+    "UN_V2_EN_HOOD_HUN_GAIDEN_KAYA": {
+        "iname": "UN_V2_EN_HOOD_HUN_GAIDEN_KAYA",
+        "name": "",
+        "kanji": "シャドウメサイヤ残党"
+    },
+    "UN_V2_EN_HOOD_LAN_GAIDEN_KAYA": {
+        "iname": "UN_V2_EN_HOOD_LAN_GAIDEN_KAYA",
+        "name": "",
+        "kanji": "シャドウメサイヤ残党"
+    },
+    "UN_V2_EN_HOOD_KAK_GAIDEN_KAYA": {
+        "iname": "UN_V2_EN_HOOD_KAK_GAIDEN_KAYA",
+        "name": "",
+        "kanji": "シャドウメサイヤ残党"
+    },
+    "UN_V2_EN_MAFIA_GAIDEN_KAYA": {
+        "iname": "UN_V2_EN_MAFIA_GAIDEN_KAYA",
+        "name": "",
+        "kanji": "密売人"
+    },
+    "UN_V2_EN_MAFIA_GUN_GAIDEN_KAYA": {
+        "iname": "UN_V2_EN_MAFIA_GUN_GAIDEN_KAYA",
+        "name": "",
+        "kanji": "密売人"
+    },
+    "UN_V2_EN_HOOD_THI_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_THI_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_ARM_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_ARM_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_HUN_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_HUN_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_LAN_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_LAN_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_KAK_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_KAK_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_GUA_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_GUA_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_BAA_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_BAA_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_WOR_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_WOR_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_PRI_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_PRI_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_GEN_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_GEN_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_DAI_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_DAI_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_RAN_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_RAN_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_DGN_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_DGN_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_HOOD_STR_GAIDEN_KAYA_YATOU": {
+        "iname": "UN_V2_EN_HOOD_STR_GAIDEN_KAYA_YATOU",
+        "name": "",
+        "kanji": "盗賊"
+    },
+    "UN_V2_EN_VIVI_MAJ_FIRE_MEBI": {
+        "iname": "UN_V2_EN_VIVI_MAJ_FIRE_MEBI",
+        "name": "",
+        "kanji": "ヴィヴィ"
+    },
+    "UN_V2_MEIFAN_01_BLA_BLA03_MEBI": {
+        "iname": "UN_V2_MEIFAN_01_BLA_BLA03_MEBI",
+        "name": "",
+        "kanji": "メイファン"
+    },
+    "UN_V2_EN_SPICA_DGN_GARUDA_MEBI": {
+        "iname": "UN_V2_EN_SPICA_DGN_GARUDA_MEBI",
+        "name": "",
+        "kanji": "スピカ"
+    },
+    "UN_V2_EN_SHIRMA_BLA_TYPE_TK_MONS_MEBI": {
+        "iname": "UN_V2_EN_SHIRMA_BLA_TYPE_TK_MONS_MEBI",
+        "name": "",
+        "kanji": "シルマ"
+    },
+    "UN_V2_EN_RYLE_RAN_MEBI": {
+        "iname": "UN_V2_EN_RYLE_RAN_MEBI",
+        "name": "",
+        "kanji": "ライル"
+    },
+    "UN_V2_EN_ANKH_GUNL_WATER_MEBI": {
+        "iname": "UN_V2_EN_ANKH_GUNL_WATER_MEBI",
+        "name": "",
+        "kanji": "アンク"
+    },
+    "UN_V2_EN_LUPINUS_DAI_FIRE_MEBI": {
+        "iname": "UN_V2_EN_LUPINUS_DAI_FIRE_MEBI",
+        "name": "",
+        "kanji": "ルピナス"
+    },
+    "UN_V2_EN_PERIDOT_DAI_THUNDER_MEBI": {
+        "iname": "UN_V2_EN_PERIDOT_DAI_THUNDER_MEBI",
+        "name": "",
+        "kanji": "ペリドット"
+    },
+    "UN_V2_EN_KUDHANSTEIN_LAN2_DARK_MEBI": {
+        "iname": "UN_V2_EN_KUDHANSTEIN_LAN2_DARK_MEBI",
+        "name": "",
+        "kanji": "クダンシュタイン"
+    },
+    "UN_V2_EN_REIMEI_MFEN_MEBI": {
+        "iname": "UN_V2_EN_REIMEI_MFEN_MEBI",
+        "name": "",
+        "kanji": "レイメイ"
+    },
+    "UN_V2_EN_YUNAGI_WOR_TITAN_MEBI": {
+        "iname": "UN_V2_EN_YUNAGI_WOR_TITAN_MEBI",
+        "name": "",
+        "kanji": "ユウナギ"
+    },
+    "UN_V2_EN_KAZAHAYA_NIN_GENBU_MEBI": {
+        "iname": "UN_V2_EN_KAZAHAYA_NIN_GENBU_MEBI",
+        "name": "",
+        "kanji": "カザハヤ"
+    },
+    "UN_V2_EN_NIGURU_KIL_ANTI_MAGIC_UNIQUE_MEBI": {
+        "iname": "UN_V2_EN_NIGURU_KIL_ANTI_MAGIC_UNIQUE_MEBI",
+        "name": "",
+        "kanji": "ニグル"
+    },
+    "UN_EN_V2_ZAHAR_BABELSKIN_BAA01_MEBI": {
+        "iname": "UN_EN_V2_ZAHAR_BABELSKIN_BAA01_MEBI",
+        "name": "",
+        "kanji": "ザハル"
+    },
+    "UN_V2_EN_LAMIA_DGN_PLUS_MEBI": {
+        "iname": "UN_V2_EN_LAMIA_DGN_PLUS_MEBI",
+        "name": "",
+        "kanji": "ラミア"
+    },
+    "UN_V2_EN_TERESA_MEBI": {
+        "iname": "UN_V2_EN_TERESA_MEBI",
+        "name": "",
+        "kanji": "テレサ"
+    },
+    "UN_V2_EN_GERALD_GUNL_MEBI": {
+        "iname": "UN_V2_EN_GERALD_GUNL_MEBI",
+        "name": "",
+        "kanji": "ジェラルド"
+    },
+    "UN_V2_NINA_MAD_DEF_MEBI": {
+        "iname": "UN_V2_NINA_MAD_DEF_MEBI",
+        "name": "",
+        "kanji": "ニーナ"
+    },
+    "UN_V2_EN_VETTEL_GUA_IZAYA_MEBI": {
+        "iname": "UN_V2_EN_VETTEL_GUA_IZAYA_MEBI",
+        "name": "",
+        "kanji": "ヴェテル"
+    },
+    "UN_V2_EN_NATALIE_HWIZ_MEBI": {
+        "iname": "UN_V2_EN_NATALIE_HWIZ_MEBI",
+        "name": "",
+        "kanji": "ナタリー"
+    },
+    "UN_V2_EN_MONZEIN_WOR2_MEBI": {
+        "iname": "UN_V2_EN_MONZEIN_WOR2_MEBI",
+        "name": "",
+        "kanji": "モンゼイン"
+    },
+    "UN_V2_EN_DILGA_GUA_MEBI": {
+        "iname": "UN_V2_EN_DILGA_GUA_MEBI",
+        "name": "",
+        "kanji": "ディルガ"
+    },
     "UN_V2_EN_ZANGETSU_SEISEKI_10EX": {
         "iname": "UN_V2_EN_ZANGETSU_SEISEKI_10EX",
         "name": "",
@@ -2604,6 +3154,11 @@
         "name": "",
         "kanji": "ヨミ"
     },
+    "UN_V2_EN_YOMI_YOMI_KAM_UNIQUE": {
+        "iname": "UN_V2_EN_YOMI_YOMI_KAM_UNIQUE",
+        "name": "",
+        "kanji": "ヨミ"
+    },
     "UN_V2_EN_SPECTER_YOMI": {
         "iname": "UN_V2_EN_SPECTER_YOMI",
         "name": "",
@@ -2611,6 +3166,11 @@
     },
     "UN_V2_EN_YOMI_YOMI_KAM_UNIQUE_AURA": {
         "iname": "UN_V2_EN_YOMI_YOMI_KAM_UNIQUE_AURA",
+        "name": "",
+        "kanji": "ヨミ"
+    },
+    "UN_V2_EN_YOMI_YOMI_KAM_BABEL": {
+        "iname": "UN_V2_EN_YOMI_YOMI_KAM_BABEL",
         "name": "",
         "kanji": "ヨミ"
     },
@@ -2684,11 +3244,6 @@
         "name": "",
         "kanji": "ブロッサム"
     },
-    "UN_V2_EN_PATTI_ODO_FF_15": {
-        "iname": "UN_V2_EN_PATTI_ODO_FF_15",
-        "name": "",
-        "kanji": "パティ"
-    },
     "UN_V2_EN_FLAMEL_KEM_PLUS": {
         "iname": "UN_V2_EN_FLAMEL_KEM_PLUS",
         "name": "",
@@ -2719,6 +3274,31 @@
         "name": "",
         "kanji": "レイメイ"
     },
+    "UN_V2_EN_SHENMEI_KAII_TEACH": {
+        "iname": "UN_V2_EN_SHENMEI_KAII_TEACH",
+        "name": "",
+        "kanji": "シェンメイ"
+    },
+    "UN_V2_EN_KAGURA_WIZ_GROW": {
+        "iname": "UN_V2_EN_KAGURA_WIZ_GROW",
+        "name": "",
+        "kanji": "カグラ"
+    },
+    "UN_V2_EN_KAGURA_KAGU_WIZ_GROW": {
+        "iname": "UN_V2_EN_KAGURA_KAGU_WIZ_GROW",
+        "name": "",
+        "kanji": "カグラ"
+    },
+    "UN_V2_EN_KAGURA_KAGU_DAI_GROW": {
+        "iname": "UN_V2_EN_KAGURA_KAGU_DAI_GROW",
+        "name": "",
+        "kanji": "カグラ"
+    },
+    "UN_V2_EN_KAGURA_KAGU_DAI2_GROW": {
+        "iname": "UN_V2_EN_KAGURA_KAGU_DAI2_GROW",
+        "name": "",
+        "kanji": "カグラ"
+    },
     "UN_V2_EN_KUDHANSTEIN_LAN_DARK": {
         "iname": "UN_V2_EN_KUDHANSTEIN_LAN_DARK",
         "name": "",
@@ -2746,6 +3326,11 @@
     },
     "UN_V2_EN_GORM_KAI": {
         "iname": "UN_V2_EN_GORM_KAI",
+        "name": "",
+        "kanji": "ゴルマラス"
+    },
+    "UN_V2_EN_GORMALAS_GORM_FEIRIN2": {
+        "iname": "UN_V2_EN_GORMALAS_GORM_FEIRIN2",
         "name": "",
         "kanji": "ゴルマラス"
     },
@@ -2788,6 +3373,11 @@
         "iname": "UN_V2_EN_SPICA_DGN_GARUDA_BATTLE",
         "name": "",
         "kanji": "スピカ"
+    },
+    "UN_V2_TEONA_VAL_DEF_SWIM": {
+        "iname": "UN_V2_TEONA_VAL_DEF_SWIM",
+        "name": "",
+        "kanji": "テオナ"
     },
     "UN_V2_EN_RAMESES_DGN_RUDRA": {
         "iname": "UN_V2_EN_RAMESES_DGN_RUDRA",
@@ -2859,6 +3449,16 @@
         "name": "",
         "kanji": "ミウナ"
     },
+    "UN_V2_EN_SAKURA_NIN_SEIRYU": {
+        "iname": "UN_V2_EN_SAKURA_NIN_SEIRYU",
+        "name": "",
+        "kanji": "サクラ"
+    },
+    "UN_V2_EN_S_YOMI_RAN_RAN04": {
+        "iname": "UN_V2_EN_S_YOMI_RAN_RAN04",
+        "name": "",
+        "kanji": "深淵冥姫ヨミ"
+    },
     "UN_V2_EN_VIVI_MAJ": {
         "iname": "UN_V2_EN_VIVI_MAJ",
         "name": "",
@@ -2908,101 +3508,6 @@
         "iname": "UN_V2_DIS_ETONA_ETON",
         "name": "",
         "kanji": "エトナ"
-    },
-    "UN_V2_EN_FF15_NOCTIS_NOCT": {
-        "iname": "UN_V2_EN_FF15_NOCTIS_NOCT",
-        "name": "",
-        "kanji": "ノクティス"
-    },
-    "UN_V2_EN_FF15_NOCTIS_MAH": {
-        "iname": "UN_V2_EN_FF15_NOCTIS_MAH",
-        "name": "",
-        "kanji": "ノクティス"
-    },
-    "UN_V2_EN_FF15_NOCTIS_HWIZ": {
-        "iname": "UN_V2_EN_FF15_NOCTIS_HWIZ",
-        "name": "",
-        "kanji": "ノクティス"
-    },
-    "UN_V2_EN_FF15_NOCTIS_NOCT_WEP": {
-        "iname": "UN_V2_EN_FF15_NOCTIS_NOCT_WEP",
-        "name": "",
-        "kanji": "ノクティス"
-    },
-    "UN_V2_EN_FF15_IGNIS_INGI": {
-        "iname": "UN_V2_EN_FF15_IGNIS_INGI",
-        "name": "",
-        "kanji": "イグニス"
-    },
-    "UN_V2_EN_FF15_IGNIS_KUR": {
-        "iname": "UN_V2_EN_FF15_IGNIS_KUR",
-        "name": "",
-        "kanji": "イグニス"
-    },
-    "UN_V2_EN_FF15_IGNIS_KIL": {
-        "iname": "UN_V2_EN_FF15_IGNIS_KIL",
-        "name": "",
-        "kanji": "イグニス"
-    },
-    "UN_V2_EN_FF15_IGNIS_INGI_WEP": {
-        "iname": "UN_V2_EN_FF15_IGNIS_INGI_WEP",
-        "name": "",
-        "kanji": "イグニス"
-    },
-    "UN_V2_EN_FF15_GLADIOLUS_GLAD": {
-        "iname": "UN_V2_EN_FF15_GLADIOLUS_GLAD",
-        "name": "",
-        "kanji": "グラディオラス"
-    },
-    "UN_V2_EN_FF15_GLADIOLUS_KAK": {
-        "iname": "UN_V2_EN_FF15_GLADIOLUS_KAK",
-        "name": "",
-        "kanji": "グラディオラス"
-    },
-    "UN_V2_EN_FF15_GLADIOLUS_GUA": {
-        "iname": "UN_V2_EN_FF15_GLADIOLUS_GUA",
-        "name": "",
-        "kanji": "グラディオラス"
-    },
-    "UN_V2_EN_FF15_GLADIOLUS_GLAD_WEP": {
-        "iname": "UN_V2_EN_FF15_GLADIOLUS_GLAD_WEP",
-        "name": "",
-        "kanji": "グラディオラス"
-    },
-    "UN_V2_EN_FF15_PROMPUTO_GUN": {
-        "iname": "UN_V2_EN_FF15_PROMPUTO_GUN",
-        "name": "",
-        "kanji": "プロンプト"
-    },
-    "UN_V2_EN_FF15_PROMPUTO_SEI": {
-        "iname": "UN_V2_EN_FF15_PROMPUTO_SEI",
-        "name": "",
-        "kanji": "プロンプト"
-    },
-    "UN_V2_EN_FF15_PROMPUTO_PROM_03": {
-        "iname": "UN_V2_EN_FF15_PROMPUTO_PROM_03",
-        "name": "",
-        "kanji": "プロンプト"
-    },
-    "UN_V2_EN_FF15_ARANEA_ARAN": {
-        "iname": "UN_V2_EN_FF15_ARANEA_ARAN",
-        "name": "",
-        "kanji": "アラネア"
-    },
-    "UN_V2_EN_FF15_ARANEA_SOL": {
-        "iname": "UN_V2_EN_FF15_ARANEA_SOL",
-        "name": "",
-        "kanji": "アラネア"
-    },
-    "UN_V2_EN_FF15_ARANEA_BAA": {
-        "iname": "UN_V2_EN_FF15_ARANEA_BAA",
-        "name": "",
-        "kanji": "アラネア"
-    },
-    "UN_V2_EN_FF15_ARANEA_UNIQUE": {
-        "iname": "UN_V2_EN_FF15_ARANEA_UNIQUE",
-        "name": "",
-        "kanji": "アラネア"
     },
     "UN_V2_EN_FF15_REGIS": {
         "iname": "UN_V2_EN_FF15_REGIS",
@@ -3194,6 +3699,11 @@
         "name": "",
         "kanji": "ガンナー"
     },
+    "UN_V2_EN_LUCILLE_MAD_ATK": {
+        "iname": "UN_V2_EN_LUCILLE_MAD_ATK",
+        "name": "",
+        "kanji": "ルーシャ"
+    },
     "UN_V2_EN_EMA_WEA": {
         "iname": "UN_V2_EN_EMA_WEA",
         "name": "",
@@ -3351,6 +3861,11 @@
     },
     "UN_V2_EN_HISHARMU": {
         "iname": "UN_V2_EN_HISHARMU",
+        "name": "",
+        "kanji": "ヒシャーム"
+    },
+    "UN_V2_EN_HISHARMU_OBON": {
+        "iname": "UN_V2_EN_HISHARMU_OBON",
         "name": "",
         "kanji": "ヒシャーム"
     },
@@ -4114,6 +4629,56 @@
         "name": "",
         "kanji": "リーファ"
     },
+    "UN_V2_EN_KAYA_KAYA01": {
+        "iname": "UN_V2_EN_KAYA_KAYA01",
+        "name": "",
+        "kanji": "カヤ"
+    },
+    "UN_V2_KAYA_ONM": {
+        "iname": "UN_V2_KAYA_ONM",
+        "name": "",
+        "kanji": "カヤ"
+    },
+    "UN_V2_KAYA_WED": {
+        "iname": "UN_V2_KAYA_WED",
+        "name": "",
+        "kanji": "カヤ"
+    },
+    "UN_V2_EN_NASARIO_SYO": {
+        "iname": "UN_V2_EN_NASARIO_SYO",
+        "name": "",
+        "kanji": "ナサリオ"
+    },
+    "UN_V2_EN_NASARIO_MAH": {
+        "iname": "UN_V2_EN_NASARIO_MAH",
+        "name": "",
+        "kanji": "ナサリオ"
+    },
+    "UN_V2_EN_NASARIO_ENC": {
+        "iname": "UN_V2_EN_NASARIO_ENC",
+        "name": "",
+        "kanji": "ナサリオ"
+    },
+    "UN_V2_EN_NASARIO_SYO_TIR": {
+        "iname": "UN_V2_EN_NASARIO_SYO_TIR",
+        "name": "",
+        "kanji": "ナサリオ"
+    },
+    "UN_V2EN_ZAYIN_LORD": {
+        "iname": "UN_V2EN_ZAYIN_LORD",
+        "name": "",
+        "kanji": "ザイン"
+    },
+    "UN_V2EN_ZAYIN_MAH": {
+        "iname": "UN_V2EN_ZAYIN_MAH",
+        "name": "",
+        "kanji": "ザイン"
+    },
+    "UN_V2EN_ZAYIN_GUA": {
+        "iname": "UN_V2EN_ZAYIN_GUA",
+        "name": "",
+        "kanji": "ザイン"
+    },
     "UN_EV_KAMU": {
         "iname": "UN_EV_KAMU",
         "name": "",
@@ -4794,6 +5359,196 @@
         "name": "",
         "kanji": "ワダツミの少女"
     },
+    "UN_EV_PASSERBY": {
+        "iname": "UN_EV_PASSERBY",
+        "name": "",
+        "kanji": "通行人"
+    },
+    "UN_EV_INDHUSBAND": {
+        "iname": "UN_EV_INDHUSBAND",
+        "name": "",
+        "kanji": "工夫"
+    },
+    "UN_EV_TRAVELLER": {
+        "iname": "UN_EV_TRAVELLER",
+        "name": "",
+        "kanji": "旅人"
+    },
+    "UN_EV_SEPHIRAH_WARRIORS": {
+        "iname": "UN_EV_SEPHIRAH_WARRIORS",
+        "name": "",
+        "kanji": "セフィラの戦士たち"
+    },
+    "UN_EV_FRUITCOURIER": {
+        "iname": "UN_EV_FRUITCOURIER",
+        "name": "",
+        "kanji": "果実の運び手構成員"
+    },
+    "UN_EV_GLUTTONY_OFFICER": {
+        "iname": "UN_EV_GLUTTONY_OFFICER",
+        "name": "",
+        "kanji": "グラトニー兵将校"
+    },
+    "UN_EV_EX_CORPSESOL": {
+        "iname": "UN_EV_EX_CORPSESOL",
+        "name": "",
+        "kanji": "元骸の騎士"
+    },
+    "UN_EV_CORPSESOL": {
+        "iname": "UN_EV_CORPSESOL",
+        "name": "",
+        "kanji": "骸の騎士"
+    },
+    "UN_EV_CHILD_VOICE": {
+        "iname": "UN_EV_CHILD_VOICE",
+        "name": "",
+        "kanji": "子供の声"
+    },
+    "UN_EV_LIBERATION_ARMY": {
+        "iname": "UN_EV_LIBERATION_ARMY",
+        "name": "",
+        "kanji": "解放軍兵士"
+    },
+    "UN_EV_LIBERATION": {
+        "iname": "UN_EV_LIBERATION",
+        "name": "",
+        "kanji": "解放軍"
+    },
+    "UN_EV_ALC_GLUTTONY_SOL": {
+        "iname": "UN_EV_ALC_GLUTTONY_SOL",
+        "name": "",
+        "kanji": "錬成されたグラトニー兵"
+    },
+    "UN_EV_ALC_SEPHIRAH_WARRIOR": {
+        "iname": "UN_EV_ALC_SEPHIRAH_WARRIOR",
+        "name": "",
+        "kanji": "錬成されたセフィラの戦士"
+    },
+    "UN_EV_ROBBERY": {
+        "iname": "UN_EV_ROBBERY",
+        "name": "",
+        "kanji": "強盗"
+    },
+    "UN_EV_RUFFIAN": {
+        "iname": "UN_EV_RUFFIAN",
+        "name": "",
+        "kanji": "荒くれ者"
+    },
+    "UN_EV_TOURNAMENT_MC": {
+        "iname": "UN_EV_TOURNAMENT_MC",
+        "name": "",
+        "kanji": "大会司会者"
+    },
+    "UN_EV_CONTESTANTcontestant": {
+        "iname": "UN_EV_CONTESTANTcontestant",
+        "name": "",
+        "kanji": "闘技者"
+    },
+    "UN_EV_AUDIENCE": {
+        "iname": "UN_EV_AUDIENCE",
+        "name": "",
+        "kanji": "観客"
+    },
+    "UN_EV_TOURNAMENTCONCE": {
+        "iname": "UN_EV_TOURNAMENTCONCE",
+        "name": "",
+        "kanji": "大会関係者"
+    },
+    "UN_EV_INQUISITION_MEMBER_A": {
+        "iname": "UN_EV_INQUISITION_MEMBER_A",
+        "name": "",
+        "kanji": "異端査問会員Ａ"
+    },
+    "UN_EV_INQUISITION_MEMBER_B": {
+        "iname": "UN_EV_INQUISITION_MEMBER_B",
+        "name": "",
+        "kanji": "異端査問会員Ｂ"
+    },
+    "UN_EV_INQUISITION_MEMBER_C": {
+        "iname": "UN_EV_INQUISITION_MEMBER_C",
+        "name": "",
+        "kanji": "異端査問会員Ｃ"
+    },
+    "UN_EV_INQUISITION_CHAIRMAN": {
+        "iname": "UN_EV_INQUISITION_CHAIRMAN",
+        "name": "",
+        "kanji": "異端査問議長"
+    },
+    "UN_EV_WADA_PURPLE_NIN": {
+        "iname": "UN_EV_WADA_PURPLE_NIN",
+        "name": "",
+        "kanji": "籠紫の忍"
+    },
+    "UN_EV_FLIRT_WITH_MAN": {
+        "iname": "UN_EV_FLIRT_WITH_MAN",
+        "name": "",
+        "kanji": "ナンパ男"
+    },
+    "UN_EV_FLIRT_WITH_MAN_A": {
+        "iname": "UN_EV_FLIRT_WITH_MAN_A",
+        "name": "",
+        "kanji": "ナンパ男Ａ"
+    },
+    "UN_EV_FLIRT_WITH_MAN_B": {
+        "iname": "UN_EV_FLIRT_WITH_MAN_B",
+        "name": "",
+        "kanji": "ナンパ男Ｂ"
+    },
+    "UN_EV_TEACHER_VOICE": {
+        "iname": "UN_EV_TEACHER_VOICE",
+        "name": "",
+        "kanji": "教師の声"
+    },
+    "UN_EV_PG_LORD_MASTER": {
+        "iname": "UN_EV_PG_LORD_MASTER",
+        "name": "",
+        "kanji": "先代ロードマスター"
+    },
+    "UN_EV_SHM_REMNANTS": {
+        "iname": "UN_EV_SHM_REMNANTS",
+        "name": "",
+        "kanji": "シャドウメサイヤ残党"
+    },
+    "UN_EV_ILLICIT_MAN": {
+        "iname": "UN_EV_ILLICIT_MAN",
+        "name": "",
+        "kanji": "密売組織の男"
+    },
+    "UN_EV_F_ORTHODOX_KNIGHT": {
+        "iname": "UN_EV_F_ORTHODOX_KNIGHT",
+        "name": "",
+        "kanji": "女聖教騎士団員"
+    },
+    "UN_EV_SEPHIRAH_GIRL": {
+        "iname": "UN_EV_SEPHIRAH_GIRL",
+        "name": "",
+        "kanji": "セフィラの少女(※名称未確定)"
+    },
+    "UN_EV_BOY_KING": {
+        "iname": "UN_EV_BOY_KING",
+        "name": "",
+        "kanji": "少年王(※名称未確定)"
+    },
+    "UN_EV_WISDOM_CONNECTOR": {
+        "iname": "UN_EV_WISDOM_CONNECTOR",
+        "name": "",
+        "kanji": "叡智を繋ぐ者"
+    },
+    "UN_EV_FLY_DEVIL": {
+        "iname": "UN_EV_FLY_DEVIL",
+        "name": "",
+        "kanji": "フライデヴィル"
+    },
+    "UN_EV_GROW_AGATHA": {
+        "iname": "UN_EV_GROW_AGATHA",
+        "name": "",
+        "kanji": "アガサ"
+    },
+    "UN_EV_OLD_CECLIDIS": {
+        "iname": "UN_EV_OLD_CECLIDIS",
+        "name": "",
+        "kanji": "セクリディス"
+    },
     "UN_EV_SNOWMAN_SNOWMAN_B": {
         "iname": "UN_EV_SNOWMAN_SNOWMAN_B",
         "name": "",
@@ -4898,6 +5653,21 @@
         "iname": "UN_EV_VETTEL_NATALIE_VICTOR",
         "name": "",
         "kanji": "ヴェテル・ナタリー・ヴィクター"
+    },
+    "UN_EV_ALMA_REBECCA": {
+        "iname": "UN_EV_ALMA_REBECCA",
+        "name": "",
+        "kanji": "アルマ・レベッカ"
+    },
+    "UN_EV_REBECCA_DOROTHEA": {
+        "iname": "UN_EV_REBECCA_DOROTHEA",
+        "name": "",
+        "kanji": "レベッカ・ドロシア"
+    },
+    "UN_EV_MONZEIN_OTHIMA": {
+        "iname": "UN_EV_MONZEIN_OTHIMA",
+        "name": "",
+        "kanji": "モンゼイン・オーティマ"
     },
     "UN_V2_BR_WALL_A2_C": {
         "iname": "UN_V2_BR_WALL_A2_C",
@@ -5009,6 +5779,11 @@
         "name": "",
         "kanji": "支援秘石【ジュエル回復】"
     },
+    "UN_V2_BR_WALL_CTR_CHA_UP_MEBI": {
+        "iname": "UN_V2_BR_WALL_CTR_CHA_UP_MEBI",
+        "name": "",
+        "kanji": "魅了属性バフクリスタル"
+    },
     "UN_V2_BR_WALL_CTR_LUCK_UP": {
         "iname": "UN_V2_BR_WALL_CTR_LUCK_UP",
         "name": "",
@@ -5028,6 +5803,31 @@
         "iname": "UN_V2_BR_WALL_CTR_HELPER_02",
         "name": "",
         "kanji": "援軍秘石【カダノバ】"
+    },
+    "UN_V2_BR_WALL_CTR_HELPER_P5": {
+        "iname": "UN_V2_BR_WALL_CTR_HELPER_P5",
+        "name": "",
+        "kanji": "援軍秘石【傭兵】"
+    },
+    "UN_V2_BR_WALL_KAYA_EX_A": {
+        "iname": "UN_V2_BR_WALL_KAYA_EX_A",
+        "name": "",
+        "kanji": "魔人封印石A"
+    },
+    "UN_V2_BR_WALL_KAYA_EX_B": {
+        "iname": "UN_V2_BR_WALL_KAYA_EX_B",
+        "name": "",
+        "kanji": "魔人封印石B"
+    },
+    "UN_V2_BR_WALL_KAYA_EX_C": {
+        "iname": "UN_V2_BR_WALL_KAYA_EX_C",
+        "name": "",
+        "kanji": "魔人封印石C"
+    },
+    "UN_V2_BR_WALL_KAYA_EX_D": {
+        "iname": "UN_V2_BR_WALL_KAYA_EX_D",
+        "name": "",
+        "kanji": "魔人封印石D"
     },
     "UN_V2_BR_WALL_CTR_P_UP_SEISEKI_EX": {
         "iname": "UN_V2_BR_WALL_CTR_P_UP_SEISEKI_EX",
@@ -5083,6 +5883,16 @@
         "iname": "UN_V2_BR_WALL_RE_201805",
         "name": "",
         "kanji": "賢者の石"
+    },
+    "UN_V2_BR_WALL_CTR_ALMA_REBECCA_EX_SP": {
+        "iname": "UN_V2_BR_WALL_CTR_ALMA_REBECCA_EX_SP",
+        "name": "",
+        "kanji": "支援秘石【物防・魔防ダウン】"
+    },
+    "UN_V2_BR_WALL_CTR_C_BABEL_04_EX": {
+        "iname": "UN_V2_BR_WALL_CTR_C_BABEL_04_EX",
+        "name": "",
+        "kanji": "鬼封印石"
     },
     "UN_V2_EN_ROSA_DGN_VRITRA": {
         "iname": "UN_V2_EN_ROSA_DGN_VRITRA",
@@ -5174,9 +5984,59 @@
         "name": "",
         "kanji": "チハヤ"
     },
-    "UN_V2_SQ_PETAL": {
-        "iname": "UN_V2_SQ_PETAL",
+    "UN_V2_EN_ALMA_01": {
+        "iname": "UN_V2_EN_ALMA_01",
         "name": "",
-        "kanji": "危険な花びら"
+        "kanji": "アルマ"
+    },
+    "UN_V2_EN_KURT_ONM": {
+        "iname": "UN_V2_EN_KURT_ONM",
+        "name": "",
+        "kanji": "クレト"
+    },
+    "UN_V2_EN_TINA": {
+        "iname": "UN_V2_EN_TINA",
+        "name": "",
+        "kanji": "ティナ"
+    },
+    "UN_V2_EN_KAMUI": {
+        "iname": "UN_V2_EN_KAMUI",
+        "name": "",
+        "kanji": "カムイ"
+    },
+    "UN_V2_EN_ALMA_SWIM": {
+        "iname": "UN_V2_EN_ALMA_SWIM",
+        "name": "",
+        "kanji": "アルマ"
+    },
+    "UN_V2_EN_REBECCA_SWIM": {
+        "iname": "UN_V2_EN_REBECCA_SWIM",
+        "name": "",
+        "kanji": "レベッカ"
+    },
+    "UN_V2_EN_DOROTHEA_SWIM": {
+        "iname": "UN_V2_EN_DOROTHEA_SWIM",
+        "name": "",
+        "kanji": "ドロシア"
+    },
+    "UN_V2_EN_LEYDOW_SWIM": {
+        "iname": "UN_V2_EN_LEYDOW_SWIM",
+        "name": "",
+        "kanji": "レイドウ"
+    },
+    "UN_V2_EN_AISHA_SWIM": {
+        "iname": "UN_V2_EN_AISHA_SWIM",
+        "name": "",
+        "kanji": "アイシャ"
+    },
+    "UN_V2_EN_MAFIA_SWIM": {
+        "iname": "UN_V2_EN_MAFIA_SWIM",
+        "name": "",
+        "kanji": "ナンパ男"
+    },
+    "UN_V2_EN_MAFIA_GUN_SWIM": {
+        "iname": "UN_V2_EN_MAFIA_GUN_SWIM",
+        "name": "",
+        "kanji": "ナンパ男"
     }
 }

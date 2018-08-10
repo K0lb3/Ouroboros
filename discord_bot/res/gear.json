@@ -633,7 +633,7 @@
         "expr": "PATK Up, CRIT Up, Chance of Paralyze",
         "spec": "No requirements to equip",
         "flavor": "This lance is a replica of one thought to have been used in ancient times of Alchemy. Its tip is made from a magical substance that emits a golden glow when its power is activated. This glow will occasionally dazzle foes and inflict Paralyze.",
-        "tag": "Spear",
+        "tag": "Lance",
         "rarity": "★★★☆☆",
         "link": "http://www.alchemistcodedb.com/gear/af-arms-lan-01",
         "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ARMS_LAN_01.png",
@@ -655,7 +655,7 @@
         "expr": "PATK Up, CRIT Up, DEX Up, Chance of Charm (additional effect)",
         "spec": "No requirements to equip",
         "flavor": "This lance is a replica of one thought to have been used in ancient times of Alchemy. Its tip is made from a magical substance that emits a pink glow when its power is activated. This glow will occasionally entrance foes and inflict Charm.",
-        "tag": "Spear",
+        "tag": "Lance",
         "rarity": "★★★★☆",
         "link": "http://www.alchemistcodedb.com/gear/af-arms-lan-02",
         "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ARMS_LAN_02.png",
@@ -2223,7 +2223,7 @@
         "expr": "Attributes: HP Up, PATK Up, CRIT Up, Chance of PATK Up<br>Gear Ability: Swaps positions with target",
         "spec": "No requirements to equip",
         "flavor": " ",
-        "tag": "Spear",
+        "tag": "Lance",
         "rarity": "★★★★☆",
         "link": "http://www.alchemistcodedb.com/gear/af-arms-lan-03",
         "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ARMS_LAN_03.png",
@@ -3345,7 +3345,7 @@
         "expr": "Attributes: PATK/AGI/CRIT Up, Chance of lowering target unit's PDEF for one turn. Unlocks Master Ability when equipped on Forcas (Inflicts 5-hit Dmg on target enemy unit [Range: Diamond (9), Height Range: 3])",
         "spec": "No requirements to equip",
         "flavor": "This lance is said to have been used by a knight from hell. It is made from the same substance as Forcas's Killium. It is said that when equipped by one who bears the name Forcas, the Killium and Alchemia will react and unleash a special power.",
-        "tag": "Spear",
+        "tag": "Lance",
         "rarity": "★★★☆☆",
         "link": "http://www.alchemistcodedb.com/gear/af-arms-folcas-00",
         "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ARMS_FOLCAS_00.png",
@@ -4396,7 +4396,7 @@
         "expr": "Attributes: PATK Up, DEX Up (HP Up with chance of JUMP Up added when evolving to 5★)<br>Enables Master Ability when equipped on Aranea when her job type is \"Imperial Commodore\" (Inflicts non-elemental Phys Dmg on target enemy unit & 100% Hit & ignores DEF with chance of critical & raises PATK for one turn [Range: 4, Height Range: 4])",
         "spec": "No requirements to equip",
         "flavor": "The lance used by Imperial Commodore Aranea Highwind. Enhanced using magiteknology, it's an extremely difficult weapon to wield, and no one other than Aranea can do so effectively. When equipped by Aranea it allows her to unleash the Highwind attack.",
-        "tag": "Spear",
+        "tag": "Lance",
         "rarity": "★★★☆☆",
         "link": "http://www.alchemistcodedb.com/gear/af-arms-ff15-aran-01",
         "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ARMS_FF15_ARAN_01.png",
@@ -4912,7 +4912,7 @@
     "AF_ARMS_S_YURI_00": {
         "iname": "AF_ARMS_S_YURI_00",
         "type": "Weapon",
-        "name": "White-Lily Knife",
+        "name": "White-Lily Katana",
         "expr": "Attributes: PATK Up, PDEF Up, AGI Up, Chance of PATK/PDEF Up for two turns (Added when evolving to 5★.)<br>Enables Master Ability when equipped on Yuri (3-hit Thunder Slash Dmg to single target & greatly raises own PDEF/MDEF until next turn [Range: 1, Height Range: 2])",
         "spec": "No requirements to equip",
         "flavor": "The beauty of this exquisite short sword has been compared to the white lilies of the land of Crimson Summer when in full bloom. A smith from a ninja village is said to have crafted it especially with Yuri in mind, and it possesses both sharp and graceful in equal measure. Only Yuri is able to utilize its full power.",
@@ -4922,7 +4922,7 @@
         "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ARMS_S_YURI_00.png",
         "inputs": [
             "Yuri",
-            "White-Lily Knife"
+            "White-Lily Katana"
         ],
         "ability": [
             {

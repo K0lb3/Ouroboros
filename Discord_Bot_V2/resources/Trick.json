@@ -11,7 +11,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_POI_02": {
         "mIname": "TR_MAP_POI_02",
@@ -25,7 +26,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_POI_03": {
         "mIname": "TR_MAP_POI_03",
@@ -38,7 +40,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_POI_01_LOOK": {
         "mIname": "TR_MAP_POI_01_LOOK",
@@ -52,7 +55,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_POI_02_LOOK": {
         "mIname": "TR_MAP_POI_02_LOOK",
@@ -66,7 +70,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_POI_03_LOOK": {
         "mIname": "TR_MAP_POI_03_LOOK",
@@ -79,7 +84,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_poison00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_SLE_01": {
         "mIname": "TR_MAP_SLE_01",
@@ -93,7 +99,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_SLE_02": {
         "mIname": "TR_MAP_SLE_02",
@@ -107,7 +114,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_SLE_03": {
         "mIname": "TR_MAP_SLE_03",
@@ -120,7 +128,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_SLE_01_LOOK": {
         "mIname": "TR_MAP_SLE_01_LOOK",
@@ -134,7 +143,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_SLE_02_LOOK": {
         "mIname": "TR_MAP_SLE_02_LOOK",
@@ -148,7 +158,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_SLE_03_LOOK": {
         "mIname": "TR_MAP_SLE_03_LOOK",
@@ -161,7 +172,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_m_cond_sleep00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_TORA_01": {
         "mIname": "TR_MAP_TORA_01",
@@ -179,7 +191,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_TORA_02": {
         "mIname": "TR_MAP_TORA_02",
@@ -197,7 +210,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_TORA_03": {
         "mIname": "TR_MAP_TORA_03",
@@ -214,7 +228,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_TORA_03_20": {
         "mIname": "TR_MAP_TORA_03_20",
@@ -231,7 +246,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_TORA_03_30": {
         "mIname": "TR_MAP_TORA_03_30",
@@ -248,7 +264,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_TORA_01_LOOK": {
         "mIname": "TR_MAP_TORA_01_LOOK",
@@ -266,7 +283,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_TORA_02_LOOK": {
         "mIname": "TR_MAP_TORA_02_LOOK",
@@ -284,7 +302,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_TORA_03_LOOK": {
         "mIname": "TR_MAP_TORA_03_LOOK",
@@ -301,7 +320,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_TORA_03_20_LOOK": {
         "mIname": "TR_MAP_TORA_03_20_LOOK",
@@ -318,7 +338,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_TORA_03_30_LOOK": {
         "mIname": "TR_MAP_TORA_03_30_LOOK",
@@ -335,7 +356,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_TORA_01_CL": {
         "mIname": "TR_MAP_TORA_01_CL",
@@ -353,7 +375,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_01": {
         "mIname": "TR_RH_ATO_SKILL_01",
@@ -370,7 +393,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill104_fire00",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_02": {
         "mIname": "TR_RH_ATO_SKILL_02",
@@ -387,7 +411,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill105_ice00",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_03": {
         "mIname": "TR_RH_ATO_SKILL_03",
@@ -404,7 +429,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill106_wind00",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_04": {
         "mIname": "TR_RH_ATO_SKILL_04",
@@ -421,7 +447,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill107_lightning00",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_05": {
         "mIname": "TR_RH_ATO_SKILL_05",
@@ -438,7 +465,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_s_rh_ato_skill108_posion00",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_01B": {
         "mIname": "TR_RH_ATO_SKILL_01B",
@@ -455,7 +483,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill110_fire00",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_02B": {
         "mIname": "TR_RH_ATO_SKILL_02B",
@@ -472,7 +501,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill111_ice00",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_03B": {
         "mIname": "TR_RH_ATO_SKILL_03B",
@@ -489,7 +519,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill113_wind00",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_RH_ATO_SKILL_04B": {
         "mIname": "TR_RH_ATO_SKILL_04B",
@@ -506,7 +537,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_rh_ato_skill112_lightning00",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_MAP_NEW_HUU_REGENERATE_01": {
         "mIname": "TR_MAP_NEW_HUU_REGENERATE_01",
@@ -520,7 +552,10 @@
         "mActionCount": 3,
         "mIsNoOverWrite": false,
         "mMarkerName": "heal",
-        "mEffTarget": "SelfSide"
+        "mEffTarget": "SelfSide",
+        "dif": {
+            "mEffectName": "eff_p_panel_hit_heal00"
+        }
     },
     "TR_MAP_NEW_HUU_BUFF_01": {
         "mIname": "TR_MAP_NEW_HUU_BUFF_01",
@@ -533,7 +568,8 @@
         "mActionCount": 4,
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
-        "mEffTarget": "SelfSide"
+        "mEffTarget": "SelfSide",
+        "dif": {}
     },
     "TR_MAP_NEW_HUU_BUFF_02": {
         "mIname": "TR_MAP_NEW_HUU_BUFF_02",
@@ -545,7 +581,8 @@
         "mActionCount": 4,
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
-        "mEffTarget": "SelfSide"
+        "mEffTarget": "SelfSide",
+        "dif": {}
     },
     "TR_MAP_NEW_HUU_SKILL_01": {
         "mIname": "TR_MAP_NEW_HUU_SKILL_01",
@@ -559,7 +596,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_s_huu_skill101_badst00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MOU_LOWER_4": {
         "mIname": "TR_MOU_LOWER_4",
@@ -575,7 +613,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_s_mou_skill107_hit00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_SK_MAD_LOWER_1": {
         "mIname": "TR_SK_MAD_LOWER_1",
@@ -589,7 +628,10 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
-        "mEffTarget": "SelfSide"
+        "mEffTarget": "SelfSide",
+        "dif": {
+            "mExpr": "物防&魔防をアップするパネル。配置後一定時間で消滅"
+        }
     },
     "TR_SK_MAD_UPPER_2": {
         "mIname": "TR_SK_MAD_UPPER_2",
@@ -605,7 +647,10 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_s_mad_skill105_fire00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {
+            "mExpr": "乗るとダメージが発生するパネル。1度の発動または配置後一定時間経過で消滅"
+        }
     },
     "TR_SK_VEDA": {
         "mIname": "TR_SK_VEDA",
@@ -620,7 +665,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_UNDOUKAI_MARU_01": {
         "mIname": "TR_UNDOUKAI_MARU_01",
@@ -635,7 +681,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_UNDOUKAI_MARU_02": {
         "mIname": "TR_UNDOUKAI_MARU_02",
@@ -650,7 +697,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_UNDOUKAI_BATSU_01": {
         "mIname": "TR_UNDOUKAI_BATSU_01",
@@ -662,7 +710,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_UNDOUKAI_BATSU_02": {
         "mIname": "TR_UNDOUKAI_BATSU_02",
@@ -674,7 +723,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_UNDOUKAI_SOUSYA_02": {
         "mIname": "TR_UNDOUKAI_SOUSYA_02",
@@ -686,7 +736,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_UNDOUKAI_SOUSYA_03": {
         "mIname": "TR_UNDOUKAI_SOUSYA_03",
@@ -698,7 +749,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_UNDOUKAI_SOUSYA_04": {
         "mIname": "TR_UNDOUKAI_SOUSYA_04",
@@ -710,7 +762,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_UNDOUKAI_GOAL_01": {
         "mIname": "TR_UNDOUKAI_GOAL_01",
@@ -725,7 +778,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_UNDOUKAI_GOAL_02": {
         "mIname": "TR_UNDOUKAI_GOAL_02",
@@ -736,7 +790,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_UNDOUKAI_DON": {
         "mIname": "TR_UNDOUKAI_DON",
@@ -748,7 +803,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_ATK_UP_UNDOUKAI": {
         "mIname": "TR_MAP_ATK_UP_UNDOUKAI",
@@ -760,7 +816,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_UNDOUKAI_MP_REGENE": {
         "mIname": "TR_UNDOUKAI_MP_REGENE",
@@ -773,7 +830,8 @@
         "mActionCount": 1,
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MP_REGENE_01": {
         "mIname": "TR_MP_REGENE_01",
@@ -786,7 +844,8 @@
         "mActionCount": 1,
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_UNDOUKAI_HP_REGENE": {
         "mIname": "TR_UNDOUKAI_HP_REGENE",
@@ -799,7 +858,8 @@
         "mActionCount": 1,
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_UNDOUKAI_DEF_UP": {
         "mIname": "TR_UNDOUKAI_DEF_UP",
@@ -812,7 +872,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_JUMP_UP": {
         "mIname": "TR_MAP_JUMP_UP",
@@ -825,7 +886,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_MAP_SUPER_JUMP_UP": {
         "mIname": "TR_MAP_SUPER_JUMP_UP",
@@ -838,7 +900,8 @@
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_MAP_HP_UP_MP_REGENE": {
         "mIname": "TR_MAP_HP_UP_MP_REGENE",
@@ -852,7 +915,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_HP_UP_MP_REGENE_P": {
         "mIname": "TR_MAP_HP_UP_MP_REGENE_P",
@@ -866,7 +930,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_MAP_HP_UP_MP_REGENE_1": {
         "mIname": "TR_MAP_HP_UP_MP_REGENE_1",
@@ -881,7 +946,8 @@
         "mActionCount": 1,
         "mIsNoOverWrite": true,
         "mMarkerName": "heal",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_MAP_CHANGE": {
         "mIname": "TR_MAP_CHANGE",
@@ -896,7 +962,8 @@
         "mActionCount": 1,
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_MAP_CHANGE_2": {
         "mIname": "TR_MAP_CHANGE_2",
@@ -911,7 +978,8 @@
         "mActionCount": 1,
         "mIsNoOverWrite": true,
         "mMarkerName": "cond",
-        "mEffTarget": "EnemySide"
+        "mEffTarget": "EnemySide",
+        "dif": {}
     },
     "TR_SK_FA_ALPH01_LOWER_4": {
         "mIname": "TR_SK_FA_ALPH01_LOWER_4",
@@ -925,7 +993,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_s_fa_alph_skill107_buff",
-        "mEffTarget": "SelfSide"
+        "mEffTarget": "SelfSide",
+        "dif": {}
     },
     "TR_MAP_TORA_FA": {
         "mIname": "TR_MAP_TORA_FA",
@@ -942,7 +1011,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_MDEF_FA": {
         "mIname": "TR_MAP_MDEF_FA",
@@ -955,7 +1025,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_m_buff_up_m_def0",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_MDEF_DAI_FA": {
         "mIname": "TR_MAP_MDEF_DAI_FA",
@@ -968,7 +1039,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_m_buff_up_m_def0",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_S_KAIHIUP_FA": {
         "mIname": "TR_MAP_S_KAIHIUP_FA",
@@ -981,7 +1053,8 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffectName": "eff_p_mg_m_buff_esc0",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_OUEN_SWITCH_FA": {
         "mIname": "TR_MAP_OUEN_SWITCH_FA",
@@ -992,7 +1065,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_RESI_EX_BOTAN_2": {
         "mIname": "TR_MAP_RESI_EX_BOTAN_2",
@@ -1003,7 +1077,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_RESI_EX_BOTAN": {
         "mIname": "TR_MAP_RESI_EX_BOTAN",
@@ -1014,7 +1089,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_MOBIUS_7F_01": {
         "mIname": "TR_MAP_MOBIUS_7F_01",
@@ -1034,7 +1110,8 @@
         "mEffTarget": "SelfSide",
         "mEffShape": "All",
         "mEffScope": 99,
-        "mEffHeight": 99
+        "mEffHeight": 99,
+        "dif": {}
     },
     "TR_MAP_MOBIUS_7F_02": {
         "mIname": "TR_MAP_MOBIUS_7F_02",
@@ -1050,7 +1127,8 @@
         "mEffTarget": "SelfSide",
         "mEffShape": "All",
         "mEffScope": 99,
-        "mEffHeight": 99
+        "mEffHeight": 99,
+        "dif": {}
     },
     "TR_MAP_MOBIUS_7F_03": {
         "mIname": "TR_MAP_MOBIUS_7F_03",
@@ -1067,7 +1145,8 @@
         "mEffTarget": "SelfSide",
         "mEffShape": "All",
         "mEffScope": 99,
-        "mEffHeight": 99
+        "mEffHeight": 99,
+        "dif": {}
     },
     "TR_MAP_MOBIUS_15F_01": {
         "mIname": "TR_MAP_MOBIUS_15F_01",
@@ -1079,7 +1158,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_MOBIUS_16F_01": {
         "mIname": "TR_MAP_MOBIUS_16F_01",
@@ -1091,7 +1171,8 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
-        "mEffTarget": "UnitAll"
+        "mEffTarget": "UnitAll",
+        "dif": {}
     },
     "TR_MAP_MOBIUS_16F_02": {
         "mIname": "TR_MAP_MOBIUS_16F_02",
@@ -1108,7 +1189,11 @@
         "mEffTarget": "EnemySide",
         "mEffShape": "All",
         "mEffScope": 99,
-        "mEffHeight": 99
+        "mEffHeight": 99,
+        "dif": {
+            "mTarget": "EnemySide",
+            "mIsNoOverWrite": true
+        }
     },
     "TR_MAP_MOBIUS_16F_03": {
         "mIname": "TR_MAP_MOBIUS_16F_03",
@@ -1125,7 +1210,8 @@
         "mEffTarget": "EnemySide",
         "mEffShape": "All",
         "mEffScope": 99,
-        "mEffHeight": 99
+        "mEffHeight": 99,
+        "dif": {}
     },
     "TR_MAP_MOBIUS_18F_01": {
         "mIname": "TR_MAP_MOBIUS_18F_01",
@@ -1142,7 +1228,8 @@
         "mEffTarget": "SelfSide",
         "mEffShape": "All",
         "mEffScope": 99,
-        "mEffHeight": 99
+        "mEffHeight": 99,
+        "dif": {}
     },
     "TR_MAP_MOBIUS_18F_02": {
         "mIname": "TR_MAP_MOBIUS_18F_02",
@@ -1159,7 +1246,8 @@
         "mEffTarget": "SelfSide",
         "mEffShape": "All",
         "mEffScope": 99,
-        "mEffHeight": 99
+        "mEffHeight": 99,
+        "dif": {}
     },
     "TR_MAP_TORA_04_KOTEI_LOOK": {
         "mIname": "TR_MAP_TORA_04_KOTEI_LOOK",
@@ -1173,6 +1261,955 @@
         "mTarget": "UnitAll",
         "mVisualType": "ALL",
         "mActionCount": 1,
+        "mIsNoOverWrite": true,
+        "mMarkerName": "damage",
+        "mEffectName": "eff_p_mg_m_damage_leghold00",
+        "mEffTarget": "UnitAll",
+        "dif": {}
+    },
+    "TR_SK_ART_TOWER_01": {
+        "mIname": "TR_SK_ART_TOWER_01",
+        "mName": "粘着トラップ",
+        "mExpr": "パネルの上に乗るとクロックダウン&素早さが大幅にダウン",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_ART_UPPER_2",
+        "mCondId": "CON_SLOW",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "cond",
+        "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_SK_MAD_LOWER_1_MDEF": {
+        "mIname": "TR_SK_MAD_LOWER_1_MDEF",
+        "mName": "シェルサークル",
+        "mExpr": "魔法耐性を大幅にアップするパネル。配置後一定時間経過で消滅",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_TR_SK_MAD_LOWER_1_MDEF",
+        "mTarget": "SelfSide",
+        "mVisualType": "PLAYER",
+        "mValidClock": 16,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_MAP_MOBIUS_23F_TORA": {
+        "mIname": "TR_MAP_MOBIUS_23F_TORA",
+        "mName": "トラバサミ",
+        "mExpr": "無属性のダメージパネル。敵には無効。上書き可能",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 1000,
+        "mCalcType": "Fixed",
+        "mElem": "None",
+        "mAttackDetail": "None",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "damage",
+        "mEffectName": "eff_p_mg_m_damage_leghold00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_MOBIUS_24F_01": {
+        "mIname": "TR_MAP_MOBIUS_24F_01",
+        "mName": "魔攻・詠唱速度アップパネル",
+        "mExpr": "パネル上に乗ると魔攻&詠唱速度が大幅アップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MOBIUS_WIZ_SUPPORT_01",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mActionCount": 3,
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS_25F_SWITCH": {
+        "mIname": "TR_MAP_MOBIUS_25F_SWITCH",
+        "mName": "ブロックパネル",
+        "mExpr": "ブロックに変化が起こる",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mActionCount": 1,
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_MOBIUS_26_MAG01": {
+        "mIname": "TR_MAP_MOBIUS_26_MAG01",
+        "mName": "魔法耐性必須トラバサミ",
+        "mExpr": "防御無視・魔法属性のダメージパネル",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 3000,
+        "mCalcType": "Fixed",
+        "mElem": "None",
+        "mAttackDetail": "Magic",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "damage",
+        "mEffectName": "eff_p_mg_m_damage_leghold00",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_SK_AF_ARMS_ART_01_WA": {
+        "mIname": "TR_SK_AF_ARMS_ART_01_WA",
+        "mName": "ガラガラポン",
+        "mExpr": "物防&魔防を大幅ダウンするパネル。",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_AF_ARMS_ART_01_WA",
+        "mTarget": "UnitAll",
+        "mVisualType": "PLAYER",
+        "mActionCount": 4,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffectName": "eff_p_mg_s_art_skill180_2defdown",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_SK_ART_UPPER_1": {
+        "mIname": "TR_SK_ART_UPPER_1",
+        "mName": "憩いの箱庭",
+        "mExpr": "乗るとHP回復とジュエル自動回復状態になる。1度発動すると消滅。",
+        "mDamageType": "HEAL",
+        "mDamageVal": 25,
+        "mCalcType": "Scale",
+        "mCondId": "CON_ART_UPPER_1",
+        "mTarget": "SelfSide",
+        "mVisualType": "PLAYER",
+        "mActionCount": 1,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "heal",
+        "mEffectName": "eff_p_mg_s_art_skill100_heal_jewell00",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_SK_ART_UPPER_2": {
+        "mIname": "TR_SK_ART_UPPER_2",
+        "mName": "クモの巣地獄",
+        "mExpr": "素早さが大幅にダウンするパネル。",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_ART_UPPER_2",
+        "mTarget": "UnitAll",
+        "mVisualType": "PLAYER",
+        "mActionCount": 4,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffectName": "eff_p_mg_s_art_skill101_speeddown00",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_SK_ART_UPPER_3": {
+        "mIname": "TR_SK_ART_UPPER_3",
+        "mName": "毒蛇バサミ",
+        "mExpr": "無属性のダメージパネル&対象に毒効果。1度発動すると消滅",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 400,
+        "mCalcType": "Fixed",
+        "mElem": "None",
+        "mAttackDetail": "None",
+        "mCondId": "CON_ART_UPPER_3",
+        "mTarget": "UnitAll",
+        "mVisualType": "PLAYER",
+        "mActionCount": 1,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "cond",
+        "mEffectName": "eff_p_mg_s_art_skill102_poison00",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_SEISEKI_DJ_10_EX": {
+        "mIname": "TR_MAP_SEISEKI_DJ_10_EX",
+        "mName": "クロックダウン解除パネル",
+        "mExpr": "味方陣営のクロックダウンを解除し、HPを回復する",
+        "mDamageType": "HEAL",
+        "mDamageVal": 80,
+        "mCalcType": "Scale",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mActionCount": 1,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "heal",
+        "mEffectName": "eff_p_panel_hit_heal00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_TORA_04_POK3_EX2": {
+        "mIname": "TR_MAP_TORA_04_POK3_EX2",
+        "mName": "トラバサミ",
+        "mExpr": "無属性のダメージパネル",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 500,
+        "mCalcType": "Fixed",
+        "mElem": "None",
+        "mAttackDetail": "None",
+        "mTarget": "EnemySide",
+        "mVisualType": "NONE",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "damage",
+        "mEffectName": "eff_p_mg_m_damage_leghold00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_MOBIUS_28_M_FIELD": {
+        "mIname": "TR_MAP_MOBIUS_28_M_FIELD",
+        "mName": "磁場",
+        "mExpr": "パネル上に磁石鼠が乗ると・・・！？",
+        "mDamageType": "HEAL",
+        "mDamageVal": 10,
+        "mCalcType": "Scale",
+        "mTarget": "SelfSide",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "heal",
+        "mEffectName": "eff_p_panel_hit_heal00",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_MAP_MOBIUS_29_CT_DOWN": {
+        "mIname": "TR_MAP_MOBIUS_29_CT_DOWN",
+        "mName": "行動短縮パネル",
+        "mExpr": "パネル上に乗ると次ターンまでの待ち時間が減少する",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_MOBIUS_29_CT_DOWN",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS_29_NOHEAL": {
+        "mIname": "TR_MAP_MOBIUS_29_NOHEAL",
+        "mName": "回復無効付与パネル",
+        "mExpr": "パネル上に乗ると攻撃に回復無効が付加される",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_MOBIUS_29_NOHEAL",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS_30_DS_AVOIUP": {
+        "mIname": "TR_MAP_MOBIUS_30_DS_AVOIUP",
+        "mName": "回避アップパネル",
+        "mExpr": "パネル上に乗ると回避大幅UP。一定時間で消滅する。",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_MOBIUS_30_DS_AVOIUP",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mActionCount": 3,
+        "mValidClock": 40,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS_30_POI": {
+        "mIname": "TR_MAP_MOBIUS_30_POI",
+        "mName": "毒沼用パネル",
+        "mExpr": "毒沼マップ用（見えない毒沼）",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 300,
+        "mCalcType": "Fixed",
+        "mElem": "None",
+        "mAttackDetail": "None",
+        "mCondId": "CON_MAP_MOBIUS_30_POI",
+        "mTarget": "UnitAll",
+        "mVisualType": "PLAYER",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "cond",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_HAGOITA_TORA": {
+        "mIname": "TR_MAP_HAGOITA_TORA",
+        "mName": "審判席",
+        "mExpr": "防御無視・無属性のダメージパネル",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 9999,
+        "mCalcType": "Fixed",
+        "mElem": "None",
+        "mAttackDetail": "None",
+        "mTarget": "EnemySide",
+        "mVisualType": "PLAYER",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "damage",
+        "mEffectName": "eff_p_mg_m_damage_leghold00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_FFXVEX6_TORA": {
+        "mIname": "TR_MAP_FFXVEX6_TORA",
+        "mName": "トラバサミ",
+        "mExpr": "防御無視・無属性のダメージパネル",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 9999,
+        "mCalcType": "Fixed",
+        "mElem": "None",
+        "mAttackDetail": "None",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "damage",
+        "mEffectName": "eff_p_mg_m_damage_leghold00",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_3T_EX2_UNLUCK": {
+        "mIname": "TR_MAP_3T_EX2_UNLUCK",
+        "mName": "運ダウンパネル",
+        "mExpr": "パネル上に乗ると運が大幅ダウン。運の差が攻撃力のスキルに要注意。",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_LUCK_DOWN_3T_EX2",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_SIREN_01": {
+        "mIname": "TR_MAP_SIREN_01",
+        "mName": "挑発パネル",
+        "mExpr": "パネルに乗っている間攻撃時に挑発効果&必ずガッツが発動するが、物攻&魔攻&運99%ダウン&沈黙状態になる。5回発動で消滅。",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_SIREN_01",
+        "mCondId": "COND_MAP_SIREN_01",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mActionCount": 5,
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_SIREN_01_02": {
+        "mIname": "TR_MAP_SIREN_01_02",
+        "mName": "挑発パネル",
+        "mExpr": "パネルに乗っている間攻撃時に挑発効果&必ずガッツが発動するが、物攻&魔攻&運99%ダウン&沈黙状態になる。3回発動で消滅。",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_SIREN_01",
+        "mCondId": "COND_MAP_SIREN_01",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mActionCount": 3,
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_SIREN_02": {
+        "mIname": "TR_MAP_SIREN_02",
+        "mName": "解放パネル",
+        "mExpr": "パネル上に乗ると、不死使い魔を倒す事が出来る。1度発動すると消滅する。",
+        "mDamageType": "DAMAGE",
+        "mElem": "None",
+        "mAttackDetail": "None",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mActionCount": 1,
+        "mIsNoOverWrite": true,
+        "mMarkerName": "damage",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_BABEL_1-2_AVOIUP": {
+        "mIname": "TR_MAP_BABEL_1-2_AVOIUP",
+        "mName": "回避アップパネル",
+        "mExpr": "パネル上に乗ると回避大幅UP。一定時間で消滅する。",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_BABEL_1-2_AVOIUP",
+        "mTarget": "EnemySide",
+        "mVisualType": "NONE",
+        "mValidClock": 10,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_ALC_2YEAR_02": {
+        "mIname": "TR_MAP_ALC_2YEAR_02",
+        "mName": "敵HP回復パネル",
+        "mExpr": "敵が乗るとHPが回復するパネル",
+        "mDamageType": "HEAL",
+        "mDamageVal": 30,
+        "mCalcType": "Scale",
+        "mTarget": "SelfSide",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "heal",
+        "mEffectName": "eff_p_panel_hit_heal00",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_MAP_ALC_2YEAR_01": {
+        "mIname": "TR_MAP_ALC_2YEAR_01",
+        "mName": "ガッツおうえん",
+        "mExpr": "石垣ADの支援スキルが発動する",
+        "mDamageType": "HEAL",
+        "mDamageVal": 50,
+        "mCalcType": "Scale",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mActionCount": 1,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "heal",
+        "mEffectName": "eff_p_panel_hit_heal00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_ALC_2YEAR_01_HP": {
+        "mIname": "TR_MAP_ALC_2YEAR_01_HP",
+        "mName": "HPおうえん",
+        "mExpr": "石垣ADの支援スキルが発動する",
+        "mDamageType": "HEAL",
+        "mDamageVal": 50,
+        "mCalcType": "Scale",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mActionCount": 1,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "heal",
+        "mEffectName": "eff_p_panel_hit_heal00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_ALC_2YEAR_01_MP": {
+        "mIname": "TR_MAP_ALC_2YEAR_01_MP",
+        "mName": "MPと物攻おうえん",
+        "mExpr": "物攻3倍ｘ1回とジュエル回復が発動する",
+        "mDamageType": "HEAL",
+        "mDamageVal": 50,
+        "mCalcType": "Scale",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mActionCount": 1,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "heal",
+        "mEffectName": "eff_p_panel_hit_heal00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_ALC_2YEAR_01_AD": {
+        "mIname": "TR_MAP_ALC_2YEAR_01_AD",
+        "mName": "シールドおうえん",
+        "mExpr": "石垣ADの支援スキルが発動する",
+        "mDamageType": "HEAL",
+        "mDamageVal": 50,
+        "mCalcType": "Scale",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mActionCount": 1,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "heal",
+        "mEffectName": "eff_p_panel_hit_heal00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_ALC_2YEAR_01_CH": {
+        "mIname": "TR_MAP_ALC_2YEAR_01_CH",
+        "mName": "男性魅了パネル",
+        "mExpr": "敵と味方の男性全員に確率で魅了",
+        "mDamageType": "HEAL",
+        "mDamageVal": 50,
+        "mCalcType": "Scale",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mActionCount": 1,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "heal",
+        "mEffectName": "eff_p_panel_hit_heal00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_THOL01_LOWER_01": {
+        "mIname": "TR_MAP_THOL01_LOWER_01",
+        "mName": "仲間の絆",
+        "mExpr": "パネル上に乗ると次ターン、ジュエルが回復する。1度発動すると消滅",
+        "mDamageType": "NONE",
+        "mCondId": "CON_MAP_THOL01_LOWER_01",
+        "mTarget": "SelfSide",
+        "mVisualType": "PLAYER",
+        "mActionCount": 1,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "heal",
+        "mEffectName": "eff_p_mg_s_thol01_skill104_jewel00",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_HENC_WATER_UPPER_01": {
+        "mIname": "TR_HENC_WATER_UPPER_01",
+        "mName": "治癒力アップパネル",
+        "mExpr": "パネル上に乗ると治癒力アップ&3回発動すると消失",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_HENC_WATER_UPPER_01",
+        "mTarget": "SelfSide",
+        "mVisualType": "PLAYER",
+        "mActionCount": 3,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffectName": "eff_p_mg_s_henc_skill100_healup00",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_HENC_WIND_UPPER_01": {
+        "mIname": "TR_HENC_WIND_UPPER_01",
+        "mName": "治癒力アップパネル",
+        "mExpr": "パネル上に乗ると治癒力アップ&3回発動すると消失",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_HENC_WIND_UPPER_01",
+        "mTarget": "SelfSide",
+        "mVisualType": "PLAYER",
+        "mActionCount": 3,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffectName": "eff_p_mg_s_henc_skill100_healup00",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_MAP_SHOT_ADV_01": {
+        "mIname": "TR_MAP_SHOT_ADV_01",
+        "mName": "射撃攻撃アップパネル",
+        "mExpr": "パネル上に乗ると射撃ダメージアップ&射程+2&射撃以外の回避率が大幅アップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_SHOT_ADV_01",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_SHOT_ADV_02": {
+        "mIname": "TR_MAP_SHOT_ADV_02",
+        "mName": "射撃攻撃アップパネル",
+        "mExpr": "パネル上に乗ると射撃ダメージアップ&射程+3&射撃以外の回避率が大幅アップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_SHOT_ADV_02",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_SHOT_ADV_03": {
+        "mIname": "TR_MAP_SHOT_ADV_03",
+        "mName": "射程アップパネル",
+        "mExpr": "パネル上に乗ると射程+3、射撃以外の回避率が大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_SHOT_ADV_03",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_SHOT_ADV_04": {
+        "mIname": "TR_MAP_SHOT_ADV_04",
+        "mName": "射程アップパネル",
+        "mExpr": "パネル上に乗ると射程+3、射撃以外の回避率が大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_SHOT_ADV_04",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_SHOT_ADV_05": {
+        "mIname": "TR_MAP_SHOT_ADV_05",
+        "mName": "射程アップパネル",
+        "mExpr": "パネル上に乗ると射程+3",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_SHOT_ADV_05",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_SHOT_ADV_06": {
+        "mIname": "TR_MAP_SHOT_ADV_06",
+        "mName": "射程アップパネル",
+        "mExpr": "パネル上に乗ると射程+3、特定の回避率が大幅にアップ、射撃攻撃力補正",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_SHOT_ADV_06",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_SHOT_": {
+        "mIname": "TR_MAP_RM_SHOT_",
+        "mName": "射撃攻撃アップパネル",
+        "mExpr": "パネル上に乗ると射撃ダメージアップ&射程+1",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_SHOT",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_SLASH": {
+        "mIname": "TR_MAP_RM_SLASH",
+        "mName": "斬撃攻撃アップパネル",
+        "mExpr": "パネル上に乗ると斬撃ダメージアップ&魔防が大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_SLASH",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_MAGIC": {
+        "mIname": "TR_MAP_RM_MAGIC",
+        "mName": "魔法攻撃アップパネル",
+        "mExpr": "パネル上に乗ると魔法ダメージアップ&物防が大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_MAGIC",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_BLOW": {
+        "mIname": "TR_MAP_RM_BLOW",
+        "mName": "打撃攻撃アップパネル",
+        "mExpr": "パネル上に乗ると打撃ダメージアップ&素早さが大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_BLOW",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_PIERCE": {
+        "mIname": "TR_MAP_RM_PIERCE",
+        "mName": "刺突攻撃アップパネル",
+        "mExpr": "パネル上に乗ると刺突ダメージアップ&会心が大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_PIERCE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_COUNTER": {
+        "mIname": "TR_MAP_RM_COUNTER",
+        "mName": "反撃攻撃アップパネル",
+        "mExpr": "パネル上に乗ると反撃ダメージアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_COUNTER",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_DNM_VEDA110": {
+        "mIname": "TR_MAP_DNM_VEDA110",
+        "mName": "移動禁止パネル",
+        "mExpr": "移動禁止効果の状態異常パネル。1度発動すると消滅。",
+        "mDamageType": "NONE",
+        "mCondId": "CON_DMO",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mActionCount": 1,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "cond",
+        "mEffectName": "eff_p_mg_s_huu_skill101_badst00",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_VEDA101_TORA": {
+        "mIname": "TR_MAP_VEDA101_TORA",
+        "mName": "トラバサミ",
+        "mExpr": "無属性のダメージパネル。敵には無効。上書き可能。",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 2000,
+        "mCalcType": "Fixed",
+        "mElem": "None",
+        "mAttackDetail": "None",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "damage",
+        "mEffectName": "eff_p_mg_m_damage_leghold00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_VEDA108_TORA": {
+        "mIname": "TR_MAP_VEDA108_TORA",
+        "mName": "殺虫バサミ",
+        "mExpr": "無属性のダメージパネル。プレーヤーユニットには無効。",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 5000,
+        "mCalcType": "Fixed",
+        "mElem": "None",
+        "mAttackDetail": "None",
+        "mTarget": "SelfSide",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "damage",
+        "mEffectName": "eff_p_mg_m_damage_leghold00",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_MAP_VEDA106_FIRE": {
+        "mIname": "TR_MAP_VEDA106_FIRE",
+        "mName": "ボムトラップ",
+        "mExpr": "火属性のダメージパネル。消滅なし",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 2000,
+        "mCalcType": "Fixed",
+        "mElem": "Fire",
+        "mAttackDetail": "Magic",
+        "mTarget": "EnemySide",
+        "mVisualType": "PLAYER",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "damage",
+        "mEffectName": "eff_p_mg_s_rh_ato_skill104_fire00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_VEDA106_SLEEP": {
+        "mIname": "TR_MAP_VEDA106_SLEEP",
+        "mName": "睡眠パネル",
+        "mExpr": "睡眠の状態異常パネル。消滅なし",
+        "mDamageType": "NONE",
+        "mCondId": "CON_SLE",
+        "mTarget": "EnemySide",
+        "mVisualType": "PLAYER",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "cond",
+        "mEffectName": "eff_p_mg_m_cond_sleep00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_CHA_BER_LOOK": {
+        "mIname": "TR_MAP_CHA_BER_LOOK",
+        "mName": "悪意のパネル",
+        "mExpr": "回避アップの魅了＋防御ダウンの狂化の状態異常になるパネル。敵には無効",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_CON_CHA_AND_BER",
+        "mCondId": "CON_CHA_AND_BER",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "cond",
+        "mEffectName": "eff_p_mg_m_cond_sleep00",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_JUMP_UP_VEDA2": {
+        "mIname": "TR_MAP_JUMP_UP_VEDA2",
+        "mName": "登攀・移動【+3】",
+        "mExpr": "パネルに乗ると魔人がMoveアップ、Jumpアップをかけてくれる。10ターン継続、重ね掛け可能",
+        "mDamageType": "NONE",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mActionCount": 1,
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
+        "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_CRY_EX2_SHOT": {
+        "mIname": "TR_MAP_CRY_EX2_SHOT",
+        "mName": "射撃攻撃アップパネル",
+        "mExpr": "敵がパネル上に乗ると射撃攻撃力・射程アップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_CRY_EX2_SHOT",
+        "mTarget": "SelfSide",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_MAP_KIKAIZOME": {
+        "mIname": "TR_MAP_KIKAIZOME",
+        "mName": "毒パネル",
+        "mExpr": "敵がパネルを踏むと全体に毒効果。1度発動すると消滅。",
+        "mDamageType": "NONE",
+        "mCondId": "CON_POI_2",
+        "mTarget": "SelfSide",
+        "mVisualType": "ALL",
+        "mActionCount": 1,
+        "mIsNoOverWrite": true,
+        "mMarkerName": "cond",
+        "mEffectName": "eff_p_mg_m_cond_poison00",
+        "mEffTarget": "EnemySide",
+        "mEffShape": "All",
+        "mEffScope": 99,
+        "mEffHeight": 99
+    },
+    "TR_GOAL_HANYOU": {
+        "mIname": "TR_GOAL_HANYOU",
+        "mName": "終了パネル",
+        "mExpr": "このパネル上にたどり着くとクエストクリア",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "heal",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_SHOT_CRYUNI": {
+        "mIname": "TR_MAP_RM_SHOT_CRYUNI",
+        "mName": "射撃攻撃アップパネル",
+        "mExpr": "パネル上に乗ると射撃ダメージアップ&射程+1",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_SHOT_CRYUNI",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_SLASH_CRYUNI": {
+        "mIname": "TR_MAP_RM_SLASH_CRYUNI",
+        "mName": "斬撃攻撃アップパネル",
+        "mExpr": "パネル上に乗ると斬撃ダメージアップ&魔防が大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_SLASH_CRYUNI",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_MAGIC_CRYUNI": {
+        "mIname": "TR_MAP_RM_MAGIC_CRYUNI",
+        "mName": "魔法攻撃アップパネル",
+        "mExpr": "パネル上に乗ると魔法ダメージアップ&物防が大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_MAGIC_CRYUNI",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_BLOW_CRYUNI": {
+        "mIname": "TR_MAP_RM_BLOW_CRYUNI",
+        "mName": "打撃攻撃アップパネル",
+        "mExpr": "パネル上に乗ると打撃ダメージアップ&素早さが大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_BLOW_CRYUNI",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_PIERCE_TOWER_01": {
+        "mIname": "TR_MAP_RM_PIERCE_TOWER_01",
+        "mName": "刺突攻撃&刺突耐性アップパネル",
+        "mExpr": "パネル上に乗ると刺突ダメージ&刺突耐性&素早さが大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_PIERCE_TOWER_01",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_RM_PIERCE_CRYUNI": {
+        "mIname": "TR_MAP_RM_PIERCE_CRYUNI",
+        "mName": "刺突攻撃アップパネル",
+        "mExpr": "パネル上に乗ると刺突ダメージアップ&会心が大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_PIERCE_CRYUNI",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_SIZUKU": {
+        "mIname": "TR_MAP_SIZUKU",
+        "mName": "撤退パネル",
+        "mExpr": "メタルラットンがこのパネルに到達すると撤退する",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_GUTS": {
+        "mIname": "TR_MAP_GUTS",
+        "mName": "ガッツパネル",
+        "mExpr": "敵がパネルを踏むとガッツが発動する",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_GUTS_100_HAGAREN_EX3_01",
+        "mTarget": "SelfSide",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_MAP_RM_SHOT_MEBI": {
+        "mIname": "TR_MAP_RM_SHOT_MEBI",
+        "mName": "射撃攻撃アップパネル改",
+        "mExpr": "パネル上に乗ると射撃攻撃力アップ&射程+5",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_SHOT_MEBI",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_ALMA_REBECCA_EX_SP": {
+        "mIname": "TR_MAP_ALMA_REBECCA_EX_SP",
+        "mName": "なにかが起こるパネル（敵）",
+        "mExpr": "特定のバタリオンが踏むとなにかが起こる・・・",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS40_01": {
+        "mIname": "TR_MAP_MOBIUS40_01",
+        "mName": "鬼の陣",
+        "mExpr": "特定の敵ユニットがスキルを発動",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS40_02": {
+        "mIname": "TR_MAP_MOBIUS40_02",
+        "mName": "黄金の陣",
+        "mExpr": "特定の敵ユニットがスキルを発動",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "heal",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS40_03": {
+        "mIname": "TR_MAP_MOBIUS40_03",
+        "mName": "機械の陣",
+        "mExpr": "特定の敵ユニットがスキルを発動",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "damage",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS40_04": {
+        "mIname": "TR_MAP_MOBIUS40_04",
+        "mName": "虫の陣",
+        "mExpr": "特定の敵ユニットがスキルを発動",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "cond",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS40_05": {
+        "mIname": "TR_MAP_MOBIUS40_05",
+        "mName": "獣の陣",
+        "mExpr": "特定の敵ユニットがスキルを発動",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "cond",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_SK_DAMAGE_MOBIUS": {
+        "mIname": "TR_SK_DAMAGE_MOBIUS",
+        "mName": "激痛とらばさみ",
+        "mExpr": "乗ると大ダメージが発生するとらばさみ",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 9999,
+        "mCalcType": "Fixed",
+        "mCondId": "CON_DON",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "damage",
         "mEffectName": "eff_p_mg_m_damage_leghold00",
