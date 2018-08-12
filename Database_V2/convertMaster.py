@@ -1,5 +1,5 @@
 from MainFunctions import *
-from Functions import wytesong
+from Functions import wytesong,Tierlist
 import ParamFunctions
 
 PATH_convert=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converted1')
@@ -58,7 +58,6 @@ def convertRaws(save=False):
     if save:
         for main in export:
             saveAsJSON(PATH_convert, main+'.json',export[main])
-        #saveAsJSON(PATH_convert, 'AIO.json',export)
     return export
 
 def Fixes(master):
@@ -162,6 +161,9 @@ def Fixes(master):
         #add unit kanji translations via wytesong
         wytesong(eUnit)
 
+        #add tierlist
+        Tierlist(eUnit)
+
         #add job+
         for key,js in master['JobSet'].items():
             if 'jobchange' in js:
@@ -223,42 +225,3 @@ def Fixes(master):
 
 Con1=convertRaws()
 Fixes(Con1)
-
-
-
-
-
-
-
-
-
-    # for master in masters:
-    #     i+=1
-    #     for main in master:
-    #         mName=main[0].upper()+main[1:]
-    #         method= getattr(ParamFunctions, mName+'Param',False)
-    #         if not method:
-    #             method= getattr(ParamFunctions, mName+'EffectParam',False)
-    #         if method:
-    #             if type(master[main])==dict: #like FIxParam
-    #                 export[main]=method(master[main])
-    #             elif type(master[main])==list:
-    #                 if 'iname' in master[main][0]:#most Params
-    #                     export[main]={
-    #                         entry['iname']:method(entry)
-    #                         for entry in master[main]
-    #                         }
-    #                 else: #like Tobira
-    #                     export[main]=[
-    #                         method(entry)
-    #                         for entry in master[main]
-    #                         ]
-    #                 print('Success: '+main)
-    #                 #save as json
-    #                 saveAsJSON(PATH_convert, main+('.json'if i%2 else 'JP.json'),export[main]) 
-    #             else:
-    #                 print('Failed: '+main)           
-    #         else:
-    #             pass
-    #             #print('Not Found: '+main)
-    # return masters

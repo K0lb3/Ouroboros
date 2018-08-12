@@ -108,6 +108,13 @@
             "JB_LOGI_ARM",
             "JB_LOGI_SEI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "",
+            "jc": "S",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             "JB_LOGI_GUA"
@@ -304,6 +311,13 @@
             "JB_DIOS_ARM",
             "JB_DIOS_ANK"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "",
+            "jc": "",
+            "total": "B"
+        },
         "kaigan": {
             "Unlock": {
                 "mUnitIname": "UN_V2_DIOS",
@@ -490,6 +504,13 @@
             "JB_EDGA_GUN",
             "JB_EDGA_DRI"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             null,
             "JB_EDGA_DRI2"
@@ -618,6 +639,13 @@
             "JB_LIES_PRI",
             "JB_LIES_2"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "A",
+            "job 3": "",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             "JB_LIES_2CC"
@@ -969,6 +997,13 @@
             "JB_ODO",
             "JB_HWIZ"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_BAR_MDEF",
             null,
@@ -1079,6 +1114,13 @@
             "JB_ARM",
             "JB_NIN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             null,
@@ -1189,6 +1231,13 @@
             "JB_HUN",
             "JB_KAI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             null,
             "JB_RAN_TYPE_MONS",
@@ -1374,6 +1423,13 @@
             "JB_YUJ",
             "JB_GEN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             "JB_DAI_WATER",
             null,
@@ -1558,6 +1614,13 @@
             "JB_THI",
             "JB_KEM"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "occurrence": [
             "QE_EV_UNDOUKAI_2017_ATTACK"
         ]
@@ -1668,6 +1731,13 @@
             "JB_HUN",
             "JB_PRI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             null,
@@ -1779,6 +1849,13 @@
             "JB_WIZ",
             "JB_YUJ"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "A",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_POLLIN_BAR",
             null,
@@ -1966,6 +2043,13 @@
             "JB_YUJ",
             "JB_ODO"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             "JB_BAR_HEAL",
             null,
@@ -2075,6 +2159,13 @@
             "JB_YUJ",
             "JB_PRI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             "JB_DAI_THUNDER",
             null,
@@ -2184,7 +2275,14 @@
             "JB_THI",
             "JB_BAR",
             "JB_GUN"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_MELIA": {
         "no": 999,
@@ -2290,6 +2388,13 @@
             "JB_BAR",
             "JB_KUS"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "D",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             null,
             null,
@@ -2400,6 +2505,13 @@
             "JB_THI",
             "JB_SEI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             null,
@@ -2584,6 +2696,13 @@
             "JB_WIZ",
             "JB_ENC"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             "JB_BAR_HEAL",
             null,
@@ -2697,6 +2816,13 @@
             "JB_DOC",
             "JB_ENC"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             null,
             "JB_DOC_TYPE_HEALING",
@@ -2808,6 +2934,13 @@
             "JB_BAR",
             "JB_KUS"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             null,
@@ -2918,6 +3051,13 @@
             "JB_HUN",
             "JB_KUR"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             null,
@@ -3028,6 +3168,13 @@
             "JB_THI",
             "JB_GUN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "conceptcard": "TS_ENVYRIA_ELAINE_01"
     },
     "UN_V2_VANEKIS": {
@@ -3136,6 +3283,13 @@
             "JB_WIZ",
             "JB_ENC"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             null,
             "JB_VANE_DAI",
@@ -3319,6 +3473,13 @@
             "JB_BAR",
             "JB_KUR"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             "JB_BAR_DARK",
@@ -3432,6 +3593,13 @@
             "JB_HUN",
             "JB_KAK"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             null,
             "JB_RAN_TYPE_AVOID",
@@ -3542,6 +3710,13 @@
             "JB_THI",
             "JB_NIN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             null,
             null,
@@ -3652,6 +3827,13 @@
             "JB_KAK",
             "JB_NIN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             null,
             "JB_STR_SENJYU",
@@ -3835,6 +4017,13 @@
             "JB_MIK",
             "JB_PRI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             "JB_KIL_ANTI_MAGIC",
             null,
@@ -4018,6 +4207,13 @@
             "JB_THI",
             "JB_NIN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             "JB_RAN_TYPE_MONS",
             null,
@@ -4128,6 +4324,13 @@
             "JB_THI",
             "JB_KUS"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             null,
@@ -4315,6 +4518,13 @@
             "JB_KUS",
             "JB_ODO"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             "JB_DOC_TYPE_HEALING",
@@ -4425,6 +4635,13 @@
             "JB_KUR",
             "JB_PRI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             "JB_DAI_WIND",
             null,
@@ -4534,6 +4751,13 @@
             "JB_DOC",
             "JB_SEI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "C",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             null,
             "JB_DOC_TYPE_POISON",
@@ -4647,6 +4871,13 @@
             "JB_PRI",
             "JB_KUS"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "D",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             "JB_BAR_HEAL",
             null,
@@ -4758,6 +4989,13 @@
             "JB_KUR",
             "JB_GUN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             "JB_LNC_TINATSU",
@@ -4868,6 +5106,13 @@
             "JB_WIZ",
             "JB_MAH"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             null,
             null,
@@ -4978,6 +5223,13 @@
             "JB_ODO",
             "JB_ENC"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             null,
             null,
@@ -5095,6 +5347,13 @@
             "JB_KEM",
             "JB_SNI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             null,
@@ -5212,6 +5471,13 @@
             "JB_KUS",
             "JB_GEN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "B",
+            "jc": "A",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             "JB_MICH_DOC",
@@ -5325,6 +5591,13 @@
             "JB_KEM",
             "JB_MAH"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             null,
             null,
@@ -5512,6 +5785,13 @@
             "JB_KUS",
             "JB_MIK"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             "JB_DOC_TYPE_POISON",
@@ -5622,6 +5902,13 @@
             "JB_WIZ",
             "JB_PRI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             "JB_DAI_WATER",
@@ -5738,6 +6025,13 @@
             "JB_PRI",
             "JB_NIN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             "JB_MARE_DAI",
             null,
@@ -5926,6 +6220,13 @@
             "JB_PRI",
             "JB_GEN"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_DAI_THUNDER",
             null,
@@ -6036,6 +6337,13 @@
             "JB_KAK",
             "JB_DGR"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "C",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             null,
             null,
@@ -6224,6 +6532,13 @@
             "JB_KAK",
             "JB_SEI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "C",
+            "jc": "A",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             null,
@@ -6408,6 +6723,13 @@
             "JB_GUN",
             "JB_MAH"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             "JB_SUTORIE_KIL",
             null,
@@ -6601,6 +6923,13 @@
             "JB_SAM",
             "JB_GEN"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "S",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_CHIHAYA_ODO",
             null,
@@ -6724,6 +7053,13 @@
             "JB_ENC",
             "JB_GEN"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "SS",
+            "total": "SS"
+        },
         "jobchanges": [
             null,
             "JB_ENC_ANTI_BUFF",
@@ -6915,6 +7251,13 @@
             "JB_SEI",
             "JB_DGR"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "S",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             null,
@@ -7110,6 +7453,13 @@
             "JB_KAK",
             "JB_DGN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             "JB_STR_SENJYU",
@@ -7297,6 +7647,13 @@
             "JB_PRI",
             "JB_GUN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             "JB_MEGI_LNC",
             null,
@@ -7409,6 +7766,13 @@
             "JB_KAK",
             "JB_STR"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "SS",
+            "jc": "SS",
+            "total": "SS"
+        },
         "jobchanges": [
             null,
             null,
@@ -7598,6 +7962,13 @@
             "JB_KUR",
             "JB_SNI"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "A",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             "JB_LNC_THUNDER",
@@ -7783,6 +8154,13 @@
             "JB_PRI",
             "JB_ENC"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "S",
+            "jc": "SS",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_RAHU_GEN",
             null,
@@ -7972,6 +8350,13 @@
             "JB_KUR",
             "JB_BAA"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "A/S",
+            "total": "A/S"
+        },
         "jobchanges": [
             "JB_BAA_TYPE_MOVE_ANA",
             null,
@@ -8161,6 +8546,13 @@
             "JB_DGR",
             "JB_BAA"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "B/A",
+            "jc": "",
+            "total": "B/A"
+        },
         "jobchanges": [
             null,
             "JB_DGN_GARUDA",
@@ -8361,6 +8753,13 @@
             "JB_LAN",
             "JB_GUA"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             null,
             null,
@@ -8558,6 +8957,13 @@
             "JB_NIN",
             "JB_STR"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_YOMI_KAM",
             null,
@@ -8750,6 +9156,13 @@
             "JB_GUA",
             "JB_SAM"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S/SS",
+            "job 3": "B",
+            "jc": "",
+            "total": "S/SS"
+        },
         "jobchanges": [
             "JB_MAH_FIRE",
             "JB_GUA_TYPE_ANTI_SWORD",
@@ -8936,6 +9349,13 @@
             "JB_TYRH_SEI",
             "JB_TYRH_GUA"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             null,
             null,
@@ -9048,6 +9468,13 @@
             "JB_LEAV_NIN",
             "JB_LEAV_BAA"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "A",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             "JB_NIN_KIRIN",
@@ -9157,7 +9584,14 @@
             "JB_VARG_ARM",
             "JB_VARG_VARG1",
             "JB_VARG_VARG2"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        }
     },
     "UN_V2_SELENA": {
         "no": 999,
@@ -9262,7 +9696,14 @@
             "JB_SELE_SELE1",
             "JB_SELE_MAH",
             "JB_SELE_SELE2"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "A/S",
+            "jc": "",
+            "total": "A/S"
+        }
     },
     "UN_V2_ELIZABETH": {
         "no": 999,
@@ -9378,6 +9819,13 @@
             "JB_GEN",
             "JB_PRI"
         ],
+        "tierlist": {
+            "job 1": "B/A",
+            "job 2": "B",
+            "job 3": "B",
+            "jc": "",
+            "total": "B/A"
+        },
         "jobchanges": [
             "JB_DOC_TYPE_CHARM",
             null,
@@ -9568,6 +10016,13 @@
             "JB_LNC",
             "JB_NIN"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             "JB_LNC_THUNDER",
@@ -9760,6 +10215,13 @@
             "JB_MAH",
             "JB_KEM"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "B",
+            "jc": "A/S",
+            "total": "A/S"
+        },
         "jobchanges": [
             null,
             "JB_MAH_SHINE",
@@ -9950,6 +10412,13 @@
             "JB_THI",
             "JB_BAA"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "S",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_BALT_SOL",
             null,
@@ -10144,6 +10613,13 @@
             "JB_WIZ",
             "JB_PRI"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             "JB_ENC_ANTI_BUFF",
             null,
@@ -10326,7 +10802,14 @@
             "JB_KEM",
             "JB_THI",
             "JB_SAM"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_RETZIUS": {
         "no": 999,
@@ -10432,6 +10915,13 @@
             "JB_KEM",
             "JB_SOL"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "",
+            "jc": "S",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             null,
@@ -10615,6 +11105,13 @@
             "JB_HUN",
             "JB_ANK"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_KIL_SCOUT",
             "JB_RAN_TYPE_AVOID",
@@ -10798,6 +11295,13 @@
             "JB_SNI",
             "JB_GEN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "A",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             "JB_SNI_LONG_RANGE",
@@ -10915,6 +11419,13 @@
             "JB_DGN",
             "JB_NIN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             "JB_DGN_VRITRA",
@@ -11105,6 +11616,13 @@
             "JB_GEN",
             "JB_STR"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "A",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_SHINE_WED_F",
             null,
@@ -11299,6 +11817,13 @@
             "JB_SAM",
             "JB_GUA"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             "JB_SHINE_WED_M",
             null,
@@ -11491,6 +12016,13 @@
             "JB_KAK",
             "JB_NIN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             null,
             null,
@@ -11601,6 +12133,13 @@
             "JB_THI",
             "JB_WED_M"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        },
         "jobchanges": [
             null,
             null,
@@ -11791,6 +12330,13 @@
             "JB_WIZ",
             "JB_DOC"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "C",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_LUCRE_WED_F",
             null,
@@ -11987,6 +12533,13 @@
             "JB_NIN",
             "JB_BAA"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             "JB_NIN_SEIRYU",
@@ -12176,6 +12729,13 @@
             "JB_CANO_SEI",
             "JB_CANO_LORD"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             null,
@@ -12361,6 +12921,13 @@
             "JB_DGR",
             "JB_CADA_GUA"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_CADA_GUA_CC",
             null,
@@ -12548,6 +13115,13 @@
             "JB_DAI",
             "JB_ENC"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             null,
@@ -12859,6 +13433,13 @@
             "JB_THI",
             "JB_SNI"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "C",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_LNC_TINATSU",
             null,
@@ -13055,6 +13636,13 @@
             "JB_DGR",
             "JB_GEN"
         ],
+        "tierlist": {
+            "job 1": "SS",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_STR_SYURA",
             null,
@@ -13252,6 +13840,13 @@
             "JB_KAK",
             "JB_SAM"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "C",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             "JB_NIN_SUZAKU",
             null,
@@ -13435,6 +14030,13 @@
             "JB_PRI",
             "JB_ENC"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_DAI_WATER",
             null,
@@ -13545,6 +14147,13 @@
             "JB_MAH",
             "JB_RAN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        },
         "jobchanges": [
             null,
             null,
@@ -13662,6 +14271,13 @@
             "JB_THI",
             "JB_KUR"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "S",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_KAI_TEACH",
             "JB_KIL_ANTI_MAGIC",
@@ -13845,6 +14461,13 @@
             "JB_KUR",
             "JB_ANK"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "C",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_SNI_SNIPE",
             null,
@@ -13955,6 +14578,13 @@
             "JB_KAGU_WIZ",
             "JB_KAGU_DAI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_DAI_FIRE",
             null,
@@ -14140,6 +14770,13 @@
             "JB_KAK",
             "JB_BAA"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_KUDH_LAN2",
             "JB_STR_SYURA",
@@ -14330,6 +14967,13 @@
             "JB_DGR",
             "JB_STR"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "B",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_GORM_KAI",
             null,
@@ -14517,6 +15161,13 @@
             "JB_HUN",
             "JB_NIN"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "B",
+            "job 3": "B",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_SEDA_RAN2",
             "JB_RAN_TYPE_AVOID",
@@ -14700,6 +15351,13 @@
             "JB_DGR",
             "JB_GUA"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "B",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_MONZ_WOR2",
             null,
@@ -14891,6 +15549,13 @@
             "JB_THI",
             "JB_DGN"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_WOR_GOLIATH",
             null,
@@ -15075,6 +15740,13 @@
             "JB_BAR",
             "JB_DOC"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_DAI_THUNDER",
             null,
@@ -15264,6 +15936,13 @@
             "JB_KUR",
             "JB_MAH"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "A",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_DENEB_SEN",
             null,
@@ -15376,6 +16055,13 @@
             "JB_BAA",
             "JB_SAM"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "A",
+            "job 3": "B",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_NIN_SUZAKU",
             "JB_BAA_TYPE_ITIGEKI",
@@ -15559,6 +16245,13 @@
             "JB_THI",
             "JB_DAI"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             null,
@@ -15677,6 +16370,13 @@
             "JB_KAK",
             "JB_SOL"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "S",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_YAUL_SOL2",
             "JB_STR_SENJYU",
@@ -15864,6 +16564,13 @@
             "JB_MAH",
             "JB_GUA"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "SS",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_ZAYI_LORD_CC",
             null,
@@ -16057,6 +16764,13 @@
             "JB_GEN",
             "JB_DAI"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_SYO_AGA",
             null,
@@ -16237,6 +16951,13 @@
             "JB_NIN",
             "JB_SOL"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "A",
+            "job 3": "B",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_GUA_TYPE_ANTI_MAGIC",
             "JB_NIN_KIRIN",
@@ -16426,6 +17147,13 @@
             "JB_ENC",
             "JB_DAI"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "SS",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_OTHI_WIZ_CC",
             "JB_ENC_WATER",
@@ -16613,6 +17341,13 @@
             "JB_KEM",
             "JB_DGN"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "B",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             null,
@@ -16730,6 +17465,13 @@
             "JB_HUN",
             "JB_STR"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_RAN_TYPE_JEWELDAMEGE",
             null,
@@ -16835,6 +17577,13 @@
             "JB_KAK",
             "JB_KAI"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_WOR_ARGOS",
             "JB_STR_SYURA",
@@ -16945,6 +17694,13 @@
             "JB_SOL",
             "JB_BAA"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             null,
@@ -17056,6 +17812,13 @@
             "JB_DGR",
             "JB_GUA"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "B",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_VAL_DEF",
             null,
@@ -17248,6 +18011,13 @@
             "JB_BAA",
             "JB_THI"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "A",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_DGN_RUDRA",
             "JB_BAA_TYPE_RISKY",
@@ -17441,6 +18211,13 @@
             "JB_MAH",
             "JB_WOR"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "S",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             null,
             "JB_MAH_FIRE",
@@ -17552,6 +18329,13 @@
             "JB_DAI",
             "JB_NIN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "S",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             "JB_DAI_FIRE",
@@ -17662,6 +18446,13 @@
             "JB_BAR",
             "JB_SHN"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             null,
@@ -17779,6 +18570,13 @@
             "JB_SOL",
             "JB_GUN"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "B",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_KIL_ANTI_MAGIC",
             "JB_SOL_MONS",
@@ -17973,6 +18771,13 @@
             "JB_PRI",
             "JB_ENC"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             null,
@@ -18088,6 +18893,13 @@
             "JB_HUN",
             "JB_SHN"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             null,
@@ -18205,6 +19017,13 @@
             "JB_KAK",
             "JB_KIL"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "SS",
+            "job 3": "A",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             null,
             null,
@@ -18402,6 +19221,13 @@
             "JB_MAH",
             "JB_RAN"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             "JB_MAH_WIND",
@@ -18510,6 +19336,13 @@
             "JB_SEI",
             "JB_VAL"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        },
         "occurrence": [
             "QE_EV_FATE_2",
             "QE_EV_FATE_3",
@@ -18618,7 +19451,14 @@
             "JB_FATE_GOLD",
             "JB_MAH",
             "JB_BAA"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "S",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_TOSAKA_RINN": {
         "no": 999,
@@ -18722,6 +19562,13 @@
             "JB_KAK",
             "JB_DAI"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "occurrence": [
             "QE_EV_FATE_3",
             "QE_EV_FATE_4",
@@ -18835,7 +19682,14 @@
             "JB_FATE_IMAG",
             "JB_GEN",
             "JB_ENC"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "A",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_ARCHER": {
         "no": 999,
@@ -18939,6 +19793,13 @@
             "JB_SOL",
             "JB_RAN"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "B",
+            "job 3": "B",
+            "jc": "",
+            "total": "A"
+        },
         "occurrence": [
             "QE_EV_FATE_1",
             "QE_EV_FATE_2",
@@ -19049,6 +19910,13 @@
             "JB_NEC",
             "JB_FATE_CAS"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "SS",
+            "job 3": "S",
+            "jc": "",
+            "total": "SS"
+        },
         "occurrence": [
             "QE_EV_FATE_EX_4_EASY",
             "QE_EV_FATE_EX_4",
@@ -19159,7 +20027,14 @@
             "JB_FATE_SABR",
             "JB_FATE_ASS",
             "JB_NIN"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "S",
+            "total": "S"
+        }
     },
     "UN_V2_FATE_ZAHAR": {
         "no": 999,
@@ -19265,7 +20140,14 @@
             "JB_FATE_ARCH",
             "JB_FATE_BSKR",
             "JB_FATE_LAN"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_ZEKE": {
         "no": 999,
@@ -19373,6 +20255,13 @@
             "JB_BAA",
             "JB_ZEKE_GUA"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             "JB_BAA_TYPE_RISKY",
@@ -19558,6 +20447,13 @@
             "JB_NIN",
             "JB_WOR"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             "JB_NIN_SEIRYU",
@@ -19920,6 +20816,13 @@
             "JB_LAN",
             "JB_STR"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "B",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             null,
             null,
@@ -20028,6 +20931,13 @@
             "JB_NIN",
             "JB_SNI"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             "JB_NIN_SUZAKU",
@@ -20142,6 +21052,13 @@
             "JB_MAH",
             "JB_DAI"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_SHN_HEEL",
             "JB_MAH_WATER",
@@ -20264,6 +21181,13 @@
             "JB_THI",
             "JB_BAA"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "S",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_BLA_TYPE_TK_MECHA",
             null,
@@ -20378,6 +21302,13 @@
             "JB_GUN",
             "JB_DAI"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_MAJ_FIRE",
             null,
@@ -20567,6 +21498,13 @@
             "JB_MAH",
             "JB_DAI"
         ],
+        "tierlist": {
+            "job 1": "SS",
+            "job 2": "SS",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             null,
             "JB_MAH_SHINE",
@@ -20753,6 +21691,13 @@
             "JB_ANK",
             "JB_SHN"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             null,
@@ -20869,6 +21814,13 @@
             "JB_WIZ",
             "JB_RAN"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "A",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             null,
@@ -20979,6 +21931,13 @@
             "JB_ODO",
             "JB_MAH"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_DAI_WIND",
             null,
@@ -21096,6 +22055,13 @@
             "JB_SAM",
             "JB_STR"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "C",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             null,
             null,
@@ -21200,7 +22166,14 @@
             "JB_GL_WSM",
             "JB_STR",
             "JB_MAH"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "SS",
+            "job 3": "A",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_FF15_NOCTIS": {
         "no": 999,
@@ -21294,7 +22267,14 @@
             "JB_FF15_NOCT",
             "JB_MAH",
             "JB_HWIZ"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "A",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_FF15_IGNIS": {
         "no": 999,
@@ -21399,6 +22379,13 @@
             "JB_KUR",
             "JB_KIL"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             null,
@@ -21507,7 +22494,14 @@
             "JB_GUN",
             "JB_SEI",
             "JB_FF15_PROM"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_FF15_GLADIOLUS": {
         "no": 999,
@@ -21612,6 +22606,13 @@
             "JB_KAK",
             "JB_GUA"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "S",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             null,
             null,
@@ -21722,7 +22723,14 @@
             "JB_FF15_ARAN",
             "JB_SOL",
             "JB_BAA"
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "S",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_YUTO": {
         "no": 999,
@@ -21828,6 +22836,13 @@
             "JB_SOL",
             "JB_WOR"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        },
         "jobchanges": [
             null,
             null,
@@ -21944,6 +22959,13 @@
             "JB_MAH",
             "JB_ENC"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_SYO_TIR",
             "JB_MAH_WIND",
@@ -22058,6 +23080,13 @@
             "JB_NIN",
             "JB_VAL"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             "JB_NIN_BYACO",
@@ -22168,6 +23197,13 @@
             "JB_DAI",
             "JB_NIN"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             "JB_DAI_POWER",
@@ -22280,6 +23316,13 @@
             "JB_DOC",
             "JB_KAM"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             null,
             "JB_DOC_TYPE_HEALING",
@@ -22392,6 +23435,13 @@
             "JB_THI",
             "JB_SNI"
         ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "C",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_RAN_TYPE_MONS",
             null,
@@ -22504,6 +23554,13 @@
             "JB_NIN",
             "JB_LNC"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             "JB_NIN_SUZAKU",
@@ -22618,6 +23675,13 @@
             "JB_NIN",
             "JB_WOR"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
         "jobchanges": [
             "JB_BAA_TYPE_ITIGEKI",
             null,
@@ -22811,6 +23875,13 @@
             "JB_SAM",
             "JB_WOR"
         ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "A",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_ZIN_ONM",
             null,
