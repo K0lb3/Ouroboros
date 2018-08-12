@@ -51,11 +51,19 @@ def BuffEffectParam(json):
 
         if 'type'+n not in json or json['type'+n]==0:
             continue
+        if 'vini'+n not in json:
+            json['vini'+n]=0
+
+        if 'vmax'+n not in json:
+            json['vmax'+n]=0
+
+        if json['vmax'+n] == 0 and json['vini'+n] == 0:
+            continue
 
         this['buffs'].append({
             'type':ENUM['ParamTypes'][json['type'+n]],
-            'value_ini': json['vini'+n] if 'vini'+n in json else 0,
-            'value_max': json['vmax'+n] if 'vmax'+n in json else 0,
+            'value_ini': json['vini'+n],
+            'value_max': json['vmax'+n],
             'value_one': json['vone'+n] if 'vone'+n in json else 0,
             'calc':ENUM['SkillParamCalcTypes'][json['calc'+n]] if 'calc'+n in json else 'Add'
         })
