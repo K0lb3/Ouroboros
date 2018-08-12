@@ -6,7 +6,7 @@ PATH_convert=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converte
 PATH_convert2=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converted2')
 PATH_export=os.path.join(os.path.dirname(os.path.realpath(__file__)),'export')
 
-def convertRaws(save=True):
+def convertRaws(save=False):
     masters=loadFiles(
     ['MasterParam.json', 'MasterParamJP.json', 'QuestParam.json','QuestParamJP.json', 'QuestDropParam.json'])
     #loc = Translation()

@@ -43,17 +43,21 @@ def wytesong(UNITS):
     print('wytesong.json')
     with open(path, "rt", encoding='utf8') as f:
         wunit= {
-            unit['Name JPN'] : unit
+            unit['Name JPN'] : {
+                'Name':ReBr.sub('', unit['Name']).rstrip(' ').title(),
+                'Original': unit['Name'],
+                'Romanji': unit['Romanji']
+            }
             for unit in json.loads(f.read())['Units']
         }
 
     none = {}
     used = []
+    # directly found via kanji
     for iname,unit in UNITS.items():
         if unit['kanji'] in wunit:
             if iname not in loc:
-                unit['name'] = ReBr.sub(
-                    '', wunit[unit['kanji']]['Name']).rstrip(' ')
+                unit['name'] = wunit[unit['kanji']]['Name']
             del wunit[unit['kanji']]
             used.append(unit['name'])
         else:
@@ -61,27 +65,27 @@ def wytesong(UNITS):
                 none[iname] = unit
             else:
                 used.append(unit['name'])
-
+    
+    # searching via laevenstein
+    
     for iname,unit in none.items():
-        try:
-            found=False
-            for kanji,left in wunit.items():
-                generated=iname[6:].replace('_',' ').title()
-                wName=ReBr.sub('', left['Name']).rstrip(' ').title()
-                if wName not in used and (similarity(generated, wName) >= 0.8 or
-                        similarity(generated, left['Romanji'].title()) >= 0.8 or
-                        similarity(unit['kanji'], kanji) >= 0.8 or
-                        unit['kanji'] in kanji):
-
-                    unit['name'] =wName
+        found=False
+        backup=None
+        for kanji,left in wunit.items():
+            if  (similarity(unit['kanji'], kanji) <= 2 or unit['kanji'] in kanji):
+                if left['Name'] not in used:
+                    unit['name'] = left['Name']
                     found=True
                     del wunit[kanji]
                     break
-            if not found:
-                print('Not found:',iname)
-        except RuntimeError:
-            pass
+                else:
+                    backup=left['Original']
 
+        if not found:
+            if backup:
+                unit['name']=backup
+            else:
+                print('Not found:',iname)
 
 
 TRANSLATION=FuseTranslations()
