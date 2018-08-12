@@ -24214,7 +24214,7 @@
     "UN_V2_DIS_KILLIA": {
         "no": 999,
         "iname": "UN_V2_DIS_KILLIA",
-        "name": "キリア",
+        "name": "Kiria",
         "kanji": "キリア",
         "height": 177,
         "weight": 69,
@@ -24318,7 +24318,7 @@
     "UN_V2_DIS_SERAPHINA": {
         "no": 999,
         "iname": "UN_V2_DIS_SERAPHINA",
-        "name": "セラフィーヌ",
+        "name": "Seraphina",
         "kanji": "セラフィーヌ",
         "height": 165,
         "birth": "Foreign World",
@@ -24421,7 +24421,7 @@
     "UN_V2_DIS_REDMAGNUS": {
         "no": 999,
         "iname": "UN_V2_DIS_REDMAGNUS",
-        "name": "レッドマグナス",
+        "name": "Red Magnus",
         "kanji": "レッドマグナス",
         "height": 218,
         "weight": 152,
@@ -24520,7 +24520,7 @@
     "UN_V2_DIS_RINN": {
         "no": 999,
         "iname": "UN_V2_DIS_RINN",
-        "name": "リン",
+        "name": "D.Rin",
         "kanji": "リン",
         "height": 154,
         "weight": 40,
@@ -24618,7 +24618,7 @@
     "UN_V2_DIS_USALIA": {
         "no": 999,
         "iname": "UN_V2_DIS_USALIA",
-        "name": "ウサリア",
+        "name": "Usalia",
         "kanji": "ウサリア",
         "height": 121,
         "weight": 25,
@@ -25071,7 +25071,7 @@
     "UN_V2_DIS_LAHAR": {
         "no": 999,
         "iname": "UN_V2_DIS_LAHAR",
-        "name": "ラハール",
+        "name": "Laharl",
         "kanji": "ラハール",
         "height": 172,
         "weight": 61,
@@ -25169,7 +25169,7 @@
     "UN_V2_DIS_ETONA": {
         "no": 999,
         "iname": "UN_V2_DIS_ETONA",
-        "name": "エトナ",
+        "name": "Etna",
         "kanji": "エトナ",
         "height": 172,
         "weight": 61,
@@ -25372,7 +25372,7 @@
     "UN_V2_DIS_ALMILA": {
         "no": 999,
         "iname": "UN_V2_DIS_ALMILA",
-        "name": "アルミラ",
+        "name": "D.Almira",
         "kanji": "アルミラ",
         "height": 156,
         "weight": 45,
@@ -25468,7 +25468,7 @@
     "UN_V2_DIS_ROSA": {
         "no": 999,
         "iname": "UN_V2_DIS_ROSA",
-        "name": "ローザ",
+        "name": "D.Rosa",
         "kanji": "ローザ",
         "height": 180,
         "weight": 60,
@@ -27225,7 +27225,7 @@
     "UN_V2_RH_STOCK": {
         "no": 999,
         "iname": "UN_V2_RH_STOCK",
-        "name": "ストック",
+        "name": "Stocke",
         "kanji": "ストック",
         "birth": "Foreign World",
         "birthID": 100,
@@ -27317,7 +27317,7 @@
     "UN_V2_RH_ERUKA": {
         "no": 999,
         "iname": "UN_V2_RH_ERUKA",
-        "name": "エルーカ",
+        "name": "Eruca",
         "kanji": "エルーカ",
         "birth": "Foreign World",
         "birthID": 100,
@@ -27409,7 +27409,7 @@
     "UN_V2_RH_ATO": {
         "no": 999,
         "iname": "UN_V2_RH_ATO",
-        "name": "アト",
+        "name": "Aht",
         "kanji": "アト",
         "birth": "Foreign World",
         "birthID": 100,
@@ -27501,7 +27501,7 @@
     "UN_V2_RH_RAINY": {
         "no": 999,
         "iname": "UN_V2_RH_RAINY",
-        "name": "レイニー",
+        "name": "Raynie",
         "kanji": "レイニー",
         "birth": "Foreign World",
         "birthID": 100,
@@ -28720,7 +28720,7 @@
     "UN_V2_SQ_PALADIN": {
         "no": 999,
         "iname": "UN_V2_SQ_PALADIN",
-        "name": "パラディン",
+        "name": "Paladin",
         "kanji": "パラディン",
         "birth": "Foreign World",
         "birthID": 100,
@@ -28889,7 +28889,7 @@
     "UN_V2_SQ_PRINCESS": {
         "no": 999,
         "iname": "UN_V2_SQ_PRINCESS",
-        "name": "プリンセス",
+        "name": "Princess",
         "kanji": "プリンセス",
         "birth": "Foreign World",
         "birthID": 100,
@@ -29229,7 +29229,7 @@
     "UN_V2_SQ_GUNNER": {
         "no": 999,
         "iname": "UN_V2_SQ_GUNNER",
-        "name": "ガンナー",
+        "name": "Gunner",
         "kanji": "ガンナー",
         "birth": "Foreign World",
         "birthID": 100,
@@ -30705,7 +30705,7 @@
     "UN_V2_FA_EDWARD": {
         "no": 999,
         "iname": "UN_V2_FA_EDWARD",
-        "name": "エドワード",
+        "name": "Edward Elric",
         "kanji": "エドワード",
         "birth": "Foreign World",
         "birthID": 100,
@@ -30801,7 +30801,7 @@
     "UN_V2_FA_PRIDE": {
         "no": 999,
         "iname": "UN_V2_FA_PRIDE",
-        "name": "プライド",
+        "name": "Pride",
         "kanji": "プライド",
         "birth": "Foreign World",
         "birthID": 100,
@@ -30892,7 +30892,7 @@
     "UN_V2_FA_ALPHONSE": {
         "no": 999,
         "iname": "UN_V2_FA_ALPHONSE",
-        "name": "アルフォンス",
+        "name": "Alphonse Elric",
         "kanji": "アルフォンス",
         "birth": "Foreign World",
         "birthID": 100,
@@ -30992,7 +30992,7 @@
     "UN_V2_FA_MUSTANG": {
         "no": 999,
         "iname": "UN_V2_FA_MUSTANG",
-        "name": "ロイ・マスタング",
+        "name": "Roy Mustang",
         "kanji": "ロイ・マスタング",
         "birth": "Foreign World",
         "birthID": 100,
@@ -31083,7 +31083,7 @@
     "UN_V2_FA_HAWKEYE": {
         "no": 999,
         "iname": "UN_V2_FA_HAWKEYE",
-        "name": "リザ・ホークアイ",
+        "name": "Riza Hawkeye",
         "kanji": "リザ・ホークアイ",
         "birth": "Foreign World",
         "birthID": 100,
@@ -31174,7 +31174,7 @@
     "UN_V2_FA_WRATH": {
         "no": 999,
         "iname": "UN_V2_FA_WRATH",
-        "name": "ブラッドレイ",
+        "name": "King Bradley",
         "kanji": "ブラッドレイ",
         "birth": "Foreign World",
         "birthID": 100,
@@ -31265,7 +31265,7 @@
     "UN_V2_FA_ENVY": {
         "no": 999,
         "iname": "UN_V2_FA_ENVY",
-        "name": "エンヴィー",
+        "name": "Envy",
         "kanji": "エンヴィー",
         "birth": "Foreign World",
         "birthID": 100,
@@ -32019,7 +32019,7 @@
     "UN_V2_ZENN": {
         "no": 999,
         "iname": "UN_V2_ZENN",
-        "name": "ゼン",
+        "name": "Zehn",
         "kanji": "ゼン",
         "height": 183,
         "weight": 78,
@@ -32113,7 +32113,7 @@
     "UN_V2_BELTA": {
         "no": 999,
         "iname": "UN_V2_BELTA",
-        "name": "ベルタ",
+        "name": "Belta",
         "kanji": "ベルタ",
         "height": 149,
         "weight": 42,
@@ -32211,7 +32211,7 @@
     "UN_V2_POK_BLK_TYRHUNG": {
         "no": 999,
         "iname": "UN_V2_POK_BLK_TYRHUNG",
-        "name": "ティルフィング",
+        "name": "Black Killer'S Tyrfing",
         "kanji": "ティルフィング",
         "birth": "Foreign World",
         "birthID": 100,
@@ -32307,7 +32307,7 @@
     "UN_V2_LOTIA": {
         "no": 999,
         "iname": "UN_V2_LOTIA",
-        "name": "ローティア",
+        "name": "Lotia",
         "kanji": "ローティア",
         "height": 159,
         "weight": 56,
@@ -32405,7 +32405,7 @@
     "UN_V2_KEVIN": {
         "no": 999,
         "iname": "UN_V2_KEVIN",
-        "name": "ケヴィン",
+        "name": "Kevin",
         "kanji": "ケヴィン",
         "height": 178,
         "weight": 64,
@@ -32503,7 +32503,7 @@
     "UN_V2_AISHA": {
         "no": 999,
         "iname": "UN_V2_AISHA",
-        "name": "アイシャ",
+        "name": "Aisha",
         "kanji": "アイシャ",
         "height": 158,
         "weight": 50,
@@ -32605,7 +32605,7 @@
     "UN_V2_GUILDFORD": {
         "no": 999,
         "iname": "UN_V2_GUILDFORD",
-        "name": "ギルフォード",
+        "name": "Gilford",
         "kanji": "ギルフォード",
         "height": 183,
         "weight": 85,
@@ -32777,7 +32777,7 @@
     "UN_V2_TERESA": {
         "no": 999,
         "iname": "UN_V2_TERESA",
-        "name": "テレサ",
+        "name": "Teresa",
         "kanji": "テレサ",
         "height": 164,
         "weight": 51,
@@ -32879,7 +32879,7 @@
     "UN_V2_SHIRMA": {
         "no": 999,
         "iname": "UN_V2_SHIRMA",
-        "name": "シルマ",
+        "name": "Silma",
         "kanji": "シルマ",
         "height": 153,
         "weight": 42,
@@ -32978,7 +32978,7 @@
     "UN_V2_KURT": {
         "no": 999,
         "iname": "UN_V2_KURT",
-        "name": "クレト",
+        "name": "Kureto",
         "kanji": "クレト",
         "height": 184,
         "weight": 77,
@@ -33150,7 +33150,7 @@
     "UN_V2_FF15_REGIS": {
         "no": 999,
         "iname": "UN_V2_FF15_REGIS",
-        "name": "レギス",
+        "name": "Regis",
         "kanji": "レギス",
         "height": 185,
         "birth": "Foreign World",
@@ -33243,7 +33243,7 @@
     "UN_V2_FF15_COR": {
         "no": 999,
         "iname": "UN_V2_FF15_COR",
-        "name": "コル",
+        "name": "Cor",
         "kanji": "コル",
         "height": 191,
         "birth": "Foreign World",
@@ -33336,7 +33336,7 @@
     "UN_V2_FF15_IRIS": {
         "no": 999,
         "iname": "UN_V2_FF15_IRIS",
-        "name": "イリス",
+        "name": "Iris",
         "kanji": "イリス",
         "height": 161,
         "birth": "Foreign World",
@@ -33429,7 +33429,7 @@
     "UN_V2_POK_BLK_LAEVATEINN": {
         "no": 999,
         "iname": "UN_V2_POK_BLK_LAEVATEINN",
-        "name": "レーヴァテイン",
+        "name": "Black Killer Laevateinn",
         "kanji": "レーヴァテイン",
         "birth": "Foreign World",
         "birthID": 100,
@@ -33525,7 +33525,7 @@
     "UN_V2_POK_PARASHU": {
         "no": 999,
         "iname": "UN_V2_POK_PARASHU",
-        "name": "パラシュ",
+        "name": "Parashu",
         "kanji": "パラシュ",
         "birth": "Foreign World",
         "birthID": 100,
@@ -33621,7 +33621,7 @@
     "UN_V2_POK_FREIKUGEL": {
         "no": 999,
         "iname": "UN_V2_POK_FREIKUGEL",
-        "name": "フライクーゲル",
+        "name": "Freikugel",
         "kanji": "フライクーゲル",
         "birth": "Foreign World",
         "birthID": 100,
@@ -33717,7 +33717,7 @@
     "UN_V2_S_TSUKUYOMI": {
         "no": 999,
         "iname": "UN_V2_S_TSUKUYOMI",
-        "name": "ツクヨミ",
+        "name": "Tsukuyomi",
         "kanji": "ツクヨミ",
         "birth": "Foreign World",
         "birthID": 100,
@@ -33813,7 +33813,7 @@
     "UN_V2_FIONA": {
         "no": 999,
         "iname": "UN_V2_FIONA",
-        "name": "フィオナ",
+        "name": "Fiona",
         "kanji": "フィオナ",
         "height": 156,
         "weight": 48,
@@ -33910,7 +33910,7 @@
     "UN_V2_GERALD": {
         "no": 999,
         "iname": "UN_V2_GERALD",
-        "name": "ジェラルド",
+        "name": "Gerald",
         "kanji": "ジェラルド",
         "height": 183,
         "weight": 73,
@@ -34081,7 +34081,7 @@
     "UN_V2_NATALIE": {
         "no": 999,
         "iname": "UN_V2_NATALIE",
-        "name": "ナタリー",
+        "name": "Natalie",
         "kanji": "ナタリー",
         "height": 157,
         "weight": 47,
@@ -34252,7 +34252,7 @@
     "UN_V2_L_UROB": {
         "no": 999,
         "iname": "UN_V2_L_UROB",
-        "name": "リル＝ウロボロス",
+        "name": "Lil Uroboros",
         "kanji": "リル＝ウロボロス",
         "height": 127,
         "weight": 27,
@@ -34351,7 +34351,7 @@
     "UN_V2_NINA": {
         "no": 999,
         "iname": "UN_V2_NINA",
-        "name": "ニーナ",
+        "name": "Nina",
         "kanji": "ニーナ",
         "height": 134,
         "weight": 33,
@@ -34449,7 +34449,7 @@
     "UN_V2_REN": {
         "no": 999,
         "iname": "UN_V2_REN",
-        "name": "レン",
+        "name": "Ren",
         "kanji": "レン",
         "height": 162,
         "weight": 50,
@@ -34547,7 +34547,7 @@
     "UN_V2_THOL": {
         "no": 999,
         "iname": "UN_V2_THOL",
-        "name": "ソル",
+        "name": "Sol",
         "kanji": "ソル",
         "birth": "Foreign World",
         "birthID": 11,
@@ -34644,7 +34644,7 @@
     "UN_V2_LETICIA": {
         "no": 999,
         "iname": "UN_V2_LETICIA",
-        "name": "レティシア",
+        "name": "Leticia",
         "kanji": "レティシア",
         "height": 158,
         "weight": 47,
@@ -34742,7 +34742,7 @@
     "UN_V2_NIGURU": {
         "no": 999,
         "iname": "UN_V2_NIGURU",
-        "name": "ニグル",
+        "name": "Niggle",
         "kanji": "ニグル",
         "height": 180,
         "weight": 72,
@@ -34840,7 +34840,7 @@
     "UN_V2_IRA": {
         "no": 999,
         "iname": "UN_V2_IRA",
-        "name": "イーラ",
+        "name": "Ira",
         "kanji": "イーラ",
         "height": 139,
         "weight": 39,
@@ -34938,7 +34938,7 @@
     "UN_V2_CARLA": {
         "no": 999,
         "iname": "UN_V2_CARLA",
-        "name": "カルラ",
+        "name": "Karla",
         "kanji": "カルラ",
         "height": 160,
         "weight": 47,
@@ -35036,7 +35036,7 @@
     "UN_V2_ANKH": {
         "no": 999,
         "iname": "UN_V2_ANKH",
-        "name": "アンク",
+        "name": "Ankh",
         "kanji": "アンク",
         "height": 175,
         "weight": 52,
@@ -35134,7 +35134,7 @@
     "UN_V2_NEFERTY": {
         "no": 999,
         "iname": "UN_V2_NEFERTY",
-        "name": "ネフェルティ",
+        "name": "Neferti",
         "kanji": "ネフェルティ",
         "height": 168,
         "weight": 45,
@@ -35232,7 +35232,7 @@
     "UN_V2_APR_LIZ": {
         "no": 999,
         "iname": "UN_V2_APR_LIZ",
-        "name": "リザードマン",
+        "name": "Lizardman",
         "kanji": "リザードマン",
         "birth": "Foreign World",
         "birthID": 100,
@@ -35324,7 +35324,7 @@
     "UN_V2_DON_TARAS": {
         "no": 999,
         "iname": "UN_V2_DON_TARAS",
-        "name": "ドン･タラス",
+        "name": "Don Taras",
         "kanji": "ドン･タラス",
         "height": 200,
         "weight": 130,
@@ -35424,7 +35424,7 @@
     "UN_V2_ORION": {
         "no": 999,
         "iname": "UN_V2_ORION",
-        "name": "オライオン",
+        "name": "Orion",
         "kanji": "オライオン",
         "height": 198,
         "weight": 120,
@@ -35522,7 +35522,7 @@
     "UN_V2_POK_BLK_ARTEMIS": {
         "no": 999,
         "iname": "UN_V2_POK_BLK_ARTEMIS",
-        "name": "アルテミス",
+        "name": "Black Killer Artemis",
         "kanji": "アルテミス",
         "height": 168,
         "weight": 54,
@@ -35620,7 +35620,7 @@
     "UN_V2_CRY_MERLINUS": {
         "no": 999,
         "iname": "UN_V2_CRY_MERLINUS",
-        "name": "メルリヌス",
+        "name": "Merlinus",
         "kanji": "メルリヌス",
         "height": 165,
         "weight": 49,
@@ -35719,7 +35719,7 @@
     "UN_V2_CRY_ARTHUR": {
         "no": 999,
         "iname": "UN_V2_CRY_ARTHUR",
-        "name": "アーサー",
+        "name": "Arthur",
         "kanji": "アーサー",
         "height": 182,
         "weight": 70,
@@ -35818,7 +35818,7 @@
     "UN_V2_MORE": {
         "no": 999,
         "iname": "UN_V2_MORE",
-        "name": "モア",
+        "name": "Moa",
         "kanji": "モア",
         "height": 151,
         "weight": 43,
@@ -35916,7 +35916,7 @@
     "UN_V2_LEAFA": {
         "no": 999,
         "iname": "UN_V2_LEAFA",
-        "name": "リーファ",
+        "name": "Leafa",
         "kanji": "リーファ",
         "height": 162,
         "weight": 45,
@@ -36013,7 +36013,7 @@
     "UN_V2_ALMA": {
         "no": 999,
         "iname": "UN_V2_ALMA",
-        "name": "アルマ",
+        "name": "Alma",
         "kanji": "アルマ",
         "height": 156,
         "weight": 50,
@@ -36112,7 +36112,7 @@
     "UN_V2_REBECCA": {
         "no": 999,
         "iname": "UN_V2_REBECCA",
-        "name": "レベッカ",
+        "name": "Rebecca",
         "kanji": "レベッカ",
         "height": 160,
         "weight": 51,
@@ -36206,7 +36206,7 @@
     "UN_V2_KAYA": {
         "no": 999,
         "iname": "UN_V2_KAYA",
-        "name": "カヤ",
+        "name": "Kaya",
         "kanji": "カヤ",
         "height": 161,
         "weight": 51,

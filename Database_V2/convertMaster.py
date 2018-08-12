@@ -1,8 +1,10 @@
 from MainFunctions import *
+from Functions import wytesong
 import ParamFunctions
 
 PATH_convert=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converted1')
 PATH_convert2=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converted2')
+PATH_export=os.path.join(os.path.dirname(os.path.realpath(__file__)),'export')
 
 def convertRaws(save=True):
     masters=loadFiles(
@@ -133,7 +135,6 @@ def Fixes(master):
         #save
         saveAsJSON(PATH_convert2, 'Quests.json',master['quests'])
 
-    
     ##units##########################################################
     print('Fix - Unit')
     if 1:
@@ -157,6 +158,9 @@ def Fixes(master):
                     for js in unit['jobsets']
                     ]
                 del unit['jobsets']
+
+        #add unit kanji translations via wytesong
+        wytesong(eUnit)
 
         #add job+
         for key,js in master['JobSet'].items():
@@ -214,7 +218,7 @@ def Fixes(master):
         #save
         saveAsJSON(PATH_convert2, 'Unit.json',eUnit)
         saveAsJSON(PATH_convert2, 'Enemy.json',eEnemy)
-   
+        saveAsJSON(PATH_export, 'AIO.json', master, None)
 
 
 Con1=convertRaws()

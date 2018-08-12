@@ -29,10 +29,10 @@ def loadFiles(files):
 
     return ret
 
-def saveAsJSON(path, name, var):
+def saveAsJSON(path, name, var,indent=4):
     os.makedirs(path, exist_ok=True)
     with open(os.path.join(path, name), "wb") as f:
-        f.write(json.dumps(var, indent=4, ensure_ascii=False).encode('utf8'))
+        f.write(json.dumps(var, indent=indent, ensure_ascii=False,).encode('utf8'))
     return 1
 
 def TACScale(ini,max,lv,mlv):
