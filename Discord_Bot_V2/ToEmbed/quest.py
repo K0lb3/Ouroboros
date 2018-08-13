@@ -3,7 +3,7 @@ from PIL import Image, ImageFont, ImageDraw
 import io
 
 def quest(iname,page):
-    Quest=DIRS['quests'][iname]
+    Quest=DIRS['Quests'][iname]
 
     map=MapImage(Quest['map'][0])
 
@@ -79,20 +79,28 @@ def MapImage(MAP):
         for y in range(height)
     ]
     #add party
-    if 'party' in Set:
-        for i,unit in enumerate(Set['party']):
-            tile=AIO[unit['pos']['y']][unit['pos']['x']]
-            tile.update({
-                'text': '{height} U{unit}'.format(unit=i+1,height= tile['height']),
-                'type': 'Party'
-            })
-    if 'enemy' in Set:
-        for i,unit in enumerate(Set['enemy']):
-            tile=AIO[unit['pos']['y']][unit['pos']['x']]
-            tile.update({
-                'text': '{height} E{enemy}'.format(enemy=i+1,height= tile['height']),
-                'type': 'Enemy'
-            })
+    parties={
+        'party':{
+            'type':'Party',
+            'pre':'U',
+            },
+        'enemy':{
+            'type':'Enemy',
+            'pre':'E',
+            },
+        'arena':{
+            'type':'Enemy',
+            'pre':'E',
+            },
+    }
+    for key,party in parties.items():
+        if key in Set:
+            for i,unit in enumerate(Set[key]):
+                tile=AIO[unit['pos']['y']][unit['pos']['x']]
+                tile.update({
+                    'text': '{height} {pre}{unit}'.format(unit=i+1,pre=party['pre'],height= tile['height']),
+                    'type': party['type']
+                })
 
     #convert to color array
     #upsize and add borders

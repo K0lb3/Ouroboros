@@ -1,7 +1,7 @@
 {
     "ME_NONE_DUMMY": {
         "mIname": "ME_NONE_DUMMY",
-        "mName": "なし",
+        "mName": "None",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_NONE"
@@ -10,7 +10,7 @@
     },
     "ME_PLAIN": {
         "mIname": "ME_PLAIN",
-        "mName": "草原",
+        "mName": "Prairie",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_PLA_WARRIOR",
@@ -22,7 +22,7 @@
     },
     "ME_WASTELAND": {
         "mIname": "ME_WASTELAND",
-        "mName": "荒野",
+        "mName": "Wastelands",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_WLA_SHOOTER",
@@ -33,12 +33,12 @@
     },
     "ME_MOUNTAIN": {
         "mIname": "ME_MOUNTAIN",
-        "mName": "山岳",
+        "mName": "Mountains",
         "dif": {}
     },
     "ME_DESERT": {
         "mIname": "ME_DESERT",
-        "mName": "砂漠",
+        "mName": "Desert",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_DES_WARRIOR",
@@ -50,7 +50,7 @@
     },
     "ME_FOREST": {
         "mIname": "ME_FOREST",
-        "mName": "森林",
+        "mName": "Forest",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_FRS_SHOOTER_JUMP",
@@ -63,7 +63,7 @@
     },
     "ME_TOWN": {
         "mIname": "ME_TOWN",
-        "mName": "街",
+        "mName": "City",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_TWN_MONK",
@@ -76,7 +76,7 @@
     },
     "ME_MACHINE_CITY": {
         "mIname": "ME_MACHINE_CITY",
-        "mName": "機械都市",
+        "mName": "Machine City",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_MEC_SHOOTER",
@@ -87,7 +87,7 @@
     },
     "ME_INDOOR": {
         "mIname": "ME_INDOOR",
-        "mName": "屋内",
+        "mName": "Indoor",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_IDR_MONK",
@@ -98,12 +98,12 @@
     },
     "ME_VILLAGE": {
         "mIname": "ME_VILLAGE",
-        "mName": "村",
+        "mName": "Town",
         "dif": {}
     },
     "ME_RUINS": {
         "mIname": "ME_RUINS",
-        "mName": "遺跡",
+        "mName": "Ruins",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_RUI_WARRIOR",
@@ -113,22 +113,22 @@
     },
     "ME_ABANDONED": {
         "mIname": "ME_ABANDONED",
-        "mName": "廃墟",
+        "mName": "Ruins",
         "dif": {}
     },
     "ME_UNDERPASS": {
         "mIname": "ME_UNDERPASS",
-        "mName": "地下道",
+        "mName": "Underground",
         "dif": {}
     },
     "ME_CAVE": {
         "mIname": "ME_CAVE",
-        "mName": "洞窟",
+        "mName": "Cave",
         "dif": {}
     },
     "ME_FORT": {
         "mIname": "ME_FORT",
-        "mName": "城砦",
+        "mName": "Fortress",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_FRT_WARRIOR",
@@ -140,7 +140,7 @@
     },
     "ME_SNOWFIELD": {
         "mIname": "ME_SNOWFIELD",
-        "mName": "雪原",
+        "mName": "Snow Plains",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_SNW_MAGICSWORD",
@@ -153,7 +153,7 @@
     },
     "ME_MAGICAL_CITY": {
         "mIname": "ME_MAGICAL_CITY",
-        "mName": "魔法都市",
+        "mName": "Magic City",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_MAG_WIZARD",
@@ -166,12 +166,12 @@
     },
     "ME_CEMETERY": {
         "mIname": "ME_CEMETERY",
-        "mName": "墓地",
+        "mName": "Graveyard",
         "dif": {}
     },
     "ME_OCEAN": {
         "mIname": "ME_OCEAN",
-        "mName": "海",
+        "mName": "Ocean",
         "dif": {
             "mValidSkillLists": [
                 "SK_ME_OCE_WARRIOR_AGI",
@@ -183,47 +183,47 @@
     },
     "ME_VOLCANO": {
         "mIname": "ME_VOLCANO",
-        "mName": "火山",
+        "mName": "Volcano",
         "dif": {}
     },
     "ME_ARENAQUEST": {
         "mIname": "ME_ARENAQUEST",
-        "mName": "闘技場",
+        "mName": "Arena",
         "dif": {}
     },
     "ME_VEDA_FIELD": {
         "mIname": "ME_VEDA_FIELD",
-        "mName": "異層の間",
+        "mName": "Mystic Space",
         "dif": {}
     },
     "ME_ANOTHER_WORLD": {
         "mIname": "ME_ANOTHER_WORLD",
-        "mName": "亜空間",
+        "mName": "Hyperspace",
         "dif": {}
     },
     "ME_TOWER_MOBIUS_01": {
         "mIname": "ME_TOWER_MOBIUS_01",
-        "mName": "異層界メビウス01",
+        "mName": "Mystic World Mobius 01",
         "dif": {}
     },
     "ME_TOWER_MOBIUS_02": {
         "mIname": "ME_TOWER_MOBIUS_02",
-        "mName": "異層界メビウス02",
+        "mName": "Mystic World Mobius 02",
         "dif": {}
     },
     "ME_TOWER_MOBIUS_03": {
         "mIname": "ME_TOWER_MOBIUS_03",
-        "mName": "異層界メビウス03",
+        "mName": "Mystic World Mobius 03",
         "dif": {}
     },
     "ME_TOWER_MOBIUS_04": {
         "mIname": "ME_TOWER_MOBIUS_04",
-        "mName": "異層界メビウス04",
+        "mName": "Mystic World Mobius 04",
         "dif": {}
     },
     "ME_TOWER_MOBIUS_05": {
         "mIname": "ME_TOWER_MOBIUS_05",
-        "mName": "異層界メビウス05",
+        "mName": "Mystic World Mobius 05",
         "dif": {}
     },
     "ME_BORDER_COLLABO": {
@@ -233,7 +233,7 @@
     },
     "ME_COLLABO_01": {
         "mIname": "ME_COLLABO_01",
-        "mName": "流用禁止マップ1",
+        "mName": "Restricted_Use_Map1",
         "dif": {}
     },
     "ME_RM_APR_LIZ_01": {

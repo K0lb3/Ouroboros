@@ -1,9 +1,14 @@
-from ParamFunctions._variables import ENUM
+from ParamFunctions._variables import ENUM,TRANSLATION
 from ParamFunctions.MapParam import MapParam
 def QuestParam(json):
     this={}#QuestParamjson)
     if 'iname' in json:
         this['iname'] = json['iname']
+    if 'name' in json:
+        this['kanji'] = json['name']
+    if this['iname'] in TRANSLATION:
+        json.update(TRANSLATION[json['iname']])
+    
     if 'name' in json:
         this['name'] = json['name']
     if 'expr' in json:

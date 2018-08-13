@@ -6,7 +6,7 @@ PATH_convert=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converte
 PATH_convert2=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converted2')
 PATH_export=os.path.join(os.path.dirname(os.path.realpath(__file__)),'export')
 
-def convertRaws(save=False):
+def convertRaws(save=True):
     masters=loadFiles(
     ['MasterParam.json', 'MasterParamJP.json', 'QuestParam.json','QuestParamJP.json', 'QuestDropParam.json'])
     #loc = Translation()
@@ -131,8 +131,6 @@ def Fixes(master):
                                 for index,value in enumerate(map['Set'][p]):
                                     map['Set'][p][index] = ParamFunctions.MapSetting(value)
             #drop list
-        #save
-        saveAsJSON(PATH_convert2, 'Quests.json',master['quests'])
 
     ##units##########################################################
     print('Fix - Unit')
@@ -218,6 +216,7 @@ def Fixes(master):
                                 print(enemy['iname'])
 
         #save
+        saveAsJSON(PATH_convert2, 'Quests.json',master['quests'])
         saveAsJSON(PATH_convert2, 'Unit.json',eUnit)
         saveAsJSON(PATH_convert2, 'Enemy.json',eEnemy)
         saveAsJSON(PATH_export, 'AIO.json', master, None)

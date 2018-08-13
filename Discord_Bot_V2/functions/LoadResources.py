@@ -10,6 +10,6 @@ def LoadResources():
     for f in files:
         print(f)
         with open(mypath+f, "rt", encoding='utf8') as file:
-            ret[f[:-5]]=json.loads(file.read())
+            ret[f[:-5].title()]=json.loads(file.read())
             
     return ret

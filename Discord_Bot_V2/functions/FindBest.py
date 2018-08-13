@@ -16,8 +16,8 @@ def FindBest(source, text, print_=False):
     # Then, create a list of (key, the best score) tuples.
     if 1:
         similarities = [
-            (key, jellyfish.jaro_winkler(text, key['name'].title()))
-            for key in source
+            (key, jellyfish.jaro_winkler(text, item['name'].title()))
+            for key,item in source.items()
         ]
 
         # similarities = [
