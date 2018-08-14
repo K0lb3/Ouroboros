@@ -18154,7 +18154,7 @@
     "QE_SO_ROSA_100": {
         "iname": "QE_SO_ROSA_100",
         "dropList": [
-            "IT_PI_RIGARUTO"
+            "IT_PI_ROSA"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -18594,7 +18594,7 @@
     "QE_SO_REIM_100": {
         "iname": "QE_SO_REIM_100",
         "dropList": [
-            "IT_PI_RIGARUTO"
+            "IT_PI_REIMEI"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -18698,7 +18698,7 @@
     "QE_SO_GLAN_100": {
         "iname": "QE_SO_GLAN_100",
         "dropList": [
-            "IT_PI_ALEXIS"
+            "IT_PI_GLANZ"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"

@@ -6473,6 +6473,32 @@
         },
         "dif": {}
     },
+    "JS_ARKILL_04_MAH": {
+        "iname": "JS_ARKILL_04_MAH",
+        "job": "JB_ARKI_MAH",
+        "jobchange": "JS_ARKILL_03_MAH",
+        "target_unit": "UN_V2_ARKILL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MAH",
+            "lv": 11
+        },
+        "dif": {}
+    },
+    "JS_YUAN_04_NIN": {
+        "iname": "JS_YUAN_04_NIN",
+        "job": "JB_YUAN_NIN",
+        "jobchange": "JS_YUAN_03_NIN",
+        "target_unit": "UN_V2_YUAN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NIN",
+            "lv": 11
+        },
+        "dif": {}
+    },
     "JS_BAA_HAGOITA": {
         "iname": "JS_BAA_HAGOITA",
         "job": "JB_BAA_HAGOITA",
@@ -6651,18 +6677,6 @@
             "lv": 11
         }
     },
-    "JS_YUAN_04_NIN": {
-        "iname": "JS_YUAN_04_NIN",
-        "job": "JB_YUAN_NIN",
-        "jobchange": "JS_YUAN_03_NIN",
-        "target_unit": "UN_V2_YUAN",
-        "lock_rarity": 0,
-        "lock_awakelv": 15,
-        "lock_jobs": {
-            "iname": "JB_NIN",
-            "lv": 11
-        }
-    },
     "JS_MARE_04_MARE_DAI": {
         "iname": "JS_MARE_04_MARE_DAI",
         "job": "JB_MARE_DAI",
@@ -6704,18 +6718,6 @@
         "job": "JB_MAH_DARK",
         "jobchange": "JS_SUTORIE_03_MAH",
         "target_unit": "UN_V2_SUTORIE",
-        "lock_rarity": 0,
-        "lock_awakelv": 15,
-        "lock_jobs": {
-            "iname": "JB_MAH",
-            "lv": 11
-        }
-    },
-    "JS_ARKILL_04_MAH": {
-        "iname": "JS_ARKILL_04_MAH",
-        "job": "JB_ARKI_MAH",
-        "jobchange": "JS_ARKILL_03_MAH",
-        "target_unit": "UN_V2_ARKILL",
         "lock_rarity": 0,
         "lock_awakelv": 15,
         "lock_jobs": {
@@ -6816,6 +6818,18 @@
         "lock_awakelv": 15,
         "lock_jobs": {
             "iname": "JB_SEN",
+            "lv": 11
+        }
+    },
+    "JS_ZAYI_04_LORD_CC": {
+        "iname": "JS_ZAYI_04_LORD_CC",
+        "job": "JB_ZAYI_LORD_CC",
+        "jobchange": "JS_ZAYI_LORD",
+        "target_unit": "UN_V2_ZAYIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ZAYI_LORD",
             "lv": 11
         }
     },
@@ -6924,6 +6938,54 @@
         "lock_awakelv": 15,
         "lock_jobs": {
             "iname": "JB_SAM",
+            "lv": 11
+        }
+    },
+    "JS_SQ_PAL_03_VAL_LAN_JUMP": {
+        "iname": "JS_SQ_PAL_03_VAL_LAN_JUMP",
+        "job": "JB_VAL_LAN_JUMP",
+        "jobchange": "JS_SQ_PAL_03_VAL",
+        "target_unit": "UN_V2_SQ_PALADIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_VAL",
+            "lv": 11
+        }
+    },
+    "JS_SQ_PRI_02_ENC_THUNDER": {
+        "iname": "JS_SQ_PRI_02_ENC_THUNDER",
+        "job": "JB_ENC_THUNDER",
+        "jobchange": "JS_SQ_PRI_02_ENC",
+        "target_unit": "UN_V2_SQ_PRINCESS",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ENC",
+            "lv": 11
+        }
+    },
+    "JS_SQ_RAN_TYPE_MONS": {
+        "iname": "JS_SQ_RAN_TYPE_MONS",
+        "job": "JB_RAN_TYPE_MONS",
+        "jobchange": "JS_HUN",
+        "target_unit": "UN_V2_SQ_GUNNER",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUN",
+            "lv": 11
+        }
+    },
+    "JS_SQ_SHEN_02_SHN_HEEL": {
+        "iname": "JS_SQ_SHEN_02_SHN_HEEL",
+        "job": "JB_SHN_HEEL",
+        "jobchange": "JS_SQ_SHEN_02_SHN",
+        "target_unit": "UN_V2_SQ_SHENMEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SHN",
             "lv": 11
         }
     },
@@ -10099,6 +10161,18 @@
             "lv": 11
         }
     },
+    "JS_VIER_01_SYO_AGA": {
+        "iname": "JS_VIER_01_SYO_AGA",
+        "job": "JB_SYO_AGA",
+        "jobchange": "JS_VIER_03_SYO",
+        "target_unit": "UN_V2_VIER",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SYO",
+            "lv": 11
+        }
+    },
     "JS_NINA_01_SYO_TIR": {
         "iname": "JS_NINA_01_SYO_TIR",
         "job": "JB_SYO_TIR",
@@ -10804,6 +10878,66 @@
         "lock_awakelv": 15,
         "lock_jobs": {
             "iname": "JB_BAR",
+            "lv": 11
+        }
+    },
+    "JS_WON_03_KAI_ALWIDA": {
+        "iname": "JS_WON_03_KAI_ALWIDA",
+        "job": "JB_KAI_ALWIDA",
+        "jobchange": "JS_WON_03_KAI",
+        "target_unit": "UN_V2_WON",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAI",
+            "lv": 11
+        }
+    },
+    "JS_RIGARUTO_03_KAI_ALWIDA": {
+        "iname": "JS_RIGARUTO_03_KAI_ALWIDA",
+        "job": "JB_KAI_ALWIDA",
+        "jobchange": "JS_RIGARUTO_03_KAI",
+        "target_unit": "UN_V2_RIGARUTO",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAI",
+            "lv": 11
+        }
+    },
+    "JS_SHENMEI_01_JB_KAI_TEACH": {
+        "iname": "JS_SHENMEI_01_JB_KAI_TEACH",
+        "job": "JB_KAI_TEACH",
+        "jobchange": "JS_KAI",
+        "target_unit": "UN_V2_SHENMEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAI",
+            "lv": 11
+        }
+    },
+    "JS_HISHARMU_03_KAI_TEACH": {
+        "iname": "JS_HISHARMU_03_KAI_TEACH",
+        "job": "JB_KAI_TEACH",
+        "jobchange": "JS_HISHARMU_03_KAI",
+        "target_unit": "UN_V2_HISHARMU",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAI",
+            "lv": 11
+        }
+    },
+    "JS_HISHARMU_04_HUU": {
+        "iname": "JS_HISHARMU_04_HUU",
+        "job": "JB_HISHARMU_HUU",
+        "jobchange": "JS_HUU",
+        "target_unit": "UN_V2_HISHARMU",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUU",
             "lv": 11
         }
     },

@@ -5204,7 +5204,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -5281,7 +5281,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -5358,7 +5358,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -5435,7 +5435,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -6381,7 +6381,7 @@
             "abil_shows": [],
             "abil_conds": [],
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -6637,7 +6637,7 @@
         "dif": {
             "rareini": 0,
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -7168,7 +7168,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -7451,7 +7451,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -8143,7 +8143,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -10245,7 +10245,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -11241,7 +11241,7 @@
                 0
             ],
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -12364,7 +12364,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -14374,7 +14374,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -14715,7 +14715,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -15028,7 +15028,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -15214,7 +15214,11 @@
         "condition_jobs": [
             "JB_HUU"
         ],
-        "dif": {}
+        "dif": {
+            "condition_jobs": [
+                "JB_HISHARMU_HUU"
+            ]
+        }
     },
     "AF_ARMS_HUU_03": {
         "iname": "AF_ARMS_HUU_03",
@@ -15256,7 +15260,11 @@
         "condition_jobs": [
             "JB_HUU"
         ],
-        "dif": {}
+        "dif": {
+            "condition_jobs": [
+                "JB_HISHARMU_HUU"
+            ]
+        }
     },
     "AF_ARMS_RH_ERUK_01": {
         "iname": "AF_ARMS_RH_ERUK_01",
@@ -15620,7 +15628,7 @@
     "AF_ARMS_S_YURI_00": {
         "iname": "AF_ARMS_S_YURI_00",
         "kanji": "白百合刀",
-        "name": "White-Lily Knife",
+        "name": "White-Lily Katana",
         "expr": "Attributes: PATK Up, PDEF Up, AGI Up, Chance of PATK/PDEF Up for two turns (Added when evolving to 5★.)<br>Enables Master Ability when equipped on Yuri (3-hit Thunder Slash Dmg to single target & greatly raises own PDEF/MDEF until next turn [Range: 1, Height Range: 2])",
         "flavor": "The beauty of this exquisite short sword has been compared to the white lilies of the land of Crimson Summer when in full bloom. A smith from a ninja village is said to have crafted it especially with Yuri in mind, and it possesses both sharp and graceful in equal measure. Only Yuri is able to utilize its full power.",
         "spec": "No requirements to equip",
@@ -16387,7 +16395,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -17143,7 +17151,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_HENC_WIND"
+                "JB_KAYA01"
             ]
         }
     },
@@ -17234,7 +17242,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -17542,7 +17550,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_GUIL_TEM"
+                "JB_ZAYI_LORD_CC"
             ]
         }
     },
@@ -21824,7 +21832,8 @@
             "JB_POK_B_TYRH01",
             "JB_CANO_LORD_CC",
             "JB_CRY_ARTH01",
-            "JB_GUIL_TEM"
+            "JB_GUIL_TEM",
+            "JB_ZAYI_LORD_CC"
         ]
     },
     "AF_ACCS_SNOWMAN_GLOVE": {
@@ -22044,7 +22053,8 @@
             "JB_POK_B_TYRH01",
             "JB_CANO_LORD_CC",
             "JB_CRY_ARTH01",
-            "JB_GUIL_TEM"
+            "JB_GUIL_TEM",
+            "JB_ZAYI_LORD_CC"
         ]
     },
     "AF_ARMS_ANK_SYOU_00": {
@@ -22493,7 +22503,8 @@
             "JB_POK_B_TYRH01",
             "JB_CANO_LORD_CC",
             "JB_CRY_ARTH01",
-            "JB_GUIL_TEM"
+            "JB_GUIL_TEM",
+            "JB_ZAYI_LORD_CC"
         ]
     },
     "AF_ARMS_WIZ_SYOU_00": {
@@ -23575,6 +23586,123 @@
             "JB_CRY_MERL01"
         ]
     },
+    "AF_ACCS_KAYA_01": {
+        "iname": "AF_ACCS_KAYA_01",
+        "kanji": "朴念仁のカンテラ",
+        "name": "朴念仁のカンテラ",
+        "spec": "装備可能条件なし",
+        "icon": "AF_ACCS_KAYA_01",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 2,
+        "raremax": 4,
+        "kakera": "IT_AF_ACCS_KAYA_01",
+        "maxnum": 999,
+        "equip_effects": [
+            "SK_AF_ACCS_KAYA_01_4",
+            "SK_AF_ACCS_KAYA_01_4",
+            "SK_AF_ACCS_KAYA_01_4",
+            "SK_AF_ACCS_KAYA_01_4",
+            "SK_AF_ACCS_KAYA_01_5"
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "abil_inames": [
+            "AB_AF_ACCS_KAYA_01_WA"
+        ],
+        "abil_levels": [
+            1
+        ],
+        "abil_rareties": [
+            0
+        ],
+        "abil_shows": [
+            1
+        ],
+        "abil_conds": [
+            "なし"
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 1,
+        "condition_lv": 1
+    },
+    "AF_ARMS_SUMERAGI_00": {
+        "iname": "AF_ARMS_SUMERAGI_00",
+        "kanji": "スメラギ",
+        "name": "スメラギ",
+        "spec": "装備可能条件なし",
+        "asset": "wpn_smlg_00",
+        "icon": "AF_ARMS_SUMERAGI_00",
+        "tag": "Sword",
+        "type": "Arms",
+        "rareini": 2,
+        "raremax": 4,
+        "kakera": "IT_AF_ARMS_SUMERAGI_00",
+        "maxnum": 999,
+        "equip_effects": [
+            "SK_AF_ARMS_SUMERAGI_00_3",
+            "SK_AF_ARMS_SUMERAGI_00_3",
+            "SK_AF_ARMS_SUMERAGI_00_3",
+            "SK_AF_ARMS_SUMERAGI_00_4",
+            "SK_AF_ARMS_SUMERAGI_00_5"
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            "SK_AF_ARMS_SUMERAGI_00_AS"
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 1,
+        "condition_lv": 1,
+        "condition_jobs": [
+            "JB_ARM",
+            "JB_SEI",
+            "JB_GUA",
+            "JB_MAH",
+            "JB_SELE_SELE1",
+            "JB_SELE_SELE2",
+            "JB_CANO_ARM",
+            "JB_CANO_SEI",
+            "JB_CANO_LORD",
+            "JB_CADA_SEI",
+            "JB_CADA_GUA",
+            "JB_ZAYI_LORD",
+            "JB_FEN",
+            "JB_H_FEN",
+            "JB_FEN_N",
+            "JB_FATE_SABR",
+            "JB_DILG_GUA",
+            "JB_LOGI_GUA",
+            "JB_ARKI_MAH",
+            "JB_FF15_NOCT",
+            "JB_RH_STOC",
+            "JB_SQ_PAL",
+            "JB_SQ_DAN",
+            "JB_TEM",
+            "JB_POK_B_TYRH01",
+            "JB_CANO_LORD_CC",
+            "JB_CRY_ARTH01",
+            "JB_GUIL_TEM",
+            "JB_ZAYI_LORD_CC"
+        ]
+    },
     "AF_ARMS_VETT_00": {
         "iname": "AF_ARMS_VETT_00",
         "kanji": "緋炎騎士剣『白銀』",
@@ -23626,7 +23754,8 @@
             "JB_DILG_GUA",
             "JB_LOGI_GUA",
             "JB_TEM",
-            "JB_CANO_LORD_CC"
+            "JB_CANO_LORD_CC",
+            "JB_ZAYI_LORD_CC"
         ]
     },
     "AF_ARMS_CLOE_02": {
@@ -23680,7 +23809,8 @@
             "JB_DILG_GUA",
             "JB_LOGI_GUA",
             "JB_TEM",
-            "JB_CANO_LORD_CC"
+            "JB_CANO_LORD_CC",
+            "JB_ZAYI_LORD_CC"
         ]
     },
     "AF_ACCS_VICT_01": {
@@ -23771,7 +23901,8 @@
         "condition_lv": 1,
         "condition_jobs": [
             "JB_WEA",
-            "JB_HUU"
+            "JB_HUU",
+            "JB_HISHARMU_HUU"
         ]
     },
     "AF_ARMO_SHAY_01": {
@@ -24031,7 +24162,8 @@
             "JB_DILG_GUA",
             "JB_LOGI_GUA",
             "JB_TEM",
-            "JB_CANO_LORD_CC"
+            "JB_CANO_LORD_CC",
+            "JB_ZAYI_LORD_CC"
         ]
     },
     "AF_ACCS_ALFR_01": {
@@ -25972,7 +26104,8 @@
             "JB_POK_B_TYRH01",
             "JB_CANO_LORD_CC",
             "JB_CRY_ARTH01",
-            "JB_GUIL_TEM"
+            "JB_GUIL_TEM",
+            "JB_ZAYI_LORD_CC"
         ]
     },
     "AF_ARMO_CRY_ARTH_01": {
@@ -26475,7 +26608,7 @@
         "iname": "AF_ACCS_SEKAIJU_01",
         "kanji": "世界樹のオブジェ",
         "name": "世界樹のオブジェ",
-        "spec": "装備可能条件：世界樹コラボユニットかつリル＝ウロボロス",
+        "spec": "装備可能条件：世界樹コラボユニット、リル＝ウロボロス",
         "icon": "AF_ACCS_SEKAIJU_01",
         "tag": "Earring",
         "type": "Accessory",
@@ -26519,8 +26652,8 @@
     },
     "AF_ACCS_ZAYI_01": {
         "iname": "AF_ACCS_ZAYI_01",
-        "kanji": "念装武具",
-        "name": "念装武具",
+        "kanji": "ロードマスター勲章",
+        "name": "ロードマスター勲章",
         "spec": "装備可能条件：ロードマスター、ホーリーナイト、神殿騎士、大陸の観測者",
         "icon": "AF_ACCS_ZAYI_01",
         "tag": "Earring",
@@ -26587,13 +26720,14 @@
             "JB_ZAYI_LORD",
             "JB_GUA",
             "JB_TEM",
-            "JB_LUROB01"
+            "JB_LUROB01",
+            "JB_GUIL_TEM"
         ]
     },
     "AF_ACCS_CADA_01": {
         "iname": "AF_ACCS_CADA_01",
-        "kanji": "念装武具",
-        "name": "念装武具",
+        "kanji": "ラムプロード山天然水",
+        "name": "ラムプロード山天然水",
         "spec": "装備可能条件：ノーザンブライド出身ユニットかつ男性、リル＝ウロボロス",
         "icon": "AF_ACCS_CADA_01",
         "tag": "Earring",
@@ -26642,13 +26776,14 @@
         "condition_units": [
             "UN_V2_CADANOVA",
             "UN_V2_GUILDFORD",
-            "UN_V2_L_UROB"
+            "UN_V2_L_UROB",
+            "UN_V2_NASARIO"
         ]
     },
     "AF_ACCS_VIER_01": {
         "iname": "AF_ACCS_VIER_01",
-        "kanji": "念装武具",
-        "name": "念装武具",
+        "kanji": "戒めの香炉",
+        "name": "戒めの香炉",
         "spec": "装備可能条件：十戒衆かつ女性ユニット、リル＝ウロボロス",
         "icon": "AF_ACCS_VIER_01",
         "tag": "Earring",
@@ -26703,27 +26838,28 @@
             "UN_V2_ACHAD",
             "UN_V2_VIER",
             "UN_V2_FURY",
-            "UN_V2_L_UROB"
+            "UN_V2_L_UROB",
+            "UN_V2_ZYVA"
         ]
     },
-    "AF_ACCS_KAYA_01": {
-        "iname": "AF_ACCS_KAYA_01",
-        "kanji": "カヤ武具",
-        "name": "カヤ武具",
-        "spec": "装備可能条件なし",
-        "icon": "AF_ACCS_KAYA_01",
+    "AF_ACCS_LEYDOW_01": {
+        "iname": "AF_ACCS_LEYDOW_01",
+        "kanji": "ワダツミの古文書",
+        "name": "ワダツミの古文書",
+        "spec": "装備可能条件：レイドウ、レイダ、リル＝ウロボロス",
+        "icon": "AF_ACCS_LEYDOW_01",
         "tag": "Earring",
         "type": "Accessory",
-        "rareini": 2,
+        "rareini": 4,
         "raremax": 4,
-        "kakera": "IT_AF_ACCS_KAYA_01",
+        "kakera": "IT_AF_ACCS_LEYDOW_01",
         "maxnum": 999,
         "equip_effects": [
-            "SK_AF_ACCS_KAYA_01_4",
-            "SK_AF_ACCS_KAYA_01_4",
-            "SK_AF_ACCS_KAYA_01_4",
-            "SK_AF_ACCS_KAYA_01_4",
-            "SK_AF_ACCS_KAYA_01_5"
+            "SK_AF_ACCS_LEYDOW_01",
+            "SK_AF_ACCS_LEYDOW_01",
+            "SK_AF_ACCS_LEYDOW_01",
+            "SK_AF_ACCS_LEYDOW_01",
+            "SK_AF_ACCS_LEYDOW_01"
         ],
         "attack_effects": [
             null,
@@ -26733,7 +26869,7 @@
             null
         ],
         "abil_inames": [
-            "AB_AF_ACCS_KAYA_01_WA"
+            "AB_AF_ACCS_LEYDOW_01"
         ],
         "abil_levels": [
             1
@@ -26753,7 +26889,169 @@
         "mcoin": 100,
         "pcoin": 100,
         "buy": 100,
-        "sell": 1,
+        "sell": 9600,
+        "condition_lv": 1,
+        "condition_units": [
+            "UN_V2_LEYDOW",
+            "UN_V2_REIDA",
+            "UN_V2_L_UROB"
+        ]
+    },
+    "AF_ARMS_AISHA_01": {
+        "iname": "AF_ARMS_AISHA_01",
+        "kanji": "パフォーマンスタクト",
+        "name": "パフォーマンスタクト",
+        "spec": "装備可能条件：魔弾操師",
+        "icon": "AF_ARMS_AISHA_01",
+        "tag": "Tact",
+        "type": "Arms",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_AF_ARMS_AISHA_01",
+        "maxnum": 999,
+        "equip_effects": [
+            "SK_AF_ARMS_AISHA_01",
+            "SK_AF_ARMS_AISHA_01",
+            "SK_AF_ARMS_AISHA_01",
+            "SK_AF_ARMS_AISHA_01",
+            "SK_AF_ARMS_AISHA_01"
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "abil_inames": [
+            "AB_AF_ARMS_AISHA_01"
+        ],
+        "abil_levels": [
+            1
+        ],
+        "abil_rareties": [
+            0
+        ],
+        "abil_shows": [
+            1
+        ],
+        "abil_conds": [
+            "なし"
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 9600,
+        "condition_lv": 1,
+        "condition_jobs": [
+            "JB_MAD"
+        ]
+    },
+    "AF_ACCS_DOROTHEA_01": {
+        "iname": "AF_ACCS_DOROTHEA_01",
+        "kanji": "思慕のぬいぐるみ",
+        "name": "思慕のぬいぐるみ",
+        "spec": "装備可能条件：ネクロマンサー、大陸の観測者",
+        "icon": "AF_ACCS_DOROTHEA_01",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 3,
+        "raremax": 4,
+        "kakera": "IT_AF_ACCS_DOROTHEA_01",
+        "maxnum": 999,
+        "equip_effects": [
+            "SK_AF_ACCS_DOROTHEA_01_4",
+            "SK_AF_ACCS_DOROTHEA_01_4",
+            "SK_AF_ACCS_DOROTHEA_01_4",
+            "SK_AF_ACCS_DOROTHEA_01_4",
+            "SK_AF_ACCS_DOROTHEA_01_5"
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "abil_inames": [
+            "AB_AF_ACCS_DOROTHEA_01"
+        ],
+        "abil_levels": [
+            1
+        ],
+        "abil_rareties": [
+            0
+        ],
+        "abil_shows": [
+            1
+        ],
+        "abil_conds": [
+            "なし"
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 9600,
+        "condition_lv": 1,
+        "condition_jobs": [
+            "JB_NEC",
+            "JB_LUROB01"
+        ]
+    },
+    "AF_ACCS_COMIKE_01": {
+        "iname": "AF_ACCS_COMIKE_01",
+        "kanji": "シノビナメモリーズ",
+        "name": "シノビナメモリーズ",
+        "spec": "装備可能条件なし",
+        "icon": "AF_ACCS_COMIKE_01",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_AF_ACCS_COMIKE_01",
+        "maxnum": 999,
+        "equip_effects": [
+            "SK_AF_ACCS_COMIKE_01",
+            "SK_AF_ACCS_COMIKE_01",
+            "SK_AF_ACCS_COMIKE_01",
+            "SK_AF_ACCS_COMIKE_01",
+            "SK_AF_ACCS_COMIKE_01"
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "abil_inames": [
+            "AB_AF_ACCS_COMIKE_01"
+        ],
+        "abil_levels": [
+            1
+        ],
+        "abil_rareties": [
+            0
+        ],
+        "abil_shows": [
+            1
+        ],
+        "abil_conds": [
+            "なし"
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 9600,
         "condition_lv": 1
     },
     "AF_SK_HAZE_XMAS": {
@@ -28246,6 +28544,150 @@
         "rareini": 4,
         "raremax": 4,
         "kakera": "IT_SK_LUPI_UNIQUE",
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 2400,
+        "condition_lv": 1
+    },
+    "AF_SK_ZANG_UNIQUE": {
+        "iname": "AF_SK_ZANG_UNIQUE",
+        "kanji": "キャラスキン",
+        "name": "キャラスキン",
+        "asset": "unique",
+        "icon": "IT_SK_ZANG_UNIQUE",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_SK_ZANG_UNIQUE",
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 2400,
+        "condition_lv": 1
+    },
+    "AF_SK_LEYDOW_SWIM": {
+        "iname": "AF_SK_LEYDOW_SWIM",
+        "kanji": "水着スキン",
+        "name": "水着スキン",
+        "asset": "swim",
+        "icon": "IT_SK_LEYDOW_SWIM",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_SK_LEYDOW_SWIM",
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 2400,
+        "condition_lv": 1
+    },
+    "AF_SK_AISHA_SWIM": {
+        "iname": "AF_SK_AISHA_SWIM",
+        "kanji": "水着スキン",
+        "name": "水着スキン",
+        "asset": "swim",
+        "icon": "IT_SK_AISHA_SWIM",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_SK_AISHA_SWIM",
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 2400,
+        "condition_lv": 1
+    },
+    "AF_SK_DOROTHEA_SWIM": {
+        "iname": "AF_SK_DOROTHEA_SWIM",
+        "kanji": "水着スキン",
+        "name": "水着スキン",
+        "asset": "swim",
+        "icon": "IT_SK_DOROTHEA_SWIM",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_SK_DOROTHEA_SWIM",
         "maxnum": 999,
         "is_create": false,
         "equip_effects": [

@@ -10988,6 +10988,36 @@
             {}
         ]
     },
+    "OB_EV_SWIM_DOROTHEA_01": {
+        "iname": "OB_EV_SWIM_DOROTHEA_01",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_SWIM_DOROTHEA_02": {
+        "iname": "OB_EV_SWIM_DOROTHEA_02",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_SWIM_DOROTHEA_03": {
+        "iname": "OB_EV_SWIM_DOROTHEA_03",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_SWIM_DOROTHEA_04": {
+        "iname": "OB_EV_SWIM_DOROTHEA_04",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_SWIM_DOROTHEA_05": {
+        "iname": "OB_EV_SWIM_DOROTHEA_05",
+        "objective": [
+            {}
+        ]
+    },
     "OB_2018_0101_BONUS_BATTLE1": {
         "iname": "OB_2018_0101_BONUS_BATTLE1",
         "objective": [
@@ -11294,6 +11324,12 @@
             {}
         ]
     },
+    "OB_WA_SEISEKI_KAYA_EX_1": {
+        "iname": "OB_WA_SEISEKI_KAYA_EX_1",
+        "objective": [
+            {}
+        ]
+    },
     "OB_EV_POK3_SAM_EX": {
         "iname": "OB_EV_POK3_SAM_EX",
         "objective": [
@@ -11326,6 +11362,12 @@
     },
     "OB_EV_POK5_EX": {
         "iname": "OB_EV_POK5_EX",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_SWIM_HISHARMU": {
+        "iname": "OB_EV_SWIM_HISHARMU",
         "objective": [
             {}
         ]
@@ -11416,6 +11458,12 @@
     },
     "OB_WK_EJ_VAL": {
         "iname": "OB_WK_EJ_VAL",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_WK_EJ_KAI": {
+        "iname": "OB_WK_EJ_KAI",
         "objective": [
             {}
         ]
@@ -12422,6 +12470,12 @@
             {}
         ]
     },
+    "OB_EV_BABEL_4_EX": {
+        "iname": "OB_EV_BABEL_4_EX",
+        "objective": [
+            {}
+        ]
+    },
     "OB_EV_2YEARS_01": {
         "iname": "OB_EV_2YEARS_01",
         "objective": [
@@ -12472,6 +12526,12 @@
     },
     "OB_EV_SUMMIT_KOBE_01_KEY": {
         "iname": "OB_EV_SUMMIT_KOBE_01_KEY",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_2018_COMIKE_EV": {
+        "iname": "OB_2018_COMIKE_EV",
         "objective": [
             {}
         ]
@@ -12944,6 +13004,120 @@
             {}
         ]
     },
+    "OB_EV_ADVENT_1_VIER": {
+        "iname": "OB_EV_ADVENT_1_VIER",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_ZAYIN": {
+        "iname": "OB_EV_ADVENT_1_ZAYIN",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_SEK_CLOE": {
+        "iname": "OB_EV_ADVENT_1_SEK_CLOE",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_REAPER": {
+        "iname": "OB_EV_ADVENT_1_REAPER",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_SHERMAN": {
+        "iname": "OB_EV_ADVENT_1_SHERMAN",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_HISHARMU": {
+        "iname": "OB_EV_ADVENT_1_HISHARMU",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_MARIANNU": {
+        "iname": "OB_EV_ADVENT_1_MARIANNU",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_DOROTHEA": {
+        "iname": "OB_EV_ADVENT_1_DOROTHEA",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_ZOPHIE": {
+        "iname": "OB_EV_ADVENT_1_ZOPHIE",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_NASARIO": {
+        "iname": "OB_EV_ADVENT_1_NASARIO",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_LUCILLE": {
+        "iname": "OB_EV_ADVENT_1_LUCILLE",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_HAZEL": {
+        "iname": "OB_EV_ADVENT_1_HAZEL",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_SQ_PALADIN": {
+        "iname": "OB_EV_ADVENT_1_SQ_PALADIN",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_SQ_PRINCESS": {
+        "iname": "OB_EV_ADVENT_1_SQ_PRINCESS",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_SQ_SHENMEI": {
+        "iname": "OB_EV_ADVENT_1_SQ_SHENMEI",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_S_SAKURA": {
+        "iname": "OB_EV_ADVENT_1_S_SAKURA",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_S_YOMI": {
+        "iname": "OB_EV_ADVENT_1_S_YOMI",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_S_YURI": {
+        "iname": "OB_EV_ADVENT_1_S_YURI",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_ADVENT_1_S_TSUKUYOMI": {
+        "iname": "OB_EV_ADVENT_1_S_TSUKUYOMI",
+        "objective": [
+            {}
+        ]
+    },
     "OB_EV_GET_UNIT_PI_01": {
         "iname": "OB_EV_GET_UNIT_PI_01",
         "objective": [
@@ -13036,6 +13210,12 @@
     },
     "OB_EV_GET_SKILL_ALMA_LV85": {
         "iname": "OB_EV_GET_SKILL_ALMA_LV85",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GET_SKILL_KAYA_LV85": {
+        "iname": "OB_EV_GET_SKILL_KAYA_LV85",
         "objective": [
             {}
         ]

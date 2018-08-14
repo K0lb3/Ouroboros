@@ -2995,7 +2995,7 @@
     "main_ha_010034_set": {
         "iname": "main_ha_010034_set",
         "droplist": [
-            "QE_SO_LUCI_100"
+            "QE_SO_GLAN_100"
         ]
     },
     "main_ha_010035_set": {
@@ -3307,7 +3307,7 @@
     "main_ha_020036_set": {
         "iname": "main_ha_020036_set",
         "droplist": [
-            "QE_SO_GAIN_100"
+            "QE_SO_ARUB_100"
         ]
     },
     "main_ha_020037_set": {

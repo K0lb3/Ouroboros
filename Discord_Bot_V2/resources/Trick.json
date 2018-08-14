@@ -569,7 +569,9 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffTarget": "SelfSide",
-        "dif": {}
+        "dif": {
+            "mExpr": "パネル上のユニットに物攻UP&物防UPのバフ効果。各パネルは4回の行動終了まで有効。"
+        }
     },
     "TR_MAP_NEW_HUU_BUFF_02": {
         "mIname": "TR_MAP_NEW_HUU_BUFF_02",
@@ -582,7 +584,9 @@
         "mIsNoOverWrite": false,
         "mMarkerName": "buff",
         "mEffTarget": "SelfSide",
-        "dif": {}
+        "dif": {
+            "mExpr": "パネル上のユニットに魔攻UP&魔防UPのバフ効果。各パネルは4回の行動終了まで有効。"
+        }
     },
     "TR_MAP_NEW_HUU_SKILL_01": {
         "mIname": "TR_MAP_NEW_HUU_SKILL_01",
@@ -1280,6 +1284,34 @@
         "mMarkerName": "cond",
         "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
         "mEffTarget": "EnemySide"
+    },
+    "TR_MAP_NEW_HUU_HISHARMU_BUFF_01": {
+        "mIname": "TR_MAP_NEW_HUU_HISHARMU_BUFF_01",
+        "mName": "剛力・地脈活性",
+        "mExpr": "パネル上のユニットの物攻・物防アップ&ジュエル回復効果&4回発動すると消滅",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_TR_MAP_NEW_HUU_HISHARMU_BUFF_01",
+        "mCondId": "CON_TR_MAP_NEW_HUU_HISHARMU_BUFF_01",
+        "mTarget": "SelfSide",
+        "mVisualType": "PLAYER",
+        "mActionCount": 4,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_MAP_NEW_HUU_HISHARMU_BUFF_02": {
+        "mIname": "TR_MAP_NEW_HUU_HISHARMU_BUFF_02",
+        "mName": "護陣・龍脈活性",
+        "mExpr": "パネル上のユニットの魔攻・魔防アップ&ジュエル回復効果&4回発動すると消滅",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_TR_MAP_NEW_HUU_HISHARMU_BUFF_02",
+        "mCondId": "CON_TR_MAP_NEW_HUU_HISHARMU_BUFF_01",
+        "mTarget": "SelfSide",
+        "mVisualType": "PLAYER",
+        "mActionCount": 4,
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "SelfSide"
     },
     "TR_SK_MAD_LOWER_1_MDEF": {
         "mIname": "TR_SK_MAD_LOWER_1_MDEF",
@@ -2147,7 +2179,7 @@
     },
     "TR_MAP_MOBIUS40_01": {
         "mIname": "TR_MAP_MOBIUS40_01",
-        "mName": "鬼の陣",
+        "mName": "異層の陣",
         "mExpr": "特定の敵ユニットがスキルを発動",
         "mDamageType": "NONE",
         "mTarget": "UnitAll",

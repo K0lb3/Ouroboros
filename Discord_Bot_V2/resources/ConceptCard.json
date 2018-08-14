@@ -4593,5 +4593,500 @@
                 "statusup_skill": "SK_WADA_KURT"
             }
         ]
+    },
+    "TS_ENVYRIA_ZAYIN_01": {
+        "iname": "TS_ENVYRIA_ZAYIN_01",
+        "name": "大陸の正義、ここに在り",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_ENVYRIA_ZAYIN_01",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "trust_reward": "CARD_TS_ENVYRIA_ZAYIN_01",
+        "effects": [
+            {
+                "abil_iname": "AB_01_ENVYRIA_ZAYIN_01"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_ZAYIN_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_ZAYIN_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ENVIRIA"
+            },
+            {
+                "card_skill": "SK_GS1_ENVYRIA_ZAYIN_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_ENVYRIA_ZAYIN_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_ZAYIN_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_ZAYIN_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_ZAYIN_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_ZAYI"
+            },
+            {
+                "card_skill": "SK_GS2_ENVYRIA_ZAYIN_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_ENVYRIA_ZAYIN_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_ENVYRIA_ZAYIN_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "statusup_skill": "SK_ENVYRIA_ZAYIN_01"
+            }
+        ]
+    },
+    "TS_NORTH_CADANOVA_01": {
+        "iname": "TS_NORTH_CADANOVA_01",
+        "name": "在りし日の二人と憧れと",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_NORTH_CADANOVA_01",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "trust_reward": "CARD_TS_NORTH_CADANOVA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_NORTH_CADANOVA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_NORTH_CADANOVA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_NORTH"
+            },
+            {
+                "card_skill": "SK_GS1_NORTH_CADANOVA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_NORTH_CADANOVA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_NORTH_CADANOVA_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_NORTH_CADANOVA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SEIKYOU_NIGHT"
+            },
+            {
+                "card_skill": "SK_GS2_NORTH_CADANOVA_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_NORTH_CADANOVA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS3_NORTH_CADANOVA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_NORTH_CADANOVA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS3_NORTH_CADANOVA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_CADA_MIUN"
+            },
+            {
+                "card_skill": "SK_GS3_NORTH_CADANOVA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_NORTH_CADANOVA_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS3_NORTH_CADANOVA_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "statusup_skill": "SK_NORTH_CADANOVA_01"
+            }
+        ]
+    },
+    "TS_LOST_VIER_01": {
+        "iname": "TS_LOST_VIER_01",
+        "name": "空腹アンサンブル",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_LOST_VIER_01",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "trust_reward": "CARD_TS_LOST_VIER_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_LOST_VIER_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_LOST_VIER_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_TEN_CMNDMNTS"
+            },
+            {
+                "card_skill": "SK_GS1_LOST_VIER_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_LOST_VIER_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_LOST_VIER_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_LOST_VIER_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LOST_VIER_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_VIER"
+            },
+            {
+                "card_skill": "SK_GS2_LOST_VIER_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_LOST_VIER_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LOST_VIER_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "statusup_skill": "SK_LOST_VIER_01"
+            }
+        ]
+    },
+    "TS_SEKAIJU_01": {
+        "iname": "TS_SEKAIJU_01",
+        "name": "運命の交差",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_SEKAIJU_01",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "trust_reward": "CARD_TS_SEKAIJU_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_SEKAIJU_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_SEKAIJU_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_SEKAIJU_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_SEKAIJU"
+            },
+            {
+                "card_skill": "SK_GS1_SEKAIJU_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_SEKAIJU_01_BONUS02",
+                "add_card_skill_buff_awake": "BUFF_GS1_SEKAIJU_01_BONUS01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "statusup_skill": "SK_SEKAIJU_01"
+            }
+        ]
+    },
+    "TS_SWIM_2018_MIELIKKI": {
+        "iname": "TS_SWIM_2018_MIELIKKI",
+        "name": "ミエリッキ水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_MIELIKKI",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_CHALICE": {
+        "iname": "TS_SWIM_2018_CHALICE",
+        "name": "カリス水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_CHALICE",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_TEONA": {
+        "iname": "TS_SWIM_2018_TEONA",
+        "name": "テオナ水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_TEONA",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_YAULAS": {
+        "iname": "TS_SWIM_2018_YAULAS",
+        "name": "ヤウラス水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_YAULAS",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_YOMI": {
+        "iname": "TS_SWIM_2018_YOMI",
+        "name": "ヨミ水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_YOMI",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_GRANZ": {
+        "iname": "TS_SWIM_2018_GRANZ",
+        "name": "グランツ水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_GRANZ",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_VETEL": {
+        "iname": "TS_SWIM_2018_VETEL",
+        "name": "ヴェテル水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_VETEL",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_RINN": {
+        "iname": "TS_SWIM_2018_RINN",
+        "name": "リン水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_RINN",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_ALMILA": {
+        "iname": "TS_SWIM_2018_ALMILA",
+        "name": "アルミラ水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_ALMILA",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_ACHAD": {
+        "iname": "TS_SWIM_2018_ACHAD",
+        "name": "アハト水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_ACHAD",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_TERESA": {
+        "iname": "TS_SWIM_2018_TERESA",
+        "name": "テレサ水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_TERESA",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_DILGA": {
+        "iname": "TS_SWIM_2018_DILGA",
+        "name": "ディルガ水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_DILGA",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_SWIM_2018_GORMALAS": {
+        "iname": "TS_SWIM_2018_GORMALAS",
+        "name": "ゴルマラス水着verの主張",
+        "expr": "イベント念装",
+        "type": "Enhance_trust",
+        "icon": "TS_SWIM_2018_GORMALAS",
+        "rare": 0,
+        "sell": 1,
+        "en_cost": 1000,
+        "en_exp": 1000,
+        "en_trust": 1000,
+        "lvcap": 1
+    },
+    "TS_OFFEVENT_02": {
+        "iname": "TS_OFFEVENT_02",
+        "name": "うどんの修行だモノ",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_OFFEVENT_02",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "lvcap": 1,
+        "effects": [
+            {
+                "statusup_skill": "SK_OFFEVENT_02"
+            },
+            {
+                "card_skill": "SK_GS1_OFFEVENT_02"
+            }
+        ]
+    },
+    "TS_WADA_LEYDOW_01": {
+        "iname": "TS_WADA_LEYDOW_01",
+        "name": "古の装い",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_WADA_LEYDOW_01",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "trust_reward": "CARD_TS_WADA_LEYDOW_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WADA_LEYDOW_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WADA_LEYDOW_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_WADA"
+            },
+            {
+                "card_skill": "SK_GS1_WADA_LEYDOW_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WADA_LEYDOW_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_WADA_LEYDOW_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_WADA_LEYDOW_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_LEYDOW_VETTEL_UROB"
+            },
+            {
+                "card_skill": "SK_GS3_WADA_LEYDOW_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_WADA_LEYDOW_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS3_WADA_LEYDOW_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_LEYDOW_UROB"
+            },
+            {
+                "statusup_skill": "SK_WADA_LEYDOW_01"
+            },
+            {
+                "skin": "AF_SK_LEYDOW_SWIM",
+                "cnds_iname": "CARD_CNDS_LEYDOW"
+            }
+        ]
+    },
+    "TS_SLOTH_AISHA_01": {
+        "iname": "TS_SLOTH_AISHA_01",
+        "name": "悩殺パフォーマンス",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_SLOTH_AISHA_01",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "trust_reward": "CARD_TS_SLOTH_AISHA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_SLOTH_AISHA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_SLOTH_AISHA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_SLOTH"
+            },
+            {
+                "card_skill": "SK_GS1_SLOTH_AISHA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_SLOTH_AISHA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_SLOTH_AISHA_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_SLOTH_AISHA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_AISHA_CHATNOIR_UROB"
+            },
+            {
+                "card_skill": "SK_GS3_SLOTH_AISHA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_SLOTH_AISHA_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS3_SLOTH_AISHA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_AISHA_UROB"
+            },
+            {
+                "statusup_skill": "SK_SLOTH_AISHA_01"
+            },
+            {
+                "skin": "AF_SK_AISHA_SWIM",
+                "cnds_iname": "CARD_CNDS_AISHA"
+            }
+        ]
+    },
+    "TS_WRATH_DOROTHEA_01": {
+        "iname": "TS_WRATH_DOROTHEA_01",
+        "name": "断崖ディスティニー",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_WRATH_DOROTHEA_01",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "trust_reward": "CARD_TS_WRATH_DOROTHEA_01",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_WRATH_DOROTHEA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATH_DOROTHEA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_WRATHTRIZ"
+            },
+            {
+                "card_skill": "SK_GS1_WRATH_DOROTHEA_01",
+                "add_card_skill_buff_awake": "BUFF_GS1_WRATH_DOROTHEA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_WRATH_DOROTHEA_01",
+                "add_card_skill_buff_awake": "BUFF_GS2_WRATH_DOROTHEA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_DOROTHEA_DILGA_UROB"
+            },
+            {
+                "card_skill": "SK_GS3_WRATH_DOROTHEA_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS3_WRATH_DOROTHEA_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS3_WRATH_DOROTHEA_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_DOROTHEA_UROB"
+            },
+            {
+                "statusup_skill": "SK_WRATH_DOROTHEA_01"
+            },
+            {
+                "skin": "AF_SK_DOROTHEA_SWIM",
+                "cnds_iname": "CARD_CNDS_DOROTHEA"
+            }
+        ]
+    },
+    "TS_COMIKE_01": {
+        "iname": "TS_COMIKE_01",
+        "name": "クノイチの青春",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_COMIKE_01",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "trust_reward": "CARD_TS_COMIKE_01",
+        "lvcap": 30,
+        "effects": [
+            {
+                "statusup_skill": "SK_COMIKE_01"
+            },
+            {
+                "card_skill": "SK_GS1_COMIKE_01"
+            }
+        ]
     }
 }

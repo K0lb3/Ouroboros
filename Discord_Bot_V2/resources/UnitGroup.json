@@ -814,11 +814,12 @@
             "UN_V2_ZAYIN"
         ]
     },
-    "UG_CADA": {
-        "iname": "UG_CADA",
+    "UG_CADA_MIUN": {
+        "iname": "UG_CADA_MIUN",
         "name": "カダノバ",
         "units": [
-            "UN_V2_CADANOVA"
+            "UN_V2_CADANOVA",
+            "UN_V2_MIUNA"
         ]
     },
     "UG_VIER": {
@@ -853,6 +854,78 @@
             "UN_V2_SQ_PRINCESS",
             "UN_V2_SQ_GUNNER",
             "UN_V2_L_UROB"
+        ]
+    },
+    "UG_LEYDOW_VETTEL_UROB": {
+        "iname": "UG_LEYDOW_VETTEL_UROB",
+        "name": "レイドウ、ヴェテル、ウロボロス",
+        "units": [
+            "UN_V2_LEYDOW",
+            "UN_V2_VETTEL",
+            "UN_V2_L_UROB"
+        ]
+    },
+    "UG_LEYDOW_UROB": {
+        "iname": "UG_LEYDOW_UROB",
+        "name": "レイドウ、ウロボロス",
+        "units": [
+            "UN_V2_LEYDOW",
+            "UN_V2_L_UROB"
+        ]
+    },
+    "UG_LEYDOW": {
+        "iname": "UG_LEYDOW",
+        "name": "レイドウ",
+        "units": [
+            "UN_V2_LEYDOW"
+        ]
+    },
+    "UG_AISHA_CHATNOIR_UROB": {
+        "iname": "UG_AISHA_CHATNOIR_UROB",
+        "name": "アイシャ、シャノワール、ウロボロス",
+        "units": [
+            "UN_V2_AISHA",
+            "UN_V2_CHATNOIR",
+            "UN_V2_L_UROB"
+        ]
+    },
+    "UG_AISHA_UROB": {
+        "iname": "UG_AISHA_UROB",
+        "name": "アイシャ、ウロボロス",
+        "units": [
+            "UN_V2_AISHA",
+            "UN_V2_L_UROB"
+        ]
+    },
+    "UG_AISHA": {
+        "iname": "UG_AISHA",
+        "name": "アイシャ",
+        "units": [
+            "UN_V2_AISHA"
+        ]
+    },
+    "UG_DOROTHEA_DILGA_UROB": {
+        "iname": "UG_DOROTHEA_DILGA_UROB",
+        "name": "ドロシア、ディルガ、ウロボロス",
+        "units": [
+            "UN_V2_DOROTHEA",
+            "UN_V2_DILGA",
+            "UN_V2_L_UROB"
+        ]
+    },
+    "UG_DOROTHEA_UROB": {
+        "iname": "UG_DOROTHEA_UROB",
+        "name": "ドロシア、ウロボロス",
+        "units": [
+            "UN_V2_DOROTHEA",
+            "UN_V2_L_UROB"
+        ]
+    },
+    "UG_DOROTHEA": {
+        "iname": "UG_DOROTHEA",
+        "name": "ドロシア",
+        "units": [
+            "UN_V2_DOROTHEA"
         ]
     }
 }

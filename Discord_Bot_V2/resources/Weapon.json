@@ -321,7 +321,9 @@
         "iname": "WE_DGO_BAYONET",
         "atk": 14,
         "formula": 5,
-        "dif": {}
+        "dif": {
+            "atk": 17
+        }
     },
     "WE_DGO_MAS": {
         "iname": "WE_DGO_MAS",

@@ -285,5 +285,17 @@
         "qids": [
             "QE_EV_GET_SKILL_ALMA_LV85"
         ]
+    },
+    "UD_KAYA01_UPPER_6": {
+        "iname": "UD_KAYA01_UPPER_6",
+        "uid": "UN_V2_KAYA",
+        "add": false,
+        "type": 1,
+        "new_id": "SK_KAYA01_UPPER_2_B",
+        "old_id": "SK_KAYA01_UPPER_2",
+        "parent_id": "AB_KAYA01_UPPER",
+        "qids": [
+            "QE_EV_GET_SKILL_KAYA_LV85"
+        ]
     }
 }

@@ -20,6 +20,7 @@
             "QE_ST_NO_020091",
             "QE_ST_NO_020113",
             "QE_ST_NO_030017",
+            "QE_ST_NO_030046",
             "QE_ST_HA_010001",
             "QE_ST_HA_010007",
             "QE_ST_HA_010009",
@@ -29,7 +30,9 @@
             "QE_ST_HA_020031",
             "QE_EV_POK_SAM_02",
             "QE_EV_POK_SAM_04",
+            "QE_EV_3TITLE_1",
             "QE_EV_FATE_1",
+            "QE_WA_ZIN_1",
             "QE_SO_SABALETA_LV1",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_01",
@@ -48,10 +51,7 @@
             "QE_EV_XMAS_01",
             "QE_EV_VALENTINE_01",
             "QE_EV_BEGINNER_02",
-            "QE_EV_BEGINNER_05",
-            "QE_LIMIT_UEXP",
-            "QE_LIMIT_UEXP_02",
-            "QE_LIMIT_TANABATA"
+            "QE_EV_BEGINNER_05"
         ]
     },
     "IT_EQ_MAG_BRANCH": {
@@ -73,16 +73,21 @@
             "QE_ST_NO_020094",
             "QE_ST_NO_020116",
             "QE_ST_NO_030021",
+            "QE_ST_NO_030049",
             "QE_ST_HA_010001",
             "QE_ST_HA_010010",
             "QE_ST_HA_010027",
             "QE_ST_HA_010033",
             "QE_ST_HA_020025",
             "QE_ST_HA_030007",
+            "QE_ST_HA_030015",
             "QE_EV_POK_SAM_01",
             "QE_EV_POK_SAM_02",
             "QE_EV_POK_SAM_03",
             "QE_EV_POK_SAM_05",
+            "QE_EV_3TITLE_1",
+            "QE_EV_3TITLE_2",
+            "QE_WA_ZIN_2",
             "QE_SO_SABALETA_LV1",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_01",
@@ -124,6 +129,9 @@
             "QE_ST_HA_020021",
             "QE_ST_HA_020027",
             "QE_ST_HA_020039",
+            "QE_EV_3TITLE_1",
+            "QE_WA_ZIN_1",
+            "QE_WA_ZIN_2",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_01",
             "QE_SO_ERURIKE_1",
@@ -169,7 +177,9 @@
             "QE_ST_HA_030001",
             "QE_EV_POK_SAM_03",
             "QE_EV_POK_SAM_04",
+            "QE_EV_3TITLE_1",
             "QE_EV_FATE_1",
+            "QE_WA_ZIN_2",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_01",
             "QE_SO_ERURIKE_1",
@@ -203,6 +213,7 @@
             "QE_ST_NO_020087",
             "QE_ST_NO_020104",
             "QE_ST_NO_030005",
+            "QE_ST_NO_030034",
             "QE_ST_HA_010004",
             "QE_ST_HA_010029",
             "QE_ST_HA_010034",
@@ -211,7 +222,10 @@
             "QE_LIMIT_MAGIC_Lv1",
             "QE_EV_POK_SAM_02",
             "QE_EV_POK_SAM_KEY_EX1",
+            "QE_EV_3TITLE_1",
+            "QE_EV_3TITLE_2",
             "QE_EV_FATE_2",
+            "QE_WA_ZIN_2",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_01",
             "QE_SO_ERURIKE_1",
@@ -235,8 +249,7 @@
             "QE_LIMIT_UEXP_02",
             "QE_MULTI_POK2_01",
             "QE_EV_GL_MH_01_02",
-            "QE_EV_GL_MH_01_03",
-            "QE_EV_GL_MH_01_06"
+            "QE_EV_GL_MH_01_03"
         ]
     },
     "IT_EQ_DIAGRAM_PEN": {
@@ -253,9 +266,14 @@
             "QE_ST_NO_020090",
             "QE_ST_NO_020107",
             "QE_ST_NO_030009",
+            "QE_ST_NO_030038",
             "QE_ST_HA_020007",
             "QE_ST_HA_020022",
             "QE_ST_HA_020030",
+            "QE_EV_3TITLE_1",
+            "QE_EV_3TITLE_2",
+            "QE_WA_ZIN_1",
+            "QE_WA_ZIN_2",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_01",
             "QE_SO_ERURIKE_1",
@@ -294,6 +312,7 @@
             "QE_ST_NO_020051",
             "QE_ST_NO_020073",
             "QE_ST_NO_030013",
+            "QE_ST_NO_030043",
             "QE_ST_HA_010039",
             "QE_ST_HA_020017",
             "QE_ST_HA_020036",
@@ -301,7 +320,9 @@
             "QE_EV_POK_SAM_01",
             "QE_EV_POK_SAM_06",
             "QE_EV_POK_SAM_07",
+            "QE_EV_3TITLE_1",
             "QE_EV_FATE_1",
+            "QE_WA_ZIN_1",
             "QE_SO_SABALETA_LV1",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_01",
@@ -337,8 +358,10 @@
             "QE_ST_NO_010095",
             "QE_ST_HA_010006",
             "QE_EV_POK_SAM_01",
+            "QE_EV_3TITLE_1",
             "QE_EV_FATE_1",
             "QE_EV_FATE_2",
+            "QE_WA_ZIN_1",
             "QE_SO_SABALETA_LV1",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_01",
@@ -368,6 +391,7 @@
             "QE_ST_HA_010005",
             "QE_ST_HA_010011",
             "QE_ST_HA_010017",
+            "QE_EV_3TITLE_1",
             "QE_EV_FF15_2",
             "QE_EV_FF15_5"
         ]
@@ -396,7 +420,10 @@
             "QE_ST_HA_020028",
             "QE_ST_HA_020040",
             "QE_ST_HA_030009",
+            "QE_EV_3TITLE_2",
+            "QE_EV_3TITLE_4",
             "QE_EV_FATE_2",
+            "QE_WA_ZIN_2",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_02",
             "QE_SO_ERURIKE_1",
@@ -428,11 +455,14 @@
             "QE_ST_NO_020085",
             "QE_ST_NO_020096",
             "QE_ST_NO_030002",
+            "QE_ST_NO_030033",
             "QE_ST_HA_010002",
             "QE_ST_HA_010007",
             "QE_ST_HA_010023",
             "QE_ST_HA_010035",
             "QE_ST_HA_020019",
+            "QE_EV_3TITLE_2",
+            "QE_WA_ZIN_4",
             "QE_SO_PERI_01",
             "QE_SO_YUTO_2",
             "QE_EV_SEISEKI_DJ_04",
@@ -478,6 +508,7 @@
             "QE_ST_NO_020088",
             "QE_ST_NO_020099",
             "QE_ST_NO_030007",
+            "QE_ST_NO_030037",
             "QE_ST_HA_010008",
             "QE_ST_HA_010038",
             "QE_ST_HA_020002",
@@ -485,6 +516,8 @@
             "QE_EV_POK_SAM_06",
             "QE_EV_POK_SAM_07",
             "QE_EV_POK_SAM_EX1",
+            "QE_EV_3TITLE_2",
+            "QE_EV_3TITLE_4",
             "QE_SO_SABALETA_LV3",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_02",
@@ -522,6 +555,7 @@
             "QE_ST_NO_020065",
             "QE_ST_NO_020102",
             "QE_ST_NO_030010",
+            "QE_ST_NO_030041",
             "QE_ST_HA_010012",
             "QE_ST_HA_020003",
             "QE_ST_HA_030002",
@@ -565,6 +599,7 @@
             "QE_ST_NO_020080",
             "QE_ST_NO_020117",
             "QE_ST_HA_020026",
+            "QE_EV_3TITLE_3",
             "QE_EV_FF15_1",
             "QE_EV_FF15_2",
             "QE_EV_FF15_3"
@@ -579,6 +614,8 @@
             "QE_ST_NO_010058",
             "QE_ST_NO_010085",
             "QE_ST_HA_010003",
+            "QE_EV_3TITLE_2",
+            "QE_WA_ZIN_4",
             "QE_SO_MILIS_2",
             "QE_SO_PERI_02",
             "QE_SO_PERI_05",
@@ -622,6 +659,8 @@
             "QE_ST_HA_020023",
             "QE_ST_HA_020037",
             "QE_ST_HA_030008",
+            "QE_ST_HA_030016",
+            "QE_EV_3TITLE_2",
             "QE_SO_MILIS_2",
             "QE_SO_ERURIKE_2",
             "QE_CH_LOGI_EDGA_1",
@@ -643,12 +682,14 @@
             "QE_ST_NO_020071",
             "QE_ST_NO_020108",
             "QE_ST_NO_030019",
+            "QE_ST_NO_030047",
             "QE_ST_HA_010014",
             "QE_ST_HA_010020",
             "QE_ST_HA_010037",
             "QE_ST_HA_020005",
             "QE_ST_HA_030005",
             "QE_EV_POK_SAM_05",
+            "QE_EV_3TITLE_2",
             "QE_EV_FATE_5",
             "QE_SO_MILIS_2",
             "QE_SO_PERI_02",
@@ -690,6 +731,8 @@
             "QE_ST_HA_010030",
             "QE_ST_HA_020008",
             "QE_ST_HA_020015",
+            "QE_EV_3TITLE_3",
+            "QE_EV_3TITLE_4",
             "QE_SO_PERI_02",
             "QE_SO_PERI_04",
             "QE_SO_YUTO_2",
@@ -716,10 +759,14 @@
             "QE_ST_NO_020068",
             "QE_ST_NO_020105",
             "QE_ST_NO_030014",
+            "QE_ST_NO_030044",
             "QE_ST_HA_020034",
             "QE_ST_HA_030003",
+            "QE_ST_HA_030013",
+            "QE_EV_3TITLE_2",
             "QE_EV_FATE_3",
             "QE_EV_FATE_6",
+            "QE_WA_ZIN_3",
             "QE_SO_MILIS_2",
             "QE_SO_PERI_02",
             "QE_SO_PERI_04",
@@ -749,6 +796,7 @@
             "QE_ST_NO_020053",
             "QE_ST_HA_010015",
             "QE_ST_HA_010031",
+            "QE_EV_3TITLE_3",
             "QE_SO_MILIS_2",
             "QE_SO_PERI_03",
             "QE_SO_PERI_04",
@@ -778,6 +826,8 @@
             "QE_ST_HA_010005",
             "QE_ST_HA_010016",
             "QE_ST_HA_010032",
+            "QE_EV_3TITLE_2",
+            "QE_EV_3TITLE_5",
             "QE_SO_SABALETA_LV3",
             "QE_SO_PERI_03",
             "QE_SO_PERI_05",
@@ -816,6 +866,8 @@
             "QE_LIMIT_MELEE_Lv1",
             "QE_LIMIT_LONGRANGE_Lv1",
             "QE_GL_HARVEST_1",
+            "QE_EV_3TITLE_2",
+            "QE_EV_3TITLE_3",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_03",
             "QE_SO_PERI_04",
@@ -852,6 +904,7 @@
             "QE_ST_NO_020083",
             "QE_ST_NO_020095",
             "QE_ST_NO_030003",
+            "QE_ST_NO_030036",
             "QE_ST_HA_010017",
             "QE_ST_HA_010021",
             "QE_ST_HA_010034",
@@ -863,6 +916,10 @@
             "QE_EV_POK_SAM_05",
             "QE_EV_POK_SAM_EX1",
             "QE_EV_POK_SAM_KEY_EX1",
+            "QE_EV_3TITLE_2",
+            "QE_EV_3TITLE_3",
+            "QE_EV_3TITLE_4",
+            "QE_WA_ZIN_3",
             "QE_SO_PERI_02",
             "QE_SO_YUTO_2",
             "QE_EV_SEISEKI_DJ_2_02",
@@ -893,18 +950,24 @@
             "QE_ST_NO_020066",
             "QE_ST_NO_020103",
             "QE_ST_NO_030006",
+            "QE_ST_NO_030040",
             "QE_ST_HA_010012",
             "QE_ST_HA_010018",
             "QE_ST_HA_010022",
+            "QE_ST_HA_030012",
             "QE_TM_MAT_ATK_DEF_LV1",
             "QE_TM_MAT_ATK_DEF_LV2",
             "QE_LIMIT_MELEE_Lv1",
             "QE_LIMIT_LONGRANGE_Lv1",
             "QE_GL_HARVEST_1",
             "QE_EV_POK_SAM_06",
+            "QE_EV_3TITLE_3",
+            "QE_EV_3TITLE_4",
+            "QE_EV_3TITLE_EX2",
             "QE_EV_FATE_4",
             "QE_EV_FATE_5",
             "QE_EV_FATE_6",
+            "QE_WA_ZIN_4",
             "QE_SO_SABALETA_LV3",
             "QE_SO_MILIS_2",
             "QE_SO_PERI_03",
@@ -924,13 +987,7 @@
             "QE_EV_SEISEKI_DJ_3_07",
             "QE_EV_SEISEKI_DJ_4_07",
             "QE_EV_SEISEKI_DJ_4_08",
-            "QE_EV_SEISEKI_DJ_5_05",
-            "QE_EV_SEISEKI_DJ_5_06",
-            "QE_EV_SEISEKI_DJ_5_07",
-            "QE_EV_FF15_5",
-            "QE_EV_FF15_6",
-            "QE_EV_FF15_7",
-            "QE_EV_FF15_EX_2"
+            "QE_EV_SEISEKI_DJ_5_05"
         ]
     },
     "IT_EQ_PIECE_CAPE": {
@@ -948,6 +1005,7 @@
             "QE_ST_NO_020069",
             "QE_ST_NO_020106",
             "QE_ST_NO_030011",
+            "QE_ST_NO_030042",
             "QE_ST_HA_010018",
             "QE_ST_HA_020004",
             "QE_ST_HA_020013",
@@ -959,6 +1017,7 @@
             "QE_EV_POK_SAM_07",
             "QE_EV_POK_SAM_EX1",
             "QE_EV_POK_SAM_KEY_EX1",
+            "QE_EV_3TITLE_4",
             "QE_SO_PERI_02",
             "QE_SO_YUTO_2",
             "QE_EV_VELOZ_LV02",
@@ -985,6 +1044,7 @@
             "QE_ST_HA_010010",
             "QE_ST_HA_010024",
             "QE_TM_MAT_HP_CRI_LV1",
+            "QE_EV_3TITLE_3",
             "QE_SO_MILIS_3",
             "QE_SO_ERURIKE_3",
             "QE_SO_YUTO_3",
@@ -1008,14 +1068,17 @@
             "QE_ST_NO_020072",
             "QE_ST_NO_020109",
             "QE_ST_NO_030015",
+            "QE_ST_NO_030045",
             "QE_ST_HA_010011",
             "QE_ST_HA_010013",
             "QE_ST_HA_010019",
             "QE_ST_HA_010040",
             "QE_ST_HA_020035",
             "QE_ST_HA_030004",
+            "QE_ST_HA_030014",
             "QE_TM_MAT_DEX_GEM_LV1",
             "QE_TM_MAT_DEX_GEM_LV2",
+            "QE_EV_3TITLE_3",
             "QE_EV_FATE_4",
             "QE_SO_SABALETA_LV3",
             "QE_SO_MILIS_2",
@@ -1078,6 +1141,7 @@
             "QE_ST_NO_020075",
             "QE_ST_NO_020112",
             "QE_ST_NO_030018",
+            "QE_ST_NO_030048",
             "QE_ST_HA_010036",
             "QE_ST_HA_020016",
             "QE_ST_HA_020024",
@@ -1085,6 +1149,10 @@
             "QE_TM_MAT_SPD_LUKLV1",
             "QE_TM_MAT_SPD_LUKLV2",
             "QE_EV_POK_SAM_07",
+            "QE_EV_3TITLE_3",
+            "QE_EV_3TITLE_5",
+            "QE_EV_3TITLE_END1",
+            "QE_WA_ZIN_5",
             "QE_SO_PERI_06",
             "QE_SO_YUTO_2",
             "QE_EV_VELOZ_LV02",
@@ -1113,6 +1181,7 @@
             "QE_ST_HA_010016",
             "QE_ST_HA_020020",
             "QE_ST_HA_030010",
+            "QE_EV_3TITLE_3",
             "QE_EV_FF15_6"
         ]
     },
@@ -1129,10 +1198,12 @@
             "QE_ST_NO_020063",
             "QE_ST_NO_020089",
             "QE_ST_NO_020100",
+            "QE_ST_NO_030032",
             "QE_ST_HA_010027",
             "QE_ST_HA_010029",
             "QE_ST_HA_020029",
             "QE_ST_HA_020032",
+            "QE_EV_3TITLE_3",
             "QE_EV_FF15_6"
         ]
     },
@@ -1150,6 +1221,7 @@
             "QE_ST_HA_010030",
             "QE_ST_HA_010034",
             "QE_ST_HA_010038",
+            "QE_EV_3TITLE_4",
             "QE_EV_FF15_2",
             "QE_EV_FF15_6",
             "QE_EV_XMAS_03"
@@ -1174,6 +1246,8 @@
             "QE_ST_HA_010022",
             "QE_ST_HA_010039",
             "QE_ST_HA_020018",
+            "QE_EV_3TITLE_3",
+            "QE_WA_ZIN_5",
             "QE_SO_ZEKE_1",
             "QE_SO_YUTO_3",
             "QE_EV_SWIM_DILG_01",
@@ -1193,6 +1267,8 @@
             "QE_ST_NO_010092",
             "QE_ST_NO_010119",
             "QE_ST_HA_010020",
+            "QE_EV_3TITLE_3",
+            "QE_EV_3TITLE_4",
             "QE_EV_FATE_5",
             "QE_EV_FATE_6",
             "QE_CH_LOGI_EDGA_2",
@@ -1213,6 +1289,7 @@
             "QE_ST_NO_010112",
             "QE_ST_HA_010023",
             "QE_EV_POK_SAM_EX2",
+            "QE_EV_3TITLE_3",
             "QE_EV_FF15_2",
             "QE_EV_FF15_5",
             "QE_MULTI_POK_SAM_EX2"
@@ -1232,6 +1309,8 @@
             "QE_ST_HA_010031",
             "QE_ST_HA_010036",
             "QE_TM_IT_EQ_LV3_01",
+            "QE_EV_3TITLE_3",
+            "QE_EV_3TITLE_4",
             "QE_SO_SABALETA_LV3",
             "QE_SO_PERI_03",
             "QE_SO_PERI_05",
@@ -1294,16 +1373,20 @@
             "QE_ST_NO_020098",
             "QE_ST_NO_020113",
             "QE_ST_NO_030015",
+            "QE_ST_NO_030044",
             "QE_ST_HA_010027",
             "QE_ST_HA_020007",
             "QE_ST_HA_020028",
             "QE_ST_HA_030004",
+            "QE_ST_HA_030013",
             "QE_TM_MAT_ATK_DEF_LV2",
             "QE_TM_MAT_ATK_DEF_LV3",
             "QE_TM_IT_EQ_LV3_01",
             "QE_GL_HARVEST_2",
             "QE_EV_POK_SAM_EX3",
             "QE_EV_POK_SAM_EX2",
+            "QE_EV_3TITLE_4",
+            "QE_EV_3TITLE_EX1",
             "QE_EV_FATE_4",
             "QE_EV_FATE_5",
             "QE_EV_FATE_6",
@@ -1325,11 +1408,7 @@
             "QE_EV_SEISEKI_DJ_3_09",
             "QE_EV_SEISEKI_DJ_3_10",
             "QE_EV_SEISEKI_DJ_5_09",
-            "QE_EV_SEISEKI_DJ_5_10",
-            "QE_EV_FF15_5",
-            "QE_EV_FF15_7",
-            "QE_EV_FF15_EX_1",
-            "QE_EV_FF15_EX_SP_1"
+            "QE_EV_SEISEKI_DJ_5_10"
         ]
     },
     "IT_EQ_PIECE_STAFF": {
@@ -1349,6 +1428,7 @@
             "QE_ST_NO_020099",
             "QE_ST_NO_020114",
             "QE_ST_NO_030016",
+            "QE_ST_NO_030046",
             "QE_ST_HA_010021",
             "QE_ST_HA_020015",
             "QE_TM_MAT_MAG_MND_LV2",
@@ -1359,6 +1439,8 @@
             "QE_EV_POK_SAM_06",
             "QE_EV_POK_SAM_07",
             "QE_EV_POK_SAM_KEY_EX1",
+            "QE_EV_3TITLE_4",
+            "QE_EV_3TITLE_END3",
             "QE_SO_PERI_03",
             "QE_EV_VELOZ_LV02",
             "QE_EV_SEISEKI_DJ_2_06",
@@ -1391,6 +1473,7 @@
             "QE_ST_NO_020101",
             "QE_ST_NO_020116",
             "QE_ST_NO_030020",
+            "QE_ST_NO_030048",
             "QE_ST_HA_010022",
             "QE_ST_HA_020010",
             "QE_ST_HA_020017",
@@ -1406,8 +1489,15 @@
             "QE_EV_POK_SAM_EX4",
             "QE_EV_POK_SAM_EX1",
             "QE_EV_POK_SAM_EX2",
+            "QE_EV_3TITLE_4",
+            "QE_EV_3TITLE_5",
+            "QE_EV_3TITLE_END2",
+            "QE_EV_3TITLE_END3",
+            "QE_EV_3TITLE_EX1",
             "QE_EV_FATE_HA_3",
             "QE_EV_FATE_HA_4",
+            "QE_WA_ZIN_5",
+            "QE_WA_ZIN_EX_1",
             "QE_SO_SABALETA_LV3",
             "QE_SO_SABALETA_LV6",
             "QE_SO_SABALETA_LV6_2",
@@ -1418,15 +1508,7 @@
             "QE_SO_YUTO_2",
             "QE_EV_SWIM_DILG_06",
             "QE_SO_LOGI_3",
-            "QE_EV_VELOZ_LV03",
-            "QE_CH_LOGI_EDGA_2",
-            "QE_CH_LOGI_EDGA_3",
-            "QE_EV_SEISEKI_DJ_08",
-            "QE_EV_SEISEKI_DJ_2_10",
-            "QE_EV_SEISEKI_DJ_3_08",
-            "QE_EV_SEISEKI_DJ_4_10",
-            "QE_EV_SEISEKI_DJ_5_08",
-            "QE_EV_FF15_6"
+            "QE_EV_VELOZ_LV03"
         ]
     },
     "IT_EQ_PIECE_PARKA": {
@@ -1445,6 +1527,7 @@
             "QE_ST_NO_020095",
             "QE_ST_NO_020111",
             "QE_ST_NO_030012",
+            "QE_ST_NO_030039",
             "QE_ST_HA_010039",
             "QE_ST_HA_020027",
             "QE_ST_HA_020037",
@@ -1453,6 +1536,8 @@
             "QE_TM_IT_EQ_LV3_01",
             "QE_EV_POK_SAM_07",
             "QE_EV_POK_SAM_EX1",
+            "QE_EV_3TITLE_4",
+            "QE_WA_ZIN_5",
             "QE_SO_PERI_03",
             "QE_EV_VELOZ_LV02",
             "QE_EV_VELOZ_LV03",
@@ -1478,6 +1563,7 @@
             "QE_ST_NO_010098",
             "QE_ST_NO_010105",
             "QE_ST_NO_020097",
+            "QE_ST_NO_030043",
             "QE_ST_HA_010023",
             "QE_ST_HA_010029",
             "QE_ST_HA_010034",
@@ -1504,6 +1590,7 @@
             "QE_ST_NO_020091",
             "QE_ST_NO_020107",
             "QE_ST_NO_030004",
+            "QE_ST_NO_030033",
             "QE_ST_HA_010024",
             "QE_ST_HA_010025",
             "QE_ST_HA_010033",
@@ -1512,6 +1599,10 @@
             "QE_TM_MAT_DEX_GEM_LV2",
             "QE_TM_MAT_DEX_GEM_LV3",
             "QE_EV_POK_SAM_EX4",
+            "QE_EV_3TITLE_4",
+            "QE_EV_3TITLE_EX1",
+            "QE_WA_ZIN_5",
+            "QE_WA_ZIN_EX_1",
             "QE_SO_MILIS_3",
             "QE_SO_MILIS_EX",
             "QE_SO_ERURIKE_3",
@@ -1529,9 +1620,11 @@
             "QE_EV_FF15_8",
             "QE_EV_FF15_10",
             "QE_MULTI_POK_SAM_EX4",
+            "QE_EV_MULTI_3TITLE_EX1",
+            "QE_MULTI_WA_ZIN_EX_1",
             "QE_MULTI_VELOZ_EX01",
-            "QE_MULTI_SEISEKI_DJ_5_EX",
-            "QE_MULTI_SO_MILIS_EX"
+            "QE_MULTI_SO_MILIS_EX",
+            "QE_MULTI_SEISEKI_DJ_5_EX"
         ]
     },
     "IT_EQ_PIECE_KATAR": {
@@ -1547,12 +1640,14 @@
             "QE_ST_NO_020093",
             "QE_ST_NO_020109",
             "QE_ST_NO_030008",
+            "QE_ST_NO_030036",
             "QE_ST_HA_010025",
             "QE_ST_HA_010033",
             "QE_ST_HA_020035",
             "QE_TM_MAT_HP_CRI_LV2",
             "QE_TM_MAT_HP_CRI_LV3",
             "QE_EV_POK_SAM_EX4",
+            "QE_EV_3TITLE_END2",
             "QE_SO_MILIS_3",
             "QE_SO_ZEKE_2",
             "QE_EV_FF15_4",
@@ -1576,6 +1671,7 @@
             "QE_ST_NO_020092",
             "QE_ST_NO_020108",
             "QE_ST_NO_030006",
+            "QE_ST_NO_030035",
             "QE_ST_HA_010026",
             "QE_ST_HA_010031",
             "QE_ST_HA_010035",
@@ -1583,6 +1679,9 @@
             "QE_TM_MAT_SPD_LUKLV3",
             "QE_TM_IT_EQ_LV4_01",
             "QE_EV_POK_SAM_EX2",
+            "QE_EV_3TITLE_5",
+            "QE_EV_3TITLE_END1",
+            "QE_WA_ZIN_5",
             "QE_SO_PERI_06",
             "QE_SO_YUTO_3",
             "QE_EV_SEISEKI_DJ_09",
@@ -1627,6 +1726,7 @@
             "QE_TM_MAT_SPD_LUKLV3",
             "QE_TM_IT_EQ_LV4_01",
             "QE_GL_HARVEST_2",
+            "QE_EV_3TITLE_5",
             "QE_EV_SWIM_DILG_03",
             "QE_EV_SWIM_DILG_04",
             "QE_EV_SWIM_DILG_05",
@@ -1658,6 +1758,7 @@
             "QE_ST_HA_010037",
             "QE_TM_MAT_DEX_GEM_LV2",
             "QE_TM_MAT_DEX_GEM_LV3",
+            "QE_EV_3TITLE_END3",
             "QE_EV_FF15_7"
         ]
     },
@@ -1678,7 +1779,9 @@
             "QE_ST_HA_010038",
             "QE_ST_HA_010040",
             "QE_TM_IT_EQ_LV3_01",
+            "QE_EV_3TITLE_4",
             "QE_EV_FATE_6",
+            "QE_WA_ZIN_5",
             "QE_SO_SABALETA_LV3",
             "QE_SO_MILIS_2",
             "QE_SO_PERI_03",
@@ -1716,8 +1819,12 @@
             "QE_ST_NO_020102",
             "QE_ST_NO_020117",
             "QE_ST_NO_030021",
+            "QE_ST_NO_030050",
             "QE_ST_HA_010042",
             "QE_ST_HA_030007",
+            "QE_ST_HA_030016",
+            "QE_EV_3TITLE_4",
+            "QE_EV_3TITLE_END3",
             "QE_EV_FF15_6"
         ]
     },
@@ -1736,6 +1843,10 @@
             "QE_ST_HA_010035",
             "QE_ST_HA_010037",
             "QE_ST_HA_010040",
+            "QE_EV_3TITLE_5",
+            "QE_EV_3TITLE_END1",
+            "QE_EV_3TITLE_END2",
+            "QE_WA_ZIN_5",
             "QE_SO_MILIS_3",
             "QE_SO_PERI_06",
             "QE_SO_ERURIKE_3",
@@ -1768,11 +1879,13 @@
             "QE_ST_NO_020084",
             "QE_ST_NO_020115",
             "QE_ST_NO_030018",
+            "QE_ST_NO_030047",
             "QE_ST_HA_010038",
             "QE_ST_HA_010047",
             "QE_ST_HA_020016",
             "QE_ST_HA_020032",
             "QE_EV_POK_SAM_EX3",
+            "QE_EV_3TITLE_END1",
             "QE_SO_SABALETA_LV6",
             "QE_SO_SABALETA_LV6_2",
             "QE_SO_MILIS_3",
@@ -1816,11 +1929,14 @@
             "QE_ST_NO_020094",
             "QE_ST_NO_020110",
             "QE_ST_NO_030009",
+            "QE_ST_NO_030039",
             "QE_ST_HA_010043",
             "QE_ST_HA_020021",
             "QE_ST_HA_020025",
             "QE_ST_HA_020036",
             "QE_EV_POK_SAM_EX1",
+            "QE_EV_3TITLE_END3",
+            "QE_WA_ZIN_5",
             "QE_CH_LOGI_EDGA_3",
             "QE_EV_SEISEKI_DJ_09",
             "QE_EV_SEISEKI_DJ_3_09",
@@ -1850,6 +1966,8 @@
             "QE_ST_NO_010120",
             "QE_ST_NO_020072",
             "QE_ST_NO_020110",
+            "QE_ST_NO_030031",
+            "QE_ST_HA_030011",
             "QE_TM_IT_EQ_LV5_02",
             "QE_MULT_TM_IT_EQ_LV5_02"
         ]
@@ -1866,6 +1984,8 @@
             "QE_ST_NO_020066",
             "QE_ST_HA_010045",
             "QE_TM_IT_EQ_LV4_01",
+            "QE_EV_3TITLE_END1",
+            "QE_WA_ZIN_5",
             "QE_SO_ZEKE_2",
             "QE_EV_FF15_8",
             "QE_EV_FF15_10",
@@ -1887,6 +2007,7 @@
             "QE_ST_NO_020096",
             "QE_ST_NO_020112",
             "QE_ST_NO_030012",
+            "QE_ST_NO_030042",
             "QE_ST_HA_010044",
             "QE_ST_HA_020006",
             "QE_ST_HA_020014",
@@ -1895,6 +2016,9 @@
             "QE_TM_IT_EQ_LV4_01",
             "QE_EV_POK_SAM_EX3",
             "QE_EV_POK_SAM_KEY_EX1",
+            "QE_EV_3TITLE_5",
+            "QE_EV_3TITLE_END1",
+            "QE_EV_3TITLE_END2",
             "QE_SO_MILIS_3",
             "QE_SO_PERI_03",
             "QE_SO_ERURIKE_3",
@@ -1929,6 +2053,7 @@
             "QE_TM_IT_EQ_LV4_01",
             "QE_EV_POK_SAM_EX3",
             "QE_EV_POK_SAM_EX4",
+            "QE_WA_ZIN_5",
             "QE_SO_SABALETA_LV6",
             "QE_SO_SABALETA_LV6_2",
             "QE_SO_MILIS_3",
@@ -1958,8 +2083,7 @@
             "QE_MULTI_POK_SAM_EX4",
             "QE_MULT_SO_SABALETA_LV3",
             "QE_EV_GL_MH_01_09",
-            "QE_EV_GL_MH_01_10",
-            "QE_EV_GL_MH_01_EX"
+            "QE_EV_GL_MH_01_10"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_SCOPE": {
@@ -1976,9 +2100,12 @@
             "QE_ST_NO_020106",
             "QE_ST_NO_030003",
             "QE_ST_NO_030024",
+            "QE_ST_NO_030031",
             "QE_ST_HA_020030",
+            "QE_ST_HA_030011",
             "QE_TM_IT_EQ_LV4_01",
             "QE_EV_POK_SAM_EX4",
+            "QE_EV_3TITLE_4",
             "QE_SO_MILIS_3",
             "QE_CH_LOGI_EDGA_3",
             "QE_EV_FF15_7",
@@ -2030,8 +2157,15 @@
             "QE_EV_POK_SAM_EX4",
             "QE_EV_POK_SAM_EX1",
             "QE_EV_POK_SAM_EX2",
+            "QE_EV_3TITLE_5",
+            "QE_EV_3TITLE_END1",
+            "QE_EV_3TITLE_END2",
+            "QE_EV_3TITLE_END3",
+            "QE_EV_3TITLE_EX2",
             "QE_EV_FATE_HA_3",
             "QE_EV_FATE_HA_4",
+            "QE_WA_ZIN_5",
+            "QE_WA_ZIN_EX_1",
             "QE_SO_SABALETA_LV6",
             "QE_SO_SABALETA_LV6_2",
             "QE_SO_MILIS_3",
@@ -2043,14 +2177,7 @@
             "QE_SO_YUTO_EX_1",
             "QE_EV_SWIM_DILG_06",
             "QE_SO_LOGI_5",
-            "QE_EV_VELOZ_LV03",
-            "QE_CH_LOGI_EDGA_3",
-            "QE_EV_SEISEKI_DJ_09",
-            "QE_EV_SEISEKI_DJ_2_10",
-            "QE_EV_SEISEKI_DJ_2_EX",
-            "QE_EV_SEISEKI_DJ_3_09",
-            "QE_EV_SEISEKI_DJ_3_10",
-            "QE_EV_SEISEKI_DJ_5_09"
+            "QE_EV_VELOZ_LV03"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_ARMSWORD": {
@@ -2096,6 +2223,7 @@
             "QE_ST_NO_020101",
             "QE_ST_NO_020111",
             "QE_ST_NO_030002",
+            "QE_ST_NO_030032",
             "QE_ST_HA_010041",
             "QE_ST_HA_010049",
             "QE_ST_HA_020020",
@@ -2107,6 +2235,9 @@
             "QE_GL_HARVEST_3",
             "QE_GL_MULTI_HARVEST_3",
             "QE_EV_POK_SAM_KEY_EX1",
+            "QE_EV_3TITLE_5",
+            "QE_EV_3TITLE_END3",
+            "QE_WA_ZIN_EX_1",
             "QE_SO_MILIS_EX",
             "QE_SO_PERI_06",
             "QE_EV_VELOZ_LV03",
@@ -2126,14 +2257,10 @@
             "QE_EV_XMAS_04",
             "QE_EV_XMAS_05",
             "QE_EV_XMAS_EX",
-            "QE_MULTI_SEISEKI_DJ_2_EX",
-            "QE_MULTI_SEISEKI_DJ_5_EX",
-            "QE_MULTI_HALL_ALEX_EX",
+            "QE_MULTI_WA_ZIN_EX_1",
             "QE_MULTI_SO_MILIS_EX",
-            "QE_MULTI_EV_XMAS_EX",
-            "QE_GL_TRIAL_MAGE_2",
-            "QE_GL_TRIAL_MAGE_3",
-            "QE_GL_MULTI_TRIAL_MAGE_3"
+            "QE_MULTI_SEISEKI_DJ_2_EX",
+            "QE_MULTI_SEISEKI_DJ_5_EX"
         ]
     },
     "IT_EQ_PIECE_ARMOR": {
@@ -2150,6 +2277,7 @@
             "QE_ST_NO_020102",
             "QE_ST_NO_020112",
             "QE_ST_NO_030005",
+            "QE_ST_NO_030035",
             "QE_ST_HA_010041",
             "QE_ST_HA_020028",
             "QE_ST_HA_020038",
@@ -2158,6 +2286,10 @@
             "QE_GL_MULTI_HARVEST_3",
             "QE_EV_POK_SAM_EX3",
             "QE_EV_POK_SAM_EX4",
+            "QE_EV_3TITLE_5",
+            "QE_EV_3TITLE_END2",
+            "QE_EV_3TITLE_EX2",
+            "QE_WA_ZIN_5",
             "QE_SO_MILIS_3",
             "QE_SO_PERI_06",
             "QE_SO_ZEKE_1",
@@ -2183,11 +2315,7 @@
             "QE_EV_MULTI_FF15_EX_2",
             "QE_EV_VALENTINE_04",
             "QE_EV_VALENTINE_05",
-            "QE_EV_GL_MH_01_MULTI_EX",
-            "QE_MULTI_POK_SAM_EX3",
-            "QE_MULTI_POK_SAM_EX4",
-            "QE_MULTI_SEISEKI_DJ_4_EX",
-            "QE_EV_GL_MH_01_EX"
+            "QE_EV_GL_MH_01_MULTI_EX"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_HEELHAT": {
@@ -2242,6 +2370,7 @@
             "QE_ST_HA_030006",
             "QE_TM_MAT_MAG_MND_LV3",
             "QE_EV_POK_SAM_KEY_EX1",
+            "QE_EV_3TITLE_END3",
             "QE_SO_MILIS_EX",
             "QE_SO_PERI_06",
             "QE_EV_SEISEKI_DJ_2_10",
@@ -2251,8 +2380,8 @@
             "QE_EV_HALL_ALEX_04",
             "QE_EV_HALL_ALEX_05",
             "QE_EV_HALL_ALEX_EX",
-            "QE_MULTI_HALL_ALEX_EX",
             "QE_MULTI_SO_MILIS_EX",
+            "QE_MULTI_HALL_ALEX_EX",
             "QE_GL_TRIAL_MAGE_3",
             "QE_GL_MULTI_TRIAL_MAGE_3"
         ]
@@ -2271,6 +2400,7 @@
             "QE_SO_SABALETA_LV6",
             "QE_SO_SABALETA_LV6_2",
             "QE_SO_PERI_06",
+            "QE_CH_SHENMEI_2",
             "QE_MULT_TM_IT_EQ_LV4_02",
             "QE_MULT_TM_IT_EQ_LV5_01",
             "QE_MULT_SO_SABALETA_LV3"
@@ -2312,15 +2442,19 @@
             "QE_ST_NO_020103",
             "QE_ST_NO_020113",
             "QE_ST_NO_030008",
+            "QE_ST_NO_030038",
             "QE_ST_HA_010047",
             "QE_TM_MAT_HP_CRI_LV3",
             "QE_TM_IT_EQ_LV4_01",
+            "QE_EV_3TITLE_5",
+            "QE_EV_3TITLE_EX1",
             "QE_SO_ERURIKE_3",
             "QE_SO_YUTO_3",
             "QE_SO_LOGI_4",
             "QE_EV_FF15_EX_1",
             "QE_EV_FF15_EX_SP_1",
-            "QE_EV_MULTI_FF15_EX_1"
+            "QE_EV_MULTI_FF15_EX_1",
+            "QE_EV_MULTI_3TITLE_EX1"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_TRIDENT": {
@@ -2351,6 +2485,7 @@
             "QE_TM_IT_EQ_LV5_01",
             "QE_SO_PERI_EX",
             "QE_CH_FLAMEL_3",
+            "QE_CH_RYLE_3",
             "QE_MULT_TM_IT_EQ_LV4_02",
             "QE_MULT_TM_IT_EQ_LV5_01"
         ]
@@ -2370,11 +2505,14 @@
             "QE_ST_NO_020106",
             "QE_ST_NO_020116",
             "QE_ST_NO_030017",
+            "QE_ST_NO_030049",
             "QE_ST_HA_010048",
             "QE_ST_HA_020006",
+            "QE_ST_HA_030015",
             "QE_TM_MAT_DEX_GEM_LV3",
             "QE_GL_HARVEST_3",
             "QE_GL_MULTI_HARVEST_3",
+            "QE_EV_3TITLE_5",
             "QE_EV_VELOZ_LV03",
             "QE_EV_FF15_9",
             "QE_EV_HALL_ALEX_04",
@@ -2396,11 +2534,14 @@
             "QE_ST_NO_020105",
             "QE_ST_NO_020115",
             "QE_ST_NO_030014",
+            "QE_ST_NO_030046",
             "QE_ST_HA_010044",
             "QE_ST_HA_010050",
             "QE_ST_HA_020034",
             "QE_ST_HA_030003",
             "QE_TM_MAT_HP_CRI_LV3",
+            "QE_EV_3TITLE_END2",
+            "QE_WA_ZIN_5",
             "QE_EV_VELOZ_EX01",
             "QE_EV_SEISEKI_DJ_4_EX",
             "QE_EV_FF15_10",
@@ -2436,6 +2577,8 @@
             "QE_ST_HA_010048",
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_03",
+            "QE_EV_3TITLE_5",
+            "QE_EV_3TITLE_END1",
             "QE_CH_ROFI_2",
             "QE_MULT_TM_IT_EQ_LV4_03",
             "QE_MULT_TM_IT_EQ_LV5_03"
@@ -2456,6 +2599,7 @@
             "QE_ST_NO_020104",
             "QE_ST_NO_020114",
             "QE_ST_NO_030011",
+            "QE_ST_NO_030043",
             "QE_ST_HA_010043",
             "QE_ST_HA_020003",
             "QE_ST_HA_020013",
@@ -2520,6 +2664,7 @@
             "QE_ST_NO_030023",
             "QE_ST_HA_010046",
             "QE_TM_MAT_SPD_LUKLV3",
+            "QE_EV_3TITLE_END2",
             "QE_EV_FF15_7",
             "QE_EV_FF15_8",
             "QE_EV_FF15_9",
@@ -2623,6 +2768,7 @@
             "QE_ST_NO_010145",
             "QE_ST_NO_020050",
             "QE_ST_NO_020091",
+            "QE_ST_NO_030037",
             "QE_ST_HA_020016",
             "QE_ST_HA_020031",
             "QE_TM_IT_EQ_LV4_03",
@@ -2638,7 +2784,9 @@
             "QE_ST_NO_010146",
             "QE_ST_NO_020052",
             "QE_ST_NO_020092",
+            "QE_ST_NO_030040",
             "QE_ST_HA_020018",
+            "QE_ST_HA_030012",
             "QE_TM_IT_EQ_LV4_02",
             "QE_TM_IT_EQ_LV5_01",
             "QE_EV_FATE_EX_2_EASY",
@@ -2663,6 +2811,7 @@
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_03",
             "QE_CH_ANASTASIA_2",
+            "QE_CH_SHENMEI_3",
             "QE_EV_FF15_EX_1",
             "QE_EV_FF15_EX_SP_1",
             "QE_EV_MULTI_FF15_EX_1",
@@ -2676,6 +2825,7 @@
             "QE_ST_NO_010132",
             "QE_ST_NO_010148",
             "QE_ST_NO_020054",
+            "QE_ST_NO_030041",
             "QE_TM_IT_EQ_LV4_02",
             "QE_TM_IT_EQ_LV5_01",
             "QE_SO_SABALETA_LV5",
@@ -2692,6 +2842,7 @@
             "QE_ST_NO_010133",
             "QE_ST_NO_010145",
             "QE_ST_NO_020055",
+            "QE_ST_NO_030042",
             "QE_TM_IT_EQ_LV4_02",
             "QE_TM_IT_EQ_LV5_01",
             "QE_CB_BF_GL_EX",
@@ -2717,6 +2868,8 @@
             "QE_ST_NO_010133",
             "QE_ST_NO_020056",
             "QE_ST_NO_020096",
+            "QE_ST_NO_030044",
+            "QE_ST_HA_030013",
             "QE_TM_IT_EQ_LV4_02",
             "QE_TM_IT_EQ_LV5_01",
             "QE_CH_ZAHAR_1",
@@ -2731,9 +2884,13 @@
             "QE_ST_NO_010134",
             "QE_ST_NO_020057",
             "QE_ST_NO_020097",
+            "QE_ST_NO_030045",
             "QE_ST_HA_010044",
+            "QE_ST_HA_030014",
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_03",
+            "QE_EV_3TITLE_5",
+            "QE_EV_3TITLE_END1",
             "QE_CH_YOMI_1",
             "QE_MULT_TM_IT_EQ_LV4_03",
             "QE_MULT_TM_IT_EQ_LV5_03"
@@ -2762,6 +2919,7 @@
             "QE_ST_NO_010135",
             "QE_ST_NO_020060",
             "QE_ST_NO_020099",
+            "QE_ST_NO_030047",
             "QE_ST_HA_020020",
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_04",
@@ -2778,6 +2936,7 @@
             "QE_ST_NO_010135",
             "QE_ST_NO_010150",
             "QE_ST_NO_020100",
+            "QE_ST_NO_030048",
             "QE_ST_HA_010050",
             "QE_ST_HA_020021",
             "QE_ST_HA_020032",
@@ -2786,6 +2945,7 @@
             "QE_SO_YUTO_EX_1",
             "QE_CH_YOMI_3",
             "QE_EV_FF15_9",
+            "QE_MULTI_SO_YUTO_EX_1",
             "QE_MULT_TM_IT_EQ_LV4_02",
             "QE_MULT_TM_IT_EQ_LV5_02"
         ]
@@ -2797,6 +2957,8 @@
             "QE_ST_NO_010149",
             "QE_ST_NO_020064",
             "QE_ST_NO_020101",
+            "QE_ST_NO_030049",
+            "QE_ST_HA_030015",
             "QE_TM_IT_EQ_LV4_02",
             "QE_TM_IT_EQ_LV5_02",
             "QE_CB_BF_GL_EX",
@@ -2824,7 +2986,9 @@
             "QE_ST_NO_010136",
             "QE_ST_NO_020001",
             "QE_ST_NO_020064",
+            "QE_ST_NO_030050",
             "QE_ST_HA_020001",
+            "QE_ST_HA_030016",
             "QE_TM_IT_EQ_LV4_02",
             "QE_TM_IT_EQ_LV5_02",
             "QE_SO_ZEKE_2",
@@ -2863,7 +3027,9 @@
             "QE_ST_HA_010045",
             "QE_TM_IT_EQ_LV5_02",
             "QE_EV_POK_SAM_EX2",
+            "QE_EV_3TITLE_EX2",
             "QE_MULTI_POK_SAM_EX2",
+            "QE_EV_MULTI_3TITLE_EX2",
             "QE_MULT_TM_IT_EQ_LV5_02"
         ]
     },
@@ -2914,6 +3080,7 @@
             "QE_ST_NO_010141",
             "QE_ST_NO_020073",
             "QE_ST_NO_020112",
+            "QE_ST_NO_030034",
             "QE_ST_HA_020005",
             "QE_TM_IT_EQ_LV5_02",
             "QE_EV_FF15_EX_1",
@@ -3019,6 +3186,7 @@
             "QE_ST_HA_010050",
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_04",
+            "QE_EV_3TITLE_END2",
             "QE_CH_ELIZABETH_1",
             "QE_EV_XMAS_04",
             "QE_EV_XMAS_05",
@@ -3068,6 +3236,7 @@
             "QE_TM_IT_EQ_LV5_01",
             "QE_SO_ERURIKE_EX_1",
             "QE_SO_ERURIKE_EX",
+            "QE_CH_RYLE_2",
             "QE_EV_FF15_EX_4",
             "QE_EV_FF15_EX_SP_4",
             "QE_EV_MULTI_FF15_EX_4",
@@ -3109,6 +3278,7 @@
             "QE_ST_HA_020024",
             "QE_TM_IT_EQ_LV4_02",
             "QE_TM_IT_EQ_LV5_02",
+            "QE_CH_SHENMEI_1",
             "QE_MULT_TM_IT_EQ_LV4_02",
             "QE_MULT_TM_IT_EQ_LV5_02"
         ]
@@ -3123,9 +3293,12 @@
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_04",
             "QE_EV_POK_SAM_EX4",
+            "QE_EV_3TITLE_EX1",
+            "QE_CH_RYLE_1",
             "QE_EV_FF15_9",
             "QE_EV_FF15_10",
             "QE_MULTI_POK_SAM_EX4",
+            "QE_EV_MULTI_3TITLE_EX1",
             "QE_MULT_TM_IT_EQ_LV4_03",
             "QE_MULT_TM_IT_EQ_LV5_04"
         ]
@@ -3174,6 +3347,28 @@
             "QE_MULT_TM_IT_EQ_LV5_03"
         ]
     },
+    "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA",
+        "questlist": [
+            "QE_ST_NO_030041",
+            "QE_EV_3TITLE_END3"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_SPE_FLAGSPEAR": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_SPE_FLAGSPEAR",
+        "questlist": [
+            "QE_ST_NO_030045"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_OTHI_ARMOR": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_OTHI_ARMOR",
+        "questlist": [
+            "QE_ST_NO_030050",
+            "QE_EV_SEISEKI_DJ_5_10",
+            "QE_EV_SEISEKI_DJ_5_EX",
+            "QE_MULTI_SEISEKI_DJ_5_EX"
+        ]
+    },
     "IT_PI_LOGI": {
         "item_iname": "IT_PI_LOGI",
         "questlist": [
@@ -3185,8 +3380,6 @@
         "item_iname": "IT_PI_RIGARUTO",
         "questlist": [
             "QE_ST_HA_010002",
-            "QE_ST_HA_010030",
-            "QE_ST_HA_010044",
             "QE_ST_HA_020010"
         ]
     },
@@ -3210,7 +3403,6 @@
         "item_iname": "IT_PI_LUCIDO",
         "questlist": [
             "QE_ST_HA_010005",
-            "QE_ST_HA_010034",
             "QE_ST_HA_010047",
             "QE_ST_HA_020015",
             "QE_ST_HA_020033"
@@ -3236,8 +3428,7 @@
         "item_iname": "IT_PI_GAIN",
         "questlist": [
             "QE_ST_HA_010008",
-            "QE_ST_HA_020018",
-            "QE_ST_HA_020036"
+            "QE_ST_HA_020018"
         ]
     },
     "IT_PI_MELIA": {
@@ -3375,6 +3566,12 @@
             "QE_ST_HA_010029"
         ]
     },
+    "IT_PI_ROSA": {
+        "item_iname": "IT_PI_ROSA",
+        "questlist": [
+            "QE_ST_HA_010030"
+        ]
+    },
     "IT_PI_MEGISTOS": {
         "item_iname": "IT_PI_MEGISTOS",
         "questlist": [
@@ -3385,6 +3582,12 @@
         "item_iname": "IT_PI_LUCIA",
         "questlist": [
             "QE_ST_HA_010033"
+        ]
+    },
+    "IT_PI_GLANZ": {
+        "item_iname": "IT_PI_GLANZ",
+        "questlist": [
+            "QE_ST_HA_010034"
         ]
     },
     "IT_PI_LAMIA": {
@@ -3415,6 +3618,12 @@
         "item_iname": "IT_PI_MERDA",
         "questlist": [
             "QE_ST_HA_010041"
+        ]
+    },
+    "IT_PI_REIMEI": {
+        "item_iname": "IT_PI_REIMEI",
+        "questlist": [
+            "QE_ST_HA_010044"
         ]
     },
     "IT_PI_ALMILA": {
@@ -3524,10 +3733,17 @@
             "QE_ST_HA_020031"
         ]
     },
+    "IT_PI_ARUBA": {
+        "item_iname": "IT_PI_ARUBA",
+        "questlist": [
+            "QE_ST_HA_020036"
+        ]
+    },
     "IT_PI_LIESBET": {
         "item_iname": "IT_PI_LIESBET",
         "questlist": [
-            "QE_ST_HA_030001"
+            "QE_ST_HA_030001",
+            "QE_ST_HA_030011"
         ]
     },
     "IT_PI_MARE": {
@@ -3589,6 +3805,42 @@
         "item_iname": "IT_PI_KUON",
         "questlist": [
             "QE_ST_HA_030010"
+        ]
+    },
+    "IT_PI_DECEL": {
+        "item_iname": "IT_PI_DECEL",
+        "questlist": [
+            "QE_ST_HA_030012"
+        ]
+    },
+    "IT_PI_JAKE": {
+        "item_iname": "IT_PI_JAKE",
+        "questlist": [
+            "QE_ST_HA_030013"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_WEA_SOUBI": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_WEA_SOUBI",
+        "questlist": [
+            "QE_ST_HA_030014"
+        ]
+    },
+    "IT_PI_AYLLU": {
+        "item_iname": "IT_PI_AYLLU",
+        "questlist": [
+            "QE_ST_HA_030014"
+        ]
+    },
+    "IT_PI_ARKILL": {
+        "item_iname": "IT_PI_ARKILL",
+        "questlist": [
+            "QE_ST_HA_030015"
+        ]
+    },
+    "IT_PI_SARAUZU": {
+        "item_iname": "IT_PI_SARAUZU",
+        "questlist": [
+            "QE_ST_HA_030016"
         ]
     },
     "IT_UG_APPLE1": {
@@ -3660,11 +3912,11 @@
             "QE_ZOKUSEI_16",
             "QE_MULTI_EVT_0001",
             "QE_MULTI_VELOZ_EX01",
+            "QE_MULTI_SO_MILIS_EX",
             "QE_MULTI_KETSUJIN_0001",
             "QE_MULTI_KETSUJIN_0002",
             "QE_MULTI_KETSUJIN_0003",
             "QE_MULTI_SO_PERI_EX",
-            "QE_MULTI_SO_MILIS_EX",
             "QE_MULTI_ZOKUSEI_2",
             "QE_MULTI_ZOKUSEI_4",
             "QE_MULTI_ZOKUSEI_6",
@@ -4727,6 +4979,8 @@
             "QE_LIMIT_MELEE_Lv1",
             "QE_EV_FATE_2",
             "QE_EV_FATE_4",
+            "QE_WA_ZIN_1",
+            "QE_WA_ZIN_3",
             "QE_SO_SABALETA_LV3",
             "QE_SO_PERI_01",
             "QE_EV_SEISEKI_DJ_01",
@@ -4916,6 +5170,30 @@
             "QE_EV_POK_SAM_KEY_EX1"
         ]
     },
+    "IT_PI_S_AMATERASU": {
+        "item_iname": "IT_PI_S_AMATERASU",
+        "questlist": [
+            "QE_EV_3TITLE_1",
+            "QE_EV_3TITLE_2",
+            "QE_EV_3TITLE_3",
+            "QE_EV_3TITLE_4",
+            "QE_EV_3TITLE_5"
+        ]
+    },
+    "IT_AF_ARMS_POK_EROS_00": {
+        "item_iname": "IT_AF_ARMS_POK_EROS_00",
+        "questlist": [
+            "QE_EV_3TITLE_EX1",
+            "QE_EV_MULTI_3TITLE_EX1"
+        ]
+    },
+    "IT_AF_ARMS_S_YURI_00": {
+        "item_iname": "IT_AF_ARMS_S_YURI_00",
+        "questlist": [
+            "QE_EV_3TITLE_EX2",
+            "QE_EV_MULTI_3TITLE_EX2"
+        ]
+    },
     "IT_EQ_DEX_PEN": {
         "item_iname": "IT_EQ_DEX_PEN",
         "questlist": [
@@ -4982,6 +5260,8 @@
         "item_iname": "IT_EQ_DEF_MANTLE",
         "questlist": [
             "QE_EV_FATE_3",
+            "QE_WA_ZIN_3",
+            "QE_WA_ZIN_4",
             "QE_EV_SEISEKI_DJ_03",
             "QE_EV_SEISEKI_DJ_04",
             "QE_EV_SEISEKI_DJ_3_03",
@@ -4996,6 +5276,8 @@
         "item_iname": "IT_EQ_DEX_INK",
         "questlist": [
             "QE_EV_FATE_3",
+            "QE_WA_ZIN_3",
+            "QE_WA_ZIN_4",
             "QE_CH_LOGI_EDGA_1",
             "QE_EV_SEISEKI_DJ_03",
             "QE_EV_SEISEKI_DJ_04",
@@ -5015,6 +5297,7 @@
         "item_iname": "IT_EQ_LUK_KEY",
         "questlist": [
             "QE_EV_FATE_3",
+            "QE_WA_ZIN_3",
             "QE_CH_LOGI_EDGA_1",
             "QE_EV_SEISEKI_DJ_03",
             "QE_EV_SEISEKI_DJ_3_03",
@@ -5251,6 +5534,81 @@
             "QE_EV_FATE_EX_4_EASY",
             "QE_EV_FATE_EX_4",
             "QE_MULTI_EV_FATE_EX_4"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_ARKI_HOOKAH": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_ARKI_HOOKAH",
+        "questlist": [
+            "QE_WA_ZIN_1",
+            "QE_WA_ZIN_3"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_ARKI_TURBAN": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_ARKI_TURBAN",
+        "questlist": [
+            "QE_WA_ZIN_1",
+            "QE_WA_ZIN_3"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_ARKI_JACKET": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_ARKI_JACKET",
+        "questlist": [
+            "QE_WA_ZIN_2",
+            "QE_WA_ZIN_4"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_ARKI_GAUNTLET": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_ARKI_GAUNTLET",
+        "questlist": [
+            "QE_WA_ZIN_2",
+            "QE_WA_ZIN_4"
+        ]
+    },
+    "IT_EQ_MND_MUFFLER": {
+        "item_iname": "IT_EQ_MND_MUFFLER",
+        "questlist": [
+            "QE_WA_ZIN_4",
+            "QE_EV_SEISEKI_DJ_04",
+            "QE_EV_SEISEKI_DJ_3_04",
+            "QE_EV_SEISEKI_DJ_5_04"
+        ]
+    },
+    "IT_EQ_SOUL_ARKI_MAH": {
+        "item_iname": "IT_EQ_SOUL_ARKI_MAH",
+        "questlist": [
+            "QE_WA_ZIN_4",
+            "QE_WA_ZIN_5"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_ONM_SOUBI": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_ONM_SOUBI",
+        "questlist": [
+            "QE_WA_ZIN_4",
+            "QE_WA_ZIN_5"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_ARKI_BOOTS": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_ARKI_BOOTS",
+        "questlist": [
+            "QE_WA_ZIN_5",
+            "QE_WA_ZIN_EX_1",
+            "QE_MULTI_WA_ZIN_EX_1"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_ARKI_REVOLVER": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_ARKI_REVOLVER",
+        "questlist": [
+            "QE_WA_ZIN_5",
+            "QE_WA_ZIN_EX_1",
+            "QE_MULTI_WA_ZIN_EX_1"
+        ]
+    },
+    "IT_AF_ARMS_ZIN_00": {
+        "item_iname": "IT_AF_ARMS_ZIN_00",
+        "questlist": [
+            "QE_WA_ZIN_5",
+            "QE_WA_ZIN_EX_1",
+            "QE_MULTI_WA_ZIN_EX_1"
         ]
     },
     "IT_PI_SABALETA": {
@@ -5571,37 +5929,43 @@
     "IT_EQ_DIAGRAMPIECE_LUCA_TWIN_SWORD": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_LUCA_TWIN_SWORD",
         "questlist": [
-            "QE_SO_YUTO_EX_1"
+            "QE_SO_YUTO_EX_1",
+            "QE_MULTI_SO_YUTO_EX_1"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_LUCA_HOOD": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_LUCA_HOOD",
         "questlist": [
-            "QE_SO_YUTO_EX_1"
+            "QE_SO_YUTO_EX_1",
+            "QE_MULTI_SO_YUTO_EX_1"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_LUCA_SCARF": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_LUCA_SCARF",
         "questlist": [
-            "QE_SO_YUTO_EX_1"
+            "QE_SO_YUTO_EX_1",
+            "QE_MULTI_SO_YUTO_EX_1"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_LUCA_CLOTH": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_LUCA_CLOTH",
         "questlist": [
-            "QE_SO_YUTO_EX_1"
+            "QE_SO_YUTO_EX_1",
+            "QE_MULTI_SO_YUTO_EX_1"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_LUCA_PANTS": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_LUCA_PANTS",
         "questlist": [
-            "QE_SO_YUTO_EX_1"
+            "QE_SO_YUTO_EX_1",
+            "QE_MULTI_SO_YUTO_EX_1"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_LUCA_SWORDS": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_LUCA_SWORDS",
         "questlist": [
-            "QE_SO_YUTO_EX_1"
+            "QE_SO_YUTO_EX_1",
+            "QE_MULTI_SO_YUTO_EX_1"
         ]
     },
     "IT_EQ_SOUL_LUCA_STR": {
@@ -5772,14 +6136,6 @@
         "questlist": [
             "QE_EV_SEISEKI_DJ_03",
             "QE_EV_SEISEKI_DJ_04"
-        ]
-    },
-    "IT_EQ_MND_MUFFLER": {
-        "item_iname": "IT_EQ_MND_MUFFLER",
-        "questlist": [
-            "QE_EV_SEISEKI_DJ_04",
-            "QE_EV_SEISEKI_DJ_3_04",
-            "QE_EV_SEISEKI_DJ_5_04"
         ]
     },
     "IT_EQ_PIECE_CANO_SHOES": {
@@ -5971,14 +6327,6 @@
         "item_iname": "IT_EQ_PIECE_KAGU_DAI_04",
         "questlist": [
             "QE_EV_SEISEKI_DJ_5_09"
-        ]
-    },
-    "IT_EQ_DIAGRAMPIECE_OTHI_ARMOR": {
-        "item_iname": "IT_EQ_DIAGRAMPIECE_OTHI_ARMOR",
-        "questlist": [
-            "QE_EV_SEISEKI_DJ_5_10",
-            "QE_EV_SEISEKI_DJ_5_EX",
-            "QE_MULTI_SEISEKI_DJ_5_EX"
         ]
     },
     "IT_EQ_SOUL_CANO_LORD": {

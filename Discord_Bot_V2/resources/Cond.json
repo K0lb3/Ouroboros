@@ -10061,6 +10061,22 @@
             "DisableHeal"
         ]
     },
+    "CON_GORM_KAI_MAD_SEA_SONG": {
+        "iname": "CON_GORM_KAI_MAD_SEA_SONG",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Berserk"
+        ],
+        "BuffIds": [
+            "BUFF_GORM_KAI_MAD_SEA_SONG"
+        ]
+    },
     "CON_SHN_UPPER_01_FINANCIAL": {
         "iname": "CON_SHN_UPPER_01_FINANCIAL",
         "type": "FailCondition",
@@ -12279,5 +12295,68 @@
             "Paralysed",
             "Poison"
         ]
+    },
+    "CON_KAI_ALWIDA_BOMBARD": {
+        "iname": "CON_KAI_ALWIDA_BOMBARD",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 50,
+        "rate_max": 50,
+        "turn_ini": 4,
+        "turn_max": 4,
+        "conditions": [
+            "Blindness"
+        ],
+        "v_blink_hit": -50,
+        "v_blink_avo": -50
+    },
+    "CON_TR_MAP_NEW_HUU_HISHARMU_BUFF_01": {
+        "iname": "CON_TR_MAP_NEW_HUU_HISHARMU_BUFF_01",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 2,
+        "turn_max": 2,
+        "conditions": [
+            "AutoJewel"
+        ],
+        "v_auto_mp_heal_fix": 20
+    },
+    "CON_AF_ACCS_LEYDOW_01_WA": {
+        "iname": "CON_AF_ACCS_LEYDOW_01_WA",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "Eternal",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "AutoHeal"
+        ],
+        "v_auto_hp_heal": 10
+    },
+    "CON_AF_ARMS_SUMERAGI_00_AS": {
+        "iname": "CON_AF_ARMS_SUMERAGI_00_AS",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionEnd",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 20,
+        "rate_max": 20,
+        "turn_ini": 4,
+        "turn_max": 4,
+        "conditions": [
+            "AutoJewel"
+        ],
+        "v_auto_mp_heal_fix": 10
     }
 }

@@ -733,5 +733,149 @@
         "mJobLevel": 11,
         "mCategory": 1,
         "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_FENCER_H_FEN",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_H_FEN",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_REAPER_REA",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_REA",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_SHERMAN_SHE_N",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_SHE_N",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_SEK_CLOE_MAS",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_MAS",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_ZAYIN_ZAYI_LORD_CC",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_ZAYI_LORD_CC",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_VIER_SYO_AGA",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_SYO_AGA",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_GOL_STR_SENJYU",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_STR_SENJYU",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_SQ_PALADIN_VAL_LAN_JUMP",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_VAL_LAN_JUMP",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "ETB_CNDS_ENV_2_SQ_PRINCESS_ENC_THUNDER",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_ENC_THUNDER",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_SQ_SHENMEI_SHN_HEEL",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_SHN_HEEL",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "ETB_CNDS_ENV_2_SQ_GUNNER_RAN_TYPE_MONS",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_RAN_TYPE_MONS",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_SAKURA_NIN_SEIRYU",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_NIN_SEIRYU",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_S_YOMI_RAN_TYPE_JEWELDAMEGE",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_SHN_CT",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_SHENMEI_KAI",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_KAI_TEACH",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_RIGARUTO_KAI",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_RAN_TYPE_MONS",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_HISHARMU_KAI",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_KAI_TEACH",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
     }
 ]

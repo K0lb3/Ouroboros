@@ -623,9 +623,9 @@
         "conditions_elements": {},
         "element_sum": 0
     },
-    "CARD_CNDS_CADA": {
-        "iname": "CARD_CNDS_CADA",
-        "unit_group": "UG_CADA",
+    "CARD_CNDS_CADA_MIUN": {
+        "iname": "CARD_CNDS_CADA_MIUN",
+        "unit_group": "UG_CADA_MIUN",
         "conditions_elements": {},
         "element_sum": 0
     },
@@ -652,6 +652,60 @@
     "CARD_CNDS_SEKAIJU": {
         "iname": "CARD_CNDS_SEKAIJU",
         "unit_group": "UG_SEKAIJU",
+        "conditions_elements": {},
+        "element_sum": 0
+    },
+    "CARD_CNDS_LEYDOW_VETTEL_UROB": {
+        "iname": "CARD_CNDS_LEYDOW_VETTEL_UROB",
+        "unit_group": "UG_LEYDOW_VETTEL_UROB",
+        "conditions_elements": {},
+        "element_sum": 0
+    },
+    "CARD_CNDS_LEYDOW_UROB": {
+        "iname": "CARD_CNDS_LEYDOW_UROB",
+        "unit_group": "UG_LEYDOW_UROB",
+        "conditions_elements": {},
+        "element_sum": 0
+    },
+    "CARD_CNDS_LEYDOW": {
+        "iname": "CARD_CNDS_LEYDOW",
+        "unit_group": "UG_LEYDOW",
+        "conditions_elements": {},
+        "element_sum": 0
+    },
+    "CARD_CNDS_AISHA_CHATNOIR_UROB": {
+        "iname": "CARD_CNDS_AISHA_CHATNOIR_UROB",
+        "unit_group": "UG_AISHA_CHATNOIR_UROB",
+        "conditions_elements": {},
+        "element_sum": 0
+    },
+    "CARD_CNDS_AISHA_UROB": {
+        "iname": "CARD_CNDS_AISHA_UROB",
+        "unit_group": "UG_AISHA_UROB",
+        "conditions_elements": {},
+        "element_sum": 0
+    },
+    "CARD_CNDS_AISHA": {
+        "iname": "CARD_CNDS_AISHA",
+        "unit_group": "UG_AISHA",
+        "conditions_elements": {},
+        "element_sum": 0
+    },
+    "CARD_CNDS_DOROTHEA_DILGA_UROB": {
+        "iname": "CARD_CNDS_DOROTHEA_DILGA_UROB",
+        "unit_group": "UG_DOROTHEA_DILGA_UROB",
+        "conditions_elements": {},
+        "element_sum": 0
+    },
+    "CARD_CNDS_DOROTHEA_UROB": {
+        "iname": "CARD_CNDS_DOROTHEA_UROB",
+        "unit_group": "UG_DOROTHEA_UROB",
+        "conditions_elements": {},
+        "element_sum": 0
+    },
+    "CARD_CNDS_DOROTHEA": {
+        "iname": "CARD_CNDS_DOROTHEA",
+        "unit_group": "UG_DOROTHEA",
         "conditions_elements": {},
         "element_sum": 0
     }
