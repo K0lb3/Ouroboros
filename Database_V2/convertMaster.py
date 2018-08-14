@@ -1,4 +1,4 @@
-from MainFunctions import *
+from MainFunctions import loadFiles,os,DifParam,saveAsJSON,PATH,json
 from Functions import wytesong,Tierlist
 import ParamFunctions
 
@@ -12,7 +12,6 @@ def convertRaws(save=True):
     #loc = Translation()
     export={}
     #some tries first
-    i=0
     for master in masters:
         for main in master:
             #get right method for convertion
@@ -125,7 +124,7 @@ def Fixes(master):
                     if os.path.exists(os.path.join(PATH_maps, map['mapSetName'])):
                         with open(os.path.join(PATH_maps, map['mapSetName']), "rt", encoding='utf-8-sig') as f:
                             map['Set']=(json.loads(f.read()))   
-                        party=['party','enemy']
+                        party=['party','enemy','arena']
                         for p in party:
                             if p in map['Set']:
                                 for index,value in enumerate(map['Set'][p]):
