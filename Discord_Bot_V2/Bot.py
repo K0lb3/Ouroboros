@@ -3,12 +3,12 @@ import discord
 import asyncio
 import json
 from discord.ext import commands
-from functions import *
+from functions import FindBest
 import ToEmbed
-from settings import *
+from settings import BOT_TOKEN,PRESENCES
 
 # Constants
-prefix='o?'
+prefix='o.'
 bot = commands.Bot(command_prefix=prefix)
 
 async def statistic(ctx, command, input=False, result=False):
@@ -47,5 +47,16 @@ async def quest(ctx, *, name):
     quest = FindBest(ToEmbed.DIRS['Quests'], name,True)
     (embed,image)=ToEmbed.quest(quest,'')
     await ctx.send(embed=embed,file=discord.File(image,filename='{}.png'.format(quest)))
+
+@bot.command()
+async def lore(ctx,*,name):
+    unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
+    await ctx.send(embed=ToEmbed.Unit(unit,'lore'))
+
+@bot.command()
+async def art(ctx,*,name):
+    unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
+    for embed in ToEmbed.Unit(unit,'art'):
+        await ctx.send(embed=embed)
 
 bot.run(BOT_TOKEN)
