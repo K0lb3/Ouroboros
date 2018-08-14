@@ -11,6 +11,7 @@ def FindBest(source, text, print_=False):
     :return: The best matched item from the dictionary
     :rtype: dict
     """
+    text=text.title()
     # XXX: Purposely shadowing the text parameter
     # Calculate the match score for each key in the source dictionary using the input text.
     # Then, create a list of (key, the best score) tuples.
