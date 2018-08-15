@@ -1,4 +1,4 @@
-from ToEmbed._main import DIRS,LinkDB,ConvertFields,StrBuff,StrCondition,Embed
+from ToEmbed._main import DIRS,LinkDB,ConvertFields,StrBuff,StrCondition,Embed,Rarity
 
 #To do:
 #title url
@@ -17,20 +17,19 @@ def Unit(iname, page):
 
     #create basic embed
     embed= Embed(
-        title=unit['name'], #page name
+        title=page, #page name
         url='http://www.alchemistcodedb.com/{region}unit/{unit}'.format(
             region=''if 'dif' not in unit else 'jp/',
             unit= unit['iname'].replace('UN_V2_', "").replace('_', "-").lower()
             ),
         color=ELEMENT_COLOR[unit['element']]
     )
-    embed.set_author(name=page, url=embed.url)
+    embed.set_author(name=unit['name'], url=embed.url)
     embed.set_thumbnail(url='http://cdn.alchemistcodedb.com/images/units/profiles/' + unit["image"] + ".png")
 
     while page:
         if page=='main':
             embed.ConvertFields(main(unit))
-            embed.title=page
             if 'tierlist' in unit:
                 embed.title += ", overall rank: [{tier}]".format(tier=unit['tierlist']['total'])
 
@@ -38,23 +37,19 @@ def Unit(iname, page):
 
         if page=='lore':
             embed.ConvertFields(lore(unit))
-            embed.title=page,
             embed.url=embed.url+'#profile'
             break
 
         if page=='kaigan':
             embed.ConvertFields(kaigan(unit))
-            embed.title=page
             break  
 
         if page=='nensou':
             embed.ConvertFields(nensou(unit))
-            embed.title=page
             break  
 
         if 'job' in page:
             embed.ConvertFields(job(unit,page))
-            embed.title=page
             break          
 
         if page=='art':
@@ -66,18 +61,74 @@ def Unit(iname, page):
 
 
 def main(unit):
-    fields = []
-    #gender
+    f = []
+    def MasterAbility(ability,dif=False):
+        ability=DIRS['Ability'][ability]
+        skill = DIRS['Skill'][ability['skills'][0]['iname']]
+        ret=[]
+        if 'target_buff_iname' in skill:
+            ret.append(StrBuff(skill['target_buff_iname'],2,2,True))
+        if 'target_cond_iname' in skill:
+            ret.append(StrCondition(skill['target_cond_iname'],2,2))
+        if 'ReplaceTargetIdLists' in skill:
+            ret.append('{skill} Upgrade'.format(skill=DIRS['Skill'][skill['ReplaceTargetIdLists'][0]]['name']))
+        return '\n'.join(ret) if ret else '*Active Skill*'
+
+    def LeaderSkill(skill):
+        skill=DIRS['Skill'][skill]
+        ret=[]
+        if 'target_buff_iname' in skill:
+            buff=StrBuff(skill['target_buff_iname'],2,2,False)
+            if ':' in buff:
+                buff=buff[buff.rindex(': ')+2:].replace('\n',': ')
+            ret.append(buff)
+        if 'target_cond_iname' in skill:
+            ret.append(StrCondition(skill['target_cond_iname'],2,2))
+        return '\n'.join(ret)
+        
+    
+
+    #tags
+    f.append({'name': 'Tags' , 'value': ', '.join(unit['tags']), 'inline':True})
     #rarity
+    f.append({'name': 'Rarity', 'value': Rarity(unit['rare'],unit['raremax']), 'inline':True})
     #country
-    #master ability
+    f.append({'name': 'Country', 'value': unit['birth'], 'inline':True})
     #kaigan
-    #nensou
+    if 'kaigan' in unit:
+        f.append({'name': 'Kaigan', 'value': '✅', 'inline':True})
+    #master ability
+    ability=None
+    if 'ability' in unit:
+        ability=unit['ability']
+    elif 'dif' in unit and 'ability' in unit['dif']:
+        ability=unit['dif']['ability']
+    if ability:
+        f.append({'name': 'Master Ability - {name}{region}'.format(
+            name=DIRS['Skill'][DIRS['Ability'][ability]['skills'][0]['iname']]['name'],
+            region='' if 'ability' in unit else 'ᴶ'
+            ), 
+            'value': MasterAbility(ability), 'inline':False})
     #leader skill
+    f.append({'name': 'Leader Skill - '+DIRS['Skill'][unit['skill']]['name'], 'value': LeaderSkill(unit['skill']), 'inline':False})
     #jobs
+    for i,job in enumerate(unit['jobs']):
+        f.append({'name': 'Job {}'.format(str(i+1)), 'value': DIRS['Job'][job]['name'], 'inline': not i==2})
+    if 'jobchanges' in unit:
+        for i,job in enumerate(unit['jobchanges']):
+            if job:
+                f.append({'name': 'Job Change {}'.format(str(i+1)), 'value': DIRS['Job'][job]['name'], 'inline': not i==2})
+    #nensou
+    if 'conceptcard' in unit:
+        f.append({'name': 'Nensou', 'value': unit['conceptcard'], 'inline':True})
     #piece/HQ
+    try:
+        f.append({'name': 'Hard Quests', 'value': DIRS['Quests'][DIRS['Item'][unit['piece']]['quest']]['name'], 'inline':True})
+    except:
+        pass
     #add tierlist on top
-    return fields
+
+    return f
 
 def lore(unit):
     lore=unit['lore']
@@ -179,6 +230,13 @@ def art(unit):
                     'full':     art_link+unit['image']+'_'+skin['asset']+'.png',
                     'closeup':  art_link+unit['image']+'_'+skin['asset']+'-closeup.png',
                 })
+
+    if 'conceptcard' in unit:
+        skins.append({
+            'name': 'Concept Card',
+            'full': 'http://cdn.alchemistcodedb.com/images/cards/artworks/{}.png'.format(unit['conceptcard']),
+            'closeup': 'http://cdn.alchemistcodedb.com/images/cards/icons/{}.png'.format(unit['conceptcard'])
+        })
 
     for art in skins:
         embed= Embed(

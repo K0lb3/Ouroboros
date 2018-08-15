@@ -42,12 +42,19 @@ async def on_ready():
     print('------')
     #bot.loop.create_task(status_task(PRESENCES))
 
+#WIP
 @bot.command() 
 async def quest(ctx, *, name):
     quest = FindBest(ToEmbed.DIRS['Quests'], name,True)
     (embed,image)=ToEmbed.quest(quest,'')
     await ctx.send(embed=embed,file=discord.File(image,filename='{}.png'.format(quest)))
 
+@bot.command()
+async def unit(ctx, *, name):
+    unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
+    await ctx.send(embed=ToEmbed.Unit(unit,'main'))
+
+#done
 @bot.command()
 async def lore(ctx,*,name):
     unit = FindBest(ToEmbed.DIRS['Unit'], name, True)

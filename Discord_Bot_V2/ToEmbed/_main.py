@@ -81,7 +81,6 @@ def StrBuff(buff,lv=0,mlv=99,mods_only=True):
         text+=' [{runt}]'.format(runt=', '.join(runt))
     return text
 
-
 def StrCondition(cond,lv=0,mlv=99):  
     if type(cond)==str:
         cond=DIRS['Cond'][cond]  
@@ -100,9 +99,18 @@ def StrCondition(cond,lv=0,mlv=99):
     
     if len(vals)!=0:
         vals='[{values}]'.format(values=', '.join(vals))
-        if len(cond['conds'])<6:
-            return('{cond} {vals}'.format(vals=vals,cond=', '.join(cond['conds'])))
+        if len(cond['conditions'])<6:
+            return('{cond} {vals}'.format(vals=vals,cond=', '.join(cond['conditions'])))
         else:
-            return('{vals} {cond}'.format(vals=vals,cond=', '.join(cond['conds'])))
+            return('{vals} {cond}'.format(vals=vals,cond=', '.join(cond['conditions'])))
     else:
         return(', '.join(cond['conds']))
+
+def Rarity(base, max):
+    text = ""
+    for i in range(0, base+1):
+        text += "★"
+    for i in range(base, max):
+        text += "☆"
+
+    return text
