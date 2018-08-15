@@ -308,7 +308,7 @@ def get_files():
         "Resist_MaxDamageMp" : "Max Jewel Dmg Res"
     }
     for key, val in SYS_FIX.items():
-        file+= '{key}\t{val}\n'.format(key=key,val=val)
+        file+= '\n{key}\t{val}'.format(key=key,val=val)
     with open(path+name, "wt", encoding='utf-8') as f:
         f.write(file)
     saveAsJSON(name+'.json', convertSys(file),'GameFiles')
