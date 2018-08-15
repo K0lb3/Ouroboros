@@ -11,26 +11,26 @@
     },
     "GL_MON_MISSION": {
         "iname": "GL_MON_MISSION",
-        "begin_at": "8/6/2018",
-        "end_at": "8/6/2018 11:59:59 PM",
-        "category": "Other"
-    },
-    "GL_MON_MISSION_2": {
-        "iname": "GL_MON_MISSION_2",
-        "begin_at": "8/13/2018",
-        "end_at": "8/13/2018 11:59:59 PM",
-        "category": "Other"
-    },
-    "GL_MON_MISSION_3": {
-        "iname": "GL_MON_MISSION_3",
         "begin_at": "1/31/2016",
         "end_at": "12/31/2016 11:59:59 PM",
         "category": "Other"
     },
+    "GL_MON_MISSION_2": {
+        "iname": "GL_MON_MISSION_2",
+        "begin_at": "1/31/2016",
+        "end_at": "12/31/2016 11:59:59 PM",
+        "category": "Other"
+    },
+    "GL_MON_MISSION_3": {
+        "iname": "GL_MON_MISSION_3",
+        "begin_at": "8/20/2018",
+        "end_at": "8/20/2018 11:59:59 PM",
+        "category": "Other"
+    },
     "GL_MON_MISSION_4": {
         "iname": "GL_MON_MISSION_4",
-        "begin_at": "1/31/2016",
-        "end_at": "1/31/2016",
+        "begin_at": "8/27/2018",
+        "end_at": "8/27/2018 11:59:59 PM",
         "category": "Other"
     },
     "GL_MON_MISSION_5": {
@@ -1055,23 +1055,23 @@
         "end_at": "12/31/2017 11:59:59 PM",
         "category": "Campaign"
     },
+    "SWIM_GORM_TROPHY": {
+        "iname": "SWIM_GORM_TROPHY",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
+        "category": "Event"
+    },
     "SWIM_GORM_TROPHY_EX": {
         "iname": "SWIM_GORM_TROPHY_EX",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
         "category": "Event"
     },
     "SWIM_GORM_TROPHY_EX_MULTI": {
         "iname": "SWIM_GORM_TROPHY_EX_MULTI",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
         "category": "Multi"
-    },
-    "SWIM_GORM_TROPHY": {
-        "iname": "SWIM_GORM_TROPHY",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
-        "category": "Event"
     },
     "SWIM_PRESENT_TROPHY": {
         "iname": "SWIM_PRESENT_TROPHY",
@@ -1616,8 +1616,14 @@
     },
     "GL_MH_1_TROPHY": {
         "iname": "GL_MH_1_TROPHY",
-        "begin_at": "6/28/2018",
-        "end_at": "7/12/2018 11:59:59 PM",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
+        "category": "Event"
+    },
+    "GL_MH_2_TROPHY": {
+        "iname": "GL_MH_2_TROPHY",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
         "category": "Event"
     },
     "SEISEKI_DJ_TROPHY": {
@@ -1670,8 +1676,14 @@
     },
     "GL_MH_1_TROPHY_EX_MULTI": {
         "iname": "GL_MH_1_TROPHY_EX_MULTI",
-        "begin_at": "6/28/2018",
-        "end_at": "7/12/2018 11:59:59 PM",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
+        "category": "Multi"
+    },
+    "GL_MH_2_TROPHY_EX_MULTI": {
+        "iname": "GL_MH_2_TROPHY_EX_MULTI",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
         "category": "Multi"
     },
     "SEISEKI_DJ_TROPHY_EX_MULTI": {
@@ -1720,9 +1732,21 @@
     },
     "GL_MH_1_TROPHY_EX": {
         "iname": "GL_MH_1_TROPHY_EX",
-        "begin_at": "6/28/2018",
-        "end_at": "7/12/2018 11:59:59 PM",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
         "category": "Event"
+    },
+    "GL_MH_2_TROPHY_EX": {
+        "iname": "GL_MH_2_TROPHY_EX",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
+        "category": "Event"
+    },
+    "GL_SOREN_GROWTH": {
+        "iname": "GL_SOREN_GROWTH",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
+        "category": "Campaign"
     },
     "SEISEKI_DJ_TROPHY_EX": {
         "iname": "SEISEKI_DJ_TROPHY_EX",
@@ -1810,14 +1834,14 @@
     },
     "SO_ZEKE_GROWTH": {
         "iname": "SO_ZEKE_GROWTH",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
+        "begin_at": "8/23/2018",
+        "end_at": "9/6/2018 11:59:59 PM",
         "category": "Training"
     },
     "SO_ZEKE_TROPHY": {
         "iname": "SO_ZEKE_TROPHY",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
+        "begin_at": "8/23/2018",
+        "end_at": "9/6/2018 11:59:59 PM",
         "category": "Event"
     },
     "SO_SABALETA_TROPHY": {

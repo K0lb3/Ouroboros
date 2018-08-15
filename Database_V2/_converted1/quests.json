@@ -13656,6 +13656,424 @@
             "aplv": 51
         }
     },
+    "QE_ST_NO_030051": {
+        "iname": "QE_ST_NO_030051",
+        "kanji": "三つ巴の戦場",
+        "name": "Three-Color Battle",
+        "expr": "Episode 2: Act 3-1",
+        "cond": "Defeat all enemies!",
+        "mission": "OB_ST_NO_030051",
+        "pexp": 20,
+        "uexp": 560,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lose": 1,
+        "type": "Story",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "Ch 3: Ep 2 [3-1]",
+        "bonusObjective": "OB_ST_NO_030051",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030050"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_mati_001",
+                "mapSetName": "main_no_030051_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0019"
+            }
+        ],
+        "event_start": "QE03_2_3_01_a_3d",
+        "dif": {
+            "pexp": 6,
+            "point": 6,
+            "aplv": 51
+        }
+    },
+    "QE_ST_NO_030052": {
+        "iname": "QE_ST_NO_030052",
+        "kanji": "共存の証",
+        "name": "Coexistence Token",
+        "expr": "Episode 2: Act 3-2",
+        "cond": "Defeat all enemies!",
+        "mission": "OB_ST_NO_030052",
+        "pexp": 20,
+        "uexp": 560,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lose": 1,
+        "type": "Story",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "Ch 3: Ep 2 [3-2]",
+        "bonusObjective": "OB_ST_NO_030052",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030051"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_mati_002",
+                "mapSetName": "main_no_030052_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0019"
+            }
+        ],
+        "event_start": "QE03_2_3_02_a_2d",
+        "dif": {
+            "pexp": 6,
+            "point": 6,
+            "aplv": 51
+        }
+    },
+    "QE_ST_NO_030053": {
+        "iname": "QE_ST_NO_030053",
+        "kanji": "怒りという原動力",
+        "name": "A Driving Force Called Rage",
+        "expr": "Episode 2: Act 3-3",
+        "cond": "Defeat all enemies!",
+        "mission": "OB_ST_NO_030053",
+        "pexp": 20,
+        "uexp": 560,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lose": 1,
+        "type": "Story",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "Ch 3: Ep 2 [3-3]",
+        "bonusObjective": "OB_ST_NO_030053",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030052"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_mati_003",
+                "mapSetName": "main_no_030053_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0019"
+            }
+        ],
+        "event_start": "QE03_2_3_03_a_2d",
+        "dif": {
+            "pexp": 6,
+            "point": 6,
+            "aplv": 51
+        }
+    },
+    "QE_ST_NO_030054": {
+        "iname": "QE_ST_NO_030054",
+        "kanji": "恐れという原動力",
+        "name": "A Driving Force Called Fear",
+        "expr": "Episode 2: Act 3-4",
+        "cond": "Defeat all enemies!",
+        "mission": "OB_ST_NO_030054",
+        "pexp": 20,
+        "uexp": 560,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lose": 1,
+        "type": "Story",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "Ch 3: Ep 2 [3-4]",
+        "bonusObjective": "OB_ST_NO_030054",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030053"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_mati_001",
+                "mapSetName": "main_no_030054_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0019"
+            }
+        ],
+        "event_start": "QE03_2_3_04_a_2d",
+        "dif": {
+            "pexp": 6,
+            "point": 6,
+            "aplv": 51
+        }
+    },
+    "QE_ST_NO_030055": {
+        "iname": "QE_ST_NO_030055",
+        "kanji": "サロモ再び",
+        "name": "Salomo Again",
+        "expr": "Episode 2: Act 3-5",
+        "cond": "Fight off Salomo!",
+        "mission": "OB_ST_NO_030055",
+        "pexp": 20,
+        "uexp": 560,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "win": 1,
+        "lose": 1,
+        "type": "Story",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "Ch 3: Ep 2 [3-5]",
+        "bonusObjective": "OB_ST_NO_030055",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030054"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_mati_002",
+                "mapSetName": "main_no_030055_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0025"
+            }
+        ],
+        "event_start": "QE03_2_3_05_a_2d",
+        "dif": {
+            "pexp": 6,
+            "point": 6,
+            "aplv": 51
+        }
+    },
+    "QE_ST_NO_030056": {
+        "iname": "QE_ST_NO_030056",
+        "kanji": "成長の否定",
+        "name": "Growth Denial",
+        "expr": "Episode 2: Act 3-6",
+        "cond": "Fight off Salomo!",
+        "mission": "OB_ST_NO_030056",
+        "pexp": 20,
+        "uexp": 560,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "win": 1,
+        "lose": 1,
+        "type": "Story",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "Ch 3: Ep 2 [3-6]",
+        "bonusObjective": "OB_ST_NO_030056",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030055"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_mati_003",
+                "mapSetName": "main_no_030056_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0025"
+            }
+        ],
+        "event_start": "QE03_2_3_06_a_2d",
+        "dif": {
+            "pexp": 6,
+            "point": 6,
+            "aplv": 51
+        }
+    },
+    "QE_ST_NO_030057": {
+        "iname": "QE_ST_NO_030057",
+        "kanji": "どこを見てるのか",
+        "name": "What're you looking at?",
+        "expr": "Episode 2: Act 3-7",
+        "cond": "Fight off Salomo!",
+        "mission": "OB_ST_NO_030057",
+        "pexp": 20,
+        "uexp": 560,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "win": 1,
+        "lose": 1,
+        "type": "Story",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "Ch 3: Ep 2 [3-7]",
+        "bonusObjective": "OB_ST_NO_030057",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030056"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_jyoukamati_001",
+                "mapSetName": "main_no_030057_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0025"
+            }
+        ],
+        "event_start": "QE03_2_3_07_a_3d",
+        "dif": {
+            "pexp": 6,
+            "point": 6,
+            "aplv": 51
+        }
+    },
+    "QE_ST_NO_030058": {
+        "iname": "QE_ST_NO_030058",
+        "kanji": "目線の違い",
+        "name": "Differing Perspectives",
+        "expr": "Episode 2: Act 3-8",
+        "cond": "Fight off Salomo!",
+        "mission": "OB_ST_NO_030058",
+        "pexp": 20,
+        "uexp": 560,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "win": 1,
+        "lose": 1,
+        "type": "Story",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "Ch 3: Ep 2 [3-8]",
+        "bonusObjective": "OB_ST_NO_030058",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030057"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_jyoukamati_002",
+                "mapSetName": "main_no_030058_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0025"
+            }
+        ],
+        "event_start": "QE03_2_3_08_a_2d",
+        "event_clear": "QE03_2_3_08_b_2d",
+        "dif": {
+            "pexp": 6,
+            "point": 6,
+            "aplv": 51
+        }
+    },
+    "QE_ST_NO_030059": {
+        "iname": "QE_ST_NO_030059",
+        "kanji": "アリの王",
+        "name": "King of Ants",
+        "expr": "Episode 2: Act 3-9",
+        "cond": "Fight off Kaiser!",
+        "mission": "OB_ST_NO_030059",
+        "pexp": 20,
+        "uexp": 560,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "win": 1,
+        "lose": 1,
+        "type": "Story",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "Ch 3: Ep 2 [3-9]",
+        "bonusObjective": "OB_ST_NO_030059",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030058"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_siromae_001",
+                "mapSetName": "main_no_030059_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0025"
+            }
+        ],
+        "event_start": "QE03_2_3_09_a_2d",
+        "dif": {
+            "pexp": 6,
+            "point": 6,
+            "aplv": 51
+        }
+    },
+    "QE_ST_NO_030060": {
+        "iname": "QE_ST_NO_030060",
+        "kanji": "断ち切られる連鎖",
+        "name": "Severed Chains",
+        "expr": "Episode 2: Act 3-10",
+        "cond": "Defeat Kaiser!",
+        "mission": "OB_ST_NO_030060",
+        "pexp": 20,
+        "uexp": 560,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "win": 1,
+        "lose": 1,
+        "type": "Story",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "Ch 3: Ep 2 [3-10]",
+        "bonusObjective": "OB_ST_NO_030060",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030059"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_siromae_001",
+                "mapSetName": "main_no_030060_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0025"
+            }
+        ],
+        "event_start": "QE03_2_3_10_a_2d",
+        "event_clear": "QE03_2_3_10_b_3d",
+        "dif": {
+            "pexp": 6,
+            "point": 6,
+            "aplv": 51
+        }
+    },
     "QE_ST_HA_010001": {
         "iname": "QE_ST_HA_010001",
         "kanji": "騒がしき旅立ち",
@@ -18311,6 +18729,182 @@
             "aplv": 51
         }
     },
+    "QE_ST_HA_030017": {
+        "iname": "QE_ST_HA_030017",
+        "kanji": "三つ巴の戦場",
+        "name": "Three-Color Battle",
+        "expr": "[Hard] Episode 2: Act 3-1",
+        "cond": "Defeat all enemies!",
+        "mission": "OB_ST_HA_030017",
+        "pexp": 40,
+        "uexp": 920,
+        "gold": 7200,
+        "point": 40,
+        "unitNum": 2,
+        "aplv": 1,
+        "challengeLimit": 3,
+        "dayReset": 1,
+        "lv": 80,
+        "lose": 1,
+        "type": "Free",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "[Hard] Ch 3: Ep 2 [3-1]",
+        "bonusObjective": "OB_ST_HA_030017",
+        "difficulty": "Elite",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030051"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_mati_001",
+                "mapSetName": "main_ha_030051_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0019"
+            }
+        ],
+        "dif": {
+            "pexp": 24,
+            "point": 24,
+            "aplv": 51
+        }
+    },
+    "QE_ST_HA_030018": {
+        "iname": "QE_ST_HA_030018",
+        "kanji": "共存の証",
+        "name": "Coexistence Token",
+        "expr": "[Hard] Episode 2: Act 3-2",
+        "cond": "Defeat all enemies!",
+        "mission": "OB_ST_HA_030018",
+        "pexp": 40,
+        "uexp": 920,
+        "gold": 7200,
+        "point": 40,
+        "unitNum": 2,
+        "aplv": 1,
+        "challengeLimit": 3,
+        "dayReset": 1,
+        "lv": 80,
+        "lose": 1,
+        "type": "Free",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "[Hard] Ch 3: Ep 2 [3-2]",
+        "bonusObjective": "OB_ST_HA_030018",
+        "difficulty": "Elite",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030052"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_mati_002",
+                "mapSetName": "main_ha_030052_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0019"
+            }
+        ],
+        "dif": {
+            "pexp": 24,
+            "point": 24,
+            "aplv": 51
+        }
+    },
+    "QE_ST_HA_030019": {
+        "iname": "QE_ST_HA_030019",
+        "kanji": "アリの王",
+        "name": "King of Ants",
+        "expr": "[Hard] Episode 2: Act 3-9",
+        "cond": "Defeat all enemies!",
+        "mission": "OB_ST_HA_030019",
+        "pexp": 40,
+        "uexp": 920,
+        "gold": 7200,
+        "point": 40,
+        "unitNum": 2,
+        "aplv": 1,
+        "challengeLimit": 3,
+        "dayReset": 1,
+        "lv": 80,
+        "lose": 1,
+        "type": "Free",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "[Hard] Ch 3: Ep 2 [3-9]",
+        "bonusObjective": "OB_ST_HA_030019",
+        "difficulty": "Elite",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030059"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_siromae_001",
+                "mapSetName": "main_ha_030059_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0025"
+            }
+        ],
+        "dif": {
+            "pexp": 24,
+            "point": 24,
+            "aplv": 51
+        }
+    },
+    "QE_ST_HA_030020": {
+        "iname": "QE_ST_HA_030020",
+        "kanji": "断ち切られる連鎖",
+        "name": "Severed Chains",
+        "expr": "[Hard] Episode 2: Act 3-10",
+        "cond": "Defeat all enemies!",
+        "mission": "OB_ST_HA_030020",
+        "pexp": 40,
+        "uexp": 920,
+        "gold": 7200,
+        "point": 40,
+        "unitNum": 2,
+        "aplv": 1,
+        "challengeLimit": 3,
+        "dayReset": 1,
+        "lv": 80,
+        "lose": 1,
+        "type": "Free",
+        "ChapterID": "AR_03_06",
+        "world": "WD_10",
+        "ticket": "IT_US_TICKET",
+        "title": "[Hard] Ch 3: Ep 2 [3-10]",
+        "bonusObjective": "OB_ST_HA_030020",
+        "difficulty": "Elite",
+        "units": [
+            "UN_V2_LIESBET"
+        ],
+        "cond_quests": [
+            "QE_ST_NO_030060"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_siromae_001",
+                "mapSetName": "main_ha_030060_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0025"
+            }
+        ],
+        "dif": {
+            "pexp": 32,
+            "point": 32,
+            "aplv": 51
+        }
+    },
     "QE_TM_HA_EXP_LV1": {
         "iname": "QE_TM_HA_EXP_LV1",
         "kanji": "林檎の帝園[初級]",
@@ -21043,6 +21637,41 @@
             "aplv": 51
         }
     },
+    "QE_LIMIT_MELEE_Lv1": {
+        "iname": "QE_LIMIT_MELEE_Lv1",
+        "kanji": "白兵の修練戦",
+        "name": "Melee Training Battle",
+        "expr": "Spot-Recall Response Course [Approx. Job Lv5]",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_LIMIT_MELEE_Lv1",
+        "pexp": 20,
+        "uexp": 250,
+        "gold": 2000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 35,
+        "type": "Event",
+        "subtype": "Normal",
+        "ChapterID": "AR_EVENT_IT_EQ02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "[Limited Time]",
+        "notSearch": true,
+        "bonusObjective": "OB_LIMIT_MELEE_Lv1",
+        "AtkTypeMags": "ATK_MAG_MELEE",
+        "map": [
+            {
+                "mapSceneName": "bg_01_env_shiro_zyouheki_001_A",
+                "mapSetName": "limit_melee_lv1_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ],
+        "dif": {
+            "aplv": 51
+        }
+    },
     "QE_LIMIT_LONGRANGE_Lv1": {
         "iname": "QE_LIMIT_LONGRANGE_Lv1",
         "kanji": "遠戦の修練戦",
@@ -22588,10 +23217,9 @@
                 "bgmName": "BGM_1010"
             }
         ],
-        "event_start": "EQ_3APPLI_2017_01_a_2d_SG",
+        "event_start": "EQ_3APPLI_2017_01_a_2d",
         "dif": {
-            "aplv": 51,
-            "event_start": "EQ_3APPLI_2017_01_a_2d"
+            "aplv": 51
         }
     },
     "QE_EV_3TITLE_2": {
@@ -23648,6 +24276,424 @@
             "aplv": 51
         }
     },
+    "QE_EV_UNDOUKAI_2017_MAGIC": {
+        "iname": "QE_EV_UNDOUKAI_2017_MAGIC",
+        "kanji": "第1種目：魔法玉入れ",
+        "name": "1st Discipline: Magic-Ball Game",
+        "expr": "Sports Day 2017 (Magic-Ball Game)",
+        "cond": "Defeat as many Demons as possible within turn limit",
+        "mission": "OB_EV_UNDOUKAI_2017_MAGIC",
+        "pexp": 20,
+        "uexp": 350,
+        "gold": 2600,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 45,
+        "win": 3,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_UNDOUKAI_2017",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "Unit Lv40 JobLv5 Recommended",
+        "bonusObjective": "OB_EV_UNDOUKAI_2017_MAGIC",
+        "cond_quests": [
+            "QE_ST_NO_010030"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_01_env_kyoukai_mae_001_A",
+                "mapSetName": "ev_undoukai_2017_01_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0100"
+            }
+        ],
+        "DisableContinue": true,
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_EV_UNDOUKAI_2017_SPEED": {
+        "iname": "QE_EV_UNDOUKAI_2017_SPEED",
+        "kanji": "第2種目：リレー",
+        "name": "2nd Discipline: Relay",
+        "expr": "Sports Day 2017 (Relay)",
+        "cond": "Touch all runners and defeat the referee!",
+        "mission": "OB_EV_UNDOUKAI_2017_SPEED",
+        "pexp": 20,
+        "uexp": 350,
+        "gold": 2600,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 45,
+        "win": 1,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_UNDOUKAI_2017",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "Unit Lv40 JobLv5 Recommended",
+        "bonusObjective": "OB_EV_UNDOUKAI_2017_SPEED",
+        "cond_quests": [
+            "QE_ST_NO_010030"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_04_murahazure_002",
+                "mapSetName": "ev_undoukai_2017_02_set",
+                "battleSceneName": "plain01",
+                "eventSceneName": "BT_UNDOUKAI_2017_RELAY",
+                "bgmName": "BGM_0100"
+            }
+        ],
+        "DisableContinue": true,
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_EV_UNDOUKAI_2017_ATTACK": {
+        "iname": "QE_EV_UNDOUKAI_2017_ATTACK",
+        "kanji": "第3種目：障害物競走",
+        "name": "3rd Discipline: Obstacle Race",
+        "expr": "Sports Day 2017 (Obstacle Race)",
+        "cond": "Destroy the obstacles and reach the goal quicker than the opponent",
+        "mission": "OB_EV_UNDOUKAI_2017_ATTACK",
+        "pexp": 20,
+        "uexp": 350,
+        "gold": 2600,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 45,
+        "win": 1,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_UNDOUKAI_2017",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "Unit Lv40 JobLv5 Recommended",
+        "bonusObjective": "OB_EV_UNDOUKAI_2017_ATTACK",
+        "cond_quests": [
+            "QE_ST_NO_010030"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_02_areti_008",
+                "mapSetName": "ev_undoukai_2017_03_set",
+                "battleSceneName": "plain01",
+                "eventSceneName": "BT_UNDOUKAI_2017_SC",
+                "bgmName": "BGM_0100"
+            }
+        ],
+        "DisableContinue": true,
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_EV_UNDOUKAI_2017_DEF": {
+        "iname": "QE_EV_UNDOUKAI_2017_DEF",
+        "kanji": "第4種目：ディルガ像倒し",
+        "name": "4th Discipline: Dilga Statue Crush",
+        "expr": "Sports Day 2017 (Dilga Statue Crush)",
+        "cond": "Destroy the Gormalas statue while protecting the Dilga statue",
+        "mission": "OB_EV_UNDOUKAI_2017_DEF",
+        "pexp": 20,
+        "uexp": 350,
+        "gold": 2600,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 45,
+        "win": 1,
+        "lose": 1,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_UNDOUKAI_2017",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "Unit Lv40 JobLv5 Recommended",
+        "bonusObjective": "OB_EV_UNDOUKAI_2017_DEF",
+        "cond_quests": [
+            "QE_ST_NO_010030"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_event_undoukai_001",
+                "mapSetName": "ev_undoukai_2017_04_set",
+                "battleSceneName": "plain01",
+                "eventSceneName": "BT_UNDOUKAI_2017",
+                "bgmName": "BGM_0100"
+            }
+        ],
+        "DisableContinue": true,
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_EV_SWIM_GORM_01": {
+        "iname": "QE_EV_SWIM_GORM_01",
+        "kanji": "狂気に満ちるゴルマラス",
+        "name": "Madness-Fallen Gormalas",
+        "expr": "Swimsuit Event - Act 1",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_EV_SWIM_GORM_01",
+        "pexp": 12,
+        "uexp": 200,
+        "gold": 2000,
+        "point": 12,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 35,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_SWIM_GORM",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "Episode 1",
+        "bonusObjective": "OB_EV_SWIM_GORM_01",
+        "map": [
+            {
+                "mapSceneName": "collabo_3Title_003",
+                "mapSetName": "ev_swim_gorm_01_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0100"
+            }
+        ],
+        "event_start": "EQ_SUMMER2017_01_a_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_EV_SWIM_GORM_02": {
+        "iname": "QE_EV_SWIM_GORM_02",
+        "kanji": "古の褌伝説",
+        "name": "Ancient Legend",
+        "expr": "Swimsuit Event - Act 2",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_EV_SWIM_GORM_02",
+        "pexp": 14,
+        "uexp": 250,
+        "gold": 2200,
+        "point": 14,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 45,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_SWIM_GORM",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "Episode 2",
+        "bonusObjective": "OB_EV_SWIM_GORM_02",
+        "cond_quests": [
+            "QE_EV_SWIM_GORM_01"
+        ],
+        "map": [
+            {
+                "mapSceneName": "collabo_3Title_003",
+                "mapSetName": "ev_swim_gorm_02_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0100"
+            }
+        ],
+        "event_start": "EQ_SUMMER2017_02_a_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_EV_SWIM_GORM_03": {
+        "iname": "QE_EV_SWIM_GORM_03",
+        "kanji": "デ族とゴ族",
+        "name": "De Tribe & Go Tribe",
+        "expr": "Swimsuit Event - Act 3",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_EV_SWIM_GORM_03",
+        "pexp": 16,
+        "uexp": 300,
+        "gold": 2400,
+        "point": 16,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 55,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_SWIM_GORM",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "Episode 3",
+        "bonusObjective": "OB_EV_SWIM_GORM_03",
+        "cond_quests": [
+            "QE_EV_SWIM_GORM_02"
+        ],
+        "map": [
+            {
+                "mapSceneName": "collabo_3Title_003",
+                "mapSetName": "ev_swim_gorm_03_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0100"
+            }
+        ],
+        "event_start": "EQ_SUMMER2017_03_a_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_EV_SWIM_GORM_04": {
+        "iname": "QE_EV_SWIM_GORM_04",
+        "kanji": "漢、参上",
+        "name": "The Man Has Arrived",
+        "expr": "Swimsuit Event - Act 4",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_EV_SWIM_GORM_04",
+        "pexp": 20,
+        "uexp": 350,
+        "gold": 2600,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 65,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_SWIM_GORM",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "Episode 4",
+        "bonusObjective": "OB_EV_SWIM_GORM_04",
+        "cond_quests": [
+            "QE_EV_SWIM_GORM_03"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_event_beach_001",
+                "mapSetName": "ev_swim_gorm_04_set",
+                "battleSceneName": "plain01",
+                "eventSceneName": "BT_SUMMER2017_04",
+                "bgmName": "BGM_0101"
+            }
+        ],
+        "event_start": "EQ_SUMMER2017_04_a_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_EV_SWIM_GORM_05": {
+        "iname": "QE_EV_SWIM_GORM_05",
+        "kanji": "褌祭の合戦",
+        "name": "Festive Battle",
+        "expr": "Swimsuit Event - Act 5",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_EV_SWIM_GORM_05",
+        "pexp": 30,
+        "uexp": 400,
+        "gold": 2800,
+        "point": 30,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 75,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_SWIM_GORM",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "Episode 5",
+        "bonusObjective": "OB_EV_SWIM_GORM_05",
+        "cond_quests": [
+            "QE_EV_SWIM_GORM_04"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_event_ship_001",
+                "mapSetName": "ev_swim_gorm_05_set",
+                "battleSceneName": "plain01",
+                "eventSceneName": "BT_SUMMER2017_05",
+                "bgmName": "BGM_0101"
+            }
+        ],
+        "event_start": "EQ_SUMMER2017_05_a_2d",
+        "event_clear": "EQ_SUMMER2017_05_b_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_EV_SWIM_GORM_EX": {
+        "iname": "QE_EV_SWIM_GORM_EX",
+        "kanji": "【EX】荒ぶる海の漢 -猛装伝-",
+        "name": "Savage Sea Warrior -Storm Legend- [EX]",
+        "expr": "Swimsuit Event - EX",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_EV_SWIM_GORM_EX",
+        "pexp": 40,
+        "uexp": 400,
+        "gold": 5000,
+        "point": 40,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 75,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_SWIM_GORM_EX",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "Hard Quest",
+        "bonusObjective": "OB_EV_SWIM_GORM_EX",
+        "cond_quests": [
+            "QE_EV_SWIM_GORM_05"
+        ],
+        "map": [
+            {
+                "mapSceneName": "collabo_3Title_003",
+                "mapSetName": "ev_swim_gorm_ex_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0101"
+            }
+        ],
+        "IsExtra": true,
+        "dif": {
+            "aplv": 51,
+            "ChapterID": "AR_SWIM_GORM"
+        }
+    },
+    "QE_EV_SWIM_GORM_EX_SP": {
+        "iname": "QE_EV_SWIM_GORM_EX_SP",
+        "kanji": "【EX・極】荒ぶる海の漢 -猛装伝-",
+        "name": "[Ex+] Savage Sea Warrior -Storm Legend-",
+        "expr": "Swimsuit Event - EX+",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_EV_SWIM_GORM_EX_SP",
+        "pexp": 50,
+        "uexp": 500,
+        "gold": 5000,
+        "point": 50,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 85,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_SWIM_GORM_EX",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "Extreme Hard Quest",
+        "bonusObjective": "OB_EV_SWIM_GORM_EX_SP",
+        "cond_quests": [
+            "QE_EV_SWIM_GORM_EX"
+        ],
+        "map": [
+            {
+                "mapSceneName": "collabo_3Title_003",
+                "mapSetName": "ev_swim_gorm_ex_sp_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0101"
+            }
+        ],
+        "DisableContinue": true,
+        "IsExtra": true,
+        "dif": {
+            "aplv": 51,
+            "ChapterID": "AR_SWIM_GORM"
+        }
+    },
     "QE_WA_ZIN_1": {
         "iname": "QE_WA_ZIN_1",
         "kanji": "黄泉路への帰郷1話　ヤミとカゼ",
@@ -24085,41 +25131,6 @@
                 "mapSetName": "ch_retzius_lv3_set",
                 "battleSceneName": "plain01",
                 "bgmName": "BGM_0015"
-            }
-        ],
-        "dif": {
-            "aplv": 51
-        }
-    },
-    "QE_LIMIT_MELEE_Lv1": {
-        "iname": "QE_LIMIT_MELEE_Lv1",
-        "kanji": "白兵の修練戦",
-        "name": "Melee Training Battle",
-        "expr": "Spot-Recall Response Course [Approx. Job Lv5]",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_LIMIT_MELEE_Lv1",
-        "pexp": 20,
-        "uexp": 250,
-        "gold": 2000,
-        "point": 20,
-        "unitNum": 2,
-        "aplv": 1,
-        "lv": 35,
-        "type": "Event",
-        "subtype": "Normal",
-        "ChapterID": "AR_EVENT_IT_EQ02",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "[Limited Time]",
-        "notSearch": true,
-        "bonusObjective": "OB_LIMIT_MELEE_Lv1",
-        "AtkTypeMags": "ATK_MAG_MELEE",
-        "map": [
-            {
-                "mapSceneName": "bg_01_env_shiro_zyouheki_001_A",
-                "mapSetName": "limit_melee_lv1_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0011"
             }
         ],
         "dif": {
@@ -24880,7 +25891,8 @@
         "point": 10,
         "unitNum": 2,
         "aplv": 1,
-        "challengeLimit": 3,
+        "challengeLimit": 1,
+        "dayReset": 1,
         "lv": 1,
         "win": 1,
         "type": "Event",
@@ -24904,9 +25916,7 @@
         ],
         "event_clear": "EQ_ZEKE_04_b_3d",
         "dif": {
-            "aplv": 51,
-            "challengeLimit": 1,
-            "dayReset": 1
+            "aplv": 51
         }
     },
     "QE_SO_ZEKE_EX_1": {
@@ -27420,6 +28430,366 @@
             }
         ],
         "event_clear": "CQ_SHENMEI_03_b_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_CH_FUNGLIU_1": {
+        "iname": "QE_CH_FUNGLIU_1",
+        "kanji": "思い出無き出身地",
+        "name": "Origin of No Memories",
+        "expr": "From Lv30",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_CH_FUNGLIU_1",
+        "pexp": 10,
+        "uexp": 55,
+        "gold": 2000,
+        "point": 10,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 30,
+        "lose": 1,
+        "type": "Character",
+        "ChapterID": "UN_V2_FUNGLIU",
+        "world": "WD_CHARA",
+        "title": "Episode 1",
+        "notSearch": true,
+        "bonusObjective": "OB_CH_FUNGLIU_1",
+        "EntryCondition": "COND_QECH_FUNGLIU_1",
+        "units": [
+            "UN_V2_FUNGLIU"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_mori_001",
+                "mapSetName": "ch_fungliu_lv1_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ],
+        "event_start": "CQ_FUNGLIU_01_a_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_CH_FUNGLIU_2": {
+        "iname": "QE_CH_FUNGLIU_2",
+        "kanji": "実験体零号",
+        "name": "Prototype Zerp",
+        "expr": "From Lv60",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_CH_FUNGLIU_2",
+        "pexp": 20,
+        "uexp": 110,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 60,
+        "lose": 1,
+        "type": "Character",
+        "ChapterID": "UN_V2_FUNGLIU",
+        "world": "WD_CHARA",
+        "title": "Episode 2",
+        "notSearch": true,
+        "bonusObjective": "OB_CH_FUNGLIU_2",
+        "EntryCondition": "COND_QECH_FUNGLIU_2",
+        "units": [
+            "UN_V2_FUNGLIU"
+        ],
+        "cond_quests": [
+            "QE_CH_FUNGLIU_1"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_mori_002",
+                "mapSetName": "ch_fungliu_lv2_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ],
+        "event_start": "CQ_FUNGLIU_02_a_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_CH_FUNGLIU_3": {
+        "iname": "QE_CH_FUNGLIU_3",
+        "kanji": "生まれたての涙",
+        "name": "Newborn Tears",
+        "expr": "From Lv80",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_CH_FUNGLIU_3",
+        "pexp": 30,
+        "uexp": 250,
+        "gold": 4000,
+        "point": 30,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 80,
+        "lose": 1,
+        "type": "Character",
+        "ChapterID": "UN_V2_FUNGLIU",
+        "world": "WD_CHARA",
+        "title": "Episode 3",
+        "notSearch": true,
+        "bonusObjective": "OB_CH_FUNGLIU_3",
+        "EntryCondition": "COND_QECH_FUNGLIU_3",
+        "units": [
+            "UN_V2_FUNGLIU"
+        ],
+        "cond_quests": [
+            "QE_CH_FUNGLIU_2"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_03_mori_006",
+                "mapSetName": "ch_fungliu_lv3_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ],
+        "event_clear": "CQ_FUNGLIU_03_b_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_CH_SUZUKA_1": {
+        "iname": "QE_CH_SUZUKA_1",
+        "kanji": "未知なる出会い",
+        "name": "Unknown Encounter",
+        "expr": "From Lv30",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_CH_SUZUKA_1",
+        "pexp": 10,
+        "uexp": 55,
+        "gold": 2000,
+        "point": 10,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 30,
+        "lose": 1,
+        "type": "Character",
+        "ChapterID": "UN_V2_SUZUKA",
+        "world": "WD_CHARA",
+        "title": "Episode 1",
+        "notSearch": true,
+        "bonusObjective": "OB_CH_SUZUKA_1",
+        "EntryCondition": "COND_QECH_SUZUKA_1",
+        "units": [
+            "UN_V2_SUZUKA"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_01_mati_002_A",
+                "mapSetName": "ch_suzuka_lv1_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ],
+        "event_start": "CQ_SUZUKA_01_a_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_CH_SUZUKA_2": {
+        "iname": "QE_CH_SUZUKA_2",
+        "kanji": "可愛さとは",
+        "name": "What Is Cute?",
+        "expr": "From Lv60",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_CH_SUZUKA_2",
+        "pexp": 20,
+        "uexp": 110,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 60,
+        "lose": 1,
+        "type": "Character",
+        "ChapterID": "UN_V2_SUZUKA",
+        "world": "WD_CHARA",
+        "title": "Episode 2",
+        "notSearch": true,
+        "bonusObjective": "OB_CH_SUZUKA_2",
+        "EntryCondition": "COND_QECH_SUZUKA_2",
+        "units": [
+            "UN_V2_SUZUKA"
+        ],
+        "cond_quests": [
+            "QE_CH_SUZUKA_1"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_01_sougen_002_A",
+                "mapSetName": "ch_suzuka_lv2_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ],
+        "event_start": "CQ_SUZUKA_02_a_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_CH_SUZUKA_3": {
+        "iname": "QE_CH_SUZUKA_3",
+        "kanji": "女子力の道も一歩から",
+        "name": "A Step toward Girl Power",
+        "expr": "From Lv80",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_CH_SUZUKA_3",
+        "pexp": 30,
+        "uexp": 250,
+        "gold": 4000,
+        "point": 30,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 80,
+        "lose": 1,
+        "type": "Character",
+        "ChapterID": "UN_V2_SUZUKA",
+        "world": "WD_CHARA",
+        "title": "Episode 3",
+        "notSearch": true,
+        "bonusObjective": "OB_CH_SUZUKA_3",
+        "EntryCondition": "COND_QECH_SUZUKA_3",
+        "units": [
+            "UN_V2_SUZUKA"
+        ],
+        "cond_quests": [
+            "QE_CH_SUZUKA_2"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_01_sougen_004_A",
+                "mapSetName": "ch_suzuka_lv3_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ],
+        "event_clear": "CQ_SUZUKA_03_b_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_CH_MIELIKKI_1": {
+        "iname": "QE_CH_MIELIKKI_1",
+        "kanji": "森の迷子ちゃん",
+        "name": "Lost in the Forest",
+        "expr": "From Lv30",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_CH_MIELIKKI_1",
+        "pexp": 10,
+        "uexp": 55,
+        "gold": 2000,
+        "point": 10,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 30,
+        "lose": 1,
+        "type": "Character",
+        "ChapterID": "UN_V2_MIELIKKI",
+        "world": "WD_CHARA",
+        "title": "Episode 1",
+        "notSearch": true,
+        "bonusObjective": "OB_CH_MIELIKKI_1",
+        "EntryCondition": "COND_QECH_MIELIKKI_1",
+        "units": [
+            "UN_V2_MIELIKKI"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_01_mori_H_002_A",
+                "mapSetName": "ch_mielikki_lv1_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ],
+        "event_start": "CQ_MIELIKKI_01_a_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_CH_MIELIKKI_2": {
+        "iname": "QE_CH_MIELIKKI_2",
+        "kanji": "静かな森の交流",
+        "name": "Encounter in the Quiet Forest",
+        "expr": "From Lv60",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_CH_MIELIKKI_2",
+        "pexp": 20,
+        "uexp": 110,
+        "gold": 3000,
+        "point": 20,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 60,
+        "lose": 1,
+        "type": "Character",
+        "ChapterID": "UN_V2_MIELIKKI",
+        "world": "WD_CHARA",
+        "title": "Episode 2",
+        "notSearch": true,
+        "bonusObjective": "OB_CH_MIELIKKI_2",
+        "EntryCondition": "COND_QECH_MIELIKKI_2",
+        "units": [
+            "UN_V2_MIELIKKI"
+        ],
+        "cond_quests": [
+            "QE_CH_MIELIKKI_1"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_01_mori_H_001_A",
+                "mapSetName": "ch_mielikki_lv2_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ],
+        "event_start": "CQ_MIELIKKI_02_a_2d",
+        "dif": {
+            "aplv": 51
+        }
+    },
+    "QE_CH_MIELIKKI_3": {
+        "iname": "QE_CH_MIELIKKI_3",
+        "kanji": "ともだち",
+        "name": "Friend",
+        "expr": "From Lv80",
+        "cond": "Defeat all enemy units!",
+        "mission": "OB_CH_MIELIKKI_3",
+        "pexp": 30,
+        "uexp": 250,
+        "gold": 4000,
+        "point": 30,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 80,
+        "lose": 1,
+        "type": "Character",
+        "ChapterID": "UN_V2_MIELIKKI",
+        "world": "WD_CHARA",
+        "title": "Episode 3",
+        "notSearch": true,
+        "bonusObjective": "OB_CH_MIELIKKI_3",
+        "EntryCondition": "COND_QECH_MIELIKKI_3",
+        "units": [
+            "UN_V2_MIELIKKI"
+        ],
+        "cond_quests": [
+            "QE_CH_MIELIKKI_2"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_01_mori_H_007_A",
+                "mapSetName": "ch_mielikki_lv3_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ],
+        "event_clear": "CQ_MIELIKKI_03_b_2d",
         "dif": {
             "aplv": 51
         }
@@ -33302,6 +34672,35 @@
             }
         ]
     },
+    "QE_EV_GL_MH_02_MULTI_EX": {
+        "iname": "QE_EV_GL_MH_02_MULTI_EX",
+        "kanji": "Deliverance[EX]",
+        "name": "Deliverance[EX]",
+        "cond": "敵を全滅させろ",
+        "pexp": 50,
+        "uexp": 400,
+        "mcoin": 50,
+        "point": 25,
+        "multi": 1,
+        "multiDead": 1,
+        "playerNum": 4,
+        "unitNum": 1,
+        "lv": 75,
+        "type": "Multi",
+        "subtype": "Limited",
+        "ChapterID": "MULTI_GL_MH",
+        "world": "WD_01",
+        "hidden": true,
+        "title": "【期間限定】",
+        "map": [
+            {
+                "mapSceneName": "bg_01_iseki_mazin_001_N",
+                "mapSetName": "ev_gl_mh_2_EX_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ]
+    },
     "QE_MULTI_EV_FATE_EX_1": {
         "iname": "QE_MULTI_EV_FATE_EX_1",
         "kanji": "Fate/stay night [UBW]EX極ｽﾃｰｼﾞ1",
@@ -34022,6 +35421,42 @@
             "IsMultiLeaderSkill": true
         }
     },
+    "QE_EV_MULTI_GORM_EX": {
+        "iname": "QE_EV_MULTI_GORM_EX",
+        "kanji": "【EX】荒ぶる海の漢 -猛装伝-",
+        "name": "Savage Sea Warrior -Storm Legend- [EX]",
+        "expr": "Swimsuit Event - EX",
+        "cond": "Defeat all enemy units!",
+        "pexp": 40,
+        "uexp": 400,
+        "mcoin": 80,
+        "point": 20,
+        "multi": 1,
+        "multiDead": 1,
+        "playerNum": 4,
+        "unitNum": 1,
+        "aplv": 1,
+        "lv": 75,
+        "type": "Multi",
+        "ChapterID": "MULTI_SWIM_GORM",
+        "world": "WD_01",
+        "hidden": true,
+        "title": "Hard Quest",
+        "notSearch": true,
+        "map": [
+            {
+                "mapSceneName": "collabo_3Title_003",
+                "mapSetName": "ev_swim_gorm_ex_m_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0101"
+            }
+        ],
+        "dif": {
+            "mcoin": 40,
+            "aplv": 51,
+            "IsMultiLeaderSkill": true
+        }
+    },
     "QE_MULTI_WA_ZIN_EX_1": {
         "iname": "QE_MULTI_WA_ZIN_EX_1",
         "kanji": "【エクストラ】黄泉路への帰郷",
@@ -34053,6 +35488,72 @@
         ],
         "dif": {
             "mcoin": 40,
+            "aplv": 51,
+            "IsMultiLeaderSkill": true
+        }
+    },
+    "QE_MULTI_SO_ZEKE_EX_2": {
+        "iname": "QE_MULTI_SO_ZEKE_EX_2",
+        "kanji": "【2人用】【エクストラ】血狼と呼ばれても",
+        "name": "Blood Wolf by Any Other Name [EX] [For 2]",
+        "expr": "Encounter with Zeke",
+        "cond": "Defeat all enemy units!",
+        "pexp": 40,
+        "uexp": 400,
+        "mcoin": 40,
+        "point": 20,
+        "multi": 1,
+        "multiDead": 1,
+        "playerNum": 2,
+        "unitNum": 2,
+        "lv": 80,
+        "type": "Multi",
+        "ChapterID": "MULTI_SO_ZEKE",
+        "world": "WD_01",
+        "hidden": true,
+        "title": "[Limited Time]",
+        "map": [
+            {
+                "mapSceneName": "bg_02_tikasisetu_N",
+                "mapSetName": "qe_so_zeke_EX_1_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0025"
+            }
+        ],
+        "dif": {
+            "aplv": 51,
+            "IsMultiLeaderSkill": true
+        }
+    },
+    "QE_MULTI_SO_ZEKE_EX_4": {
+        "iname": "QE_MULTI_SO_ZEKE_EX_4",
+        "kanji": "【4人用】【エクストラ】血狼と呼ばれても",
+        "name": "Blood Wolf by Any Other Name [EX] [For 4]",
+        "expr": "Encounter with Zeke",
+        "cond": "Defeat all enemy units!",
+        "pexp": 40,
+        "uexp": 400,
+        "mcoin": 40,
+        "point": 20,
+        "multi": 1,
+        "multiDead": 1,
+        "playerNum": 4,
+        "unitNum": 1,
+        "lv": 80,
+        "type": "Multi",
+        "ChapterID": "MULTI_SO_ZEKE",
+        "world": "WD_01",
+        "hidden": true,
+        "title": "[Limited Time]",
+        "map": [
+            {
+                "mapSceneName": "bg_02_tikasisetu_N",
+                "mapSetName": "qe_so_zeke_EX_1_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0025"
+            }
+        ],
+        "dif": {
             "aplv": 51,
             "IsMultiLeaderSkill": true
         }
@@ -34846,72 +36347,6 @@
             {
                 "mapSceneName": "bg_01_mori_H_007_A",
                 "mapSetName": "qe_so_peri_ex_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0025"
-            }
-        ],
-        "dif": {
-            "aplv": 51,
-            "IsMultiLeaderSkill": true
-        }
-    },
-    "QE_MULTI_SO_ZEKE_EX_2": {
-        "iname": "QE_MULTI_SO_ZEKE_EX_2",
-        "kanji": "【2人用】【エクストラ】血狼と呼ばれても",
-        "name": "Blood Wolf by Any Other Name [EX] [For 2]",
-        "expr": "Encounter with Zeke",
-        "cond": "Defeat all enemy units!",
-        "pexp": 40,
-        "uexp": 400,
-        "mcoin": 40,
-        "point": 20,
-        "multi": 1,
-        "multiDead": 1,
-        "playerNum": 2,
-        "unitNum": 2,
-        "lv": 80,
-        "type": "Multi",
-        "ChapterID": "MULTI_SO_ZEKE",
-        "world": "WD_01",
-        "hidden": true,
-        "title": "[Limited Time]",
-        "map": [
-            {
-                "mapSceneName": "bg_02_tikasisetu_N",
-                "mapSetName": "qe_so_zeke_EX_1_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0025"
-            }
-        ],
-        "dif": {
-            "aplv": 51,
-            "IsMultiLeaderSkill": true
-        }
-    },
-    "QE_MULTI_SO_ZEKE_EX_4": {
-        "iname": "QE_MULTI_SO_ZEKE_EX_4",
-        "kanji": "【4人用】【エクストラ】血狼と呼ばれても",
-        "name": "Blood Wolf by Any Other Name [EX] [For 4]",
-        "expr": "Encounter with Zeke",
-        "cond": "Defeat all enemy units!",
-        "pexp": 40,
-        "uexp": 400,
-        "mcoin": 40,
-        "point": 20,
-        "multi": 1,
-        "multiDead": 1,
-        "playerNum": 4,
-        "unitNum": 1,
-        "lv": 80,
-        "type": "Multi",
-        "ChapterID": "MULTI_SO_ZEKE",
-        "world": "WD_01",
-        "hidden": true,
-        "title": "[Limited Time]",
-        "map": [
-            {
-                "mapSceneName": "bg_02_tikasisetu_N",
-                "mapSetName": "qe_so_zeke_EX_1_set",
                 "battleSceneName": "plain01",
                 "bgmName": "BGM_0025"
             }
@@ -37464,373 +38899,372 @@
             }
         ]
     },
-    "QE_ST_NO_030051": {
-        "iname": "QE_ST_NO_030051",
-        "kanji": "三つ巴の戦場",
-        "name": "Three-Color Battle",
-        "expr": "Episode 2: Act 3-1",
-        "cond": "Defeat all enemies!",
-        "mission": "OB_ST_NO_030051",
-        "pexp": 6,
-        "uexp": 560,
-        "gold": 3000,
-        "point": 6,
+    "QE_EV_GL_MH_02_01": {
+        "iname": "QE_EV_GL_MH_02_01",
+        "kanji": "Stage 1: Run towards divinity",
+        "name": "Stage 1: Run towards divinity",
+        "cond": "敵を全滅させろ",
+        "mission": "OB_EV_GL_MH_02_01",
+        "pexp": 8,
+        "uexp": 20,
+        "gold": 900,
+        "point": 8,
         "unitNum": 2,
-        "aplv": 51,
-        "lose": 1,
-        "type": "Story",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "Ch 3: Ep 2 [3-1]",
-        "bonusObjective": "OB_ST_NO_030051",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
+        "aplv": 1,
+        "lv": 5,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_GL_MH_02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "【期間限定】",
+        "bonusObjective": "OB_EV_GL_MH_02_01",
         "cond_quests": [
-            "QE_ST_NO_030050"
+            "QE_EV_GL_MH_01_10"
         ],
         "map": [
             {
-                "mapSceneName": "bg_03_mati_001",
-                "mapSetName": "main_no_030051_set",
+                "mapSceneName": "bg_01_areti_003_N",
+                "mapSetName": "ev_gl_mh_2_01_set",
                 "battleSceneName": "plain01",
-                "bgmName": "BGM_0019"
+                "bgmName": "BGM_0011"
             }
         ],
-        "event_start": "QE03_2_3_01_a_3d"
+        "event_start": "EQ_GL_MH_C01_Ep02_01_a_2d"
     },
-    "QE_ST_NO_030052": {
-        "iname": "QE_ST_NO_030052",
-        "kanji": "共存の証",
-        "name": "Coexistence Token",
-        "expr": "Episode 2: Act 3-2",
-        "cond": "Defeat all enemies!",
-        "mission": "OB_ST_NO_030052",
-        "pexp": 6,
-        "uexp": 560,
-        "gold": 3000,
-        "point": 6,
+    "QE_EV_GL_MH_02_02": {
+        "iname": "QE_EV_GL_MH_02_02",
+        "kanji": "Stage 2: Crisis",
+        "name": "Stage 2: Crisis",
+        "cond": "敵を全滅させろ",
+        "mission": "OB_EV_GL_MH_02_02",
+        "pexp": 8,
+        "uexp": 50,
+        "gold": 1200,
+        "point": 8,
         "unitNum": 2,
-        "aplv": 51,
-        "lose": 1,
-        "type": "Story",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "Ch 3: Ep 2 [3-2]",
-        "bonusObjective": "OB_ST_NO_030052",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
+        "aplv": 1,
+        "lv": 10,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_GL_MH_02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "【期間限定】",
+        "bonusObjective": "OB_EV_GL_MH_02_02",
         "cond_quests": [
-            "QE_ST_NO_030051"
+            "QE_EV_GL_MH_02_01"
         ],
         "map": [
             {
-                "mapSceneName": "bg_03_mati_002",
-                "mapSetName": "main_no_030052_set",
+                "mapSceneName": "bg_01_iseki_001_N",
+                "mapSetName": "ev_gl_mh_2_02_set",
                 "battleSceneName": "plain01",
-                "bgmName": "BGM_0019"
+                "bgmName": "BGM_0011"
             }
         ],
-        "event_start": "QE03_2_3_02_a_2d"
+        "event_start": "EQ_GL_MH_C01_Ep02_02_a_2d"
     },
-    "QE_ST_NO_030053": {
-        "iname": "QE_ST_NO_030053",
-        "kanji": "怒りという原動力",
-        "name": "A Driving Force Called Rage",
-        "expr": "Episode 2: Act 3-3",
-        "cond": "Defeat all enemies!",
-        "mission": "OB_ST_NO_030053",
-        "pexp": 6,
-        "uexp": 560,
-        "gold": 3000,
-        "point": 6,
+    "QE_EV_GL_MH_02_03": {
+        "iname": "QE_EV_GL_MH_02_03",
+        "kanji": "Stage 3: The Red Tithe",
+        "name": "Stage 3: The Red Tithe",
+        "cond": "敵を全滅させろ",
+        "mission": "OB_EV_GL_MH_02_03",
+        "pexp": 10,
+        "uexp": 100,
+        "gold": 1500,
+        "point": 10,
         "unitNum": 2,
-        "aplv": 51,
-        "lose": 1,
-        "type": "Story",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "Ch 3: Ep 2 [3-3]",
-        "bonusObjective": "OB_ST_NO_030053",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
+        "aplv": 1,
+        "lv": 15,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_GL_MH_02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "【期間限定】",
+        "bonusObjective": "OB_EV_GL_MH_02_03",
         "cond_quests": [
-            "QE_ST_NO_030052"
+            "QE_EV_GL_MH_02_02"
         ],
         "map": [
             {
-                "mapSceneName": "bg_03_mati_003",
-                "mapSetName": "main_no_030053_set",
+                "mapSceneName": "bg_01_iseki_003_N",
+                "mapSetName": "ev_gl_mh_2_03_set",
                 "battleSceneName": "plain01",
-                "bgmName": "BGM_0019"
+                "bgmName": "BGM_0011"
             }
         ],
-        "event_start": "QE03_2_3_03_a_2d"
+        "event_start": "EQ_GL_MH_C01_Ep02_03_a_2d",
+        "event_clear": "EQ_GL_MH_C01_Ep02_03_b_2d"
     },
-    "QE_ST_NO_030054": {
-        "iname": "QE_ST_NO_030054",
-        "kanji": "恐れという原動力",
-        "name": "A Driving Force Called Fear",
-        "expr": "Episode 2: Act 3-4",
-        "cond": "Defeat all enemies!",
-        "mission": "OB_ST_NO_030054",
-        "pexp": 6,
-        "uexp": 560,
-        "gold": 3000,
-        "point": 6,
+    "QE_EV_GL_MH_02_04": {
+        "iname": "QE_EV_GL_MH_02_04",
+        "kanji": "Stage 4: The Wolf Lord",
+        "name": "Stage 4: The Wolf Lord",
+        "cond": "敵を全滅させろ",
+        "mission": "OB_EV_GL_MH_02_04",
+        "pexp": 10,
+        "uexp": 150,
+        "gold": 1800,
+        "point": 10,
         "unitNum": 2,
-        "aplv": 51,
-        "lose": 1,
-        "type": "Story",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "Ch 3: Ep 2 [3-4]",
-        "bonusObjective": "OB_ST_NO_030054",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
+        "aplv": 1,
+        "lv": 20,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_GL_MH_02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "【期間限定】",
+        "bonusObjective": "OB_EV_GL_MH_02_04",
         "cond_quests": [
-            "QE_ST_NO_030053"
+            "QE_EV_GL_MH_02_03"
         ],
         "map": [
             {
-                "mapSceneName": "bg_03_mati_001",
-                "mapSetName": "main_no_030054_set",
+                "mapSceneName": "bg_01_iseki_004_N",
+                "mapSetName": "ev_gl_mh_2_04_set",
                 "battleSceneName": "plain01",
-                "bgmName": "BGM_0019"
+                "bgmName": "BGM_0011"
             }
         ],
-        "event_start": "QE03_2_3_04_a_2d"
+        "event_start": "EQ_GL_MH_C01_Ep02_04_a_2d"
     },
-    "QE_ST_NO_030055": {
-        "iname": "QE_ST_NO_030055",
-        "kanji": "サロモ再び",
-        "name": "Salomo Again",
-        "expr": "Episode 2: Act 3-5",
-        "cond": "Fight off Salomo!",
-        "mission": "OB_ST_NO_030055",
-        "pexp": 6,
-        "uexp": 560,
-        "gold": 3000,
-        "point": 6,
+    "QE_EV_GL_MH_02_05": {
+        "iname": "QE_EV_GL_MH_02_05",
+        "kanji": "Stage 5: To Rouse The Guardian",
+        "name": "Stage 5: To Rouse The Guardian",
+        "cond": "敵を全滅させろ",
+        "mission": "OB_EV_GL_MH_02_05",
+        "pexp": 16,
+        "uexp": 200,
+        "gold": 2000,
+        "point": 16,
         "unitNum": 2,
-        "aplv": 51,
-        "win": 1,
-        "lose": 1,
-        "type": "Story",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "Ch 3: Ep 2 [3-5]",
-        "bonusObjective": "OB_ST_NO_030055",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
+        "aplv": 1,
+        "lv": 25,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_GL_MH_02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "【期間限定】",
+        "bonusObjective": "OB_EV_GL_MH_02_05",
         "cond_quests": [
-            "QE_ST_NO_030054"
+            "QE_EV_GL_MH_02_04"
         ],
         "map": [
             {
-                "mapSceneName": "bg_03_mati_002",
-                "mapSetName": "main_no_030055_set",
+                "mapSceneName": "bg_01_iseki_006_N",
+                "mapSetName": "ev_gl_mh_2_05_set",
                 "battleSceneName": "plain01",
-                "bgmName": "BGM_0025"
+                "bgmName": "BGM_0011"
             }
         ],
-        "event_start": "QE03_2_3_05_a_2d"
+        "event_start": "EQ_GL_MH_C01_Ep02_05_a_2d"
     },
-    "QE_ST_NO_030056": {
-        "iname": "QE_ST_NO_030056",
-        "kanji": "成長の否定",
-        "name": "Growth Denial",
-        "expr": "Episode 2: Act 3-6",
-        "cond": "Fight off Salomo!",
-        "mission": "OB_ST_NO_030056",
-        "pexp": 6,
-        "uexp": 560,
-        "gold": 3000,
-        "point": 6,
+    "QE_EV_GL_MH_02_06": {
+        "iname": "QE_EV_GL_MH_02_06",
+        "kanji": "Stage 6: A Divine Outburst",
+        "name": "Stage 6: A Divine Outburst",
+        "cond": "敵を全滅させろ",
+        "mission": "OB_EV_GL_MH_02_06",
+        "pexp": 16,
+        "uexp": 250,
+        "gold": 2200,
+        "point": 16,
         "unitNum": 2,
-        "aplv": 51,
-        "win": 1,
-        "lose": 1,
-        "type": "Story",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "Ch 3: Ep 2 [3-6]",
-        "bonusObjective": "OB_ST_NO_030056",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
+        "aplv": 1,
+        "lv": 30,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_GL_MH_02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "【期間限定】",
+        "bonusObjective": "OB_EV_GL_MH_02_06",
         "cond_quests": [
-            "QE_ST_NO_030055"
+            "QE_EV_GL_MH_02_05"
         ],
         "map": [
             {
-                "mapSceneName": "bg_03_mati_003",
-                "mapSetName": "main_no_030056_set",
+                "mapSceneName": "bg_01_iseki_006_N",
+                "mapSetName": "ev_gl_mh_2_06_set",
                 "battleSceneName": "plain01",
-                "bgmName": "BGM_0025"
+                "bgmName": "BGM_0011"
             }
         ],
-        "event_start": "QE03_2_3_06_a_2d"
+        "event_start": "EQ_GL_MH_C01_Ep02_06_a_2d"
     },
-    "QE_ST_NO_030057": {
-        "iname": "QE_ST_NO_030057",
-        "kanji": "どこを見てるのか",
-        "name": "What're you looking at?",
-        "expr": "Episode 2: Act 3-7",
-        "cond": "Fight off Salomo!",
-        "mission": "OB_ST_NO_030057",
-        "pexp": 6,
-        "uexp": 560,
-        "gold": 3000,
-        "point": 6,
+    "QE_EV_GL_MH_02_07": {
+        "iname": "QE_EV_GL_MH_02_07",
+        "kanji": "Stage 7: An Unexpected Guest",
+        "name": "Stage 7: An Unexpected Guest",
+        "cond": "敵を全滅させろ",
+        "mission": "OB_EV_GL_MH_02_07",
+        "pexp": 20,
+        "uexp": 300,
+        "gold": 2400,
+        "point": 20,
         "unitNum": 2,
-        "aplv": 51,
-        "win": 1,
-        "lose": 1,
-        "type": "Story",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "Ch 3: Ep 2 [3-7]",
-        "bonusObjective": "OB_ST_NO_030057",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
+        "aplv": 1,
+        "lv": 35,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_GL_MH_02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "【期間限定】",
+        "bonusObjective": "OB_EV_GL_MH_02_07",
         "cond_quests": [
-            "QE_ST_NO_030056"
+            "QE_EV_GL_MH_02_06"
         ],
         "map": [
             {
-                "mapSceneName": "bg_03_jyoukamati_001",
-                "mapSetName": "main_no_030057_set",
+                "mapSceneName": "bg_01_iseki_007_N",
+                "mapSetName": "ev_gl_mh_2_07_set",
                 "battleSceneName": "plain01",
-                "bgmName": "BGM_0025"
+                "bgmName": "BGM_0011"
             }
         ],
-        "event_start": "QE03_2_3_07_a_3d"
+        "event_start": "EQ_GL_MH_C01_Ep02_07_a_2d",
+        "event_clear": "EQ_GL_MH_C01_Ep02_07_b_2d"
     },
-    "QE_ST_NO_030058": {
-        "iname": "QE_ST_NO_030058",
-        "kanji": "目線の違い",
-        "name": "Differing Perspectives",
-        "expr": "Episode 2: Act 3-8",
-        "cond": "Fight off Salomo!",
-        "mission": "OB_ST_NO_030058",
-        "pexp": 6,
-        "uexp": 560,
-        "gold": 3000,
-        "point": 6,
+    "QE_EV_GL_MH_02_08": {
+        "iname": "QE_EV_GL_MH_02_08",
+        "kanji": "Stage 8: Spiriting Away",
+        "name": "Stage 8: Spiriting Away",
+        "cond": "敵を全滅させろ",
+        "mission": "OB_EV_GL_MH_02_08",
+        "pexp": 20,
+        "uexp": 350,
+        "gold": 2600,
+        "point": 20,
         "unitNum": 2,
-        "aplv": 51,
-        "win": 1,
-        "lose": 1,
-        "type": "Story",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "Ch 3: Ep 2 [3-8]",
-        "bonusObjective": "OB_ST_NO_030058",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
+        "aplv": 1,
+        "lv": 40,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_GL_MH_02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "【期間限定】",
+        "bonusObjective": "OB_EV_GL_MH_02_08",
         "cond_quests": [
-            "QE_ST_NO_030057"
+            "QE_EV_GL_MH_02_07"
         ],
         "map": [
             {
-                "mapSceneName": "bg_03_jyoukamati_002",
-                "mapSetName": "main_no_030058_set",
+                "mapSceneName": "bg_01_iseki_005_N",
+                "mapSetName": "ev_gl_mh_2_08_set",
                 "battleSceneName": "plain01",
-                "bgmName": "BGM_0025"
+                "bgmName": "BGM_0011"
             }
         ],
-        "event_start": "QE03_2_3_08_a_2d",
-        "event_clear": "QE03_2_3_08_b_2d"
+        "event_start": "EQ_GL_MH_C01_Ep02_08_a_2d"
     },
-    "QE_ST_NO_030059": {
-        "iname": "QE_ST_NO_030059",
-        "kanji": "アリの王",
-        "name": "King of Ants",
-        "expr": "Episode 2: Act 3-9",
-        "cond": "Fight off Kaiser!",
-        "mission": "OB_ST_NO_030059",
-        "pexp": 6,
-        "uexp": 560,
-        "gold": 3000,
-        "point": 6,
+    "QE_EV_GL_MH_02_09": {
+        "iname": "QE_EV_GL_MH_02_09",
+        "kanji": "Stage 9: Diverging Paths",
+        "name": "Stage 9: Diverging Paths",
+        "cond": "敵を全滅させろ",
+        "mission": "OB_EV_GL_MH_02_09",
+        "pexp": 24,
+        "uexp": 400,
+        "gold": 2800,
+        "point": 24,
         "unitNum": 2,
-        "aplv": 51,
-        "win": 1,
-        "lose": 1,
-        "type": "Story",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "Ch 3: Ep 2 [3-9]",
-        "bonusObjective": "OB_ST_NO_030059",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
+        "aplv": 1,
+        "lv": 45,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_GL_MH_02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "【期間限定】",
+        "bonusObjective": "OB_EV_GL_MH_02_09",
         "cond_quests": [
-            "QE_ST_NO_030058"
+            "QE_EV_GL_MH_02_08"
         ],
         "map": [
             {
-                "mapSceneName": "bg_03_siromae_001",
-                "mapSetName": "main_no_030059_set",
+                "mapSceneName": "bg_01_iseki_005_N",
+                "mapSetName": "ev_gl_mh_2_09_set",
                 "battleSceneName": "plain01",
-                "bgmName": "BGM_0025"
+                "bgmName": "BGM_0011"
             }
         ],
-        "event_start": "QE03_2_3_09_a_2d"
+        "event_start": "EQ_GL_MH_C01_Ep02_09_a_2d",
+        "event_clear": "EQ_GL_MH_C01_Ep02_09_b_2d"
     },
-    "QE_ST_NO_030060": {
-        "iname": "QE_ST_NO_030060",
-        "kanji": "断ち切られる連鎖",
-        "name": "Severed Chains",
-        "expr": "Episode 2: Act 3-10",
-        "cond": "Defeat Kaiser!",
-        "mission": "OB_ST_NO_030060",
-        "pexp": 6,
-        "uexp": 560,
-        "gold": 3000,
-        "point": 6,
+    "QE_EV_GL_MH_02_10": {
+        "iname": "QE_EV_GL_MH_02_10",
+        "kanji": "Stage 10: The End of Duty",
+        "name": "Stage 10: The End of Duty",
+        "cond": "敵を全滅させろ",
+        "mission": "OB_EV_GL_MH_02_10",
+        "pexp": 24,
+        "uexp": 200,
+        "gold": 1300,
+        "point": 24,
         "unitNum": 2,
-        "aplv": 51,
-        "win": 1,
-        "lose": 1,
-        "type": "Story",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "Ch 3: Ep 2 [3-10]",
-        "bonusObjective": "OB_ST_NO_030060",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
+        "aplv": 1,
+        "lv": 50,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_GL_MH_02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "【期間限定】",
+        "bonusObjective": "OB_EV_GL_MH_02_10",
+        "EntryCondition": "COND_GL_MH_02_10",
         "cond_quests": [
-            "QE_ST_NO_030059"
+            "QE_EV_GL_MH_02_09"
         ],
         "map": [
             {
-                "mapSceneName": "bg_03_siromae_001",
-                "mapSetName": "main_no_030060_set",
+                "mapSceneName": "bg_01_iseki_mazin_001_N",
+                "mapSetName": "ev_gl_mh_2_10_set",
                 "battleSceneName": "plain01",
-                "bgmName": "BGM_0025"
+                "bgmName": "BGM_0011"
             }
         ],
-        "event_start": "QE03_2_3_10_a_2d",
-        "event_clear": "QE03_2_3_10_b_3d"
+        "event_start": "EQ_GL_MH_C01_Ep02_10_a_2d",
+        "event_clear": "EQ_GL_MH_C01_Ep02_10_b_2d"
+    },
+    "QE_EV_GL_MH_02_EX": {
+        "iname": "QE_EV_GL_MH_02_EX",
+        "kanji": "Deliverance[EX]",
+        "name": "Deliverance[EX]",
+        "cond": "敵を全滅させろ",
+        "mission": "OB_EV_GL_MH_02_EX",
+        "pexp": 50,
+        "uexp": 400,
+        "gold": 5000,
+        "point": 50,
+        "unitNum": 2,
+        "aplv": 1,
+        "lv": 75,
+        "type": "Event",
+        "subtype": "Limited",
+        "ChapterID": "AR_GL_MH_02",
+        "world": "WD_DAILY",
+        "hidden": true,
+        "title": "【期間限定】",
+        "bonusObjective": "OB_EV_GL_MH_02_EX",
+        "cond_quests": [
+            "QE_EV_GL_MH_02_10"
+        ],
+        "map": [
+            {
+                "mapSceneName": "bg_01_iseki_mazin_001_N",
+                "mapSetName": "ev_gl_mh_2_EX_set",
+                "battleSceneName": "plain01",
+                "bgmName": "BGM_0011"
+            }
+        ]
     },
     "QE_ST_NO_030061": {
         "iname": "QE_ST_NO_030061",
@@ -46860,162 +48294,6 @@
         "event_start": "QE05_2_3_10_a_2d",
         "event_clear": "QE05_2_3_10_b_2d"
     },
-    "QE_ST_HA_030017": {
-        "iname": "QE_ST_HA_030017",
-        "kanji": "三つ巴の戦場",
-        "name": "Three-Color Battle",
-        "expr": "[Hard] Episode 2: Act 3-1",
-        "cond": "Defeat all enemies!",
-        "mission": "OB_ST_HA_030017",
-        "pexp": 24,
-        "uexp": 920,
-        "gold": 7200,
-        "point": 24,
-        "unitNum": 2,
-        "aplv": 51,
-        "challengeLimit": 3,
-        "dayReset": 1,
-        "lv": 80,
-        "lose": 1,
-        "type": "Free",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "[Hard] Ch 3: Ep 2 [3-1]",
-        "bonusObjective": "OB_ST_HA_030017",
-        "difficulty": "Elite",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
-        "cond_quests": [
-            "QE_ST_NO_030051"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_03_mati_001",
-                "mapSetName": "main_ha_030051_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0019"
-            }
-        ]
-    },
-    "QE_ST_HA_030018": {
-        "iname": "QE_ST_HA_030018",
-        "kanji": "共存の証",
-        "name": "Coexistence Token",
-        "expr": "[Hard] Episode 2: Act 3-2",
-        "cond": "Defeat all enemies!",
-        "mission": "OB_ST_HA_030018",
-        "pexp": 24,
-        "uexp": 920,
-        "gold": 7200,
-        "point": 24,
-        "unitNum": 2,
-        "aplv": 51,
-        "challengeLimit": 3,
-        "dayReset": 1,
-        "lv": 80,
-        "lose": 1,
-        "type": "Free",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "[Hard] Ch 3: Ep 2 [3-2]",
-        "bonusObjective": "OB_ST_HA_030018",
-        "difficulty": "Elite",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
-        "cond_quests": [
-            "QE_ST_NO_030052"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_03_mati_002",
-                "mapSetName": "main_ha_030052_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0019"
-            }
-        ]
-    },
-    "QE_ST_HA_030019": {
-        "iname": "QE_ST_HA_030019",
-        "kanji": "アリの王",
-        "name": "King of Ants",
-        "expr": "[Hard] Episode 2: Act 3-9",
-        "cond": "Defeat all enemies!",
-        "mission": "OB_ST_HA_030019",
-        "pexp": 24,
-        "uexp": 920,
-        "gold": 7200,
-        "point": 24,
-        "unitNum": 2,
-        "aplv": 51,
-        "challengeLimit": 3,
-        "dayReset": 1,
-        "lv": 80,
-        "lose": 1,
-        "type": "Free",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "[Hard] Ch 3: Ep 2 [3-9]",
-        "bonusObjective": "OB_ST_HA_030019",
-        "difficulty": "Elite",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
-        "cond_quests": [
-            "QE_ST_NO_030059"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_03_siromae_001",
-                "mapSetName": "main_ha_030059_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0025"
-            }
-        ]
-    },
-    "QE_ST_HA_030020": {
-        "iname": "QE_ST_HA_030020",
-        "kanji": "断ち切られる連鎖",
-        "name": "Severed Chains",
-        "expr": "[Hard] Episode 2: Act 3-10",
-        "cond": "Defeat all enemies!",
-        "mission": "OB_ST_HA_030020",
-        "pexp": 32,
-        "uexp": 920,
-        "gold": 7200,
-        "point": 32,
-        "unitNum": 2,
-        "aplv": 51,
-        "challengeLimit": 3,
-        "dayReset": 1,
-        "lv": 80,
-        "lose": 1,
-        "type": "Free",
-        "ChapterID": "AR_03_06",
-        "world": "WD_10",
-        "ticket": "IT_US_TICKET",
-        "title": "[Hard] Ch 3: Ep 2 [3-10]",
-        "bonusObjective": "OB_ST_HA_030020",
-        "difficulty": "Elite",
-        "units": [
-            "UN_V2_LIESBET"
-        ],
-        "cond_quests": [
-            "QE_ST_NO_030060"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_03_siromae_001",
-                "mapSetName": "main_ha_030060_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0025"
-            }
-        ]
-    },
     "QE_ST_HA_030021": {
         "iname": "QE_ST_HA_030021",
         "kanji": "厄日",
@@ -55026,117 +56304,6 @@
         ],
         "event_clear": "CQ_BALT_03_b_2d"
     },
-    "QE_CH_MIELIKKI_1": {
-        "iname": "QE_CH_MIELIKKI_1",
-        "kanji": "森の迷子ちゃん",
-        "name": "Lost in the Forest",
-        "expr": "From Lv30",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_CH_MIELIKKI_1",
-        "pexp": 10,
-        "uexp": 55,
-        "gold": 2000,
-        "point": 10,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 30,
-        "lose": 1,
-        "type": "Character",
-        "ChapterID": "UN_V2_MIELIKKI",
-        "world": "WD_CHARA",
-        "title": "Episode 1",
-        "notSearch": true,
-        "bonusObjective": "OB_CH_MIELIKKI_1",
-        "EntryCondition": "COND_QECH_MIELIKKI_1",
-        "units": [
-            "UN_V2_MIELIKKI"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_01_mori_H_002_A",
-                "mapSetName": "ch_mielikki_lv1_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0011"
-            }
-        ],
-        "event_start": "CQ_MIELIKKI_01_a_2d"
-    },
-    "QE_CH_MIELIKKI_2": {
-        "iname": "QE_CH_MIELIKKI_2",
-        "kanji": "静かな森の交流",
-        "name": "Encounter in the Quiet Forest",
-        "expr": "From Lv60",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_CH_MIELIKKI_2",
-        "pexp": 20,
-        "uexp": 110,
-        "gold": 3000,
-        "point": 20,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 60,
-        "lose": 1,
-        "type": "Character",
-        "ChapterID": "UN_V2_MIELIKKI",
-        "world": "WD_CHARA",
-        "title": "Episode 2",
-        "notSearch": true,
-        "bonusObjective": "OB_CH_MIELIKKI_2",
-        "EntryCondition": "COND_QECH_MIELIKKI_2",
-        "units": [
-            "UN_V2_MIELIKKI"
-        ],
-        "cond_quests": [
-            "QE_CH_MIELIKKI_1"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_01_mori_H_001_A",
-                "mapSetName": "ch_mielikki_lv2_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0011"
-            }
-        ],
-        "event_start": "CQ_MIELIKKI_02_a_2d"
-    },
-    "QE_CH_MIELIKKI_3": {
-        "iname": "QE_CH_MIELIKKI_3",
-        "kanji": "ともだち",
-        "name": "Friend",
-        "expr": "From Lv80",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_CH_MIELIKKI_3",
-        "pexp": 30,
-        "uexp": 250,
-        "gold": 4000,
-        "point": 30,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 80,
-        "lose": 1,
-        "type": "Character",
-        "ChapterID": "UN_V2_MIELIKKI",
-        "world": "WD_CHARA",
-        "title": "Episode 3",
-        "notSearch": true,
-        "bonusObjective": "OB_CH_MIELIKKI_3",
-        "EntryCondition": "COND_QECH_MIELIKKI_3",
-        "units": [
-            "UN_V2_MIELIKKI"
-        ],
-        "cond_quests": [
-            "QE_CH_MIELIKKI_2"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_01_mori_H_007_A",
-                "mapSetName": "ch_mielikki_lv3_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0011"
-            }
-        ],
-        "event_clear": "CQ_MIELIKKI_03_b_2d"
-    },
     "QE_CH_ROSA_1": {
         "iname": "QE_CH_ROSA_1",
         "kanji": "武器に宿る魂は鈍色",
@@ -55580,228 +56747,6 @@
             }
         ],
         "event_clear": "CQ_LUCRETIA_03_b_2d"
-    },
-    "QE_CH_SUZUKA_1": {
-        "iname": "QE_CH_SUZUKA_1",
-        "kanji": "未知なる出会い",
-        "name": "Unknown Encounter",
-        "expr": "From Lv30",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_CH_SUZUKA_1",
-        "pexp": 10,
-        "uexp": 55,
-        "gold": 2000,
-        "point": 10,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 30,
-        "lose": 1,
-        "type": "Character",
-        "ChapterID": "UN_V2_SUZUKA",
-        "world": "WD_CHARA",
-        "title": "Episode 1",
-        "notSearch": true,
-        "bonusObjective": "OB_CH_SUZUKA_1",
-        "EntryCondition": "COND_QECH_SUZUKA_1",
-        "units": [
-            "UN_V2_SUZUKA"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_01_mati_002_A",
-                "mapSetName": "ch_suzuka_lv1_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0011"
-            }
-        ],
-        "event_start": "CQ_SUZUKA_01_a_2d"
-    },
-    "QE_CH_SUZUKA_2": {
-        "iname": "QE_CH_SUZUKA_2",
-        "kanji": "可愛さとは",
-        "name": "What Is Cute?",
-        "expr": "From Lv60",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_CH_SUZUKA_2",
-        "pexp": 20,
-        "uexp": 110,
-        "gold": 3000,
-        "point": 20,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 60,
-        "lose": 1,
-        "type": "Character",
-        "ChapterID": "UN_V2_SUZUKA",
-        "world": "WD_CHARA",
-        "title": "Episode 2",
-        "notSearch": true,
-        "bonusObjective": "OB_CH_SUZUKA_2",
-        "EntryCondition": "COND_QECH_SUZUKA_2",
-        "units": [
-            "UN_V2_SUZUKA"
-        ],
-        "cond_quests": [
-            "QE_CH_SUZUKA_1"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_01_sougen_002_A",
-                "mapSetName": "ch_suzuka_lv2_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0011"
-            }
-        ],
-        "event_start": "CQ_SUZUKA_02_a_2d"
-    },
-    "QE_CH_SUZUKA_3": {
-        "iname": "QE_CH_SUZUKA_3",
-        "kanji": "女子力の道も一歩から",
-        "name": "A Step toward Girl Power",
-        "expr": "From Lv80",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_CH_SUZUKA_3",
-        "pexp": 30,
-        "uexp": 250,
-        "gold": 4000,
-        "point": 30,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 80,
-        "lose": 1,
-        "type": "Character",
-        "ChapterID": "UN_V2_SUZUKA",
-        "world": "WD_CHARA",
-        "title": "Episode 3",
-        "notSearch": true,
-        "bonusObjective": "OB_CH_SUZUKA_3",
-        "EntryCondition": "COND_QECH_SUZUKA_3",
-        "units": [
-            "UN_V2_SUZUKA"
-        ],
-        "cond_quests": [
-            "QE_CH_SUZUKA_2"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_01_sougen_004_A",
-                "mapSetName": "ch_suzuka_lv3_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0011"
-            }
-        ],
-        "event_clear": "CQ_SUZUKA_03_b_2d"
-    },
-    "QE_CH_FUNGLIU_1": {
-        "iname": "QE_CH_FUNGLIU_1",
-        "kanji": "思い出無き出身地",
-        "name": "Origin of No Memories",
-        "expr": "From Lv30",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_CH_FUNGLIU_1",
-        "pexp": 10,
-        "uexp": 55,
-        "gold": 2000,
-        "point": 10,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 30,
-        "lose": 1,
-        "type": "Character",
-        "ChapterID": "UN_V2_FUNGLIU",
-        "world": "WD_CHARA",
-        "title": "Episode 1",
-        "notSearch": true,
-        "bonusObjective": "OB_CH_FUNGLIU_1",
-        "EntryCondition": "COND_QECH_FUNGLIU_1",
-        "units": [
-            "UN_V2_FUNGLIU"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_03_mori_001",
-                "mapSetName": "ch_fungliu_lv1_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0011"
-            }
-        ],
-        "event_start": "CQ_FUNGLIU_01_a_2d"
-    },
-    "QE_CH_FUNGLIU_2": {
-        "iname": "QE_CH_FUNGLIU_2",
-        "kanji": "実験体零号",
-        "name": "Prototype Zerp",
-        "expr": "From Lv60",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_CH_FUNGLIU_2",
-        "pexp": 20,
-        "uexp": 110,
-        "gold": 3000,
-        "point": 20,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 60,
-        "lose": 1,
-        "type": "Character",
-        "ChapterID": "UN_V2_FUNGLIU",
-        "world": "WD_CHARA",
-        "title": "Episode 2",
-        "notSearch": true,
-        "bonusObjective": "OB_CH_FUNGLIU_2",
-        "EntryCondition": "COND_QECH_FUNGLIU_2",
-        "units": [
-            "UN_V2_FUNGLIU"
-        ],
-        "cond_quests": [
-            "QE_CH_FUNGLIU_1"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_03_mori_002",
-                "mapSetName": "ch_fungliu_lv2_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0011"
-            }
-        ],
-        "event_start": "CQ_FUNGLIU_02_a_2d"
-    },
-    "QE_CH_FUNGLIU_3": {
-        "iname": "QE_CH_FUNGLIU_3",
-        "kanji": "生まれたての涙",
-        "name": "Newborn Tears",
-        "expr": "From Lv80",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_CH_FUNGLIU_3",
-        "pexp": 30,
-        "uexp": 250,
-        "gold": 4000,
-        "point": 30,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 80,
-        "lose": 1,
-        "type": "Character",
-        "ChapterID": "UN_V2_FUNGLIU",
-        "world": "WD_CHARA",
-        "title": "Episode 3",
-        "notSearch": true,
-        "bonusObjective": "OB_CH_FUNGLIU_3",
-        "EntryCondition": "COND_QECH_FUNGLIU_3",
-        "units": [
-            "UN_V2_FUNGLIU"
-        ],
-        "cond_quests": [
-            "QE_CH_FUNGLIU_2"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_03_mori_006",
-                "mapSetName": "ch_fungliu_lv3_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0011"
-            }
-        ],
-        "event_clear": "CQ_FUNGLIU_03_b_2d"
     },
     "QE_CH_LIES_DIOS_1": {
         "iname": "QE_CH_LIES_DIOS_1",
@@ -66067,245 +67012,6 @@
         ],
         "IsExtra": true
     },
-    "QE_EV_SWIM_GORM_01": {
-        "iname": "QE_EV_SWIM_GORM_01",
-        "kanji": "狂気に満ちるゴルマラス",
-        "name": "Madness-Fallen Gormalas",
-        "expr": "Swimsuit Event - Act 1",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_EV_SWIM_GORM_01",
-        "pexp": 12,
-        "uexp": 200,
-        "gold": 2000,
-        "point": 12,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 35,
-        "type": "Event",
-        "subtype": "Limited",
-        "ChapterID": "AR_SWIM_GORM",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "Episode 1",
-        "bonusObjective": "OB_EV_SWIM_GORM_01",
-        "map": [
-            {
-                "mapSceneName": "collabo_3Title_003",
-                "mapSetName": "ev_swim_gorm_01_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0100"
-            }
-        ],
-        "event_start": "EQ_SUMMER2017_01_a_2d"
-    },
-    "QE_EV_SWIM_GORM_02": {
-        "iname": "QE_EV_SWIM_GORM_02",
-        "kanji": "古の褌伝説",
-        "name": "Ancient Legend",
-        "expr": "Swimsuit Event - Act 2",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_EV_SWIM_GORM_02",
-        "pexp": 14,
-        "uexp": 250,
-        "gold": 2200,
-        "point": 14,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 45,
-        "type": "Event",
-        "subtype": "Limited",
-        "ChapterID": "AR_SWIM_GORM",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "Episode 2",
-        "bonusObjective": "OB_EV_SWIM_GORM_02",
-        "cond_quests": [
-            "QE_EV_SWIM_GORM_01"
-        ],
-        "map": [
-            {
-                "mapSceneName": "collabo_3Title_003",
-                "mapSetName": "ev_swim_gorm_02_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0100"
-            }
-        ],
-        "event_start": "EQ_SUMMER2017_02_a_2d"
-    },
-    "QE_EV_SWIM_GORM_03": {
-        "iname": "QE_EV_SWIM_GORM_03",
-        "kanji": "デ族とゴ族",
-        "name": "De Tribe & Go Tribe",
-        "expr": "Swimsuit Event - Act 3",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_EV_SWIM_GORM_03",
-        "pexp": 16,
-        "uexp": 300,
-        "gold": 2400,
-        "point": 16,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 55,
-        "type": "Event",
-        "subtype": "Limited",
-        "ChapterID": "AR_SWIM_GORM",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "Episode 3",
-        "bonusObjective": "OB_EV_SWIM_GORM_03",
-        "cond_quests": [
-            "QE_EV_SWIM_GORM_02"
-        ],
-        "map": [
-            {
-                "mapSceneName": "collabo_3Title_003",
-                "mapSetName": "ev_swim_gorm_03_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0100"
-            }
-        ],
-        "event_start": "EQ_SUMMER2017_03_a_2d"
-    },
-    "QE_EV_SWIM_GORM_04": {
-        "iname": "QE_EV_SWIM_GORM_04",
-        "kanji": "漢、参上",
-        "name": "The Man Has Arrived",
-        "expr": "Swimsuit Event - Act 4",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_EV_SWIM_GORM_04",
-        "pexp": 20,
-        "uexp": 350,
-        "gold": 2600,
-        "point": 20,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 65,
-        "type": "Event",
-        "subtype": "Limited",
-        "ChapterID": "AR_SWIM_GORM",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "Episode 4",
-        "bonusObjective": "OB_EV_SWIM_GORM_04",
-        "cond_quests": [
-            "QE_EV_SWIM_GORM_03"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_event_beach_001",
-                "mapSetName": "ev_swim_gorm_04_set",
-                "battleSceneName": "plain01",
-                "eventSceneName": "BT_SUMMER2017_04",
-                "bgmName": "BGM_0101"
-            }
-        ],
-        "event_start": "EQ_SUMMER2017_04_a_2d"
-    },
-    "QE_EV_SWIM_GORM_05": {
-        "iname": "QE_EV_SWIM_GORM_05",
-        "kanji": "褌祭の合戦",
-        "name": "Festive Battle",
-        "expr": "Swimsuit Event - Act 5",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_EV_SWIM_GORM_05",
-        "pexp": 30,
-        "uexp": 400,
-        "gold": 2800,
-        "point": 30,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 75,
-        "type": "Event",
-        "subtype": "Limited",
-        "ChapterID": "AR_SWIM_GORM",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "Episode 5",
-        "bonusObjective": "OB_EV_SWIM_GORM_05",
-        "cond_quests": [
-            "QE_EV_SWIM_GORM_04"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_event_ship_001",
-                "mapSetName": "ev_swim_gorm_05_set",
-                "battleSceneName": "plain01",
-                "eventSceneName": "BT_SUMMER2017_05",
-                "bgmName": "BGM_0101"
-            }
-        ],
-        "event_start": "EQ_SUMMER2017_05_a_2d",
-        "event_clear": "EQ_SUMMER2017_05_b_2d"
-    },
-    "QE_EV_SWIM_GORM_EX": {
-        "iname": "QE_EV_SWIM_GORM_EX",
-        "kanji": "【EX】荒ぶる海の漢 -猛装伝-",
-        "name": "Savage Sea Warrior -Storm Legend- [EX]",
-        "expr": "Swimsuit Event - EX",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_EV_SWIM_GORM_EX",
-        "pexp": 40,
-        "uexp": 400,
-        "gold": 5000,
-        "point": 40,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 75,
-        "type": "Event",
-        "subtype": "Limited",
-        "ChapterID": "AR_SWIM_GORM",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "Hard Quest",
-        "bonusObjective": "OB_EV_SWIM_GORM_EX",
-        "cond_quests": [
-            "QE_EV_SWIM_GORM_05"
-        ],
-        "map": [
-            {
-                "mapSceneName": "collabo_3Title_003",
-                "mapSetName": "ev_swim_gorm_ex_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0101"
-            }
-        ],
-        "IsExtra": true
-    },
-    "QE_EV_SWIM_GORM_EX_SP": {
-        "iname": "QE_EV_SWIM_GORM_EX_SP",
-        "kanji": "【EX・極】荒ぶる海の漢 -猛装伝-",
-        "name": "[Ex+] Savage Sea Warrior -Storm Legend-",
-        "expr": "Swimsuit Event - EX+",
-        "cond": "Defeat all enemy units!",
-        "mission": "OB_EV_SWIM_GORM_EX_SP",
-        "pexp": 50,
-        "uexp": 500,
-        "gold": 5000,
-        "point": 50,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 85,
-        "type": "Event",
-        "subtype": "Limited",
-        "ChapterID": "AR_SWIM_GORM",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "Extreme Hard Quest",
-        "bonusObjective": "OB_EV_SWIM_GORM_EX_SP",
-        "cond_quests": [
-            "QE_EV_SWIM_GORM_EX"
-        ],
-        "map": [
-            {
-                "mapSceneName": "collabo_3Title_003",
-                "mapSetName": "ev_swim_gorm_ex_sp_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0101"
-            }
-        ],
-        "DisableContinue": true,
-        "IsExtra": true
-    },
     "QE_EV_SWIM_HISHARMU": {
         "iname": "QE_EV_SWIM_HISHARMU",
         "kanji": "【EX】ヒシャーム100%していますか？",
@@ -68149,150 +68855,6 @@
         ],
         "event_start": "EQ_SUMMER2018_05_a_2d",
         "event_clear": "EQ_SUMMER2018_05_b_2d"
-    },
-    "QE_EV_UNDOUKAI_2017_MAGIC": {
-        "iname": "QE_EV_UNDOUKAI_2017_MAGIC",
-        "kanji": "第1種目：魔法玉入れ",
-        "name": "1st Discipline: Magic-Ball Game",
-        "expr": "Sports Day 2017 (Magic-Ball Game)",
-        "cond": "Defeat as many Demons as possible within turn limit",
-        "mission": "OB_EV_UNDOUKAI_2017_MAGIC",
-        "pexp": 20,
-        "uexp": 350,
-        "gold": 2600,
-        "point": 20,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 45,
-        "win": 3,
-        "type": "Event",
-        "subtype": "Limited",
-        "ChapterID": "AR_UNDOUKAI_2017",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "Unit Lv40 JobLv5 Recommended",
-        "bonusObjective": "OB_EV_UNDOUKAI_2017_MAGIC",
-        "cond_quests": [
-            "QE_ST_NO_010030"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_01_env_kyoukai_mae_001_A",
-                "mapSetName": "ev_undoukai_2017_01_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0100"
-            }
-        ],
-        "DisableContinue": true
-    },
-    "QE_EV_UNDOUKAI_2017_SPEED": {
-        "iname": "QE_EV_UNDOUKAI_2017_SPEED",
-        "kanji": "第2種目：リレー",
-        "name": "2nd Discipline: Relay",
-        "expr": "Sports Day 2017 (Relay)",
-        "cond": "Touch all runners and defeat the referee!",
-        "mission": "OB_EV_UNDOUKAI_2017_SPEED",
-        "pexp": 20,
-        "uexp": 350,
-        "gold": 2600,
-        "point": 20,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 45,
-        "win": 1,
-        "type": "Event",
-        "subtype": "Limited",
-        "ChapterID": "AR_UNDOUKAI_2017",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "Unit Lv40 JobLv5 Recommended",
-        "bonusObjective": "OB_EV_UNDOUKAI_2017_SPEED",
-        "cond_quests": [
-            "QE_ST_NO_010030"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_04_murahazure_002",
-                "mapSetName": "ev_undoukai_2017_02_set",
-                "battleSceneName": "plain01",
-                "eventSceneName": "BT_UNDOUKAI_2017_RELAY",
-                "bgmName": "BGM_0100"
-            }
-        ],
-        "DisableContinue": true
-    },
-    "QE_EV_UNDOUKAI_2017_ATTACK": {
-        "iname": "QE_EV_UNDOUKAI_2017_ATTACK",
-        "kanji": "第3種目：障害物競走",
-        "name": "3rd Discipline: Obstacle Race",
-        "expr": "Sports Day 2017 (Obstacle Race)",
-        "cond": "Destroy the obstacles and reach the goal quicker than the opponent",
-        "mission": "OB_EV_UNDOUKAI_2017_ATTACK",
-        "pexp": 20,
-        "uexp": 350,
-        "gold": 2600,
-        "point": 20,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 45,
-        "win": 1,
-        "type": "Event",
-        "subtype": "Limited",
-        "ChapterID": "AR_UNDOUKAI_2017",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "Unit Lv40 JobLv5 Recommended",
-        "bonusObjective": "OB_EV_UNDOUKAI_2017_ATTACK",
-        "cond_quests": [
-            "QE_ST_NO_010030"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_02_areti_008",
-                "mapSetName": "ev_undoukai_2017_03_set",
-                "battleSceneName": "plain01",
-                "eventSceneName": "BT_UNDOUKAI_2017_SC",
-                "bgmName": "BGM_0100"
-            }
-        ],
-        "DisableContinue": true
-    },
-    "QE_EV_UNDOUKAI_2017_DEF": {
-        "iname": "QE_EV_UNDOUKAI_2017_DEF",
-        "kanji": "第4種目：ディルガ像倒し",
-        "name": "4th Discipline: Dilga Statue Crush",
-        "expr": "Sports Day 2017 (Dilga Statue Crush)",
-        "cond": "Destroy the Gormalas statue while protecting the Dilga statue",
-        "mission": "OB_EV_UNDOUKAI_2017_DEF",
-        "pexp": 20,
-        "uexp": 350,
-        "gold": 2600,
-        "point": 20,
-        "unitNum": 2,
-        "aplv": 51,
-        "lv": 45,
-        "win": 1,
-        "lose": 1,
-        "type": "Event",
-        "subtype": "Limited",
-        "ChapterID": "AR_UNDOUKAI_2017",
-        "world": "WD_DAILY",
-        "hidden": true,
-        "title": "Unit Lv40 JobLv5 Recommended",
-        "bonusObjective": "OB_EV_UNDOUKAI_2017_DEF",
-        "cond_quests": [
-            "QE_ST_NO_010030"
-        ],
-        "map": [
-            {
-                "mapSceneName": "bg_event_undoukai_001",
-                "mapSetName": "ev_undoukai_2017_04_set",
-                "battleSceneName": "plain01",
-                "eventSceneName": "BT_UNDOUKAI_2017",
-                "bgmName": "BGM_0100"
-            }
-        ],
-        "DisableContinue": true
     },
     "QE_EV_CD_1ST": {
         "iname": "QE_EV_CD_1ST",
@@ -82711,38 +83273,6 @@
                 "mapSetName": "qe_so_feirin_ex_m_set",
                 "battleSceneName": "plain01",
                 "bgmName": "BGM_0011"
-            }
-        ],
-        "IsMultiLeaderSkill": true
-    },
-    "QE_EV_MULTI_GORM_EX": {
-        "iname": "QE_EV_MULTI_GORM_EX",
-        "kanji": "【EX】荒ぶる海の漢 -猛装伝-",
-        "name": "Savage Sea Warrior -Storm Legend- [EX]",
-        "expr": "Swimsuit Event - EX",
-        "cond": "Defeat all enemy units!",
-        "pexp": 40,
-        "uexp": 400,
-        "mcoin": 40,
-        "point": 20,
-        "multi": 1,
-        "multiDead": 1,
-        "playerNum": 4,
-        "unitNum": 1,
-        "aplv": 51,
-        "lv": 75,
-        "type": "Multi",
-        "ChapterID": "MULTI_SWIM_GORM",
-        "world": "WD_01",
-        "hidden": true,
-        "title": "Hard Quest",
-        "notSearch": true,
-        "map": [
-            {
-                "mapSceneName": "collabo_3Title_003",
-                "mapSetName": "ev_swim_gorm_ex_m_set",
-                "battleSceneName": "plain01",
-                "bgmName": "BGM_0101"
             }
         ],
         "IsMultiLeaderSkill": true

@@ -10538,6 +10538,8 @@
         "raremax": 4,
         "element": "Light",
         "search": 3,
+        "ma_rarity": 5,
+        "ma_lv": 1,
         "skins": [
             "AF_SK_MIEL_SWIM"
         ],
@@ -10595,8 +10597,6 @@
         "voice": "mielikki",
         "dif": {
             "birthID": 4,
-            "ma_rarity": 5,
-            "ma_lv": 1,
             "ini_status": {
                 "param": {
                     "hp": 75
@@ -12452,6 +12452,8 @@
         "raremax": 4,
         "element": "Light",
         "search": 3,
+        "ma_rarity": 5,
+        "ma_lv": 1,
         "skins": [
             "AF_SK_SUZU_NEWY",
             "AF_SK_SUZU_UNIQUE",
@@ -12512,8 +12514,6 @@
         "dif": {
             "birthID": 8,
             "available_at": "2016/06/16 15:00:00",
-            "ma_rarity": 5,
-            "ma_lv": 1,
             "skins": [
                 "AF_SK_SUZU_S_CUTE"
             ],
@@ -13042,6 +13042,8 @@
         "raremax": 4,
         "element": "Water",
         "search": 3,
+        "ma_rarity": 5,
+        "ma_lv": 1,
         "skins": [],
         "tags": [
             "Human",
@@ -13097,8 +13099,6 @@
         "voice": "fengliu",
         "dif": {
             "birthID": 4,
-            "ma_rarity": 5,
-            "ma_lv": 1,
             "ini_status": {
                 "param": {
                     "hp": 82
@@ -22175,6 +22175,164 @@
             "total": "SS"
         }
     },
+    "UN_V2_GL_SHION": {
+        "no": 999,
+        "iname": "UN_V2_GL_SHION",
+        "name": "Shion",
+        "kanji": "Shion",
+        "height": 162,
+        "weight": 48,
+        "birth": "Wadatsumi",
+        "ai": "AI_PLAYER",
+        "model": "gl_shio",
+        "grow": "R6",
+        "piece": "IT_PI_GL_SHIO",
+        "skill": "SK_LS_GL_SHION",
+        "sw": 1,
+        "sh": 1,
+        "sex": "Male",
+        "rare": 4,
+        "raremax": 4,
+        "element": "Wind",
+        "search": 3,
+        "skins": [
+            "AF_SK_GL_SHIO_SWIM"
+        ],
+        "tags": [
+            "Human",
+            "Male"
+        ],
+        "ini_status": {
+            "param": {
+                "hp": 85,
+                "mp": 44,
+                "atk": 55,
+                "def": 25,
+                "mag": 35,
+                "mnd": 25,
+                "dex": 45,
+                "spd": 55,
+                "cri": 45,
+                "luk": 42
+            },
+            "enchant_resist": {}
+        },
+        "max_status": {
+            "param": {
+                "hp": 580,
+                "mp": 180,
+                "atk": 195,
+                "def": 97,
+                "mag": 135,
+                "mnd": 95,
+                "dex": 160,
+                "spd": 92,
+                "cri": 152,
+                "luk": 148
+            },
+            "enchant_resist": {}
+        },
+        "leader_skills": [
+            "SK_LS_GL_SHION",
+            "SK_LS_GL_SHION",
+            "SK_LS_GL_SHION",
+            "SK_LS_GL_SHION",
+            "SK_LS_GL_SHION",
+            "SK_LS_GL_SHION"
+        ],
+        "recipes": [
+            "RECIPE_SETSUNA_1",
+            "RECIPE_SETSUNA_2",
+            "RECIPE_SETSUNA_3",
+            "RECIPE_SETSUNA_4",
+            null,
+            null
+        ],
+        "image": "gl_shio",
+        "voice": "gl_shion",
+        "jobs": [
+            "JB_GL_KTN",
+            "JB_KIL",
+            "JB_SHN"
+        ]
+    },
+    "UN_V2_GL_SOREN": {
+        "no": 999,
+        "iname": "UN_V2_GL_SOREN",
+        "name": "Soren",
+        "kanji": "Soren",
+        "height": 149,
+        "weight": 46,
+        "birth": "Lustburg",
+        "ai": "AI_PLAYER",
+        "model": "gl_sore",
+        "grow": "R6",
+        "piece": "IT_PI_GL_SORE",
+        "skill": "SK_LS_GL_SOREN",
+        "sw": 1,
+        "sh": 1,
+        "sex": "Male",
+        "rare": 4,
+        "raremax": 4,
+        "element": "Water",
+        "search": 3,
+        "skins": [],
+        "tags": [
+            "Human",
+            "Male"
+        ],
+        "ini_status": {
+            "param": {
+                "hp": 80,
+                "mp": 44,
+                "atk": 38,
+                "def": 25,
+                "mag": 42,
+                "mnd": 25,
+                "dex": 43,
+                "spd": 53,
+                "cri": 42,
+                "luk": 40
+            },
+            "enchant_resist": {}
+        },
+        "max_status": {
+            "param": {
+                "hp": 633,
+                "mp": 185,
+                "atk": 105,
+                "def": 80,
+                "mag": 152,
+                "mnd": 110,
+                "dex": 116,
+                "spd": 85,
+                "cri": 125,
+                "luk": 138
+            },
+            "enchant_resist": {}
+        },
+        "leader_skills": [
+            "SK_LS_GL_SOREN",
+            "SK_LS_GL_SOREN",
+            "SK_LS_GL_SOREN",
+            "SK_LS_GL_SOREN",
+            "SK_LS_GL_SOREN",
+            "SK_LS_GL_SOREN"
+        ],
+        "recipes": [
+            "RECIPE_LIESBET_1",
+            "RECIPE_LIESBET_2",
+            "RECIPE_LIESBET_3",
+            "RECIPE_LIESBET_4",
+            null,
+            null
+        ],
+        "image": "gl_sore",
+        "voice": "gl_soren",
+        "jobs": [
+            "JB_GL_DIV"
+        ]
+    },
     "UN_V2_FF15_NOCTIS": {
         "no": 999,
         "iname": "UN_V2_FF15_NOCTIS",
@@ -23965,6 +24123,313 @@
             "QE_WA_ZIN_1",
             "QE_WA_ZIN_2",
             "QE_WA_ZIN_5",
+            "QE_LIMIT_UEXP_03"
+        ]
+    },
+    "UN_V2_CHAO": {
+        "no": 999,
+        "iname": "UN_V2_CHAO",
+        "name": "Chao",
+        "kanji": "チャオ",
+        "height": 153,
+        "weight": 40,
+        "birth": "Greed Dike",
+        "lore": {
+            "profile": "Chao is a young strategic genius from Greed Dike who is versed in a range of strategic military theory. He is heir to a great noble family, and perhaps as a result of his privileged upbringing, will often act snobbishly, boasting arrogantly of his intellect. In some ways he does act like you'd expect a child of his age to, though-his greatest dream is to become a \"cool guy who's good with weapons.\"",
+            "country": "Greed Dike",
+            "height": "153cm",
+            "weight": "40kg",
+            "birth": "Nov 13",
+            "zodiac": "Moon of the Thunder Beast",
+            "blood": "Type Qe",
+            "favorite": "Being treated like an adult",
+            "hobby": "Daydreaming",
+            "illust": "杏虎太郎",
+            "cv": "斎賀みつき"
+        },
+        "ai": "AI_PLAYER",
+        "model": "chao",
+        "grow": "R6",
+        "piece": "IT_PI_CHAO",
+        "skill": "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+        "sw": 1,
+        "sh": 1,
+        "sex": "Male",
+        "rare": 4,
+        "raremax": 4,
+        "element": "Thunder",
+        "search": 3,
+        "skins": [],
+        "tags": [
+            "Human",
+            "Male"
+        ],
+        "ini_status": {
+            "param": {
+                "hp": 90,
+                "mp": 48,
+                "atk": 36,
+                "def": 28,
+                "mag": 39,
+                "mnd": 30,
+                "dex": 40,
+                "spd": 52,
+                "cri": 38,
+                "luk": 40
+            },
+            "enchant_resist": {}
+        },
+        "max_status": {
+            "param": {
+                "hp": 478,
+                "mp": 194,
+                "atk": 128,
+                "def": 100,
+                "mag": 140,
+                "mnd": 108,
+                "dex": 146,
+                "spd": 89,
+                "cri": 138,
+                "luk": 146
+            },
+            "enchant_resist": {}
+        },
+        "leader_skills": [
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP"
+        ],
+        "recipes": [
+            "RECIPE_CHAO_1",
+            "RECIPE_CHAO_2",
+            "RECIPE_CHAO_3",
+            "RECIPE_CHAO_4",
+            null,
+            null
+        ],
+        "image": "chao",
+        "voice": "chao",
+        "dif": {
+            "birthID": 6,
+            "ability": "AB_CHAO_MA_01",
+            "ma_quest": "QE_CH_CHAO_3",
+            "ma_rarity": 5,
+            "ma_lv": 1,
+            "ini_status": {
+                "param": {
+                    "hp": 87
+                }
+            },
+            "max_status": {
+                "param": {
+                    "hp": 455
+                }
+            }
+        },
+        "jobs": [
+            "JB_HWIZ",
+            "JB_SOL",
+            "JB_SEN"
+        ],
+        "jobchanges": [
+            null,
+            "JB_SOL_ATK",
+            null
+        ],
+        "kaigan": {
+            "Unlock": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mEnable": true,
+                "mCategory": "Unlock",
+                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_THUNDER_KISHI",
+                "mLearnAbilities": []
+            },
+            "Envy": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mEnable": true,
+                "mCategory": "Envy",
+                "mRecipeId": "TB_RECIPE_ENV_R5_THUNDER",
+                "mSkillIname": "SK_CHAO_TB_1ENV",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_CHAO_TB_1",
+                        "mLevel": 6,
+                        "mAddType": 2
+                    }
+                ]
+            },
+            "Wrath": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mEnable": true,
+                "mCategory": "Wrath",
+                "mRecipeId": "TB_RECIPE_SLO_R5_THUNDER",
+                "mSkillIname": "SK_CHAO_TB_2SLO",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_CHAO_TB_2",
+                        "mLevel": 6,
+                        "mAddType": 1,
+                        "mAbilityOverwrite": "AB_SOL_FEINT"
+                    }
+                ]
+            },
+            "Sloth": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mEnable": true,
+                "mCategory": "Sloth",
+                "mRecipeId": "TB_RECIPE_LUS_R5_THUNDER",
+                "mSkillIname": "SK_CHAO_TB_3LUS",
+                "mLearnAbilities": [],
+                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP_10_U_DFTHUNDER",
+                "mOverwriteLeaderSkillLevel": 6,
+                "mPriority": 1
+            },
+            "Lust": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mCategory": "Lust",
+                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+                "mLearnAbilities": []
+            },
+            "Gluttony": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mCategory": "Gluttony",
+                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+                "mLearnAbilities": []
+            },
+            "Greed": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mCategory": "Greed",
+                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+                "mLearnAbilities": []
+            },
+            "Pride": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mCategory": "Pride",
+                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+                "mLearnAbilities": []
+            }
+        },
+        "occurrence": [
+            "QE_MT_TOWER_TEST23",
+            "QE_EV_HAGAREN_7",
+            "QE_EV_HAGAREN_2_7",
+            "QE_EV_HAGAREN_3_7",
+            "QE_MULTI_HAGAREN_3_7"
+        ]
+    },
+    "UN_V2_OLGA": {
+        "no": 999,
+        "iname": "UN_V2_OLGA",
+        "name": "Olga",
+        "kanji": "オルガ",
+        "height": 173,
+        "weight": 58,
+        "birth": "Saga Region",
+        "lore": {
+            "profile": "Olga is a young girl from a tribe of beast-people who live in the darkest depths of the Saga Region. She despises alchemy, which goes against the laws of nature, and the humans who use it. As you'd expect for someone who's grown up in the wild, she possesses phenomenal physical agility. When treated like a lady, though, she'll also show a cute, \"girly\" side...",
+            "country": "Saga Region",
+            "height": "173cm",
+            "weight": "58kg",
+            "birth": "Jan 1",
+            "zodiac": "Moon of the Bright Knight",
+            "blood": "Type Qe",
+            "favorite": "Fruit, new things",
+            "hobby": "Physical exercise",
+            "illust": "大盛よしを",
+            "cv": "中西優香"
+        },
+        "ai": "AI_PLAYER",
+        "model": "olga",
+        "grow": "R6",
+        "piece": "IT_PI_OLGA",
+        "skill": "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+        "sw": 1,
+        "sh": 1,
+        "sex": "Female",
+        "rare": 4,
+        "raremax": 4,
+        "element": "Light",
+        "search": 3,
+        "skins": [],
+        "tags": [
+            "Human",
+            "Female"
+        ],
+        "ini_status": {
+            "param": {
+                "hp": 121,
+                "mp": 45,
+                "atk": 44,
+                "def": 34,
+                "mag": 37,
+                "mnd": 30,
+                "dex": 42,
+                "spd": 51,
+                "cri": 41,
+                "luk": 40
+            },
+            "enchant_resist": {}
+        },
+        "max_status": {
+            "param": {
+                "hp": 811,
+                "mp": 182,
+                "atk": 166,
+                "def": 120,
+                "mag": 133,
+                "mnd": 116,
+                "dex": 145,
+                "spd": 93,
+                "cri": 152,
+                "luk": 146
+            },
+            "enchant_resist": {}
+        },
+        "leader_skills": [
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO"
+        ],
+        "recipes": [
+            "RECIPE_OLGA_1",
+            "RECIPE_OLGA_2",
+            "RECIPE_OLGA_3",
+            "RECIPE_OLGA_4",
+            null,
+            null
+        ],
+        "image": "olga",
+        "voice": "olga",
+        "dif": {
+            "birthID": 7,
+            "ini_status": {
+                "param": {
+                    "hp": 130
+                }
+            },
+            "max_status": {
+                "param": {
+                    "hp": 902
+                }
+            }
+        },
+        "jobs": [
+            "JB_BLA",
+            "JB_MAH",
+            "JB_ONM"
+        ],
+        "jobchanges": [
+            "JB_BLA_TYPE_TK_MONS",
+            null,
+            null
+        ],
+        "occurrence": [
             "QE_LIMIT_UEXP_03"
         ]
     },
@@ -25782,188 +26247,6 @@
             "QE_EV_DISGAEA_1"
         ]
     },
-    "UN_V2_CHAO": {
-        "no": 999,
-        "iname": "UN_V2_CHAO",
-        "name": "Chao",
-        "kanji": "チャオ",
-        "height": 153,
-        "weight": 40,
-        "birth": "Greed Dike",
-        "birthID": 6,
-        "lore": {
-            "profile": "Chao is a young strategic genius from Greed Dike who is versed in a range of strategic military theory. He is heir to a great noble family, and perhaps as a result of his privileged upbringing, will often act snobbishly, boasting arrogantly of his intellect. In some ways he does act like you'd expect a child of his age to, though-his greatest dream is to become a \"cool guy who's good with weapons.\"",
-            "country": "Greed Dike",
-            "height": "153cm",
-            "weight": "40kg",
-            "birth": "Nov 13",
-            "zodiac": "Moon of the Thunder Beast",
-            "blood": "Type Qe",
-            "favorite": "Being treated like an adult",
-            "hobby": "Daydreaming",
-            "illust": "杏虎太郎",
-            "cv": "斎賀みつき"
-        },
-        "ai": "AI_PLAYER",
-        "model": "chao",
-        "grow": "R6",
-        "piece": "IT_PI_CHAO",
-        "skill": "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-        "ability": "AB_CHAO_MA_01",
-        "ma_quest": "QE_CH_CHAO_3",
-        "sw": 1,
-        "sh": 1,
-        "sex": "Male",
-        "rare": 4,
-        "raremax": 4,
-        "element": "Thunder",
-        "search": 3,
-        "ma_rarity": 5,
-        "ma_lv": 1,
-        "skins": [],
-        "tags": [
-            "Human",
-            "Male"
-        ],
-        "ini_status": {
-            "param": {
-                "hp": 87,
-                "mp": 48,
-                "atk": 36,
-                "def": 28,
-                "mag": 39,
-                "mnd": 30,
-                "dex": 40,
-                "spd": 52,
-                "cri": 38,
-                "luk": 40
-            },
-            "enchant_resist": {}
-        },
-        "max_status": {
-            "param": {
-                "hp": 455,
-                "mp": 194,
-                "atk": 128,
-                "def": 100,
-                "mag": 140,
-                "mnd": 108,
-                "dex": 146,
-                "spd": 89,
-                "cri": 138,
-                "luk": 146
-            },
-            "enchant_resist": {}
-        },
-        "leader_skills": [
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP"
-        ],
-        "recipes": [
-            "RECIPE_CHAO_1",
-            "RECIPE_CHAO_2",
-            "RECIPE_CHAO_3",
-            "RECIPE_CHAO_4",
-            null,
-            null
-        ],
-        "image": "chao",
-        "voice": "chao",
-        "jobs": [
-            "JB_HWIZ",
-            "JB_SOL",
-            "JB_SEN"
-        ],
-        "jobchanges": [
-            null,
-            "JB_SOL_ATK",
-            null
-        ],
-        "kaigan": {
-            "Unlock": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mEnable": true,
-                "mCategory": "Unlock",
-                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_THUNDER_KISHI",
-                "mLearnAbilities": []
-            },
-            "Envy": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mEnable": true,
-                "mCategory": "Envy",
-                "mRecipeId": "TB_RECIPE_ENV_R5_THUNDER",
-                "mSkillIname": "SK_CHAO_TB_1ENV",
-                "mLearnAbilities": [
-                    {
-                        "mAbilityIname": "AB_CHAO_TB_1",
-                        "mLevel": 6,
-                        "mAddType": 2
-                    }
-                ]
-            },
-            "Wrath": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mEnable": true,
-                "mCategory": "Wrath",
-                "mRecipeId": "TB_RECIPE_SLO_R5_THUNDER",
-                "mSkillIname": "SK_CHAO_TB_2SLO",
-                "mLearnAbilities": [
-                    {
-                        "mAbilityIname": "AB_CHAO_TB_2",
-                        "mLevel": 6,
-                        "mAddType": 1,
-                        "mAbilityOverwrite": "AB_SOL_FEINT"
-                    }
-                ]
-            },
-            "Sloth": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mEnable": true,
-                "mCategory": "Sloth",
-                "mRecipeId": "TB_RECIPE_LUS_R5_THUNDER",
-                "mSkillIname": "SK_CHAO_TB_3LUS",
-                "mLearnAbilities": [],
-                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP_10_U_DFTHUNDER",
-                "mOverwriteLeaderSkillLevel": 6,
-                "mPriority": 1
-            },
-            "Lust": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mCategory": "Lust",
-                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
-                "mLearnAbilities": []
-            },
-            "Gluttony": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mCategory": "Gluttony",
-                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
-                "mLearnAbilities": []
-            },
-            "Greed": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mCategory": "Greed",
-                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
-                "mLearnAbilities": []
-            },
-            "Pride": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mCategory": "Pride",
-                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
-                "mLearnAbilities": []
-            }
-        },
-        "occurrence": [
-            "QE_MT_TOWER_TEST23",
-            "QE_EV_HAGAREN_7",
-            "QE_EV_HAGAREN_2_7",
-            "QE_EV_HAGAREN_3_7",
-            "QE_MULTI_HAGAREN_3_7"
-        ]
-    },
     "UN_V2_DAISY": {
         "no": 999,
         "iname": "UN_V2_DAISY",
@@ -27260,107 +27543,6 @@
             null,
             null,
             "JB_BAA_TYPE_RISKY"
-        ]
-    },
-    "UN_V2_OLGA": {
-        "no": 999,
-        "iname": "UN_V2_OLGA",
-        "name": "Olga",
-        "kanji": "オルガ",
-        "height": 173,
-        "weight": 58,
-        "birth": "Saga Region",
-        "birthID": 7,
-        "lore": {
-            "profile": "Olga is a young girl from a tribe of beast-people who live in the darkest depths of the Saga Region. She despises alchemy, which goes against the laws of nature, and the humans who use it. As you'd expect for someone who's grown up in the wild, she possesses phenomenal physical agility. When treated like a lady, though, she'll also show a cute, \"girly\" side...",
-            "country": "Saga Region",
-            "height": "173cm",
-            "weight": "58kg",
-            "birth": "Jan 1",
-            "zodiac": "Moon of the Bright Knight",
-            "blood": "Type Qe",
-            "favorite": "Fruit, new things",
-            "hobby": "Physical exercise",
-            "illust": "大盛よしを",
-            "cv": "中西優香"
-        },
-        "ai": "AI_PLAYER",
-        "model": "olga",
-        "grow": "R6",
-        "piece": "IT_PI_OLGA",
-        "skill": "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-        "sw": 1,
-        "sh": 1,
-        "sex": "Female",
-        "rare": 4,
-        "raremax": 4,
-        "element": "Light",
-        "search": 3,
-        "skins": [],
-        "tags": [
-            "Human",
-            "Female"
-        ],
-        "ini_status": {
-            "param": {
-                "hp": 130,
-                "mp": 45,
-                "atk": 44,
-                "def": 34,
-                "mag": 37,
-                "mnd": 30,
-                "dex": 42,
-                "spd": 51,
-                "cri": 41,
-                "luk": 40
-            },
-            "enchant_resist": {}
-        },
-        "max_status": {
-            "param": {
-                "hp": 902,
-                "mp": 182,
-                "atk": 166,
-                "def": 120,
-                "mag": 133,
-                "mnd": 116,
-                "dex": 145,
-                "spd": 93,
-                "cri": 152,
-                "luk": 146
-            },
-            "enchant_resist": {}
-        },
-        "leader_skills": [
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO"
-        ],
-        "recipes": [
-            "RECIPE_OLGA_1",
-            "RECIPE_OLGA_2",
-            "RECIPE_OLGA_3",
-            "RECIPE_OLGA_4",
-            null,
-            null
-        ],
-        "image": "olga",
-        "voice": "olga",
-        "jobs": [
-            "JB_BLA",
-            "JB_MAH",
-            "JB_ONM"
-        ],
-        "jobchanges": [
-            "JB_BLA_TYPE_TK_MONS",
-            null,
-            null
-        ],
-        "occurrence": [
-            "QE_LIMIT_UEXP_03"
         ]
     },
     "UN_V2_CHATNOIR": {

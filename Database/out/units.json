@@ -6642,7 +6642,7 @@
         "job 1": "Pirate",
         "job 2": "Dragon Knight",
         "job 3": "Holy Brawler",
-        "jc 1": "Pirate+ᴶ",
+        "jc 1": "Pirate+",
         "jc 2": "",
         "jc 3": "Holy Brawler [Senju]ᴶ\n[multi-hit]",
         "inputs": [
@@ -10427,7 +10427,7 @@
     },
     "UN_V2_CHAO": {
         "iname": "UN_V2_CHAO",
-        "name": "Chaoᴶ",
+        "name": "Chao",
         "inofficial": "Chao",
         "gender": "♂",
         "element": "Thunder",
@@ -10440,7 +10440,7 @@
         ],
         "leader skill": "Thunder: +30 Magic ATK, +20% HP",
         "master ability": "+300 HP, +40 DEX, +1 MOVE",
-        "link": "http://www.alchemistcodedb.com/jp/unit/chao",
+        "link": "http://www.alchemistcodedb.com/unit/chao",
         "job 1": "Battle Mage",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Astrologer",
@@ -10451,7 +10451,7 @@
             "Chao"
         ],
         "stats": {
-            "HP": 395,
+            "HP": 415,
             "Max Jewels": 170,
             "PATK": 113,
             "PDEF": 88,
@@ -11271,7 +11271,7 @@
     },
     "UN_V2_OLGA": {
         "iname": "UN_V2_OLGA",
-        "name": "Olgaᴶ",
+        "name": "Olga",
         "inofficial": "Olga",
         "gender": "♀",
         "element": "Light",
@@ -11282,7 +11282,7 @@
         "farm": [],
         "leader skill": "Light: +40% PATK, +5 Evasion Rate",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/olga",
+        "link": "http://www.alchemistcodedb.com/unit/olga",
         "job 1": "Martial Master",
         "job 2": "Magic Swordsman",
         "job 3": "Spy",
@@ -11293,7 +11293,7 @@
             "Olga"
         ],
         "stats": {
-            "HP": 777,
+            "HP": 699,
             "Max Jewels": 159,
             "PATK": 146,
             "PDEF": 106,
@@ -16981,5 +16981,96 @@
             "jc": "",
             "total": "SS"
         }
+    },
+    "UN_V2_GL_SHION": {
+        "iname": "UN_V2_GL_SHION",
+        "name": "Shion",
+        "inofficial": "",
+        "gender": "♂",
+        "element": "Wind",
+        "collab": "",
+        "collab short": "",
+        "rarity": "★★★★★",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/gl_shio.png",
+        "farm": [],
+        "leader skill": "+20% HP, +20% PATK, +20 Max Jewels",
+        "master ability": "",
+        "link": "http://www.alchemistcodedb.com/unit/gl-shion",
+        "job 1": "JB_GL_KTN",
+        "job 2": "Shadow Assassin",
+        "job 3": "Merchant",
+        "jc 1": "",
+        "jc 2": "",
+        "jc 3": "",
+        "inputs": [
+            "Shion"
+        ],
+        "stats": {
+            "HP": 500,
+            "Max Jewels": 158,
+            "PATK": 172,
+            "PDEF": 85,
+            "MATK": 118,
+            "MDEF": 83,
+            "DEX": 141,
+            "AGI": 86,
+            "CRIT": 134,
+            "LUCK": 130
+        },
+        "artworks": [
+            {
+                "name": "default",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/gl_shio.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/gl_shio-closeup.png"
+            },
+            {
+                "name": "",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/gl_shio_swim.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/gl_shio_swim-closeup.png"
+            }
+        ]
+    },
+    "UN_V2_GL_SOREN": {
+        "iname": "UN_V2_GL_SOREN",
+        "name": "Soren",
+        "inofficial": "",
+        "gender": "♂",
+        "element": "Water",
+        "collab": "",
+        "collab short": "",
+        "rarity": "★★★★★",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/gl_sore.png",
+        "farm": [],
+        "leader skill": "+20% PDEF, +20 MDEF",
+        "master ability": "",
+        "link": "http://www.alchemistcodedb.com/unit/gl-soren",
+        "job 1": "JB_GL_DIV",
+        "job 2": "",
+        "job 3": "",
+        "jc 1": "",
+        "jc 2": "",
+        "jc 3": "",
+        "inputs": [
+            "Soren"
+        ],
+        "stats": {
+            "HP": 543,
+            "Max Jewels": 162,
+            "PATK": 94,
+            "PDEF": 71,
+            "MATK": 134,
+            "MDEF": 96,
+            "DEX": 104,
+            "AGI": 79,
+            "CRIT": 111,
+            "LUCK": 122
+        },
+        "artworks": [
+            {
+                "name": "default",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/gl_sore.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/gl_sore-closeup.png"
+            }
+        ]
     }
 }

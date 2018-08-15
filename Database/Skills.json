@@ -1,5 +1,706 @@
 [
     {
+        "iname": "SK_GL_KTN_MASTER",
+        "name": "Emissary Master Bonus",
+        "target_buff_iname": "BUFF_GL_KTN_MASTER",
+        "type": "Passive",
+        "timing": "Passive",
+        "target": "Self",
+        "effect_type": "Buff",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_ATK",
+        "name": "攻撃スキル（GL_KTN）",
+        "expr": "Emissary Basic Atk\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
+        "motion": "henc_atk0",
+        "effect": "eff_cmn_atk_slash0",
+        "weapon": "WE_KATANA2",
+        "range_max": 1,
+        "effect_height": 2,
+        "back_defrate": -15,
+        "effect_value.ini": 0,
+        "effect_value.max": 0,
+        "type": "Attack",
+        "timing": "Used",
+        "target": "EnemySide",
+        "select_range": "Cross",
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "PhyAttack",
+        "attack_detail": "Slash",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_UPPER_1",
+        "name": "Fatal Devotion",
+        "expr": "Inflicts Charm, raise Patk and lower Def of target unit",
+        "motion": "gl_ktn_skill106",
+        "effect": "eff_gl_ktn_skill106",
+        "weapon": "WE_KATANA2",
+        "cost": 20,
+        "count": 5,
+        "range_max": 4,
+        "effect_height": 3,
+        "target_buff_iname": "BUFF_GL_KTN_DEVOTION",
+        "target_cond_iname": "CON_GL_KTN_DEVOTION",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "EnemySide",
+        "select_range": "Diamond",
+        "effect_type": "FailCondition",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_UPPER_2",
+        "name": "Sword Stance",
+        "expr": "Raise Patk of Self till next attack.",
+        "motion": "gl_ktn_skill100",
+        "effect": "eff_gl_ktn_skill100",
+        "cost": 30,
+        "count": 3,
+        "effect_height": 1,
+        "target_buff_iname": "BUFF_GL_KTN_SWORD_STANCE",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "Self",
+        "effect_type": "Buff",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_UPPER_3",
+        "name": "Fleeting Beauty",
+        "expr": "Deal Slash Damage to enemies around self with chance to charm, then move to selected location \n120%  Slash Dmg [Range: Diamond (4), Height: 2, Area: Square (3)]\nTarget: Charm [Chance: 50%, Value: 100]",
+        "motion": "gl_ktn_skill105",
+        "effect": "eff_gl_ktn_skill105",
+        "weapon": "WE_KATANA2",
+        "cost": 32,
+        "count": 3,
+        "rate": 100,
+        "range_max": 4,
+        "scope": 1,
+        "effect_height": 2,
+        "TeleportHeight": 2,
+        "effect_value.ini": 1,
+        "effect_value.max": 20,
+        "target_cond_iname": "CON_GL_KTN_FLEETING_BEAUTY",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "GridNoUnit",
+        "select_range": "Diamond",
+        "select_scope": "Square",
+        "TeleportType": "AfterSkill",
+        "TeleportTarget": "NotSelf",
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "PhyAttack",
+        "attack_detail": "Slash",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_UPPER_4",
+        "name": "Cutting Wind",
+        "expr": "Deal Wind Slash Dmg to targets around self with chance of critical\n135% Wind Slash Dmg [Height: 2, Area: Diamond (5)]\n",
+        "motion": "gl_ktn_skill102",
+        "effect": "eff_gl_ktn_skill102",
+        "weapon": "WE_KATANA2",
+        "cost": 32,
+        "count": 3,
+        "scope": 2,
+        "effect_height": 2,
+        "effect_value.ini": 16,
+        "effect_value.max": 35,
+        "type": "Skill",
+        "timing": "Used",
+        "target": "NotSelf",
+        "select_scope": "Diamond",
+        "IsCritical": true,
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "PhyAttack",
+        "attack_detail": "Slash",
+        "element_type": "Wind",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_UPPER_5",
+        "name": "Deep and Dreamless Slumber",
+        "expr": "Move to selected target and deal non-elemental slash dmg (Hvy).Ignore Def when attacking from the back. Effective against male units\n140%  Slash Dmg [Range: Diamond (5), Height: 2]\n",
+        "motion": "gl_ktn_skill108",
+        "effect": "eff_gl_ktn_skill108",
+        "weapon": "WE_KATANA2",
+        "tokkou": "男性",
+        "cost": 48,
+        "count": 3,
+        "range_max": 5,
+        "effect_height": 2,
+        "back_defrate": -100,
+        "TeleportHeight": 2,
+        "effect_value.ini": 21,
+        "effect_value.max": 40,
+        "type": "Skill",
+        "timing": "Used",
+        "target": "EnemySide",
+        "select_range": "Diamond",
+        "TeleportType": "BeforeSkill",
+        "TeleportTarget": "EnemySide",
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "PhyAttack",
+        "attack_detail": "Slash",
+        "element_type": "",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_LOWER_1",
+        "name": "Blade Flash",
+        "expr": "Move to Target unit and inflict Slash Dmg to Target unit. Disrupts target casting.(non Elemental)\n110%  Slash Dmg [Range: Diamond (5), Height: 2]\n",
+        "motion": "gl_ktn_skill101",
+        "effect": "eff_gl_ktn_skill101",
+        "weapon": "WE_KATANA2",
+        "cost": 20,
+        "count": 3,
+        "range_max": 5,
+        "effect_height": 2,
+        "TeleportHeight": 2,
+        "effect_value.ini": 0,
+        "effect_value.max": 10,
+        "type": "Skill",
+        "timing": "Used",
+        "target": "EnemySide",
+        "select_range": "Diamond",
+        "TeleportType": "BeforeSkill",
+        "TeleportTarget": "EnemySide",
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "PhyAttack",
+        "attack_detail": "Slash",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_LOWER_2",
+        "name": "Blade Fang",
+        "expr": "Inflict Slash Damage to target + Penetrating. Raise Patk by 50% until next turn.\n110%  Slash Dmg [Range: Cross (3), Height: 2]\nSelf: +50% PATK [Turns: 1]",
+        "motion": "gl_ktn_skill107",
+        "effect": "eff_gl_ktn_skill107",
+        "weapon": "WE_KATANA2",
+        "cost": 28,
+        "count": 3,
+        "range_max": 3,
+        "effect_height": 2,
+        "effect_value.ini": 5,
+        "effect_value.max": 10,
+        "self_buff_iname": "BUFF_MFEN_08",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "EnemySide",
+        "select_range": "Cross",
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "PhyAttack",
+        "attack_detail": "Slash",
+        "element_type": "",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_LOWER_3",
+        "name": "Gale Slash",
+        "expr": "Deal Wind Slash Damage to Enemies around self and lower Enemy AGI \n120% Wind Slash Dmg [Height: 2, Area: Square (3)]\nTarget: -30% AGI [Turns: 2]",
+        "motion": "gl_ktn_skill104",
+        "effect": "eff_gl_ktn_skill104",
+        "weapon": "WE_KATANA2",
+        "cost": 32,
+        "count": 3,
+        "scope": 1,
+        "effect_height": 2,
+        "effect_value.ini": 10,
+        "effect_value.max": 20,
+        "target_buff_iname": "BUFF_GL_KTN_GALE",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "NotSelf",
+        "select_scope": "Square",
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "PhyAttack",
+        "attack_detail": "Slash",
+        "element_type": "Wind",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_LOWER_4",
+        "name": "Captivating Visage",
+        "expr": "Non-elemental slash damage to targets around self and chance to stun units in targeted area for 2 turns\n120%  Slash Dmg [Height: 2, Area: Diamond (5)]\nTarget: Paralyze [Turns: 2, Chance: 50%, Value: 100]",
+        "motion": "gl_ktn_skill103",
+        "effect": "eff_gl_ktn_skill103",
+        "weapon": "WE_KATANA2",
+        "cost": 35,
+        "count": 3,
+        "scope": 2,
+        "effect_height": 2,
+        "effect_value.ini": 10,
+        "effect_value.max": 20,
+        "target_cond_iname": "CON_GL_KTN_CAPTIVATING",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "NotSelf",
+        "select_scope": "Diamond",
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "PhyAttack",
+        "attack_detail": "Slash",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_REACTION_1",
+        "name": "Skillful Counter",
+        "expr": "After taking damage, counterattack with chance to stun enemy for 2 turns",
+        "motion": "henc_atk0",
+        "effect": "eff_cmn_atk_slash0",
+        "weapon": "WE_KATANA2",
+        "range_max": 1,
+        "effect_height": 2,
+        "effect_rate.ini": 100,
+        "effect_rate.max": 100,
+        "target_cond_iname": "CON_GL_KTN_SKILLFUL_COUNTER",
+        "type": "Reaction",
+        "timing": "Reaction",
+        "target": "EnemySide",
+        "select_range": "Cross",
+        "effect_type": "Attack",
+        "attack_type": "PhyAttack",
+        "attack_detail": "Slash",
+        "reaction_damage_type": "TotalDamage",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_KTN_SUPPORT_1",
+        "name": "Peerless Bladework",
+        "expr": "Raises Slash Damage and Evasion",
+        "target_buff_iname": "BUFF_GL_KTN_PEERLESS",
+        "type": "Passive",
+        "timing": "Passive",
+        "target": "Self",
+        "effect_type": "Buff",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_EQ_GL_SHIO_KIMONO",
+        "name": "Ornate Kimono",
+        "expr": "Patk+25,HP+40,AGI+5,DEX+20,CRIT+15",
+        "target_buff_iname": "BUFF_EQ_GL_SHIO_KIMONO",
+        "type": "Item",
+        "timing": "Passive",
+        "target": "Self",
+        "effect_type": "Equipment",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_LS_GL_SHION",
+        "name": "Intriguing Presence",
+        "expr": "Raises HP, P Atk and Max Jewels for WIND",
+        "target_buff_iname": "BUFF_LS_GL_WIND_20_HP_PATK_UP_MAXJEWELS_UP",
+        "type": "Passive",
+        "timing": "Passive",
+        "target": "SelfSide",
+        "effect_type": "Buff",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_MASTER",
+        "name": "Divine Speaker Master Bonus",
+        "target_buff_iname": "BUFF_HWIZ_MASTER",
+        "type": "Passive",
+        "timing": "Passive",
+        "target": "Self",
+        "effect_type": "Buff",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_ATK",
+        "name": "攻撃スキル(GL_DIV)",
+        "expr": "Speaker Attack\n100%  Blow Dmg [Range: Cross (1), Height: 1]\n",
+        "motion": "wiz_atk0",
+        "effect": "eff_cmn_atk_strike1",
+        "weapon": "WE_STAFF",
+        "range_max": 1,
+        "effect_height": 1,
+        "back_defrate": -15,
+        "effect_value.ini": 0,
+        "effect_value.max": 0,
+        "type": "Attack",
+        "timing": "Used",
+        "target": "EnemySide",
+        "select_range": "Cross",
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "PhyAttack",
+        "attack_detail": "Blow",
+        "element_type": "",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_UPPER_1",
+        "name": "Gift of Might",
+        "expr": "Raises P Atk and M Atk for self and allies for 3 turns",
+        "motion": "gl_div_skill100",
+        "effect": "eff_gl_div_skill100",
+        "cost": 30,
+        "count": 3,
+        "scope": 1,
+        "effect_height": 2,
+        "target_buff_iname": "BUFF_GL_DIV_GIFT_MIGHT",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "SelfSide",
+        "select_scope": "Cross",
+        "effect_type": "Buff",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_UPPER_2",
+        "name": "Gift of Focus",
+        "expr": "Raises M Atk for self and grants Clock up for 3 turns",
+        "motion": "gl_div_skill101",
+        "effect": "eff_gl_div_skill101",
+        "cost": 26,
+        "count": 5,
+        "cast_speed.ini": 500,
+        "cast_speed.max": 500,
+        "target_buff_iname": "BUFF_GL_DIV_GIFT_FOCUS",
+        "target_cond_iname": "CON_GEN_CLOCK_UP",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "Self",
+        "effect_type": "FailCondition",
+        "cast_type": "Chant",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_UPPER_3",
+        "name": "Divine Light",
+        "expr": "Inflict non-elemental Mag Dmg to target enemy + Penetrating\n120%  Magic Dmg [Range: Cross (4), Height: 2]\n",
+        "motion": "gl_div_skill102",
+        "effect": "eff_gl_div_skill102",
+        "weapon": "WE_GENJYUTSU",
+        "cost": 32,
+        "count": 3,
+        "range_max": 4,
+        "effect_height": 2,
+        "effect_value.ini": 10,
+        "effect_value.max": 20,
+        "type": "Skill",
+        "timing": "Used",
+        "target": "UnitAll",
+        "select_range": "Cross",
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "MagAttack",
+        "attack_detail": "Magic",
+        "element_type": "",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_UPPER_4",
+        "name": "Divine Missiles",
+        "expr": "Inflict non-elemental magic damage to units in target area. \n120%  Magic Dmg [Range: Diamond (4), Height: 99, Area: Cross (3)]\n",
+        "motion": "gl_div_skill103",
+        "effect": "eff_gl_div_skill103",
+        "weapon": "WE_GENJYUTSU",
+        "cost": 40,
+        "count": 3,
+        "range_max": 4,
+        "scope": 1,
+        "effect_height": 99,
+        "ComboNum": 2,
+        "random_hit_rate": 25,
+        "effect_value.ini": 10,
+        "effect_value.max": 20,
+        "type": "Skill",
+        "timing": "Used",
+        "target": "UnitAll",
+        "line_type": "Curved",
+        "select_range": "Diamond",
+        "select_scope": "Cross",
+        "ComboDamageRate": 125,
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "MagAttack",
+        "attack_detail": "Magic",
+        "element_type": "",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_LOWER_1",
+        "name": "Gift of Protection",
+        "expr": "Raises P Def and M Def of target ally for 3 turns",
+        "motion": "gl_div_skill106",
+        "effect": "eff_gl_div_skill106",
+        "cost": 26,
+        "count": 5,
+        "scope": 1,
+        "effect_height": 3,
+        "target_buff_iname": "BUFF_GL_DIV_GIFT_PROTECTION",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "SelfSide",
+        "select_scope": "Cross",
+        "effect_type": "Buff",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_LOWER_2",
+        "name": "Gift of Power",
+        "expr": "Raises P Atk and M Atk of target ally for 3 turns",
+        "motion": "gl_div_skill107",
+        "effect": "eff_gl_div_skill107",
+        "cost": 26,
+        "count": 5,
+        "range_max": 4,
+        "effect_height": 3,
+        "target_buff_iname": "BUFF_GL_DIV_GIFT_POWER",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "SelfSide",
+        "select_range": "Diamond",
+        "effect_type": "Buff",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_LOWER_3",
+        "name": "Divine Ray",
+        "expr": "Inflict Non-elemental Mag Dmg to units in target area.\n110%  Magic Dmg [Range: LaserWide (2), Height: 2]\n",
+        "motion": "gl_div_skill109",
+        "effect": "eff_gl_div_skill109",
+        "weapon": "WE_GENJYUTSU",
+        "cost": 28,
+        "count": 3,
+        "range_max": 2,
+        "effect_height": 2,
+        "effect_value.ini": 0,
+        "effect_value.max": 10,
+        "cast_speed.ini": 500,
+        "cast_speed.max": 500,
+        "type": "Skill",
+        "timing": "Used",
+        "target": "UnitAll",
+        "select_range": "LaserWide",
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "MagAttack",
+        "attack_detail": "Magic",
+        "element_type": "",
+        "cast_type": "Chant",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_LOWER_4",
+        "name": "Divine Flare",
+        "expr": "Deal magic dmg and knock back enemies around self and inflict bind for 1 turn\n85%  Magic Dmg [Height: 2, Area: Square (3)]\nTarget: Slow [Turns: 1, Chance: 100%, Value: 100]",
+        "motion": "gl_div_skill108",
+        "effect": "eff_gl_div_skill108",
+        "weapon": "WE_GENJYUTSU",
+        "cost": 42,
+        "count": 3,
+        "scope": 1,
+        "effect_height": 2,
+        "KnockBackRate": 100,
+        "KnockBackVal": 1,
+        "effect_value.ini": -25,
+        "effect_value.max": -15,
+        "target_cond_iname": "CON_GL_DIV_FLARE",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "NotSelf",
+        "select_scope": "Square",
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "MagAttack",
+        "attack_detail": "Magic",
+        "element_type": "",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_REACTION",
+        "name": "Defensive Instinct",
+        "expr": "Raises P Def and M Def when attacked ",
+        "motion": "gl_div_skill106",
+        "effect": "eff_gl_div_skill106",
+        "effect_rate.ini": 50,
+        "effect_rate.max": 80,
+        "target_buff_iname": "BUFF_GL_DIV_REACTION",
+        "type": "Reaction",
+        "timing": "Reaction",
+        "target": "Self",
+        "effect_type": "Buff",
+        "reaction_damage_type": "TotalDamage",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_SUPPORT_1",
+        "name": "Divine Wisdom",
+        "expr": "Raises M Atk",
+        "target_buff_iname": "BUFF_GL_DIV_WISDOM",
+        "type": "Passive",
+        "timing": "Passive",
+        "target": "Self",
+        "effect_type": "Buff",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_GL_DIV_SUPPORT_2",
+        "name": "Divine Armor",
+        "expr": "Raises P Def",
+        "target_buff_iname": "BUFF_GL_DIV_ARMOR",
+        "type": "Passive",
+        "timing": "Passive",
+        "target": "Self",
+        "effect_type": "Buff",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_EQ_GL_SOREN_MASK",
+        "name": "Mask of the Speaker",
+        "expr": "HP+30, PDEF+20, MATK+16, MDEF+6, Max Jewels+10, Stop Res +8, Silence Res +8",
+        "target_buff_iname": "BUFF_EQ_GL_SOREN_MASK",
+        "type": "Item",
+        "timing": "Passive",
+        "target": "Self",
+        "effect_type": "Equipment",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_LS_GL_SOREN",
+        "name": "Protective Presence",
+        "expr": "Raises P Def and M Def by 20% for whole party ",
+        "target_buff_iname": "BUFF_LS_GL_20_P_M_DEF_UP",
+        "type": "Passive",
+        "timing": "Passive",
+        "target": "SelfSide",
+        "effect_type": "Buff",
+        "reaction_damage_type": "None",
+        "shield_type": "None",
+        "shield_damage_type": "None"
+    },
+    {
+        "iname": "SK_AF_ARMS_SWO_GL_SIEG_01_4",
+        "name": "Gram&Balmung★4",
+        "expr": "Attribute: P Atk Up, P Def Up",
+        "target_buff_iname": "BUFF_AF_ARMS_SWO_GL_SIEG_01_4",
+        "type": "Item",
+        "timing": "Passive",
+        "target": "Self",
+        "effect_type": "Equipment",
+        "reaction_damage_type": "None"
+    },
+    {
+        "iname": "SK_AF_ARMS_SWO_GL_SIEG_01_5",
+        "name": "Gram&Balmung★5",
+        "expr": "Attribute: P Atk Up, P Def Up, Crit Up, Luck Up",
+        "target_buff_iname": "BUFF_AF_ARMS_SWO_GL_SIEG_01_5",
+        "type": "Item",
+        "timing": "Passive",
+        "target": "Self",
+        "effect_type": "Equipment",
+        "reaction_damage_type": "None"
+    },
+    {
+        "iname": "SK_AF_ARMS_SWO_GL_SIEG_01_AS",
+        "name": "Gram&BalmungAS",
+        "expr": "Chance to lower target P Def when attacking.",
+        "target_buff_iname": "BUFF_AF_ARMS_SWO_GL_SIEG_01_AS",
+        "type": "Item",
+        "timing": "Used",
+        "target": "EnemySide",
+        "effect_type": "FailCondition",
+        "reaction_damage_type": "None"
+    },
+    {
+        "iname": "SK_ARMS_SWO_GL_SIEG_01_WA",
+        "name": "Devastating Finish",
+        "expr": "Inflicts 5-hit light slash Dmg that ignores DEF on target enemy unit & raises own PATK and AGI for three turns [Range: Diamond (5), Height Range: 3]\n100%  Slash Dmg [Range: Diamond (4), Height: 3]\nSelf: +50% PATK, +10% AGI [Turns: 3]",
+        "motion": "gl_wsm_skill180",
+        "effect": "eff_gl_wsm_skill103",
+        "weapon": "WE_BASINI_SWORD",
+        "lvcap": 1,
+        "cost": 55,
+        "count": 1,
+        "range_max": 4,
+        "effect_height": 3,
+        "ignore_defense_rate": -100,
+        "ComboNum": 5,
+        "effect_value.ini": 0,
+        "effect_value.max": 0,
+        "self_buff_iname": "BUFF_AF_ARMS_SWO_GL_SIEG_01_WA",
+        "type": "Skill",
+        "timing": "Used",
+        "target": "EnemySide",
+        "select_range": "Diamond",
+        "ComboDamageRate": 170,
+        "effect_type": "Attack",
+        "effect_calc": "Scale",
+        "attack_type": "PhyAttack",
+        "attack_detail": "Slash",
+        "element_type": "",
+        "reaction_damage_type": "None"
+    },
+    {
         "iname": "SK_LS_GL_20_HP_UP_20_SLASH_UP",
         "name": "Inspiring Presence",
         "expr": "Raises HP and Slash ATK by 20% for whole party",
@@ -229,7 +930,7 @@
     {
         "iname": "SK_GL_WSM_LOWER_4",
         "name": "Shattering Slash",
-        "expr": "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Daze [Range: 4, Height Range: 3]\n135%  Slash Dmg [Range: Cross (4), Height: 3]\nTarget: Daze [Chance: 100%, Value: 100]",
+        "expr": "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Daze\n135%  Slash Dmg [Range: Cross (4), Height: 3]\nTarget: Daze [Chance: 100%, Value: 100]",
         "motion": "gl_wsm_skill106",
         "effect": "eff_sol_skill109",
         "weapon": "WE_SWORD",
@@ -431,7 +1132,7 @@
     {
         "iname": "SK_HWIZ_UPPER_3",
         "name": "Luminous Chant",
-        "expr": "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces charge time for next turn [Range: 4, Area: Cross (5), Height Range: 2]\n110% Light Magic Dmg [Range: Diamond (4), Height: 2, Area: Cross (5)]\nSelf: -33 Cast Time Ratio [Turns: 1]",
+        "expr": "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces cast time for next turn [Range: 4, Area: Cross (5), Height Range: 2]\n110% Light Magic Dmg [Range: Diamond (4), Height: 2, Area: Cross (5)]\nSelf: -33 Cast Time Ratio [Turns: 1]",
         "motion": "hwiz_skill102",
         "effect": "eff_yuj_skill106",
         "weapon": "WE_KURO_MAHOU",
@@ -619,7 +1320,7 @@
     {
         "iname": "SK_HWIZ_SUPPORT_1",
         "name": "Shell Charge",
-        "expr": "Raises PDEF & reduces charge time by 1/5",
+        "expr": "Raises PDEF & reduces cast time by 1/5",
         "target_buff_iname": "BUFF_HWIZ_SUPPORT_1",
         "type": "Passive",
         "timing": "Passive",
@@ -2098,7 +2799,7 @@
     {
         "iname": "SK_ANK_BLOOD_REAPER",
         "name": "Reaper's Beckoning",
-        "expr": "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence<br> [Range: 1, Height Range: 1]\n75%  Slash Dmg [Range: Cross (1), Height: 1]\nTarget: Death Sentence [Chance: 25%, Value: 100]",
+        "expr": "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence <br>[Range: 1, Height Range: 1]\n75%  Slash Dmg [Range: Cross (1), Height: 1]\nTarget: Death Sentence [Chance: 25%, Value: 100]",
         "motion": "ank_skill105",
         "effect": "eff_ank_skill105",
         "weapon": "WE_GREAT_SWORD",
@@ -6895,7 +7596,7 @@
     },
     {
         "iname": "SK_THI_PROVOKE",
-        "name": "Provoke",
+        "name": "Taunt",
         "expr": "Chance of inflicting Rage on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]",
         "motion": "thi_skill106",
         "effect": "eff_thi_skill106",
@@ -7261,7 +7962,7 @@
     },
     {
         "iname": "SK_ASS_PROVOKE",
-        "name": "Provoke",
+        "name": "Taunt",
         "expr": "Chance of inflicting Rage on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]",
         "motion": "ass_skill106",
         "effect": "eff_ass_skill106",
@@ -13252,7 +13953,7 @@
     {
         "iname": "SK_ENC_FAST_CHANT",
         "name": "Swift Charge",
-        "expr": "Reduces charge time by 1/3",
+        "expr": "Reduces cast time by 1/3",
         "target_buff_iname": "BUFF_ENC_FAST_CHANT",
         "type": "Passive",
         "timing": "Passive",
@@ -19968,7 +20669,7 @@
     {
         "iname": "SK_SEN_LOWER_4",
         "name": "Quincunx",
-        "expr": "Halves ally unit's charge time for three turns [Range: 3, Height Range: 2]",
+        "expr": "Halves ally unit's cast time for three turns [Range: 3, Height Range: 2]",
         "motion": "sen_skill103",
         "effect": "eff_sen_skill103",
         "cost": 46,
@@ -19989,7 +20690,7 @@
     {
         "iname": "SK_SEN_LOWER_4_DENEB",
         "name": "Hexagram",
-        "expr": "Reduces own charge time by 1/2 for three turns & reduces charge time of ally units within target area by 1/4 [Area: Diamond (5), Height Range: 2]",
+        "expr": "Reduces own cast time by 1/2 for three turns & reduces cast time of ally units within target area by 1/4 [Area: Diamond (5), Height Range: 2]",
         "motion": "sen_skill103",
         "effect": "eff_sen_skill103",
         "cost": 46,
@@ -21621,7 +22322,7 @@
     {
         "iname": "SK_CANO_LORD_LOWER_02",
         "name": "Flashing Judgement",
-        "expr": "Inflicts Phys Dmg (strong vs demons) on target & interrupts skill charge [Range: 3, Height Range: 2]\n130% Light Slash Dmg [Range: Diamond (3), Height: 2]\n",
+        "expr": "Inflicts Phys Dmg (strong vs demons) on target & interrupts skill cast [Range: 3, Height Range: 2]\n130% Light Slash Dmg [Range: Diamond (3), Height: 2]\n",
         "motion": "cano_lord_skill105",
         "effect": "eff_cano_lord_skill105",
         "weapon": "WE_SWORD",
@@ -27313,7 +28014,7 @@
     },
     {
         "iname": "SK_SAROMO_THI_PROVOKE",
-        "name": "Provoke",
+        "name": "Taunt",
         "expr": "Chance of inflicting Rage on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]",
         "motion": "saromo_thi_skill106",
         "effect": "eff_saromo_thi_skill106",
@@ -30790,7 +31491,7 @@
     {
         "iname": "SK_FATE_CAS_SUPPORT_1",
         "name": "High-Speed Divine Words",
-        "expr": "Reduces charge time by 2/5",
+        "expr": "Reduces cast time by 2/5",
         "target_buff_iname": "BUFF_FATE_CAS_SUPPORT_1",
         "type": "Passive",
         "timing": "Passive",
@@ -37352,8 +38053,8 @@
     },
     {
         "iname": "SK_FF15_NOCT_ATK_01",
-        "name": "攻撃スキル（FF15_NOCT）",
-        "expr": "【FF15】ノクティス\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
+        "name": "Attack (FFXV_NOCT)",
+        "expr": "[FFXV] Noctis\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
         "motion": "ff15_noct_atk0",
         "effect": "eff_ff15_noct_atk0",
         "weapon": "WE_SWORD",
@@ -37369,12 +38070,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_NOCT_01",
-        "name": "なぎ払い",
-        "expr": "指定範囲内の対象に物理ダメージ[射程:1,範囲:横3マス,高低差:2]\n110%  Slash Dmg [Range: Laser (1), Height: 2, Area: Laser (5)]\n",
+        "name": "Sweep",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]\n110%  Slash Dmg [Range: Laser (1), Height: 2, Area: Laser (5)]\n",
         "motion": "ff15_noct_skill100",
         "effect": "eff_ff15_noct_skill100",
         "weapon": "WE_SWORD",
@@ -37393,12 +38095,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_NOCT_02",
-        "name": "シフトブレイク",
-        "expr": "範囲内の指定した敵に、移動後物理ダメージ&次ターンまで素早さ大幅UP[射程:菱形6マス,高低差:2]\n40%  Slash Dmg [Range: Diamond (6), Height: 2]\nSelf: +80% AGI [Turns: 0]",
+        "name": "Warp-Strike",
+        "expr": "After moving, inflicts Phys Dmg on target enemy unit & greatly raises AGI until next turn [Range: Diamond (13), Height Range: 2]\n40%  Slash Dmg [Range: Diamond (6), Height: 2]\nSelf: +80% AGI [Turns: 0]",
         "motion": "ff15_noct_skill101",
         "effect": "eff_ff15_noct_skill101",
         "weapon": "WE_SWORD",
@@ -37420,12 +38123,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_NOCT_03",
-        "name": "マップシフト",
-        "expr": "指定パネル移動後、自身を中心にHP回復[移動範囲:菱形3マス,高低差:無制限]\nHeals 75% Scaling [Range: Diamond (3), Height: 99, Area: Cross (3)]",
+        "name": "Point-Warp",
+        "expr": "After moving, recovers HP of units in area around self [MOVE Area: Diamond (7), Height Range: Unlimited]\nHeals 75% Scaling [Range: Diamond (3), Height: 99, Area: Cross (3)]",
         "motion": "ff15_noct_skill102",
         "effect": "eff_ff15_noct_skill102",
         "cost": 36,
@@ -37447,12 +38151,13 @@
         "TeleportType": "BeforeSkill",
         "TeleportTarget": "SelfSide",
         "effect_type": "Heal",
-        "effect_calc": "Scale"
+        "effect_calc": "Scale",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_NOCT_04",
-        "name": "3連ブリザガ",
-        "expr": "指定範囲内の対象に水属性の3連続魔法ダメージ[射程:4,範囲:菱形2マス,高低差:2]\n160% Water Magic Dmg [Range: Diamond (4), Height: 2, Area: Diamond (5)]\n",
+        "name": "Tricast: Blizzaga",
+        "expr": "Inflicts 3-hit Water Mag Dmg on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 2]\n160% Water Magic Dmg [Range: Diamond (4), Height: 2, Area: Diamond (5)]\n",
         "motion": "ff15_noct_skill103",
         "effect": "eff_ff15_noct_skill103",
         "weapon": "WE_KURO_MAHOU",
@@ -37477,12 +38182,13 @@
         "attack_type": "MagAttack",
         "attack_detail": "Magic",
         "element_type": "Water",
-        "cast_type": "Chant"
+        "cast_type": "Chant",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_NOCT_05",
-        "name": "盾殴り",
-        "expr": "指定した対象に物理ダメージ&自身の物攻UP[射程:1,高低差:1]\n110%  Blow Dmg [Range: Cross (1), Height: 1]\nSelf: +20% PATK [Turns: 3]",
+        "name": "Shield Bash",
+        "expr": "Inflicts Phys Dmg on target unit & raises own PATK [Range: 1, Height Range: 1]\n110%  Blow Dmg [Range: Cross (1), Height: 1]\nSelf: +20% PATK [Turns: 3]",
         "motion": "ff15_noct_skill104",
         "effect": "eff_ff15_noct_skill104",
         "weapon": "WE_SWORD",
@@ -37500,12 +38206,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Blow"
+        "attack_detail": "Blow",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_NOCT_06",
-        "name": "射撃",
-        "expr": "指定した対象に物理ダメージ&ドンアク効果[射程:4,高低差:無制限]\n110%  Shot Dmg [Range: Diamond (4), Height: 99]\nTarget: Daze [Chance: 100%, Value: 100]",
+        "name": "Marksman",
+        "expr": "Inflicts Phys Dmg & Daze on target unit [Range: 4, Height Range: Unlimited]\n110%  Shot Dmg [Range: Diamond (4), Height: 99]\nTarget: Daze [Chance: 100%, Value: 100]",
         "motion": "ff15_noct_skill105",
         "effect": "eff_ff15_noct_skill105",
         "weapon": "WE_SWORD",
@@ -37525,12 +38232,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_NOCT_07",
-        "name": "ポイズンサンダラ",
-        "expr": "指定範囲内の対象に雷属性の魔法ダメージ&毒効果[射程:4,範囲:十字1マス,高低差:2]\n130% Thunder Magic Dmg [Range: Diamond (4), Height: 2, Area: Cross (3)]\nTarget: Poison [Chance: 100%, Value: 100]",
+        "name": "Venomcast: Thundara",
+        "expr": "Inflicts Thunder Mag Dmg & Poison on units within target area [Range: 4, Area: Cross (3), Height Range: 2]\n130% Thunder Magic Dmg [Range: Diamond (4), Height: 2, Area: Cross (3)]\nTarget: Poison [Chance: 100%, Value: 100]",
         "motion": "ff15_noct_skill106",
         "effect": "eff_ff15_noct_skill106",
         "weapon": "WE_KURO_MAHOU",
@@ -37554,12 +38262,13 @@
         "attack_type": "MagAttack",
         "attack_detail": "Magic",
         "element_type": "Thunder",
-        "cast_type": "Chant"
+        "cast_type": "Chant",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_NOCT_08",
-        "name": "ストップファイラ",
-        "expr": "指定した対象に火属性の魔法ダメージ&ストップ効果[射程:4,高低差:2]\n130% Fire Magic Dmg [Range: Diamond (4), Height: 2]\nTarget: Stop [Chance: 100%, Value: 100]",
+        "name": "Stopcast: Fira",
+        "expr": "Inflicts Fire Mag Dmg & Stop on target unit [Range: 4, Height Range: 2]\n130% Fire Magic Dmg [Range: Diamond (4), Height: 2]\nTarget: Stop [Chance: 100%, Value: 100]",
         "motion": "ff15_noct_skill107",
         "effect": "eff_ff15_noct_skill107",
         "weapon": "WE_KURO_MAHOU",
@@ -37581,12 +38290,13 @@
         "attack_type": "MagAttack",
         "attack_detail": "Magic",
         "element_type": "Fire",
-        "cast_type": "Chant"
+        "cast_type": "Chant",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_NOCT_REACTION_01",
-        "name": "パリィ",
-        "expr": "被ダメージ時に物理カウンター[射程:1,高低差:2]\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
+        "name": "Parry",
+        "expr": "Performs physical counter when Dmg is received [Range: 1, Height Range: 2]\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
         "motion": "ff15_noct_skill108",
         "effect": "eff_ff15_noct_skill108",
         "weapon": "WE_SWORD",
@@ -37604,32 +38314,35 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Slash",
-        "reaction_damage_type": "TotalDamage"
+        "reaction_damage_type": "TotalDamage",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_NOCT_SUPPORT_01",
-        "name": "王家の力",
-        "expr": "全ての攻撃にダメージ補正",
+        "name": "Just Hangin' Around",
+        "expr": "Dmg modifier for all attacks",
         "target_buff_iname": "BUFF_FF15_NOCT_SUPPORT_01",
         "type": "Passive",
         "timing": "Passive",
         "target": "Self",
-        "effect_type": "Buff"
+        "effect_type": "Buff",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_NOCT_SUPPORT_02",
-        "name": "マイティリカバー",
-        "expr": "隣接する味方が居る場合、自身&隣接する味方の物攻&魔攻UP",
+        "name": "Savior's Force",
+        "expr": "Raises PATK/MATK of self and adjacent allies when one or more ally units are in adjacent squares",
         "target_buff_iname": "BUFF_FF15_NOCT_SUPPORT_02",
         "type": "Passive",
         "timing": "Passive",
         "target": "Self",
-        "effect_type": "Buff"
+        "effect_type": "Buff",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_ATK_01",
-        "name": "攻撃スキル（FF15_INGI）",
-        "expr": "【FF15】イグニス\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
+        "name": "Attack (FFXV_INGI)",
+        "expr": "[FFXV] Ignis\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
         "motion": "ff15_ingi_atk0",
         "effect": "eff_cmn_atk_slash0",
         "weapon": "WE_GREAT_SWORD",
@@ -37645,12 +38358,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_01",
-        "name": "ギャザリング",
-        "expr": "自身を中心にHP自動回復効果[範囲:十字1マス,高低差:2]",
+        "name": "Regroup",
+        "expr": "Casts Auto Heal on ally units in area around self [Range: Cross (3), Height Range: 2]",
         "motion": "ff15_ingi_skill100",
         "effect": "eff_ff15_ingi_skill100",
         "cost": 24,
@@ -37663,12 +38377,13 @@
         "timing": "Used",
         "target": "SelfSide",
         "select_scope": "Cross",
-        "effect_type": "FailCondition"
+        "effect_type": "FailCondition",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_02",
-        "name": "シンクラッシュ",
-        "expr": "指定した対象に2連撃の物理ダメージ&毒効果&確率でクリティカル発生[射程:1,高低差:2]\n110%  Slash Dmg [Range: Cross (1), Height: 2]\nTarget: Poison [Chance: 100%, Value: 100]",
+        "name": "Venom Fang",
+        "expr": "Inflicts 2-hit Phys Dmg & Poison on target unit with chance of critical [Range: 1, Height Range: 2]\n110%  Slash Dmg [Range: Cross (1), Height: 2]\nTarget: Poison [Chance: 100%, Value: 100]",
         "motion": "ff15_ingi_skill101",
         "effect": "eff_ff15_ingi_skill101",
         "weapon": "WE_GREAT_SWORD",
@@ -37689,12 +38404,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_02B",
-        "name": "シンクラッシュ",
-        "expr": "指定した対象に2連撃の物理ダメージ&猛毒効果&確率でクリティカル発生[射程:1,高低差:2]\n110%  Slash Dmg [Range: Cross (1), Height: 2]\nTarget: Poison [Chance: 100%, Value: 100]",
+        "name": "Venom Fang",
+        "expr": "Inflicts 2-hit Phys Dmg & Poison on target unit with chance of critical [Range: 1, Height Range: 2]\n110%  Slash Dmg [Range: Cross (1), Height: 2]\nTarget: Poison [Chance: 100%, Value: 100]",
         "motion": "ff15_ingi_skill101",
         "effect": "eff_ff15_ingi_skill101",
         "weapon": "WE_GREAT_SWORD",
@@ -37715,12 +38431,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_03",
-        "name": "フェイタルアタック",
-        "expr": "指定範囲の対象に2連撃の物理ダメージ&確率でクリティカル発生[射程:3,範囲:幅1マスの直線,高低差:2]\n150%  Blow Dmg [Range: Laser (3), Height: 2, Area: Laser (3)]\n",
+        "name": "Deathblow",
+        "expr": "Inflicts 2-hit Phys Dmg on target unit with chance of critical [Range: 3, Area: 1 sq line, Height Range: 2]\n150%  Blow Dmg [Range: Laser (3), Height: 2, Area: Laser (3)]\n",
         "motion": "ff15_ingi_skill102",
         "effect": "eff_ff15_ingi_skill102",
         "weapon": "WE_GREAT_SWORD",
@@ -37742,12 +38459,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Blow"
+        "attack_detail": "Blow",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_04",
-        "name": "マーク",
-        "expr": "指定した対象に3連撃の物理ダメージ&次ターンまで自身の素早さUP&確率でクリティカル発生[射程:4,高低差:3]\n140%  Slash Dmg [Range: Diamond (4), Height: 3]\nSelf: +80% AGI [Turns: 0]",
+        "name": "Mark",
+        "expr": "Inflicts 3-hit Phys Dmg on target unit with chance of critical & raises own AGI until next turn [Range: 4, Height Range: 3]\n140%  Slash Dmg [Range: Diamond (4), Height: 3]\nSelf: +80% AGI [Turns: 0]",
         "motion": "ff15_ingi_skill103",
         "effect": "eff_ff15_ingi_skill103",
         "weapon": "WE_GREAT_SWORD",
@@ -37768,12 +38486,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_05",
-        "name": "隠しアイテム",
-        "expr": "指定した味方のHP回復[射程:2,高低差:3]",
+        "name": "Regenerate",
+        "expr": "Recovers HP of target ally unit [Range: 2, Height Range: 3]",
         "motion": "ff15_ingi_skill104",
         "effect": "eff_ff15_ingi_skill104",
         "cost": 20,
@@ -37788,12 +38507,13 @@
         "target": "SelfSide",
         "select_range": "Diamond",
         "effect_type": "RateHeal",
-        "effect_calc": "Scale"
+        "effect_calc": "Scale",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_06",
-        "name": "なぎ払い",
-        "expr": "指定範囲内の対象に物理ダメージ[射程:1,範囲:横3マス,高低差:2]\n110%  Slash Dmg [Range: Laser (1), Height: 2, Area: Laser (5)]\n",
+        "name": "Sweep",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]\n110%  Slash Dmg [Range: Laser (1), Height: 2, Area: Laser (5)]\n",
         "motion": "ff15_ingi_skill105",
         "effect": "eff_ff15_ingi_skill105",
         "weapon": "WE_GREAT_SWORD",
@@ -37812,12 +38532,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_07",
-        "name": "竜剣",
-        "expr": "指定範囲内の敵に対して体力吸収[射程:2,範囲:特殊（扇）,高低差:2]\n80%  Stab Dmg [Range: LaserSpread (1), Height: 2]\n",
+        "name": "Lancet",
+        "expr": "Absorbs HP from enemy units within target area [Range: 2, Area: Special (Fan), Height Range: 2]\n80%  Stab Dmg [Range: LaserSpread (1), Height: 2]\n",
         "motion": "ff15_ingi_skill106",
         "effect": "eff_ff15_ingi_skill106",
         "weapon": "WE_GREAT_SWORD",
@@ -37835,12 +38556,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Stab"
+        "attack_detail": "Stab",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_08",
-        "name": "槍投げ",
-        "expr": "指定した対象に物理ダメージ&貫通効果[射程:4,高低差:2]\n130%  Stab Dmg [Range: Cross (4), Height: 2]\n",
+        "name": "Spear Throw",
+        "expr": "Inflicts Phys Dmg (Penetrating) on target unit [Range: 4, Height Range: 2]\n130%  Stab Dmg [Range: Cross (4), Height: 2]\n",
         "motion": "ff15_ingi_skill107",
         "effect": "eff_ff15_ingi_skill107",
         "weapon": "WE_GREAT_SWORD",
@@ -37858,12 +38580,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Stab"
+        "attack_detail": "Stab",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_REACTION_01",
-        "name": "応急処置",
-        "expr": "被ダメージ時に確率でHP回復",
+        "name": "First Aid",
+        "expr": "Chance of recovering HP when Dmg is received",
         "motion": "ff15_ingi_skill108",
         "effect": "eff_ff15_ingi_skill108",
         "effect_rate.ini": 30,
@@ -37875,31 +38598,34 @@
         "target": "Self",
         "effect_type": "RateHeal",
         "effect_calc": "Scale",
-        "reaction_damage_type": "TotalDamage"
+        "reaction_damage_type": "TotalDamage",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_SUPPORT_01",
-        "name": "リベンジリカバー",
-        "expr": "隣接する味方が居る場合、自身&隣接する味方のクリティカル率UP",
+        "name": "Savior's Vengeance",
+        "expr": "Raises CRIT Rate of self and adjacent allies when one or more ally units are in adjacent squares",
         "target_buff_iname": "BUFF_FF15_INGI_SUPPORT_01",
         "type": "Passive",
         "timing": "Passive",
         "target": "Self",
-        "effect_type": "Buff"
+        "effect_type": "Buff",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_SUPPORT_02",
-        "name": "シンクラッシュ強化",
-        "expr": "『シンクラッシュ』の威力向上&毒効果UP",
+        "name": "Enhanced Venom Fang",
+        "expr": "Venom Fang (more powerful & increased Poison effect)",
         "type": "Passive",
         "timing": "Passive",
         "target": "Self",
-        "effect_type": "EffReplace"
+        "effect_type": "EffReplace",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_ATK_01",
-        "name": "攻撃スキル（FF15_GLAD）",
-        "expr": "【FF15】グラディオラス\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
+        "name": "Attack (FFXV_GLAD)",
+        "expr": "[FFXV] Gladiolus\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
         "motion": "ff15_glad_atk0",
         "effect": "eff_cmn_atk_slash2",
         "weapon": "WE_GREAT_SWORD",
@@ -37915,12 +38641,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_01",
-        "name": "ロイヤルガード",
-        "expr": "自身を中心とした味方に物防・魔防UP[範囲:菱形2マス,高低差:2]",
+        "name": "Royal Guard",
+        "expr": "Raises PDEF/MDEF of ally units in area around self [Area: Diamond (5), Height Range: 2]",
         "motion": "ff15_glad_skill100",
         "effect": "eff_ff15_glad_skill100",
         "cost": 20,
@@ -37935,12 +38662,13 @@
         "target": "SelfSide",
         "select_scope": "Diamond",
         "effect_type": "Buff",
-        "effect_calc": "Scale"
+        "effect_calc": "Scale",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_02",
-        "name": "サイクロン",
-        "expr": "指定した対象に物理ダメージ&スタン効果&CT減少[射程:1,高低差:2]\n100%  Blow Dmg [Range: Cross (1), Height: 2]\nTarget: Stun [Chance: 100%, Value: 100]",
+        "name": "Cyclone",
+        "expr": "Inflicts Phys Dmg & Stun on target unit & lowers CT [Range: 1, Height Range: 2]\n100%  Blow Dmg [Range: Cross (1), Height: 2]\nTarget: Stun [Chance: 100%, Value: 100]",
         "motion": "ff15_glad_skill101",
         "effect": "eff_ff15_glad_skill101",
         "weapon": "WE_GREAT_SWORD",
@@ -37963,12 +38691,13 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Blow",
-        "control_ct_calc": "Scale"
+        "control_ct_calc": "Scale",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_03",
-        "name": "テンペスト",
-        "expr": "自身を中心に物理ダメージ&物攻・魔攻DOWN&確率でクリティカル発生[範囲:菱形2マス,高低差:2]\n130%  Slash Dmg [Height: 2, Area: Diamond (5)]\nTarget: -25% PATK, -25% MATK [Turns: 3]",
+        "name": "Tempest",
+        "expr": "Inflicts Phys Dmg on units in area around self & lowers PATK/MATK with chance of critical [Area: Diamond (5), Height Range: 2]\n130%  Slash Dmg [Height: 2, Area: Diamond (5)]\nTarget: -25% PATK, -25% MATK [Turns: 3]",
         "motion": "ff15_glad_skill102",
         "effect": "eff_ff15_glad_skill102",
         "weapon": "WE_GREAT_SWORD",
@@ -37987,12 +38716,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_04",
-        "name": "ドーンブレイカー",
-        "expr": "指定した対象に物理ダメージ&確率でクリティカル発生[射程:1,高低差:2]\n200%  Slash Dmg [Range: Square (1), Height: 2]\n",
+        "name": "Dawnhammer",
+        "expr": "Inflicts Phys Dmg on target unit with chance of critical [Range: 1, Height Range: 2]\n200%  Slash Dmg [Range: Square (1), Height: 2]\n",
         "motion": "ff15_glad_skill103",
         "effect": "eff_ff15_glad_skill103",
         "weapon": "WE_GREAT_SWORD",
@@ -38010,12 +38740,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_05",
-        "name": "フェイタルアタック",
-        "expr": "指定範囲内の対象に物理ダメージ[射程:1,範囲:横3マス,高低差:2]\n110%  Slash Dmg [Range: Laser (1), Height: 2, Area: Laser (5)]\n",
+        "name": "Deathblow",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]\n110%  Slash Dmg [Range: Laser (1), Height: 2, Area: Laser (5)]\n",
         "motion": "ff15_glad_skill104",
         "effect": "eff_ff15_glad_skill104",
         "weapon": "WE_GREAT_SWORD",
@@ -38034,12 +38765,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_06",
-        "name": "ファストブレイク",
-        "expr": "範囲内の指定した敵に、移動後ダメージ[射程:菱形4マス,高低差:1]\n100%  Slash Dmg [Range: Diamond (4), Height: 1]\n",
+        "name": "Engage",
+        "expr": "After moving, inflicts Dmg on target enemy unit [Range: Diamond (9), Height Range: 1]\n100%  Slash Dmg [Range: Diamond (4), Height: 1]\n",
         "motion": "ff15_glad_skill105",
         "effect": "eff_ff15_glad_skill105",
         "weapon": "WE_GREAT_SWORD",
@@ -38059,12 +38791,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_07",
-        "name": "シンクガード",
-        "expr": "指定した対象に物理ダメージ&防御無視[射程:1,高低差:2]\n115%  Blow Dmg [Range: Cross (1), Height: 2]\n",
+        "name": "Antagonize",
+        "expr": "Inflicts Phys Dmg on target unit & ignores DEF [Range: 1, Height Range: 2]\n115%  Blow Dmg [Range: Cross (1), Height: 2]\n",
         "motion": "ff15_glad_skill106",
         "effect": "eff_ff15_glad_skill106",
         "weapon": "WE_GREAT_SWORD",
@@ -38082,12 +38815,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Blow"
+        "attack_detail": "Blow",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_08",
-        "name": "見切る",
-        "expr": "自身を中心に物理ダメージ&自身の回避率UP[範囲:自身の周囲1マス,高低差:2]\n130%  Slash Dmg [Height: 2, Area: Square (3)]\nSelf: +20 Evasion Rate [Turns: 2]",
+        "name": "Reflex",
+        "expr": "Inflicts Phys Dmg on units in area around self & raises own Evasion Rate [Area: Square (3) around self, Height Range: 2]\n130%  Slash Dmg [Height: 2, Area: Square (3)]\nSelf: +20 Evasion Rate [Turns: 2]",
         "motion": "ff15_glad_skill107",
         "effect": "eff_ff15_glad_skill107",
         "weapon": "WE_GREAT_SWORD",
@@ -38105,12 +38839,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_REACTION_01",
-        "name": "ガード",
-        "expr": "物理攻撃の被ダメージ時に確率でダメージ軽減\nBlocks 30% Phys Dmg [80% Chance]",
+        "name": "Guard",
+        "expr": "Chance of reducing Dmg from physical attack\nBlocks 30% Phys Dmg [80% Chance]",
         "defend_effect": "eff_p_skill_guard2",
         "effect_rate.ini": 50,
         "effect_rate.max": 80,
@@ -38121,32 +38856,35 @@
         "target": "Self",
         "effect_type": "Defend",
         "effect_calc": "Scale",
-        "reaction_damage_type": "PhyDamage"
+        "reaction_damage_type": "PhyDamage",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_SUPPORT_01",
-        "name": "王の盾",
-        "expr": "HP上限UP",
+        "name": "Royal Shield",
+        "expr": "Raises Max HP",
         "target_buff_iname": "BUFF_FF15_GLAD_SUPPORT_01",
         "type": "Passive",
         "timing": "Passive",
         "target": "Self",
-        "effect_type": "Buff"
+        "effect_type": "Buff",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_SUPPORT_02",
-        "name": "プロテスリカバー",
-        "expr": "隣接する味方が居る場合、自身&隣接する味方の物防UP",
+        "name": "Savior's Fortitude",
+        "expr": "Raises PDEF of self and adjacent allies when one or more ally units are in adjacent squares",
         "target_buff_iname": "BUFF_FF15_GLAD_SUPPORT_02",
         "type": "Passive",
         "timing": "Passive",
         "target": "Self",
-        "effect_type": "Buff"
+        "effect_type": "Buff",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_ATK_01",
-        "name": "攻撃スキル（FF15_PROM）",
-        "expr": "【FF15】プロンプト\n100%  Shot Dmg [Range: Diamond (4), Height: 99]\n",
+        "name": "Attack (FFXV_PROM)",
+        "expr": "[FFXV] Prompto\n100%  Shot Dmg [Range: Diamond (4), Height: 99]\n",
         "motion": "ff15_prom_atk0",
         "effect": "eff_ff15_prom_atk0",
         "weapon": "WE_GUN",
@@ -38163,12 +38901,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_01",
-        "name": "ペネトレイト",
-        "expr": "指定した対象に物理ダメージ&対象の物防DOWN[射程:4,高低差:無制限]\n110%  Shot Dmg [Range: Diamond (4), Height: 99]\nTarget: -20% PDEF [Turns: 2]",
+        "name": "Piercer",
+        "expr": "Inflicts Phys Dmg on target unit & lowers target's PDEF [Range: 4, Height Range: Unlimited]\n110%  Shot Dmg [Range: Diamond (4), Height: 99]\nTarget: -20% PDEF [Turns: 2]",
         "motion": "ff15_prom_skill100",
         "effect": "eff_ff15_prom_skill100",
         "weapon": "WE_GUN",
@@ -38188,12 +38927,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_02",
-        "name": "バレットファン",
-        "expr": "自身を中心に物理ダメージ&スタン効果&確率でクリティカル発生[範囲:自身の周囲1マス,高低差:2]\n115%  Shot Dmg [Height: 2, Area: Square (3)]\nTarget: Stun [Chance: 100%, Value: 100]",
+        "name": "Ballistic",
+        "expr": "Inflicts Phys Dmg & Stun on units in area around self with chance of critical [Area: Square (3) around self, Height Range: 2]\n115%  Shot Dmg [Height: 2, Area: Square (3)]\nTarget: Stun [Chance: 100%, Value: 100]",
         "motion": "ff15_prom_skill101",
         "effect": "eff_ff15_prom_skill101",
         "weapon": "WE_GUN",
@@ -38212,12 +38952,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_03",
-        "name": "フェイタルアタック",
-        "expr": "指定範囲内の対象に物理ダメージ[射程:3,範囲:特殊（扇）,高低差:2]\n120%  Shot Dmg [Range: LaserSpread (2), Height: 2]\n",
+        "name": "Deathblow",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 3, Area: Special (Fan), Height Range: 2]\n120%  Shot Dmg [Range: LaserSpread (2), Height: 2]\n",
         "motion": "ff15_prom_skill102",
         "effect": "eff_ff15_prom_skill102",
         "weapon": "WE_GUN",
@@ -38234,12 +38975,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_04",
-        "name": "スターターピストル",
-        "expr": "指定した対象に物理ダメージ&次ターンまで自身の素早さUP[射程:4,高低差:無制限]\n140%  Shot Dmg [Range: Diamond (4), Height: 99]\nSelf: +60% AGI [Turns: 0]",
+        "name": "First Shot",
+        "expr": "Inflicts Phys Dmg on target unit & raises own AGI until next turn\n140%  Shot Dmg [Range: Diamond (4), Height: 99]\nSelf: +60% AGI [Turns: 0]",
         "motion": "ff15_prom_skill103",
         "effect": "eff_ff15_prom_skill103",
         "weapon": "WE_GUN",
@@ -38259,12 +39001,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_05",
-        "name": "スナップショット",
-        "expr": "自分が消費したジュエルを指定した味方へ受け渡す[射程:3,高低差:3]",
+        "name": "Snapshot",
+        "expr": "Transfers Jewels used by self to target ally unit [Range: 3, Height Range: 3]",
         "motion": "ff15_prom_skill104",
         "effect": "eff_ff15_prom_skill104",
         "cost": 15,
@@ -38279,12 +39022,13 @@
         "target": "SelfSide",
         "select_range": "Diamond",
         "effect_type": "GemsGift",
-        "effect_calc": "Fixed"
+        "effect_calc": "Fixed",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_06",
-        "name": "シンクレイド",
-        "expr": "自身を中心に物理ダメージ&確率でマヒ効果[範囲:十字1マス,高低差:2]\n110%  Shot Dmg [Height: 2, Area: Cross (3)]\nTarget: Paralyze [Chance: 40%, Value: 100]",
+        "name": "Shock Drop",
+        "expr": "Inflicts Phys Dmg on units in area around self with chance of inflicting Paralyze [Area: Cross (3), Height Range: 2]\n110%  Shot Dmg [Height: 2, Area: Cross (3)]\nTarget: Paralyze [Chance: 40%, Value: 100]",
         "motion": "ff15_prom_skill105",
         "effect": "eff_ff15_prom_skill105",
         "weapon": "WE_GUN",
@@ -38302,12 +39046,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_07",
-        "name": "スターシェル",
-        "expr": "指定範囲内の対象に物理ダメージ&確率で狂化効果[射程:4,範囲:十字1マス,高低差:無制限]\n115%  Shot Dmg [Range: Diamond (4), Height: 99, Area: Cross (3)]\nTarget: Berserk [Chance: 40%, Value: 100]",
+        "name": "Starshell",
+        "expr": "Inflicts Phys Dmg on units within target area with chance of inflicting Confuse [Range: 4, Area: Cross (3), Height Range: Unlimited]\n115%  Shot Dmg [Range: Diamond (4), Height: 99, Area: Cross (3)]\nTarget: Berserk [Chance: 40%, Value: 100]",
         "motion": "ff15_prom_skill106",
         "effect": "eff_ff15_prom_skill106",
         "weapon": "WE_GUN",
@@ -38329,12 +39074,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_08",
-        "name": "コンダクター",
-        "expr": "指定範囲内の対象に物理ダメージ&確率で移動禁止効果&貫通効果[射程:4,範囲:十字1マス,高低差:無制限]\n125%  Shot Dmg [Range: Diamond (4), Height: 99, Area: Cross (3)]\nTarget: Bind [Chance: 25%, Value: 100]",
+        "name": "Gravisphere",
+        "expr": "Inflicts Phys Dmg (Penetrating) on units within target area with chance of inflicting Bind [Range: 4, Area: Cross (3), Height Range: Unlimited]\n125%  Shot Dmg [Range: Diamond (4), Height: 99, Area: Cross (3)]\nTarget: Bind [Chance: 25%, Value: 100]",
         "motion": "ff15_prom_skill107",
         "effect": "eff_ff15_prom_skill107",
         "weapon": "WE_GUN",
@@ -38356,12 +39102,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_REACTION_01",
-        "name": "閃光撃ち",
-        "expr": "被ダメージ時に確率で物理カウンター&攻撃禁止効果[射程:4,高低差:無制限]\n70%  Shot Dmg [Range: Diamond (4), Height: 99]\nTarget: Daze [Chance: 100%, Value: 100]",
+        "name": "Scintilla",
+        "expr": "Chance of performing physical counter & inflicting Daze when Dmg is received [Range: 4, Height Range: Unlimited]\n70%  Shot Dmg [Range: Diamond (4), Height: 99]\nTarget: Daze [Chance: 100%, Value: 100]",
         "motion": "ff15_prom_skill108",
         "effect": "eff_ff15_prom_skill108",
         "weapon": "WE_GUN",
@@ -38381,32 +39128,35 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Shot",
-        "reaction_damage_type": "PhyDamage"
+        "reaction_damage_type": "PhyDamage",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_SUPPORT_01",
-        "name": "旅の記録者",
-        "expr": "器用さ&会心UP",
+        "name": "Journey Scribe",
+        "expr": "Raises DEX/CRIT",
         "target_buff_iname": "BUFF_FF15_PROM_SUPPORT_01",
         "type": "Passive",
         "timing": "Passive",
         "target": "Self",
-        "effect_type": "Buff"
+        "effect_type": "Buff",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_SUPPORT_02",
-        "name": "フルリカバー",
-        "expr": "HP上限UP",
+        "name": "Comeback",
+        "expr": "Raises Max HP",
         "target_buff_iname": "BUFF_FF15_PROM_SUPPORT_02",
         "type": "Passive",
         "timing": "Passive",
         "target": "Self",
-        "effect_type": "Buff"
+        "effect_type": "Buff",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_ATK_01",
-        "name": "攻撃スキル（FF15_ARAN）",
-        "expr": "【FF15】アラネア\n100%  Stab Dmg [Range: Cross (2), Height: 2]\n",
+        "name": "Attack (FFXV_ANAN)",
+        "expr": "[FFXV] Aranea\n100%  Stab Dmg [Range: Cross (2), Height: 2]\n",
         "motion": "ff15_aran_atk0",
         "effect": "eff_ff15_aran_atk0",
         "weapon": "WE_LANCE",
@@ -38423,12 +39173,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Stab"
+        "attack_detail": "Stab",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_01",
-        "name": "急降下攻撃Ⅰ",
-        "expr": "ジャンプ効果&着地時に対象に刺突ダメージ[射程:4,高低差:2]\n120%  Stab Dmg [Range: Diamond (4), Height: 2]\n",
+        "name": "Dive Attack I",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target [Range: 4, Height Range: 2]\n120%  Stab Dmg [Range: Diamond (4), Height: 2]\n",
         "motion": "ff15_aran_skill100",
         "effect": "eff_ff15_aran_skill100",
         "weapon": "WE_LANCE",
@@ -38448,12 +39199,13 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Stab",
-        "cast_type": "Jump"
+        "cast_type": "Jump",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_02",
-        "name": "急降下攻撃Ⅱ",
-        "expr": "ジャンプ効果&着地時に対象に刺突ダメージ&自身の物攻UP[射程:4,高低差:3]\n130%  Stab Dmg [Range: Diamond (4), Height: 3]\nSelf: +20% PATK [Turns: 3]",
+        "name": "Dive Attack II",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target & raises own PATK [Range: 4, Height Range: 3]\n130%  Stab Dmg [Range: Diamond (4), Height: 3]\nSelf: +20% PATK [Turns: 3]",
         "motion": "ff15_aran_skill101",
         "effect": "eff_ff15_aran_skill101",
         "weapon": "WE_LANCE",
@@ -38474,12 +39226,13 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Stab",
-        "cast_type": "Jump"
+        "cast_type": "Jump",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_03",
-        "name": "急降下攻撃Ⅲ",
-        "expr": "ジャンプ効果&着地時に対象に刺突ダメージ&対象の物防DOWN[射程:4,高低差:3]\n130%  Stab Dmg [Range: Diamond (4), Height: 3]\nTarget: -20% PDEF [Turns: 2]",
+        "name": "Dive Attack III",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target & lowers target's PDEF [Range: 4, Height Range: 3]\n130%  Stab Dmg [Range: Diamond (4), Height: 3]\nTarget: -20% PDEF [Turns: 2]",
         "motion": "ff15_aran_skill102",
         "effect": "eff_ff15_aran_skill102",
         "weapon": "WE_LANCE",
@@ -38500,12 +39253,13 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Stab",
-        "cast_type": "Jump"
+        "cast_type": "Jump",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_04",
-        "name": "急降下攻撃Ⅳ",
-        "expr": "ジャンプ効果&着地時に対象に刺突ダメージ[射程:4,高低差:4]\n150%  Stab Dmg [Range: Diamond (4), Height: 4]\n",
+        "name": "Dive Attack IV",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target [Range: 4, Height Range: 4]\n150%  Stab Dmg [Range: Diamond (4), Height: 4]\n",
         "motion": "ff15_aran_skill103",
         "effect": "eff_ff15_aran_skill103",
         "weapon": "WE_LANCE",
@@ -38525,12 +39279,13 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Stab",
-        "cast_type": "Jump"
+        "cast_type": "Jump",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_01B",
-        "name": "急降下攻撃Ⅰ",
-        "expr": "ジャンプ効果&着地時に対象に刺突ダメージ[射程:4,高低差:2]\n135%  Stab Dmg [Range: Diamond (4), Height: 2]\n",
+        "name": "Dive Attack I",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target [Range: 4, Height Range: 2]\n135%  Stab Dmg [Range: Diamond (4), Height: 2]\n",
         "motion": "ff15_aran_skill109",
         "effect": "eff_ff15_aran_skill109",
         "weapon": "WE_LANCE",
@@ -38550,12 +39305,13 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Stab",
-        "cast_type": "Jump"
+        "cast_type": "Jump",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_02B",
-        "name": "急降下攻撃Ⅱ",
-        "expr": "ジャンプ効果&着地時に対象に刺突ダメージ&自身の物攻UP[射程:4,高低差:3]\n145%  Stab Dmg [Range: Diamond (4), Height: 3]\nSelf: +20% PATK [Turns: 3]",
+        "name": "Dive Attack II",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target & raises own PATK [Range: 4, Height Range: 3]\n145%  Stab Dmg [Range: Diamond (4), Height: 3]\nSelf: +20% PATK [Turns: 3]",
         "motion": "ff15_aran_skill110",
         "effect": "eff_ff15_aran_skill110",
         "weapon": "WE_LANCE",
@@ -38576,12 +39332,13 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Stab",
-        "cast_type": "Jump"
+        "cast_type": "Jump",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_03B",
-        "name": "急降下攻撃Ⅲ",
-        "expr": "ジャンプ効果&着地時に対象に刺突ダメージ&対象の物防DOWN[射程:4,高低差:3]\n160%  Stab Dmg [Range: Diamond (4), Height: 3]\nTarget: -20% PDEF [Turns: 2]",
+        "name": "Dive Attack III",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target & lowers target's PDEF [Range: 4, Height Range: 3]\n160%  Stab Dmg [Range: Diamond (4), Height: 3]\nTarget: -20% PDEF [Turns: 2]",
         "motion": "ff15_aran_skill111",
         "effect": "eff_ff15_aran_skill111",
         "weapon": "WE_LANCE",
@@ -38602,12 +39359,13 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Stab",
-        "cast_type": "Jump"
+        "cast_type": "Jump",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_04B",
-        "name": "急降下攻撃Ⅳ",
-        "expr": "ジャンプ効果&着地時に指定範囲内の対象に刺突ダメージ[射程:4,範囲:菱形2マス,高低差:4]\n150%  Stab Dmg [Range: Diamond (4), Height: 4, Area: Diamond (5)]\n",
+        "name": "Dive Attack IV",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on units within target area [Range: 4, Area: Diamond (5), Height Range: 4]\n150%  Stab Dmg [Range: Diamond (4), Height: 4, Area: Diamond (5)]\n",
         "motion": "ff15_aran_skill112",
         "effect": "eff_ff15_aran_skill112",
         "weapon": "WE_LANCE",
@@ -38629,12 +39387,13 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Stab",
-        "cast_type": "Jump"
+        "cast_type": "Jump",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_05",
-        "name": "背面回し蹴り",
-        "expr": "指定した対象に物理ダメージ&対象に鈍足効果[射程:1,高低差:2]\n100%  Blow Dmg [Range: Cross (1), Height: 2]\nTarget: Slow [Chance: 100%, Value: 100]",
+        "name": "Reverse Roundhouse-Kick",
+        "expr": "Inflicts Phys Dmg & Slow on target unit [Range: 1, Height Range: 2]\n100%  Blow Dmg [Range: Cross (1), Height: 2]\nTarget: Slow [Chance: 100%, Value: 100]",
         "motion": "ff15_aran_skill104",
         "effect": "eff_ff15_aran_skill104",
         "weapon": "WE_LANCE",
@@ -38652,12 +39411,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Blow"
+        "attack_detail": "Blow",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_06",
-        "name": "飛行突進突き",
-        "expr": "範囲内の指定した敵に、移動後物理ダメージ[射程:菱形3マス,高低差:3]\n100%  Stab Dmg [Range: Diamond (3), Height: 3]\n",
+        "name": "Aero-Charge Thrust",
+        "expr": "After moving, inflicts Phys Dmg on target enemy unit [Range: Diamond (7), Height Range: 3]\n100%  Stab Dmg [Range: Diamond (3), Height: 3]\n",
         "motion": "ff15_aran_skill105",
         "effect": "eff_ff15_aran_skill105",
         "weapon": "WE_LANCE",
@@ -38677,12 +39437,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Stab"
+        "attack_detail": "Stab",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_07",
-        "name": "正面突き",
-        "expr": "指定した対象に物理ダメージ&貫通効果[射程:3,高低差:2]\n125%  Stab Dmg [Range: Cross (3), Height: 2]\n",
+        "name": "Frontal Thrust",
+        "expr": "Inflicts Phys Dmg (Penetrating) on target unit [Range: 3, Height Range: 2]\n125%  Stab Dmg [Range: Cross (3), Height: 2]\n",
         "motion": "ff15_aran_skill106",
         "effect": "eff_ff15_aran_skill106",
         "weapon": "WE_LANCE",
@@ -38700,12 +39461,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Stab"
+        "attack_detail": "Stab",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_08",
-        "name": "上段回し蹴り",
-        "expr": "指定した対象に物理ダメージ&対象に移動禁止&攻撃禁止[射程:1,高低差:3]\n130%  Blow Dmg [Range: Cross (1), Height: 3]\nTarget: Bind, Daze [Chance: 100%, Value: 100]",
+        "name": "High Roundhouse-Kick",
+        "expr": "Inflicts Phys Dmg & Bind & Daze on target unit [Range: 1, Height Range: 3]\n130%  Blow Dmg [Range: Cross (1), Height: 3]\nTarget: Bind, Daze [Chance: 100%, Value: 100]",
         "motion": "ff15_aran_skill107",
         "effect": "eff_ff15_aran_skill107",
         "weapon": "WE_LANCE",
@@ -38723,12 +39485,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Blow"
+        "attack_detail": "Blow",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_REACTION_01",
-        "name": "カウンター突き",
-        "expr": "被ダメージ時に物理カウンター&貫通効果[射程:2,高低差:3]\n100%  Stab Dmg [Range: Cross (2), Height: 3]\n",
+        "name": "Counter Stab",
+        "expr": "Performs physical counter (Penetrating) when Dmg is received [Range: 2, Height Range: 3]\n100%  Stab Dmg [Range: Cross (2), Height: 3]\n",
         "motion": "ff15_aran_skill108",
         "effect": "eff_ff15_aran_skill108",
         "weapon": "WE_LANCE",
@@ -38747,31 +39510,34 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Stab",
-        "reaction_damage_type": "PhyDamage"
+        "reaction_damage_type": "PhyDamage",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_SUPPORT_01",
-        "name": "慣性制御装置",
-        "expr": "移動力+1、移動高低差+1",
+        "name": "Inertia Controller",
+        "expr": "MOVE +1 and JUMP +1",
         "target_buff_iname": "BUFF_FF15_ARAN_SUPPORT_01",
         "type": "Passive",
         "timing": "Passive",
         "target": "Self",
-        "effect_type": "Buff"
+        "effect_type": "Buff",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_SUPPORT_02",
-        "name": "空中機動師団の力",
-        "expr": "アビリティ『帝国准将技』の強化&ジャンプ時間短縮",
+        "name": "Power of the Airborne Division",
+        "expr": "Raises power & reduces jump time for the ability \"Imperial Commodore\"",
         "type": "Passive",
         "timing": "Passive",
         "target": "Self",
-        "effect_type": "EffReplace"
+        "effect_type": "EffReplace",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_BEHEMOTH_ATK01",
-        "name": "攻撃スキル(FF15_BEHEMOTH)",
-        "expr": "斬撃\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
+        "name": "Attack (FFXV_BEHEMOTH)",
+        "expr": "Slash\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
         "motion": "ff15_behemoth_atk0",
         "effect": "eff_ff15_behemoth_atk0",
         "weapon": "WE_SWORD",
@@ -38787,12 +39553,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_BEHEMOTH_01",
-        "name": "尻尾攻撃",
-        "expr": "扇レーザー範囲の攻撃スキル\n110%  Blow Dmg [Range: LaserSpread (3), Height: 2]\n",
+        "name": "Tail Strike",
+        "expr": "ATK Skill [Range: Fan Laser]\n110%  Blow Dmg [Range: LaserSpread (3), Height: 2]\n",
         "motion": "ff15_behemoth_skill100",
         "effect": "eff_ff15_behemoth_skill100",
         "weapon": "WE_SWORD",
@@ -38809,12 +39576,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Blow"
+        "attack_detail": "Blow",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_BEHEMOTH_02",
-        "name": "咆哮",
-        "expr": "自身を中心の正方形範囲の対象にCT軽減",
+        "name": "Roar",
+        "expr": "Lowers CT of units in area around self [Area: Square]",
         "motion": "ff15_behemoth_skill101",
         "effect": "eff_ff15_behemoth_skill101",
         "cost": 20,
@@ -38830,12 +39598,13 @@
         "target": "EnemySide",
         "select_scope": "Square",
         "effect_type": "FailCondition",
-        "control_ct_calc": "Scale"
+        "control_ct_calc": "Scale",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_BEHEMOTH_03",
-        "name": "しゃくりあげ",
-        "expr": "十字射程の貫通攻撃スキル\n140%  Blow Dmg [Range: Laser (3), Height: 4, Area: Laser (3)]\n",
+        "name": "Dig Out",
+        "expr": "ATK Skill (Penetrating) [Range: Cross]\n140%  Blow Dmg [Range: Laser (3), Height: 4, Area: Laser (3)]\n",
         "motion": "ff15_behemoth_skill102",
         "effect": "eff_ff15_behemoth_skill102",
         "weapon": "WE_SWORD",
@@ -38854,12 +39623,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Blow"
+        "attack_detail": "Blow",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_BEHEMOTH_04",
-        "name": "踏みつける",
-        "expr": "十字射程のカウンター攻撃スキル\n110%  Blow Dmg [Range: Cross (1), Height: 2]\n",
+        "name": "Trample",
+        "expr": "Counter ATK Skill [Range: Cross]\n110%  Blow Dmg [Range: Cross (1), Height: 2]\n",
         "motion": "ff15_behemoth_skill103",
         "effect": "eff_ff15_behemoth_skill103",
         "weapon": "WE_SWORD",
@@ -38877,12 +39647,13 @@
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
         "attack_detail": "Blow",
-        "reaction_damage_type": "TotalDamage"
+        "reaction_damage_type": "TotalDamage",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_M_CACT_ATK01",
-        "name": "攻撃スキル(FF15_M_CACT)",
-        "expr": "打撃\n100%  Blow Dmg [Range: Cross (1), Height: 2]\n",
+        "name": "Attack (FFXV_M_CACT)",
+        "expr": "Strike\n100%  Blow Dmg [Range: Cross (1), Height: 2]\n",
         "motion": "ff15_m_cact_atk0",
         "effect": "eff_ff15_m_cact_atk0",
         "weapon": "WE_GUN",
@@ -38898,12 +39669,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Blow"
+        "attack_detail": "Blow",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_M_CACT_01",
-        "name": "針メテオ",
-        "expr": "菱形射程の菱形範囲物理攻撃。猛毒効果\n115%  Shot Dmg [Range: Diamond (3), Height: 3, Area: Diamond (5)]\nTarget: Poison [Chance: 100%, Value: 100]",
+        "name": "Needle Meteor",
+        "expr": "Phys Dmg & Poison [Range: Diamond, Area: Diamond]\n115%  Shot Dmg [Range: Diamond (3), Height: 3, Area: Diamond (5)]\nTarget: Poison [Chance: 100%, Value: 100]",
         "motion": "ff15_m_cact_skill100",
         "effect": "eff_ff15_m_cact_skill100",
         "weapon": "WE_GUN",
@@ -38923,12 +39695,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_M_CACT_02",
-        "name": "針万本",
-        "expr": "菱形射程の単体物理攻撃。固定ダメージ\n10100%  Shot Dmg [Range: Diamond (3), Height: 3]\n",
+        "name": "Ten Thousand Needles",
+        "expr": "Fixed Phys Dmg to single target [Range: Diamond]\n10100%  Shot Dmg [Range: Diamond (3), Height: 3]\n",
         "motion": "ff15_m_cact_skill102",
         "effect": "eff_ff15_m_cact_skill102",
         "weapon": "WE_GUN",
@@ -38946,12 +39719,13 @@
         "effect_type": "Attack",
         "effect_calc": "Fixed",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_M_CACT_02_99",
-        "name": "針万本",
-        "expr": "菱形射程の単体物理攻撃。固定ダメージ 使用回数99回版\n10100%  Shot Dmg [Range: Diamond (3), Height: 3]\n",
+        "name": "Ten Thousand Needles",
+        "expr": "Fixed Phys Dmg to single target [Range: Diamond] (99th Use Ver.)\n10100%  Shot Dmg [Range: Diamond (3), Height: 3]\n",
         "motion": "ff15_m_cact_skill102",
         "effect": "eff_ff15_m_cact_skill102",
         "weapon": "WE_GUN",
@@ -38969,12 +39743,13 @@
         "effect_type": "Attack",
         "effect_calc": "Fixed",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_M_CACT_03",
-        "name": "針千本",
-        "expr": "菱形範囲のカウンター攻撃。防御無視\n1100%  Shot Dmg [Range: Diamond (4), Height: 99]\n",
+        "name": "1,000 Needles",
+        "expr": "Counter ATK Skill (Ignores DEF) [Area: Diamond]\n1100%  Shot Dmg [Range: Diamond (4), Height: 99]\n",
         "motion": "ff15_m_cact_skill103",
         "effect": "eff_ff15_m_cact_skill103",
         "weapon": "WE_GUN",
@@ -38993,12 +39768,13 @@
         "effect_calc": "Fixed",
         "attack_type": "PhyAttack",
         "attack_detail": "Shot",
-        "reaction_damage_type": "TotalDamage"
+        "reaction_damage_type": "TotalDamage",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_MAGIC_ARM_ATK01",
-        "name": "攻撃スキル(FF15_MAGIC_ARM)",
-        "expr": "打撃\n100%  Blow Dmg [Range: Cross (1), Height: 2]\n",
+        "name": "Attack (FFXV_MAGIC_ARM)",
+        "expr": "Strike\n100%  Blow Dmg [Range: Cross (1), Height: 2]\n",
         "motion": "ff15_mag_arm_atk0",
         "effect": "eff_ff15_mag_arm_atk0",
         "weapon": "WE_GUN",
@@ -39014,12 +39790,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Blow"
+        "attack_detail": "Blow",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_MAGIC_ARM_01",
-        "name": "機銃",
-        "expr": "扇レーザー範囲攻撃\n115%  Shot Dmg [Range: LaserSpread (3), Height: 1]\n",
+        "name": "Machine Gun",
+        "expr": "Area attack [Area: Fan Laser]\n115%  Shot Dmg [Range: LaserSpread (3), Height: 1]\n",
         "motion": "ff15_mag_arm_skill100",
         "effect": "eff_ff15_mag_arm_skill100",
         "weapon": "WE_GUN",
@@ -39036,12 +39813,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_MAGIC_ARM_02",
-        "name": "垂直ミサイル",
-        "expr": "菱形射程の十字範囲攻撃\n130%  Shot Dmg [Range: Diamond (3), Height: 4, Area: Cross (3)]\n",
+        "name": "Missile Drop",
+        "expr": "Area attack [Range: Cross, Area: Diamond]\n130%  Shot Dmg [Range: Diamond (3), Height: 4, Area: Cross (3)]\n",
         "motion": "ff15_mag_arm_skill101",
         "effect": "eff_ff15_mag_arm_skill101",
         "weapon": "WE_GUN",
@@ -39061,12 +39839,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_MAGIC_ARM_03",
-        "name": "榴散弾",
-        "expr": "自身中心の菱形範囲攻撃\n140%  Shot Dmg [Height: 3, Area: Diamond (5)]\n",
+        "name": "Shrapnel",
+        "expr": "Area attack centered around self [Area: Diamond]\n140%  Shot Dmg [Height: 3, Area: Diamond (5)]\n",
         "motion": "ff15_mag_arm_skill102",
         "effect": "eff_ff15_mag_arm_skill102",
         "weapon": "WE_GUN",
@@ -39083,12 +39862,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_MAGIC_ARM_01_2",
-        "name": "機銃",
-        "expr": "扇レーザー範囲攻撃 防御無視\n115%  Shot Dmg [Range: LaserSpread (3), Height: 1]\n",
+        "name": "Machine Gun",
+        "expr": "Area attack (Ignores DEF) [Area: Fan Laser]\n115%  Shot Dmg [Range: LaserSpread (3), Height: 1]\n",
         "motion": "ff15_mag_arm_skill100",
         "effect": "eff_ff15_mag_arm_skill100",
         "weapon": "WE_GUN",
@@ -39106,12 +39886,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_MAGIC_ARM_02_2",
-        "name": "垂直ミサイル",
-        "expr": "菱形射程の十字範囲攻撃 防御無視\n130%  Shot Dmg [Range: Diamond (3), Height: 4, Area: Cross (3)]\n",
+        "name": "Missile Drop",
+        "expr": "Area attack (Ignores DEF) [Range: Diamond, Area: Cross]\n130%  Shot Dmg [Range: Diamond (3), Height: 4, Area: Cross (3)]\n",
         "motion": "ff15_mag_arm_skill101",
         "effect": "eff_ff15_mag_arm_skill101",
         "weapon": "WE_GUN",
@@ -39132,12 +39913,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_MAGIC_ARM_03_2",
-        "name": "榴散弾",
-        "expr": "自身中心の菱形範囲攻撃 防御無視\n140%  Shot Dmg [Height: 3, Area: Diamond (5)]\n",
+        "name": "Shrapnel",
+        "expr": "Area attack centered around self (Ignores DEF) [Area: Diamond]\n140%  Shot Dmg [Height: 3, Area: Diamond (5)]\n",
         "motion": "ff15_mag_arm_skill102",
         "effect": "eff_ff15_mag_arm_skill102",
         "weapon": "WE_GUN",
@@ -39155,12 +39937,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_MAGIC_ARM_04",
-        "name": "槍雷撃",
-        "expr": "カウンター。確率で麻痺\n110% Thunder Stab Dmg [Range: Square (1), Height: 3]\nTarget: Paralyze [Chance: 70%, Value: 100]",
+        "name": "Thunder Thrust",
+        "expr": "Counter (Chance of inflicting Poison)\n110% Thunder Stab Dmg [Range: Square (1), Height: 3]\nTarget: Paralyze [Chance: 70%, Value: 100]",
         "motion": "ff15_mag_arm_skill103",
         "effect": "eff_ff15_mag_arm_skill103",
         "weapon": "WE_GUN",
@@ -39180,12 +39963,13 @@
         "attack_type": "PhyAttack",
         "attack_detail": "Stab",
         "element_type": "Thunder",
-        "reaction_damage_type": "TotalDamage"
+        "reaction_damage_type": "TotalDamage",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_MAGIC_SOL_ATK01",
-        "name": "攻撃スキル(FF15_MAGIC_SOL)",
-        "expr": "斬撃\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
+        "name": "Attack (FFXV_MAGIC_SOL)",
+        "expr": "Slash\n100%  Slash Dmg [Range: Cross (1), Height: 2]\n",
         "motion": "ff15_mag_sol_atk0",
         "effect": "eff_ff15_mag_sol_atk0",
         "weapon": "WE_SWORD",
@@ -39201,12 +39985,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_MAGIC_SOL_01",
-        "name": "エネルギー弾",
-        "expr": "菱形射程の射撃攻撃\n115%  Shot Dmg [Range: Diamond (3), Height: 99]\n",
+        "name": "Energy Shot",
+        "expr": "Inflicts Missile Dmg [Range: Diamond]\n115%  Shot Dmg [Range: Diamond (3), Height: 99]\n",
         "motion": "ff15_mag_sol_skill100",
         "effect": "eff_ff15_mag_sol_skill100",
         "weapon": "WE_SWORD",
@@ -39224,12 +40009,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Shot"
+        "attack_detail": "Shot",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_MAGIC_SOL_02",
-        "name": "回し蹴り",
-        "expr": "自身中心の正方形範囲攻撃\n130%  Blow Dmg [Height: 2, Area: Square (3)]\n",
+        "name": "Roundhouse Kick",
+        "expr": "Area attack centered around self [Area: Square]\n130%  Blow Dmg [Height: 2, Area: Square (3)]\n",
         "motion": "ff15_mag_sol_skill101",
         "effect": "eff_ff15_mag_sol_skill101",
         "weapon": "WE_SWORD",
@@ -39246,7 +40032,8 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Blow"
+        "attack_detail": "Blow",
+        "mapeff": " "
     },
     {
         "iname": "SK_ACHA_STR_ATK",
@@ -39835,7 +40622,7 @@
     {
         "iname": "SK_VIER_WIZ_SUPPORT_1",
         "name": "Flower Concentrate",
-        "expr": "Raises MATK/charge speed & lowers HP",
+        "expr": "Raises MATK/cast speed & lowers HP",
         "target_buff_iname": "BUFF_VIER_WIZ_SUPPORT_1",
         "type": "Passive",
         "timing": "Passive",
@@ -41905,7 +42692,7 @@
     {
         "iname": "SK_FURY01_SUPPORT_1",
         "name": "Cursed Wish Rapid",
-        "expr": "Raises charge speed/MATK",
+        "expr": "Raises cast speed/MATK",
         "target_buff_iname": "BUFF_FURY01_SUPPORT_1",
         "type": "Passive",
         "timing": "Passive",
@@ -46975,7 +47762,7 @@
     },
     {
         "iname": "SK_LEGA_THI_PROVOKE",
-        "name": "Provoke",
+        "name": "Taunt",
         "expr": "Chance of inflicting Rage on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]",
         "motion": "saromo_thi_skill106",
         "effect": "eff_saromo_thi_skill106",
@@ -47421,7 +48208,7 @@
     {
         "iname": "SK_MIELIKKI_MA_01",
         "name": "Atachi's Will",
-        "expr": "Raises Max HP & reduces charge time by 1/3",
+        "expr": "Raises Max HP & reduces cast time by 1/3",
         "target_buff_iname": "BUFF_MIELIKKI_MA_01",
         "type": "Passive",
         "timing": "Passive",
@@ -48756,7 +49543,7 @@
     {
         "iname": "SK_ARMS_DOC_04_WA",
         "name": "Hallucination",
-        "expr": "Recovers HP of ally units within area around self (no charge time) [Area: Diamond (5), Height Range: 2]\nHeals 95% Scaling [Height: 2, Area: Diamond (5)]",
+        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]\nHeals 95% Scaling [Height: 2, Area: Diamond (5)]",
         "motion": "kus_skill181",
         "effect": "eff_kus_skill181",
         "lvcap": 1,
@@ -49772,7 +50559,7 @@
     {
         "iname": "SK_AF_ARMS_HUN_02_WA",
         "name": "Shower of Arrows",
-        "expr": "Inflicts Phys Dmg on units within target area & interrupts charging [Range: 4, Area: Cross (3), Height Range: Unlimited]\n140%  Shot Dmg [Range: Diamond (4), Height: 99, Area: Cross (3)]\n",
+        "expr": "Inflicts Phys Dmg on units within target area & interrupts casting [Range: 4, Area: Cross (3), Height Range: Unlimited]\n140%  Shot Dmg [Range: Diamond (4), Height: 99, Area: Cross (3)]\n",
         "motion": "hun_skill180",
         "effect": "eff_hun_skill180",
         "weapon": "WE_BOW",
@@ -49992,8 +50779,8 @@
     },
     {
         "iname": "SK_AF_ARMS_FF15_PROM_01_WA",
-        "name": "トリガーハッピー",
-        "expr": "指定した敵に雷属性の物理攻撃&対象のCTを0にする[射程:菱形4マス,高低差:3]\n170% Thunder Shot Dmg [Range: Diamond (4), Height: 3]\n",
+        "name": "Trigger-Happy",
+        "expr": "Inflicts Thunder Phys Dmg on target enemy unit & lowers CT to 0 [Range: Diamond (9), Height Range: 3]\n170% Thunder Shot Dmg [Range: Diamond (4), Height: 3]\n",
         "motion": "ff15_prom_skill180",
         "effect": "eff_ff15_prom_skill180",
         "weapon": "WE_GUN",
@@ -50019,12 +50806,13 @@
         "attack_detail": "Shot",
         "element_type": "Thunder",
         "reaction_damage_type": "None",
-        "control_ct_calc": "Scale"
+        "control_ct_calc": "Scale",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_NOCT_01_WA",
-        "name": "ファントムソード",
-        "expr": "指定した敵に無属性4連続物理ダメージ&3ターンの間、自身の物攻、素早さ、回避率アップ[射程:菱形4マス,高低差:3]\n150%  None Dmg [Range: Diamond (4), Height: 3]\nSelf: +50% PATK, +10% AGI, +20 Evasion Rate [Turns: 3]",
+        "name": "The Royal Arms",
+        "expr": "Inflicts 4-hit non-elemental Phys Dmg on target enemy unit & raises own PATK/AGI/Evasion Rate for three turns [Range: Diamond (9), Height Range: 3]\n150%  None Dmg [Range: Diamond (4), Height: 3]\nSelf: +50% PATK, +10% AGI, +20 Evasion Rate [Turns: 3]",
         "motion": "ff15_noct_skill180",
         "effect": "eff_ff15_noct_skill180",
         "weapon": "WE_MAGIC_SWORD",
@@ -50047,12 +50835,13 @@
         "attack_type": "PhyAttack",
         "attack_detail": "None",
         "element_type": "",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_INGI_01_WA",
-        "name": "賢者の炎",
-        "expr": "範囲内の対象に火属性の魔法攻撃&攻撃禁止効果[射程:4,範囲:菱形2マス,高低差:3]\n160% Fire Magic Dmg [Range: Diamond (4), Height: 3, Area: Diamond (5)]\nTarget: Daze [Chance: 100%, Value: 100]",
+        "name": "Sagefire",
+        "expr": "Inflicts Fire Mag Dmg & Daze on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 3]\n160% Fire Magic Dmg [Range: Diamond (4), Height: 3, Area: Diamond (5)]\nTarget: Daze [Chance: 100%, Value: 100]",
         "motion": "ff15_ingi_skill180",
         "effect": "eff_ff15_ingi_skill180",
         "weapon": "WE_MAGIC_SWORD",
@@ -50074,12 +50863,13 @@
         "effect_calc": "Scale",
         "attack_type": "MagAttack",
         "attack_detail": "Magic",
-        "element_type": "Fire"
+        "element_type": "Fire",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_GLAD_01_WA",
-        "name": "ライジングインパルス",
-        "expr": "指定範囲内の対象に物理ダメージ&対象の素早さDOWN&スタン効果[射程:3,範囲:横3マス,高低差:3]\n150%  Slash Dmg [Range: Laser (3), Height: 3, Area: Laser (5)]\nTarget: -30% AGI [Turns: 2]\nTarget: Stun [Chance: 100%, Value: 100]",
+        "name": "Impulse",
+        "expr": "Inflicts Phys Dmg & AGI Down & Stun on enemy units within target area [Range: 3, Area: Lateral (3), Height Range: 3]\n150%  Slash Dmg [Range: Laser (3), Height: 3, Area: Laser (5)]\nTarget: -30% AGI [Turns: 2]\nTarget: Stun [Chance: 100%, Value: 100]",
         "motion": "ff15_glad_skill180",
         "effect": "eff_ff15_glad_skill180",
         "weapon": "WE_GREAT_SWORD",
@@ -50101,12 +50891,13 @@
         "effect_type": "Attack",
         "effect_calc": "Scale",
         "attack_type": "PhyAttack",
-        "attack_detail": "Slash"
+        "attack_detail": "Slash",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_ARAN_01_WA",
-        "name": "エア・スペリオリティ",
-        "expr": "指定した敵に無属性物理ダメージ&必中&防御無視&確率でクリティカル発生&1ターンの間、物攻アップ[射程:4マス,高低差:4]\n170%  Stab Dmg [Range: Diamond (4), Height: 4]\nSelf: +100% PATK [Turns: 1]",
+        "name": "Highwind",
+        "expr": "Inflicts non-elemental Phys Dmg on target enemy unit & 100% Hit & ignores DEF with chance of critical & raises PATK for one turn [Range: 4, Height Range: 4]\n170%  Stab Dmg [Range: Diamond (4), Height: 4]\nSelf: +100% PATK [Turns: 1]",
         "motion": "ff15_aran_skill180",
         "effect": "eff_ff15_aran_skill180",
         "weapon": "WE_LANCE",
@@ -50129,12 +50920,13 @@
         "attack_type": "PhyAttack",
         "attack_detail": "Stab",
         "element_type": "",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMO_FF15_SHIELD_01_WA",
-        "name": "ラジエートジュエル",
-        "expr": "自身の周囲の味方にジュエル獲得量アップ&ジュエルリジェネ(小)[範囲:十字1マス,高低差:3]",
+        "name": "Radiate Jewels",
+        "expr": "Casts Jewels Obtained Up & Jewel Auto Regen (Low) on ally units in area around self [Area: Cross (3), Height Range: 3]",
         "motion": "item0",
         "effect": "eff_shn_skill109",
         "lvcap": 1,
@@ -50148,7 +50940,8 @@
         "timing": "Used",
         "target": "SelfSide",
         "select_scope": "Cross",
-        "effect_type": "Buff"
+        "effect_type": "Buff",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_ARM_03_WA",
@@ -53262,7 +54055,7 @@
     {
         "iname": "SK_RAT_WIZ_METEO1",
         "name": "Meteor of a Blink",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map\n165%  Magic Dmg [Height: 99]\n",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map\n165%  Magic Dmg [Height: 99]\n",
         "motion": "rat_wiz_skill100",
         "effect": "eff_rena_act_f_skill104",
         "weapon": "WE_KURO_MAHOU",
@@ -53287,7 +54080,7 @@
     {
         "iname": "SK_RAT_WIZ_METEO2",
         "name": "Meteor of a Blink",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map\n165%  Magic Dmg [Height: 99]\n",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map\n165%  Magic Dmg [Height: 99]\n",
         "motion": "rat_wiz_skill100",
         "effect": "eff_rena_act_f_skill104",
         "weapon": "WE_KURO_MAHOU",
@@ -53312,7 +54105,7 @@
     {
         "iname": "SK_RAT_WIZ_METEO3",
         "name": "Meteor of a Blink",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map\n165%  Magic Dmg [Height: 99]\n",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map\n165%  Magic Dmg [Height: 99]\n",
         "motion": "rat_wiz_skill100",
         "effect": "eff_rena_act_f_skill104",
         "weapon": "WE_KURO_MAHOU",
@@ -53337,7 +54130,7 @@
     {
         "iname": "SK_RAT_WIZ_METEO4",
         "name": "Meteor of a Blink",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map\n165%  Magic Dmg [Height: 99]\n",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map\n165%  Magic Dmg [Height: 99]\n",
         "motion": "rat_wiz_skill100",
         "effect": "eff_rena_act_f_skill104",
         "weapon": "WE_KURO_MAHOU",
@@ -53362,7 +54155,7 @@
     {
         "iname": "SK_RAT_WIZ_METEO1_SP",
         "name": "Meteor of Life",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map\n155%  Magic Dmg [Height: 99]\n",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map\n155%  Magic Dmg [Height: 99]\n",
         "motion": "rat_wiz_skill100",
         "effect": "eff_rena_act_f_skill104",
         "weapon": "WE_KURO_MAHOU",
@@ -53390,7 +54183,7 @@
     {
         "iname": "SK_RAT_WIZ_METEO2_SP",
         "name": "Meteor of Life",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map\n155%  Magic Dmg [Height: 99]\n",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map\n155%  Magic Dmg [Height: 99]\n",
         "motion": "rat_wiz_skill100",
         "effect": "eff_rena_act_f_skill104",
         "weapon": "WE_KURO_MAHOU",
@@ -53418,7 +54211,7 @@
     {
         "iname": "SK_RAT_WIZ_METEO3_SP",
         "name": "Meteor of Life",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map\n155%  Magic Dmg [Height: 99]\n",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map\n155%  Magic Dmg [Height: 99]\n",
         "motion": "rat_wiz_skill100",
         "effect": "eff_rena_act_f_skill104",
         "weapon": "WE_KURO_MAHOU",
@@ -53446,7 +54239,7 @@
     {
         "iname": "SK_RAT_WIZ_METEO4_SP",
         "name": "Meteor of Life",
-        "expr": "[Item Realm Special Skill] Powerful Dmg to whole map\n155%  Magic Dmg [Height: 99]\n",
+        "expr": "[Item World Special Skill] Powerful Dmg to whole map\n155%  Magic Dmg [Height: 99]\n",
         "motion": "rat_wiz_skill100",
         "effect": "eff_rena_act_f_skill104",
         "weapon": "WE_KURO_MAHOU",
@@ -54450,8 +55243,8 @@
     },
     {
         "iname": "SK_RAT_WIZ_DYNAMITE_REACTION_FF",
-        "name": "自爆【魔獣特効】",
-        "expr": "自身を中心とした指定範囲の対象に物理ダメージ（特大）。自爆[範囲:菱形2マス,高低差:2]\n250%  None Dmg [Range: Diamond (4), Height: 2, Area: Diamond (7)]\n",
+        "name": "Self Destruction [Mythical Beast Effect]",
+        "expr": "Inflicts Phys Dmg (Extra-High) on units in area around self & self-destructs [Area: Diamond (5), Height Range: 2]\n250%  None Dmg [Range: Diamond (4), Height: 2, Area: Diamond (7)]\n",
         "motion": "rat_wiz_skill100",
         "effect": "eff_dis_prin2_skill105",
         "weapon": "WE_SP_JIBAKU",
@@ -54478,7 +55271,8 @@
         "element_type": "",
         "reaction_damage_type": "TotalDamage",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_RAT_DOWN_SLASH_DEF",
@@ -58139,7 +58933,7 @@
     {
         "iname": "SK_MAN_YUJ_SLE_WIDE_HALL",
         "name": "Reverse Major Sleep",
-        "expr": "Inflicts Sleep on all ally units (Charges)",
+        "expr": "Inflicts Sleep on all ally units (Casts)",
         "motion": "man_yuj_skill109",
         "effect": "eff_man_yuj_skill109",
         "cost": 10,
@@ -58162,7 +58956,7 @@
     {
         "iname": "SK_MAN_YUJ_CHA_WIDE_HALL",
         "name": "Full-On Major Charm",
-        "expr": "Inflicts Charm on all ally units (Charges)",
+        "expr": "Inflicts Charm on all ally units (Casts)",
         "motion": "man_yuj_skill110",
         "effect": "eff_man_yuj_skill110",
         "cost": 10,
@@ -58185,7 +58979,7 @@
     {
         "iname": "SK_MAN_YUJ_STO_WIDE_HALL",
         "name": "Full-On Grand Petrify",
-        "expr": "Inflicts Petrify on all enemy units (Charges)",
+        "expr": "Inflicts Petrify on all enemy units (Casts)",
         "motion": "man_yuj_skill111",
         "effect": "eff_man_yuj_skill111",
         "cost": 10,
@@ -58208,7 +59002,7 @@
     {
         "iname": "SK_MAN_YUJ_STO_RANDOM_HALL",
         "name": "Full-On Pinpoint Petrify",
-        "expr": "Inflicts Petrify on all ally units (Charges)",
+        "expr": "Inflicts Petrify on all ally units (Casts)",
         "motion": "man_yuj_skill111",
         "effect": "eff_man_yuj_skill111",
         "cost": 10,
@@ -58412,7 +59206,7 @@
     {
         "iname": "SK_MAN_YUJ_STOP_WIDE_X_HALL",
         "name": "Rowdy Major Stop",
-        "expr": "Inflicts Stop on all ally units (Charges; CT1-500)",
+        "expr": "Inflicts Stop on all ally units (Casts; CT1-500)",
         "motion": "man_yuj_skill118",
         "effect": "eff_man_yuj_skill118",
         "cost": 10,
@@ -61330,8 +62124,8 @@
     },
     {
         "iname": "SK_MAN_WIZ_WIND4_FA_ATK_DOWN",
-        "name": "ウインドスポアIII(攻撃ダウン)",
-        "expr": "指定範囲内の対象に風属性攻撃。射程3※ダメ黒魔法ベースやや弱\n140% Wind Magic Dmg [Range: Diamond (3), Height: 2, Area: Cross (3)]\nTarget: -20% PATK, -20% MATK [Turns: 9]",
+        "name": "Wind Spores III (ATK Down)",
+        "expr": "Inflicts Wind Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak\n140% Wind Magic Dmg [Range: Diamond (3), Height: 2, Area: Cross (3)]\nTarget: -20% PATK, -20% MATK [Turns: 9]",
         "motion": "man_wiz_skill102",
         "effect": "eff_man_wiz_skill102",
         "weapon": "WE_KURO_MAHOU",
@@ -61356,12 +62150,13 @@
         "element_type": "Wind",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_MAN_WIZ_WIND4_FA",
-        "name": "ウインドスポアIII(防御ダウン)",
-        "expr": "指定範囲内の対象に風属性攻撃。射程3※ダメ黒魔法ベースやや弱\n140% Wind Magic Dmg [Range: Diamond (3), Height: 2, Area: Cross (3)]\nTarget: -20% PDEF, -20% MDEF [Turns: 9]",
+        "name": "Wind Spores III (Def Down)",
+        "expr": "Inflicts Wind Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak\n140% Wind Magic Dmg [Range: Diamond (3), Height: 2, Area: Cross (3)]\nTarget: -20% PDEF, -20% MDEF [Turns: 9]",
         "motion": "man_wiz_skill102",
         "effect": "eff_man_wiz_skill102",
         "weapon": "WE_KURO_MAHOU",
@@ -61386,7 +62181,8 @@
         "element_type": "Wind",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_MAN_WIZ_THUNDER4",
@@ -61419,8 +62215,8 @@
     },
     {
         "iname": "SK_MAN_WIZ_THUNDER4_FA",
-        "name": "サンダースポアIII(防御ダウン)",
-        "expr": "指定範囲内の対象に雷属性攻撃。射程3※ダメ黒魔法ベースやや弱\n140% Thunder Magic Dmg [Range: Diamond (3), Height: 2, Area: Cross (3)]\nTarget: -20% PDEF, -20% MDEF [Turns: 9]",
+        "name": "Thunder Spores III (Def Down)",
+        "expr": "Inflicts Thunder Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak\n140% Thunder Magic Dmg [Range: Diamond (3), Height: 2, Area: Cross (3)]\nTarget: -20% PDEF, -20% MDEF [Turns: 9]",
         "motion": "man_wiz_skill103",
         "effect": "eff_man_wiz_skill103",
         "weapon": "WE_KURO_MAHOU",
@@ -61445,7 +62241,8 @@
         "element_type": "Thunder",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_MAN_WIZ_SHINE4",
@@ -61793,8 +62590,8 @@
     },
     {
         "iname": "SK_MAN_YUJ_LONG_SHIELD_FF15",
-        "name": "ロンググランテクト[防御8倍]",
-        "expr": "物防&魔防を上げる[範囲:マップ全体,高低差:無制限]７ターン",
+        "name": "Long Barrier [DEF x8]",
+        "expr": "Raises PDEF/MDEF for seven turns [Area: Whole Map, Height Range: Unlimited]",
         "motion": "man_yuj_skill105",
         "effect": "eff_enc_skill101",
         "cost": 50,
@@ -61808,7 +62605,8 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_MAN_YUJ_JEM_REGENERATE_WIDE",
@@ -62216,7 +63014,7 @@
     {
         "iname": "SK_MAN_YUJ_SLE_WIDE",
         "name": "Major Sleep",
-        "expr": "Inflicts Sleep on all enemy units (Charges)",
+        "expr": "Inflicts Sleep on all enemy units (Casts)",
         "motion": "man_yuj_skill109",
         "effect": "eff_man_yuj_skill109",
         "cost": 10,
@@ -62239,7 +63037,7 @@
     {
         "iname": "SK_MAN_YUJ_CHA_WIDE",
         "name": "Major Charm",
-        "expr": "Inflicts Charm on all enemy units (Charges)",
+        "expr": "Inflicts Charm on all enemy units (Casts)",
         "motion": "man_yuj_skill110",
         "effect": "eff_man_yuj_skill110",
         "cost": 10,
@@ -62262,7 +63060,7 @@
     {
         "iname": "SK_MAN_YUJ_STO_WIDE",
         "name": "Grand Petrify",
-        "expr": "Inflicts Petrify on all enemy units (Charges)",
+        "expr": "Inflicts Petrify on all enemy units (Castes)",
         "motion": "man_yuj_skill111",
         "effect": "eff_man_yuj_skill111",
         "cost": 10,
@@ -62285,7 +63083,7 @@
     {
         "iname": "SK_MAN_YUJ_STO_RANDOM",
         "name": "Pinpoint Petrify",
-        "expr": "Inflicts Paralyze on all enemy units (Charges)",
+        "expr": "Inflicts Paralyze on all enemy units (Casts)",
         "motion": "man_yuj_skill111",
         "effect": "eff_man_yuj_skill111",
         "cost": 10,
@@ -62309,7 +63107,7 @@
     {
         "iname": "SK_MAN_YUJ_STO_NOMAL",
         "name": "Petrifying Spores (Normal ATK)",
-        "expr": "[Item Realm] Casts Petrify on units in area around self\n100%  Blow Dmg [Height: 2, Area: Square (5)]\nTarget: Petrify [Chance: 100%, Value: 100]",
+        "expr": "[Item World] Casts Petrify on units in area around self\n100%  Blow Dmg [Height: 2, Area: Square (5)]\nTarget: Petrify [Chance: 100%, Value: 100]",
         "motion": "man_yuj_skill111",
         "effect": "eff_man_yuj_skill111",
         "weapon": "WE_FIST",
@@ -62336,7 +63134,7 @@
     {
         "iname": "SK_MAN_YUJ_STO_ZERO_RE",
         "name": "All Null Waves+",
-        "expr": "[Item Realm] Reaction Ability: Cancels all buffs/debuffs [Area: Whole Map, Height Range: Unlimited]",
+        "expr": "[Item World] Reaction Ability: Cancels all buffs/debuffs [Area: Whole Map, Height Range: Unlimited]",
         "motion": "man_yuj_skill102",
         "effect": "eff_arm_skill102",
         "effect_height": 99,
@@ -62355,8 +63153,8 @@
     },
     {
         "iname": "SK_MAN_YUJ_STO_ZERO_RE_FF15EX1",
-        "name": "あたり！グランテクト解除",
-        "expr": "【FF15EX1】リアクションアビ：全てのバフ・デバフ効果を全て打ち消す[範囲:マップ全体,高低差:無制限]",
+        "name": "Barrier-Removal Hit",
+        "expr": "[FFXVEX1] Reaction Ability: Cancels all buffs/debuffs [Area: Whole Map, Height Range: Unlimited]",
         "motion": "man_yuj_skill102",
         "effect": "eff_arm_skill102",
         "effect_height": 99,
@@ -62370,12 +63168,13 @@
         "effect_type": "DisableCondition",
         "reaction_damage_type": "TotalDamage",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_MAN_YUJ_STOP_WIDE_RE_FF15EX1",
-        "name": "セルフタイマー",
-        "expr": "自分にストップを与える。",
+        "name": "Self-Timer",
+        "expr": "Casts Stop on self",
         "motion": "man_yuj_skill118",
         "effect": "eff_man_yuj_skill118",
         "effect_height": 99,
@@ -62387,12 +63186,13 @@
         "effect_type": "FailCondition",
         "reaction_damage_type": "TotalDamage",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_MAN_YUJ_JEM_RE_FF15EX1",
-        "name": "お薬飲んで",
-        "expr": "FF15EX１自身にリアクションジュエル回復",
+        "name": "Drink This",
+        "expr": "[FFXVEX1] Recovers own Reaction Jewels",
         "motion": "man_yuj_skill104",
         "effect": "eff_shn_skill105",
         "effect_value.ini": 40,
@@ -62404,12 +63204,13 @@
         "effect_calc": "Scale",
         "reaction_damage_type": "TotalDamage",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_MAN_YUJ_STAN_RE_FF15EX1",
-        "name": "死んだふり",
-        "expr": "自分にスタンを与える。",
+        "name": "Feign Death",
+        "expr": "Casts Stun on self",
         "motion": "man_yuj_skill108",
         "effect": "eff_man_yuj_skill108",
         "effect_height": 1,
@@ -62420,12 +63221,13 @@
         "effect_type": "FailCondition",
         "reaction_damage_type": "TotalDamage",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_MAN_YUJ_STAN_RE_FF15EX1_ALL",
-        "name": "死んだふり",
-        "expr": "味方全体にスタンを4ターン与える＆自身にリアクションジュエル回復",
+        "name": "Feign Death",
+        "expr": "Casts Stun on all ally units for four turns & recovers own Reaction Jewels",
         "motion": "man_yuj_skill108",
         "effect": "eff_man_yuj_skill108",
         "effect_height": 99,
@@ -62438,12 +63240,13 @@
         "effect_type": "FailCondition",
         "reaction_damage_type": "TotalDamage",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_MAN_YUJ_STAN_RE_FF15EX1_SOL",
-        "name": "死んだふり",
-        "expr": "自身にスタンを4ターン与える＆自身にリアクションジュエル回復",
+        "name": "Feign Death",
+        "expr": "Casts Stun on self for four turns & recovers own Reaction Jewels",
         "motion": "man_yuj_skill108",
         "effect": "eff_man_yuj_skill108",
         "target_cond_iname": "CON_BASI_SOL_LOWER_FF15_B",
@@ -62454,12 +63257,13 @@
         "effect_type": "FailCondition",
         "reaction_damage_type": "TotalDamage",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_MAN_YUJ_KAIFUKU_FF15",
-        "name": "（2等）珍味！マンドラゴラ",
-        "expr": "マップ全域の味方に対してジュエル回復&[範囲:マップ全体,高低差:無制限]",
+        "name": "(2nd) Rare Treat! Mandragora",
+        "expr": "Recovers Jewels of all ally units [Area: Whole Map, Height Range: Unlimited]",
         "motion": "man_yuj_skill104",
         "effect": "eff_shn_skill105",
         "effect_height": 99,
@@ -62472,12 +63276,13 @@
         "select_scope": "All",
         "effect_type": "GemsIncDec",
         "effect_calc": "Scale",
-        "reaction_damage_type": "TotalDamage"
+        "reaction_damage_type": "TotalDamage",
+        "mapeff": " "
     },
     {
         "iname": "SK_MAN_YUJ_STO_ZERO",
         "name": "Null Wave+",
-        "expr": "[Item Realm] Cancels all buff/debuffs cast on enemy units [Area: Whole Map, Height Range: Unlimited]",
+        "expr": "[Item World] Cancels all buff/debuffs cast on enemy units [Area: Whole Map, Height Range: Unlimited]",
         "motion": "man_yuj_skill102",
         "effect": "eff_enc_skill113",
         "cost": 10,
@@ -63026,7 +63831,7 @@
     {
         "iname": "SK_MAN_YUJ_STOP_WIDE",
         "name": "Major Stop",
-        "expr": "Inflicts Stop on all enemy units (Charges) (CT100)",
+        "expr": "Inflicts Stop on all enemy units (Casts) (CT100)",
         "motion": "man_yuj_skill118",
         "effect": "eff_man_yuj_skill118",
         "cost": 10,
@@ -63049,7 +63854,7 @@
     {
         "iname": "SK_MAN_YUJ_STOP_WIDE_X",
         "name": "Major Stop",
-        "expr": "Inflicts Stop on all enemy units (Charges) (CT1-500)",
+        "expr": "Inflicts Stop on all enemy units (Casts) (CT1-500)",
         "motion": "man_yuj_skill118",
         "effect": "eff_man_yuj_skill118",
         "cost": 10,
@@ -65860,7 +66665,7 @@
     {
         "iname": "SK_DMN_JEWEL_DRAIN_WIDE_S",
         "name": "Reset Jewels!",
-        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-charging ver.\n250100%  Slash Dmg [Height: 99]\nTarget: -999 Initial Jewels, -10 Used Jewels",
+        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-casting ver.\n250100%  Slash Dmg [Height: 99]\nTarget: -999 Initial Jewels, -10 Used Jewels",
         "motion": "dmn_wiz_skill111",
         "effect": "eff_baa_skill101",
         "weapon": "WE_KURO_MAHOU",
@@ -65945,7 +66750,7 @@
     {
         "iname": "SK_DMN_JEWEL_DRAIN_WIDE_S_2",
         "name": "Penalty!",
-        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-charging ver.\n250100%  Slash Dmg [Height: 99]\nTarget: -10 Used Jewels",
+        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-casting ver.\n250100%  Slash Dmg [Height: 99]\nTarget: -10 Used Jewels",
         "motion": "dmn_wiz_skill111",
         "effect": "eff_baa_skill101",
         "weapon": "WE_KURO_MAHOU",
@@ -66036,7 +66841,7 @@
     {
         "iname": "SK_RAT_JEWEL_DRAIN_WIDE_S",
         "name": "Reset Jewels & Reduce Jewel Spending",
-        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-charging ver.\n250100%  Slash Dmg [Height: 99]\nTarget: -999 Initial Jewels, -10 Used Jewels",
+        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-casting ver.\n250100%  Slash Dmg [Height: 99]\nTarget: -999 Initial Jewels, -10 Used Jewels",
         "motion": "rat_wiz_atk0",
         "effect": "eff_baa_skill101",
         "weapon": "WE_KURO_MAHOU",
@@ -69956,8 +70761,8 @@
     },
     {
         "iname": "SK_KERB_ATK_FF15EX3",
-        "name": "【通常攻撃】ケルベロス",
-        "expr": "【敵ユニット】ケルベロス(ロングウインドブレス)\n135% Wind Magic Dmg [Range: Laser (3), Height: 3, Area: Laser (5)]\n",
+        "name": "[Normal ATK] Cerberus",
+        "expr": "Cerberus (Ranged Wind Breath) (Enemy Unit)\n135% Wind Magic Dmg [Range: Laser (3), Height: 3, Area: Laser (5)]\n",
         "motion": "kerb_arm_skill102",
         "effect": "eff_kerb_arm_skill102",
         "weapon": "WE_GREAT_SWORD",
@@ -69982,7 +70787,8 @@
         "element_type": "Wind",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_KERB_BREATH_FIRE_L",
@@ -70264,7 +71070,7 @@
     },
     {
         "iname": "SK_KERB_POI_ATK",
-        "name": "Venom Fang",
+        "name": "Poison Fang",
         "expr": "Inflicts Phys Dmg & Poison on target unit [Range: 1, Height Range: 1]\n125%  Slash Dmg [Range: Cross (1), Height: 1]\nTarget: Poison [Chance: 100%, Value: 100]",
         "motion": "kerb_arm_skill108",
         "effect": "eff_kerb_arm_skill108",
@@ -74015,8 +74821,8 @@
     },
     {
         "iname": "SK_VENUS_SEC_ATK_FF15_EX1_A",
-        "name": "クイーン水平撃ち",
-        "expr": "指定範囲内の対象に物理攻撃　[射程:十字20 範囲0]\n145%  Slash Dmg [Range: Cross (20), Height: 10, Area: Square (0)]\n",
+        "name": "Queen's Horizontal Strike",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]\n145%  Slash Dmg [Range: Cross (20), Height: 10, Area: Square (0)]\n",
         "motion": "vns_sec_atk0",
         "effect": "eff_vns_sec_atk0",
         "weapon": "WE_GREAT_SWORD",
@@ -74040,12 +74846,13 @@
         "attack_detail": "Slash",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_VENUS_SEC_ATK_FF15_EX1_B",
-        "name": "クイーン45°",
-        "expr": "弱版　指定範囲内の対象に物理攻撃　[射程:クロス20 範囲0]\n145%  Slash Dmg [Range: Bishop (20), Height: 10, Area: Square (0)]\n",
+        "name": "Queen's 45°",
+        "expr": "[Weak ver.] Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]\n145%  Slash Dmg [Range: Bishop (20), Height: 10, Area: Square (0)]\n",
         "motion": "vns_sec_atk0",
         "effect": "eff_vns_sec_atk0",
         "weapon": "WE_GREAT_SWORD",
@@ -74069,12 +74876,13 @@
         "attack_detail": "Slash",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_VENUS_SEC_ATK_FF15_EX1_AS",
-        "name": "クイーン水平撃ち",
-        "expr": "指定範囲内の対象に物理攻撃　[射程:十字20 範囲0]\n145%  Slash Dmg [Range: Cross (20), Height: 10, Area: Square (0)]\n",
+        "name": "Queen's Horizontal Strike",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]\n145%  Slash Dmg [Range: Cross (20), Height: 10, Area: Square (0)]\n",
         "motion": "vns_sec_atk0",
         "effect": "eff_vns_sec_atk0",
         "weapon": "WE_GREAT_SWORD",
@@ -74098,12 +74906,13 @@
         "attack_detail": "Slash",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_VENUS_SEC_ATK_FF15_EX1_BS",
-        "name": "クイーン45°",
-        "expr": "弱版　指定範囲内の対象に物理攻撃　[射程:クロス20 範囲0]\n145%  Slash Dmg [Range: Bishop (20), Height: 10, Area: Square (0)]\n",
+        "name": "Queen's 45°",
+        "expr": "[Weak ver.] Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]\n145%  Slash Dmg [Range: Bishop (20), Height: 10, Area: Square (0)]\n",
         "motion": "vns_sec_atk0",
         "effect": "eff_vns_sec_atk0",
         "weapon": "WE_GREAT_SWORD",
@@ -74127,12 +74936,13 @@
         "attack_detail": "Slash",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_VENUS_SEC_ATK_FF15_TOWER",
-        "name": "ネイルビーム",
-        "expr": "指定範囲内の対象に物理攻撃　[射程:十字20 範囲0]\n145%  Slash Dmg [Range: Cross (20), Height: 10, Area: Square (0)]\n",
+        "name": "Nail Beam",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]\n145%  Slash Dmg [Range: Cross (20), Height: 10, Area: Square (0)]\n",
         "motion": "vns_sec_atk0",
         "effect": "eff_vns_sec_atk0",
         "weapon": "WE_GREAT_SWORD",
@@ -74156,7 +74966,8 @@
         "attack_detail": "Slash",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_VENUS_SEC_QUEENS_BLEEZE",
@@ -75087,7 +75898,7 @@
     {
         "iname": "SK_DIAB_WIZ_ATK_FINAL_FAST",
         "name": "Death Drop",
-        "expr": "Inflicts Death Sentence on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast charging)\n110%  Stab Dmg [Height: 99]\nTarget: Death Sentence [Chance: 100%]",
+        "expr": "Inflicts Death Sentence on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast casting)\n110%  Stab Dmg [Height: 99]\nTarget: Death Sentence [Chance: 100%]",
         "motion": "drg_diab_wiz_skill105",
         "effect": "eff_drg_diab_wiz_skill105",
         "cost": 400,
@@ -75115,7 +75926,7 @@
     {
         "iname": "SK_DIAB_WIZ_ATK_POI_FAST",
         "name": "Venom Storm",
-        "expr": "Inflicts Poison on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast charging)\n105%  Stab Dmg [Height: 99]\nTarget: Poison [Chance: 100%, Value: 100]",
+        "expr": "Inflicts Poison on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast casting)\n105%  Stab Dmg [Height: 99]\nTarget: Poison [Chance: 100%, Value: 100]",
         "motion": "drg_diab_wiz_skill105",
         "effect": "eff_drg_diab_wiz_skill105",
         "weapon": "WE_GREAT_SWORD",
@@ -75878,7 +76689,7 @@
     {
         "iname": "SK_BAA_JEWEL_DRAIN_TOWER",
         "name": "Jewel Drain+ [Scope: 6, Range: 3x3 Cross]",
-        "expr": "Absorbs Jewels from target [Range: 6, Height Range: Unlimited] Non-charging ver.\n1000%  Slash Dmg [Range: Diamond (6), Height: 10, Area: Cross (3)]\n",
+        "expr": "Absorbs Jewels from target [Range: 6, Height Range: Unlimited] Non-casting ver.\n1000%  Slash Dmg [Range: Diamond (6), Height: 10, Area: Cross (3)]\n",
         "motion": "baa_skill101",
         "effect": "eff_baa_skill101",
         "weapon": "WE_KURO_MAHOU",
@@ -75908,7 +76719,7 @@
     {
         "iname": "SK_BAA_JEWEL_DRAIN_WIDE_S",
         "name": "Jewel Drain+ (revised)",
-        "expr": "Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No charge time ver.)\n1100%  Slash Dmg [Range: Diamond (6), Height: 99, Area: Cross (3)]\n",
+        "expr": "Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No cast time ver.)\n1100%  Slash Dmg [Range: Diamond (6), Height: 99, Area: Cross (3)]\n",
         "motion": "baa_skill101",
         "effect": "eff_baa_skill101",
         "weapon": "WE_KURO_MAHOU",
@@ -79775,8 +80586,8 @@
     },
     {
         "iname": "SK_MAFIA_GUN_IKAKU",
-        "name": "Menacing Shot [Cancel Channeling]",
-        "expr": "Warning shot that interrupts charging\n15%  Shot Dmg [Range: Diamond (5), Height: 2, Area: Diamond (3)]\n",
+        "name": "Menacing Shot [Cancel Casting]",
+        "expr": "Warning shot that interrupts casting\n15%  Shot Dmg [Range: Diamond (5), Height: 2, Area: Diamond (3)]\n",
         "motion": "gun_skill102",
         "effect": "eff_arm_skill102",
         "weapon": "WE_GUN",
@@ -80607,7 +81418,7 @@
     },
     {
         "iname": "SK_POWER_WIZARD_MAGIC_02",
-        "name": "Enhanced Magic Charge Countdown 3",
+        "name": "Enhanced Magic Cast Countdown 3",
         "expr": "Countdown 3",
         "motion": "yuj_skill105",
         "effect": "eff_yuj_skill105",
@@ -80625,7 +81436,7 @@
     },
     {
         "iname": "SK_POWER_WIZARD_MAGIC_03",
-        "name": "Enhanced Magic Charge Countdown 2",
+        "name": "Enhanced Magic Cast Countdown 2",
         "expr": "Countdown 2",
         "motion": "yuj_skill105",
         "effect": "eff_yuj_skill105",
@@ -80643,7 +81454,7 @@
     },
     {
         "iname": "SK_POWER_WIZARD_MAGIC_04",
-        "name": "Enhanced Magic Charge Countdown 1",
+        "name": "Enhanced Magic Cast Countdown 1",
         "expr": "Countdown 1: Activated on turn following this",
         "motion": "yuj_skill105",
         "effect": "eff_yuj_skill105",
@@ -85245,7 +86056,7 @@
     {
         "iname": "SK_LS_10_U_MAGIC_10_D_CAST",
         "name": "Cryptic Fervor",
-        "expr": "Raises Mag Dmg by 10% & reduces charge time by 10% for whole party",
+        "expr": "Raises Mag Dmg by 10% & reduces cast time by 10% for whole party",
         "target_buff_iname": "BUFF_LS_10_U_MAGIC_10_D_CAST",
         "type": "Passive",
         "timing": "Passive",
@@ -85315,7 +86126,7 @@
     {
         "iname": "SK_LS_5_U_CAST",
         "name": "Cryptic Revelation",
-        "expr": "Reduces charge time by 5% for whole party",
+        "expr": "Reduces cast time by 5% for whole party",
         "target_buff_iname": "BUFF_LS_5_U_CAST",
         "type": "Passive",
         "timing": "Passive",
@@ -85525,7 +86336,7 @@
     {
         "iname": "SK_LS_ELEM_FIRE_30_U_MAG_10_D_CAST",
         "name": "Raging Fire's Worship",
-        "expr": "Raises MATK by 30% & reduces charge time by 10% for Fire units",
+        "expr": "Raises MATK by 30% & reduces cast time by 10% for Fire units",
         "target_buff_iname": "BUFF_LS_ELEM_FIRE_30_U_MAG_10_D_CAST",
         "type": "Passive",
         "timing": "Passive",
@@ -85973,7 +86784,7 @@
     {
         "iname": "SK_LS_ELEM_WATER_40_U_HP_10_D_CT",
         "name": "Pure Water's Heartbeat",
-        "expr": "Raises HP by 40% & reduces charge time by 10% for Water units",
+        "expr": "Raises HP by 40% & reduces cast time by 10% for Water units",
         "target_buff_iname": "BUFF_LS_ELEM_WATER_40_U_HP_10_D_CT",
         "type": "Passive",
         "timing": "Passive",
@@ -86435,7 +87246,7 @@
     {
         "iname": "SK_LS_ELEM_WIND_40_U_HP_10_D_CHARGE_TIME",
         "name": "Fresh Wind's Heartbeat",
-        "expr": "Raises HP by 40% & reduces charge time by 10% for Wind units",
+        "expr": "Raises HP by 40% & reduces charge ime by 10% for Wind units",
         "target_buff_iname": "BUFF_LS_ELEM_WIND_40_U_HP_10_D_CHARGE_TIME",
         "type": "Passive",
         "timing": "Passive",
@@ -86785,7 +87596,7 @@
     {
         "iname": "SK_LS_ELEM_THUNDER_40_U_HP_10_D_CT",
         "name": "Thunderer's Heartbeat",
-        "expr": "Raises HP by 40% & reduces charge time by 10% for Thunder units",
+        "expr": "Raises HP by 40% & reduces cast time by 10% for Thunder units",
         "target_buff_iname": "BUFF_LS_ELEM_THUNDER_40_U_HP_10_D_CT",
         "type": "Passive",
         "timing": "Passive",
@@ -89408,8 +90219,8 @@
     },
     {
         "iname": "SK_US_FF_CONS_STEW",
-        "name": "王様のシチュー",
-        "expr": "ユニットのHPを大回復&物攻アップ",
+        "name": "King's Stew",
+        "expr": "Greatly recovers unit's HP & raises PATK",
         "motion": "item0",
         "effect": "eff_item_buff00",
         "range_max": 1,
@@ -89422,7 +90233,8 @@
         "select_range": "Cross",
         "effect_type": "RateHeal",
         "effect_calc": "Scale",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_US_SQ_RESIST_MIST",
@@ -93628,7 +94440,7 @@
     },
     {
         "iname": "SK_EQ_YUAN_ARROW",
-        "name": "Survive Arrow",
+        "name": "Survival Arrow",
         "expr": "DEX +12, PATK +30, AGI +2, Jewels Obtained +2, Wind Res +1",
         "target_buff_iname": "BUFF_YUAN_ARROW",
         "type": "Item",
@@ -93642,7 +94454,7 @@
     },
     {
         "iname": "SK_EQ_YUAN_BELT",
-        "name": "Survive Belt",
+        "name": "Survival Belt",
         "expr": "HP +40, PDEF +12, LCK +6, Fire Res +1, Poison Res +1",
         "target_buff_iname": "BUFF_YUAN_BELT",
         "type": "Item",
@@ -93670,7 +94482,7 @@
     },
     {
         "iname": "SK_EQ_YUAN_BUNDLE",
-        "name": "Survive Bundle",
+        "name": "Survival Bundle",
         "expr": "DEX +16, CRIT +12, LCK +12, AGI +2, Wind Res +1",
         "target_buff_iname": "BUFF_YUAN_BUNDLE",
         "type": "Item",
@@ -93698,7 +94510,7 @@
     },
     {
         "iname": "SK_EQ_YUAN_BLADE",
-        "name": "Survive Blade",
+        "name": "Survival Blade",
         "expr": "PATK +24, AGI +1, CRIT +14, Charm Res +2, Petrify Res +2",
         "target_buff_iname": "BUFF_YUAN_BLADE",
         "type": "Item",
@@ -93810,7 +94622,7 @@
     },
     {
         "iname": "SK_EQ_ARKI_TURBAN",
-        "name": "Sabre Turban",
+        "name": "Sabel Turban",
         "expr": "PDEF +24, MATK +26, AGI +2, Poison Res +2, Water Res +3",
         "target_buff_iname": "BUFF_EQ_ARKI_TURBAN",
         "type": "Item",
@@ -94062,8 +94874,8 @@
     },
     {
         "iname": "SK_EQ_FF15_NOCT",
-        "name": "ノクティス用",
-        "expr": "【装備効果】物攻+30、素早さ+6、獲得ジュエル+2、物防+18、HP+10",
+        "name": "For Noctis",
+        "expr": "[Equipment Effect] PATK +30, AGI +6, Jewels Obtained +2, PDEF +18, HP +10",
         "target_buff_iname": "BUFF_EQ_FF15_NOCT",
         "type": "Item",
         "timing": "Passive",
@@ -94071,12 +94883,13 @@
         "effect_type": "Equipment",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_EQ_FF15_INGI",
-        "name": "イグニス用",
-        "expr": "【装備効果】素早さ+3、器用さ+30、物攻+22、魔攻+12、最大ジュエル+8",
+        "name": "For Ignis",
+        "expr": "[Equipment Effect] AGI +3, DEX +30, PATK +22, MATK +12, Max Jewels +8",
         "target_buff_iname": "BUFF_EQ_FF15_INGI",
         "type": "Item",
         "timing": "Passive",
@@ -94084,12 +94897,13 @@
         "effect_type": "Equipment",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_EQ_FF15_GLAD",
-        "name": "グラディオラス用",
-        "expr": "【装備効果】HP+40、物攻+28、物防+20、魔防+20、水耐性+2",
+        "name": "For Gladiolus",
+        "expr": "[Equipment Effect] HP +40, PATK +28, PDEF +20, MDEF +20, Water Res +2",
         "target_buff_iname": "BUFF_EQ_FF15_GLAD",
         "type": "Item",
         "timing": "Passive",
@@ -94097,12 +94911,13 @@
         "effect_type": "Equipment",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_EQ_FF15_PROM01",
-        "name": "プロンプト用①",
-        "expr": "【装備効果】物攻+20、物防+12、器用さ+12、獲得ジュエル+2、雷耐性+2",
+        "name": "For Prompto [1]",
+        "expr": "[Equipment Effect] PATK +20, PDEF +12, DEX +12, Jewels Obtained +2, Thunder Res +2",
         "target_buff_iname": "BUFF_EQ_FF15_PROM01",
         "type": "Item",
         "timing": "Passive",
@@ -94110,12 +94925,13 @@
         "effect_type": "Equipment",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_EQ_FF15_PROM02",
-        "name": "プロンプト用②",
-        "expr": "【装備効果】HP+14、物攻+8、器用さ+8、魔攻+6",
+        "name": "For Prompto [2]",
+        "expr": "[Equipment Effect] HP +14, PATK +8, DEX +8, MATK +6",
         "target_buff_iname": "BUFF_EQ_FF15_PROM02",
         "type": "Item",
         "timing": "Passive",
@@ -94123,12 +94939,13 @@
         "effect_type": "Equipment",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_EQ_FF15_PROM03",
-        "name": "プロンプト用③",
-        "expr": "【装備効果】素早さ+6、魔防+4、運+6、麻痺耐性+1",
+        "name": "For Prompto [3]",
+        "expr": "[Equipment Effect] AGI +6, MDEF +4, LCK +6, Paralyze Res +1",
         "target_buff_iname": "BUFF_EQ_FF15_PROM03",
         "type": "Item",
         "timing": "Passive",
@@ -94136,12 +94953,13 @@
         "effect_type": "Equipment",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_EQ_FF15_ARAN",
-        "name": "アラネア用",
-        "expr": "【装備効果】物攻+30、会心+16、物防+20、HP+16、魔防+20",
+        "name": "For Aranea",
+        "expr": "[Equipment Effect] PATK +30, CRIT +16, PDEF +20, HP +16, MDEF +20",
         "target_buff_iname": "BUFF_EQ_FF15_ARAN",
         "type": "Item",
         "timing": "Passive",
@@ -94149,7 +94967,8 @@
         "effect_type": "Equipment",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_EQ_DIS_KILL",
@@ -94271,7 +95090,7 @@
     },
     {
         "iname": "SK_EQ_ETON_CLOTHES",
-        "name": "Etona's Imp Costume",
+        "name": "Etna's Imp Costume",
         "expr": "[Equipment Effect] HP +20, PATK +18, PDEF +18, DEX +16, Dark Res +2",
         "target_buff_iname": "BUFF_EQ_ETON_CLOTHES",
         "type": "Item",
@@ -98286,7 +99105,7 @@
     },
     {
         "iname": "SK_AF_ARMO_TOWER_06",
-        "name": "Armor of Mystic Thunder",
+        "name": "Armor of Mystic Darkness",
         "expr": "Light Res +20, PDEF +30, MDEF +30, Confuse/Rage Res +50, Petrify Res +50",
         "target_buff_iname": "BUFF_AF_ARMO_TOWER_06_R5",
         "type": "Item",
@@ -99857,179 +100676,195 @@
     },
     {
         "iname": "SK_AF_ARMS_FF15_PROM_01_4",
-        "name": "カメラ★4",
-        "expr": "能力：器用さアップ、命中率アップ、射撃ダメージアップ（★5進化時）",
+        "name": "Camera 4★",
+        "expr": "Attributes: DEX Up, Hit Rate Up, Missile ATK Up (Added when evolving to 5★)",
         "target_buff_iname": "BUFF_AF_ACCS_PROMPUTO_01_4",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_PROM_01_5",
-        "name": "カメラ★5",
-        "expr": "能力：器用さアップ、命中率アップ、射撃ダメージアップ（★5進化時）",
+        "name": "Camera 5★",
+        "expr": "Attributes: DEX Up, Hit Rate Up, Missile ATK Up (Added when evolving to 5★)",
         "target_buff_iname": "BUFF_AF_ACCS_PROMPUTO_01_5",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_INGI_01_4",
-        "name": "ゾーリンシェイプ★4",
-        "expr": "能力：物攻アップ、魔攻アップ、最大ジュエルアップ、確率で物攻アップ（★5進化時）イグニスに装備させるとマスターアビリティ使用可能（指定範囲内の対象に火属性の魔法ダメージ&攻撃禁止効果[射程:4マス,範囲:菱形2マス,高低差:3]）",
+        "name": "Zwill Crossblades 4★",
+        "expr": "Attributes: PATK Up, MATK Up, Max Jewels Up (Chance of PATK Up added when evolving to 5★)<br>Enables Master Ability when equipped on Ignis (Inflicts Fire Mag Dmg & Daze on units within target area [Range: 4, Area: Diamond (5), Height Range: 3])",
         "target_buff_iname": "BUFF_AF_ARMS_IGNIS_01_4",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_INGI_01_5",
-        "name": "ゾーリンシェイプ★5",
-        "expr": "能力：物攻アップ、魔攻アップ、最大ジュエルアップ、確率で物攻アップ（★5進化時）イグニスに装備させるとマスターアビリティ使用可能（指定範囲内の対象に火属性の魔法ダメージ&攻撃禁止効果[射程:4マス,範囲:菱形2マス,高低差:3]）",
+        "name": "Zwill Crossblades 5★",
+        "expr": "Attributes: PATK Up, MATK Up, Max Jewels Up (Chance of PATK Up added when evolving to 5★)<br>Enables Master Ability when equipped on Ignis (Inflicts Fire Mag Dmg & Daze on units within target area [Range: 4, Area: Diamond (5), Height Range: 3])",
         "target_buff_iname": "BUFF_AF_ARMS_IGNIS_01_5",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_INGI_01_5_AS",
-        "name": "ゾーリンシェイプ★5",
-        "expr": "確率で物攻アップ",
+        "name": "Zwill Crossblades 5★",
+        "expr": "Chance of PATK Up",
         "self_buff_iname": "BUFF_AF_ARMS_IGNIS_01_5_AS",
         "type": "Item",
         "timing": "Used",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_GRAD_01_4",
-        "name": "ハードブレイカー★4",
-        "expr": "能力：HPアップ、物攻アップ、物防アップ、確率で物防ダウン（★5進化時）グラディオラスに装備させるとマスターアビリティ使用可能（指定範囲内の対象に物理ダメージ&対象の素早さDOWN&スタン効果[射程:3,範囲:横3マス,高低差:3]）",
+        "name": "Hardedge 4★",
+        "expr": "Attributes: HP Up, PATK Up, PDEF Up (Chance of PDEF Down added when evolving to 5★)<br>Enables Master Ability when equipped on Gladiolus (Inflicts Phys Dmg & AGI Down & Stun on units within target area [Range: 3, Area: Lateral (3), Height Range: 3])",
         "target_buff_iname": "BUFF_AF_ARMS_GLADIOLUS_01_4",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_GRAD_01_5",
-        "name": "ハードブレイカー★5",
-        "expr": "能力：HPアップ、物攻アップ、物防アップ、確率で物防ダウン（★5進化時）グラディオラスに装備させるとマスターアビリティ使用可能（指定範囲内の対象に物理ダメージ&対象の素早さDOWN&スタン効果[射程:3,範囲:横3マス,高低差:3]）",
+        "name": "Hardedge 5★",
+        "expr": "Attributes: HP Up, PATK Up, PDEF Up (Chance of PDEF Down added when evolving to 5★)<br>Enables Master Ability when equipped on Gladiolus (Inflicts Phys Dmg & AGI Down & Stun on units within target area [Range: 3, Area: Lateral (3), Height Range: 3])",
         "target_buff_iname": "BUFF_AF_ARMS_GLADIOLUS_01_5",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_GRAD_01_5_AS",
-        "name": "ハードブレイカー★5",
-        "expr": "確率で物防ダウン",
+        "name": "Hardedge 5★",
+        "expr": "Chance of PDEF Down",
         "target_buff_iname": "BUFF_AF_ARMS_GLADIOLUS_01_5_AS",
         "type": "Item",
         "timing": "Used",
         "target": "EnemySide",
         "effect_type": "Debuff",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMO_FF15_SHIELD_04",
-        "name": "アブソーブシールド★4",
-        "expr": "能力：HPアップ、物防アップ、ジュエル獲得量アップ",
+        "name": "Absorb Shield 4★",
+        "expr": "Attributes: HP Up, PDEF Up, Jewels Obtained Up",
         "target_buff_iname": "BUFF_AF_ARMO_FF15_SHIELD_04",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMO_FF15_SHIELD_05",
-        "name": "アブソーブシールド★5",
-        "expr": "能力：HPアップ、物防アップ、ジュエル獲得量アップ",
+        "name": "Absorb Shield 5★",
+        "expr": "Attributes: HP Up, PDEF Up, Jewels Obtained Up",
         "target_buff_iname": "BUFF_AF_ARMO_FF15_SHIELD_05",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_NOCT_01_4",
-        "name": "父王の剣★4",
-        "expr": "能力：物攻アップ、魔攻アップ",
+        "name": "Sword of the Father 4★",
+        "expr": "Attributes: PATK Up, MATK Up",
         "target_buff_iname": "BUFF_AF_ARMS_FF15_NOCT_01_4",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_NOCT_01_5",
-        "name": "父王の剣★5",
-        "expr": "能力：物攻アップ、魔攻アップ、魔防アップ",
+        "name": "Sword of the Father 5★",
+        "expr": "Attributes: PATK Up, MATK Up, MDEF Up",
         "target_buff_iname": "BUFF_AF_ARMS_FF15_NOCT_01_5",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_NOCT_01_AS",
-        "name": "父王の剣AS",
-        "expr": "能力:確率でクロックダウン(15%)",
+        "name": "Sword of the Father AS",
+        "expr": "Attributes: Chance of Delay (15%)",
         "target_cond_iname": "CON_AS_ARMS_REA_SICKLE",
         "type": "Item",
         "timing": "Used",
         "target": "EnemySide",
         "effect_type": "FailCondition",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_ARAN_01_4",
-        "name": "シュトースシュペーア★4",
-        "expr": "能力：物攻アップ、器用さアップ",
+        "name": "Stoss Spear 4★",
+        "expr": "Attributes: PATK Up, DEX Up",
         "target_buff_iname": "BUFF_AF_ARMS_FF15_ARAN_01_4",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_ARAN_01_5",
-        "name": "シュトースシュペーア★5",
-        "expr": "能力：物攻アップ、器用さアップ、HPアップ",
+        "name": "Stoss Spear 5★",
+        "expr": "Attributes: PATK Up, DEX Up, HP Up",
         "target_buff_iname": "BUFF_AF_ARMS_FF15_ARAN_01_5",
         "type": "Item",
         "timing": "Passive",
         "target": "Self",
         "effect_type": "Equipment",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_FF15_ARAN_01_AS",
-        "name": "シュトースシュペーアAS",
-        "expr": "能力:確率でJump+2(50%)",
+        "name": "Stoss Spear AS",
+        "expr": "Attributes: Chance of JUMP +2 (50%)",
         "self_buff_iname": "BUFF_AF_ARMS_FF15_ARAN_01_AS",
         "type": "Item",
         "timing": "Used",
         "target": "Self",
         "effect_type": "Buff",
-        "reaction_damage_type": "None"
+        "reaction_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ARMS_ARM_03",
@@ -100463,7 +101298,7 @@
     },
     {
         "iname": "SK_AF_ARMS_S_YURI_00_4",
-        "name": "White-Lily Knife 4★",
+        "name": "White-Lily Katana 4★",
         "expr": "Attributes: PATK/PDEF/AGI Up",
         "target_buff_iname": "BUFF_AF_ARMS_S_YURI_00_4",
         "type": "Item",
@@ -100475,7 +101310,7 @@
     },
     {
         "iname": "SK_AF_ARMS_S_YURI_00_5",
-        "name": "White-Lily Knife 5★",
+        "name": "White-Lily Katana 5★",
         "expr": "Attributes: PATK/PDEF/AGI Up",
         "target_buff_iname": "BUFF_AF_ARMS_S_YURI_00_5",
         "type": "Item",
@@ -100487,7 +101322,7 @@
     },
     {
         "iname": "SK_AF_ARMS_S_YURI_00_AS",
-        "name": "White-Lily Knife AS",
+        "name": "White-Lily Katana AS",
         "expr": "Chance of raising PATK/PDEF for two turns",
         "self_buff_iname": "BUFF_AF_ARMS_S_YURI_00_AS",
         "type": "Item",
@@ -103557,8 +104392,8 @@
     },
     {
         "iname": "SK_FF15_NOCT_MASTER",
-        "name": "ジョブマスターボーナス",
-        "expr": "ノクティス用",
+        "name": "Job Master Bonus",
+        "expr": "For Noctis",
         "target_buff_iname": "BUFF_FF15_NOCT_MASTER",
         "type": "Passive",
         "timing": "Passive",
@@ -103566,12 +104401,13 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_INGI_MASTER",
-        "name": "ジョブマスターボーナス",
-        "expr": "イグニス用",
+        "name": "Job Master Bonus",
+        "expr": "For Ignis",
         "target_buff_iname": "BUFF_FF15_INGI_MASTER",
         "type": "Passive",
         "timing": "Passive",
@@ -103579,12 +104415,13 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_GLAD_MASTER",
-        "name": "ジョブマスターボーナス",
-        "expr": "グラディオラス用",
+        "name": "Job Master Bonus",
+        "expr": "For Gladiolus",
         "target_buff_iname": "BUFF_FF15_GLAD_MASTER",
         "type": "Passive",
         "timing": "Passive",
@@ -103592,12 +104429,13 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_PROM_MASTER",
-        "name": "ジョブマスターボーナス",
-        "expr": "プロンプト用",
+        "name": "Job Master Bonus",
+        "expr": "For Prompto",
         "target_buff_iname": "BUFF_FF15_PROM_MASTER",
         "type": "Passive",
         "timing": "Passive",
@@ -103605,12 +104443,13 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_MASTER",
-        "name": "ジョブマスターボーナス",
-        "expr": "アラネア用",
+        "name": "Job Master Bonus",
+        "expr": "For Aranea",
         "target_buff_iname": "BUFF_FF15_ARAN_MASTER",
         "type": "Passive",
         "timing": "Passive",
@@ -103618,7 +104457,8 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_DIOS_BAA_2_MASTER",
@@ -111195,8 +112035,8 @@
     },
     {
         "iname": "SK_FF15_ARAN_JLV11",
-        "name": "【FF15】アラネア：ジョブLv11装備一式セット",
-        "expr": "【FF15】アラネア：ジョブLv11装備一式セット",
+        "name": "[FFXV] Aranea: Job Lv11 Complete Equipment Set",
+        "expr": "[FFXV] Aranea: Job Lv11 Complete Equipment Set",
         "target_buff_iname": "BUFF_FF15_ARAN_JLV11",
         "type": "Passive",
         "timing": "Passive",
@@ -111204,12 +112044,13 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_FF15_ARAN_JOBMASTER",
-        "name": "【FF15】アラネア：ジョブマスターボーナスセット",
-        "expr": "【FF15】アラネア：ジョブマスターボーナスセット",
+        "name": "[FFXV] Aranea: Job Master Bonus Set",
+        "expr": "[FFXV] Aranea: Job Master Bonus Set",
         "target_buff_iname": "BUFF_FF15_ARAN_JOBMASTER",
         "type": "Passive",
         "timing": "Passive",
@@ -111217,7 +112058,8 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_ACHA_STR_JLV11",
@@ -113187,8 +114029,8 @@
     },
     {
         "iname": "SK_ITEM_TOWER_50",
-        "name": "Item Realm 50F+ Step",
-        "expr": "Item Realm 50F+ Step",
+        "name": "Item World 50F+ Stats Up",
+        "expr": "Item World 50F+ Stats Up",
         "lvcap": 10,
         "target_buff_iname": "BUFF_ITEM_TOWER_50",
         "type": "Passive",
@@ -113202,8 +114044,8 @@
     },
     {
         "iname": "SK_ITEM_TOWER_60",
-        "name": "Item Realm 60F+ Step",
-        "expr": "Item Realm 60F+ Step",
+        "name": "Item World 60F+ Stats Up",
+        "expr": "Item World 60F+ Stats Up",
         "lvcap": 10,
         "target_buff_iname": "BUFF_ITEM_TOWER_60",
         "type": "Passive",
@@ -113217,8 +114059,8 @@
     },
     {
         "iname": "SK_ITEM_TOWER_70",
-        "name": "Item Realm 70F+ Step",
-        "expr": "Item Realm 70F+ Step",
+        "name": "Item World 70F+ Stats Up",
+        "expr": "Item World 70F+ Stats Up",
         "lvcap": 10,
         "target_buff_iname": "BUFF_ITEM_TOWER_70",
         "type": "Passive",
@@ -113232,8 +114074,8 @@
     },
     {
         "iname": "SK_ITEM_TOWER_80",
-        "name": "Item Realm 80F+ Stats Up",
-        "expr": "Item Realm 80F+ Stats Up",
+        "name": "Item World 80F+ Stats Up",
+        "expr": "Item World 80F+ Stats Up",
         "lvcap": 10,
         "target_buff_iname": "BUFF_ITEM_TOWER_80",
         "type": "Passive",
@@ -113247,8 +114089,8 @@
     },
     {
         "iname": "SK_ITEM_TOWER_90",
-        "name": "Item Realm 90F+ Step",
-        "expr": "Item Realm 80F+ Stats Up",
+        "name": "Item World 90F+ Stats Up",
+        "expr": "Item World 80F+ Stats Up",
         "lvcap": 10,
         "target_buff_iname": "BUFF_ITEM_TOWER_90",
         "type": "Passive",
@@ -113262,8 +114104,8 @@
     },
     {
         "iname": "SK_TOWER_FUHSI_HP1",
-        "name": "Limited to Health No Buffs Item Realm 90F+ Step",
-        "expr": "Limited to Health No Buffs Item Realm 90F+ Step",
+        "name": "Limited to Health No Buffs Item World 90F+ Stats Up",
+        "expr": "Limited to Health No Buffs Item World 90F+ Stats Up",
         "lvcap": 10,
         "target_buff_iname": "BUFF_TOWER_FUHSI_HP1",
         "type": "Passive",
@@ -113991,7 +114833,7 @@
     },
     {
         "iname": "SK_ME_TOWN_STR",
-        "name": "[Unused: City] Sacred Brawler",
+        "name": "[Unused: City] Holy Brawler",
         "expr": "[Map Effect] PDEF +20%",
         "MapEffectDesc": "<color=cyan>物防20%アップ</color>",
         "target_buff_iname": "BUFF_ME_UP_PDEF",
@@ -114212,7 +115054,7 @@
     },
     {
         "iname": "SK_ME_PLAIN_KIL",
-        "name": "[Unused: Prairie] Dark Assassin",
+        "name": "[Unused: Prairie] Shadow Assassin",
         "expr": "[Map Effect] Hit Rate -20%",
         "MapEffectDesc": "<color=red>命中率20%ダウン</color>",
         "target_buff_iname": "BUFF_ME_DOWN_HIT",
@@ -114420,7 +115262,7 @@
     },
     {
         "iname": "SK_ME_RUINS_KUDH_LAN",
-        "name": "[Unused: Ruins] Magic Lancer",
+        "name": "[Unused: Ruins] Demonic Spearman",
         "expr": "[Map Effect] PDEF +20%",
         "MapEffectDesc": "<color=cyan>物防20%アップ</color>",
         "target_buff_iname": "BUFF_ME_UP_PDEF",
@@ -114655,7 +115497,7 @@
     {
         "iname": "SK_ME_MAGIC_CASTLE_SYO",
         "name": "[Unused: Magic City] Summoner",
-        "expr": "[Map Effect] Charge Time -20%",
+        "expr": "[Map Effect] Cast Time -20%",
         "MapEffectDesc": "<color=cyan>詠唱時間20%軽減</color>",
         "target_buff_iname": "BUFF_ME_QUICKCAST",
         "type": "Passive",
@@ -114663,7 +115505,7 @@
         "condition": "MapEffect",
         "target": "Self",
         "effect_type": "Buff",
-        "mapeff": "<color=cyan>Charge Time -20%</color>"
+        "mapeff": "<color=cyan>Cast Time -20%</color>"
     },
     {
         "iname": "SK_ME_MAGIC_CASTLE_SEN",
@@ -114699,7 +115541,7 @@
     {
         "iname": "SK_ME_MAGIC_CASTLE_LIES1",
         "name": "[Unused: Magic City] Apprentice Witch",
-        "expr": "[Map Effect] Charge Time -20%",
+        "expr": "[Map Effect] Cast Time -20%",
         "MapEffectDesc": "<color=cyan>詠唱時間20%軽減</color>",
         "target_buff_iname": "BUFF_ME_QUICKCAST",
         "type": "Passive",
@@ -114707,12 +115549,12 @@
         "condition": "MapEffect",
         "target": "Self",
         "effect_type": "Buff",
-        "mapeff": "<color=cyan>Charge Time -20%</color>"
+        "mapeff": "<color=cyan>Cast Time -20%</color>"
     },
     {
         "iname": "SK_ME_MAGIC_CASTLE_LIES2",
         "name": "[Unused: Magic City] Witch",
-        "expr": "[Map Effect] Charge Time -20%, MDEF -20%",
+        "expr": "[Map Effect] Cast Time -20%, MDEF -20%",
         "MapEffectDesc": "<color=cyan>詠唱時間20%軽減、魔防20%アップ</color>",
         "target_buff_iname": "BUFF_ME_QUICKCAST_UP_MDEF",
         "type": "Passive",
@@ -114720,7 +115562,7 @@
         "condition": "MapEffect",
         "target": "Self",
         "effect_type": "Buff",
-        "mapeff": "<color=cyan>Charge Time -20%, MDEF -20%</color>"
+        "mapeff": "<color=cyan>Cast Time -20%, MDEF -20%</color>"
     },
     {
         "iname": "SK_ME_MAGIC_CASTLE_OTHI_WIZ",
@@ -115153,7 +115995,7 @@
     },
     {
         "iname": "SK_ME_FORT_KUDH_LAN",
-        "name": "[Unused: Fortress] Magic Lancer",
+        "name": "[Unused: Fortress] Demonic Spearman",
         "expr": "[Map Effect] MOVE +1",
         "MapEffectDesc": "<color=cyan>Move+1</color>",
         "target_buff_iname": "BUFF_ME_UP_MOVE",
@@ -115829,8 +116671,8 @@
     },
     {
         "iname": "SK_ME_SNW_SUPPORT_QCAST",
-        "name": "[Map Effect] Snow Plains Support Group + Fast Charge",
-        "expr": "HP +20%, AGI +10%, Charge Time -20%",
+        "name": "[Map Effect] Snow Plains Support Group + Fast Cast",
+        "expr": "HP +20%, AGI +10%, Cast Time -20%",
         "MapEffectDesc": "<color=cyan>HP20%、素早さ10%アップ、詠唱時間20%軽減</color>",
         "target_buff_iname": "BUFF_ME_SUPPORTER_UP_QCAST",
         "type": "Passive",
@@ -115838,7 +116680,7 @@
         "condition": "MapEffect",
         "target": "Self",
         "effect_type": "Buff",
-        "mapeff": "<color=cyan>HP +20%, AGI +10%, Charge Time -20%</color>"
+        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
     },
     {
         "iname": "SK_ME_SNW_WIZARD",
@@ -115907,8 +116749,8 @@
     },
     {
         "iname": "SK_ME_MAG_WIZARD_QCAST",
-        "name": "[Map Effect] Magic City MATK Group + Fast Charge",
-        "expr": "HP/MATK +20%, Charge Time -20%",
+        "name": "[Map Effect] Magic City MATK Group + Fast Cast",
+        "expr": "HP/MATK +20%, Cast Time -20%",
         "MapEffectDesc": "<color=cyan>HP、魔攻20%アップ、詠唱時間20%軽減</color>",
         "target_buff_iname": "BUFF_ME_WIZARD_UP_QCAST",
         "type": "Passive",
@@ -115916,7 +116758,7 @@
         "condition": "MapEffect",
         "target": "Self",
         "effect_type": "Buff",
-        "mapeff": "<color=cyan>HP/MATK +20%, Charge Time -20%</color>"
+        "mapeff": "<color=cyan>HP/MATK +20%, Cast Time -20%</color>"
     },
     {
         "iname": "SK_ME_MAG_SUPPORT_CT500",
@@ -115938,8 +116780,8 @@
     },
     {
         "iname": "SK_ME_MAG_SUPPORT_QCAST",
-        "name": "[Map Effect] Magic City Support Group + Fast Charge",
-        "expr": "HP +20%, AGI +10%, Charge Time -20%",
+        "name": "[Map Effect] Magic City Support Group + Fast Cast",
+        "expr": "HP +20%, AGI +10%, Cast Time -20%",
         "MapEffectDesc": "<color=cyan>HP20%、素早さ10%アップ、詠唱時間20%軽減</color>",
         "target_buff_iname": "BUFF_ME_SUPPORTER_UP_QCAST",
         "type": "Passive",
@@ -115947,7 +116789,7 @@
         "condition": "MapEffect",
         "target": "Self",
         "effect_type": "Buff",
-        "mapeff": "<color=cyan>HP +20%, AGI +10%, Charge Time -20%</color>"
+        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
     },
     {
         "iname": "SK_ME_CEM_WARRIOR",

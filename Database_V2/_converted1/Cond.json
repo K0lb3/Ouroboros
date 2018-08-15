@@ -9540,6 +9540,90 @@
         ],
         "dif": {}
     },
+    "CON_GL_KTN_SKILLFUL_COUNTER": {
+        "iname": "CON_GL_KTN_SKILLFUL_COUNTER",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 45,
+        "rate_max": 65,
+        "turn_ini": 2,
+        "turn_max": 2,
+        "conditions": [
+            "Stun"
+        ]
+    },
+    "CON_GL_KTN_DEVOTION": {
+        "iname": "CON_GL_KTN_DEVOTION",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Charm"
+        ]
+    },
+    "CON_GL_KTN_FLEETING_BEAUTY": {
+        "iname": "CON_GL_KTN_FLEETING_BEAUTY",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 25,
+        "rate_max": 50,
+        "conditions": [
+            "Charm"
+        ]
+    },
+    "CON_GL_KTN_CUTTING_WIND": {
+        "iname": "CON_GL_KTN_CUTTING_WIND",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 25,
+        "rate_max": 50,
+        "conditions": [
+            "Paralysed"
+        ]
+    },
+    "CON_GL_KTN_CAPTIVATING": {
+        "iname": "CON_GL_KTN_CAPTIVATING",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 25,
+        "rate_max": 50,
+        "turn_ini": 3,
+        "turn_max": 3,
+        "conditions": [
+            "Paralysed"
+        ]
+    },
+    "CON_GL_DIV_FLARE": {
+        "iname": "CON_GL_DIV_FLARE",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 2,
+        "turn_max": 2,
+        "conditions": [
+            "Donsoku"
+        ]
+    },
     "CON_MAP_MOBIUS_18F_01": {
         "iname": "CON_MAP_MOBIUS_18F_01",
         "type": "ForcedFailCondition",

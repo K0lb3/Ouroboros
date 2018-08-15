@@ -6150,5 +6150,36 @@
             "5": "+100 HP, +10 All Status Res, +20 Initial Jewels, +5 LUCK, +15 Max Jewels"
         },
         "atk_buff": {}
+    },
+    "AF_ARMS_SWO_GL_SIEG_01": {
+        "iname": "AF_ARMS_SWO_GL_SIEG_01",
+        "type": "Weapon",
+        "name": "Gram & Balmung",
+        "expression": "Attribute: P Atk Up, P Def Up, (CRIT & LUCK Up added when evolving to 4★, Chance of P Def down on target when attacking added when evolving to 5★)<br>Enables Master Ability when equipped on Siegfried when his job type is Wandering Swordsman",
+        "flavor": "A pair of peerless swords with perfect edges that never go dull. It is said that there is no armor that can withstand their assault. ",
+        "tag": "Twin Swords",
+        "rarity": "★★★☆☆",
+        "link": "http://www.alchemistcodedb.com/gear/af-arms-swo-gl-sieg-01",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ARMS_SWO_GL_SIEG_01.png",
+        "inputs": [
+            "Siegfried2",
+            "Gram & Balmung"
+        ],
+        "ability": [
+            {
+                "NAME": "Devastating Finish",
+                "EXPR": "Devastating Finish",
+                "restriction": "Siegfried",
+                "iname": "SK_ARMS_SWO_GL_SIEG_01_WA"
+            }
+        ],
+        "stats": {
+            "3": "+16 PATK, +16 PDEF",
+            "4": "+28 PATK, +28 PDEF, +18 CRIT, +14 LUCK",
+            "5": "+30 PATK, +30 PDEF, +20 CRIT, +15 LUCK"
+        },
+        "atk_buff": {
+            "5": "Target: -10% PDEF [Chance: 20%, Turns: 2]"
+        }
     }
 }

@@ -1,5 +1,75 @@
 [
     [
+        "Emissary Basic Atk",
+        "100%  Slash Dmg [Range: Cross (1), Height: 2]",
+        ""
+    ],
+    [
+        "Deal Slash Damage to enemies around self with chance to charm, then move to selected location ",
+        "120%  Slash Dmg [Range: Diamond (4), Height: 2, Area: Square (3)]",
+        "Target: Charm [Chance: 50%, Value: 100]"
+    ],
+    [
+        "Deal Wind Slash Dmg to targets around self with chance of critical",
+        "135% Wind Slash Dmg [Height: 2, Area: Diamond (5)]",
+        ""
+    ],
+    [
+        "Move to selected target and deal non-elemental slash dmg (Hvy).Ignore Def when attacking from the back. Effective against male units",
+        "140%  Slash Dmg [Range: Diamond (5), Height: 2]",
+        ""
+    ],
+    [
+        "Move to Target unit and inflict Slash Dmg to Target unit. Disrupts target casting.(non Elemental)",
+        "110%  Slash Dmg [Range: Diamond (5), Height: 2]",
+        ""
+    ],
+    [
+        "Inflict Slash Damage to target + Penetrating. Raise Patk by 50% until next turn.",
+        "110%  Slash Dmg [Range: Cross (3), Height: 2]",
+        "Self: +50% PATK [Turns: 1]"
+    ],
+    [
+        "Deal Wind Slash Damage to Enemies around self and lower Enemy AGI ",
+        "120% Wind Slash Dmg [Height: 2, Area: Square (3)]",
+        "Target: -30% AGI [Turns: 2]"
+    ],
+    [
+        "Non-elemental slash damage to targets around self and chance to stun units in targeted area for 2 turns",
+        "120%  Slash Dmg [Height: 2, Area: Diamond (5)]",
+        "Target: Paralyze [Turns: 2, Chance: 50%, Value: 100]"
+    ],
+    [
+        "Speaker Attack",
+        "100%  Blow Dmg [Range: Cross (1), Height: 1]",
+        ""
+    ],
+    [
+        "Inflict non-elemental Mag Dmg to target enemy + Penetrating",
+        "120%  Magic Dmg [Range: Cross (4), Height: 2]",
+        ""
+    ],
+    [
+        "Inflict non-elemental magic damage to units in target area. ",
+        "120%  Magic Dmg [Range: Diamond (4), Height: 99, Area: Cross (3)]",
+        ""
+    ],
+    [
+        "Inflict Non-elemental Mag Dmg to units in target area.",
+        "110%  Magic Dmg [Range: LaserWide (2), Height: 2]",
+        ""
+    ],
+    [
+        "Deal magic dmg and knock back enemies around self and inflict bind for 1 turn",
+        "85%  Magic Dmg [Height: 2, Area: Square (3)]",
+        "Target: Slow [Turns: 1, Chance: 100%, Value: 100]"
+    ],
+    [
+        "Inflicts 5-hit light slash Dmg that ignores DEF on target enemy unit & raises own PATK and AGI for three turns [Range: Diamond (5), Height Range: 3]",
+        "100%  Slash Dmg [Range: Diamond (4), Height: 3]",
+        "Self: +50% PATK, +10% AGI [Turns: 3]"
+    ],
+    [
         " ",
         "100%  Slash Dmg [Range: Square (1), Height: 1]",
         ""
@@ -30,7 +100,7 @@
         ""
     ],
     [
-        "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Daze [Range: 4, Height Range: 3]",
+        "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Daze",
         "135%  Slash Dmg [Range: Cross (4), Height: 3]",
         "Target: Daze [Chance: 100%, Value: 100]"
     ],
@@ -50,7 +120,7 @@
         "Self: +1 MOVE [Turns: 3]"
     ],
     [
-        "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces charge time for next turn [Range: 4, Area: Cross (5), Height Range: 2]",
+        "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces cast time for next turn [Range: 4, Area: Cross (5), Height Range: 2]",
         "110% Light Magic Dmg [Range: Diamond (4), Height: 2, Area: Cross (5)]",
         "Self: -33 Cast Time Ratio [Turns: 1]"
     ],
@@ -254,7 +324,7 @@
         ""
     ],
     [
-        "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence<br> [Range: 1, Height Range: 1]",
+        "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence <br>[Range: 1, Height Range: 1]",
         "75%  Slash Dmg [Range: Cross (1), Height: 1]",
         "Target: Death Sentence [Chance: 25%, Value: 100]"
     ],
@@ -2539,7 +2609,7 @@
         "Target: -15 Light Res [Turns: 2]"
     ],
     [
-        "Inflicts Phys Dmg (strong vs demons) on target & interrupts skill charge [Range: 3, Height Range: 2]",
+        "Inflicts Phys Dmg (strong vs demons) on target & interrupts skill cast [Range: 3, Height Range: 2]",
         "130% Light Slash Dmg [Range: Diamond (3), Height: 2]",
         ""
     ],
@@ -4558,350 +4628,350 @@
         ""
     ],
     [
-        "【FF15】ノクティス",
+        "[FFXV] Noctis",
         "100%  Slash Dmg [Range: Cross (1), Height: 2]",
         ""
     ],
     [
-        "指定範囲内の対象に物理ダメージ[射程:1,範囲:横3マス,高低差:2]",
+        "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]",
         "110%  Slash Dmg [Range: Laser (1), Height: 2, Area: Laser (5)]",
         ""
     ],
     [
-        "範囲内の指定した敵に、移動後物理ダメージ&次ターンまで素早さ大幅UP[射程:菱形6マス,高低差:2]",
+        "After moving, inflicts Phys Dmg on target enemy unit & greatly raises AGI until next turn [Range: Diamond (13), Height Range: 2]",
         "40%  Slash Dmg [Range: Diamond (6), Height: 2]",
         "Self: +80% AGI [Turns: 0]"
     ],
     [
-        "指定パネル移動後、自身を中心にHP回復[移動範囲:菱形3マス,高低差:無制限]",
+        "After moving, recovers HP of units in area around self [MOVE Area: Diamond (7), Height Range: Unlimited]",
         "Heals 75% Scaling [Range: Diamond (3), Height: 99, Area: Cross (3)]"
     ],
     [
-        "指定範囲内の対象に水属性の3連続魔法ダメージ[射程:4,範囲:菱形2マス,高低差:2]",
+        "Inflicts 3-hit Water Mag Dmg on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 2]",
         "160% Water Magic Dmg [Range: Diamond (4), Height: 2, Area: Diamond (5)]",
         ""
     ],
     [
-        "指定した対象に物理ダメージ&自身の物攻UP[射程:1,高低差:1]",
+        "Inflicts Phys Dmg on target unit & raises own PATK [Range: 1, Height Range: 1]",
         "110%  Blow Dmg [Range: Cross (1), Height: 1]",
         "Self: +20% PATK [Turns: 3]"
     ],
     [
-        "指定した対象に物理ダメージ&ドンアク効果[射程:4,高低差:無制限]",
+        "Inflicts Phys Dmg & Daze on target unit [Range: 4, Height Range: Unlimited]",
         "110%  Shot Dmg [Range: Diamond (4), Height: 99]",
         "Target: Daze [Chance: 100%, Value: 100]"
     ],
     [
-        "指定範囲内の対象に雷属性の魔法ダメージ&毒効果[射程:4,範囲:十字1マス,高低差:2]",
+        "Inflicts Thunder Mag Dmg & Poison on units within target area [Range: 4, Area: Cross (3), Height Range: 2]",
         "130% Thunder Magic Dmg [Range: Diamond (4), Height: 2, Area: Cross (3)]",
         "Target: Poison [Chance: 100%, Value: 100]"
     ],
     [
-        "指定した対象に火属性の魔法ダメージ&ストップ効果[射程:4,高低差:2]",
+        "Inflicts Fire Mag Dmg & Stop on target unit [Range: 4, Height Range: 2]",
         "130% Fire Magic Dmg [Range: Diamond (4), Height: 2]",
         "Target: Stop [Chance: 100%, Value: 100]"
     ],
     [
-        "被ダメージ時に物理カウンター[射程:1,高低差:2]",
+        "Performs physical counter when Dmg is received [Range: 1, Height Range: 2]",
         "100%  Slash Dmg [Range: Cross (1), Height: 2]",
         ""
     ],
     [
-        "【FF15】イグニス",
+        "[FFXV] Ignis",
         "100%  Slash Dmg [Range: Cross (1), Height: 2]",
         ""
     ],
     [
-        "指定した対象に2連撃の物理ダメージ&毒効果&確率でクリティカル発生[射程:1,高低差:2]",
+        "Inflicts 2-hit Phys Dmg & Poison on target unit with chance of critical [Range: 1, Height Range: 2]",
         "110%  Slash Dmg [Range: Cross (1), Height: 2]",
         "Target: Poison [Chance: 100%, Value: 100]"
     ],
     [
-        "指定した対象に2連撃の物理ダメージ&猛毒効果&確率でクリティカル発生[射程:1,高低差:2]",
+        "Inflicts 2-hit Phys Dmg & Poison on target unit with chance of critical [Range: 1, Height Range: 2]",
         "110%  Slash Dmg [Range: Cross (1), Height: 2]",
         "Target: Poison [Chance: 100%, Value: 100]"
     ],
     [
-        "指定範囲の対象に2連撃の物理ダメージ&確率でクリティカル発生[射程:3,範囲:幅1マスの直線,高低差:2]",
+        "Inflicts 2-hit Phys Dmg on target unit with chance of critical [Range: 3, Area: 1 sq line, Height Range: 2]",
         "150%  Blow Dmg [Range: Laser (3), Height: 2, Area: Laser (3)]",
         ""
     ],
     [
-        "指定した対象に3連撃の物理ダメージ&次ターンまで自身の素早さUP&確率でクリティカル発生[射程:4,高低差:3]",
+        "Inflicts 3-hit Phys Dmg on target unit with chance of critical & raises own AGI until next turn [Range: 4, Height Range: 3]",
         "140%  Slash Dmg [Range: Diamond (4), Height: 3]",
         "Self: +80% AGI [Turns: 0]"
     ],
     [
-        "指定範囲内の対象に物理ダメージ[射程:1,範囲:横3マス,高低差:2]",
+        "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]",
         "110%  Slash Dmg [Range: Laser (1), Height: 2, Area: Laser (5)]",
         ""
     ],
     [
-        "指定範囲内の敵に対して体力吸収[射程:2,範囲:特殊（扇）,高低差:2]",
+        "Absorbs HP from enemy units within target area [Range: 2, Area: Special (Fan), Height Range: 2]",
         "80%  Stab Dmg [Range: LaserSpread (1), Height: 2]",
         ""
     ],
     [
-        "指定した対象に物理ダメージ&貫通効果[射程:4,高低差:2]",
+        "Inflicts Phys Dmg (Penetrating) on target unit [Range: 4, Height Range: 2]",
         "130%  Stab Dmg [Range: Cross (4), Height: 2]",
         ""
     ],
     [
-        "【FF15】グラディオラス",
+        "[FFXV] Gladiolus",
         "100%  Slash Dmg [Range: Cross (1), Height: 2]",
         ""
     ],
     [
-        "指定した対象に物理ダメージ&スタン効果&CT減少[射程:1,高低差:2]",
+        "Inflicts Phys Dmg & Stun on target unit & lowers CT [Range: 1, Height Range: 2]",
         "100%  Blow Dmg [Range: Cross (1), Height: 2]",
         "Target: Stun [Chance: 100%, Value: 100]"
     ],
     [
-        "自身を中心に物理ダメージ&物攻・魔攻DOWN&確率でクリティカル発生[範囲:菱形2マス,高低差:2]",
+        "Inflicts Phys Dmg on units in area around self & lowers PATK/MATK with chance of critical [Area: Diamond (5), Height Range: 2]",
         "130%  Slash Dmg [Height: 2, Area: Diamond (5)]",
         "Target: -25% PATK, -25% MATK [Turns: 3]"
     ],
     [
-        "指定した対象に物理ダメージ&確率でクリティカル発生[射程:1,高低差:2]",
+        "Inflicts Phys Dmg on target unit with chance of critical [Range: 1, Height Range: 2]",
         "200%  Slash Dmg [Range: Square (1), Height: 2]",
         ""
     ],
     [
-        "指定範囲内の対象に物理ダメージ[射程:1,範囲:横3マス,高低差:2]",
+        "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]",
         "110%  Slash Dmg [Range: Laser (1), Height: 2, Area: Laser (5)]",
         ""
     ],
     [
-        "範囲内の指定した敵に、移動後ダメージ[射程:菱形4マス,高低差:1]",
+        "After moving, inflicts Dmg on target enemy unit [Range: Diamond (9), Height Range: 1]",
         "100%  Slash Dmg [Range: Diamond (4), Height: 1]",
         ""
     ],
     [
-        "指定した対象に物理ダメージ&防御無視[射程:1,高低差:2]",
+        "Inflicts Phys Dmg on target unit & ignores DEF [Range: 1, Height Range: 2]",
         "115%  Blow Dmg [Range: Cross (1), Height: 2]",
         ""
     ],
     [
-        "自身を中心に物理ダメージ&自身の回避率UP[範囲:自身の周囲1マス,高低差:2]",
+        "Inflicts Phys Dmg on units in area around self & raises own Evasion Rate [Area: Square (3) around self, Height Range: 2]",
         "130%  Slash Dmg [Height: 2, Area: Square (3)]",
         "Self: +20 Evasion Rate [Turns: 2]"
     ],
     [
-        "物理攻撃の被ダメージ時に確率でダメージ軽減",
+        "Chance of reducing Dmg from physical attack",
         "Blocks 30% Phys Dmg [80% Chance]"
     ],
     [
-        "【FF15】プロンプト",
+        "[FFXV] Prompto",
         "100%  Shot Dmg [Range: Diamond (4), Height: 99]",
         ""
     ],
     [
-        "指定した対象に物理ダメージ&対象の物防DOWN[射程:4,高低差:無制限]",
+        "Inflicts Phys Dmg on target unit & lowers target's PDEF [Range: 4, Height Range: Unlimited]",
         "110%  Shot Dmg [Range: Diamond (4), Height: 99]",
         "Target: -20% PDEF [Turns: 2]"
     ],
     [
-        "自身を中心に物理ダメージ&スタン効果&確率でクリティカル発生[範囲:自身の周囲1マス,高低差:2]",
+        "Inflicts Phys Dmg & Stun on units in area around self with chance of critical [Area: Square (3) around self, Height Range: 2]",
         "115%  Shot Dmg [Height: 2, Area: Square (3)]",
         "Target: Stun [Chance: 100%, Value: 100]"
     ],
     [
-        "指定範囲内の対象に物理ダメージ[射程:3,範囲:特殊（扇）,高低差:2]",
+        "Inflicts Phys Dmg on units within target area [Range: 3, Area: Special (Fan), Height Range: 2]",
         "120%  Shot Dmg [Range: LaserSpread (2), Height: 2]",
         ""
     ],
     [
-        "指定した対象に物理ダメージ&次ターンまで自身の素早さUP[射程:4,高低差:無制限]",
+        "Inflicts Phys Dmg on target unit & raises own AGI until next turn",
         "140%  Shot Dmg [Range: Diamond (4), Height: 99]",
         "Self: +60% AGI [Turns: 0]"
     ],
     [
-        "自身を中心に物理ダメージ&確率でマヒ効果[範囲:十字1マス,高低差:2]",
+        "Inflicts Phys Dmg on units in area around self with chance of inflicting Paralyze [Area: Cross (3), Height Range: 2]",
         "110%  Shot Dmg [Height: 2, Area: Cross (3)]",
         "Target: Paralyze [Chance: 40%, Value: 100]"
     ],
     [
-        "指定範囲内の対象に物理ダメージ&確率で狂化効果[射程:4,範囲:十字1マス,高低差:無制限]",
+        "Inflicts Phys Dmg on units within target area with chance of inflicting Confuse [Range: 4, Area: Cross (3), Height Range: Unlimited]",
         "115%  Shot Dmg [Range: Diamond (4), Height: 99, Area: Cross (3)]",
         "Target: Berserk [Chance: 40%, Value: 100]"
     ],
     [
-        "指定範囲内の対象に物理ダメージ&確率で移動禁止効果&貫通効果[射程:4,範囲:十字1マス,高低差:無制限]",
+        "Inflicts Phys Dmg (Penetrating) on units within target area with chance of inflicting Bind [Range: 4, Area: Cross (3), Height Range: Unlimited]",
         "125%  Shot Dmg [Range: Diamond (4), Height: 99, Area: Cross (3)]",
         "Target: Bind [Chance: 25%, Value: 100]"
     ],
     [
-        "被ダメージ時に確率で物理カウンター&攻撃禁止効果[射程:4,高低差:無制限]",
+        "Chance of performing physical counter & inflicting Daze when Dmg is received [Range: 4, Height Range: Unlimited]",
         "70%  Shot Dmg [Range: Diamond (4), Height: 99]",
         "Target: Daze [Chance: 100%, Value: 100]"
     ],
     [
-        "【FF15】アラネア",
+        "[FFXV] Aranea",
         "100%  Stab Dmg [Range: Cross (2), Height: 2]",
         ""
     ],
     [
-        "ジャンプ効果&着地時に対象に刺突ダメージ[射程:4,高低差:2]",
+        "JUMP status & upon landing inflicts Pierce Dmg on target [Range: 4, Height Range: 2]",
         "120%  Stab Dmg [Range: Diamond (4), Height: 2]",
         ""
     ],
     [
-        "ジャンプ効果&着地時に対象に刺突ダメージ&自身の物攻UP[射程:4,高低差:3]",
+        "JUMP status & upon landing inflicts Pierce Dmg on target & raises own PATK [Range: 4, Height Range: 3]",
         "130%  Stab Dmg [Range: Diamond (4), Height: 3]",
         "Self: +20% PATK [Turns: 3]"
     ],
     [
-        "ジャンプ効果&着地時に対象に刺突ダメージ&対象の物防DOWN[射程:4,高低差:3]",
+        "JUMP status & upon landing inflicts Pierce Dmg on target & lowers target's PDEF [Range: 4, Height Range: 3]",
         "130%  Stab Dmg [Range: Diamond (4), Height: 3]",
         "Target: -20% PDEF [Turns: 2]"
     ],
     [
-        "ジャンプ効果&着地時に対象に刺突ダメージ[射程:4,高低差:4]",
+        "JUMP status & upon landing inflicts Pierce Dmg on target [Range: 4, Height Range: 4]",
         "150%  Stab Dmg [Range: Diamond (4), Height: 4]",
         ""
     ],
     [
-        "ジャンプ効果&着地時に対象に刺突ダメージ[射程:4,高低差:2]",
+        "JUMP status & upon landing inflicts Pierce Dmg on target [Range: 4, Height Range: 2]",
         "135%  Stab Dmg [Range: Diamond (4), Height: 2]",
         ""
     ],
     [
-        "ジャンプ効果&着地時に対象に刺突ダメージ&自身の物攻UP[射程:4,高低差:3]",
+        "JUMP status & upon landing inflicts Pierce Dmg on target & raises own PATK [Range: 4, Height Range: 3]",
         "145%  Stab Dmg [Range: Diamond (4), Height: 3]",
         "Self: +20% PATK [Turns: 3]"
     ],
     [
-        "ジャンプ効果&着地時に対象に刺突ダメージ&対象の物防DOWN[射程:4,高低差:3]",
+        "JUMP status & upon landing inflicts Pierce Dmg on target & lowers target's PDEF [Range: 4, Height Range: 3]",
         "160%  Stab Dmg [Range: Diamond (4), Height: 3]",
         "Target: -20% PDEF [Turns: 2]"
     ],
     [
-        "ジャンプ効果&着地時に指定範囲内の対象に刺突ダメージ[射程:4,範囲:菱形2マス,高低差:4]",
+        "JUMP status & upon landing inflicts Pierce Dmg on units within target area [Range: 4, Area: Diamond (5), Height Range: 4]",
         "150%  Stab Dmg [Range: Diamond (4), Height: 4, Area: Diamond (5)]",
         ""
     ],
     [
-        "指定した対象に物理ダメージ&対象に鈍足効果[射程:1,高低差:2]",
+        "Inflicts Phys Dmg & Slow on target unit [Range: 1, Height Range: 2]",
         "100%  Blow Dmg [Range: Cross (1), Height: 2]",
         "Target: Slow [Chance: 100%, Value: 100]"
     ],
     [
-        "範囲内の指定した敵に、移動後物理ダメージ[射程:菱形3マス,高低差:3]",
+        "After moving, inflicts Phys Dmg on target enemy unit [Range: Diamond (7), Height Range: 3]",
         "100%  Stab Dmg [Range: Diamond (3), Height: 3]",
         ""
     ],
     [
-        "指定した対象に物理ダメージ&貫通効果[射程:3,高低差:2]",
+        "Inflicts Phys Dmg (Penetrating) on target unit [Range: 3, Height Range: 2]",
         "125%  Stab Dmg [Range: Cross (3), Height: 2]",
         ""
     ],
     [
-        "指定した対象に物理ダメージ&対象に移動禁止&攻撃禁止[射程:1,高低差:3]",
+        "Inflicts Phys Dmg & Bind & Daze on target unit [Range: 1, Height Range: 3]",
         "130%  Blow Dmg [Range: Cross (1), Height: 3]",
         "Target: Bind, Daze [Chance: 100%, Value: 100]"
     ],
     [
-        "被ダメージ時に物理カウンター&貫通効果[射程:2,高低差:3]",
+        "Performs physical counter (Penetrating) when Dmg is received [Range: 2, Height Range: 3]",
         "100%  Stab Dmg [Range: Cross (2), Height: 3]",
         ""
     ],
     [
-        "斬撃",
+        "Slash",
         "100%  Slash Dmg [Range: Cross (1), Height: 2]",
         ""
     ],
     [
-        "扇レーザー範囲の攻撃スキル",
+        "ATK Skill [Range: Fan Laser]",
         "110%  Blow Dmg [Range: LaserSpread (3), Height: 2]",
         ""
     ],
     [
-        "十字射程の貫通攻撃スキル",
+        "ATK Skill (Penetrating) [Range: Cross]",
         "140%  Blow Dmg [Range: Laser (3), Height: 4, Area: Laser (3)]",
         ""
     ],
     [
-        "十字射程のカウンター攻撃スキル",
+        "Counter ATK Skill [Range: Cross]",
         "110%  Blow Dmg [Range: Cross (1), Height: 2]",
         ""
     ],
     [
-        "打撃",
+        "Strike",
         "100%  Blow Dmg [Range: Cross (1), Height: 2]",
         ""
     ],
     [
-        "菱形射程の菱形範囲物理攻撃。猛毒効果",
+        "Phys Dmg & Poison [Range: Diamond, Area: Diamond]",
         "115%  Shot Dmg [Range: Diamond (3), Height: 3, Area: Diamond (5)]",
         "Target: Poison [Chance: 100%, Value: 100]"
     ],
     [
-        "菱形射程の単体物理攻撃。固定ダメージ",
+        "Fixed Phys Dmg to single target [Range: Diamond]",
         "10100%  Shot Dmg [Range: Diamond (3), Height: 3]",
         ""
     ],
     [
-        "菱形射程の単体物理攻撃。固定ダメージ 使用回数99回版",
+        "Fixed Phys Dmg to single target [Range: Diamond] (99th Use Ver.)",
         "10100%  Shot Dmg [Range: Diamond (3), Height: 3]",
         ""
     ],
     [
-        "菱形範囲のカウンター攻撃。防御無視",
+        "Counter ATK Skill (Ignores DEF) [Area: Diamond]",
         "1100%  Shot Dmg [Range: Diamond (4), Height: 99]",
         ""
     ],
     [
-        "打撃",
+        "Strike",
         "100%  Blow Dmg [Range: Cross (1), Height: 2]",
         ""
     ],
     [
-        "扇レーザー範囲攻撃",
+        "Area attack [Area: Fan Laser]",
         "115%  Shot Dmg [Range: LaserSpread (3), Height: 1]",
         ""
     ],
     [
-        "菱形射程の十字範囲攻撃",
+        "Area attack [Range: Cross, Area: Diamond]",
         "130%  Shot Dmg [Range: Diamond (3), Height: 4, Area: Cross (3)]",
         ""
     ],
     [
-        "自身中心の菱形範囲攻撃",
+        "Area attack centered around self [Area: Diamond]",
         "140%  Shot Dmg [Height: 3, Area: Diamond (5)]",
         ""
     ],
     [
-        "扇レーザー範囲攻撃 防御無視",
+        "Area attack (Ignores DEF) [Area: Fan Laser]",
         "115%  Shot Dmg [Range: LaserSpread (3), Height: 1]",
         ""
     ],
     [
-        "菱形射程の十字範囲攻撃 防御無視",
+        "Area attack (Ignores DEF) [Range: Diamond, Area: Cross]",
         "130%  Shot Dmg [Range: Diamond (3), Height: 4, Area: Cross (3)]",
         ""
     ],
     [
-        "自身中心の菱形範囲攻撃 防御無視",
+        "Area attack centered around self (Ignores DEF) [Area: Diamond]",
         "140%  Shot Dmg [Height: 3, Area: Diamond (5)]",
         ""
     ],
     [
-        "カウンター。確率で麻痺",
+        "Counter (Chance of inflicting Poison)",
         "110% Thunder Stab Dmg [Range: Square (1), Height: 3]",
         "Target: Paralyze [Chance: 70%, Value: 100]"
     ],
     [
-        "斬撃",
+        "Slash",
         "100%  Slash Dmg [Range: Cross (1), Height: 2]",
         ""
     ],
     [
-        "菱形射程の射撃攻撃",
+        "Inflicts Missile Dmg [Range: Diamond]",
         "115%  Shot Dmg [Range: Diamond (3), Height: 99]",
         ""
     ],
     [
-        "自身中心の正方形範囲攻撃",
+        "Area attack centered around self [Area: Square]",
         "130%  Blow Dmg [Height: 2, Area: Square (3)]",
         ""
     ],
@@ -6023,7 +6093,7 @@
         "Target: -80% AGI [Turns: 2]"
     ],
     [
-        "Recovers HP of ally units within area around self (no charge time) [Area: Diamond (5), Height Range: 2]",
+        "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
         "Heals 95% Scaling [Height: 2, Area: Diamond (5)]"
     ],
     [
@@ -6133,7 +6203,7 @@
         ""
     ],
     [
-        "Inflicts Phys Dmg on units within target area & interrupts charging [Range: 4, Area: Cross (3), Height Range: Unlimited]",
+        "Inflicts Phys Dmg on units within target area & interrupts casting [Range: 4, Area: Cross (3), Height Range: Unlimited]",
         "140%  Shot Dmg [Range: Diamond (4), Height: 99, Area: Cross (3)]",
         ""
     ],
@@ -6158,28 +6228,28 @@
         "Heals 95% Scaling [Range: Diamond (3), Height: 2, Area: Cross (3)]"
     ],
     [
-        "指定した敵に雷属性の物理攻撃&対象のCTを0にする[射程:菱形4マス,高低差:3]",
+        "Inflicts Thunder Phys Dmg on target enemy unit & lowers CT to 0 [Range: Diamond (9), Height Range: 3]",
         "170% Thunder Shot Dmg [Range: Diamond (4), Height: 3]",
         ""
     ],
     [
-        "指定した敵に無属性4連続物理ダメージ&3ターンの間、自身の物攻、素早さ、回避率アップ[射程:菱形4マス,高低差:3]",
+        "Inflicts 4-hit non-elemental Phys Dmg on target enemy unit & raises own PATK/AGI/Evasion Rate for three turns [Range: Diamond (9), Height Range: 3]",
         "150%  None Dmg [Range: Diamond (4), Height: 3]",
         "Self: +50% PATK, +10% AGI, +20 Evasion Rate [Turns: 3]"
     ],
     [
-        "範囲内の対象に火属性の魔法攻撃&攻撃禁止効果[射程:4,範囲:菱形2マス,高低差:3]",
+        "Inflicts Fire Mag Dmg & Daze on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 3]",
         "160% Fire Magic Dmg [Range: Diamond (4), Height: 3, Area: Diamond (5)]",
         "Target: Daze [Chance: 100%, Value: 100]"
     ],
     [
-        "指定範囲内の対象に物理ダメージ&対象の素早さDOWN&スタン効果[射程:3,範囲:横3マス,高低差:3]",
+        "Inflicts Phys Dmg & AGI Down & Stun on enemy units within target area [Range: 3, Area: Lateral (3), Height Range: 3]",
         "150%  Slash Dmg [Range: Laser (3), Height: 3, Area: Laser (5)]",
         "Target: -30% AGI [Turns: 2]",
         "Target: Stun [Chance: 100%, Value: 100]"
     ],
     [
-        "指定した敵に無属性物理ダメージ&必中&防御無視&確率でクリティカル発生&1ターンの間、物攻アップ[射程:4マス,高低差:4]",
+        "Inflicts non-elemental Phys Dmg on target enemy unit & 100% Hit & ignores DEF with chance of critical & raises PATK for one turn [Range: 4, Height Range: 4]",
         "170%  Stab Dmg [Range: Diamond (4), Height: 4]",
         "Self: +100% PATK [Turns: 1]"
     ],
@@ -6623,42 +6693,42 @@
         "Target: -3 COMBO Scope [Turns: 3]"
     ],
     [
-        "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "[Item World Special Skill] Powerful Dmg to whole map",
         "165%  Magic Dmg [Height: 99]",
         ""
     ],
     [
-        "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "[Item World Special Skill] Powerful Dmg to whole map",
         "165%  Magic Dmg [Height: 99]",
         ""
     ],
     [
-        "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "[Item World Special Skill] Powerful Dmg to whole map",
         "165%  Magic Dmg [Height: 99]",
         ""
     ],
     [
-        "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "[Item World Special Skill] Powerful Dmg to whole map",
         "165%  Magic Dmg [Height: 99]",
         ""
     ],
     [
-        "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "[Item World Special Skill] Powerful Dmg to whole map",
         "155%  Magic Dmg [Height: 99]",
         ""
     ],
     [
-        "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "[Item World Special Skill] Powerful Dmg to whole map",
         "155%  Magic Dmg [Height: 99]",
         ""
     ],
     [
-        "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "[Item World Special Skill] Powerful Dmg to whole map",
         "155%  Magic Dmg [Height: 99]",
         ""
     ],
     [
-        "[Item Realm Special Skill] Powerful Dmg to whole map",
+        "[Item World Special Skill] Powerful Dmg to whole map",
         "155%  Magic Dmg [Height: 99]",
         ""
     ],
@@ -6786,7 +6856,7 @@
         "Heals 1131% Scaling [Height: 99, Area: All (3)]"
     ],
     [
-        "自身を中心とした指定範囲の対象に物理ダメージ（特大）。自爆[範囲:菱形2マス,高低差:2]",
+        "Inflicts Phys Dmg (Extra-High) on units in area around self & self-destructs [Area: Diamond (5), Height Range: 2]",
         "250%  None Dmg [Range: Diamond (4), Height: 2, Area: Diamond (7)]",
         ""
     ],
@@ -7578,12 +7648,12 @@
         ""
     ],
     [
-        "指定範囲内の対象に風属性攻撃。射程3※ダメ黒魔法ベースやや弱",
+        "Inflicts Wind Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak",
         "140% Wind Magic Dmg [Range: Diamond (3), Height: 2, Area: Cross (3)]",
         "Target: -20% PATK, -20% MATK [Turns: 9]"
     ],
     [
-        "指定範囲内の対象に風属性攻撃。射程3※ダメ黒魔法ベースやや弱",
+        "Inflicts Wind Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak",
         "140% Wind Magic Dmg [Range: Diamond (3), Height: 2, Area: Cross (3)]",
         "Target: -20% PDEF, -20% MDEF [Turns: 9]"
     ],
@@ -7593,7 +7663,7 @@
         ""
     ],
     [
-        "指定範囲内の対象に雷属性攻撃。射程3※ダメ黒魔法ベースやや弱",
+        "Inflicts Thunder Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak",
         "140% Thunder Magic Dmg [Range: Diamond (3), Height: 2, Area: Cross (3)]",
         "Target: -20% PDEF, -20% MDEF [Turns: 9]"
     ],
@@ -7628,7 +7698,7 @@
         ""
     ],
     [
-        "[Item Realm] Casts Petrify on units in area around self",
+        "[Item World] Casts Petrify on units in area around self",
         "100%  Blow Dmg [Height: 2, Area: Square (5)]",
         "Target: Petrify [Chance: 100%, Value: 100]"
     ],
@@ -7861,7 +7931,7 @@
         ""
     ],
     [
-        "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-charging ver.",
+        "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-casting ver.",
         "250100%  Slash Dmg [Height: 99]",
         "Target: -999 Initial Jewels, -10 Used Jewels"
     ],
@@ -7871,7 +7941,7 @@
         ""
     ],
     [
-        "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-charging ver.",
+        "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-casting ver.",
         "250100%  Slash Dmg [Height: 99]",
         "Target: -10 Used Jewels"
     ],
@@ -7881,7 +7951,7 @@
         ""
     ],
     [
-        "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-charging ver.",
+        "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-casting ver.",
         "250100%  Slash Dmg [Height: 99]",
         "Target: -999 Initial Jewels, -10 Used Jewels"
     ],
@@ -8314,7 +8384,7 @@
         ""
     ],
     [
-        "【敵ユニット】ケルベロス(ロングウインドブレス)",
+        "Cerberus (Ranged Wind Breath) (Enemy Unit)",
         "135% Wind Magic Dmg [Range: Laser (3), Height: 3, Area: Laser (5)]",
         ""
     ],
@@ -8766,27 +8836,27 @@
         ""
     ],
     [
-        "指定範囲内の対象に物理攻撃　[射程:十字20 範囲0]",
+        "Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]",
         "145%  Slash Dmg [Range: Cross (20), Height: 10, Area: Square (0)]",
         ""
     ],
     [
-        "弱版　指定範囲内の対象に物理攻撃　[射程:クロス20 範囲0]",
+        "[Weak ver.] Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]",
         "145%  Slash Dmg [Range: Bishop (20), Height: 10, Area: Square (0)]",
         ""
     ],
     [
-        "指定範囲内の対象に物理攻撃　[射程:十字20 範囲0]",
+        "Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]",
         "145%  Slash Dmg [Range: Cross (20), Height: 10, Area: Square (0)]",
         ""
     ],
     [
-        "弱版　指定範囲内の対象に物理攻撃　[射程:クロス20 範囲0]",
+        "[Weak ver.] Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]",
         "145%  Slash Dmg [Range: Bishop (20), Height: 10, Area: Square (0)]",
         ""
     ],
     [
-        "指定範囲内の対象に物理攻撃　[射程:十字20 範囲0]",
+        "Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]",
         "145%  Slash Dmg [Range: Cross (20), Height: 10, Area: Square (0)]",
         ""
     ],
@@ -8881,12 +8951,12 @@
         "Target: Poison [Chance: 100%, Value: 100]"
     ],
     [
-        "Inflicts Death Sentence on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast charging)",
+        "Inflicts Death Sentence on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast casting)",
         "110%  Stab Dmg [Height: 99]",
         "Target: Death Sentence [Chance: 100%]"
     ],
     [
-        "Inflicts Poison on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast charging)",
+        "Inflicts Poison on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast casting)",
         "105%  Stab Dmg [Height: 99]",
         "Target: Poison [Chance: 100%, Value: 100]"
     ],
@@ -8984,12 +9054,12 @@
         ""
     ],
     [
-        "Absorbs Jewels from target [Range: 6, Height Range: Unlimited] Non-charging ver.",
+        "Absorbs Jewels from target [Range: 6, Height Range: Unlimited] Non-casting ver.",
         "1000%  Slash Dmg [Range: Diamond (6), Height: 10, Area: Cross (3)]",
         ""
     ],
     [
-        "Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No charge time ver.)",
+        "Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No cast time ver.)",
         "1100%  Slash Dmg [Range: Diamond (6), Height: 99, Area: Cross (3)]",
         ""
     ],
@@ -9395,7 +9465,7 @@
         "Heals 160% Scaling [Range: Diamond (2), Height: 2]"
     ],
     [
-        "Warning shot that interrupts charging",
+        "Warning shot that interrupts casting",
         "15%  Shot Dmg [Range: Diamond (5), Height: 2, Area: Diamond (3)]",
         ""
     ],

@@ -5566,8 +5566,8 @@
             "Siegfried",
             "Noctis FF",
             "Nasario",
-            "Lahar DIS",
             "Olga",
+            "Lahar DIS",
             "Edwin",
             "Rainy RH",
             "Raydo",
@@ -9364,8 +9364,8 @@
             "Archer",
             "Aranea FF",
             "Yuto",
-            "Basheeny",
             "Chao",
+            "Basheeny",
             "Blanshett",
             "Zofia",
             "Hugo",
@@ -12174,8 +12174,8 @@
         "units": [
             "Deneb",
             "Sophia",
-            "Chiruru",
             "Chao",
+            "Chiruru",
             "Emma"
         ],
         "jobe": [
@@ -12986,6 +12986,7 @@
             "Yomi SN",
             "Margaret",
             "Mirianne",
+            "Gl Shion",
             "Fairily",
             "Shenmei EMD",
             "Iris FF",
@@ -13476,6 +13477,7 @@
         "units": [
             "Aswald",
             "Setsuna",
+            "Gl Shion",
             "Ignis FF",
             "Killia DIS",
             "Chat Noir",
@@ -16293,6 +16295,326 @@
             "Siegfried",
             "Siegfried Wandering Swordsman",
             "Wandering Swordsman"
+        ]
+    },
+    "JB_GL_KTN": {
+        "iname": "JB_GL_KTN",
+        "name": "Gl Ktn",
+        "japan": "",
+        "kanji": "Noble Emissary",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gl_ktn.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MFEN.png",
+        "origin": "",
+        "units": [
+            "Gl Shion"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_GL_KTN_UPPER",
+            "name": "Blade Arts",
+            "expr": "Blade Art techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Fatal Devotion",
+                    "expr": "Inflicts Charm, raise Patk and lower Def of target unit"
+                },
+                {
+                    "name": "Sword Stance",
+                    "expr": "Raise Patk of Self till next attack."
+                },
+                {
+                    "name": "Fleeting Beauty",
+                    "expr": "Deal Slash Damage to enemies around self with chance to charm, then move to selected location "
+                },
+                {
+                    "name": "Cutting Wind",
+                    "expr": "Deal Wind Slash Dmg to targets around self with chance of critical"
+                },
+                {
+                    "name": "Deep and Dreamless Slumber",
+                    "expr": "Move to selected target and deal non-elemental slash dmg (Hvy).Ignore Def when attacking from the back. Effective against male units"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_GL_KTN_LOWER",
+            "name": "Basic Blade Arts",
+            "expr": "Blade Art techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Blade Flash",
+                    "expr": "Move to Target unit and inflict Slash Dmg to Target unit. Disrupts target casting.(non Elemental)"
+                },
+                {
+                    "name": "Blade Fang",
+                    "expr": "Inflict Slash Damage to target + Penetrating. Raise Patk by 50% until next turn."
+                },
+                {
+                    "name": "Gale Slash",
+                    "expr": "Deal Wind Slash Damage to Enemies around self and lower Enemy AGI "
+                },
+                {
+                    "name": "Captivating Visage",
+                    "expr": "Non-elemental slash damage to targets around self and chance to stun units in targeted area for 2 turns"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Skillful Counter",
+                    "expr": "After taking damage, counterattack with chance to stun enemy for 2 turns"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Peerless Bladework",
+                    "expr": "Raises Slash Damage and Evasion"
+                }
+            ]
+        },
+        "weapon": "Katana",
+        "modifiers": {
+            "HP": 10,
+            "Max Jewels": 5,
+            "Initial Jewels": 30,
+            "PATK": 10,
+            "PDEF": 5,
+            "MATK": -10,
+            "MDEF": 0,
+            "DEX": 5,
+            "AGI": 5,
+            "LUCK": 2,
+            "CRIT": 10,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 20,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 5,
+                "calc": "Scale"
+            },
+            {
+                "type": "DEX",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "CRIT",
+                "value": 3,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 3,
+            "PATK": 262,
+            "PDEF": 140,
+            "DEX": 236,
+            "AGI": 40,
+            "MATK": 45,
+            "LUCK": 63,
+            "CRIT": 158,
+            "HP": 344,
+            "Jewels Obtained": 28,
+            "MDEF": 38,
+            "Fire Res": 7,
+            "Water Res": 5,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Charm Res": 38,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 25,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10
+        },
+        "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/glshion#gl-ktn",
+        "inputs": [
+            "Gl Shion",
+            "Gl Shion Gl Ktn",
+            "Gl Ktn"
+        ]
+    },
+    "JB_GL_DIV": {
+        "iname": "JB_GL_DIV",
+        "name": "Gl Div",
+        "japan": "",
+        "kanji": "Divine Speaker",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gl_div.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_WIZ.png",
+        "origin": "Mage",
+        "units": [
+            "Soren"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_GL_DIV_UPPER",
+            "name": "Divine Gift",
+            "expr": "Divine Gift techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Gift of Might",
+                    "expr": "Raises P Atk and M Atk for self and allies for 3 turns"
+                },
+                {
+                    "name": "Gift of Focus",
+                    "expr": "Raises M Atk for self and grants Clock up for 3 turns"
+                },
+                {
+                    "name": "Divine Light",
+                    "expr": "Inflict non-elemental Mag Dmg to target enemy + Penetrating"
+                },
+                {
+                    "name": "Divine Missiles",
+                    "expr": "Inflict non-elemental magic damage to units in target area. "
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_GL_DIV_LOWER",
+            "name": "Basic Divine Gift",
+            "expr": "Divine Gift techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Gift of Protection",
+                    "expr": "Raises P Def and M Def of target ally for 3 turns"
+                },
+                {
+                    "name": "Gift of Power",
+                    "expr": "Raises P Atk and M Atk of target ally for 3 turns"
+                },
+                {
+                    "name": "Divine Ray",
+                    "expr": "Inflict Non-elemental Mag Dmg to units in target area."
+                },
+                {
+                    "name": "Divine Flare",
+                    "expr": "Deal magic dmg and knock back enemies around self and inflict bind for 1 turn"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Defensive Instinct",
+                    "expr": "Raises P Def and M Def when attacked "
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Divine Wisdom",
+                    "expr": "Raises M Atk"
+                },
+                {
+                    "name": "Divine Armor",
+                    "expr": "Raises P Def"
+                }
+            ]
+        },
+        "weapon": "Rod",
+        "modifiers": {
+            "HP": -20,
+            "Max Jewels": 10,
+            "Initial Jewels": 100,
+            "PATK": -20,
+            "PDEF": -15,
+            "MATK": 15,
+            "MDEF": 20,
+            "DEX": -12,
+            "AGI": 3,
+            "LUCK": 0,
+            "CRIT": -12,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 20,
+                "calc": "Scale"
+            },
+            {
+                "type": "PDEF",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "MATK",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "MDEF",
+                "value": 2,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "MATK": 237,
+            "MDEF": 149,
+            "LUCK": 141,
+            "AGI": 23,
+            "CRIT": 113,
+            "HP": 193,
+            "PATK": 75,
+            "PDEF": 120,
+            "Jewels Obtained": 36,
+            "DEX": 54,
+            "Fire Res": 3,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Max Jewels": 35,
+            "Stop Res": 34,
+            "Silence Res": 34,
+            "Dark Res": 4,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 25,
+            "Blind Res": 10,
+            "Light Res": 1
+        },
+        "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/glsoren#gl-div",
+        "inputs": [
+            "Soren",
+            "Soren Gl Div",
+            "Gl Div"
         ]
     },
     "JB_FF15_NOCT": {
