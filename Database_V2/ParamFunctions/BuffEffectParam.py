@@ -1,4 +1,4 @@
-from ParamFunctions._variables import RAWBIRTH,RAWELEMENT,ENUM
+from ParamFunctions._variables import RAWBIRTH,RAWELEMENT,ENUM,TRANSLATION
 def BuffEffectParam(json):
     this={}#BuffEffectParamjson)
     if 'iname' in json:
@@ -61,7 +61,7 @@ def BuffEffectParam(json):
             continue
 
         this['buffs'].append({
-            'type':ENUM['ParamTypes'][json['type'+n]],
+            'type': TRANSLATION[ENUM['ParamTypes'][json['type'+n]]],
             'value_ini': json['vini'+n],
             'value_max': json['vmax'+n],
             'value_one': json['vone'+n] if 'vone'+n in json else 0,

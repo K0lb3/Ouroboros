@@ -1,4 +1,4 @@
-from ParamFunctions._variables import RAWBIRTH,RAWELEMENT,ENUM
+from ParamFunctions._variables import RAWBIRTH,RAWELEMENT,ENUM,TRANSLATION
 def CondEffectParam(json):
     this={}#CondEffectParamjson)
     #if(json==null)
@@ -37,9 +37,13 @@ def CondEffectParam(json):
         this['turn_max'] = json['tmax']
     if 'curse' in json:
         this['curse'] = json['curse']
+    
+    pre='Resist_' if json['type']<2 else 'Assist_'
+    EnchantTypes=ENUM['EnchantTypes']
     if 'conds' in json:
         this['conditions'] = [
-            ENUM['EUnitCondition'][pow(2,cond)]
+            TRANSLATION[pre+EnchantTypes[cond]]
+            #ENUM['EUnitCondition'][pow(2,cond)]
             for cond in json['conds']
         ]
     if 'buffs' in json:
