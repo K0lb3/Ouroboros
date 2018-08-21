@@ -2,6 +2,7 @@ import os
 import json
 import math
 import jellyfish
+from ParamFunctions._variables import ENUM
 
 PATH=os.path.dirname(os.path.realpath(__file__))
 EXPORTPATH=PATH+'\\export\\'
@@ -53,7 +54,7 @@ def dmg_formula(weaponParam):
         "Dex":    modifier(weaponParam['atk']/10) + " DEX",
         "Spd":    modifier(weaponParam['atk']/10) + " AGI",
         "Cri":    modifier(weaponParam['atk']/10) + " CRIT",
-        "Mhp":    modifier(weaponParam['atk']/10) + " MAX HP",
+        "MHp":    modifier(weaponParam['atk']/10) + " MAX HP",
         "AtkSpd": modifier(weaponParam['atk']/15) + " (PATK + AGI)",
         "MagSpd": modifier(weaponParam['atk']/15) + " (MATK + AGI)",
         "AtkDex": modifier(weaponParam['atk']/20) + " (PATK + DEX)",

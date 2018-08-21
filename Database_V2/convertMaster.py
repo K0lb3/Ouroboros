@@ -1,5 +1,5 @@
-from MainFunctions import loadFiles,os,DifParam,saveAsJSON,PATH,json
-from Functions import wytesong,Tierlist
+from MainFunctions import loadFiles,os,DifParam,saveAsJSON,PATH,json,dmg_formula
+from Functions import wytesong,Tierlist,TRANSLATION
 import ParamFunctions
 
 PATH_convert=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converted1')
@@ -65,8 +65,18 @@ def Fixes(master):
     BUFF=master['Buff']
     ITEM=master['Item']
     JOB=master['Job']
+    GEAR=master['Artifact']
+    WEAPON= master['Weapon']
 
      ##job############################################################
+    print('Fix - Skill')
+    if 1:
+        #dmg formula
+        for key,skill in SKILL.items():
+            if 'weapon' in skill:
+                skill['formula']=dmg_formula(WEAPON[skill['weapon']])
+        saveAsJSON(PATH_convert2, 'Skill.json',SKILL)
+
     print('Fix - Job')
     if 1:
         #abilities and stats
@@ -107,6 +117,17 @@ def Fixes(master):
                             stats[buff['type']]+=buff['value_max']
             job['stats']=stats
 
+            #weapon
+            job['weapon']=GEAR[job['artifact']]['tag']
+            #formula
+            job['formula']=SKILL[job['atkskill'][0]]['formula']
+
+            #stats modifiers
+            for rank in job['ranks']:
+                rank['status']={
+                    TRANSLATION[stat.title()]:value
+                    for stat,value in rank['status'].items()
+                }
         #save
         saveAsJSON(PATH_convert2, 'Job.json',JOB)
     ##quests#########################################################
@@ -129,6 +150,7 @@ def Fixes(master):
                             if p in map['Set']:
                                 for index,value in enumerate(map['Set'][p]):
                                     map['Set'][p][index] = ParamFunctions.MapSetting(value)
+        saveAsJSON(PATH_convert2, 'Quests.json',master['quests'])
             #drop list
 
     ##units##########################################################
@@ -213,12 +235,14 @@ def Fixes(master):
                                     UNIT[enemy['iname']]['occurrence'].append(key)
                             else:
                                 print(enemy['iname'])
-
-        #save
-        saveAsJSON(PATH_convert2, 'Quests.json',master['quests'])
         saveAsJSON(PATH_convert2, 'Unit.json',eUnit)
         saveAsJSON(PATH_convert2, 'Enemy.json',eEnemy)
-        saveAsJSON(PATH_export, 'AIO.json', master, None)
+
+    #save
+    saveAsJSON(PATH_export, 'Database.json', {
+        key.title():items
+        for key,items in master.items()
+        }, None)
 
 
 Con1=convertRaws()

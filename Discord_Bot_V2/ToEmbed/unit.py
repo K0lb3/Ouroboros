@@ -55,39 +55,12 @@ def Unit(iname, page):
         if page=='art':
             embed=art(unit)
             break
-
-    
     return embed
 
 
 def main(unit):
     f = []
-    def MasterAbility(ability,dif=False):
-        ability=DIRS['Ability'][ability]
-        skill = DIRS['Skill'][ability['skills'][0]['iname']]
-        ret=[]
-        if 'target_buff_iname' in skill:
-            ret.append(StrBuff(skill['target_buff_iname'],2,2,True))
-        if 'target_cond_iname' in skill:
-            ret.append(StrCondition(skill['target_cond_iname'],2,2))
-        if 'ReplaceTargetIdLists' in skill:
-            ret.append('{skill} Upgrade'.format(skill=DIRS['Skill'][skill['ReplaceTargetIdLists'][0]]['name']))
-        return '\n'.join(ret) if ret else '*Active Skill*'
-
-    def LeaderSkill(skill):
-        skill=DIRS['Skill'][skill]
-        ret=[]
-        if 'target_buff_iname' in skill:
-            buff=StrBuff(skill['target_buff_iname'],2,2,False)
-            if ':' in buff:
-                buff=buff[buff.rindex(': ')+2:].replace('\n',': ')
-            ret.append(buff)
-        if 'target_cond_iname' in skill:
-            ret.append(StrCondition(skill['target_cond_iname'],2,2))
-        return '\n'.join(ret)
         
-    
-
     #tags
     f.append({'name': 'Tags' , 'value': ', '.join(unit['tags']), 'inline':True})
     #rarity
@@ -207,7 +180,27 @@ def job(unit,job):
     return fields
 
 def kaigan(unit):
-    pass
+    if 'kaigan' in unit:
+        f=[]
+        for typ,kaigan in unit['kaigan'].items():
+            if kaigan=='Unlock':
+                continue
+            text=''
+            if 'mSkillIname' in kaigan:
+                skill = DIRS['Skill'][kaigan['mSkillIname']]
+                if 'target_buff_iname' in skill:
+                    text+='\n**Buff:**\n' + StrBuff(skill['target_buff_iname'],2,2,True)
+                if 'target_cond_iname' in skill:
+                    text+='\n**Condition:**\n' + StrCondition(skill['target_cond_iname'],2,2)
+            if 'mOverwriteLeaderSkillIname' in kaigan:
+                text+='\n**Leader Skill:**\n' + LeaderSkill(kaigan['mOverwriteLeaderSkillIname'])
+            if 'mLearnAbilities' in kaigan and len(kaigan['mLearnAbilities']):
+                pass
+            f.append({'name':typ, 'value':text[1:], 'inline':False})
+        return f
+    else:
+        return 0
+            
 
 def nensou(unit):
     pass
@@ -254,3 +247,31 @@ def art(unit):
 
         embeds.append(embed)
     return embeds
+
+
+##other functions
+
+def MasterAbility(ability, dif=False):
+    ability = DIRS['Ability'][ability]
+    skill = DIRS['Skill'][ability['skills'][0]['iname']]
+    ret = []
+    if 'target_buff_iname' in skill:
+        ret.append(StrBuff(skill['target_buff_iname'], 2, 2, True))
+    if 'target_cond_iname' in skill:
+        ret.append(StrCondition(skill['target_cond_iname'], 2, 2))
+    if 'ReplaceTargetIdLists' in skill:
+        ret.append('{skill} Upgrade'.format(
+            skill=DIRS['Skill'][skill['ReplaceTargetIdLists'][0]]['name']))
+    return '\n'.join(ret) if ret else '*Active Skill*'
+
+def LeaderSkill(skill):
+    skill = DIRS['Skill'][skill]
+    ret = []
+    if 'target_buff_iname' in skill:
+        buff = StrBuff(skill['target_buff_iname'], 2, 2, False)
+        if ':' in buff:
+            buff = buff[buff.rindex(': ')+2:].replace('\n', ': ')
+        ret.append(buff)
+    if 'target_cond_iname' in skill:
+        ret.append(StrCondition(skill['target_cond_iname'], 2, 2))
+    return '\n'.join(ret)

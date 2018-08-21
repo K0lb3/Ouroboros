@@ -54,6 +54,11 @@ async def unit(ctx, *, name):
     unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
     await ctx.send(embed=ToEmbed.Unit(unit,'main'))
 
+@bot.command()
+async def kaigan(ctx, *, name):
+    unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
+    await ctx.send(embed=ToEmbed.Unit(unit,'kaigan'))
+
 #done
 @bot.command()
 async def lore(ctx,*,name):

@@ -86,5 +86,3 @@ def main(gear):
     #lore
     fields.append({'name': 'Flavor Text', 'value': gear['flavor'], 'inline': False})
     return fields
-
-

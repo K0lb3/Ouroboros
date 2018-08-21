@@ -9,6 +9,9 @@ def ConvertFields(self,fields):
     for field in fields:
         if 'inline' not in field:
             field['inline']=True
+        if type(field['value'])!=str:
+            field['value']=str(field['value'])
+
     self._fields = [
             field
             for field in fields

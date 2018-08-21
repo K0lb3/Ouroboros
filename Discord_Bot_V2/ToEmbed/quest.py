@@ -2,7 +2,7 @@ from ToEmbed._main import DIRS,LinkDB,ConvertFields,StrBuff,StrCondition,Embed
 from PIL import Image, ImageFont, ImageDraw
 import io
 
-def quest(iname,page):
+def Quest(iname,page):
     Quest=DIRS['Quests'][iname]
 
     map=MapImage(Quest['map'][0])
