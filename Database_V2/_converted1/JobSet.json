@@ -6281,36 +6281,6 @@
             "iname": "JB_GL_WSM"
         }
     },
-    "JS_GL_SHIO1": {
-        "iname": "JS_GL_SHIO1",
-        "job": "JB_GL_KTN",
-        "lock_rarity": 0,
-        "lock_jobs": {}
-    },
-    "JS_GL_SHIO2": {
-        "iname": "JS_GL_SHIO2",
-        "job": "JB_KIL",
-        "lock_rarity": 0,
-        "lock_awakelv": 15,
-        "lock_jobs": {
-            "iname": "JB_GL_KTN"
-        }
-    },
-    "JS_GL_SHIO3": {
-        "iname": "JS_GL_SHIO3",
-        "job": "JB_SHN",
-        "lock_rarity": 0,
-        "lock_awakelv": 5,
-        "lock_jobs": {
-            "iname": "JB_GL_KTN"
-        }
-    },
-    "JS_GL_SORE1": {
-        "iname": "JS_GL_SORE1",
-        "job": "JB_GL_DIV",
-        "lock_rarity": 0,
-        "lock_jobs": {}
-    },
     "JS_MICHAEL_04_MICH_DOC": {
         "iname": "JS_MICHAEL_04_MICH_DOC",
         "job": "JB_MICH_DOC",
@@ -6525,19 +6495,6 @@
         "lock_awakelv": 15,
         "lock_jobs": {
             "iname": "JB_NIN",
-            "lv": 11
-        },
-        "dif": {}
-    },
-    "JS_GORM_04_KAI": {
-        "iname": "JS_GORM_04_KAI",
-        "job": "JB_GORM_KAI",
-        "jobchange": "JS_KAI",
-        "target_unit": "UN_V2_GORMALAS",
-        "lock_rarity": 0,
-        "lock_awakelv": 15,
-        "lock_jobs": {
-            "iname": "JB_KAI",
             "lv": 11
         },
         "dif": {}
@@ -6957,6 +6914,18 @@
         "lock_awakelv": 15,
         "lock_jobs": {
             "iname": "JB_PRI",
+            "lv": 11
+        }
+    },
+    "JS_GORM_04_KAI": {
+        "iname": "JS_GORM_04_KAI",
+        "job": "JB_GORM_KAI",
+        "jobchange": "JS_KAI",
+        "target_unit": "UN_V2_GORMALAS",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAI",
             "lv": 11
         }
     },

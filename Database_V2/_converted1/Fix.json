@@ -99,7 +99,7 @@
     "VipCardDate": 30,
     "FreeGachaGoldMax": 5,
     "FreeGachaGoldCoolDownSec": 600,
-    "FreeGachaCoinCoolDownSec": 86400,
+    "FreeGachaCoinCoolDownSec": 259200,
     "BuyGoldCost": 10,
     "BuyGoldAmount": 25000,
     "SupportCost": 100,
@@ -228,7 +228,6 @@
         "StaminaRecoverySec": 360,
         "ShopUpdateTime": [],
         "VipCardProduct": "jp.co.gu3.alchemist.vip120",
-        "FreeGachaCoinCoolDownSec": 259200,
         "DefaultCondTurns": {
             "DisableEsaFire": 3,
             "DisableEsaWater": 3,

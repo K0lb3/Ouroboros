@@ -35,34 +35,34 @@ def Tierlist(units):
                 invalid.append(i)
         tl[i]['total'] = rating[best]
 
-
+    ##########################################################
     # add tierlist to units
+    unitsN={
+        unit['name']:unit
+        for key,unit in units.items()
+        }
+    used=[]
     for i in tl:
         if i in invalid:
             continue
 
-        found = False
-        for u in units:
-            if units[u]['name'] == i:
-                units[u]['tierlist'] = tl[i]
-                found = True
-                break
-                
-            if not found:
-                max = 0
-                best = ""
-                for iname,obj in units.items():
-                    if 'tierlist' in obj:
-                        continue
-                    sim = jellyfish.jaro_winkler(i, obj['name'])
-                    if sim > max:
-                        max = sim
-                        best = iname
-        if max > 0.85:
-            units[best]['tierlist'] = tl[i]
-            if max<1:
-                print(i + ' to ' + best + ' sim: ' + str(max))
+        if i in unitsN:
+            unitsN[i]['tierlist'] = tl[i]
+            used.append(i)
+            continue
+ 
         else:
-            print('Not Found:',i,str(max),best)
+            similarities = [
+                (key, jellyfish.jaro_winkler(i, key))
+                for key in unitsN
+                if key not in used
+            ]
+            key, score = max(similarities, key=lambda s: s[1])
+            if score > 0.85:
+                unitsN[key]['tierlist'] = tl[i]
+                print(i + ' to ' + key + ' sim: ' + str(score))
+                used.append(key)
+            else:
+                print('Not Found:',i,str(score),key)
 
     return units

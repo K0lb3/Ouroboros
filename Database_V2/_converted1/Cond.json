@@ -9,7 +9,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "v_blink_hit": -20,
         "dif": {}
@@ -24,7 +24,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "v_blink_hit": -40,
         "dif": {}
@@ -40,8 +40,8 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -55,24 +55,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -86,8 +86,8 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal",
-            "AutoJewel"
+            "Auto Heal",
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 2,
         "dif": {
@@ -119,24 +119,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Rage",
-            "Stop",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Rage Res",
+            "Stop Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -150,8 +150,8 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff",
-            "DisableDebuff"
+            "Buff",
+            "Debuff"
         ],
         "dif": {}
     },
@@ -167,7 +167,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -239,7 +239,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -311,7 +311,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -325,7 +325,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -340,8 +340,8 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Stone",
-            "DisableHeal"
+            "Petrify",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -355,7 +355,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -369,7 +369,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -383,7 +383,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -397,7 +397,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -411,7 +411,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -425,7 +425,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -439,7 +439,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Zombie"
+            "Infect"
         ],
         "dif": {}
     },
@@ -453,7 +453,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -481,8 +481,8 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -510,7 +510,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -524,7 +524,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -538,7 +538,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -552,7 +552,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -566,7 +566,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -595,15 +595,15 @@
         "rate_max": 100,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku"
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow"
         ],
         "dif": {}
     },
@@ -648,7 +648,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -708,7 +708,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -723,7 +723,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -738,7 +738,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -753,7 +753,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -768,7 +768,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -783,7 +783,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -798,7 +798,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -828,8 +828,8 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -859,7 +859,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -874,7 +874,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -889,7 +889,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -904,7 +904,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -919,7 +919,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -950,15 +950,15 @@
         "curse": 1,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku"
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow"
         ],
         "dif": {}
     },
@@ -1002,7 +1002,7 @@
         "rate_ini": 80,
         "rate_max": 80,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -1058,7 +1058,7 @@
         "rate_ini": 80,
         "rate_max": 80,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -1072,7 +1072,7 @@
         "rate_ini": 80,
         "rate_max": 80,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -1086,7 +1086,7 @@
         "rate_ini": 80,
         "rate_max": 80,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -1100,7 +1100,7 @@
         "rate_ini": 80,
         "rate_max": 80,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -1114,7 +1114,7 @@
         "rate_ini": 80,
         "rate_max": 80,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -1128,7 +1128,7 @@
         "rate_ini": 80,
         "rate_max": 80,
         "conditions": [
-            "Zombie"
+            "Infect"
         ],
         "dif": {}
     },
@@ -1142,7 +1142,7 @@
         "rate_ini": 80,
         "rate_max": 80,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -1184,7 +1184,7 @@
         "rate_ini": 80,
         "rate_max": 80,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -1198,7 +1198,7 @@
         "rate_ini": 80,
         "rate_max": 80,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -1212,7 +1212,7 @@
         "rate_ini": 80,
         "rate_max": 80,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -1241,15 +1241,15 @@
         "rate_max": 80,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku"
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow"
         ],
         "dif": {}
     },
@@ -1277,7 +1277,7 @@
         "rate_ini": 25,
         "rate_max": 50,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -1333,7 +1333,7 @@
         "rate_ini": 25,
         "rate_max": 50,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -1347,7 +1347,7 @@
         "rate_ini": 25,
         "rate_max": 50,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -1361,7 +1361,7 @@
         "rate_ini": 25,
         "rate_max": 50,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -1375,7 +1375,7 @@
         "rate_ini": 25,
         "rate_max": 50,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -1389,7 +1389,7 @@
         "rate_ini": 25,
         "rate_max": 50,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -1403,7 +1403,7 @@
         "rate_ini": 25,
         "rate_max": 50,
         "conditions": [
-            "Zombie"
+            "Infect"
         ],
         "dif": {}
     },
@@ -1417,7 +1417,7 @@
         "rate_ini": 25,
         "rate_max": 50,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -1459,7 +1459,7 @@
         "rate_ini": 25,
         "rate_max": 50,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -1473,7 +1473,7 @@
         "rate_ini": 25,
         "rate_max": 50,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -1487,7 +1487,7 @@
         "rate_ini": 25,
         "rate_max": 50,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -1516,15 +1516,15 @@
         "rate_max": 50,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku"
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow"
         ],
         "dif": {}
     },
@@ -1552,7 +1552,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -1608,7 +1608,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -1622,7 +1622,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -1636,7 +1636,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -1650,7 +1650,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -1664,7 +1664,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -1678,7 +1678,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "Zombie"
+            "Infect"
         ],
         "dif": {}
     },
@@ -1692,7 +1692,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -1734,7 +1734,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -1748,7 +1748,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -1762,7 +1762,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -1791,15 +1791,15 @@
         "rate_max": 25,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku"
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow"
         ],
         "dif": {}
     },
@@ -1813,8 +1813,8 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -1829,15 +1829,15 @@
         "rate_max": 100,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku"
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow"
         ],
         "dif": {}
     },
@@ -1852,15 +1852,15 @@
         "rate_max": 100,
         "conditions": [
             "Berserk",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku"
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow"
         ],
         "dif": {}
     },
@@ -1884,7 +1884,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -1932,7 +1932,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -1944,7 +1944,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -1956,7 +1956,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -1968,7 +1968,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -1980,7 +1980,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -1992,7 +1992,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Zombie"
+            "Infect"
         ],
         "dif": {}
     },
@@ -2004,7 +2004,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -2040,7 +2040,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -2052,7 +2052,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -2064,7 +2064,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -2089,15 +2089,15 @@
         "rate_max": 100,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku"
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow"
         ],
         "dif": {}
     },
@@ -2109,7 +2109,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -2123,7 +2123,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -2151,7 +2151,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -2207,7 +2207,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -2221,7 +2221,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -2235,7 +2235,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -2249,7 +2249,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -2263,7 +2263,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -2277,7 +2277,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Zombie"
+            "Infect"
         ],
         "dif": {}
     },
@@ -2291,7 +2291,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -2319,7 +2319,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableKnockback"
+            "Knockback"
         ],
         "dif": {}
     },
@@ -2333,7 +2333,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ],
         "dif": {}
     },
@@ -2347,7 +2347,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableDebuff"
+            "Debuff"
         ],
         "dif": {}
     },
@@ -2361,8 +2361,8 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableBuff",
-            "DisableDebuff"
+            "Buff",
+            "Debuff"
         ],
         "dif": {}
     },
@@ -2390,7 +2390,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -2404,7 +2404,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -2418,7 +2418,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -2447,23 +2447,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -2477,7 +2477,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ],
         "dif": {}
     },
@@ -2491,7 +2491,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableDebuff"
+            "Debuff"
         ],
         "dif": {}
     },
@@ -2505,8 +2505,8 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff",
-            "DisableDebuff"
+            "Buff",
+            "Debuff"
         ],
         "dif": {}
     },
@@ -2520,7 +2520,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ],
         "dif": {}
     },
@@ -2531,7 +2531,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison"
+            "Poison Res"
         ],
         "dif": {}
     },
@@ -2542,7 +2542,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Paralysed"
+            "Paralyze Res"
         ],
         "dif": {}
     },
@@ -2553,7 +2553,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Stun"
+            "Stun Res"
         ],
         "dif": {}
     },
@@ -2564,7 +2564,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Sleep"
+            "Sleep Res"
         ],
         "dif": {}
     },
@@ -2575,7 +2575,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Charm"
+            "Charm Res"
         ],
         "dif": {}
     },
@@ -2586,7 +2586,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Stone"
+            "Petrify Res"
         ],
         "dif": {}
     },
@@ -2597,7 +2597,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind Res"
         ],
         "dif": {}
     },
@@ -2608,7 +2608,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableSkill"
+            "Silence Res"
         ],
         "dif": {}
     },
@@ -2619,7 +2619,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove"
+            "Bind Res"
         ],
         "dif": {}
     },
@@ -2630,7 +2630,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableAttack"
+            "Daze Res"
         ],
         "dif": {}
     },
@@ -2641,7 +2641,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Zombie"
+            "Infect Res"
         ],
         "dif": {}
     },
@@ -2652,7 +2652,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence Res"
         ],
         "dif": {}
     },
@@ -2663,7 +2663,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Berserk"
+            "Berserk Res"
         ],
         "dif": {}
     },
@@ -2674,7 +2674,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableBuff"
+            "Buff Res"
         ],
         "dif": {}
     },
@@ -2685,7 +2685,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableDebuff"
+            "Debuff Res"
         ],
         "dif": {}
     },
@@ -2696,9 +2696,9 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack"
+            "Silence Res",
+            "Bind Res",
+            "Daze Res"
         ],
         "dif": {}
     },
@@ -2709,7 +2709,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Stop"
+            "Stop Res"
         ],
         "dif": {}
     },
@@ -2720,7 +2720,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken Res"
         ],
         "dif": {}
     },
@@ -2731,7 +2731,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Slow"
+            "Delay Res"
         ],
         "dif": {}
     },
@@ -2742,7 +2742,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Donsoku"
+            "Slow Res"
         ],
         "dif": {}
     },
@@ -2753,7 +2753,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Rage"
+            "Rage Res"
         ],
         "dif": {}
     },
@@ -2764,23 +2764,23 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -2791,9 +2791,9 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Poison",
-            "Donsoku",
-            "Blindness"
+            "Poison Res",
+            "Slow Res",
+            "Blind Res"
         ],
         "dif": {}
     },
@@ -2804,24 +2804,24 @@
         "rate_ini": 30,
         "rate_max": 30,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -2846,24 +2846,24 @@
         "rate_ini": 30,
         "rate_max": 30,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -2905,7 +2905,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -2919,7 +2919,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -2933,7 +2933,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -2947,7 +2947,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -2961,7 +2961,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -2975,7 +2975,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -2989,7 +2989,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -3003,7 +3003,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -3017,7 +3017,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -3060,8 +3060,8 @@
         "rate_max": 25,
         "conditions": [
             "Poison",
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -3089,7 +3089,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -3103,7 +3103,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -3173,7 +3173,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -3187,7 +3187,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -3243,7 +3243,7 @@
         "rate_ini": 25,
         "rate_max": 25,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -3257,7 +3257,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -3299,7 +3299,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -3313,7 +3313,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -3383,7 +3383,7 @@
         "rate_ini": 25,
         "rate_max": 25,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -3397,24 +3397,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -3428,7 +3428,7 @@
         "rate_ini": 25,
         "rate_max": 25,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -3442,8 +3442,8 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -3471,7 +3471,7 @@
         "rate_ini": 25,
         "rate_max": 25,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -3485,24 +3485,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -3516,7 +3516,7 @@
         "rate_ini": 25,
         "rate_max": 25,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -3530,7 +3530,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -3544,8 +3544,8 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -3559,7 +3559,7 @@
         "rate_ini": 25,
         "rate_max": 25,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -3573,7 +3573,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -3587,7 +3587,7 @@
         "rate_ini": 25,
         "rate_max": 25,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -3601,7 +3601,7 @@
         "rate_ini": 25,
         "rate_max": 25,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -3615,7 +3615,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -3626,11 +3626,11 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Paralysed",
-            "Stun",
-            "DisableMove",
-            "DisableAttack",
-            "Slow"
+            "Paralyze Res",
+            "Stun Res",
+            "Bind Res",
+            "Daze Res",
+            "Delay Res"
         ],
         "dif": {}
     },
@@ -3644,7 +3644,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -3658,8 +3658,8 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -3686,24 +3686,24 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -3717,7 +3717,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -3731,8 +3731,8 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -3760,7 +3760,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -3774,8 +3774,8 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -3789,7 +3789,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -3804,7 +3804,7 @@
         "rate_max": 100,
         "conditions": [
             "Stun",
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -3818,7 +3818,7 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -3846,7 +3846,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -3904,7 +3904,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -3918,7 +3918,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -3932,7 +3932,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -3946,7 +3946,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -3963,23 +3963,23 @@
         "turn_max": 5,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -3992,24 +3992,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Rage",
-            "Stop",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Rage Res",
+            "Stop Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -4023,7 +4023,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -4037,7 +4037,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -4051,7 +4051,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -4065,7 +4065,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -4082,23 +4082,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Rage",
-            "DeathSentence",
+            "Death Sentence",
             "Stop",
-            "Slow",
-            "DisableHeal"
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -4112,7 +4112,7 @@
         "rate_ini": 40,
         "rate_max": 20,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -4126,7 +4126,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -4140,8 +4140,8 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -4158,23 +4158,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Rage",
-            "DeathSentence",
+            "Death Sentence",
             "Stop",
-            "Slow",
-            "DisableHeal"
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -4188,7 +4188,7 @@
         "rate_ini": 25,
         "rate_max": 10,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -4202,9 +4202,9 @@
         "rate_ini": 10,
         "rate_max": 10,
         "conditions": [
-            "Paralysed",
-            "Fast",
-            "AutoJewel"
+            "Paralyze",
+            "Quicken",
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -4218,7 +4218,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -4247,7 +4247,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -4262,7 +4262,7 @@
         "rate_max": 100,
         "conditions": [
             "Poison",
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -4276,7 +4276,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -4290,7 +4290,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -4304,7 +4304,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -4331,11 +4331,11 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Berserk",
-            "DeathSentence",
-            "Stop",
-            "Stone",
-            "DisableSkill"
+            "Berserk Res",
+            "Death Sentence Res",
+            "Stop Res",
+            "Petrify Res",
+            "Silence Res"
         ],
         "dif": {}
     },
@@ -4377,7 +4377,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -4392,7 +4392,7 @@
         "rate_max": 100,
         "conditions": [
             "Stop",
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -4436,7 +4436,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "GoodSleep"
+            "Sleep"
         ],
         "dif": {}
     },
@@ -4478,24 +4478,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -4509,7 +4509,7 @@
         "rate_ini": 5,
         "rate_max": 15,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -4523,7 +4523,7 @@
         "rate_ini": 5,
         "rate_max": 15,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -4551,7 +4551,7 @@
         "rate_ini": 5,
         "rate_max": 15,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -4593,24 +4593,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -4624,7 +4624,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -4655,23 +4655,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -4687,7 +4687,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -4703,7 +4703,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -4717,7 +4717,7 @@
         "rate_ini": 50,
         "rate_max": 80,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -4732,7 +4732,7 @@
         "rate_max": 100,
         "conditions": [
             "Poison",
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -4746,7 +4746,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "v_blink_hit": -25,
         "dif": {}
@@ -4764,23 +4764,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -4808,7 +4808,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -4824,7 +4824,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -4840,7 +4840,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -4857,23 +4857,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -4887,7 +4887,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -4916,7 +4916,7 @@
         "rate_max": 100,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 2,
         "dif": {}
@@ -4961,7 +4961,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Paralysed",
+            "Paralyze",
             "Poison"
         ],
         "v_poison_rate": 20,
@@ -5006,7 +5006,7 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -5020,7 +5020,7 @@
         "rate_ini": 50,
         "rate_max": 75,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -5062,7 +5062,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -5090,7 +5090,7 @@
         "rate_ini": 5,
         "rate_max": 15,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -5105,7 +5105,7 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -5121,7 +5121,7 @@
         "turn_max": 3,
         "conditions": [
             "Sleep",
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -5135,7 +5135,7 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -5163,7 +5163,7 @@
         "rate_ini": 50,
         "rate_max": 75,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -5191,7 +5191,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -5205,7 +5205,7 @@
         "rate_ini": 50,
         "rate_max": 75,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -5219,7 +5219,7 @@
         "rate_ini": 50,
         "rate_max": 75,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -5261,7 +5261,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -5275,7 +5275,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -5289,7 +5289,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ],
         "dif": {}
     },
@@ -5303,8 +5303,8 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff",
-            "DisableDebuff"
+            "Buff",
+            "Debuff"
         ],
         "dif": {}
     },
@@ -5318,7 +5318,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -5332,7 +5332,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -5362,7 +5362,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -5379,23 +5379,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -5408,24 +5408,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -5467,7 +5467,7 @@
         "rate_ini": 5,
         "rate_max": 15,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -5483,7 +5483,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -5494,24 +5494,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -5541,7 +5541,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -5555,7 +5555,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -5583,7 +5583,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -5597,7 +5597,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -5611,7 +5611,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -5625,7 +5625,7 @@
         "rate_ini": 10,
         "rate_max": 20,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -5639,7 +5639,7 @@
         "rate_ini": 10,
         "rate_max": 15,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -5653,7 +5653,7 @@
         "rate_ini": 10,
         "rate_max": 15,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -5667,7 +5667,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -5681,7 +5681,7 @@
         "rate_ini": 30,
         "rate_max": 30,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -5695,7 +5695,7 @@
         "rate_ini": 15,
         "rate_max": 20,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -5723,7 +5723,7 @@
         "rate_ini": 20,
         "rate_max": 40,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -5737,7 +5737,7 @@
         "rate_ini": 10,
         "rate_max": 25,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -5765,7 +5765,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -5823,7 +5823,7 @@
         "rate_ini": 15,
         "rate_max": 20,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -5879,7 +5879,7 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -5908,8 +5908,8 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Paralysed",
-            "Blindness"
+            "Paralyze",
+            "Blind"
         ],
         "dif": {}
     },
@@ -5951,7 +5951,7 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -5965,8 +5965,8 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Blindness",
-            "DisableSkill"
+            "Blind",
+            "Silence"
         ],
         "dif": {}
     },
@@ -5980,7 +5980,7 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -5994,7 +5994,7 @@
         "rate_ini": 20,
         "rate_max": 40,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -6008,7 +6008,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -6040,7 +6040,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -6056,7 +6056,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -6102,7 +6102,7 @@
         "rate_ini": 35,
         "rate_max": 60,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -6130,7 +6130,7 @@
         "rate_ini": 15,
         "rate_max": 20,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -6144,7 +6144,7 @@
         "rate_ini": 15,
         "rate_max": 20,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -6160,7 +6160,7 @@
         "turn_ini": 6,
         "turn_max": 6,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -6176,7 +6176,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -6192,7 +6192,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -6208,7 +6208,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -6224,7 +6224,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -6240,7 +6240,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableHeal"
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -6257,23 +6257,23 @@
         "turn_max": 5,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -6289,7 +6289,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -6305,7 +6305,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableHeal"
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -6321,8 +6321,8 @@
         "turn_ini": 5,
         "turn_max": 5,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -6352,8 +6352,8 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -6369,7 +6369,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -6383,7 +6383,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -6411,7 +6411,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -6425,7 +6425,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -6440,7 +6440,7 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -6454,7 +6454,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -6468,7 +6468,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -6498,7 +6498,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -6546,7 +6546,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -6611,7 +6611,7 @@
         "turn_max": 4,
         "conditions": [
             "Stun",
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -6627,7 +6627,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -6643,8 +6643,8 @@
         "turn_ini": 5,
         "turn_max": 5,
         "conditions": [
-            "AutoJewel",
-            "AutoHeal"
+            "Jewel Auto Charge",
+            "Auto Heal"
         ],
         "v_auto_hp_heal_fix": 1600,
         "v_auto_mp_heal_fix": 250,
@@ -6660,7 +6660,7 @@
         "rate_ini": 999,
         "rate_max": 999,
         "conditions": [
-            "DisableHeal"
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -6676,7 +6676,7 @@
         "turn_ini": 3,
         "turn_max": 4,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -6723,7 +6723,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -6739,7 +6739,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -6764,24 +6764,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "DisableHeal",
-            "Slow"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Disable Heal Res",
+            "Delay Res"
         ],
         "dif": {}
     },
@@ -6797,7 +6797,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -6813,7 +6813,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -6829,7 +6829,7 @@
         "turn_ini": 999,
         "turn_max": 999,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -6845,7 +6845,7 @@
         "turn_ini": 999,
         "turn_max": 999,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -6861,7 +6861,7 @@
         "turn_ini": 6,
         "turn_max": 6,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -6878,8 +6878,8 @@
         "turn_max": 4,
         "conditions": [
             "Poison",
-            "Paralysed",
-            "Slow"
+            "Paralyze",
+            "Delay"
         ],
         "dif": {}
     },
@@ -6893,7 +6893,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ],
         "dif": {}
     },
@@ -6907,24 +6907,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "DisableHeal",
-            "Slow"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Disable Heal Res",
+            "Delay Res"
         ],
         "dif": {}
     },
@@ -6938,7 +6938,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableHeal"
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -6949,7 +6949,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableHeal"
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -6963,7 +6963,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 100,
         "dif": {}
@@ -7010,7 +7010,7 @@
         "rate_ini": 5,
         "rate_max": 20,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -7027,9 +7027,9 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Blindness",
+            "Blind",
             "Sleep",
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -7045,7 +7045,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -7061,7 +7061,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -7094,7 +7094,7 @@
         "turn_ini": 2,
         "turn_max": 2,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -7110,7 +7110,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -7126,7 +7126,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -7175,23 +7175,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -7207,7 +7207,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -7224,23 +7224,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -7256,7 +7256,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -7272,8 +7272,8 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed",
-            "DeathSentence"
+            "Paralyze",
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -7337,7 +7337,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -7353,7 +7353,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -7369,7 +7369,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 5,
         "dif": {}
@@ -7385,7 +7385,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "v_death_count": 4,
         "dif": {}
@@ -7400,8 +7400,8 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff",
-            "DisableDebuff"
+            "Buff",
+            "Debuff"
         ],
         "dif": {}
     },
@@ -7429,7 +7429,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -7443,7 +7443,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -7458,8 +7458,8 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -7474,8 +7474,8 @@
         "rate_max": 999,
         "curse": 1,
         "conditions": [
-            "Fast",
-            "DisableHeal"
+            "Quicken",
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -7506,7 +7506,7 @@
         "rate_ini": 10,
         "rate_max": 20,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -7520,7 +7520,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -7535,7 +7535,7 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -7566,7 +7566,7 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -7581,7 +7581,7 @@
         "rate_max": 40,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -7611,7 +7611,7 @@
         "rate_max": 25,
         "turn_max": 3,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -7626,8 +7626,8 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ],
         "dif": {}
     },
@@ -7642,7 +7642,7 @@
         "rate_max": 50,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -7673,7 +7673,7 @@
         "rate_max": 70,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -7703,7 +7703,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -7745,8 +7745,8 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff",
-            "DisableDebuff"
+            "Buff",
+            "Debuff"
         ],
         "dif": {}
     },
@@ -7760,7 +7760,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 50,
         "dif": {}
@@ -7775,7 +7775,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 50,
         "dif": {}
@@ -7790,7 +7790,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_hp_heal": 50,
         "dif": {}
@@ -7804,7 +7804,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ],
         "dif": {}
     },
@@ -7821,22 +7821,22 @@
         "turn_max": 1,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "DeathSentence",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Death Sentence",
             "Berserk",
             "Stop",
-            "Slow",
+            "Delay",
             "Rage",
-            "DisableHeal"
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -7852,7 +7852,7 @@
         "turn_ini": 2,
         "turn_max": 2,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -7869,23 +7869,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "DisableHeal",
-            "Slow"
+            "Death Sentence",
+            "Disable Heal",
+            "Delay"
         ],
         "dif": {}
     },
@@ -7901,7 +7901,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -7982,7 +7982,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -7998,7 +7998,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -8025,24 +8025,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -8088,7 +8088,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -8118,7 +8118,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -8148,7 +8148,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -8164,7 +8164,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -8180,7 +8180,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -8213,7 +8213,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableHeal"
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -8241,24 +8241,24 @@
         "rate_ini": 30,
         "rate_max": 30,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -8274,7 +8274,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -8289,7 +8289,7 @@
         "rate_max": 20,
         "turn_max": 4,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -8303,7 +8303,7 @@
         "rate_ini": 20,
         "rate_max": 20,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -8319,7 +8319,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -8335,7 +8335,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -8351,7 +8351,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -8362,24 +8362,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "DisableHeal",
-            "Slow"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Disable Heal Res",
+            "Delay Res"
         ],
         "dif": {}
     },
@@ -8396,23 +8396,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "DisableHeal",
-            "Slow"
+            "Death Sentence",
+            "Disable Heal",
+            "Delay"
         ],
         "dif": {}
     },
@@ -8426,7 +8426,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ],
         "dif": {}
     },
@@ -8440,7 +8440,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -8456,7 +8456,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -8470,7 +8470,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -8497,24 +8497,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "DisableHeal",
-            "Slow"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Disable Heal Res",
+            "Delay Res"
         ],
         "dif": {}
     },
@@ -8530,7 +8530,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -8541,24 +8541,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "DisableHeal",
-            "Slow"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Disable Heal Res",
+            "Delay Res"
         ],
         "dif": {}
     },
@@ -8574,7 +8574,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -8590,7 +8590,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -8606,7 +8606,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -8620,7 +8620,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -8637,8 +8637,8 @@
         "turn_max": 4,
         "conditions": [
             "Poison",
-            "Paralysed",
-            "Blindness",
+            "Paralyze",
+            "Blind",
             "Sleep"
         ],
         "v_poison_rate": 20,
@@ -8672,7 +8672,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -8688,8 +8688,8 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Donsoku",
-            "DisableAttack"
+            "Slow",
+            "Daze"
         ],
         "dif": {}
     },
@@ -8718,7 +8718,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -8732,7 +8732,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Slow"
+            "Delay"
         ],
         "dif": {}
     },
@@ -8747,7 +8747,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -8762,7 +8762,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Stone"
+            "Petrify"
         ],
         "dif": {}
     },
@@ -8794,7 +8794,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -8808,7 +8808,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -8854,8 +8854,8 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast",
-            "AutoHeal"
+            "Quicken",
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -8871,7 +8871,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Fast",
+            "Quicken",
             "Berserk"
         ],
         "dif": {}
@@ -8932,7 +8932,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -8948,7 +8948,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "dif": {}
     },
@@ -8964,7 +8964,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -8980,7 +8980,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -8996,7 +8996,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -9024,7 +9024,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -9039,7 +9039,7 @@
         "turn_max": 999,
         "curse": 1,
         "conditions": [
-            "DisableDebuff"
+            "Debuff"
         ],
         "dif": {}
     },
@@ -9056,7 +9056,7 @@
         "turn_max": 999,
         "curse": 1,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -9089,7 +9089,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "dif": {}
     },
@@ -9105,7 +9105,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "dif": {}
     },
@@ -9121,7 +9121,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -9135,7 +9135,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -9151,7 +9151,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -9168,7 +9168,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -9184,7 +9184,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "v_blink_hit": -50,
         "v_blink_avo": -50,
@@ -9202,7 +9202,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ],
         "dif": {}
     },
@@ -9217,7 +9217,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableDebuff"
+            "Debuff"
         ],
         "dif": {}
     },
@@ -9232,7 +9232,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -9246,7 +9246,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ],
         "dif": {}
     },
@@ -9276,7 +9276,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "dif": {}
     },
@@ -9292,7 +9292,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -9338,7 +9338,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableHeal"
+            "Disable Heal"
         ],
         "dif": {}
     },
@@ -9352,7 +9352,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "dif": {}
     },
@@ -9368,7 +9368,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 15,
         "dif": {}
@@ -9385,7 +9385,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "dif": {}
     },
@@ -9429,7 +9429,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "dif": {}
     },
@@ -9460,7 +9460,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "GoodSleep"
+            "Sleep"
         ],
         "dif": {}
     },
@@ -9520,109 +9520,25 @@
         "rate_max": 100,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ],
         "dif": {}
-    },
-    "CON_GL_KTN_SKILLFUL_COUNTER": {
-        "iname": "CON_GL_KTN_SKILLFUL_COUNTER",
-        "type": "FailCondition",
-        "chk_target": "Target",
-        "chk_timing": "ActionStart",
-        "value_ini": 100,
-        "value_max": 100,
-        "rate_ini": 45,
-        "rate_max": 65,
-        "turn_ini": 2,
-        "turn_max": 2,
-        "conditions": [
-            "Stun"
-        ]
-    },
-    "CON_GL_KTN_DEVOTION": {
-        "iname": "CON_GL_KTN_DEVOTION",
-        "type": "FailCondition",
-        "chk_target": "Target",
-        "chk_timing": "ActionStart",
-        "value_ini": 100,
-        "value_max": 100,
-        "rate_ini": 100,
-        "rate_max": 100,
-        "conditions": [
-            "Charm"
-        ]
-    },
-    "CON_GL_KTN_FLEETING_BEAUTY": {
-        "iname": "CON_GL_KTN_FLEETING_BEAUTY",
-        "type": "FailCondition",
-        "chk_target": "Target",
-        "chk_timing": "ActionStart",
-        "value_ini": 100,
-        "value_max": 100,
-        "rate_ini": 25,
-        "rate_max": 50,
-        "conditions": [
-            "Charm"
-        ]
-    },
-    "CON_GL_KTN_CUTTING_WIND": {
-        "iname": "CON_GL_KTN_CUTTING_WIND",
-        "type": "FailCondition",
-        "chk_target": "Target",
-        "chk_timing": "ActionStart",
-        "value_ini": 100,
-        "value_max": 100,
-        "rate_ini": 25,
-        "rate_max": 50,
-        "conditions": [
-            "Paralysed"
-        ]
-    },
-    "CON_GL_KTN_CAPTIVATING": {
-        "iname": "CON_GL_KTN_CAPTIVATING",
-        "type": "FailCondition",
-        "chk_target": "Target",
-        "chk_timing": "ActionStart",
-        "value_ini": 100,
-        "value_max": 100,
-        "rate_ini": 25,
-        "rate_max": 50,
-        "turn_ini": 3,
-        "turn_max": 3,
-        "conditions": [
-            "Paralysed"
-        ]
-    },
-    "CON_GL_DIV_FLARE": {
-        "iname": "CON_GL_DIV_FLARE",
-        "type": "FailCondition",
-        "chk_target": "Target",
-        "chk_timing": "ActionStart",
-        "value_ini": 100,
-        "value_max": 100,
-        "rate_ini": 100,
-        "rate_max": 100,
-        "turn_ini": 2,
-        "turn_max": 2,
-        "conditions": [
-            "Donsoku"
-        ]
     },
     "CON_MAP_MOBIUS_18F_01": {
         "iname": "CON_MAP_MOBIUS_18F_01",
@@ -9636,7 +9552,7 @@
         "turn_ini": 99,
         "turn_max": 99,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ],
         "dif": {}
     },
@@ -9652,7 +9568,7 @@
         "turn_ini": 99,
         "turn_max": 99,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ],
         "dif": {}
     },
@@ -9663,24 +9579,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ],
         "dif": {}
     },
@@ -9691,23 +9607,23 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Disable Heal Res"
         ]
     },
     "CON_GL_WSM_FOCUS": {
@@ -9722,7 +9638,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 20
     },
@@ -9736,7 +9652,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ]
     },
     "CON_POI_SP_MEBI": {
@@ -9763,7 +9679,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ]
     },
     "CON_CHA_2": {
@@ -9802,7 +9718,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ]
     },
     "CON_DMO_300": {
@@ -9815,7 +9731,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ]
     },
     "CON_DMO_MEBI": {
@@ -9828,7 +9744,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ]
     },
     "CON_DEA_MEBI": {
@@ -9841,7 +9757,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ]
     },
     "CON_ACCS_WADA_ZIN_01": {
@@ -9854,7 +9770,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal_fix": 5
     },
@@ -9869,7 +9785,7 @@
         "rate_max": 80,
         "curse": 1,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ]
     },
     "CON_DISABLE_INSTANT_DBU_DDB_VEDA110": {
@@ -9882,8 +9798,8 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableBuff",
-            "DisableDebuff"
+            "Buff",
+            "Debuff"
         ]
     },
     "COND_GLU_HUN_HUNTING_ARROW_DONT_HEAL": {
@@ -9897,7 +9813,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "DisableHeal"
+            "Disable Heal"
         ]
     },
     "CON_LNC_NON_OVER_CLOCK": {
@@ -9907,7 +9823,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableIncCT"
+            "CT-Up"
         ]
     },
     "CON_LNC_FLASH_GRENADE_THINATSU": {
@@ -9920,8 +9836,8 @@
         "rate_ini": 75,
         "rate_max": 75,
         "conditions": [
-            "Paralysed",
-            "Blindness"
+            "Paralyze",
+            "Blind"
         ],
         "v_blink_hit": -25,
         "v_blink_avo": -25
@@ -9933,7 +9849,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken Res"
         ]
     },
     "CON_LNC_CRAFT_BOMB_WIND": {
@@ -9958,7 +9874,7 @@
         "rate_ini": 65,
         "rate_max": 65,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ]
     },
     "CON_ALEX_PRI_REGENERATE": {
@@ -9973,7 +9889,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 15
     },
@@ -9987,7 +9903,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 30
     },
@@ -10004,23 +9920,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ]
     },
     "CON_PER25_STOP_1": {
@@ -10048,7 +9964,7 @@
         "turn_ini": 2,
         "turn_max": 2,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "BuffIds": [
             "BUFF_BAR_ASTRON"
@@ -10065,7 +9981,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ]
     },
     "CON_THUNDER_WED_F_CHAMPAGNE_SHOT": {
@@ -10081,23 +9997,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ]
     },
     "CON_THUNDER_WED_M_BOUQUET_TOSS": {
@@ -10110,7 +10026,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ]
     },
     "CON_LUCR_WED_SUPPORT_01": {
@@ -10126,23 +10042,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal"
         ]
     },
     "CON_GORM_KAI_MAD_SEA_SONG": {
@@ -10171,7 +10087,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 20
     },
@@ -10199,7 +10115,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ]
     },
     "CON_KADA_GUA_CC_PROVOKE": {
@@ -10225,7 +10141,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ]
     },
     "CON_MAD_UPPER_1_MDEF": {
@@ -10240,8 +10156,8 @@
         "turn_ini": 6,
         "turn_max": 6,
         "conditions": [
-            "Fast",
-            "AutoHeal"
+            "Quicken",
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 15
     },
@@ -10257,8 +10173,8 @@
         "turn_max": 3,
         "curse": 1,
         "conditions": [
-            "Slow",
-            "DisableDecCT"
+            "Delay",
+            "CT-Down"
         ]
     },
     "CON_SUTO_KIL_CC_01": {
@@ -10272,7 +10188,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "DisableHeal"
+            "Disable Heal"
         ],
         "BuffIds": [
             "BUFF_SUTO_KIL_CC_01"
@@ -10285,9 +10201,9 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast",
-            "AutoHeal",
-            "AutoJewel"
+            "Quicken Res",
+            "Auto Heal Res",
+            "Jewel Auto Charge Res"
         ]
     },
     "CON_LUROB03_LOWER_3": {
@@ -10297,8 +10213,8 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableDecCT",
-            "DisableIncCT"
+            "CT-Down",
+            "CT-Up"
         ]
     },
     "CON_AF_ARMS_ZIN_00_WA_B": {
@@ -10328,7 +10244,7 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ]
     },
     "CON_FF15_MORUBORU_01": {
@@ -10342,7 +10258,7 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "v_blink_hit": -50,
         "v_blink_avo": -50
@@ -10401,7 +10317,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ]
     },
     "CON_SNOWMAN_SLOW": {
@@ -10416,7 +10332,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Slow"
+            "Delay"
         ]
     },
     "CON_SNOWMAN_DON": {
@@ -10431,7 +10347,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ],
         "v_poison_rate": 20
     },
@@ -10447,7 +10363,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ]
     },
     "CON_ZENN01_UPPER_2": {
@@ -10474,7 +10390,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ]
     },
     "CON_OTHI_WIZ_LOWER_1B": {
@@ -10489,7 +10405,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ]
     },
     "CON_AF_ARMS_POK_ARTE_00_AS": {
@@ -10504,7 +10420,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ]
     },
     "CON_ART_UPPER_3": {
@@ -10534,7 +10450,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "v_blink_hit": -50,
         "v_blink_avo": -50
@@ -10551,7 +10467,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ]
     },
     "CON_POK_B_TYRH01_UPPER_2": {
@@ -10566,7 +10482,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ]
     },
     "CON_AF_ARMS_POK_B_TYRH_01_WA": {
@@ -10581,8 +10497,8 @@
         "turn_ini": 2,
         "turn_max": 2,
         "conditions": [
-            "DisableAttack",
-            "DisableMove"
+            "Daze",
+            "Bind"
         ]
     },
     "CON_AF_ARMS_POK_B_LAEV_01_WA": {
@@ -10611,25 +10527,25 @@
         "turn_max": 1,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Rage",
-            "DeathSentence",
+            "Death Sentence",
             "Stop",
-            "Slow",
-            "DisableHeal",
-            "DisableBuff",
-            "DisableDebuff"
+            "Delay",
+            "Disable Heal",
+            "Buff",
+            "Debuff"
         ]
     },
     "COND_FIONA01_SUPPORT_1": {
@@ -10642,7 +10558,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ]
     },
     "CON_AF_ARMS_WIZ_02_AS": {
@@ -10657,7 +10573,7 @@
         "turn_ini": 2,
         "turn_max": 2,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ]
     },
     "COND_AF_ARMS_ARM_SYOU_00_WA": {
@@ -10672,7 +10588,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "v_blink_hit": -80,
         "v_blink_avo": -80
@@ -10689,7 +10605,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "v_blink_hit": -80,
         "v_blink_avo": -80
@@ -10706,7 +10622,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "v_blink_hit": -80,
         "v_blink_avo": -80
@@ -10721,7 +10637,7 @@
         "rate_ini": 50,
         "rate_max": 50,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ]
     },
     "CON_FF15_IRIS01_UPPER_3": {
@@ -10731,24 +10647,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "DisableHeal",
-            "Slow"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Disable Heal Res",
+            "Delay Res"
         ]
     },
     "CON_FF15_IRIS01_LOWER_3": {
@@ -10776,7 +10692,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Stone"
+            "Petrify"
         ]
     },
     "CON_MAN_YUJ_SLOW_WIDE_SEISEKI_10EX": {
@@ -10790,7 +10706,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Slow"
+            "Delay"
         ]
     },
     "CON_BUG01_XMAS2017_EX": {
@@ -10805,7 +10721,7 @@
         "turn_max": 99,
         "curse": 1,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ]
     },
     "CON_SNOWMAN_05_EX": {
@@ -10819,7 +10735,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ]
     },
     "CON_MAP_MOBIUS_30_POI": {
@@ -10834,7 +10750,7 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "DisableHeal"
+            "Disable Heal"
         ]
     },
     "CON_DIAB_DISPEL_MAGIC_MOBIUS30F": {
@@ -10847,8 +10763,8 @@
         "turn_ini": 99,
         "turn_max": 99,
         "conditions": [
-            "DisableBuff",
-            "DisableDebuff"
+            "Buff",
+            "Debuff"
         ]
     },
     "CON_MAN_CLOCKUP_BAN": {
@@ -10861,7 +10777,7 @@
         "turn_ini": 99,
         "turn_max": 99,
         "conditions": [
-            "Fast"
+            "Quicken"
         ]
     },
     "CON_MAN_YUJ_BUFF_GARD_MOBIUS30F": {
@@ -10872,7 +10788,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ]
     },
     "CON_BERS_LOWER_2": {
@@ -10902,7 +10818,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ]
     },
     "CON_ANCIENT_DRAGON_CORE_SKILL_03": {
@@ -10915,7 +10831,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Slow"
+            "Delay"
         ]
     },
     "CON_ANCIENT_DRAGON_CORE01_SUPPORT_02": {
@@ -10928,7 +10844,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 10
     },
@@ -10944,8 +10860,8 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff",
-            "DisableDebuff"
+            "Buff",
+            "Debuff"
         ]
     },
     "CON_SHADOW_ASENA_SKILL_04": {
@@ -10960,7 +10876,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableMove",
+            "Bind",
             "Charm"
         ]
     },
@@ -10974,7 +10890,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 10
     },
@@ -10990,7 +10906,7 @@
         "turn_ini": 2,
         "turn_max": 2,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ]
     },
     "COND_FAMILIAR_ATK_SIREN": {
@@ -11004,24 +10920,24 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ]
     },
     "CON_MAN_YUJ_STO_ZERO_REACTION": {
@@ -11034,7 +10950,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ]
     },
     "CON_BAFF_OFF_REACTION_SIREN": {
@@ -11047,7 +10963,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ]
     },
     "CON_COLLABO_LIESBET_DIOS": {
@@ -11062,7 +10978,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 10
     },
@@ -11076,7 +10992,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ]
     },
     "CON_GUNL_UPPER_2": {
@@ -11090,8 +11006,8 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "DisableMove",
-            "DisableAttack"
+            "Bind",
+            "Daze"
         ]
     },
     "CON_WA_01_ENVYRIA_CLOE_01": {
@@ -11107,23 +11023,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Rage",
-            "DeathSentence",
+            "Death Sentence",
             "Stop",
-            "Slow",
-            "DisableHeal"
+            "Delay",
+            "Disable Heal"
         ]
     },
     "CON_WA_01_SLOTH_FIONA_01": {
@@ -11138,8 +11054,8 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoHeal",
-            "AutoJewel"
+            "Auto Heal",
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 5
     },
@@ -11155,7 +11071,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableSkill"
+            "Silence"
         ]
     },
     "CON_EVENT_HP_REGENE_ALC_ISHIGAKI": {
@@ -11170,7 +11086,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "Stone"
+            "Petrify"
         ]
     },
     "CON_EVENT_HP_REGENE_ALC_ISHIGAKI_2": {
@@ -11185,7 +11101,7 @@
         "turn_ini": 2,
         "turn_max": 2,
         "conditions": [
-            "Fast"
+            "Quicken"
         ]
     },
     "CON_CHA_MAN_2YEARS": {
@@ -11264,7 +11180,7 @@
         "turn_ini": 99,
         "turn_max": 99,
         "conditions": [
-            "Fast"
+            "Quicken"
         ],
         "v_poison_rate": 20
     },
@@ -11280,7 +11196,7 @@
         "turn_ini": 99,
         "turn_max": 99,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ],
         "v_poison_rate": 20
     },
@@ -11291,9 +11207,9 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast",
-            "AutoHeal",
-            "AutoJewel"
+            "Quicken Res",
+            "Auto Heal Res",
+            "Jewel Auto Charge Res"
         ]
     },
     "CON_THOL01_REACTION": {
@@ -11307,7 +11223,7 @@
         "rate_max": 40,
         "curse": 1,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ]
     },
     "CON_SEISEKI11_JEM_REGENERATE": {
@@ -11320,7 +11236,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 10
     },
@@ -11336,7 +11252,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 10
     },
@@ -11365,7 +11281,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ]
     },
     "CON_AF_ACCS_DART_01_WA": {
@@ -11378,7 +11294,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ]
     },
     "CON_AF_ARMO_RESI_01_WA": {
@@ -11391,7 +11307,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 16
     },
@@ -11405,7 +11321,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal_fix": 4000
     },
@@ -11419,7 +11335,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 50
     },
@@ -11433,7 +11349,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 80
     },
@@ -11447,7 +11363,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableHeal"
+            "Disable Heal"
         ],
         "v_auto_hp_heal": 50
     },
@@ -11461,7 +11377,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ]
     },
     "CON_SYO_LOWER_WHITE": {
@@ -11476,7 +11392,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 13
     },
@@ -11490,9 +11406,9 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast",
-            "AutoHeal",
-            "AutoJewel"
+            "Quicken Res",
+            "Auto Heal Res",
+            "Jewel Auto Charge Res"
         ]
     },
     "CON_SOL_CT_DEATH_ATK": {
@@ -11505,7 +11421,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ],
         "v_death_count": 2
     },
@@ -11535,7 +11451,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "BuffIds": [
             "BUFF_APR_LIZ_MAP"
@@ -11552,7 +11468,7 @@
         "rate_max": 100,
         "turn_max": 3,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ]
     },
     "CON_CANO_LORD_CC_LOWER_02": {
@@ -11677,8 +11593,8 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "AutoJewel",
-            "AutoHeal"
+            "Jewel Auto Charge",
+            "Auto Heal"
         ],
         "v_auto_mp_heal": 10,
         "v_auto_hp_heal_fix": 1000
@@ -11723,7 +11639,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 15
     },
@@ -11751,7 +11667,7 @@
         "rate_max": 100,
         "curse": 1,
         "conditions": [
-            "Stone"
+            "Petrify"
         ]
     },
     "CON_POI_SP_NO_HEAL": {
@@ -11766,7 +11682,7 @@
         "turn_ini": 3,
         "conditions": [
             "Poison",
-            "DisableHeal"
+            "Disable Heal"
         ],
         "v_poison_rate": 25
     },
@@ -11793,7 +11709,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ]
     },
     "CON_FAMILIAR_DRAGON_ROAR_03": {
@@ -11807,24 +11723,24 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal",
-            "Fast"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal",
+            "Quicken"
         ]
     },
     "CON_CHA_AND_BER": {
@@ -11857,23 +11773,23 @@
         "turn_max": 3,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Rage",
-            "DeathSentence",
+            "Death Sentence",
             "Stop",
-            "Slow",
-            "DisableHeal"
+            "Delay",
+            "Disable Heal"
         ]
     },
     "CON_CRY_MERL01_LOWER_3": {
@@ -11888,7 +11804,7 @@
         "turn_max": 3,
         "conditions": [
             "Sleep",
-            "DisableSkill"
+            "Silence"
         ]
     },
     "CON_AF_ARMS_CRY_MERL_01_WA": {
@@ -11917,7 +11833,7 @@
         "rate_max": 50,
         "turn_max": 4,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ]
     },
     "CON_REALEVENT_KOBE_06": {
@@ -11951,7 +11867,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Paralysed"
+            "Paralyze"
         ],
         "BuffIds": [
             "BUFF_REALEVENT_KOBE_17"
@@ -11968,24 +11884,24 @@
         "rate_max": 100,
         "conditions": [
             "Poison",
-            "Paralysed",
+            "Paralyze",
             "Stun",
             "Sleep",
             "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
+            "Blind",
+            "Silence",
+            "Bind",
+            "Daze",
+            "Slow",
+            "Petrify",
+            "Infect",
             "Berserk",
             "Stop",
             "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal",
-            "Fast"
+            "Death Sentence",
+            "Delay",
+            "Disable Heal",
+            "Quicken"
         ]
     },
     "CON_ALC_APL_IJ_SKIL_01_TASAKI": {
@@ -11999,7 +11915,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Fast"
+            "Quicken"
         ]
     },
     "CON_REALEVENT_KOBE_13": {
@@ -12045,7 +11961,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableHeal"
+            "Disable Heal"
         ],
         "BuffIds": [
             "BUFF_RAP_WATER_UPPER_4"
@@ -12063,7 +11979,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "v_blink_hit": -50,
         "v_blink_avo": -50
@@ -12095,7 +12011,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 50
     },
@@ -12111,7 +12027,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ]
     },
     "CON_SPFLOWER01_UPPER_5": {
@@ -12140,7 +12056,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "Donsoku"
+            "Slow"
         ]
     },
     "CON_SPFLOWER01_UPPER_7": {
@@ -12155,7 +12071,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableAttack"
+            "Daze"
         ]
     },
     "CON_KAMUI01_01": {
@@ -12185,7 +12101,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ]
     },
     "COND_CRY_ARTH01_UPPER_3": {
@@ -12200,7 +12116,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableMove"
+            "Bind"
         ]
     },
     "COND_CRY_ARTH01_LOWER_3": {
@@ -12215,7 +12131,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal": 15
     },
@@ -12247,7 +12163,7 @@
         "turn_ini": 1,
         "turn_max": 1,
         "conditions": [
-            "DisableDebuff"
+            "Debuff"
         ]
     },
     "CON_HENC_WIND_LOWER_01": {
@@ -12260,7 +12176,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DeathSentence"
+            "Death Sentence"
         ]
     },
     "CON_AF_ACCS_ACHAD_02_WA": {
@@ -12273,7 +12189,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 10
     },
@@ -12287,7 +12203,7 @@
         "turn_ini": 3,
         "turn_max": 3,
         "conditions": [
-            "DisableBuff"
+            "Buff"
         ]
     },
     "CON_ALMA01_UPPER_2": {
@@ -12297,7 +12213,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "DisableIncCT"
+            "CT-Up"
         ]
     },
     "CON_ALMA01_LOWER_2": {
@@ -12310,24 +12226,24 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "Poison",
-            "Paralysed",
-            "Stun",
-            "Sleep",
-            "Charm",
-            "Blindness",
-            "DisableSkill",
-            "DisableMove",
-            "DisableAttack",
-            "Donsoku",
-            "Stone",
-            "Zombie",
-            "Berserk",
-            "Stop",
-            "Rage",
-            "DeathSentence",
-            "Slow",
-            "DisableHeal"
+            "Poison Res",
+            "Paralyze Res",
+            "Stun Res",
+            "Sleep Res",
+            "Charm Res",
+            "Blind Res",
+            "Silence Res",
+            "Bind Res",
+            "Daze Res",
+            "Slow Res",
+            "Petrify Res",
+            "Infect Res",
+            "Berserk Res",
+            "Stop Res",
+            "Rage Res",
+            "Death Sentence Res",
+            "Delay Res",
+            "Disable Heal Res"
         ]
     },
     "CON_ALMA01_LOWER_4": {
@@ -12342,8 +12258,8 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "Paralysed",
-            "DisableAttack"
+            "Paralyze",
+            "Daze"
         ]
     },
     "CON_KAYA01_LOWER_1": {
@@ -12358,8 +12274,8 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "DisableSkill",
-            "Blindness"
+            "Silence",
+            "Blind"
         ],
         "v_blink_hit": -50,
         "v_blink_avo": -50
@@ -12376,7 +12292,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "Paralysed",
+            "Paralyze",
             "Poison"
         ]
     },
@@ -12392,7 +12308,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "Blindness"
+            "Blind"
         ],
         "v_blink_hit": -50,
         "v_blink_avo": -50
@@ -12409,7 +12325,7 @@
         "turn_ini": 2,
         "turn_max": 2,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal_fix": 20
     },
@@ -12423,7 +12339,7 @@
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
-            "AutoHeal"
+            "Auto Heal"
         ],
         "v_auto_hp_heal": 10
     },
@@ -12439,7 +12355,7 @@
         "turn_ini": 4,
         "turn_max": 4,
         "conditions": [
-            "AutoJewel"
+            "Jewel Auto Charge"
         ],
         "v_auto_mp_heal_fix": 10
     }

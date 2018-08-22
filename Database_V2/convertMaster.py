@@ -6,9 +6,8 @@ PATH_convert=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converte
 PATH_convert2=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converted2')
 PATH_export=os.path.join(os.path.dirname(os.path.realpath(__file__)),'export')
 
-def convertRaws(save=True):
-    masters=loadFiles(
-    ['MasterParam.json', 'MasterParamJP.json', 'QuestParam.json','QuestParamJP.json', 'QuestDropParam.json'])
+def convertRaws(save=False):
+    masters=loadFiles(['MasterParam.json', 'MasterParamJP.json', 'QuestParam.json','QuestParamJP.json', 'QuestDropParam.json'])
     #loc = Translation()
     export={}
     #some tries first
@@ -18,7 +17,7 @@ def convertRaws(save=True):
             mName=main[0].upper()+main[1:]
             method= getattr(ParamFunctions, mName+'Param',  getattr(ParamFunctions, mName+'EffectParam',getattr(ParamFunctions, mName[:-1]+'Param',False)))
             if not method:
-                print('Not Found: '+main)
+                #print('Not Found: '+main)
                 continue
 
             #convert the main
@@ -150,9 +149,10 @@ def Fixes(master):
                             if p in map['Set']:
                                 for index,value in enumerate(map['Set'][p]):
                                     map['Set'][p][index] = ParamFunctions.MapSetting(value)
-        saveAsJSON(PATH_convert2, 'Quests.json',master['quests'])
             #drop list
-
+            
+        #save
+        saveAsJSON(PATH_convert2, 'Quests.json',master['quests'])
     ##units##########################################################
     print('Fix - Unit')
     if 1:
@@ -205,22 +205,31 @@ def Fixes(master):
         for key,card in master['ConceptCard'].items():
             if 'effects' not in card:
                 continue
-
+            try:
+                unit=UNIT['UN_V2_'+key.rsplit('_',2)[1]]
+                unit['conceptcard']=key
+                card['unit']=unit['iname']
+            except:
+                unit=None
+                
             for effect in card['effects']:
                 if 'cnds_iname' not in effect:
                     continue
 
-                conds = master['ConceptCardConditions'][effect['cnds_iname']]
-                if 'unit_group' not in conds:
-                    continue
-                units = master['UnitGroup'][conds['unit_group']]['units']
-
-                if len(units)==1:
-                    #skin
-                    if 'skin' in effect:
-                        UNIT[units[0]]['skins'].append(effect['skin'])
-                    #normal stuff
-                    UNIT[units[0]]['conceptcard']=key
+                if not unit:
+                    conds = master['ConceptCardConditions'][effect['cnds_iname']]
+                    if 'unit_group' not in conds:
+                        continue
+                    units = master['UnitGroup'][conds['unit_group']]['units']
+                    if len(units)==1 and units[0]!='UN_V2_L_UROB':
+                        unit=UNIT[units[0]]
+                        unit['conceptcard']=key
+                        card['unit']=unit['iname']
+                    else:
+                        continue
+                #skin
+                if 'skin' in effect:
+                    unit['skins'].append(effect['skin'])
 
         #add occurence
         for key,quest in master['quests'].items():

@@ -11,6 +11,11 @@ def main():
         (embed,image)=ToEmbed.Quest(quest,'')
         print(json.dumps(embed.to_dict(), indent=4))#,file=discord.File(image,filename='{}.png'.format(quest)).to_dict(),
 
+    if command == 'gear':
+        gear = FindBest(ToEmbed.DIRS['Artifact'], name,True)
+        embed = ToEmbed.Gear(gear, 'main')
+        print(json.dumps(embed.to_dict(), indent=4))
+
     if command == 'job':
         job = FindBest(ToEmbed.DIRS['Job'], name,True)
         embed = ToEmbed.Job(job,'main')
@@ -32,5 +37,10 @@ def main():
         unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
         for embed in ToEmbed.Unit(unit,'art'):
             print(json.dumps(embed.to_dict(), indent=4))
+    
+    if command == 'nensou':
+        card = FindBest(ToEmbed.DIRS['Conceptcard'], name, True)
+        print(json.dumps(ToEmbed.Conceptcard(card,'main').to_dict(), indent=4))
+
     main()
 main()

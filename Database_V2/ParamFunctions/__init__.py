@@ -13,6 +13,7 @@ from ParamFunctions.CondEffectParam import CondEffectParam
 from ParamFunctions.EvaluationParam import EvaluationParam
 from ParamFunctions.FixParam import FixParam
 from ParamFunctions.ItemParam import ItemParam
+from ParamFunctions.JobGroupParam import JobGroupParam
 from ParamFunctions.JobParam import JobParam
 from ParamFunctions.JobRankParam import JobRankParam
 from ParamFunctions.JobSetParam import JobSetParam

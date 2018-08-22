@@ -1,8 +1,8 @@
 {
-    "Challenge_GL_SUMMERSPORT": {
-        "iname": "Challenge_GL_SUMMERSPORT",
-        "begin_at": "8/16/2018",
-        "end_at": "8/29/2018 11:59:00 PM",
+    "Challenge_GL_SUMMER2018": {
+        "iname": "Challenge_GL_SUMMER2018",
+        "begin_at": "8/2/2018",
+        "end_at": "8/15/2018 11:59:00 PM",
         "prio": 1
     },
     "Challenge_Normal": {

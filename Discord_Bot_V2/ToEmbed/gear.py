@@ -47,7 +47,10 @@ def main(gear):
 
     on_attack=[]
     for grade in range(gear['rareini'],gear['raremax']+1):
-        skill=DIRS['Skill'][gear['attack_effects'][grade]]
+        skill=gear['attack_effects'][grade]
+        if not skill:
+            continue
+        skill=DIRS['Skill'][skill]
         effects=[]
         if 'self_buff_iname' in skill:
             effects.append('Self: '+StrBuff(skill['self_buff_iname'],grade*5+9,29,False))
@@ -67,21 +70,22 @@ def main(gear):
 
     #weapon abilities
     abilities=[]
-    for abil in gear['abil_inames']:
-        ability=DIRS['Ability'][abil]
-        conditions=''
-        if 'condition_units'    in ability:
-            conditions+=', '.join([
-                DIRS['Unit'][unit]['name']
-                for unit in ability['condition_units']
-            ])
-        if 'condition_jobs'     in ability:
-            conditions+='Job: '+DIRS['Job'][ability['condition_jobs'][0]]['name']
-        elif 'condition_sex'    in ability:
-            conditions+=ability['condition_sex']
+    if 'abil_inames' in gear:
+        for abil in gear['abil_inames']:
+            ability=DIRS['Ability'][abil]
+            conditions=''
+            if 'condition_units'    in ability:
+                conditions+=', '.join([
+                    DIRS['Unit'][unit]['name']
+                    for unit in ability['condition_units']
+                ])
+            if 'condition_jobs'     in ability:
+                conditions+='Job: '+DIRS['Job'][ability['condition_jobs'][0]]['name']
+            elif 'condition_sex'    in ability:
+                conditions+=ability['condition_sex']
 
-        abilities.append(conditions+': '+ability['name'])
-    fields.append({'name': 'Ability', 'value': "\n\n".join(abilities), 'inline': False})
+            abilities.append(conditions+': '+ability['name'])
+        fields.append({'name': 'Ability', 'value': "\n".join(abilities), 'inline': False})
 
     #lore
     fields.append({'name': 'Flavor Text', 'value': gear['flavor'], 'inline': False})

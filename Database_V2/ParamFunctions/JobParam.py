@@ -32,11 +32,11 @@ def JobParam(json):
     if 'role' in json:
         this['role'] = ENUM['RoleTypes'][json['role']]
     if 'wepmdl' in json:
-        this['wepmdl'] = json['wepmdl']
+        this['weaponmodel'] = json['wepmdl']
     if 'jmov' in json:
-        this['mov'] = json['jmov']
+        this['move'] = json['jmov']
     if 'jjmp' in json:
-        this['jmp'] = json['jjmp']
+        this['jump'] = json['jjmp']
     this['atkskill']=[None]*7
     if 'atkskl' in json:
         this['atkskill'][0] = json['atkskl']
@@ -71,25 +71,25 @@ def JobParam(json):
 
     this['status']={}
     if 'hp' in json:
-        this['status']['hp'] = json['hp']
+        this['status']['HP'] = json['hp']
     if 'mp' in json:
-        this['status']['mp'] = json['mp']
+        this['status']['Jewels'] = json['mp']
     if 'atk' in json:
-        this['status']['atk'] = json['atk']
+        this['status']['PATK'] = json['atk']
     if 'def' in json:
-        this['status']['def'] = json['def']
+        this['status']['PDEF'] = json['def']
     if 'mag' in json:
-        this['status']['mag'] = json['mag']
+        this['status']['MATK'] = json['mag']
     if 'mnd' in json:
-        this['status']['mnd'] = json['mnd']
+        this['status']['MDEF'] = json['mnd']
     if 'dex' in json:
-        this['status']['dex'] = json['dex']
+        this['status']['DEX'] = json['dex']
     if 'spd' in json:
-        this['status']['spd'] = json['spd']
+        this['status']['AGI'] = json['spd']
     if 'cri' in json:
-        this['status']['cri'] = json['cri']
+        this['status']['CRIT'] = json['cri']
     if 'luk' in json:
-        this['status']['luk'] = json['luk']
+        this['status']['LUCK'] = json['luk']
     if 'avoid' in json:
         this['avoid'] = json['avoid']
     if 'inimp' in json:

@@ -58,58 +58,6 @@
             null
         ]
     },
-    "AF_GL_KTN": {
-        "iname": "AF_GL_KTN",
-        "kanji": "【デフォルト武具】Emissary",
-        "name": "【デフォルト武具】Emissary",
-        "asset": "wpn_gl_ktn_00",
-        "tag": "Katana",
-        "type": "Arms",
-        "rareini": 0,
-        "raremax": 0,
-        "maxnum": 999,
-        "is_create": false,
-        "equip_effects": [
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        "attack_effects": [
-            null,
-            null,
-            null,
-            null,
-            null
-        ]
-    },
-    "AF_GL_DIV": {
-        "iname": "AF_GL_DIV",
-        "kanji": "【デフォルト武具】Divine Speaker",
-        "name": "【デフォルト武具】Divine Speaker",
-        "asset": "wpn_gl_div_00",
-        "tag": "Rod",
-        "type": "Arms",
-        "rareini": 0,
-        "raremax": 0,
-        "maxnum": 999,
-        "is_create": false,
-        "equip_effects": [
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        "attack_effects": [
-            null,
-            null,
-            null,
-            null,
-            null
-        ]
-    },
     "AF_ARM": {
         "iname": "AF_ARM",
         "kanji": "【デフォルト武具】戦士",
@@ -17990,42 +17938,6 @@
         "condition_lv": 1,
         "dif": {}
     },
-    "AF_SK_GL_SHIO_SWIM": {
-        "iname": "AF_SK_GL_SHIO_SWIM",
-        "kanji": "Shion Swimsuit Skin",
-        "name": "Shion Swimsuit Skin",
-        "asset": "swim",
-        "icon": "IT_SK_GL_SHIO_SWIM",
-        "tag": "Earring",
-        "type": "Accessory",
-        "rareini": 4,
-        "raremax": 4,
-        "kakera": "IT_SK_GL_SHIO_SWIM",
-        "maxnum": 999,
-        "is_create": false,
-        "equip_effects": [
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        "attack_effects": [
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        "kcoin": 100,
-        "tcoin": 100,
-        "acoin": 100,
-        "mcoin": 100,
-        "pcoin": 100,
-        "buy": 100,
-        "sell": 2400,
-        "condition_lv": 1
-    },
     "AF_SKIN_VETT_SWIM": {
         "iname": "AF_SKIN_VETT_SWIM",
         "kanji": "水着スキン",
@@ -20768,75 +20680,6 @@
         "buy": 100,
         "sell": 9600,
         "condition_lv": 1
-    },
-    "AF_ARMS_SWO_GL_SIEG_01": {
-        "iname": "AF_ARMS_SWO_GL_SIEG_01",
-        "kanji": "Gram & Balmung",
-        "name": "Gram & Balmung",
-        "expr": "Attribute: P Atk Up, P Def Up, (CRIT & LUCK Up added when evolving to 4★, Chance of P Def down on target when attacking added when evolving to 5★)<br>Enables Master Ability when equipped on Siegfried when his job type is Wandering Swordsman",
-        "flavor": "A pair of peerless swords with perfect edges that never go dull. It is said that there is no armor that can withstand their assault. ",
-        "spec": "装備可能条件なし",
-        "asset": "wpn_gl_wsm_01",
-        "icon": "AF_ARMS_SWO_GL_SIEG_01",
-        "tag": "Twin Swords",
-        "type": "Arms",
-        "rareini": 2,
-        "raremax": 4,
-        "kakera": "IT_AF_ARMS_SWO_GL_SIEG_01",
-        "maxnum": 999,
-        "skills": [
-            " "
-        ],
-        "equip_effects": [
-            "SK_AF_ARMS_SWO_GL_SIEG_01_4",
-            "SK_AF_ARMS_SWO_GL_SIEG_01_4",
-            "SK_AF_ARMS_SWO_GL_SIEG_01_4",
-            "SK_AF_ARMS_SWO_GL_SIEG_01_5",
-            "SK_AF_ARMS_SWO_GL_SIEG_01_5"
-        ],
-        "attack_effects": [
-            null,
-            null,
-            null,
-            null,
-            "SK_AF_ARMS_SWO_GL_SIEG_01_AS"
-        ],
-        "abil_inames": [
-            "AB_ARMS_SWO_GL_SIEG_01"
-        ],
-        "abil_levels": [
-            1
-        ],
-        "abil_rareties": [
-            0
-        ],
-        "abil_shows": [
-            1
-        ],
-        "abil_conds": [
-            "なし"
-        ],
-        "kcoin": 100,
-        "tcoin": 100,
-        "acoin": 100,
-        "mcoin": 100,
-        "pcoin": 100,
-        "buy": 100,
-        "sell": 2400,
-        "condition_lv": 1,
-        "condition_jobs": [
-            "JB_SOL",
-            "JB_YAUL_SOL",
-            "JB_BALT_SOL",
-            "JB_FATE_EMIYA",
-            "JB_BASI_SOL",
-            "JB_FF15_INGI",
-            "JB_YAUL_SOL2",
-            "JB_RH_ATO",
-            "JB_ZYVA01",
-            "JB_FA_WRAT01",
-            "JB_GL_WSM"
-        ]
     },
     "AF_HENC": {
         "iname": "AF_HENC",

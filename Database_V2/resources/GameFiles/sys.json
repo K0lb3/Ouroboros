@@ -2632,7 +2632,8 @@
     "LOW_STORAGE_MESSAGE": "Please free up at least 500MB of space before continuing to download additional content.",
     "MSG_CHECKINGPURCHASE_MESSAGE": "Validating previous purchases.",
     "MSG_AMAZON_HISTORYUPDATE_FAILED": "Purchase validation failed.",
-    "TRAINING_ARENA": "",
+    "TRAINING_ARENA": "Training Arena",
+    "Assist_ESA_Fire": "Fire Skill Dmg against Wind",
     "Assist_ESA_Water": "Water Skill Dmg against Fire",
     "Assist_ESA_Wind": "Wind Skill Dmg against Thunder",
     "Assist_ESA_Thunder": "Thunder Skill Dmg against Water",
@@ -2653,6 +2654,5 @@
     "Assist_MaxDamageHp": "Max HP Dmg",
     "Assist_MaxDamageMp": "Max Jewel Dmg",
     "Resist_MaxDamageHp": "Max HP Dmg Res",
-    "Resist_MaxDamageMp": "Max Jewel Dmg Res",
-    "": ""
+    "Resist_MaxDamageMp": "Max Jewel Dmg Res"
 }

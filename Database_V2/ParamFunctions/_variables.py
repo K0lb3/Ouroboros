@@ -33,19 +33,19 @@ RAWELEMENT={
     111111: 'None', 
     }
 
-RAWBIRTH = {
-    "その他": "Foreign World",
-    "エンヴィリア": "Envylia",
-    "スロウスシュタイン": "Slothstein",
-    "ルストブルグ": "Lustburg",
-    "サガ地方": "Saga Region",
-    "ラーストリス": "Wratharis",
-    "ワダツミ": "Wadatsumi",
-    "砂漠地帯": "Desert Zone",
-    "ノーザンブライド": "Northern Pride",
-    "グリードダイク": "Greed Dike",
-    "グラトニー＝フォス": "Gluttony Foss",
-    "ロストブルー": "Lost Blue",
+RAWBIRTH = {    #~EBirth
+    "その他": "Foreign World",  #0&100
+    "エンヴィリア": "Envylia",  #1
+    "ラーストリス": "Wratharis",#2
+    "スロウスシュタイン": "Slothstein",#3
+    "ルストブルグ": "Lustburg", #4
+    "グラトニー＝フォス": "Gluttony Foss", #5
+    "グリードダイク": "Greed Dike", #6
+    "サガ地方": "Saga Region",  #7
+    "ワダツミ": "Wadatsumi",    #8
+    "砂漠地帯": "Desert Zone",  #9
+    "ノーザンブライド": "Northern Pride",   #10
+    "ロストブルー": "Lost Blue",    #11
     '神戸あいしす':'Kobe Aisushi', #placeholder? only one Doro enemy and 8 buffs/conds
     '神戸IJ': 'Kobe IJ',
     'ラットン田崎': 'Tasaki Kobe',

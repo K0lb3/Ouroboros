@@ -53,6 +53,10 @@ def MapImage(MAP):
             return(166,16,30)
         if tile['type']=='Party':
             return(	65,105,225)
+        if tile['type']=='Ally':
+            return(58,190,98)
+        if tile['type']=='Treasure':
+            return(249,224,0)
         if tile['type']=='Blocked':
             return(139,137,137)
 
@@ -78,29 +82,29 @@ def MapImage(MAP):
         ]
         for y in range(height)
     ]
-    #add party
-    parties={
-        'party':{
-            'type':'Party',
-            'pre':'U',
-            },
-        'enemy':{
-            'type':'Enemy',
-            'pre':'E',
-            },
-        'arena':{
-            'type':'Enemy',
-            'pre':'E',
-            },
-    }
-    for key,party in parties.items():
-        if key in Set:
-            for i,unit in enumerate(Set[key]):
-                tile=AIO[unit['pos']['y']][unit['pos']['x']]
-                tile.update({
-                    'text': '{height} {pre}{unit}'.format(unit=i+1,pre=party['pre'],height= tile['height']),
-                    'type': party['type']
-                })
+    #convert sets ~ own units, allies, enemies, treasures
+    def placeSpawn(unit,number,typ):
+        tile=AIO[unit['pos']['y']][unit['pos']['x']]
+        tile.update({
+            'text': '{height} {pre}{unit}'.format(unit=number,pre=typ[0],height= tile['height']),
+            'type': typ
+            })
+
+    if 'party' in Set:
+        for i,unit in enumerate(Set['party']):
+            placeSpawn(unit,i+1,'Party')
+    if 'arena' in Set:
+        for i,unit in enumerate(Set['arena']):
+            placeSpawn(unit,i+1,'Enemy')
+    if 'enemy' in Set:
+        for i,unit in enumerate(Set['enemy']):
+            if unit['side'] == 'Ally':
+                placeSpawn(unit,i+1,'Ally')
+            if unit['side'] == 'Enemy':
+                if 'TREASURE' in unit['iname']:
+                    placeSpawn(unit,i+1,'Treasure')
+                else:
+                    placeSpawn(unit,i+1,'Enemy')
 
     #convert to color array
     #upsize and add borders

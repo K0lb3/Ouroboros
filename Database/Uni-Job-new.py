@@ -39,7 +39,7 @@ def job_stats(job, main):
                     break
 
     for typ in unc:
-        stats[ParamTypes[str(typ)]] = unc[typ]
+        stats[ENUM['ParamTypes'][typ]] = unc[typ]
 
     return(stats)
 
@@ -51,7 +51,7 @@ def tac_scale(num,scale):
 def main():
     main = loadFiles(['MasterParam.json'])[0]
     mainc = convertMaster(main)
-    unit=mainc['UN_V2_GL_SIEG']
+    unit=mainc['UN_V2_GL_SOREN']
     unitLevel=85
 
     stats = {

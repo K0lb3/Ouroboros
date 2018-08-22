@@ -202,7 +202,12 @@
         "Exp": 100,
         "Stamina": 100,
         "Category": "GL_PERM_DAILY_MISSION",
-        "Items": [],
+        "Items": [
+            {
+                "iname": "IT_US_GL_DAILY_TICKET",
+                "num": 1
+            }
+        ],
         "Artifacts": [],
         "ConceptCards": []
     },
@@ -220,6 +225,10 @@
             {
                 "iname": "IT_UG_APPLE4",
                 "num": 1
+            },
+            {
+                "iname": "IT_US_GL_DAILY_TICKET",
+                "num": 1
             }
         ],
         "Artifacts": [],
@@ -235,7 +244,12 @@
         "Name": "【Essential Daily Mission 3/5】Sparring in the Arena [1]",
         "Exp": 150,
         "Category": "GL_PERM_DAILY_MISSION",
-        "Items": [],
+        "Items": [
+            {
+                "iname": "IT_US_GL_DAILY_TICKET",
+                "num": 1
+            }
+        ],
         "Artifacts": [],
         "ConceptCards": []
     },
@@ -252,6 +266,10 @@
         "Items": [
             {
                 "iname": "IT_UG_APPLE4",
+                "num": 1
+            },
+            {
+                "iname": "IT_US_GL_DAILY_TICKET",
                 "num": 1
             }
         ],
@@ -270,6 +288,10 @@
         "Items": [
             {
                 "iname": "IT_CV_GOLD3",
+                "num": 1
+            },
+            {
+                "iname": "IT_US_GL_DAILY_TICKET",
                 "num": 1
             }
         ],
@@ -3170,178 +3192,6 @@
         "Artifacts": [],
         "ConceptCards": []
     },
-    "GL_MM_01_20August": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "upunitlevel",
-            "ival": 1
-        },
-        "iname": "GL_MM_01_20August",
-        "Name": "[Monday Mission] Level up an unit 1 time",
-        "Category": "GL_MON_MISSION_3",
-        "Items": [
-            {
-                "iname": "IT_UG_APPLE4",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MM_02_20August": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "ability",
-            "ival": 1
-        },
-        "iname": "GL_MM_02_20August",
-        "Name": "[Monday Mission] Raise any unit's ability 1 time",
-        "Category": "GL_MON_MISSION_3",
-        "Items": [
-            {
-                "iname": "IT_CV_GOLD3",
-                "num": 2
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MM_03_20August": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "upjoblevel",
-            "ival": 1
-        },
-        "iname": "GL_MM_03_20August",
-        "Name": "[Monday Mission] Raise any unit's job level 1 time",
-        "Category": "GL_MON_MISSION_3",
-        "Items": [
-            {
-                "iname": "IT_SG_POT3",
-                "num": 2
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MM_04_20August": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winmulti",
-            "ival": 1
-        },
-        "iname": "GL_MM_04_20August",
-        "Name": "[Monday Mission] Win any Multi Quest 1 time",
-        "Stamina": 100,
-        "Category": "GL_MON_MISSION_3",
-        "Items": [],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MM_05_20August": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquestsoldier",
-            "ival": 1
-        },
-        "iname": "GL_MM_05_20August",
-        "Name": "[Monday Mission] Win any quest using Mercenary 1 time",
-        "Category": "GL_MON_MISSION_3",
-        "Items": [
-            {
-                "iname": "IT_PI_GL_SHIO",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MM_01_27August": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "upunitlevel",
-            "ival": 1
-        },
-        "iname": "GL_MM_01_27August",
-        "Name": "[Monday Mission] Level up an unit 1 time",
-        "Category": "GL_MON_MISSION_4",
-        "Items": [
-            {
-                "iname": "IT_UG_APPLE4",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MM_02_27August": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "ability",
-            "ival": 1
-        },
-        "iname": "GL_MM_02_27August",
-        "Name": "[Monday Mission] Raise any unit's ability 1 time",
-        "Category": "GL_MON_MISSION_4",
-        "Items": [
-            {
-                "iname": "IT_CV_GOLD3",
-                "num": 2
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MM_03_27August": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "upjoblevel",
-            "ival": 1
-        },
-        "iname": "GL_MM_03_27August",
-        "Name": "[Monday Mission] Raise any unit's job level 1 time",
-        "Category": "GL_MON_MISSION_4",
-        "Items": [
-            {
-                "iname": "IT_SG_POT3",
-                "num": 2
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MM_04_27August": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winmulti",
-            "ival": 1
-        },
-        "iname": "GL_MM_04_27August",
-        "Name": "[Monday Mission] Win any Multi Quest 1 time",
-        "Stamina": 100,
-        "Category": "GL_MON_MISSION_4",
-        "Items": [],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MM_05_27August": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquestsoldier",
-            "ival": 1
-        },
-        "iname": "GL_MM_05_27August",
-        "Name": "[Monday Mission] Win any quest using Mercenary 1 time",
-        "Category": "GL_MON_MISSION_4",
-        "Items": [
-            {
-                "iname": "IT_PI_OLGA",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
     "GL_GEARTUT_01": {
         "RequiredTrophies": [],
         "Objectives": {
@@ -3923,10 +3773,7 @@
         "RequiredTrophies": [],
         "Objectives": {
             "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_01_MULTI_EX"
-            ]
+            "ival": 1
         },
         "iname": "MULTI_GL_MH_01_EX_1",
         "Name": "[Magi Historia 1] Clear Overture [EX] [Multiplay] [1]",
@@ -3941,10 +3788,7 @@
         "RequiredTrophies": [],
         "Objectives": {
             "type": "winquest",
-            "ival": 3,
-            "sval": [
-                "QE_EV_GL_MH_01_MULTI_EX"
-            ]
+            "ival": 3
         },
         "iname": "MULTI_GL_MH_01_EX_2",
         "Name": "[Magi Historia 1] Clear Overture [EX] [Multiplay] [2]",
@@ -3963,10 +3807,7 @@
         "RequiredTrophies": [],
         "Objectives": {
             "type": "winquest",
-            "ival": 5,
-            "sval": [
-                "QE_EV_GL_MH_01_MULTI_EX"
-            ]
+            "ival": 5
         },
         "iname": "MULTI_GL_MH_01_EX_3",
         "Name": "[Magi Historia 1] Clear Overture [EX] [Multiplay] [3]",
@@ -3993,10 +3834,7 @@
         "RequiredTrophies": [],
         "Objectives": {
             "type": "winquest",
-            "ival": 7,
-            "sval": [
-                "QE_EV_GL_MH_01_MULTI_EX"
-            ]
+            "ival": 7
         },
         "iname": "MULTI_GL_MH_01_EX_4",
         "Name": "[Magi Historia 1] Clear Overture [EX] [Multiplay] [4]",
@@ -4019,10 +3857,7 @@
         "RequiredTrophies": [],
         "Objectives": {
             "type": "winquest",
-            "ival": 10,
-            "sval": [
-                "QE_EV_GL_MH_01_MULTI_EX"
-            ]
+            "ival": 10
         },
         "iname": "MULTI_GL_MH_01_EX_5",
         "Name": "[Magi Historia 1] Clear Overture [EX] [Multiplay] [5]",
@@ -4042,10 +3877,7 @@
         "RequiredTrophies": [],
         "Objectives": {
             "type": "winquest",
-            "ival": 15,
-            "sval": [
-                "QE_EV_GL_MH_01_MULTI_EX"
-            ]
+            "ival": 15
         },
         "iname": "MULTI_GL_MH_01_EX_6",
         "Name": "[Magi Historia 1] Clear Overture [EX] [Multiplay] [6]",
@@ -4056,660 +3888,6 @@
             {
                 "iname": "IT_AF_ACCS_GL_SIEG_HAT",
                 "num": 25
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_01": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_01"
-            ]
-        },
-        "iname": "GL_MH_02_01",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 1",
-        "Coin": 50,
-        "Exp": 100,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_UG_APPLE3",
-                "num": 3
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_02": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_02"
-            ]
-        },
-        "iname": "GL_MH_02_02",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 2",
-        "Exp": 200,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_CV_GOLD1",
-                "num": 3
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_03": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_03"
-            ]
-        },
-        "iname": "GL_MH_02_03",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 3",
-        "Exp": 300,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_ATK_SABER",
-                "num": 1
-            },
-            {
-                "iname": "IT_EQ_DEF_SHELM",
-                "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_04": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_04"
-            ]
-        },
-        "iname": "GL_MH_02_04",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 4",
-        "Exp": 400,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_UG_APPLE3",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_05": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_05"
-            ]
-        },
-        "iname": "GL_MH_02_05",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 5",
-        "Coin": 50,
-        "Exp": 500,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_CV_GOLD1",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_06": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_06"
-            ]
-        },
-        "iname": "GL_MH_02_06",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 6",
-        "Exp": 600,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_ATK_SABER",
-                "num": 1
-            },
-            {
-                "iname": "IT_EQ_DEF_SHELM",
-                "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_07": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_07"
-            ]
-        },
-        "iname": "GL_MH_02_07",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 7",
-        "Exp": 700,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_CV_GOLD2",
-                "num": 3
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_08": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_08"
-            ]
-        },
-        "iname": "GL_MH_02_08",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 8",
-        "Exp": 800,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_UG_APPLE4",
-                "num": 3
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_09": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_09"
-            ]
-        },
-        "iname": "GL_MH_02_09",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 9",
-        "Exp": 900,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_CV_GOLD2",
-                "num": 5
-            },
-            {
-                "iname": "IT_UG_APPLE4",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_10_1": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_10"
-            ]
-        },
-        "iname": "GL_MH_02_10_1",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 10 [1]",
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_ATK_LANCE",
-                "num": 1
-            },
-            {
-                "iname": "IT_EQ_DEF_SHIELD",
-                "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_10_2": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 3,
-            "sval": [
-                "QE_EV_GL_MH_02_10"
-            ]
-        },
-        "iname": "GL_MH_02_10_2",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 10 [2]",
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO",
-                "num": 20
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_10_3": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 5,
-            "sval": [
-                "QE_EV_GL_MH_02_10"
-            ]
-        },
-        "iname": "GL_MH_02_10_3",
-        "Name": "[Magi Historia 2] Clear Deliverance: Stage 10 [3]",
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO",
-                "num": 20
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_EX_1": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_EX"
-            ]
-        },
-        "iname": "GL_MH_02_EX_1",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [1]",
-        "Coin": 50,
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX",
-        "Items": [
-            {
-                "iname": "IT_EQ_GL_DIAGRAM_SHIO_KIMONO",
-                "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_EX_2": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 3,
-            "sval": [
-                "QE_EV_GL_MH_02_EX"
-            ]
-        },
-        "iname": "GL_MH_02_EX_2",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [2]",
-        "Coin": 50,
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX",
-        "Items": [
-            {
-                "iname": "IT_UG_APPLE5",
-                "num": 5
-            },
-            {
-                "iname": "IT_EQ_ATK_SWORD",
-                "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_EX_3": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 5,
-            "sval": [
-                "QE_EV_GL_MH_02_EX"
-            ]
-        },
-        "iname": "GL_MH_02_EX_3",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [3]",
-        "Coin": 100,
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX",
-        "Items": [
-            {
-                "iname": "IT_CV_GOLD3",
-                "num": 5
-            },
-            {
-                "iname": "IT_EQ_DEF_SHIELD",
-                "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_EX_4": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 7,
-            "sval": [
-                "QE_EV_GL_MH_02_EX"
-            ]
-        },
-        "iname": "GL_MH_02_EX_4",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [4]",
-        "Coin": 100,
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX",
-        "Items": [
-            {
-                "iname": "IT_UG_APPLE5",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_EX_5": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 10,
-            "sval": [
-                "QE_EV_GL_MH_02_EX"
-            ]
-        },
-        "iname": "GL_MH_02_EX_5",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [5]",
-        "Coin": 100,
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX",
-        "Items": [
-            {
-                "iname": "IT_CV_GOLD3",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "GL_MH_02_EX_6": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 15,
-            "sval": [
-                "QE_EV_GL_MH_02_EX"
-            ]
-        },
-        "iname": "GL_MH_02_EX_6",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [6]",
-        "Coin": 200,
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX",
-        "Items": [
-            {
-                "iname": "IT_AF_ARMS_SWO_GL_SIEG_01",
-                "num": 25
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "MULTI_GL_MH_02_EX_1": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_GL_MH_02_MULTI_EX"
-            ]
-        },
-        "iname": "MULTI_GL_MH_02_EX_1",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [Multiplay] [1]",
-        "Coin": 50,
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX_MULTI",
-        "Items": [],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "MULTI_GL_MH_02_EX_2": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 3,
-            "sval": [
-                "QE_EV_GL_MH_02_MULTI_EX"
-            ]
-        },
-        "iname": "MULTI_GL_MH_02_EX_2",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [Multiplay] [2]",
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX_MULTI",
-        "Items": [
-            {
-                "iname": "IT_US_SOUBI10TICKET_2",
-                "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "MULTI_GL_MH_02_EX_3": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 5,
-            "sval": [
-                "QE_EV_GL_MH_02_MULTI_EX"
-            ]
-        },
-        "iname": "MULTI_GL_MH_02_EX_3",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [Multiplay] [3]",
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX_MULTI",
-        "Items": [
-            {
-                "iname": "IT_EQ_JAMADHAR",
-                "num": 1
-            },
-            {
-                "iname": "IT_EQ_CSWORD",
-                "num": 1
-            },
-            {
-                "iname": "IT_EQ_SHN_RUCK",
-                "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "MULTI_GL_MH_02_EX_4": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 7,
-            "sval": [
-                "QE_EV_GL_MH_02_MULTI_EX"
-            ]
-        },
-        "iname": "MULTI_GL_MH_02_EX_4",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [Multiplay] [4]",
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX_MULTI",
-        "Items": [
-            {
-                "iname": "IT_CV_GOLD3",
-                "num": 10
-            },
-            {
-                "iname": "IT_UG_APPLE5",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "MULTI_GL_MH_02_EX_5": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 10,
-            "sval": [
-                "QE_EV_GL_MH_02_MULTI_EX"
-            ]
-        },
-        "iname": "MULTI_GL_MH_02_EX_5",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [Multiplay] [5]",
-        "Coin": 100,
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX_MULTI",
-        "Items": [
-            {
-                "iname": "IT_PI_COMMON_WIND",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "MULTI_GL_MH_02_EX_6": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 15,
-            "sval": [
-                "QE_EV_GL_MH_02_MULTI_EX"
-            ]
-        },
-        "iname": "MULTI_GL_MH_02_EX_6",
-        "Name": "[Magi Historia 2] Clear Deliverance [EX] [Multiplay] [6]",
-        "Coin": 200,
-        "Exp": 1000,
-        "Category": "GL_MH_2_TROPHY_EX_MULTI",
-        "Items": [
-            {
-                "iname": "IT_AF_ARMS_SWO_GL_SIEG_01",
-                "num": 25
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "RECORD_GL_SOREN_01": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "makeunitlevel",
-            "ival": 30,
-            "sval": [
-                "UN_V2_GL_SOREN"
-            ]
-        },
-        "iname": "RECORD_GL_SOREN_01",
-        "Name": "Raise Soren's Level to 30",
-        "Category": "GL_SOREN_GROWTH",
-        "Items": [
-            {
-                "iname": "IT_US_TICKET",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "RECORD_GL_SOREN_02": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "makejoblevel",
-            "ival": 6,
-            "sval": [
-                "UN_V2_GL_SOREN,JB_GL_DIV"
-            ]
-        },
-        "iname": "RECORD_GL_SOREN_02",
-        "Name": "Raise Soren's \"Divine Speaker\" Job Level to 6",
-        "Category": "GL_SOREN_GROWTH",
-        "Items": [
-            {
-                "iname": "IT_UG_APPLE5",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "RECORD_GL_SOREN_03": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "makeunitlevel",
-            "ival": 60,
-            "sval": [
-                "UN_V2_GL_SOREN"
-            ]
-        },
-        "iname": "RECORD_GL_SOREN_03",
-        "Name": "Raise Soren's Level to 60",
-        "Category": "GL_SOREN_GROWTH",
-        "Items": [
-            {
-                "iname": "IT_CV_GOLD4",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": []
-    },
-    "RECORD_GL_SOREN_04": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "makejoblevel",
-            "ival": 11,
-            "sval": [
-                "UN_V2_GL_SOREN,JB_GL_DIV"
-            ]
-        },
-        "iname": "RECORD_GL_SOREN_04",
-        "Name": "Raise Soren's \"Divine Speaker\" Job Level to 11",
-        "Category": "GL_SOREN_GROWTH",
-        "Items": [
-            {
-                "iname": "IT_PI_COMMON_WATER",
-                "num": 5
             }
         ],
         "Artifacts": [],
@@ -15453,545 +14631,6 @@
                     "num": 3
                 }
             ]
-        }
-    },
-    "RECORD_SWIM_GORM_1_01": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_SWIM_GORM_01"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_1_01",
-        "Name": "荒ぶる海の漢 -猛装伝- 1話をクリア[1]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_06",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_1_02": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 3,
-            "sval": [
-                "QE_EV_SWIM_GORM_01"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_1_02",
-        "Name": "荒ぶる海の漢 -猛装伝- 1話をクリア[2]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_06",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_1_03": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 5,
-            "sval": [
-                "QE_EV_SWIM_GORM_01"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_1_03",
-        "Name": "荒ぶる海の漢 -猛装伝- 1話をクリア[3]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_06",
-                "num": 15
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_2_01": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_SWIM_GORM_02"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_2_01",
-        "Name": "荒ぶる海の漢 -猛装伝- 2話をクリア[1]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_05",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_2_02": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 3,
-            "sval": [
-                "QE_EV_SWIM_GORM_02"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_2_02",
-        "Name": "荒ぶる海の漢 -猛装伝- 2話をクリア[2]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_05",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_2_03": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 5,
-            "sval": [
-                "QE_EV_SWIM_GORM_02"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_2_03",
-        "Name": "荒ぶる海の漢 -猛装伝- 2話をクリア[3]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_05",
-                "num": 15
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_3_01": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_SWIM_GORM_03"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_3_01",
-        "Name": "荒ぶる海の漢 -猛装伝- 3話をクリア[1]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_04",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_3_02": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 3,
-            "sval": [
-                "QE_EV_SWIM_GORM_03"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_3_02",
-        "Name": "荒ぶる海の漢 -猛装伝- 3話をクリア[2]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_04",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_3_03": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 5,
-            "sval": [
-                "QE_EV_SWIM_GORM_03"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_3_03",
-        "Name": "荒ぶる海の漢 -猛装伝- 3話をクリア[3]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_04",
-                "num": 15
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_4_01": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_SWIM_GORM_04"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_4_01",
-        "Name": "荒ぶる海の漢 -猛装伝- 4話をクリア[1]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_06",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_4_02": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 3,
-            "sval": [
-                "QE_EV_SWIM_GORM_04"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_4_02",
-        "Name": "荒ぶる海の漢 -猛装伝- 4話をクリア[2]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_05",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_4_03": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 5,
-            "sval": [
-                "QE_EV_SWIM_GORM_04"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_4_03",
-        "Name": "荒ぶる海の漢 -猛装伝- 4話をクリア[3]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_04",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_5_01": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_SWIM_GORM_05"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_5_01",
-        "Name": "荒ぶる海の漢 -猛装伝- 5話をクリア[1]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_06",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_5_02": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 3,
-            "sval": [
-                "QE_EV_SWIM_GORM_05"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_5_02",
-        "Name": "荒ぶる海の漢 -猛装伝- 5話をクリア[2]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_05",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_5_03": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 5,
-            "sval": [
-                "QE_EV_SWIM_GORM_05"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_5_03",
-        "Name": "荒ぶる海の漢 -猛装伝- 5話をクリア[3]",
-        "Category": "SWIM_GORM_TROPHY",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_04",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_EX_01": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_SWIM_GORM_EX"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_EX_01",
-        "Name": "【EX】荒ぶる海の漢 -猛装伝-[1]",
-        "Category": "SWIM_GORM_TROPHY_EX",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_01",
-                "num": 25
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_EX_02": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 3,
-            "sval": [
-                "QE_EV_SWIM_GORM_EX"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_EX_02",
-        "Name": "【EX】荒ぶる海の漢 -猛装伝-[2]",
-        "Category": "SWIM_GORM_TROPHY_EX",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_02",
-                "num": 25
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_EX_03": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 5,
-            "sval": [
-                "QE_EV_SWIM_GORM_EX"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_EX_03",
-        "Name": "【EX】荒ぶる海の漢 -猛装伝-[3]",
-        "Coin": 100,
-        "Category": "SWIM_GORM_TROPHY_EX",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_03",
-                "num": 25
-            },
-            {
-                "iname": "IT_UG_APPLE5",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_EX_SP_01": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_SWIM_GORM_EX_SP"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_EX_SP_01",
-        "Name": "【EX・極】荒ぶる海の漢 -猛装伝-[1]",
-        "Coin": 250,
-        "Category": "SWIM_GORM_TROPHY_EX",
-        "Items": [
-            {
-                "iname": "IT_US_RARESOUBI_10TICKET",
-                "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_EX_M_01": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_EV_MULTI_GORM_EX"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_EX_M_01",
-        "Name": "【EX】【マルチ】荒ぶる海の漢 -猛装伝-[1]",
-        "Category": "SWIM_GORM_TROPHY_EX_MULTI",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_01",
-                "num": 25
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】【EX】【マルチ】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_EX_M_02": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 3,
-            "sval": [
-                "QE_EV_MULTI_GORM_EX"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_EX_M_02",
-        "Name": "【EX】【マルチ】荒ぶる海の漢 -猛装伝-[2]",
-        "Category": "SWIM_GORM_TROPHY_EX_MULTI",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_02",
-                "num": 25
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】【EX】【マルチ】荒ぶる海の漢 -猛装伝-"
-        }
-    },
-    "RECORD_SWIM_GORM_EX_M_03": {
-        "RequiredTrophies": [],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 5,
-            "sval": [
-                "QE_EV_MULTI_GORM_EX"
-            ]
-        },
-        "iname": "RECORD_SWIM_GORM_EX_M_03",
-        "Name": "【EX】【マルチ】荒ぶる海の漢 -猛装伝-[3]",
-        "Coin": 100,
-        "Category": "SWIM_GORM_TROPHY_EX_MULTI",
-        "Items": [
-            {
-                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_03",
-                "num": 25
-            },
-            {
-                "iname": "IT_CV_GOLD3",
-                "num": 10
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【期間限定】【EX】【マルチ】荒ぶる海の漢 -猛装伝-"
         }
     },
     "SO_YUTO_1_01": {
@@ -27461,276 +26100,6 @@
             {
                 "iname": "IT_SG_POT3",
                 "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【ストーリー】3章2話"
-        }
-    },
-    "WINQUEST_321N": {
-        "RequiredTrophies": [
-            "WINQUEST_320N"
-        ],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_ST_NO_030051"
-            ]
-        },
-        "iname": "WINQUEST_321N",
-        "Name": "3章2話3-1をクリア",
-        "Coin": 50,
-        "Exp": 1000,
-        "Category": "STORY_CHPT3_EP2",
-        "Items": [],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【ストーリー】3章2話"
-        }
-    },
-    "WINQUEST_322N": {
-        "RequiredTrophies": [
-            "WINQUEST_320N"
-        ],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_ST_NO_030052"
-            ]
-        },
-        "iname": "WINQUEST_322N",
-        "Name": "3章2話3-2をクリア",
-        "Exp": 1000,
-        "Category": "STORY_CHPT3_EP2",
-        "Items": [
-            {
-                "iname": "IT_PI_LIESBET",
-                "num": 5
-            },
-            {
-                "iname": "IT_UG_APPLE5",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【ストーリー】3章2話"
-        }
-    },
-    "WINQUEST_323N": {
-        "RequiredTrophies": [
-            "WINQUEST_320N"
-        ],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_ST_NO_030053"
-            ]
-        },
-        "iname": "WINQUEST_323N",
-        "Name": "3章2話3-3をクリア",
-        "Coin": 50,
-        "Exp": 1000,
-        "Category": "STORY_CHPT3_EP2",
-        "Items": [],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【ストーリー】3章2話"
-        }
-    },
-    "WINQUEST_324N": {
-        "RequiredTrophies": [
-            "WINQUEST_320N"
-        ],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_ST_NO_030054"
-            ]
-        },
-        "iname": "WINQUEST_324N",
-        "Name": "3章2話3-4をクリア",
-        "Exp": 1000,
-        "Category": "STORY_CHPT3_EP2",
-        "Items": [
-            {
-                "iname": "IT_EQ_ATK_SWORD",
-                "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【ストーリー】3章2話"
-        }
-    },
-    "WINQUEST_325N": {
-        "RequiredTrophies": [
-            "WINQUEST_320N"
-        ],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_ST_NO_030055"
-            ]
-        },
-        "iname": "WINQUEST_325N",
-        "Name": "3章2話3-5をクリア",
-        "Coin": 50,
-        "Exp": 1000,
-        "Category": "STORY_CHPT3_EP2",
-        "Items": [],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【ストーリー】3章2話"
-        }
-    },
-    "WINQUEST_326N": {
-        "RequiredTrophies": [
-            "WINQUEST_320N"
-        ],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_ST_NO_030056"
-            ]
-        },
-        "iname": "WINQUEST_326N",
-        "Name": "3章2話3-6をクリア",
-        "Exp": 1000,
-        "Category": "STORY_CHPT3_EP2",
-        "Items": [
-            {
-                "iname": "IT_US_TICKET",
-                "num": 10
-            },
-            {
-                "iname": "IT_UG_APPLE5",
-                "num": 5
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【ストーリー】3章2話"
-        }
-    },
-    "WINQUEST_327N": {
-        "RequiredTrophies": [
-            "WINQUEST_320N"
-        ],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_ST_NO_030057"
-            ]
-        },
-        "iname": "WINQUEST_327N",
-        "Name": "3章2話3-7をクリア",
-        "Coin": 50,
-        "Exp": 1000,
-        "Category": "STORY_CHPT3_EP2",
-        "Items": [],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【ストーリー】3章2話"
-        }
-    },
-    "WINQUEST_328N": {
-        "RequiredTrophies": [
-            "WINQUEST_320N"
-        ],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_ST_NO_030058"
-            ]
-        },
-        "iname": "WINQUEST_328N",
-        "Name": "3章2話3-8をクリア",
-        "Exp": 1000,
-        "Category": "STORY_CHPT3_EP2",
-        "Items": [
-            {
-                "iname": "IT_EQ_DEF_SHIELD",
-                "num": 1
-            },
-            {
-                "iname": "IT_SG_POT3",
-                "num": 1
-            }
-        ],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【ストーリー】3章2話"
-        }
-    },
-    "WINQUEST_329N": {
-        "RequiredTrophies": [
-            "WINQUEST_320N"
-        ],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_ST_NO_030059"
-            ]
-        },
-        "iname": "WINQUEST_329N",
-        "Name": "3章2話3-9をクリア",
-        "Coin": 50,
-        "Exp": 1000,
-        "Category": "STORY_CHPT3_EP2",
-        "Items": [],
-        "Artifacts": [],
-        "ConceptCards": [],
-        "dif": {
-            "Category": "【ストーリー】3章2話"
-        }
-    },
-    "WINQUEST_330N": {
-        "RequiredTrophies": [
-            "WINQUEST_320N"
-        ],
-        "Objectives": {
-            "type": "winquest",
-            "ival": 1,
-            "sval": [
-                "QE_ST_NO_030060"
-            ]
-        },
-        "iname": "WINQUEST_330N",
-        "Name": "3章2話3-10をクリア",
-        "Exp": 1250,
-        "Category": "STORY_CHPT3_EP2",
-        "Items": [
-            {
-                "iname": "IT_US_APPLE_10TICKET",
-                "num": 1
-            },
-            {
-                "iname": "IT_UG_APPLE5",
-                "num": 7
-            },
-            {
-                "iname": "IT_CV_GOLD3",
-                "num": 20
             }
         ],
         "Artifacts": [],
@@ -43847,6 +42216,479 @@
             {
                 "iname": "IT_EQ_DIAGRAMPIECE_SQ_DAN",
                 "num": 20
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_1_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_SWIM_GORM_01"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_1_01",
+        "Name": "荒ぶる海の漢 -猛装伝- 1話をクリア[1]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_06",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_1_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_SWIM_GORM_01"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_1_02",
+        "Name": "荒ぶる海の漢 -猛装伝- 1話をクリア[2]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_06",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_1_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_EV_SWIM_GORM_01"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_1_03",
+        "Name": "荒ぶる海の漢 -猛装伝- 1話をクリア[3]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_06",
+                "num": 15
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_2_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_SWIM_GORM_02"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_2_01",
+        "Name": "荒ぶる海の漢 -猛装伝- 2話をクリア[1]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_05",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_2_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_SWIM_GORM_02"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_2_02",
+        "Name": "荒ぶる海の漢 -猛装伝- 2話をクリア[2]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_05",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_2_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_EV_SWIM_GORM_02"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_2_03",
+        "Name": "荒ぶる海の漢 -猛装伝- 2話をクリア[3]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_05",
+                "num": 15
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_3_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_SWIM_GORM_03"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_3_01",
+        "Name": "荒ぶる海の漢 -猛装伝- 3話をクリア[1]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_04",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_3_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_SWIM_GORM_03"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_3_02",
+        "Name": "荒ぶる海の漢 -猛装伝- 3話をクリア[2]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_04",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_3_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_EV_SWIM_GORM_03"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_3_03",
+        "Name": "荒ぶる海の漢 -猛装伝- 3話をクリア[3]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_04",
+                "num": 15
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_4_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_SWIM_GORM_04"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_4_01",
+        "Name": "荒ぶる海の漢 -猛装伝- 4話をクリア[1]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_06",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_4_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_SWIM_GORM_04"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_4_02",
+        "Name": "荒ぶる海の漢 -猛装伝- 4話をクリア[2]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_05",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_4_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_EV_SWIM_GORM_04"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_4_03",
+        "Name": "荒ぶる海の漢 -猛装伝- 4話をクリア[3]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_04",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_5_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_SWIM_GORM_05"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_5_01",
+        "Name": "荒ぶる海の漢 -猛装伝- 5話をクリア[1]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_06",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_5_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_SWIM_GORM_05"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_5_02",
+        "Name": "荒ぶる海の漢 -猛装伝- 5話をクリア[2]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_05",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_5_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_EV_SWIM_GORM_05"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_5_03",
+        "Name": "荒ぶる海の漢 -猛装伝- 5話をクリア[3]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_04",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_EX_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_SWIM_GORM_EX"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_EX_01",
+        "Name": "【EX】荒ぶる海の漢 -猛装伝-[1]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_01",
+                "num": 25
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_EX_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_SWIM_GORM_EX"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_EX_02",
+        "Name": "【EX】荒ぶる海の漢 -猛装伝-[2]",
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_02",
+                "num": 25
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_EX_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_EV_SWIM_GORM_EX"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_EX_03",
+        "Name": "【EX】荒ぶる海の漢 -猛装伝-[3]",
+        "Coin": 100,
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_03",
+                "num": 25
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_EX_SP_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_SWIM_GORM_EX_SP"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_EX_SP_01",
+        "Name": "【EX・極】荒ぶる海の漢 -猛装伝-[1]",
+        "Coin": 250,
+        "Category": "【期間限定】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_US_RARESOUBI_10TICKET",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_EX_M_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_MULTI_GORM_EX"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_EX_M_01",
+        "Name": "【EX】【マルチ】荒ぶる海の漢 -猛装伝-[1]",
+        "Category": "【期間限定】【EX】【マルチ】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_01",
+                "num": 25
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_EX_M_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_MULTI_GORM_EX"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_EX_M_02",
+        "Name": "【EX】【マルチ】荒ぶる海の漢 -猛装伝-[2]",
+        "Category": "【期間限定】【EX】【マルチ】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_02",
+                "num": 25
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_SWIM_GORM_EX_M_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_EV_MULTI_GORM_EX"
+            ]
+        },
+        "iname": "RECORD_SWIM_GORM_EX_M_03",
+        "Name": "【EX】【マルチ】荒ぶる海の漢 -猛装伝-[3]",
+        "Coin": 100,
+        "Category": "【期間限定】【EX】【マルチ】荒ぶる海の漢 -猛装伝-",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_03",
+                "num": 25
+            },
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 10
             }
         ],
         "Artifacts": [],
@@ -103161,6 +102003,246 @@
             {
                 "iname": "IT_PI_RINN",
                 "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_321N": {
+        "RequiredTrophies": [
+            "WINQUEST_320N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030051"
+            ]
+        },
+        "iname": "WINQUEST_321N",
+        "Name": "3章2話3-1をクリア",
+        "Coin": 50,
+        "Exp": 1000,
+        "Category": "【ストーリー】3章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_322N": {
+        "RequiredTrophies": [
+            "WINQUEST_320N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030052"
+            ]
+        },
+        "iname": "WINQUEST_322N",
+        "Name": "3章2話3-2をクリア",
+        "Exp": 1000,
+        "Category": "【ストーリー】3章2話",
+        "Items": [
+            {
+                "iname": "IT_PI_LIESBET",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_323N": {
+        "RequiredTrophies": [
+            "WINQUEST_320N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030053"
+            ]
+        },
+        "iname": "WINQUEST_323N",
+        "Name": "3章2話3-3をクリア",
+        "Coin": 50,
+        "Exp": 1000,
+        "Category": "【ストーリー】3章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_324N": {
+        "RequiredTrophies": [
+            "WINQUEST_320N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030054"
+            ]
+        },
+        "iname": "WINQUEST_324N",
+        "Name": "3章2話3-4をクリア",
+        "Exp": 1000,
+        "Category": "【ストーリー】3章2話",
+        "Items": [
+            {
+                "iname": "IT_EQ_ATK_SWORD",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_325N": {
+        "RequiredTrophies": [
+            "WINQUEST_320N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030055"
+            ]
+        },
+        "iname": "WINQUEST_325N",
+        "Name": "3章2話3-5をクリア",
+        "Coin": 50,
+        "Exp": 1000,
+        "Category": "【ストーリー】3章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_326N": {
+        "RequiredTrophies": [
+            "WINQUEST_320N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030056"
+            ]
+        },
+        "iname": "WINQUEST_326N",
+        "Name": "3章2話3-6をクリア",
+        "Exp": 1000,
+        "Category": "【ストーリー】3章2話",
+        "Items": [
+            {
+                "iname": "IT_US_TICKET",
+                "num": 10
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_327N": {
+        "RequiredTrophies": [
+            "WINQUEST_320N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030057"
+            ]
+        },
+        "iname": "WINQUEST_327N",
+        "Name": "3章2話3-7をクリア",
+        "Coin": 50,
+        "Exp": 1000,
+        "Category": "【ストーリー】3章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_328N": {
+        "RequiredTrophies": [
+            "WINQUEST_320N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030058"
+            ]
+        },
+        "iname": "WINQUEST_328N",
+        "Name": "3章2話3-8をクリア",
+        "Exp": 1000,
+        "Category": "【ストーリー】3章2話",
+        "Items": [
+            {
+                "iname": "IT_EQ_DEF_SHIELD",
+                "num": 1
+            },
+            {
+                "iname": "IT_SG_POT3",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_329N": {
+        "RequiredTrophies": [
+            "WINQUEST_320N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030059"
+            ]
+        },
+        "iname": "WINQUEST_329N",
+        "Name": "3章2話3-9をクリア",
+        "Coin": 50,
+        "Exp": 1000,
+        "Category": "【ストーリー】3章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_330N": {
+        "RequiredTrophies": [
+            "WINQUEST_320N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030060"
+            ]
+        },
+        "iname": "WINQUEST_330N",
+        "Name": "3章2話3-10をクリア",
+        "Exp": 1250,
+        "Category": "【ストーリー】3章2話",
+        "Items": [
+            {
+                "iname": "IT_US_APPLE_10TICKET",
+                "num": 1
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 7
+            },
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 20
             }
         ],
         "Artifacts": [],

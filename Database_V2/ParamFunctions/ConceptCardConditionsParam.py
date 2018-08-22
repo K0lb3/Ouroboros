@@ -1,4 +1,7 @@
 from ParamFunctions._variables import RAWBIRTH,RAWELEMENT,ENUM
+
+CondBirth=list(RAWBIRTH.items())
+
 def ConceptCardConditionsParam(json):
     this={}#ConceptCardConditionsParamjson)
     if 'iname' in json:
@@ -14,23 +17,28 @@ def ConceptCardConditionsParam(json):
     if 'sex' in json:
         this['sex'] = ENUM['ESex'][json['sex']]
     if 'birth_id' in json:
-        this['birth_id'] = json['birth_id']
+        #this['birth_id'] = json['birth_id']
+        this['birth']= [
+            CondBirth[ID][1]
+            for ID in json['birth_id']
+        ]
     
-    this['conditions_elements']={}
+    this['conditions_elements']=[]
     if 'el_fire' in json:
-        this['conditions_elements']['Fire'] = json['el_fire']
+        this['conditions_elements'].append('Fire')
     if 'el_watr' in json:
-        this['conditions_elements']['Water']= json['el_watr']
+        this['conditions_elements'].append('Water')
     if 'el_wind' in json:
-        this['conditions_elements']['Wind']= json['el_wind']
+        this['conditions_elements'].append('Wind')
     if 'el_thdr' in json:
-        this['conditions_elements']['Thunder']= json['el_thdr']
+        this['conditions_elements'].append('Thunder')
     if 'el_lit' in json:
-        this['conditions_elements']['Light']= json['el_lit']
+        this['conditions_elements'].append('Light')
     if 'el_drk' in json:
-        this['conditions_elements']['Dark']= json['el_drk']
-
-    this['element_sum'] = len(this['conditions_elements'])
+        this['conditions_elements'].append('Dark')
+    if len(this['conditions_elements']) == 0:
+        del this['conditions_elements']
+    #this['element_sum'] = len(this['conditions_elements'])
 
     #returntrue
     return this

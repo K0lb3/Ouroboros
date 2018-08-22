@@ -74,10 +74,10 @@
             "pickup_art": []
         },
         {
-            "iname": "Daily_Gacha_D02_S1_SoulB16",
+            "iname": "Daily_Gacha_D07_S1_SoulB16",
             "cat": "",
-            "startat": 1533888000,
-            "endat": 1533974399,
+            "startat": 1534320000,
+            "endat": 1534406399,
             "num": 10,
             "name": "Daily Soul Summon",
             "cost": {
