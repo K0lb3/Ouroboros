@@ -1,3 +1,4 @@
+from ParamFunctions._variables import ENUM
 def UnlockParam(json):
     this={}#UnlockParamjson)
     #if(json==null)
@@ -5,8 +6,8 @@ def UnlockParam(json):
     if 'iname' in json:
         this['iname'] = json['iname']
     #try
-        if 'iname' in json:
-            this['UnlockTarget'] = ENUM['UnlockTargets'][json['iname']]
+    if 'iname' in json:
+        this['UnlockTarget'] = ENUM['UnlockTargets'][json['iname']]
     #catch(Exceptionex)
         #returnfalse
     if 'lv' in json:
@@ -14,4 +15,4 @@ def UnlockParam(json):
     if 'vip' in json:
         this['VipRank'] = json['vip']
     #returntrue
-return this
+    return this

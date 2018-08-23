@@ -46,8 +46,12 @@ async def on_ready():
 @bot.command() 
 async def quest(ctx, *, name):
     quest = FindBest(ToEmbed.DIRS['Quests'], name,True)
-    (embed,image)=ToEmbed.quest(quest,'')
-    await ctx.send(embed=embed,file=discord.File(image,filename='{}.png'.format(quest)))
+    (embed,image)=ToEmbed.Quest(quest,'main')
+
+    if image:
+        await ctx.send(embed=embed,file=discord.File(image,filename='{}.png'.format(quest)))
+    else:
+        await ctx.send(embed=embed)
 
 @bot.command()
 async def unit(ctx, *, name):

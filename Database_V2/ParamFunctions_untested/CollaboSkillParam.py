@@ -1,7 +1,5 @@
 def CollaboSkillParam(json):
     this={}#CollaboSkillParamjson)
-    #if(json==null)
-    #return
     if 'iname' in json:
         this['mIname'] = json['iname']
     if 'uname' in json:

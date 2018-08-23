@@ -8,7 +8,7 @@ def main():
     (command, name)=input('Input: ').split(' ',1)
     if command == 'quest':
         quest = FindBest(ToEmbed.DIRS['Quests'], name,True)
-        (embed,image)=ToEmbed.Quest(quest,'')
+        (embed,image)=ToEmbed.Quest(quest,'main')
         print(json.dumps(embed.to_dict(), indent=4))#,file=discord.File(image,filename='{}.png'.format(quest)).to_dict(),
 
     if command == 'gear':

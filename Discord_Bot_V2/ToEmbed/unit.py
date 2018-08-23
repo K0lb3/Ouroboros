@@ -1,5 +1,5 @@
-from ToEmbed._main import DIRS,LinkDB,ConvertFields,StrBuff,StrCondition,Embed,Rarity
-
+from ToEmbed._main import DIRS,LinkDB,ConvertFields,StrBuff,StrCondition,Embed,Rarity,TACScale
+import re
 #To do:
 #title url
 ELEMENT_COLOR = {
@@ -126,58 +126,43 @@ def lore(unit):
     return fields
 
 def job(unit,job):
-    fields=[]
-        # _IGNORE_STATS = ['move', 'jump']
+    if job < 4:
+        job=DIRS['Job'][unit['jobs'][job-1]]
+    else:
+        job=DIRS['Job'][unit['jobchanges'][job-4]]
+        if not job:
+            return([])
 
-        # #modifiers
-        # modifiers = [
-        #     "{key}: {value}%".format(key=key, value=str(value))
-        #     for key, value in job.modifiers.items()
-        #     if value != 0
-        #     ]
-
-        # #stats
-        # #unit stats * job-modifier
-        # rstats={}
-        # for key, value in self.stats.items():
-        #     if key in job.modifiers:
-        #         rstats[key] = int(value*(100+job.modifiers[key])/100)
-        #     else:
-        #         rstats[key] = value
-
-        # rstats['Initial Jewels'] = int(rstats['Max Jewels']*job.modifiers['Initial Jewels']/100)
-
-        # #dd job stats
-        # for key, value in job.stats.items():
-        #     if key in rstats:
-        #         rstats[key] += value
-        #     else:
-        #         rstats[key] = value
-                
-
-        # #transform to output
-        # stats = [
-        #     "{key}: {value}".format(key=key, value=value)
-        #     for key, value in rstats.items()
-        # ]
-        
-        # jm_values=[
-        #     '{stat}: {value}{mod}'.format(stat=stat['type'], value=int(stat['value']), mod='%'if stat['calc']=='Scale' else '')
-        #     for stat in getattr(job,"job master buff")
-        # ]
-
-        # fields = [
-        #     {'name': 'description', 'value': getattr(job, 'long description'),  'inline': False},
-        #     {'name': 'formula',     'value': getattr(job, 'formula'),           'inline': False},
-        #     {'name': 'weapon',      'value': getattr(job, 'weapon')},
-        #     {'name': 'origin',      'value': getattr(job, 'origin')},
-        #     {'name': 'move',        'value': job.stats['Move']},
-        #     {'name': 'jump',        'value': job.stats['Jump']},
-        #     {'name': 'JM bonus',    'value': ' , '.join(jm_values), 'inline':False},
-        #     {'name': 'modifiers',   'value': '\n'.join(modifiers)},
-        #     {'name': 'max stats (without JM bonus)', 'value': '\n'.join(stats)},
-        # ]
-    return fields
+    return [
+        {'name': 'Weapon',          'value':job['weapon'],                              'inline':True},
+        {'name': 'Role',            'value':job['type'],                                'inline':True},
+        {'name': 'DMG-Formula',     'value':job['formula'],                             'inline':False},
+        {'name': 'Move',            'value':job['move'],                                'inline':True},
+        {'name': 'Jump',            'value':job['jump'],                                'inline':True},
+        {'name': 'Avoid',           'value':'{}%'.format(job['ranks'][-1]['avoid']),    'inline':True},
+        {'name': 'Initial Jewels',  'value':'{}%'.format(100+job['ranks'][-1]['inimp']),'inline':True},
+        {'name': 'Modifiers',        
+            'value':', '.join([
+                '{}% {}'.format(value,stat)
+                for stat,value in job['ranks'][-1]['status'].items()
+                if value!=0
+                ]),
+            'inline':False},
+        {'name': 'Stats',        
+            'value': '\n'.join([
+                '{}: {}'.format(stat,int(value+TACScale(unit['ini_status']['param'][stat],unit['max_status']['param'][stat],85,100)*(1+(job['ranks'][-1]['status'][stat]/100))))
+                for stat,value in job['stats'].items()
+                if 'Res' not in stat
+            ]),    
+            'inline':True},
+        {'name': 'Resistances',        
+            'value': '\n'.join([
+                '{}: {}'.format(stat,value)
+                for stat,value in job['stats'].items()
+                if 'Res' in stat
+            ]),    
+            'inline':True},
+        ]
 
 def kaigan(unit):
     if 'kaigan' in unit:

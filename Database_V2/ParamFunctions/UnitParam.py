@@ -92,150 +92,30 @@ def UnitParam(json):
         ]
         
     #stats
-    this['ini_status']={}
-    this['ini_status']['param']={}
-    if 'hp' in json:
-        this['ini_status']['param']['hp'] = json['hp']
-    if 'mp' in json:
-        this['ini_status']['param']['mp'] = json['mp']
-    if 'atk' in json:
-        this['ini_status']['param']['atk'] = json['atk']
-    if 'def' in json:
-        this['ini_status']['param']['def'] = json['def']
-    if 'mag' in json:
-        this['ini_status']['param']['mag'] = json['mag']
-    if 'mnd' in json:
-        this['ini_status']['param']['mnd'] = json['mnd']
-    if 'dex' in json:
-        this['ini_status']['param']['dex'] = json['dex']
-    if 'spd' in json:
-        this['ini_status']['param']['spd'] = json['spd']
-    if 'cri' in json:
-        this['ini_status']['param']['cri'] = json['cri']
-    if 'luk' in json:
-        this['ini_status']['param']['luk'] = json['luk']
-    #Ini resists
-    this['ini_status']['enchant_resist']={}
-    if 'rpo' in json:
-        this['ini_status']['enchant_resist']['poison'] = json['rpo']
-    if 'rpa' in json:
-        this['ini_status']['enchant_resist']['paralyse'] = json['rpa']
-    if 'rst' in json:
-        this['ini_status']['enchant_resist']['stun'] = json['rst']
-    if 'rsl' in json:
-        this['ini_status']['enchant_resist']['sleep'] = json['rsl']
-    if 'rch' in json:
-        this['ini_status']['enchant_resist']['charm'] = json['rch']
-    if 'rsn' in json:
-        this['ini_status']['enchant_resist']['stone'] = json['rsn']
-    if 'rbl' in json:
-        this['ini_status']['enchant_resist']['blind'] = json['rbl']
-    if 'rns' in json:
-        this['ini_status']['enchant_resist']['notskl'] = json['rns']
-    if 'rnm' in json:
-        this['ini_status']['enchant_resist']['notmov'] = json['rnm']
-    if 'rna' in json:
-        this['ini_status']['enchant_resist']['notatk'] = json['rna']
-    if 'rzo' in json:
-        this['ini_status']['enchant_resist']['zombie'] = json['rzo']
-    if 'rde' in json:
-        this['ini_status']['enchant_resist']['death'] = json['rde']
-    if 'rkn' in json:
-        this['ini_status']['enchant_resist']['knockback'] = json['rkn']
-    if 'rdf' in json:
-        this['ini_status']['enchant_resist']['resist_debuff'] = json['rdf']
-    if 'rbe' in json:
-        this['ini_status']['enchant_resist']['berserk'] = json['rbe']
-    if 'rcs' in json:
-        this['ini_status']['enchant_resist']['stop'] = json['rcs']
-    if 'rcu' in json:
-        this['ini_status']['enchant_resist']['fast'] = json['rcu']
-    if 'rcd' in json:
-        this['ini_status']['enchant_resist']['slow'] = json['rcd']
-    if 'rdo' in json:
-        this['ini_status']['enchant_resist']['donsoku'] = json['rdo']
-    if 'rra' in json:
-        this['ini_status']['enchant_resist']['rage'] = json['rra']
-    if 'rsa' in json:
-        this['ini_status']['enchant_resist']['single_attack'] = json['rsa']
-    if 'raa' in json:
-        this['ini_status']['enchant_resist']['area_attack'] = json['raa']
-    if 'rdc' in json:
-        this['ini_status']['enchant_resist']['dec_ct'] = json['rdc']
-    if 'ric' in json:
-        this['ini_status']['enchant_resist']['inc_ct'] = json['ric']
-
-    this['max_status']={}
-    this['max_status']['param']={}
-    this['max_status']['enchant_resist']={}
-    if 'mhp' in json:
-        this['max_status']['param']['hp'] = json['mhp']
-    if 'mmp' in json:
-        this['max_status']['param']['mp'] = json['mmp']
-    if 'matk' in json:
-        this['max_status']['param']['atk'] = json['matk']
-    if 'mdef' in json:
-        this['max_status']['param']['def'] = json['mdef']
-    if 'mmag' in json:
-        this['max_status']['param']['mag'] = json['mmag']
-    if 'mmnd' in json:
-        this['max_status']['param']['mnd'] = json['mmnd']
-    if 'mdex' in json:
-        this['max_status']['param']['dex'] = json['mdex']
-    if 'mspd' in json:
-        this['max_status']['param']['spd'] = json['mspd']
-    if 'mcri' in json:
-        this['max_status']['param']['cri'] = json['mcri']
-    if 'mluk' in json:
-        this['max_status']['param']['luk'] = json['mluk']
-    if 'mrpo' in json:
-        this['max_status']['enchant_resist']['poison'] = json['mrpo']
-    if 'mrpa' in json:
-        this['max_status']['enchant_resist']['paralyse'] = json['mrpa']
-    if 'mrst' in json:
-        this['max_status']['enchant_resist']['stun'] = json['mrst']
-    if 'mrsl' in json:
-        this['max_status']['enchant_resist']['sleep'] = json['mrsl']
-    if 'mrch' in json:
-        this['max_status']['enchant_resist']['charm'] = json['mrch']
-    if 'mrsn' in json:
-        this['max_status']['enchant_resist']['stone'] = json['mrsn']
-    if 'mrbl' in json:
-        this['max_status']['enchant_resist']['blind'] = json['mrbl']
-    if 'mrns' in json:
-        this['max_status']['enchant_resist']['notskl'] = json['mrns']
-    if 'mrnm' in json:
-        this['max_status']['enchant_resist']['notmov'] = json['mrnm']
-    if 'mrna' in json:
-        this['max_status']['enchant_resist']['notatk'] = json['mrna']
-    if 'mrzo' in json:
-        this['max_status']['enchant_resist']['zombie'] = json['mrzo']
-    if 'mrde' in json:
-        this['max_status']['enchant_resist']['death'] = json['mrde']
-    if 'mrkn' in json:
-        this['max_status']['enchant_resist']['knockback'] = json['mrkn']
-    if 'mrdf' in json:
-        this['max_status']['enchant_resist']['resist_debuff'] = json['mrdf']
-    if 'mrbe' in json:
-        this['max_status']['enchant_resist']['berserk'] = json['mrbe']
-    if 'mrcs' in json:
-        this['max_status']['enchant_resist']['stop'] = json['mrcs']
-    if 'mrcu' in json:
-        this['max_status']['enchant_resist']['fast'] = json['mrcu']
-    if 'mrcd' in json:
-        this['max_status']['enchant_resist']['slow'] = json['mrcd']
-    if 'mrdo' in json:
-        this['max_status']['enchant_resist']['donsoku'] = json['mrdo']
-    if 'mrra' in json:
-        this['max_status']['enchant_resist']['rage'] = json['mrra']
-    if 'mrsa' in json:
-        this['max_status']['enchant_resist']['single_attack'] = json['mrsa']
-    if 'mraa' in json:
-        this['max_status']['enchant_resist']['area_attack'] = json['mraa']
-    if 'mrdc' in json:
-        this['max_status']['enchant_resist']['dec_ct'] = json['mrdc']
-    if 'mric' in json:
-        this['max_status']['enchant_resist']['inc_ct'] = json['mric']
+    this['ini_status']={
+        'param':{
+            trans:json[key]
+            for key,trans in PARAMS.items()
+            if key in json
+        },
+        'enchant_resist':{
+            trans:json[key]
+            for trans,key in RESISTS.items()
+            if key in json
+        }
+    }
+    this['max_status']={
+        'param':{
+            trans:json['m'+key]
+            for key,trans in PARAMS.items()
+            if 'm'+key in json
+        },
+        'enchant_resist':{
+            trans:json['m'+key]
+            for trans,key in RESISTS.items()
+            if 'm'+key in json
+        }
+    }
 
     this['leader_skills']=[None] * 6
     if 'ls1' in json:
@@ -284,3 +164,43 @@ def UnitParam(json):
         this['is_knock_back'] = (json['no_kb']==0)
     #returntrue
     return this
+
+
+PARAMS={
+    'hp'       :   'HP',
+    'mp'       :   'Max Jewels',
+    'atk'      :   'PATK',
+    'def'      :   'PDEF',
+    'mag'      :   'MATK',
+    'mnd'      :   'MDEF',
+    'dex'      :   'DEX',
+    'spd'      :   'AGI',
+    'cri'      :   'CRIT',
+    'luk'      :   'LUCK',
+    }
+RESISTS={    
+    'Poison Res'	:	'rpo',
+    'Paralyze Res'	:	'rpa',
+    'Stun Res'	:	'rst',
+    'Sleep Res'	:	'rsl',
+    'Charm Res'	:	'rch',
+    'Petrify Res'	:	'rsn',
+    'Blind Res'	:	'rbl',
+    'Silence Res'	:	'rns',
+    'Bind Res'	:	'rnm',
+    'Daze Res'	:	'rna',
+    'Infect Res'	:	'rzo',
+    'Death Res'	:	'rde',
+    'Knockback Res'	:	'rkn',
+    'Debuff Res'	:	'rdf',
+    'Berserk Res'	:	'rbe',
+    'Stop Res'	:	'rcs',
+    'Quicken Res'	:	'rcu',
+    'Delay Res'	:	'rcd',
+    'Slow Res'	:	'rdo',
+    'Rage Res'	:	'rra',
+    'Single Target ATK Res'	:	'rsa',
+    'Area ATK Res'	:	'raa',
+    'CT-Down Res'	:	'rdc',
+    'CT-Up Res'	:	'ric',
+    }
