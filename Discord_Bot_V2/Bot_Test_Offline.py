@@ -23,7 +23,7 @@ def main():
 
     if command == 'unit':
         unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
-        print(json.dumps(ToEmbed.Unit(unit,'main').to_dict(), indent=4))
+        print(json.dumps(ToEmbed.Unit(unit,'job2').to_dict(), indent=4))
 
     if command == 'kaigan':
         unit = FindBest(ToEmbed.DIRS['Unit'], name, True)

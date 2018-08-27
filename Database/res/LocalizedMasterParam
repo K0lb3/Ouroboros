@@ -161,7 +161,7 @@ SRPG_UnitParam_UN_V2_NASARIO_NAME	Nasario
 SRPG_UnitParam_UN_V2_LIZARDMEN_HAT_NAME	Lizardman
 SRPG_UnitParam_UN_V2_LAVINA_NAME	Ravina
 SRPG_UnitParam_UN_V2_SUIRAN_NAME	Suiran
-SRPG_UnitParam_UN_V2_BLANCHETT_NAME	Blanshett
+SRPG_UnitParam_UN_V2_BLANCHETT_NAME	Blanchett
 SRPG_UnitParam_UN_V2_ZIN_NAME	Jin
 SRPG_UnitParam_UN_V2_NOAH_NAME	Noah
 SRPG_UnitParam_UN_V2_ZOPHIE_NAME	Zofia
@@ -1484,9 +1484,9 @@ SRPG_UnitParam_UN_V2_EN_MARGARET_DAI_NAME	Margaret
 SRPG_UnitParam_UN_V2_EN_FREED_ARM_NAME	Freed
 SRPG_UnitParam_UN_V2_EN_FREED_KAK_NAME	Freed
 SRPG_UnitParam_UN_V2_EN_FREED_DGR_NAME	Freed
-SRPG_UnitParam_UN_V2_EN_BLANCHETT_SOL_NAME	Blanshett
-SRPG_UnitParam_UN_V2_EN_BLANCHETT_SAM_NAME	Blanshett
-SRPG_UnitParam_UN_V2_EN_BLANCHETT_KAK_NAME	Blanshett
+SRPG_UnitParam_UN_V2_EN_BLANCHETT_SOL_NAME	Blanchett
+SRPG_UnitParam_UN_V2_EN_BLANCHETT_SAM_NAME	Blanchett
+SRPG_UnitParam_UN_V2_EN_BLANCHETT_KAK_NAME	Blanchett
 SRPG_UnitParam_UN_V2_EN_FF15_NOCTIS_NOCT_NAME	Noctis
 SRPG_UnitParam_UN_V2_EN_FF15_NOCTIS_MAH_NAME	Noctis
 SRPG_UnitParam_UN_V2_EN_FF15_NOCTIS_HWIZ_NAME	Noctis
@@ -1752,8 +1752,8 @@ SRPG_UnitParam_UN_EV_ENVYREAR_PEOPLE_B_NAME	Envylia Citizen B
 SRPG_UnitParam_UN_EV_ENVYREAR_SOLDIERS_NAME	Envylia Soldiers
 SRPG_UnitParam_UN_EV_ENVYREAR_SOLDIER_A_NAME	Envylia Soldier A
 SRPG_UnitParam_UN_EV_ENVYREAR_SOLDIER_B_NAME	Envylia Soldier B
-SRPG_UnitParam_UN_EV_LIZARD_BRIGADE_A_NAME	Lizard Brigade Knight A
-SRPG_UnitParam_UN_EV_LIZARD_BRIGADE_B_NAME	Lizard Brigade Knight B
+SRPG_UnitParam_UN_EV_LIZARD_BRIGADE_A_NAME	Lizard Brigade Member A
+SRPG_UnitParam_UN_EV_LIZARD_BRIGADE_B_NAME	Lizard Brigade Member B
 SRPG_UnitParam_UN_EV_MISTRESS_NAME	Landlady
 SRPG_UnitParam_UN_EV_NARRATION_NAME	Narration
 SRPG_UnitParam_UN_EV_VLAD_PHANTOM_NAME	Vlad
@@ -3698,10 +3698,10 @@ SRPG_AbilityParam_AB_RAT_ARM_DAT_2_NAME	Rat War Arts - Bind
 SRPG_AbilityParam_AB_RAT_ARM_DAT_2_EXPR	Enemy Unit Abilities (Ignores DEF)
 SRPG_AbilityParam_AB_RAT_ARM_DAT_ALL_NAME	Rat War Arts - Bind All Types
 SRPG_AbilityParam_AB_RAT_ARM_DAT_ALL_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_RAT_ARM_RELAY_NAME	Rat War Arts [For Sports Day Relay]
-SRPG_AbilityParam_AB_RAT_ARM_RELAY_EXPR	[For Sports Day Relay]
-SRPG_AbilityParam_AB_RAT_TAMAIRE_NAME	Rat War Arts [For Sports Day Ball Game]
-SRPG_AbilityParam_AB_RAT_TAMAIRE_EXPR	[For Sports Day Relay]
+SRPG_AbilityParam_AB_RAT_ARM_RELAY_NAME	Rat War Arts [For Summer Sports Meet Relay]
+SRPG_AbilityParam_AB_RAT_ARM_RELAY_EXPR	[For Summer Sports Meet Relay]
+SRPG_AbilityParam_AB_RAT_TAMAIRE_NAME	Rat War Arts [For Summer Sports Meet Ball Game]
+SRPG_AbilityParam_AB_RAT_TAMAIRE_EXPR	[For Summer Sports Meet Relay]
 SRPG_AbilityParam_AB_RAT_WIZ_FIRE_NAME	Rat Magic - Fire
 SRPG_AbilityParam_AB_RAT_WIZ_FIRE_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_RAT_WIZ_WATER_NAME	Rat Magic - Water
@@ -3738,11 +3738,11 @@ SRPG_AbilityParam_AB_RAT_WIZ_TOWER_TRICKSTAR_NAME	[Veda] Special Rat Magic Set
 SRPG_AbilityParam_AB_RAT_WIZ_TOWER_TRICKSTAR_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_RAT_WIZ_REACTION_TOWER_NAME	[Veda] Rat Berserk Reaction
 SRPG_AbilityParam_AB_RAT_WIZ_REACTION_TOWER_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_RAT_WIZ_REACTION_BLAN_NAME	Rat Magic - Blanshett Encounter
+SRPG_AbilityParam_AB_RAT_WIZ_REACTION_BLAN_NAME	Rat Magic - Blanchett Encounter
 SRPG_AbilityParam_AB_RAT_WIZ_REACTION_BLAN_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_RAT_WIZ_SKL01_BLAN_NAME	Rat Magic - Blanshett Encounter
+SRPG_AbilityParam_AB_RAT_WIZ_SKL01_BLAN_NAME	Rat Magic - Blanchett Encounter
 SRPG_AbilityParam_AB_RAT_WIZ_SKL01_BLAN_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_RAT_WIZ_SKL02_BLAN_NAME	Rat Magic - Blanshett Encounter
+SRPG_AbilityParam_AB_RAT_WIZ_SKL02_BLAN_NAME	Rat Magic - Blanchett Encounter
 SRPG_AbilityParam_AB_RAT_WIZ_SKL02_BLAN_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_RAT_WIZ_HALL_NAME	Rat War Arts (Halloween2017)
 SRPG_AbilityParam_AB_RAT_WIZ_HALL_EXPR	Enemy Unit Abilities
@@ -3868,8 +3868,8 @@ SRPG_AbilityParam_AB_MAN_YUJ_UPPER_TOWER_4_NAME	Adjusting Mandragora for Tower 4
 SRPG_AbilityParam_AB_MAN_YUJ_UPPER_TOWER_4_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_MAN_YUJ_UPPER_TOWER_5_NAME	Mandragora for Tower 5
 SRPG_AbilityParam_AB_MAN_YUJ_UPPER_TOWER_5_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_MAN_YUJ_UPPER_RELAY_NAME	Mandragora [For Sports Day Relay]
-SRPG_AbilityParam_AB_MAN_YUJ_UPPER_RELAY_EXPR	[For Sports Day Relay]
+SRPG_AbilityParam_AB_MAN_YUJ_UPPER_RELAY_NAME	Mandragora [For Summer Sports Meet Relay]
+SRPG_AbilityParam_AB_MAN_YUJ_UPPER_RELAY_EXPR	[For Summer Sports Meet Relay]
 SRPG_AbilityParam_AB_MAN_MOTHER_JEM_REGENERATE_NAME	Mandragora Mother's Day Jewels Control
 SRPG_AbilityParam_AB_MAN_MOTHER_JEM_REGENERATE_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_MAN_YUJ_PARTY_BUILD_NAME	Mandragora Tower Fine Flower
@@ -4092,13 +4092,13 @@ SRPG_AbilityParam_AB__DMN_WIZ_APRIL_NAME	Demon April Fools Quest
 SRPG_AbilityParam_AB__DMN_WIZ_APRIL_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_DMN_WIZ_SPIKE_STOP_NAME	Demon Magic - Stop
 SRPG_AbilityParam_AB_DMN_WIZ_SPIKE_STOP_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_DMN_WIZ_UNDOUKAI_NAME	Demon [For Sports Day]
+SRPG_AbilityParam_AB_DMN_WIZ_UNDOUKAI_NAME	Demon [For Summer Sports Meet]
 SRPG_AbilityParam_AB_DMN_WIZ_UNDOUKAI_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_LS_JEWEL_DOWN_2_NAME	[Sports Day Enemy LS] Initial Jewel Reduction
-SRPG_AbilityParam_AB_LS_JEWEL_DOWN_2_EXPR	Sports Day Enemy Unit Leader Abilities
-SRPG_AbilityParam_AB_DMN_WIZ_UNDOUKAI2_NAME	Demon [For Sports Day Obstacle Race]
+SRPG_AbilityParam_AB_LS_JEWEL_DOWN_2_NAME	[Summer Sports Meet Enemy LS] Initial Jewel Reduction
+SRPG_AbilityParam_AB_LS_JEWEL_DOWN_2_EXPR	Summer Sports Meet Enemy Unit Leader Abilities
+SRPG_AbilityParam_AB_DMN_WIZ_UNDOUKAI2_NAME	Demon [For Summer Sports Meet Obstacle Race]
 SRPG_AbilityParam_AB_DMN_WIZ_UNDOUKAI2_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_DMN_WIZ_UNDOUKAI3_NAME	Demon [For Sports Day Obstacle Race]
+SRPG_AbilityParam_AB_DMN_WIZ_UNDOUKAI3_NAME	Demon [For Summer Sports Meet Obstacle Race]
 SRPG_AbilityParam_AB_DMN_WIZ_UNDOUKAI3_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_VEDA_BOSS_NAME	Veda Boss Skills
 SRPG_AbilityParam_AB_VEDA_BOSS_EXPR	Enemy Unit Abilities
@@ -4402,7 +4402,7 @@ SRPG_AbilityParam_AB_GLU_WIZ_UPPER_NAME	Gluttony Soldier Spellcasting
 SRPG_AbilityParam_AB_GLU_WIZ_UPPER_EXPR	Spell Casting techniques for use with this job type only
 SRPG_AbilityParam_AB_GLU_CAP_ATK_NAME	Gluttony Captain
 SRPG_AbilityParam_AB_GLU_CAP_ATK_EXPR	[Sunlight EX] Enemy Unit Abilities
-SRPG_AbilityParam_AB_GLU_ARM_UNDOUKAI_NAME	For Riddles [For Sports Day Obstacle Race]
+SRPG_AbilityParam_AB_GLU_ARM_UNDOUKAI_NAME	For Riddles [For Summer Sports Meet Obstacle Race]
 SRPG_AbilityParam_AB_GLU_ARM_UNDOUKAI_EXPR	Enemy Unit Abilities
 SRPG_AbilityParam_AB_BAA_SO_ZEKE_UPPER_NAME	[Enemy] [Zeke Encounter] Pitch-Black Blade
 SRPG_AbilityParam_AB_BAA_SO_ZEKE_UPPER_EXPR	Pitch-Black Blade techniques for use with this job type only
@@ -4438,8 +4438,8 @@ SRPG_AbilityParam_AB_EN_ARM_DIRECT_ARM_NAME	Direct Shot
 SRPG_AbilityParam_AB_EN_ARM_DIRECT_ARM_EXPR	[Item World] Inflicts fixed Dmg (1-1000) on target.
 SRPG_AbilityParam_AB_RELIGION_FIGTHER_MFEN_NAME	[Veda] For Knight Rook Bishop Chopper Technique
 SRPG_AbilityParam_AB_RELIGION_FIGTHER_MFEN_EXPR	Enemy Unit Abilities
-SRPG_AbilityParam_AB_BAR_LOWER_BLA_NAME	Basic Poetry_3_Blanshett Encounter
-SRPG_AbilityParam_AB_BAR_LOWER_BLA_EXPR	Poetry_3_Blanshett Encounter (All Job Types)
+SRPG_AbilityParam_AB_BAR_LOWER_BLA_NAME	Basic Poetry_3_Blanchett Encounter
+SRPG_AbilityParam_AB_BAR_LOWER_BLA_EXPR	Poetry_3_Blanchett Encounter (All Job Types)
 SRPG_AbilityParam_AB_WEA_UPPER_TOWER_NAME	TOWER_ENEMY Snail (50~100% Slow)
 SRPG_AbilityParam_AB_WEA_UPPER_TOWER_EXPR	Weather arts for use with this job type only
 SRPG_AbilityParam_AB_BAA_FF_15_DIOS_NAME	Dias Phantoms Transmute
@@ -4540,9 +4540,9 @@ SRPG_AbilityParam_AB_CI_APP_01_NAME	[Transcender of All] Buff Adjacent (Mag Dmg 
 SRPG_AbilityParam_AB_CI_APP_01_EXPR	[Transcender of All]
 SRPG_AbilityParam_AB_CI_PLS_01_NAME	[Transcender of All] Player Clone LS
 SRPG_AbilityParam_AB_CI_PLS_01_EXPR	[Transcender of All]
-SRPG_AbilityParam_AB_EN_UNDOUKAI_DEF_NAME	[Enemy] Sports Day PDEF Combination
+SRPG_AbilityParam_AB_EN_UNDOUKAI_DEF_NAME	[Enemy] Summer Sports Meet PDEF Combination
 SRPG_AbilityParam_AB_EN_UNDOUKAI_DEF_EXPR	[Enemy use] This job type only
-SRPG_AbilityParam_AB_EN_UNDOUKAI_DEF_REACT_NAME	[Enemy] Sports Day PDEF Counter
+SRPG_AbilityParam_AB_EN_UNDOUKAI_DEF_REACT_NAME	[Enemy] Summer Sports Meet PDEF Counter
 SRPG_AbilityParam_AB_EN_UNDOUKAI_DEF_REACT_EXPR	[Enemy use] This job type only
 SRPG_AbilityParam_AB_HAL7_NEICA_EAT_NAME	Even More Candy
 SRPG_AbilityParam_AB_HAL7_NEICA_EAT_EXPR	[Halloween 2017] Neica Only
@@ -5767,9 +5767,9 @@ SRPG_AbilityParam_AB_ARMS_RENA_01_EXPR	This ability can only be used by female u
 SRPG_AbilityParam_AB_AF_ARMS_MIUNA_01_NAME	Scarlet's Hidden Flame
 SRPG_AbilityParam_AB_AF_ARMS_MIUNA_01_EXPR	Miuna-Only Ability
 SRPG_AbilityParam_AB_AF_ARMS_SWO_ZAYI_01_CANO_NAME	Eternal Glow
-SRPG_AbilityParam_AB_AF_ARMS_SWO_ZAYI_01_CANO_EXPR	Zain-Only Ability ("Eternal Glow" when equipped on Kanon)
+SRPG_AbilityParam_AB_AF_ARMS_SWO_ZAYI_01_CANO_EXPR	Kanon-Only Ability ("Eternal Glow" when equipped on Kanon)
 SRPG_AbilityParam_AB_AF_ARMS_SWO_ZAYI_01_ZAYI_NAME	Rising Sun
-SRPG_AbilityParam_AB_AF_ARMS_SWO_ZAYI_01_ZAYI_EXPR	Zain-Only Ability ("Eternal Glow" when equipped on Kanon)
+SRPG_AbilityParam_AB_AF_ARMS_SWO_ZAYI_01_ZAYI_EXPR	Zain-Only Ability ("Rising Sun" when equipped on Zain)
 SRPG_AbilityParam_AB_AF_ARMS_SAKURA_00_NAME	Blossom's Fury
 SRPG_AbilityParam_AB_AF_ARMS_SAKURA_00_EXPR	Sakura-Only Ability
 SRPG_AbilityParam_AB_AF_ARMS_FOLCAS_00_NAME	Hell Rising
@@ -5798,12 +5798,12 @@ SRPG_AbilityParam_AB_AF_ARMO_GAUNTLET_02_NAME	Guardian Soul
 SRPG_AbilityParam_AB_AF_ARMO_GAUNTLET_02_EXPR	Greatly raises Strike Res of ally units within target area for one turn [Range: 3, Area: Cross (3), Height Range: 2]
 SRPG_AbilityParam_AB_AF_ACCS_NECKLACE_01_NAME	General Howling
 SRPG_AbilityParam_AB_AF_ACCS_NECKLACE_01_EXPR	Raises All Elements Res of ally units within target area for three turns [Range: 3, Area: Cross (3), Height Range: 2]
-SRPG_AbilityParam_AB_AF_ARMS_ZIN_00_WA_NAME	Purple Poison Three Evils
+SRPG_AbilityParam_AB_AF_ARMS_ZIN_00_WA_NAME	Purple Poison - Triple Torment
 SRPG_AbilityParam_AB_AF_ARMS_ZIN_00_WA_EXPR	Jin-Only Ability
 SRPG_AbilityParam_AB_AF_ARMS_NIN_04_WA_NAME	Mute Stricken
 SRPG_AbilityParam_AB_AF_ARMS_NIN_04_WA_EXPR	Inflicts Phys Dmg on units in area around self & move after attacking [Area: Cross (3), Height Range: 2, MOVE Area: Diamond (7)]
 SRPG_AbilityParam_AB_AF_ARMS_NEC_03_WA_NAME	Demon Deflector
-SRPG_AbilityParam_AB_AF_ARMS_NEC_03_WA_EXPR	Inflicts Phys Dmg on units within target area with chance of critical & lowers target's MATK [Range: 4, Area: Cross (3), Height Range: 2]
+SRPG_AbilityParam_AB_AF_ARMS_NEC_03_WA_EXPR	Inflicts Phys Dmg on units within target area with chance of critical & lowers target's Mag DMG [Range: 4, Area: Cross (3), Height Range: 2]
 SRPG_AbilityParam_AB_AF_ARMO_BEGINNER_WA_NAME	Auto Regeneration
 SRPG_AbilityParam_AB_AF_ARMO_BEGINNER_WA_EXPR	Casts Auto Heal on self
 SRPG_AbilityParam_AB_AF_ARMO_SHIELD_04_NAME	Sacred Prayer
@@ -5885,7 +5885,7 @@ SRPG_AbilityParam_AB_AF_ARMS_NIN_05_EXPR	Sacrifices own HP and performs area att
 SRPG_AbilityParam_AB_AF_ACCS_DOLL_02_NAME	Berserk or Treat
 SRPG_AbilityParam_AB_AF_ACCS_DOLL_02_EXPR	Inflicts Confuse status on target unit (greatly raises PATK & greatly lowers PDEF) [Range: 3, Height Range: 2]
 SRPG_AbilityParam_AB_AF_ARMO_HAT_01_NAME	Stardust Blessing
-SRPG_AbilityParam_AB_AF_ARMO_HAT_01_EXPR	Raises own MATK for three turns
+SRPG_AbilityParam_AB_AF_ARMO_HAT_01_EXPR	Raises own Mag DMG for three turns
 SRPG_AbilityParam_AB_AF_ACCS_CLOCK_01_NAME	Chronos Drive
 SRPG_AbilityParam_AB_AF_ACCS_CLOCK_01_EXPR	Casts Quicken on target and self [Range: 3, Height Range: 2]
 SRPG_AbilityParam_AB_AF_ARMS_TEM_02_NAME	Sunshine Burst
@@ -6196,8 +6196,8 @@ SRPG_AbilityParam_AB_ITEM_TOWER_90_NAME	Item World 90F+ Stats Up
 SRPG_AbilityParam_AB_ITEM_TOWER_90_EXPR	Item World 80F+ Stats Up
 SRPG_AbilityParam_AB_MAH_KAGO_SUPER_NAME	Disable all ATKs
 SRPG_AbilityParam_AB_MAH_KAGO_SUPER_EXPR	Support techniques for use with all jobs
-SRPG_AbilityParam_AB_MAH_KAGO_SUPER_RELAY_NAME	Nullify All Attacks [For Sports Day Relay]
-SRPG_AbilityParam_AB_MAH_KAGO_SUPER_RELAY_EXPR	[For Sports Day Relay]
+SRPG_AbilityParam_AB_MAH_KAGO_SUPER_RELAY_NAME	Nullify All Attacks [For Summer Sports Meet Relay]
+SRPG_AbilityParam_AB_MAH_KAGO_SUPER_RELAY_EXPR	[For Summer Sports Meet Relay]
 SRPG_AbilityParam_AB_DOWN_RESIST_WOLF_NAME	Wolf Res Down
 SRPG_AbilityParam_AB_DOWN_RESIST_WOLF_EXPR	Wolf
 SRPG_AbilityParam_AB_DOWN_RESIST_LIZARD_NAME	Lizardman Type Res Down
@@ -6314,7 +6314,7 @@ SRPG_AbilityParam_AB_ME_THI_NAME	Thief: Map Effect Ability
 SRPG_AbilityParam_AB_ME_THI_EXPR	[Map Effect Set]
 SRPG_AbilityParam_AB_ME_ASS_NAME	*Unused
 SRPG_AbilityParam_AB_ME_ASS_EXPR	[Map Effect Set]
-SRPG_AbilityParam_AB_ME_KIL_NAME	Shadow Assassin: Map Effect Ability
+SRPG_AbilityParam_AB_ME_KIL_NAME	Dark Assassin: Map Effect Ability
 SRPG_AbilityParam_AB_ME_KIL_EXPR	[Map Effect Set]
 SRPG_AbilityParam_AB_ME_NIN_NAME	Ninja & Spy: Map Effect Ability
 SRPG_AbilityParam_AB_ME_NIN_EXPR	[Map Effect Set]
@@ -10438,7 +10438,7 @@ SRPG_SkillParam_SK_BASI_SOL_LOWER_4_NAME	Cross-Halt Blade
 SRPG_SkillParam_SK_BASI_SOL_LOWER_4_EXPR	Inflicts Dark Phys Dmg (High) & Stop [Range: 4, Height Range: 2]
 SRPG_SkillParam_SK_BASI_SOL_LOWER_4_MAPEFF	 
 SRPG_SkillParam_SK_BASI_SOL_REACTION_NAME	Counterattack Poison Slash
-SRPG_SkillParam_SK_BASI_SOL_REACTION_EXPR	Chance of performing counter & inflicting Poison when Dmg is received [Range: 1, Height Range: 2]
+SRPG_SkillParam_SK_BASI_SOL_REACTION_EXPR	Chance of performing counter & inflicting Poison when Phys Dmg is received [Range: 1, Height Range: 2]
 SRPG_SkillParam_SK_BASI_SOL_REACTION_MAPEFF	 
 SRPG_SkillParam_SK_BASI_SOL_SUPPORT_1_NAME	Unlock Limit
 SRPG_SkillParam_SK_BASI_SOL_SUPPORT_1_EXPR	Greatly raises AGI & lowers Jewels Obtained
@@ -11298,7 +11298,7 @@ SRPG_SkillParam_SK_FURY01_SUPPORT_1_MAPEFF
 SRPG_SkillParam_SK_TINA_ATK_NAME	ATK Skills (Tina)
 SRPG_SkillParam_SK_TINA_ATK_EXPR	 
 SRPG_SkillParam_SK_TINA_ATK_MAPEFF	 
-SRPG_SkillParam_SK_TINA_SCOUTING_SHOOT_NAME	Fey
+SRPG_SkillParam_SK_TINA_SCOUTING_SHOOT_NAME	Bladestorm
 SRPG_SkillParam_SK_TINA_SCOUTING_SHOOT_EXPR	Inflicts Missile Dmg (strong vs amorphous) [Range: 3, Height Range: Unlimited]
 SRPG_SkillParam_SK_TINA_SCOUTING_SHOOT_MAPEFF	 
 SRPG_SkillParam_SK_TINA_PIERCING_BOLT_NAME	Swirl Halt
@@ -11656,7 +11656,7 @@ SRPG_SkillParam_SK_SPICA_MA_01_NAME	Fragile Happiness
 SRPG_SkillParam_SK_SPICA_MA_01_EXPR	Raises Max HP and PATK & slightly reduces Jewels Spent
 SRPG_SkillParam_SK_SPICA_MA_01_MAPEFF	 
 SRPG_SkillParam_SK_DENEB_MA_01_NAME	Wish to the First Star
-SRPG_SkillParam_SK_DENEB_MA_01_EXPR	Raises HP/AGI & reduces charge time by 1/3
+SRPG_SkillParam_SK_DENEB_MA_01_EXPR	Raises HP/AGI & reduces cast time by 1/3
 SRPG_SkillParam_SK_DENEB_MA_01_MAPEFF	 
 SRPG_SkillParam_SK_LUPINUS_MA_01_NAME	Brave Invocation
 SRPG_SkillParam_SK_LUPINUS_MA_01_EXPR	Raises MATK/AGI & increases Range of Judgement/Dark Flare by 1
@@ -11788,7 +11788,7 @@ SRPG_SkillParam_SK_ARMS_HAMMER_02_WA_NAME	Original Jewel Forging
 SRPG_SkillParam_SK_ARMS_HAMMER_02_WA_EXPR	Casts Auto Jewel Regen on self for five turns
 SRPG_SkillParam_SK_ARMS_HAMMER_02_WA_MAPEFF	 
 SRPG_SkillParam_SK_ARMS_DOC_04_WA_NAME	Hallucination
-SRPG_SkillParam_SK_ARMS_DOC_04_WA_EXPR	Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]
+SRPG_SkillParam_SK_ARMS_DOC_04_WA_EXPR	Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]
 SRPG_SkillParam_SK_ARMS_DOC_04_WA_MAPEFF	 
 SRPG_SkillParam_SK_ACCS_SNOWMAN_HAT_WA_NAME	Present for You
 SRPG_SkillParam_SK_ACCS_SNOWMAN_HAT_WA_EXPR	Recovers target ally unit's Jewels [Range: 4, Height Range: 2]
@@ -11892,14 +11892,14 @@ SRPG_SkillParam_SK_AF_ARMO_GAUNTLET_02_WA_MAPEFF
 SRPG_SkillParam_SK_AF_ACCS_NECKLACE_01_WA_NAME	General Howling
 SRPG_SkillParam_SK_AF_ACCS_NECKLACE_01_WA_EXPR	Raises All Elements Res of ally units within target area for three turns [Range: 3, Area: Cross (3), Height Range: 2]
 SRPG_SkillParam_SK_AF_ACCS_NECKLACE_01_WA_MAPEFF	 
-SRPG_SkillParam_SK_AF_ARMS_ZIN_00_WA_NAME	Purple Poison Three Evils
+SRPG_SkillParam_SK_AF_ARMS_ZIN_00_WA_NAME	Purple Poison - Triple Torment
 SRPG_SkillParam_SK_AF_ARMS_ZIN_00_WA_EXPR	Inflicts 3-hit Dark Dmg on target & Poison & raises own AGI until next turn [Range: 5, Height Range: 2]
 SRPG_SkillParam_SK_AF_ARMS_ZIN_00_WA_MAPEFF	 
 SRPG_SkillParam_SK_AF_ARMS_NIN_04_WA_NAME	Mute Stricken
 SRPG_SkillParam_SK_AF_ARMS_NIN_04_WA_EXPR	Inflicts Phys Dmg on enemy units in area around self & move after attacking [Area: Cross (3), Height Range: 2, MOVE Area: Diamond (7)]
 SRPG_SkillParam_SK_AF_ARMS_NIN_04_WA_MAPEFF	 
 SRPG_SkillParam_SK_AF_ARMS_NEC_03_WA_NAME	Demon Deflector
-SRPG_SkillParam_SK_AF_ARMS_NEC_03_WA_EXPR	Inflicts Phys Dmg on units within target area with chance of critical & lowers target's MATK [Range: 4, Area: Cross (3), Height Range: 2]
+SRPG_SkillParam_SK_AF_ARMS_NEC_03_WA_EXPR	Inflicts Phys Dmg on units within target area with chance of critical & lowers target's Mag DMG [Range: 4, Area: Cross (3), Height Range: 2]
 SRPG_SkillParam_SK_AF_ARMS_NEC_03_WA_MAPEFF	 
 SRPG_SkillParam_SK_AF_ARMO_BEGINNER_WA_NAME	Auto Regeneration
 SRPG_SkillParam_SK_AF_ARMO_BEGINNER_WA_EXPR	Casts Auto Heal on self
@@ -12199,22 +12199,22 @@ SRPG_SkillParam_SK_RAT_ARM_TACKLE_DAT_DDAWN_NAME	Semi☆Squeak
 SRPG_SkillParam_SK_RAT_ARM_TACKLE_DAT_DDAWN_EXPR	Inflicts Phys Dmg & Bind on target & lowers target's PDEF/MDEF by 1/2
 SRPG_SkillParam_SK_RAT_ARM_TACKLE_DAT_DDAWN_MAPEFF	 
 SRPG_SkillParam_SK_RAT_ARM_KB_TACKLE_NAME	Knockback Tackle
-SRPG_SkillParam_SK_RAT_ARM_KB_TACKLE_EXPR	[Sports Day Relay] Normal Attack
+SRPG_SkillParam_SK_RAT_ARM_KB_TACKLE_EXPR	[Summer Sports Meet Relay] Normal Attack
 SRPG_SkillParam_SK_RAT_ARM_KB_TACKLE_MAPEFF	 
 SRPG_SkillParam_SK_RAT_ARM_TACKLE_FAST_JUDGE_NAME	Judgement - Quicken
-SRPG_SkillParam_SK_RAT_ARM_TACKLE_FAST_JUDGE_EXPR	[Sports Day Relay] Quicken
+SRPG_SkillParam_SK_RAT_ARM_TACKLE_FAST_JUDGE_EXPR	[Summer Sports Meet Relay] Quicken
 SRPG_SkillParam_SK_RAT_ARM_TACKLE_FAST_JUDGE_MAPEFF	 
 SRPG_SkillParam_SK_RAT_BOOST_MOVE_WIDE_JUDGE_NAME	Judgement - Move Up
-SRPG_SkillParam_SK_RAT_BOOST_MOVE_WIDE_JUDGE_EXPR	[For Sports Day Relay]
+SRPG_SkillParam_SK_RAT_BOOST_MOVE_WIDE_JUDGE_EXPR	[For Summer Sports Meet Relay]
 SRPG_SkillParam_SK_RAT_BOOST_MOVE_WIDE_JUDGE_MAPEFF	 
 SRPG_SkillParam_SK_RAT_ARM_TACKLE_FAST_JUDGE_EN_NAME	Judgement - Quicken
-SRPG_SkillParam_SK_RAT_ARM_TACKLE_FAST_JUDGE_EN_EXPR	[Sports Day Relay] Quicken
+SRPG_SkillParam_SK_RAT_ARM_TACKLE_FAST_JUDGE_EN_EXPR	[Summer Sports Meet Relay] Quicken
 SRPG_SkillParam_SK_RAT_ARM_TACKLE_FAST_JUDGE_EN_MAPEFF	 
 SRPG_SkillParam_SK_RAT_BOOST_MOVE_WIDE_JUDGE_EN_NAME	Judgement - Move Up
-SRPG_SkillParam_SK_RAT_BOOST_MOVE_WIDE_JUDGE_EN_EXPR	[For Sports Day Relay]
+SRPG_SkillParam_SK_RAT_BOOST_MOVE_WIDE_JUDGE_EN_EXPR	[For Summer Sports Meet Relay]
 SRPG_SkillParam_SK_RAT_BOOST_MOVE_WIDE_JUDGE_EN_MAPEFF	 
 SRPG_SkillParam_SK_RAT_KAGO_DOWN_RELAY_NAME	Judgement - Res Down
-SRPG_SkillParam_SK_RAT_KAGO_DOWN_RELAY_EXPR	[For Sports Day Relay]
+SRPG_SkillParam_SK_RAT_KAGO_DOWN_RELAY_EXPR	[For Summer Sports Meet Relay]
 SRPG_SkillParam_SK_RAT_KAGO_DOWN_RELAY_MAPEFF	 
 SRPG_SkillParam_SK_RAT_WIZ_TACKLE_NAME	Tackle
 SRPG_SkillParam_SK_RAT_WIZ_TACKLE_EXPR	Normal Attack (Enemy Unit)
@@ -12874,19 +12874,19 @@ SRPG_SkillParam_SK_MAN_YUJ_DON_WIDE_HALL_NAME	Rowdy Major Slow
 SRPG_SkillParam_SK_MAN_YUJ_DON_WIDE_HALL_EXPR	Inflicts Slow on all ally units (Charges)
 SRPG_SkillParam_SK_MAN_YUJ_DON_WIDE_HALL_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_STOP_RANDOM_JUDGE_NAME	Judgement - Stop [Curse / Cannot Defend]
-SRPG_SkillParam_SK_MAN_YUJ_STOP_RANDOM_JUDGE_EXPR	[Sports Day Relay] Only forced Stop cannot be blocked by Res
+SRPG_SkillParam_SK_MAN_YUJ_STOP_RANDOM_JUDGE_EXPR	[Summer Sports Meet Relay] Only forced Stop cannot be blocked by Res
 SRPG_SkillParam_SK_MAN_YUJ_STOP_RANDOM_JUDGE_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_PAR_WIDE_JUDGE_NAME	Judgement - Paralyze
-SRPG_SkillParam_SK_MAN_YUJ_PAR_WIDE_JUDGE_EXPR	[Sports Day Relay] Res equipment used for allies
+SRPG_SkillParam_SK_MAN_YUJ_PAR_WIDE_JUDGE_EXPR	[Summer Sports Meet Relay] Res equipment used for allies
 SRPG_SkillParam_SK_MAN_YUJ_PAR_WIDE_JUDGE_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_SLOW_WIDE_JUDGE_NAME	Judgement - Delay
-SRPG_SkillParam_SK_MAN_YUJ_SLOW_WIDE_JUDGE_EXPR	[Sports Day Relay] Res equipment used for allies
+SRPG_SkillParam_SK_MAN_YUJ_SLOW_WIDE_JUDGE_EXPR	[Summer Sports Meet Relay] Res equipment used for allies
 SRPG_SkillParam_SK_MAN_YUJ_SLOW_WIDE_JUDGE_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_PAR_WIDE_JUDGE_EN_NAME	Judgement - Paralyze
-SRPG_SkillParam_SK_MAN_YUJ_PAR_WIDE_JUDGE_EN_EXPR	[Sports Day Relay] Res-breaking effect for enemy use
+SRPG_SkillParam_SK_MAN_YUJ_PAR_WIDE_JUDGE_EN_EXPR	[Summer Sports Meet Relay] Res-breaking effect for enemy use
 SRPG_SkillParam_SK_MAN_YUJ_PAR_WIDE_JUDGE_EN_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_SLOW_WIDE_JUDGE_EN_NAME	Judgement - Delay
-SRPG_SkillParam_SK_MAN_YUJ_SLOW_WIDE_JUDGE_EN_EXPR	[Sports Day Relay] Res-breaking effect for enemy use
+SRPG_SkillParam_SK_MAN_YUJ_SLOW_WIDE_JUDGE_EN_EXPR	[Summer Sports Meet Relay] Res-breaking effect for enemy use
 SRPG_SkillParam_SK_MAN_YUJ_SLOW_WIDE_JUDGE_EN_MAPEFF	 
 SRPG_SkillParam_SK_MACHINE_ARM_DIRECT_UNDOUKAI_NAME	Fair Play Cheer!
 SRPG_SkillParam_SK_MACHINE_ARM_DIRECT_UNDOUKAI_EXPR	Inflicts Phys Dmg (Low) & Slow (forced) on target unit [Range: 1]
@@ -12895,13 +12895,13 @@ SRPG_SkillParam_SK_MACHINE_ARM_DIRECT_UNDOUKAI2_NAME	Don't Ignore Me!
 SRPG_SkillParam_SK_MACHINE_ARM_DIRECT_UNDOUKAI2_EXPR	Inflicts fixed Dmg on target unit [Range: 1]
 SRPG_SkillParam_SK_MACHINE_ARM_DIRECT_UNDOUKAI2_MAPEFF	 
 SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI1_NAME	Problem!
-SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI1_EXPR	[Sports Day Obstacle Race] Fixed Phys Dmg to single target
+SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI1_EXPR	[Summer Sports Meet Obstacle Race] Fixed Phys Dmg to single target
 SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI1_MAPEFF	 
 SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI2_NAME	Problem!
-SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI2_EXPR	[Sports Day Obstacle Race] Fixed Phys Dmg to single target
+SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI2_EXPR	[Summer Sports Meet Obstacle Race] Fixed Phys Dmg to single target
 SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI2_MAPEFF	 
 SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI3_NAME	Problem!
-SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI3_EXPR	[Sports Day Obstacle Race] Fixed Phys Dmg to single target
+SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI3_EXPR	[Summer Sports Meet Obstacle Race] Fixed Phys Dmg to single target
 SRPG_SkillParam_SK_GUN_SHOT_UNDOUKAI3_MAPEFF	 
 SRPG_SkillParam_SK_HUN_BOOBY_TRAP_UNDOUKAI_NAME	Counter - Slow
 SRPG_SkillParam_SK_HUN_BOOBY_TRAP_UNDOUKAI_EXPR	Chance of inflicting Slow on attacker when receiving Dmg [Range: 1, Height Range: Unlimited]
@@ -13315,7 +13315,7 @@ SRPG_SkillParam_SK_MAN_YUJ_CHA_WIDE_NAME	Major Charm
 SRPG_SkillParam_SK_MAN_YUJ_CHA_WIDE_EXPR	Inflicts Charm on all enemy units (Casts)
 SRPG_SkillParam_SK_MAN_YUJ_CHA_WIDE_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_STO_WIDE_NAME	Grand Petrify
-SRPG_SkillParam_SK_MAN_YUJ_STO_WIDE_EXPR	Inflicts Petrify on all enemy units (Castes)
+SRPG_SkillParam_SK_MAN_YUJ_STO_WIDE_EXPR	Inflicts Petrify on all enemy units (Casts)
 SRPG_SkillParam_SK_MAN_YUJ_STO_WIDE_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_STO_RANDOM_NAME	Pinpoint Petrify
 SRPG_SkillParam_SK_MAN_YUJ_STO_RANDOM_EXPR	Inflicts Paralyze on all enemy units (Casts)
@@ -13363,7 +13363,7 @@ SRPG_SkillParam_SK_MAN_YUJ_LANS_DOWN_ALL_NAME	Anti-Lance [Pierce ATK Down]
 SRPG_SkillParam_SK_MAN_YUJ_LANS_DOWN_ALL_EXPR	Lowers Pierce ATK of all enemy units for three turns
 SRPG_SkillParam_SK_MAN_YUJ_LANS_DOWN_ALL_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_MAGIC_DOWN_ALL_NAME	Anti-Magic [Magic Down]
-SRPG_SkillParam_SK_MAN_YUJ_MAGIC_DOWN_ALL_EXPR	Lowers MATK of all enemy units for three turns
+SRPG_SkillParam_SK_MAN_YUJ_MAGIC_DOWN_ALL_EXPR	Lowers Mag DMG of all enemy units for three turns
 SRPG_SkillParam_SK_MAN_YUJ_MAGIC_DOWN_ALL_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_BLI_WIDE_NAME	Major Blind
 SRPG_SkillParam_SK_MAN_YUJ_BLI_WIDE_EXPR	Inflicts Blind on all enemy units
@@ -13780,7 +13780,7 @@ SRPG_SkillParam_SK_DMN_SHIELD_HP30000_ALL_NAME	PATK Shield!
 SRPG_SkillParam_SK_DMN_SHIELD_HP30000_ALL_EXPR	Complete shield up to 99 times for all ally units
 SRPG_SkillParam_SK_DMN_SHIELD_HP30000_ALL_MAPEFF	 
 SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HANSOKU_NAME	Leave!
-SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HANSOKU_EXPR	For Sports Day 2017
+SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HANSOKU_EXPR	For Summer Sports Meet
 SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HANSOKU_MAPEFF	 
 SRPG_SkillParam_SK_DMN_JEWEL_DRAIN_WIDE_S_2_NAME	Penalty!
 SRPG_SkillParam_SK_DMN_JEWEL_DRAIN_WIDE_S_2_EXPR	Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-casting ver.
@@ -13798,7 +13798,7 @@ SRPG_SkillParam_SK_RAT_JEWEL_DRAIN_WIDE_S_NAME	Reset Jewels & Reduce Jewel Spend
 SRPG_SkillParam_SK_RAT_JEWEL_DRAIN_WIDE_S_EXPR	Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-casting ver.
 SRPG_SkillParam_SK_RAT_JEWEL_DRAIN_WIDE_S_MAPEFF	 
 SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HAZURE_NAME	Miss!
-SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HAZURE_EXPR	Sports Day 2017 (Obstacle Race)
+SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HAZURE_EXPR	Summer Sports Meet (Obstacle Race)
 SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HAZURE_MAPEFF	 
 SRPG_SkillParam_SK_RAT_WIZ_DYNAMITE_RECOVERY_UNDOUKAI_NAME	Congratulations, That's Correct!
 SRPG_SkillParam_SK_RAT_WIZ_DYNAMITE_RECOVERY_UNDOUKAI_EXPR	Dies and in exchange heals all allies.
@@ -13810,7 +13810,7 @@ SRPG_SkillParam_SK_WIZ_COUNTER_MAGIC_UNDOUKAI_NAME	Ouch...
 SRPG_SkillParam_SK_WIZ_COUNTER_MAGIC_UNDOUKAI_EXPR	Performs magic counter when Dmg is received
 SRPG_SkillParam_SK_WIZ_COUNTER_MAGIC_UNDOUKAI_MAPEFF	 
 SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HANSOKU2_NAME	Fault!
-SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HANSOKU2_EXPR	For Sports Day 2017
+SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HANSOKU2_EXPR	For Summer Sports Meet
 SRPG_SkillParam_SK_DMN_WIZ_THUNDER_MONS_HANSOKU2_MAPEFF	 
 SRPG_SkillParam_SK_VEDA_BOSS_STRIKE_NAME	Strike
 SRPG_SkillParam_SK_VEDA_BOSS_STRIKE_EXPR	Veda Boss Normal ATK (Enemy Unit)
@@ -15642,7 +15642,7 @@ SRPG_SkillParam_SK_SIKAKU_WIZ_CHANGING_DJ_9EX_MAPEFF
 SRPG_SkillParam_SK_MFEN_02_DJ_9EX_NAME	Ghost Child
 SRPG_SkillParam_SK_MFEN_02_DJ_9EX_EXPR	Phys Dmg to single target & 3 sq Knockback [Range: 3, Height Range: 5]
 SRPG_SkillParam_SK_MFEN_02_DJ_9EX_MAPEFF	 
-SRPG_SkillParam_SK_MAN_YUJ_HEAL_DJ_9EX_NAME	Curing Spores Ex
+SRPG_SkillParam_SK_MAN_YUJ_HEAL_DJ_9EX_NAME	Curing Spores EX
 SRPG_SkillParam_SK_MAN_YUJ_HEAL_DJ_9EX_EXPR	Recovers HP of target [Range: 6]
 SRPG_SkillParam_SK_MAN_YUJ_HEAL_DJ_9EX_MAPEFF	 
 SRPG_SkillParam_SK_MAN_YUJ_ATK_ATK_ROAR_DJ_9EX_NAME	Bone Snap α [PATK Down]
@@ -15783,8 +15783,8 @@ SRPG_SkillParam_SK_JAMS_SKILL_05_TOWER_MAPEFF
 SRPG_SkillParam_SK_ENE_SHINOBIASHI_TOWER_NAME	Move +1, Move-Height +1~5
 SRPG_SkillParam_SK_ENE_SHINOBIASHI_TOWER_EXPR	MOVE +1, JUMP +1-5
 SRPG_SkillParam_SK_ENE_SHINOBIASHI_TOWER_MAPEFF	 
-SRPG_SkillParam_SK_CI_APP_01_NAME	Buff Adjacent (MAG Dmg Up)
-SRPG_SkillParam_SK_CI_APP_01_EXPR	Raises MATK of self and adjacent allies when one or more ally units are in adjacent squares.
+SRPG_SkillParam_SK_CI_APP_01_NAME	Buff Adjacent (Mag Dmg Up)
+SRPG_SkillParam_SK_CI_APP_01_EXPR	Raises Mag DMG of self and adjacent allies when one or more ally units are in adjacent squares.
 SRPG_SkillParam_SK_CI_APP_01_MAPEFF	 
 SRPG_SkillParam_SK_CI_PLS_01_NAME	Player Clone LS
 SRPG_SkillParam_SK_CI_PLS_01_EXPR	Raises HP/PATK/MATK
@@ -16315,7 +16315,7 @@ SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_ATK_20_U_HIT_NAME	Pure Water's Trance
 SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_ATK_20_U_HIT_EXPR	Raises PATK by 30% & Hit Rate by 20% for Water units
 SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_ATK_20_U_HIT_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_MATK_20_U_HP_NAME	Blue Water's Art
-SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_MATK_20_U_HP_EXPR	Raises MATK by 30% & HP by 20% for Water units
+SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_MATK_20_U_HP_EXPR	Raises Mag DMG by 30% & HP by 20% for Water units
 SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_MATK_20_U_HP_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_WATER_20_U_SHOT_10_U_HP_NAME	Blue Water's Art
 SRPG_SkillParam_SK_LS_ELEM_WATER_20_U_SHOT_10_U_HP_EXPR	Raises Missile ATK by 20% & HP by 10% for Water units
@@ -16378,7 +16378,7 @@ SRPG_SkillParam_SK_LS_ELEM_WIND_30_U_SLA_20_U_HP_NAME	Fresh Wind's Art
 SRPG_SkillParam_SK_LS_ELEM_WIND_30_U_SLA_20_U_HP_EXPR	Raises Slash ATK by 30% & HP by 20% for Wind units
 SRPG_SkillParam_SK_LS_ELEM_WIND_30_U_SLA_20_U_HP_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_WIND_30_U_MATK_20_U_HP_NAME	Fresh Wind's Art
-SRPG_SkillParam_SK_LS_ELEM_WIND_30_U_MATK_20_U_HP_EXPR	Raises MATK by 30% & HP by 20% for Wind units
+SRPG_SkillParam_SK_LS_ELEM_WIND_30_U_MATK_20_U_HP_EXPR	Raises Mag DMG by 30% & HP by 20% for Wind units
 SRPG_SkillParam_SK_LS_ELEM_WIND_30_U_MATK_20_U_HP_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_WIND_30_U_SHOT_20_U_HP_NAME	Fresh Wind's Art
 SRPG_SkillParam_SK_LS_ELEM_WIND_30_U_SHOT_20_U_HP_EXPR	Raises Missile ATK by 30% & HP by 20% for Wind units
@@ -16486,7 +16486,7 @@ SRPG_SkillParam_SK_LS_ELEM_THUNDER_30_U_MAG_NAME	Thunderer's Trance
 SRPG_SkillParam_SK_LS_ELEM_THUNDER_30_U_MAG_EXPR	Raises MATK by 30% for Thunder units
 SRPG_SkillParam_SK_LS_ELEM_THUNDER_30_U_MAG_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP_NAME	Thunderer's Secret
-SRPG_SkillParam_SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP_EXPR	Raises MATK by 30% & HP by 20% for Thunder units
+SRPG_SkillParam_SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP_EXPR	Raises Mag DMG by 30% & HP by 20% for Thunder units
 SRPG_SkillParam_SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_THUNDER_40_U_ATK_5_U_AVO_NAME	Thunderer's Worship
 SRPG_SkillParam_SK_LS_ELEM_THUNDER_40_U_ATK_5_U_AVO_EXPR	Raises PATK by 40% & Evasion Rate by 5% for Thunder units
@@ -17832,13 +17832,13 @@ SRPG_SkillParam_SK_EQ_YUAN_ARROW_MAPEFF
 SRPG_SkillParam_SK_EQ_YUAN_BELT_NAME	Survival Belt
 SRPG_SkillParam_SK_EQ_YUAN_BELT_EXPR	HP +40, PDEF +12, LCK +6, Fire Res +1, Poison Res +1
 SRPG_SkillParam_SK_EQ_YUAN_BELT_MAPEFF	 
-SRPG_SkillParam_SK_EQ_YUAN_GEAR_NAME	Reida's Gear
+SRPG_SkillParam_SK_EQ_YUAN_GEAR_NAME	Raider's Gear
 SRPG_SkillParam_SK_EQ_YUAN_GEAR_EXPR	PDEF +12, MDEF +12, HP +24, Stun Res +2, Water Res +1
 SRPG_SkillParam_SK_EQ_YUAN_GEAR_MAPEFF	 
 SRPG_SkillParam_SK_EQ_YUAN_BUNDLE_NAME	Survival Bundle
 SRPG_SkillParam_SK_EQ_YUAN_BUNDLE_EXPR	DEX +16, CRIT +12, LCK +12, AGI +2, Wind Res +1
 SRPG_SkillParam_SK_EQ_YUAN_BUNDLE_MAPEFF	 
-SRPG_SkillParam_SK_EQ_YUAN_BOOTS_NAME	Reida's Boots
+SRPG_SkillParam_SK_EQ_YUAN_BOOTS_NAME	Raider's Boots
 SRPG_SkillParam_SK_EQ_YUAN_BOOTS_EXPR	AGI +4, DEX +10, MDEF +12, Sleep Res +2, Paralyze Res +2
 SRPG_SkillParam_SK_EQ_YUAN_BOOTS_MAPEFF	 
 SRPG_SkillParam_SK_EQ_YUAN_BLADE_NAME	Survival Blade
@@ -19062,7 +19062,7 @@ SRPG_SkillParam_SK_AF_ARMOR_BEGINNER_01_MAPEFF
 SRPG_SkillParam_SK_AF_ARMOR_BEGINNER_01_2_NAME	Moon Star 5★
 SRPG_SkillParam_SK_AF_ARMOR_BEGINNER_01_2_EXPR	Attributes: HP Up, Jewels Obtained Up, Auto Heal (Added when evolving to 5★)
 SRPG_SkillParam_SK_AF_ARMOR_BEGINNER_01_2_MAPEFF	 
-SRPG_SkillParam_SK_AF_ARMS_ZIN_00_NAME	Eerie Agony Thousand Drop Blade
+SRPG_SkillParam_SK_AF_ARMS_ZIN_00_NAME	Cursed Kunai - Blood Edge
 SRPG_SkillParam_SK_AF_ARMS_ZIN_00_EXPR	Attributes: HP +30, PATK +20, DEX +40, Daze +10%
 SRPG_SkillParam_SK_AF_ARMS_ZIN_00_MAPEFF	 
 SRPG_SkillParam_SK_AF_ARMS_NIN_04_4_NAME	Jikunai Satsuki
@@ -19338,10 +19338,10 @@ SRPG_SkillParam_SK_AF_ACCS_EARRING_02_4_MAPEFF
 SRPG_SkillParam_SK_AF_ACCS_EARRING_02_5_NAME	Saint's Meteor 5★
 SRPG_SkillParam_SK_AF_ACCS_EARRING_02_5_EXPR	Attributes: AGI/LCK/Jewels Obtained/Paralyze Res Up
 SRPG_SkillParam_SK_AF_ACCS_EARRING_02_5_MAPEFF	 
-SRPG_SkillParam_SK_AF_ACCS_UNDOKAI2017_01_04_NAME	Sports Day - Ouroboros Prize 4★
+SRPG_SkillParam_SK_AF_ACCS_UNDOKAI2017_01_04_NAME	Ouroboros's Medal 4★
 SRPG_SkillParam_SK_AF_ACCS_UNDOKAI2017_01_04_EXPR	Attributes: HP Up, PATK Up, MATK Up, AGI Up
 SRPG_SkillParam_SK_AF_ACCS_UNDOKAI2017_01_04_MAPEFF	 
-SRPG_SkillParam_SK_AF_ACCS_UNDOKAI2017_01_05_NAME	Sports Day - Ouroboros Prize 5★
+SRPG_SkillParam_SK_AF_ACCS_UNDOKAI2017_01_05_NAME	Ouroboros's Medal 5★
 SRPG_SkillParam_SK_AF_ACCS_UNDOKAI2017_01_05_EXPR	Attributes: HP Up, PATK Up, MATK Up, AGI Up
 SRPG_SkillParam_SK_AF_ACCS_UNDOKAI2017_01_05_MAPEFF	 
 SRPG_SkillParam_SK_AF_ACCS_HOURGLASS_01_4_NAME	(Uzuma Gear) 3~4★
@@ -19393,7 +19393,7 @@ SRPG_SkillParam_SK_AF_ARMO_HAT_01_5_NAME	Stellar Mage Hat 5★
 SRPG_SkillParam_SK_AF_ARMO_HAT_01_5_EXPR	Attributes: MDEF Up, Hit Rate Up, Silence Res Up<br>Gear Ability unlocked when evolving to 5★ (Raises own Mag Dmg for three turns)
 SRPG_SkillParam_SK_AF_ARMO_HAT_01_5_MAPEFF	 
 SRPG_SkillParam_SK_AF_ARMO_HAT_01_WA_NAME	Stardust Blessing
-SRPG_SkillParam_SK_AF_ARMO_HAT_01_WA_EXPR	Raises own MATK for three turns
+SRPG_SkillParam_SK_AF_ARMO_HAT_01_WA_EXPR	Raises own Mag DMG for three turns
 SRPG_SkillParam_SK_AF_ARMO_HAT_01_WA_MAPEFF	 
 SRPG_SkillParam_SK_AF_ACCS_CLOCK_01_4_NAME	Wonder Chronos 4★
 SRPG_SkillParam_SK_AF_ACCS_CLOCK_01_4_EXPR	Attributes: HP Up, AGI Up, Delay Res Up
@@ -21811,7 +21811,7 @@ SRPG_SkillParam_SK_MAH_KAGO_SUPER_NAME	Divine Shelter+
 SRPG_SkillParam_SK_MAH_KAGO_SUPER_EXPR	Disable all ATKs
 SRPG_SkillParam_SK_MAH_KAGO_SUPER_MAPEFF	 
 SRPG_SkillParam_SK_MAH_KAGO_SUPER_RELAY_NAME	Divine Shelter+
-SRPG_SkillParam_SK_MAH_KAGO_SUPER_RELAY_EXPR	[Sports Day Relay] Nullifies all attacks
+SRPG_SkillParam_SK_MAH_KAGO_SUPER_RELAY_EXPR	[Summer Sports Meet Relay] Nullifies all attacks
 SRPG_SkillParam_SK_MAH_KAGO_SUPER_RELAY_MAPEFF	 
 SRPG_SkillParam_SK_DOWN_RESIST_WOLF_NAME	Wolf Res Down
 SRPG_SkillParam_SK_DOWN_RESIST_WOLF_EXPR	Wolf
@@ -21933,7 +21933,7 @@ SRPG_SkillParam_SK_ME_TOWN_MAD_MAPEFF	<color=cyan>DEX +20%</color>
 SRPG_SkillParam_SK_ME_TOWN_KAK_NAME	[Unused: City] Martial Artist
 SRPG_SkillParam_SK_ME_TOWN_KAK_EXPR	[Map Effect] PDEF +20%
 SRPG_SkillParam_SK_ME_TOWN_KAK_MAPEFF	<color=cyan>PDEF +20%</color>
-SRPG_SkillParam_SK_ME_TOWN_STR_NAME	[Unused: City] Holy Brawler
+SRPG_SkillParam_SK_ME_TOWN_STR_NAME	[Unused: City] Sacred Brawler
 SRPG_SkillParam_SK_ME_TOWN_STR_EXPR	[Map Effect] PDEF +20%
 SRPG_SkillParam_SK_ME_TOWN_STR_MAPEFF	<color=cyan>PDEF +20%</color>
 SRPG_SkillParam_SK_ME_TOWN_WED_F_NAME	[Unused: City] Bride
@@ -21984,7 +21984,7 @@ SRPG_SkillParam_SK_ME_PLAIN_BASI_SOL_MAPEFF	<color=cyan>Hit Rate +20%</color>
 SRPG_SkillParam_SK_ME_PLAIN_YAUL_SOL_NAME	[Unused: Prairie] Twin-Blade Knight
 SRPG_SkillParam_SK_ME_PLAIN_YAUL_SOL_EXPR	[Map Effect] Hit Rate +20%
 SRPG_SkillParam_SK_ME_PLAIN_YAUL_SOL_MAPEFF	<color=cyan>Hit Rate +20%</color>
-SRPG_SkillParam_SK_ME_PLAIN_KIL_NAME	[Unused: Prairie] Shadow Assassin
+SRPG_SkillParam_SK_ME_PLAIN_KIL_NAME	[Unused: Prairie] Dark Assassin
 SRPG_SkillParam_SK_ME_PLAIN_KIL_EXPR	[Map Effect] Hit Rate -20%
 SRPG_SkillParam_SK_ME_PLAIN_KIL_MAPEFF	<color=red>Hit Rate -20%</color>
 SRPG_SkillParam_SK_ME_DESERT_SOL_NAME	[Unused: Desert] Twin-Blade Swordsman
@@ -22096,7 +22096,7 @@ SRPG_SkillParam_SK_ME_MAGIC_CASTLE_HWIZ_NAME	[Unused: Magic City] Battle Mage
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_HWIZ_EXPR	[Map Effect] PDEF +20%, MDEF +20%
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_HWIZ_MAPEFF	<color=cyan>PDEF +20%, MDEF +20%</color>
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES1_NAME	[Unused: Magic City] Apprentice Witch
-SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES1_EXPR	[Map Effect] Cast Time -20%
+SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES1_EXPR	[Map Effect] Cast Time -20%
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES1_MAPEFF	<color=cyan>Cast Time -20%</color>
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES2_NAME	[Unused: Magic City] Witch
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES2_EXPR	[Map Effect] Cast Time -20%, MDEF -20%
@@ -22429,7 +22429,7 @@ SRPG_SkillParam_SK_ACCS_GL_CRYSTALROSE_NAME	Water of Lore
 SRPG_SkillParam_SK_ACCS_GL_CRYSTALROSE_EXPR	Casts Auto Heal on self
 SRPG_SkillParam_SK_ACCS_GL_CRYSTALROSE_MAPEFF	 
 SRPG_SkillParam_SK_AF_ACCS_GL_CRYSTALROSE_NAME	Blue Crystal Rose
-SRPG_SkillParam_SK_AF_ACCS_GL_CRYSTALROSE_EXPR	Attributes: MDEF Up, Water Res UP,  Jewels Obtained Up
+SRPG_SkillParam_SK_AF_ACCS_GL_CRYSTALROSE_EXPR	Attributes: MDEF Up, Water Res UP, Jewels Obtained Up
 SRPG_SkillParam_SK_AF_ACCS_GL_CRYSTALROSE_MAPEFF	 
 SRPG_ItemParam_IT_EQ_SOUL_STR_MILOKU_NAME	Holy Brawler [Miroku] Token
 SRPG_ItemParam_IT_EQ_SOUL_STR_MILOKU_EXPR	Required in order to change to the "Holy Brawler [Miroku]" job type
@@ -22499,7 +22499,7 @@ SRPG_ItemParam_IT_EQ_DRAGON_VRITRA_EXPR	[Dragon Cavalier [Vritra]-Only Equipment
 SRPG_ItemParam_IT_EQ_DRAGON_VRITRA_FLAVOR	Only dragon cavaliers, a more powerful form of the dragon knight, are permitted to carry orbs such as this. They symbolize a bond with dragons, and this particular orb is said to bestow all the power of the dragon Vritra upon the bearer. Vritra's mighty, soaring wings make it possible to reach faraway lands.
 SRPG_ItemParam_IT_EQ_DRAGON_GARUDA_NAME	Garuda Sphere
 SRPG_ItemParam_IT_EQ_DRAGON_GARUDA_EXPR	[Dragon Cavalier [Garuda]-Only Equipment] Max HP +40, PATK +18, DEX +16, LUCK +6, Fire Res +1, Charm Res +8, Sleep Res +8, Slow Res +8
-SRPG_ItemParam_IT_EQ_DRAGON_GARUDA_FLAVOR	Only dragon cavaliers, a more powerful form of the dragon knight, are permitted to carry orbs such as this. They symbolize a bond with dragons, and this particular orb is said to bestow all the power of the dragon Garuda upon the bearer. Garuda's powerful  wings make it possible to soar high up to the heavens--high enough to touch the sun.
+SRPG_ItemParam_IT_EQ_DRAGON_GARUDA_FLAVOR	Only dragon cavaliers, a more powerful form of the dragon knight, are permitted to carry orbs such as this. They symbolize a bond with dragons, and this particular orb is said to bestow all the power of the dragon Garuda upon the bearer. Garuda's powerful wings make it possible to soar high up to the heavens--high enough to touch the sun.
 SRPG_ItemParam_IT_EQ_DRAGON_RUDRA_NAME	Rudra Sphere
 SRPG_ItemParam_IT_EQ_DRAGON_RUDRA_EXPR	[Dragon Cavalier [Rudra]-Only Equipment] Max HP +40, PATK +14, DEX +9, LUCK +16, Fire Res +2, Charm Res +8, Sleep Res +8, Slow Res +10
 SRPG_ItemParam_IT_EQ_DRAGON_RUDRA_FLAVOR	Only dragon cavaliers, a more powerful form of the dragon knight, are permitted to carry orbs such as this. They symbolize a bond with dragons, and this particular orb is said to bestow all the power of the dragon Rudra upon the bearer. Rudra's storm-bringing wings grant the bearer the power to annihilate anyone who brings harm to dragons
@@ -24312,10 +24312,10 @@ SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET03_FLAVOR
 SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET04_NAME	Challenger of Limits Relevant Unit Guaranteed 10-Summon Ticket
 SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET04_EXPR	Use this special 10-summon ticket to get one guaranteed "effective" unit (Vier, Lucia, Klima, Annika, Mei Fang, or Othima.)
 SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET04_FLAVOR	 
-SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET05_NAME	Sports Day Relevant Magic Unit Guaranteed 10-Summon Ticket
+SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET05_NAME	Summer Sports Meet Relevant Magic Unit Guaranteed 10-Summon Ticket
 SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET05_EXPR	Use this special 10-summon ticket to get one guaranteed "effective" unit (Füry, Ravina, Chao, Nasario, or Neica.)
 SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET05_FLAVOR	 
-SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET06_NAME	Sports Day Relevant Agility Unit Guaranteed 10-Summon Ticket
+SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET06_NAME	Summer Sports Meet Relevant Agility Unit Guaranteed 10-Summon Ticket
 SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET06_EXPR	Use this special 10-summon ticket to get one guaranteed "effective" unit (Yauras, Basheeny, Sieba, Hazel, or Setsuna.)
 SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET06_FLAVOR	 
 SRPG_ItemParam_IT_US_2017SEPT_SUMMONCOIN_TICKET07_NAME	Uzuma Guaranteed 10-Summon Ticket
@@ -25320,13 +25320,13 @@ SRPG_ItemParam_IT_EQ_YUAN_ARROW_FLAVOR	Yuan's treasured bow. He has used it for 
 SRPG_ItemParam_IT_EQ_YUAN_BELT_NAME	Survival Belt
 SRPG_ItemParam_IT_EQ_YUAN_BELT_EXPR	[Yuan/Ninja+-Only Equipment] HP +90, PDEF +36, LCK +16, Fire Res +2, Poison Res +25
 SRPG_ItemParam_IT_EQ_YUAN_BELT_FLAVOR	The belt that Yuan wears around his waist. It's fitted with a range of professional tools, and is actually pretty heavy. His younger brother, Lucido, says it's goofy-looking, but Yuan finds it very useful and doesn't plan on getting rid of it any time soon.
-SRPG_ItemParam_IT_EQ_YUAN_GEAR_NAME	Reida's Gear
+SRPG_ItemParam_IT_EQ_YUAN_GEAR_NAME	Raider's Gear
 SRPG_ItemParam_IT_EQ_YUAN_GEAR_EXPR	[Yuan/Ninja+-Only Equipment] PDEF +26, MDEF +26, HP +80, Stun Res +25, Water Res +2
 SRPG_ItemParam_IT_EQ_YUAN_GEAR_FLAVOR	Yuan's sturdy single shoulder pad. He chose it for its functionality above all else, and as a result hasn't sustained a shoulder wound since he bought it. Yuan would like Lucido to wear one as well, but Lucido isn't interested at all.
 SRPG_ItemParam_IT_EQ_YUAN_BUNDLE_NAME	Survival Bundle
 SRPG_ItemParam_IT_EQ_YUAN_BUNDLE_EXPR	[Yuan/Ninja+-Only Equipment] DEX +48, CRIT +32, LCK +26, AGI +2, Wind Res +2
 SRPG_ItemParam_IT_EQ_YUAN_BUNDLE_FLAVOR	Yuan carries this quiver with him when he heads into battle. Yuan is always practical and well-equipped, whereas his younger brother, Lucido, refuses flat-out to wear anything that doesn't look good--which is a constant source of worry for his older brother.
-SRPG_ItemParam_IT_EQ_YUAN_BOOTS_NAME	Reida's Boots
+SRPG_ItemParam_IT_EQ_YUAN_BOOTS_NAME	Raider's Boots
 SRPG_ItemParam_IT_EQ_YUAN_BOOTS_EXPR	[Yuan/Ninja+-Only Equipment] AGI +6, DEX +20, MDEF +32, Sleep Res +25, Paralyze Res +25
 SRPG_ItemParam_IT_EQ_YUAN_BOOTS_FLAVOR	Yuan wears these boots to protect his feet. He treasures them for their particularly thick soles, which help prevent needless injuries during battle. He often worries that the pointy tipped shoes worn by Lucido must be hurting his feet...
 SRPG_ItemParam_IT_EQ_YUAN_BLADE_NAME	Survival Blade
@@ -25429,7 +25429,7 @@ SRPG_ItemParam_IT_EQ_ACHA_SGUARD_NAME	Arms Storage
 SRPG_ItemParam_IT_EQ_ACHA_SGUARD_EXPR	[Acht/Seven Tactics Master-Only Equipment] HP +32, PATK +38, PDEF +16, AGI +4, Fire Res +2, Charm Res +8, Sleep Res +8, Slow Res +8
 SRPG_ItemParam_IT_EQ_ACHA_SGUARD_FLAVOR	This backpack is fitted with the various different attachments that Acht uses. It's pretty heavy, and apparently it took quite a while for the slightly built Acht to be able to move around freely carrying it.
 SRPG_ItemParam_IT_EQ_VIER_PIPE_NAME	Aromatic Spell Kiselle
-SRPG_ItemParam_IT_EQ_VIER_PIPE_EXPR	[Vier/Phantom Master-Only Equipment] HP +20, MATK +24, MDEF +24, Hit Rate +6, Wind Res +2, Petrify Res +8, Stop Res +8, Silence Res +8
+SRPG_ItemParam_IT_EQ_VIER_PIPE_EXPR	[Vier/Phantom Artist-Only Equipment] HP +20, MATK +24, MDEF +24, Hit Rate +6, Wind Res +2, Petrify Res +8, Stop Res +8, Silence Res +8
 SRPG_ItemParam_IT_EQ_VIER_PIPE_FLAVOR	Vier's trusty pipe. It's been customized based on detailed instructions from Vier, and as well as the mystical aromas it gives off, it's able to absorb magical energy from the surrounding atmosphere. She changes the aroma each day depending on her mood, apparently.
 SRPG_ItemParam_IT_EQ_MONZ_WOR2_01_NAME	Gold Leo Relief
 SRPG_ItemParam_IT_EQ_MONZ_WOR2_01_EXPR	[Monzein/Indomitable Axe Knight+-Only Equipment]PDEF +24, DEX +24, CRIT +30, Water Res +2, Paralyze Res +7, Charm Res +8, Sleep Res +8, Slow Res +8
@@ -25541,7 +25541,7 @@ SRPG_ItemParam_IT_EQ_REIM_COSTUME_EXPR	[Reimei/Blademaster+-Only Equipment] HP +
 SRPG_ItemParam_IT_EQ_REIM_COSTUME_FLAVOR	The clothes usually worn by Reimei. Although a little on the conspicuous side for someone who works as an assassin, this is apparently a deliberate decision on Reimei's part. Regardless, his precision in seeing through missions is renowned even outside of Wadatsumi.
 SRPG_ItemParam_IT_EQ_REIM_TEKKO_NAME	Black Lacquer Gauntlet
 SRPG_ItemParam_IT_EQ_REIM_TEKKO_EXPR	[Reimei/Blademaster+-Only Equipment] DEX +14, CRIT +16, MDEF +14, PDEF +8, Charm Res +7
-SRPG_ItemParam_IT_EQ_REIM_TEKKO_FLAVOR	This thin but strong gauntlet is worn by Reimei.  Coated in a black lacquer, it's made using an ore that's rare in Babel but common in Wadatsumi, and is said to be as light as bamboo but as hard as steel.  
+SRPG_ItemParam_IT_EQ_REIM_TEKKO_FLAVOR	This thin but strong gauntlet is worn by Reimei. Coated in a black lacquer, it's made using an ore that's rare in Babel but common in Wadatsumi, and is said to be as light as bamboo but as hard as steel. 
 SRPG_ItemParam_IT_EQ_REIM_EYEPATCH_NAME	Dyed Eyepatch
 SRPG_ItemParam_IT_EQ_REIM_EYEPATCH_EXPR	[Reimei/Blademaster+-Only Equipment] HP +20, DEX +12, Poison Res +7, Paralyze Res +7, Stun Res +7
 SRPG_ItemParam_IT_EQ_REIM_EYEPATCH_FLAVOR	Reimei wears this eyepatch at all times, even when sleeping. He's worn it ever since injuring his eye as a child when training. It's partly because he was so young when he sustained the injury that he's able to judge distance and attacks so well with just one eye.
@@ -26472,14 +26472,14 @@ SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_ARROW_FLAVOR
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BELT_NAME	Survival Belt Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BELT_EXPR	Required in order to create: Survival Belt
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BELT_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_GEAR_NAME	Reida's Gear Diagram
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_GEAR_EXPR	Required in order to create: Reida's Gear
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_GEAR_NAME	Raider's Gear Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_GEAR_EXPR	Required in order to create: Raider's Gear
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_GEAR_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BUNDLE_NAME	Survival Bundle Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BUNDLE_EXPR	Required in order to create: Survival Bundle
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BUNDLE_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BOOTS_NAME	Reida's Boots Diagram
-SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BOOTS_EXPR	Required in order to create: Reida's Boots
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BOOTS_NAME	Raider's Boots Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BOOTS_EXPR	Required in order to create: Raider's Boots
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BOOTS_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BLADE_NAME	Survival Blade Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAM_YUAN_BLADE_EXPR	Required in order to create: Survival Blade
@@ -27306,7 +27306,7 @@ SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_RAHU_CARPET_FLAVOR
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_RAHU_LAMP_NAME	Magic Lamp Diagram Piece
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_RAHU_LAMP_EXPR	Collect 80 of these to create: Magic Lamp Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_RAHU_LAMP_FLAVOR	 
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_LUCA_TWIN_SWORD_NAME	Alchemic Kukri Diagram Piece
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_LUCA_TWIN_SWORD_NAME	Morceau de plan de kukri alchimique
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_LUCA_TWIN_SWORD_EXPR	Collect 80 of these to create: Alchemic Kukri Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_LUCA_TWIN_SWORD_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_LUCA_HOOD_NAME	Soldier's Shemagh Diagram Piece
@@ -27394,13 +27394,13 @@ SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BELT_NAME	Survival Belt Diagram Piece
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BELT_EXPR	Collect 80 of these to create: Survival Belt Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BELT_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_GEAR_NAME	Reida's Gear Diagram Piece
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_GEAR_EXPR	Collect 80 of these to create: Reida's Gear Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_GEAR_EXPR	Collect 80 of these to create: Raider's Gear Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_GEAR_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BUNDLE_NAME	Survival Bundle Diagram Piece
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BUNDLE_EXPR	Collect 80 of these to create: Survival Bundle Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BUNDLE_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BOOTS_NAME	Reida's Boots Diagram Piece
-SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BOOTS_EXPR	Collect 80 of these to create: Reida's Boots Diagram
+SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BOOTS_EXPR	Collect 80 of these to create: Raider's Boots Diagram
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BOOTS_FLAVOR	 
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BLADE_NAME	Survival Blade Diagram Piece
 SRPG_ItemParam_IT_EQ_DIAGRAMPIECE_YUAN_BLADE_EXPR	Collect 80 of these to create: Survival Blade Diagram
@@ -28032,8 +28032,8 @@ SRPG_ItemParam_IT_EQ_SOUL_FF15_PROM_FLAVOR
 SRPG_ItemParam_IT_EQ_SOUL_ACHA_STR_NAME	7 Tactics Master Token
 SRPG_ItemParam_IT_EQ_SOUL_ACHA_STR_EXPR	Required in order to change to the "Seven Tactics Master" job type
 SRPG_ItemParam_IT_EQ_SOUL_ACHA_STR_FLAVOR	 
-SRPG_ItemParam_IT_EQ_SOUL_VIER_WIZ_NAME	Phantom Master Token
-SRPG_ItemParam_IT_EQ_SOUL_VIER_WIZ_EXPR	Required in order to change to the "Phantom Master" job type
+SRPG_ItemParam_IT_EQ_SOUL_VIER_WIZ_NAME	Phantom Artist Master Token
+SRPG_ItemParam_IT_EQ_SOUL_VIER_WIZ_EXPR	Required in order to change to the "Phantom Artist" job type
 SRPG_ItemParam_IT_EQ_SOUL_VIER_WIZ_FLAVOR	 
 SRPG_ItemParam_IT_EQ_SOUL_MONZ_WOR2_NAME	Monzein Token
 SRPG_ItemParam_IT_EQ_SOUL_MONZ_WOR2_EXPR	Required in order for Monzein to change to the "Indomitable Axe Knight+" job type
@@ -28545,7 +28545,7 @@ SRPG_ItemParam_IT_PI_LAVINA_FLAVOR
 SRPG_ItemParam_IT_PI_SUIRAN_NAME	Suiran Soul Shard
 SRPG_ItemParam_IT_PI_SUIRAN_EXPR	Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.
 SRPG_ItemParam_IT_PI_SUIRAN_FLAVOR	 
-SRPG_ItemParam_IT_PI_BLANCHETT_NAME	Blanshett Soul Shard
+SRPG_ItemParam_IT_PI_BLANCHETT_NAME	Blanchett Soul Shard
 SRPG_ItemParam_IT_PI_BLANCHETT_EXPR	Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.
 SRPG_ItemParam_IT_PI_BLANCHETT_FLAVOR	 
 SRPG_ItemParam_IT_PI_LIZARD_NAME	Lizardman Soul Shard
@@ -29256,8 +29256,8 @@ SRPG_ItemParam_IT_AF_ARMO_GAUNTLET_02_FLAVOR
 SRPG_ItemParam_IT_AF_ACCS_NECKLACE_01_NAME	Belva Pendant Shard
 SRPG_ItemParam_IT_AF_ACCS_NECKLACE_01_EXPR	Collect 150 of these to create: Belva Pendant
 SRPG_ItemParam_IT_AF_ACCS_NECKLACE_01_FLAVOR	 
-SRPG_ItemParam_IT_AF_ARMS_ZIN_00_NAME	Eerie Agony Thousand Drop Blade Shard
-SRPG_ItemParam_IT_AF_ARMS_ZIN_00_EXPR	Collect 80 of these to create: Eerie Agony Thousand Drop Blade
+SRPG_ItemParam_IT_AF_ARMS_ZIN_00_NAME	Cursed Kunai - Blood Edge Shard
+SRPG_ItemParam_IT_AF_ARMS_ZIN_00_EXPR	Collect 80 of these to create: Cursed Kunai - Blood Edge
 SRPG_ItemParam_IT_AF_ARMS_ZIN_00_FLAVOR	 
 SRPG_ItemParam_IT_AF_ARMS_NIN_04_NAME	Jikunai Satsuki Shard
 SRPG_ItemParam_IT_AF_ARMS_NIN_04_EXPR	Collect 150 of these to create: Jikunai Satsuki
@@ -29373,8 +29373,8 @@ SRPG_ItemParam_IT_AF_ARMS_SPE_04_FLAVOR
 SRPG_ItemParam_IT_AF_ACCS_EARRING_02_NAME	Saint's Meteor Shard
 SRPG_ItemParam_IT_AF_ACCS_EARRING_02_EXPR	Collect 150 of these to create: Saint's Meteor
 SRPG_ItemParam_IT_AF_ACCS_EARRING_02_FLAVOR	 
-SRPG_ItemParam_IT_AF_ACCS_UNDOKAI2017_01_NAME	Sports Day - Ouroboros Prize Shard
-SRPG_ItemParam_IT_AF_ACCS_UNDOKAI2017_01_EXPR	Collect 80 of these to create: Sports Day - Ouroboros Prize
+SRPG_ItemParam_IT_AF_ACCS_UNDOKAI2017_01_NAME	Ouroboros's Medal Shard
+SRPG_ItemParam_IT_AF_ACCS_UNDOKAI2017_01_EXPR	Collect 80 of these to create: Ouroboros's Medal
 SRPG_ItemParam_IT_AF_ACCS_UNDOKAI2017_01_FLAVOR	 
 SRPG_ItemParam_IT_AF_ACCS_HOURGLASS_01_NAME	Sephirium Hourglass Shard
 SRPG_ItemParam_IT_AF_ACCS_HOURGLASS_01_EXPR	Collect 80 of these to create: Sephirium Hourglass
@@ -29649,7 +29649,7 @@ SRPG_ItemParam_IT_SET_MAINSTAY_01_FLAVOR
 SRPG_ItemParam_IT_SET_MAG_01_NAME	MATK-Type Required Equipment Set
 SRPG_ItemParam_IT_SET_MAG_01_EXPR	This set contains equipment required for magical attack jobs.
 SRPG_ItemParam_IT_SET_MAG_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_CADANOVA_01_NAME	Cadanova Specific Equipment Set
+SRPG_ItemParam_IT_SET_CADANOVA_01_NAME	Cadanova Equipment Set
 SRPG_ItemParam_IT_SET_CADANOVA_01_EXPR	This set contains rare equipment required for Cadanova. (Jobs: Dragon Slayer, Dragon Knight, and Flame Dragon King.)
 SRPG_ItemParam_IT_SET_CADANOVA_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_FUNGLIU_01_NAME	Fung Liu Equipment Set
@@ -29817,7 +29817,7 @@ SRPG_ItemParam_IT_SET_EQUP_MIT_01_FLAVOR
 SRPG_ItemParam_IT_SET_ALMILA_01_NAME	Almira Equipment Set
 SRPG_ItemParam_IT_SET_ALMILA_01_EXPR	This set contains rare equipment required for Almira. (Jobs: Hunter, Beast Tamer, and Sniper.)
 SRPG_ItemParam_IT_SET_ALMILA_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_KUDHANSTEIN_01_NAME	Kudan Specific Equipment Set
+SRPG_ItemParam_IT_SET_KUDHANSTEIN_01_NAME	Kudan Equipment Set
 SRPG_ItemParam_IT_SET_KUDHANSTEIN_01_EXPR	This set contains rare equipment required for Kudanstein. (Jobs: Demonic Spearman, Martial Artist, and Dark Cavalier.)
 SRPG_ItemParam_IT_SET_KUDHANSTEIN_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_SHENMEI_01_NAME	Shenmei Equipment Set
@@ -30057,7 +30057,7 @@ SRPG_ItemParam_IT_SET_MAJUTU_H_01_FLAVOR
 SRPG_ItemParam_IT_SET_HOURGLASS_01_NAME	Rainbow Hourglass x10
 SRPG_ItemParam_IT_SET_HOURGLASS_01_EXPR	This set contains 10 Rainbow Hourglasses, which are required items for fusing equipment.
 SRPG_ItemParam_IT_SET_HOURGLASS_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_FENCER_01_NAME	Fencer Specific Equipment Set
+SRPG_ItemParam_IT_SET_FENCER_01_NAME	Fencer Equipment Set
 SRPG_ItemParam_IT_SET_FENCER_01_EXPR	This set contains rare equipment required for Fencer units. (Jobs: Fencer, Illusory Swordsman, and Thunder Swordsman.)
 SRPG_ItemParam_IT_SET_FENCER_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_FEN_01_NAME	Fencer Rare Equipment Set
@@ -30099,10 +30099,10 @@ SRPG_ItemParam_IT_SET_TYRH_01_FLAVOR
 SRPG_ItemParam_IT_SET_NIN_01_NAME	Ninja Rare Equipment Set
 SRPG_ItemParam_IT_SET_NIN_01_EXPR	This set contains equipment required for the job Ninja.
 SRPG_ItemParam_IT_SET_NIN_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_SEIDA_01_NAME	Seida Specific Equipment Set
+SRPG_ItemParam_IT_SET_SEIDA_01_NAME	Seida Equipment Set
 SRPG_ItemParam_IT_SET_SEIDA_01_EXPR	This set contains rare equipment required for Seida. (Jobs: Venom Archer, Hunter, and Ninja.)
 SRPG_ItemParam_IT_SET_SEIDA_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_MONZEIN_01_NAME	Monzein Specific Equipment Set
+SRPG_ItemParam_IT_SET_MONZEIN_01_NAME	Monzein Equipment Set
 SRPG_ItemParam_IT_SET_MONZEIN_01_EXPR	This set contains rare equipment required for Monzein. (Jobs: Indomitable Axe Knight , Dragon Knight, and Holy Cavalier.)
 SRPG_ItemParam_IT_SET_MONZEIN_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_SPICA_01_NAME	Spica Equipment Set
@@ -30123,7 +30123,7 @@ SRPG_ItemParam_IT_SET_SOGEKI_3_01_FLAVOR
 SRPG_ItemParam_IT_SET_SHIEN_3_01_NAME	Fighter/Supporter x3 Equipment
 SRPG_ItemParam_IT_SET_SHIEN_3_01_EXPR	This set contains three each of three pieces of equipment that are required for fighter/supporter jobs when levelling up.
 SRPG_ItemParam_IT_SET_SHIEN_3_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_90_EX_01_NAME	900.000 Downloads Celebration Set Ex
+SRPG_ItemParam_IT_SET_90_EX_01_NAME	900.000 Downloads Celebration Set EX
 SRPG_ItemParam_IT_SET_90_EX_01_EXPR	[900,000 Downloads Celebration Special Offer] This great-value set contains rare equipment that is required at high Job Levels.
 SRPG_ItemParam_IT_SET_90_EX_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_90_KYOUKA_01_NAME	900.000 Downloads Celebration Enhance Set
@@ -30246,10 +30246,10 @@ SRPG_ItemParam_IT_SET_SOUL_DAI_01_FLAVOR
 SRPG_ItemParam_IT_SET_SOUL_ODO_01_NAME	Dancer Token x6
 SRPG_ItemParam_IT_SET_SOUL_ODO_01_EXPR	This set contains all six of the tokens needed in order to unlock the Dancer job.
 SRPG_ItemParam_IT_SET_SOUL_ODO_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_ZAYI_01_NAME	Zain Specific Equipment Set
+SRPG_ItemParam_IT_SET_ZAYI_01_NAME	Zain Equipment Set
 SRPG_ItemParam_IT_SET_ZAYI_01_EXPR	This set contains rare equipment required for Zain. (Jobs: Lord Commander, Magic Swordsman, and Holy Cavalier.)
 SRPG_ItemParam_IT_SET_ZAYI_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_YAUL_01_NAME	Yauras Specific Equipment Set
+SRPG_ItemParam_IT_SET_YAUL_01_NAME	Yauras Equipment Set
 SRPG_ItemParam_IT_SET_YAUL_01_EXPR	This set contains rare equipment required for Yauras. (Jobs: Twin-Blade Knight, Martial Artist, and Twin-Blade Swordsman.)
 SRPG_ItemParam_IT_SET_YAUL_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_LUPI_01_NAME	Lupinus Equipment Set
@@ -30375,7 +30375,7 @@ SRPG_ItemParam_IT_SET_SU_ALL_TICKET_FLAVOR
 SRPG_ItemParam_IT_SET_AF_ARMS_SWO_ZEKE_01_NAME	[Gear] Zeke's Sword Set
 SRPG_ItemParam_IT_SET_AF_ARMS_SWO_ZEKE_01_EXPR	[TEST] Zeke's Sword - Complete [TEST]
 SRPG_ItemParam_IT_SET_AF_ARMS_SWO_ZEKE_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_SU_SEISEKI_TICKET_NAME	Sacred Stone Unit Selector
+SRPG_ItemParam_IT_SET_SU_SEISEKI_TICKET_NAME	Sacred Stone Memories Unit Selector
 SRPG_ItemParam_IT_SET_SU_SEISEKI_TICKET_EXPR	[One Million Downloads!] This ticket allows you to choose one Sacred Stone unit to summon: Cadanova, Kudanstein, Seida, Monzein, Zain, or Yauras. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen. Please note that the ticket will NOT be shown in the list of tickets on the Summon page.)
 SRPG_ItemParam_IT_SET_SU_SEISEKI_TICKET_FLAVOR	 
 SRPG_ItemParam_IT_SET_SHEKINAH_MAID_01_NAME	Shekinah Maid Skin Set
@@ -30489,7 +30489,7 @@ SRPG_ItemParam_IT_SET_VEDA_R_01_FLAVOR
 SRPG_ItemParam_IT_SET_VEDA_H_01_NAME	Veda Required Equipment Set
 SRPG_ItemParam_IT_SET_VEDA_H_01_EXPR	[Mystic Tower Veda Celebration] This great-value set contains equipment required from Job Lv. 10 and up.
 SRPG_ItemParam_IT_SET_VEDA_H_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_OTHI_01_NAME	Othima Specific Equipment Set
+SRPG_ItemParam_IT_SET_OTHI_01_NAME	Othima Equipment Set
 SRPG_ItemParam_IT_SET_OTHI_01_EXPR	This set contains rare equipment required for Othima. (Jobs: Phantom Master, Enchanter, and Sage.)
 SRPG_ItemParam_IT_SET_OTHI_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_ASUW_01_NAME	Aswald Equipment Set
@@ -30720,13 +30720,13 @@ SRPG_ItemParam_IT_SET_FATE_GENTEI_04_FLAVOR
 SRPG_ItemParam_IT_SET_FATE_GENTEI_05_NAME	[FFXV] MATK Set SP
 SRPG_ItemParam_IT_SET_FATE_GENTEI_05_EXPR	[FFXV Collab] This set contains rare equipment that is required for magical attack jobs.<br>
 SRPG_ItemParam_IT_SET_FATE_GENTEI_05_FLAVOR	 
-SRPG_ItemParam_IT_SET_SABER_01_NAME	Saber Specific Equipment Set
+SRPG_ItemParam_IT_SET_SABER_01_NAME	Saber Equipment Set
 SRPG_ItemParam_IT_SET_SABER_01_EXPR	This set contains rare equipment required for the unit Saber. (Jobs: Saber, Holy Knight, and Valkyrie)
 SRPG_ItemParam_IT_SET_SABER_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_FATE_SABR_01_NAME	Saber Rare Equipment Set
 SRPG_ItemParam_IT_SET_FATE_SABR_01_EXPR	This set contains equipment required for the collaboration job Saber.
 SRPG_ItemParam_IT_SET_FATE_SABR_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_TOSAKA_RINN_01_NAME	Rin Tohsaka Specific Equipment Set
+SRPG_ItemParam_IT_SET_TOSAKA_RINN_01_NAME	Rin Tohsaka Equipment Set
 SRPG_ItemParam_IT_SET_TOSAKA_RINN_01_EXPR	This set contains rare equipment required for the unit Rin Tohsaka. (Jobs: Jewel Magician, Martial Artist, and Sage)
 SRPG_ItemParam_IT_SET_TOSAKA_RINN_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_FATE_TMAG_01_NAME	Jewel Magician Rare Equipment Set
@@ -30747,7 +30747,7 @@ SRPG_ItemParam_IT_SET_FATE_ASS_01_FLAVOR
 SRPG_ItemParam_IT_SET_FATE_LAN_01_NAME	Lancer Rare Equipment Set
 SRPG_ItemParam_IT_SET_FATE_LAN_01_EXPR	This set contains equipment required for the collaboration job Lancer.
 SRPG_ItemParam_IT_SET_FATE_LAN_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_IRIYA_01_NAME	Illya Specific Equipment Set
+SRPG_ItemParam_IT_SET_IRIYA_01_NAME	Illya Equipment Set
 SRPG_ItemParam_IT_SET_IRIYA_01_EXPR	This set contains rare equipment required for the unit Illyasviel. (Jobs: Master Magician, Chronomancer, and Enchanter)
 SRPG_ItemParam_IT_SET_IRIYA_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_FATE_IMAG_01_NAME	Master Magician Rare Equipment Set
@@ -30822,7 +30822,7 @@ SRPG_ItemParam_IT_SET_COMMON_LIGHT_NEWY_FLAVOR
 SRPG_ItemParam_IT_SET_COMMON_DARK_NEWY_NAME	Dark Soul Shard x5
 SRPG_ItemParam_IT_SET_COMMON_DARK_NEWY_EXPR	
 SRPG_ItemParam_IT_SET_COMMON_DARK_NEWY_FLAVOR	 
-SRPG_ItemParam_IT_SET_SU_SEISEKI3_TICKET_NAME	
+SRPG_ItemParam_IT_SET_SU_SEISEKI3_TICKET_NAME	[New Year] Sacred Stone Memories Unit Selector
 SRPG_ItemParam_IT_SET_SU_SEISEKI3_TICKET_EXPR	
 SRPG_ItemParam_IT_SET_SU_SEISEKI3_TICKET_FLAVOR	 
 SRPG_ItemParam_IT_SET_SOUL_FATE_BSKR_NAME	Berserker Token x6
@@ -31203,7 +31203,7 @@ SRPG_ItemParam_IT_SET_SPE_01_FLAVOR
 SRPG_ItemParam_IT_SET_SETS_UNIQUE_NAME	Setsuna Character Skin
 SRPG_ItemParam_IT_SET_SETS_UNIQUE_EXPR	This skin is only for use with the unit Setsuna. In order to use it, you must own the unit.
 SRPG_ItemParam_IT_SET_SETS_UNIQUE_FLAVOR	 
-SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET_NAME	Recommended Gear Selector
+SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET_NAME	Recommended Gear Summon Ticket
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET_EXPR	[The Alchemist Code Popularity Vote 1st Place Celebration] Use this ticket to summon one guaranteed recommended piece of gear (Ogre Slaying Blade, Spirit Kabutowari, Crimson Cestus, Turquoise Cestus, Tiger Kris, Breaker Kris, Steel Cross Shield, Glittering Guard, Chronos Armor, Armor of Evil-Warding, Crimson Guard, Curious Doll, Swallow's Scarf, or Knight's Gauntlet.)
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET_FLAVOR	 
 SRPG_ItemParam_IT_SET_VOTE_THANKS01_NAME	Popular Vote Gratitude! Box
@@ -31245,7 +31245,7 @@ SRPG_ItemParam_IT_SET_APRFL_06_FLAVOR
 SRPG_ItemParam_IT_SET_YOMI_UNIQUE_NAME	Yomi Character Skin
 SRPG_ItemParam_IT_SET_YOMI_UNIQUE_EXPR	This skin is only for use with the unit Yomi. In order to use it, you must own the unit.
 SRPG_ItemParam_IT_SET_YOMI_UNIQUE_FLAVOR	 
-SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET02_NAME	Recommended Gear Selector
+SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET02_NAME	Recommended Gear Summon Ticket
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET02_EXPR	[The Alchemist Code Popularity Vote 2nd Place Celebration] Use this ticket to summon one guaranteed recommended piece of gear for Yomi (Oracle's Prayer, Rod of Exorcism, Rod of Blessing, Demonbane Kunai, Ranunculus Kunai, Crimson Cestus, Turquoise Cestus, Steel Cross Shield, Glittering Guard, Chronos Armor, Armor of Evil-Warding, Cloak of Protection, Curious Doll, Swallow's Scarf, or Knight's Gauntlet.)
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET02_FLAVOR	 
 SRPG_ItemParam_IT_SET_VOTE_THANKS02_NAME	Popular Vote Gratitude! Box
@@ -31263,7 +31263,7 @@ SRPG_ItemParam_IT_SET_VOTE_YOMI03_FLAVOR
 SRPG_ItemParam_IT_SET_SHAY_UNIQUE_NAME	Shayna Character Skin
 SRPG_ItemParam_IT_SET_SHAY_UNIQUE_EXPR	This skin is only for use with the unit Shayna. In order to use it, you must own the unit.
 SRPG_ItemParam_IT_SET_SHAY_UNIQUE_FLAVOR	 
-SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET03_NAME	Recommended Gear Selector
+SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET03_NAME	Recommended Gear Summon Ticket
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET03_EXPR	[The Alchemist Code Popularity Vote 3rd Place Celebration] Use this ticket to summon one guaranteed recommended piece of gear (Crimson Cestus, Turquoise Cestus, Green Rod of Wisdom, Blue Rod of Sagacity, Valhalla Lance, Mellow Lance, Paralyzing Lance, Steel Cross Shield, Glittering Guard, Chronos Armor, Armor of Evil-Warding, Cloak of Protection, Curious Doll, Swallow's Scarf, or Knight's Gauntlet.)
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET03_FLAVOR	 
 SRPG_ItemParam_IT_SET_VOTE_THANKS03_NAME	Popular Vote Gratitude! Box
@@ -31338,7 +31338,7 @@ SRPG_ItemParam_IT_SET_POLL_01_FLAVOR
 SRPG_ItemParam_IT_SET_VETT_UNIQUE_NAME	Vettel Character Skin
 SRPG_ItemParam_IT_SET_VETT_UNIQUE_EXPR	This skin is only for use with the unit Vettel. In order to use it, you must own the unit.
 SRPG_ItemParam_IT_SET_VETT_UNIQUE_FLAVOR	 
-SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET04_NAME	Recommended Gear Selector
+SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET04_NAME	Recommended Gear Summon Ticket
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET04_EXPR	[The Alchemist Code Male Phantom Top-Ranking Celebration] Use this ticket to summon one guaranteed recommended piece of gear (Charming Blade, Electrospike Blade, Ogre Slaying Blade, Spirit Kabutowari, Steel Cross Shield, Glittering Guard, Chronos Armor, Armor of Evil-Warding, Crimson Guard, Curious Doll, Swallow's Scarf, or Belva Gauntlet.)
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET04_FLAVOR	 
 SRPG_ItemParam_IT_SET_VOTE_THANKS04_NAME	Vettel Popular Vote Gratitude! Box
@@ -31368,7 +31368,7 @@ SRPG_ItemParam_IT_SET_VOTE_ZAIN03_FLAVOR
 SRPG_ItemParam_IT_SET_MAGN_UNIQUE_NAME	Magnus Character Skin
 SRPG_ItemParam_IT_SET_MAGN_UNIQUE_EXPR	This skin is only for use with the unit Magnus. In order to use it, you must own the unit.
 SRPG_ItemParam_IT_SET_MAGN_UNIQUE_FLAVOR	 
-SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET05_NAME	Recommended Gear Selector
+SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET05_NAME	Recommended Gear Summon Ticket
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET05_EXPR	[The Alchemist Code Male Phantom Top-Ranking Celebration] Use this ticket to summon one guaranteed recommended piece of gear (Giga Blaze Buster, Meteor Launcher, Paralyze Pistols, Charm Pistols, Demonbane Kunai, Ranunculus Kunai, Green Rod of Wisdom, Blue Rod of Sagacity, Binding Scepter, Chronos Armor, Crimson Guard, Cloak of Protection, Steel Cross Shield, Glittering Guard, Curious Doll, Swallow's Scarf, or Belva Pendant.)
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET05_FLAVOR	 
 SRPG_ItemParam_IT_SET_VOTE_THANKS06_NAME	Magus unpopular Vote Gratitude! Box
@@ -31398,7 +31398,7 @@ SRPG_ItemParam_IT_SET_VOTE_OTHI03_FLAVOR
 SRPG_ItemParam_IT_SET_BALT_UNIQUE_NAME	Balt Character Skin
 SRPG_ItemParam_IT_SET_BALT_UNIQUE_EXPR	This skin is only for use with the unit Balt. In order to use it, you must own the unit.
 SRPG_ItemParam_IT_SET_BALT_UNIQUE_FLAVOR	 
-SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET06_NAME	Recommended Gear Selector
+SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET06_NAME	Recommended Gear Summon Ticket
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET06_EXPR	[The Alchemist Code Male Phantom Popularity Vote 5th Place Celebration] Use this ticket to summon one guaranteed recommended piece of gear (Vorpal Geo Blades, Twin Storm-Blades, Harbinger's Blades, Tiger Kris, Breaker Kris, Faustian Greatsword, Phantom Blade, Chronos Armor, Armor of Evil-Warding, Crimson Guard, Steel Cross Shield, Glittering Guard, Curious Doll, Swallow's Scarf, or Knight's Gauntlet.)
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET06_FLAVOR	 
 SRPG_ItemParam_IT_SET_VOTE_THANKS08_NAME	Balt Popular Vote Gratitude! Box
@@ -31449,22 +31449,22 @@ SRPG_ItemParam_IT_SET_160_BUKKOU_FLAVOR
 SRPG_ItemParam_IT_SET_160MAKOU_NAME	1.6 Million Downloads Celebration MATK Set
 SRPG_ItemParam_IT_SET_160MAKOU_EXPR	[1.6 Million Downloads Celebration] This set contains rare equipment that is required for magical attack jobs.
 SRPG_ItemParam_IT_SET_160MAKOU_FLAVOR	 
-SRPG_ItemParam_IT_SET_2017_LIGHT_PI_TICKET01_NAME	Light Unit Soul Shards Selector
+SRPG_ItemParam_IT_SET_2017_LIGHT_PI_TICKET01_NAME	Light Unit Shards Selector
 SRPG_ItemParam_IT_SET_2017_LIGHT_PI_TICKET01_EXPR	Use this ticket to summon 5 Soul Shards for one 5★ Light unit (Zain, Mielikki, Fraise, Olga, Neica, Margaret, Ryle, Spica, Suzuka, or Chloe) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)
 SRPG_ItemParam_IT_SET_2017_LIGHT_PI_TICKET01_FLAVOR	 
-SRPG_ItemParam_IT_SET_2017_DARK_PI_TICKET01_NAME	Dark Unit Soul Shards Selector
+SRPG_ItemParam_IT_SET_2017_DARK_PI_TICKET01_NAME	Dark Unit Shards Selector
 SRPG_ItemParam_IT_SET_2017_DARK_PI_TICKET01_EXPR	Use this ticket to summon 5 Soul Shards for one 5★ Dark unit (Kudanstein, Basheeny, Jin, Aswald, Gormalas, Zahar, Albea, Anastasia, or Rosa) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)
 SRPG_ItemParam_IT_SET_2017_DARK_PI_TICKET01_FLAVOR	 
-SRPG_ItemParam_IT_SET_2017_FIRE_PI_TICKET01_NAME	Fire Unit Soul Shards Selector
+SRPG_ItemParam_IT_SET_2017_FIRE_PI_TICKET01_NAME	Fire Unit Shards Selector
 SRPG_ItemParam_IT_SET_2017_FIRE_PI_TICKET01_EXPR	Use this ticket to summon 5 Soul Shards for one 5★ Fire unit (Cadanova, Miuna, Eve, Noah, Daisy, Vivi, Hazel, Dorothea, Lupinus, Reimei, or Vettel) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)
 SRPG_ItemParam_IT_SET_2017_FIRE_PI_TICKET01_FLAVOR	 
-SRPG_ItemParam_IT_SET_2017_WIND_PI_TICKET01_NAME	Wind Unit Soul Shards Selector
+SRPG_ItemParam_IT_SET_2017_WIND_PI_TICKET01_NAME	Wind Unit Shards Selector
 SRPG_ItemParam_IT_SET_2017_WIND_PI_TICKET01_EXPR	Use this ticket to summon 5 Soul Shards for one 5★ Wind unit (Seida, Balt, Setsuna, Ramses, Tamamo, Flamel, Yomi, or Nasario) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)
 SRPG_ItemParam_IT_SET_2017_WIND_PI_TICKET01_FLAVOR	 
-SRPG_ItemParam_IT_SET_2017_THUNDER_PI_TICKET01_NAME	Thunder Unit Soul Shards Selector
+SRPG_ItemParam_IT_SET_2017_THUNDER_PI_TICKET01_NAME	Thunder Unit Shards Selector
 SRPG_ItemParam_IT_SET_2017_THUNDER_PI_TICKET01_EXPR	Use this ticket to summon 5 Soul Shards for one 5★ Thunder unit (Monzein, Lucretia, Zofia, Chao, Mei Fang, Eizan, Teona, Aruba, Deneb, or Magnus) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)
 SRPG_ItemParam_IT_SET_2017_THUNDER_PI_TICKET01_FLAVOR	 
-SRPG_ItemParam_IT_SET_2017_WATER_PI_TICKET01_NAME	Water Unit Soul Shards Selector
+SRPG_ItemParam_IT_SET_2017_WATER_PI_TICKET01_NAME	Water Unit Shards Selector
 SRPG_ItemParam_IT_SET_2017_WATER_PI_TICKET01_EXPR	Use this ticket to summon 5 Soul Shards for one 5★ Water unit (Othima, Yauras, Ravina, Yunagi, Mikoto, Sophia, Shayna, Shenmei, Elizabeth, or Fung Liu) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)
 SRPG_ItemParam_IT_SET_2017_WATER_PI_TICKET01_FLAVOR	 
 SRPG_ItemParam_IT_SET_FF15_NOCT_01_NAME	Noctis Equipment Set
@@ -31575,7 +31575,7 @@ SRPG_ItemParam_IT_SET_VANE_01_FLAVOR
 SRPG_ItemParam_IT_SET_ACHA_STR_01_NAME	7 Tactics Master Rare Equipment Set
 SRPG_ItemParam_IT_SET_ACHA_STR_01_EXPR	This set contains equipment required for the Acht-only job Septem Tactician.
 SRPG_ItemParam_IT_SET_ACHA_STR_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_VIER_WIZ_01_NAME	Phantom Master Rare Equipment Set
+SRPG_ItemParam_IT_SET_VIER_WIZ_01_NAME	Phantom Artist Rare Equipment Set
 SRPG_ItemParam_IT_SET_VIER_WIZ_01_EXPR	This set contains equipment required for the Vier-only job Phantom Artist.
 SRPG_ItemParam_IT_SET_VIER_WIZ_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_TAMAMO_MARR_NAME	Tamamo Wedding Skin Set
@@ -31773,7 +31773,7 @@ SRPG_ItemParam_IT_SET_MAD_01_FLAVOR
 SRPG_ItemParam_IT_SET_ASUW_UNIQUE_NAME	Aswald Character Skin
 SRPG_ItemParam_IT_SET_ASUW_UNIQUE_EXPR	This skin is only for use with the unit Aswald. In order to use it, you must own the unit.
 SRPG_ItemParam_IT_SET_ASUW_UNIQUE_FLAVOR	 
-SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET07_NAME	Recommended Gear Selector
+SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET07_NAME	Recommended Gear Summon Ticket
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET07_EXPR	[Character Skins Release Celebration] Use this ticket to summon one guaranteed recommended piece of gear for Aswald (Tiger Kris, Breaker Kris, Vorpal Geo Blades, Twin Storm-Blades, Harbinger's Blades, Paralyze Pistols, Charm Pistols, Steel Cross Shield, Yggdrasil Shield, Chronos Armor, Armor of Evil-Warding, Crimson Guard, Curious Doll, Belva Pendant, or Knight's Gauntlet.)
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET07_FLAVOR	 
 SRPG_ItemParam_IT_SET_VOTE_ASUW_SP_NAME	Character Skin 900.000 Celebration Box
@@ -31791,7 +31791,7 @@ SRPG_ItemParam_IT_SET_VOTE_ASUW_03_FLAVOR
 SRPG_ItemParam_IT_SET_RYLE_UNIQUE_NAME	Ryle Character Skin
 SRPG_ItemParam_IT_SET_RYLE_UNIQUE_EXPR	This skin is only for use with the unit Ryle. In order to use it, you must own the unit.
 SRPG_ItemParam_IT_SET_RYLE_UNIQUE_FLAVOR	 
-SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET08_NAME	Recommended Gear Selector
+SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET08_NAME	Recommended Gear Summon Ticket
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET08_EXPR	[Character Skins Release Celebration] Use this ticket to summon one guaranteed recommended piece of gear for Ryle (Atomic Jaeger, Crimson Bow of Wrath, Fierce Azure Bow, Vorpal Geo Blades, Twin Storm-Blades, Harbinger's Blades, Indigo Claw, Beast Lord Talons, Nimble Beast Talons, Steel Cross Shield, Yggdrasil Shield, Infernal Armor, Chronos Armor, Armor of Evil-Warding, Curious Doll, Belva Gauntlet, or Swallow's Scarf.)
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET08_FLAVOR	 
 SRPG_ItemParam_IT_SET_VOTE_RYLE_SP_NAME	Character Skin 900.000 Celebration Box
@@ -31818,7 +31818,7 @@ SRPG_ItemParam_IT_SET_LEYD_01_FLAVOR
 SRPG_ItemParam_IT_SET_IZAY_01_NAME	Izayoi Equipment Set
 SRPG_ItemParam_IT_SET_IZAY_01_EXPR	This set contains rare equipment required for Izayoi. (Jobs: Wild Beast Tamer, Samurai, and Holy Cavalier.)
 SRPG_ItemParam_IT_SET_IZAY_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET09_NAME	Recommended Gear Selector
+SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET09_NAME	Recommended Gear Summon Ticket
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET09_EXPR	[Character Skins Release Celebration] Use this ticket to summon one guaranteed recommended piece of gear for Rosa (Valhalla Lance, Paralyzing Lance, Mellow Lance, Demonbane Kunai, Ranunculus Kunai, Chronomancy Kunai, Timestealer Scythe, Soulstealer Scythe, Faustian Greatsword, Phantom Blade, Chronos Armor, Armor of Evil-Warding, Crimson Guard, Steel Cross Shield, Glittering Guard, Curious Doll, Belva Pendant, or Knight's Gauntlet.)
 SRPG_ItemParam_IT_SET_VOTE_BUGU_TICKET09_FLAVOR	 
 SRPG_ItemParam_IT_SET_VOTE_ROSA_SP_NAME	Character Skin 900.000 Celebration Box
@@ -31938,7 +31938,7 @@ SRPG_ItemParam_IT_SET_MAKOU_01_FLAVOR
 SRPG_ItemParam_IT_SET_MIKO_KUSUSHI_01_NAME	Shrine Maiden / Chemist Starter Kit
 SRPG_ItemParam_IT_SET_MIKO_KUSUSHI_01_EXPR	This great-value set contains items that are required for Shrine Maiden/Chemist-type jobs from Job Lv. 1-3. (Applicable jobs: Shrine Maiden, Priestess, Chemist, and Professor.)
 SRPG_ItemParam_IT_SET_MIKO_KUSUSHI_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_KAKUTOU_01_NAME	Combat / Agility / Support Starter Kit
+SRPG_ItemParam_IT_SET_KAKUTOU_01_NAME	Fighter/Supporter Intro Set
 SRPG_ItemParam_IT_SET_KAKUTOU_01_EXPR	This great-value set contains items that are required for martial arts/agility/support-type jobs from Job Lv. 1-3. (Applicable jobs: Martial Artist, Holy Brawler, Thief, Shadow Assassin, Ninja, Spy, Samurai, Blademaster, Bard, Dancer, Beast Tamer, Wild Beast Tamer, Merchant, Martial Master, and Blacksmith.)
 SRPG_ItemParam_IT_SET_KAKUTOU_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_BIRG_01_NAME	Birgitta Equipment Set
@@ -32148,9 +32148,9 @@ SRPG_ItemParam_IT_EVENT_DISCOIN_FLAVOR	A coin that can be obtained from the Item
 SRPG_ItemParam_IT_EVENT_VEDACOIN_NAME	Veda Coins
 SRPG_ItemParam_IT_EVENT_VEDACOIN_EXPR	 
 SRPG_ItemParam_IT_EVENT_VEDACOIN_FLAVOR	A coin that can be obtained in Mystic Tower Veda.
-SRPG_ItemParam_IT_EVENT_SPORTS_COIN_NAME	Sports Day Exchange Medal
-SRPG_ItemParam_IT_EVENT_SPORTS_COIN_EXPR	 
-SRPG_ItemParam_IT_EVENT_SPORTS_COIN_FLAVOR	A coin that can be obtained from Sports Day 2017.
+SRPG_ItemParam_IT_EVENT_SPORTS_COIN_NAME	[Summer Sports Meet] Coin
+SRPG_ItemParam_IT_EVENT_SPORTS_COIN_EXPR	Exchange this coin for fabulous items in the Summer Sports Meet Coin Exchange Shop.
+SRPG_ItemParam_IT_EVENT_SPORTS_COIN_FLAVOR	A coin that can be obtained from Summer Sports Meet.
 SRPG_ItemParam_IT_EVENT_HALLOWEEN_COIN_NAME	Halloween Coin
 SRPG_ItemParam_IT_EVENT_HALLOWEEN_COIN_EXPR	 
 SRPG_ItemParam_IT_EVENT_HALLOWEEN_COIN_FLAVOR	A coin that can be obtained from the Halloween event.
@@ -34734,7 +34734,7 @@ SRPG_ArtifactParam_AF_ARMS_LAN_01_EXPR	PATK Up, CRIT Up, Chance of Paralyze
 SRPG_ArtifactParam_AF_ARMS_LAN_01_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ARMS_LAN_01_FLAVOR	This lance is a replica of one thought to have been used in ancient times of Alchemy. Its tip is made from a magical substance that emits a golden glow when its power is activated. This glow will occasionally dazzle foes and inflict Paralyze.
 SRPG_ArtifactParam_AF_ARMS_LAN_02_NAME	Mellow Lance
-SRPG_ArtifactParam_AF_ARMS_LAN_02_EXPR	PATK Up, CRIT Up, DEX Up, Chance of Charm (additional effect)
+SRPG_ArtifactParam_AF_ARMS_LAN_02_EXPR	PATK Up, CRIT Up, DEX Up, Chance of Charm
 SRPG_ArtifactParam_AF_ARMS_LAN_02_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ARMS_LAN_02_FLAVOR	This lance is a replica of one thought to have been used in ancient times of Alchemy. Its tip is made from a magical substance that emits a pink glow when its power is activated. This glow will occasionally entrance foes and inflict Charm.
 SRPG_ArtifactParam_AF_ARMO_ARMOR_01_NAME	Chronos Armor
@@ -35026,7 +35026,7 @@ SRPG_ArtifactParam_AF_ACCS_SNOWMAN_HAT_EXPR	Attributes: HP Up, PDEF Up, Max Jewe
 SRPG_ArtifactParam_AF_ACCS_SNOWMAN_HAT_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ACCS_SNOWMAN_HAT_FLAVOR	This special hat is only sold during the winter holiday season. It is in fact more like a "snowman head" than a "snowman hat," and is great for getting everyone into the holiday spirit—especially the person wearing it.
 SRPG_ArtifactParam_AF_ARMS_EXCALIBUR_NAME	Excalibur
-SRPG_ArtifactParam_AF_ARMS_EXCALIBUR_EXPR	Attributes: PATK Up, MDEF Up, CRIT Up, Chance of AGI Up<br>3★ to 5★  Enables Master Ability when equipped on Saber when her job type is "Saber" (Inflicts Wind Phys Dmg & raises own Missile DEF for three turns [Range: 4, Height Range: 3])
+SRPG_ArtifactParam_AF_ARMS_EXCALIBUR_EXPR	Attributes: PATK Up, MDEF Up, CRIT Up, Chance of AGI Up<br>3★ to 5★ Enables Master Ability when equipped on Saber when her job type is "Saber" (Inflicts Wind Phys Dmg & raises own Missile DEF for three turns [Range: 4, Height Range: 3])
 SRPG_ArtifactParam_AF_ARMS_EXCALIBUR_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ARMS_EXCALIBUR_FLAVOR	Packed with the wishes of mankind and forged on a star, this divine weapon is the holiest of all holy swords. When equipped by Saber, its chosen owner, an even greater power is unlocked.
 SRPG_ArtifactParam_AF_ACCS_TOSAKA_PENDANT_NAME	Tohsaka's Pendant
@@ -35142,7 +35142,7 @@ SRPG_ArtifactParam_AF_ARMO_ARMOR_04_EXPR	Attributes: PDEF Up, MDEF Up, Delay Res
 SRPG_ArtifactParam_AF_ARMO_ARMOR_04_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ARMO_ARMOR_04_FLAVOR	The emblem emblazoned on this suit of armor generates a force field that repels attacks. It is particularly effective against magical attacks, and the bumps in the armor are designed to strengthen it.
 SRPG_ArtifactParam_AF_ARMO_SHIELD_03_NAME	Glitter Guard
-SRPG_ArtifactParam_AF_ARMO_SHIELD_03_EXPR	Attributes: HP Up, Petrify Res Up<br>Gear Ability: Raises Slash Res of ally units  [Range: 3, Area: Cross (3), Height Range: 2]
+SRPG_ArtifactParam_AF_ARMO_SHIELD_03_EXPR	Attributes: HP Up, Petrify Res Up<br>Gear Ability: Raises Slash Res of ally units [Range: 3, Area: Cross (3), Height Range: 2]
 SRPG_ArtifactParam_AF_ARMO_SHIELD_03_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ARMO_SHIELD_03_FLAVOR	This trapezium-shaped shield was discovered among some ancient ruins. Made using a combination of metal and a faintly-glowing crystal, it grants resistance against Slash attacks to those who possess Alchemia. The metal sections support the crystal parts, and can be repaired if damaged.
 SRPG_ArtifactParam_AF_ARMS_SPE_02_NAME	Saint's Sacrifice
@@ -35165,7 +35165,7 @@ SRPG_ArtifactParam_AF_ACCS_NECKLACE_01_NAME	Belva Pendant
 SRPG_ArtifactParam_AF_ACCS_NECKLACE_01_EXPR	Attributes: PATK Up, AGI Up, Jewels Obtained Up<br>Gear Ability: Raises All Elements Res of ally units for three turns [Range: 3, Area: Cross (3), Height Range: 2]
 SRPG_ArtifactParam_AF_ACCS_NECKLACE_01_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ACCS_NECKLACE_01_FLAVOR	This pendant has been designed around a "noble wolf" theme. The parts that appear to glow blue are evidence of the high concentration of Alchemia particles inside. By diffusing these particles into the surrounding area, the pendant is able to raise the All Elements Res of all units.
-SRPG_ArtifactParam_AF_ARMS_ZIN_00_NAME	Eerie Agony Thousand Drop Blade
+SRPG_ArtifactParam_AF_ARMS_ZIN_00_NAME	Cursed Kunai - Blood Edge
 SRPG_ArtifactParam_AF_ARMS_ZIN_00_EXPR	Attributes: HP Up, PATK Up, DEX Up, Chance of inflicting Daze<br>Enables Master Ability when equipped on Jin (3-hit Dark Dmg & Poison to single target & raises own AGI until next turn [Range: 5, Height Range: 2])
 SRPG_ArtifactParam_AF_ARMS_ZIN_00_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ARMS_ZIN_00_FLAVOR	This kunai was entrusted to Jin by a young girl called Sen. It sucks blood from foes, which it is then able to convert into Alchemia. Jin takes the trust placed in him by Sen very seriously, and he won't let anyone else touch it.
@@ -35174,7 +35174,7 @@ SRPG_ArtifactParam_AF_ARMS_NIN_04_EXPR	Attributes: PATK Up, Jewels Obtained Up, 
 SRPG_ArtifactParam_AF_ARMS_NIN_04_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ARMS_NIN_04_FLAVOR	This kunai was crafted together with a Chronomancer; its smith's aim was to boost not only its attack power but also its monetary value. If the bearer performs the correct hand sign when using it, it is said to grant the power to control time.
 SRPG_ArtifactParam_AF_ARMS_NEC_03_NAME	Timestealer Scythe
-SRPG_ArtifactParam_AF_ARMS_NEC_03_EXPR	Attributes: PATK Up, CRIT Up, AGI Up, Chance of inflicting Stop<br>Gear Ability: Dmg to units within target area & lowers units' MATK [Range: 4, Area: Cross (3), Height Range: 2]
+SRPG_ArtifactParam_AF_ARMS_NEC_03_EXPR	Attributes: PATK Up, CRIT Up, AGI Up, Chance of inflicting Stop<br>Gear Ability: Dmg to units within target area & lowers units' Mag DMG [Range: 4, Area: Cross (3), Height Range: 2]
 SRPG_ArtifactParam_AF_ARMS_NEC_03_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ARMS_NEC_03_FLAVOR	The rope tied around the handle of this scythe has been imbued with a time-stopping spell, and the special knot used means that the weapon will occasionally stop time when used. This powerful spell is said to also be able to lower the magical attack power of enemies.
 SRPG_ArtifactParam_AF_ARMO_ARMOR_BEGINNER_01_NAME	Moon Star
@@ -35321,7 +35321,7 @@ SRPG_ArtifactParam_AF_ACCS_EARRING_02_NAME	Saint's Meteor
 SRPG_ArtifactParam_AF_ACCS_EARRING_02_EXPR	Attributes: AGI Up, LUCK Up, Jewels Obtained Up, Paralyze Res Up<br>Gear Ability unlocked when evolving to 5★ (Recovers HP of ally units within target area & raises Max HP for three turns & recovers by amount raised [Range: 3, Area: Cross (3), Height Range: 2])
 SRPG_ArtifactParam_AF_ACCS_EARRING_02_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ACCS_EARRING_02_FLAVOR	This earring is said to bring good fortune. It has been exquisitely crafted from gold, with a gemstone set in its center that is rumored to be a fragment of a star. It is also said to possess healing properties, and its popularity and scarcity means it has come to be sold for a truly "astronomical" price.
-SRPG_ArtifactParam_AF_ACCS_UNDOKAI2017_01_NAME	Sports Day - Ouroboros Prize
+SRPG_ArtifactParam_AF_ACCS_UNDOKAI2017_01_NAME	Ouroboros's Medal
 SRPG_ArtifactParam_AF_ACCS_UNDOKAI2017_01_EXPR	Attributes: HP Up, PATK Up, MATK Up, AGI Up
 SRPG_ArtifactParam_AF_ACCS_UNDOKAI2017_01_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ACCS_UNDOKAI2017_01_FLAVOR	 
@@ -36143,7 +36143,7 @@ SRPG_JobParam_JB_KUDH_LAN2_OTHERDESC
 SRPG_JobParam_JB_ACHA_STR_NAME	7 Tactics Master
 SRPG_JobParam_JB_ACHA_STR_CHARADESC	 
 SRPG_JobParam_JB_ACHA_STR_OTHERDESC	ATK increases according to AGI/DEX
-SRPG_JobParam_JB_VIER_WIZ_NAME	Phantom Master
+SRPG_JobParam_JB_VIER_WIZ_NAME	Phantom Artist
 SRPG_JobParam_JB_VIER_WIZ_CHARADESC	 
 SRPG_JobParam_JB_VIER_WIZ_OTHERDESC	 
 SRPG_JobParam_JB_MONZ_WOR2_NAME	Indomitable Axe Knight +
@@ -36589,12 +36589,12 @@ SRPG_TrophyParam_RECORD_MONDAY_0911_03_NAME	Clear a quest with a mercenary
 SRPG_TrophyParam_RECORD_MONDAY_0911_04_NAME	Raise a unit's Job Level
 SRPG_TrophyParam_RECORD_MONDAY_0911_05_NAME	Clear a Story Quest ten times
 SRPG_TrophyParam_RECORD_MONDAY_0914_01_NAME	Raise your Player Level to 40
-SRPG_TrophyParam_RECORD_MONDAY_0914_02_NAME	Clear TAC Sports Day 2017 Relay
+SRPG_TrophyParam_RECORD_MONDAY_0914_02_NAME	Clear Summer Sports Meet Relay
 SRPG_TrophyParam_RECORD_MONDAY_0914_03_NAME	Clear a quest with a mercenary
 SRPG_TrophyParam_RECORD_MONDAY_0914_04_NAME	Raise a unit's Job Level
 SRPG_TrophyParam_RECORD_MONDAY_0914_05_NAME	Clear a Story Quest ten times
 SRPG_TrophyParam_RECORD_MONDAY_0921_01_NAME	Raise your Player Level to 40
-SRPG_TrophyParam_RECORD_MONDAY_0921_02_NAME	Clear TAC Sports Day 2017 Obstacle Race
+SRPG_TrophyParam_RECORD_MONDAY_0921_02_NAME	Clear Summer Sports Meet Obstacle Race
 SRPG_TrophyParam_RECORD_MONDAY_0921_03_NAME	Clear a quest with a mercenary
 SRPG_TrophyParam_RECORD_MONDAY_0921_04_NAME	Raise a unit's Job Level
 SRPG_TrophyParam_RECORD_MONDAY_0921_05_NAME	Clear a Story Quest ten times
@@ -37014,8 +37014,8 @@ SRPG_TrophyParam_RECORD_2017_MAR_DIS2_04_NAME	Clear the Item World once
 SRPG_TrophyParam_RECORD_2017_MAR_DIS2_05_NAME	Clear the Item World three times
 SRPG_TrophyParam_RECORD_2017_MAR_DIS2_06_NAME	Enhance Gear once
 SRPG_TrophyParam_RECORD_2017_MAR_DIS2_07_NAME	Clear all the missions
-SRPG_TrophyParam_DAILY_STAMINA_DIS1_01_NAME	[Collab Celebration] Free AP500!
-SRPG_TrophyParam_DAILY_STAMINA_DIS1_02_NAME	[Collab Celebration] Free AP500!
+SRPG_TrophyParam_DAILY_STAMINA_DIS1_01_NAME	[Collab Celebration] Free AP x500!
+SRPG_TrophyParam_DAILY_STAMINA_DIS1_02_NAME	[Collab Celebration] Free AP x500!
 SRPG_TrophyParam_BEGINNER_01_NAME	Clear [Training Arena] Raise Unit Lv
 SRPG_TrophyParam_BEGINNER_02_NAME	Clear [Training Arena] Set Equipment and Raise Job Lv
 SRPG_TrophyParam_BEGINNER_03_NAME	Clear [Training Arena] Checking out Limit Break
@@ -38825,7 +38825,7 @@ SRPG_TrophyParam_DAILY_STAMINA122_NAME	Free AP - Gift 2/5 for Today
 SRPG_TrophyParam_DAILY_STAMINA123_NAME	Free AP - Gift 3/5 for Today
 SRPG_TrophyParam_DAILY_STAMINA124_NAME	Free AP - Gift 4/5 for Today
 SRPG_TrophyParam_DAILY_STAMINA125_NAME	Free AP - Gift 5/5 for Today
-SRPG_TrophyParam_DAILY_STAMINA120_NAME	[1st Anniversary Celebration] Free AP 500!
+SRPG_TrophyParam_DAILY_STAMINA120_NAME	[1st Anniversary Celebration] Free AP x500!
 SRPG_TrophyParam_DAILY_STAMINA_AUG_01_NAME	[Event Support Campaign] AP 500
 SRPG_TrophyParam_DAILY_CARD_001_NAME	Alchemist's Pact Daily Bonus
 SRPG_TrophyParam_BIRTH_VELOZ_01_NAME	[Happy Birthday Veloz!] Free Veloz Soul Shards!
@@ -39166,7 +39166,7 @@ SRPG_TrophyParam_FATE_MULTI_3_EX_03_NAME	Clear Fate/stay night [UBW] [EX+] Stage
 SRPG_TrophyParam_FATE_MULTI_4_EX_01_NAME	Clear Fate/stay night [UBW] [EX+] Stage 4 [Multiplay] once
 SRPG_TrophyParam_FATE_MULTI_4_EX_02_NAME	Clear Fate/stay night [UBW] [EX+] Stage 4 [Multiplay] three times
 SRPG_TrophyParam_FATE_MULTI_4_EX_03_NAME	Clear Fate/stay night [UBW] [EX+] Stage 4 [Multiplay] five times
-SRPG_TrophyParam_GL_FATE_DAILY_01_NAME	[Daily] Fate/stay night [UBW]  - Defeat Archer three times
+SRPG_TrophyParam_GL_FATE_DAILY_01_NAME	[Daily] Fate/stay night [UBW] - Defeat Archer three times
 SRPG_TrophyParam_GL_FATE_DAILY_02_NAME	[Daily] Fate/stay night [UBW] - Defeat Rin Tohsaka five times
 SRPG_TrophyParam_GL_FATE_DAILY_04_NAME	[Daily] Fate/stay night [UBW] - Buy any item from any Shop
 SRPG_TrophyParam_GL_FATE_DAILY_05_NAME	[Daily] Fate/stay night [UBW] - Clear Multiplay Quests once
@@ -40195,6 +40195,15 @@ SRPG_ItemParam_IT_SET_GL_500_BUKKOU_01_FLAVOR
 SRPG_ItemParam_IT_SET_GL_500_MAKOU_01_NAME	[5 Million Downloads Worldwide!] MATK Set
 SRPG_ItemParam_IT_SET_GL_500_MAKOU_01_EXPR	[5 Million Downloads Worldwide!] This set contains rare equipment that is required for magical attack jobs.
 SRPG_ItemParam_IT_SET_GL_500_MAKOU_01_FLAVOR	 
+SRPG_ItemParam_IT_SET_GL_SHIO_01_NAME	Shion Equipment Set
+SRPG_ItemParam_IT_SET_GL_SHIO_01_EXPR	This set contains rare equipment required for Shion. (Jobs: Noble Emissary, Shadow Assassin, and Merchant.)
+SRPG_ItemParam_IT_SET_GL_SHIO_01_FLAVOR	 
+SRPG_ItemParam_IT_SET_GL_KTN_01_NAME	Noble Emissary Rare Equipment Set
+SRPG_ItemParam_IT_SET_GL_KTN_01_EXPR	This set contains equipment required for the job Noble Emissary.
+SRPG_ItemParam_IT_SET_GL_KTN_01_FLAVOR	 
+SRPG_ItemParam_IT_SET_GL_SHIO_SWIM_01_NAME	Shion Swimsuit Skin Set
+SRPG_ItemParam_IT_SET_GL_SHIO_SWIM_01_EXPR	This great-value set contains skins for the unit Shion. (This set does not include the unit or its Soul Shards. In order to use these skins, you must own the unit.)
+SRPG_ItemParam_IT_SET_GL_SHIO_SWIM_01_FLAVOR	 
 SRPG_ItemParam_IT_UG_APRIL_COIN_NAME	Gem of Experience
 SRPG_ItemParam_IT_UG_APRIL_COIN_EXPR	A cube that raises a unit's EXP (huge amount).
 SRPG_ItemParam_IT_UG_APRIL_COIN_FLAVOR	Often mistaken for its more well-known cousin, this crystal cube is imbued with the memories of Alchemists that can be used to grant experience to its user.
@@ -40223,7 +40232,7 @@ SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_TUT_NAME	5★ Unit Summon Ticket
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_TUT_EXPR	Use this ticket to summon one 5★ unit.
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_TUT_FLAVOR	 
 SRPG_ItemParam_IT_US_GL_5STAR_50SOUL_TICKET_FATE2_NAME	[Fate] Featured 5★ 50-Soul Shard Ticket
-SRPG_ItemParam_IT_US_GL_5STAR_50SOUL_TICKET_FATE2_EXPR	Use this Ticket to obtain 50 5★ Soul Shards. (Illyasviel  / Saber Lamia / Archer Zahar)
+SRPG_ItemParam_IT_US_GL_5STAR_50SOUL_TICKET_FATE2_EXPR	Use this Ticket to obtain 50 5★ Soul Shards. (Illyasviel / Saber Lamia / Archer Zahar)
 SRPG_ItemParam_IT_US_GL_5STAR_50SOUL_TICKET_FATE2_FLAVOR	 
 SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_FATE2_NAME	[Fate] Featured 5★ Soul Shard 25-Summon Ticket
 SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_FATE2_EXPR	Use this ticket to summon 25 5★ Soul Shards. (Illyasviel / Saber Lamia / Archer Zahar)
@@ -40501,16 +40510,26 @@ SRPG_TrophyParam_GL_MM_02_13August_NAME	[Monday] Level up any Ability
 SRPG_TrophyParam_GL_MM_03_13August_NAME	[Monday] Raise any unit's Job Level once
 SRPG_TrophyParam_GL_MM_04_13August_NAME	[Monday] Clear any Multiplay Quest once
 SRPG_TrophyParam_GL_MM_05_13August_NAME	[Monday] Clear any quest with a mercenary once
+SRPG_TrophyParam_GL_MM_01_20August_NAME	[Monday] Level up any Unit
+SRPG_TrophyParam_GL_MM_02_20August_NAME	[Monday] Level up any Ability
+SRPG_TrophyParam_GL_MM_03_20August_NAME	[Monday] Raise any unit's Job Level once
+SRPG_TrophyParam_GL_MM_04_20August_NAME	[Monday] Clear any Multiplay Quest once
+SRPG_TrophyParam_GL_MM_05_20August_NAME	[Monday] Clear any quest with a mercenary once
+SRPG_TrophyParam_GL_MM_01_27August_NAME	[Monday] Level up any Unit
+SRPG_TrophyParam_GL_MM_02_27August_NAME	[Monday] Level up any Ability
+SRPG_TrophyParam_GL_MM_03_27August_NAME	[Monday] Raise any unit's Job Level once
+SRPG_TrophyParam_GL_MM_04_27August_NAME	[Monday] Clear any Multiplay Quest once
+SRPG_TrophyParam_GL_MM_05_27August_NAME	[Monday] Clear any quest with a mercenary once
 SRPG_TrophyParam_GL_SO_ZEKE_01_01_NAME	Clear Blood Wolf by Any Other Name - Episode 1 [1]
 SRPG_TrophyParam_GL_SO_ZEKE_01_02_NAME	Clear Blood Wolf by Any Other Name - Episode 1 [2]
 SRPG_TrophyParam_GL_SO_ZEKE_01_03_NAME	Clear Blood Wolf by Any Other Name - Episode 1 [3]
 SRPG_TrophyParam_GL_SO_ZEKE_02_01_NAME	Clear Blood Wolf by Any Other Name - Episode 2 [1]
 SRPG_TrophyParam_GL_SO_ZEKE_02_02_NAME	Clear Blood Wolf by Any Other Name - Episode 2 [2]
 SRPG_TrophyParam_GL_SO_ZEKE_02_03_NAME	Clear Blood Wolf by Any Other Name - Episode 2 [3]
-SRPG_TrophyParam_WINQUEST_010_MAY2018_NAME	Clear Chapter 1: Episode 1: Act 1  
+SRPG_TrophyParam_WINQUEST_010_MAY2018_NAME	Clear Chapter 1: Episode 1: Act 1 
 SRPG_TrophyParam_WINQUEST_020_MAY2018_NAME	Clear Chapter 1: Episode 1: Act 2
 SRPG_TrophyParam_WINQUEST_030_MAY2018_NAME	Clear Chapter 1: Episode 1: Act 3
-SRPG_TrophyParam_WINQUEST_040_MAY2018_NAME	Clear Chapter 1: Episode 2: Act 1  
+SRPG_TrophyParam_WINQUEST_040_MAY2018_NAME	Clear Chapter 1: Episode 2: Act 1 
 SRPG_TrophyParam_WINQUEST_050_MAY2018_NAME	Clear Chapter 1: Episode 2: Act 2
 SRPG_TrophyParam_WINQUEST_060_MAY2018_NAME	Clear Chapter 1: Episode 2: Act 3
 SRPG_TrophyParam_WINQUEST_070_MAY2018_NAME	Clear Chapter 1: Episode 3: Act 1
@@ -40522,10 +40541,10 @@ SRPG_TrophyParam_WINQUEST_120_MAY2018_NAME	Clear Chapter 1: Episode 4: Act 3
 SRPG_TrophyParam_WINQUEST_130_MAY2018_NAME	Clear Chapter 1: Episode 5: Act 1
 SRPG_TrophyParam_WINQUEST_140_MAY2018_NAME	Clear Chapter 1: Episode 5: Act 2
 SRPG_TrophyParam_WINQUEST_150_MAY2018_NAME	Clear Chapter 1: Episode 5: Act 3
-SRPG_TrophyParam_WINQUEST_160N_MAY2018_NAME	Clear Chapter 2: Episode 1: Act 1  
+SRPG_TrophyParam_WINQUEST_160N_MAY2018_NAME	Clear Chapter 2: Episode 1: Act 1 
 SRPG_TrophyParam_WINQUEST_170N_MAY2018_NAME	Clear Chapter 2: Episode 1: Act 2
 SRPG_TrophyParam_WINQUEST_180N_MAY2018_NAME	Clear Chapter 2: Episode 1: Act 3
-SRPG_TrophyParam_WINQUEST_190N_MAY2018_NAME	Clear Chapter 2: Episode 2: Act 1  
+SRPG_TrophyParam_WINQUEST_190N_MAY2018_NAME	Clear Chapter 2: Episode 2: Act 1 
 SRPG_TrophyParam_WINQUEST_200N_MAY2018_NAME	Clear Chapter 2: Episode 2: Act 2
 SRPG_TrophyParam_WINQUEST_210N_MAY2018_NAME	Clear Chapter 2: Episode 2: Act 3
 SRPG_TrophyParam_WINQUEST_220N_MAY2018_NAME	Clear Chapter 2: Episode 3: Act 1
@@ -40618,11 +40637,11 @@ SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_B12_NAME	5★ 50-Soul Shard Selector
 SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_B12_EXPR	Use this ticket to summon the 50 Soul Shards of your choice for 5★ units. (Except for Setsuna, Sophia, collaboration, and Sacred Stone Soul Shards.)
 SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_B12_FLAVOR	 
 SRPG_SkillParam_SK_ARMS_LAN_KUDHAN_NAME	The End
-SRPG_SkillParam_SK_ARMS_LAN_KUDHAN_EXPR	Physical attack (long-range, single target, 100% Hit) & raises own CRIT by 50% for two turns
+SRPG_SkillParam_SK_ARMS_LAN_KUDHAN_EXPR	Physical attack (long-range, single target, 100% Hit) & raises own Crit by 50% for two turns
 SRPG_SkillParam_SK_KERB_HOUKOU_2_NAME	COMBO Elimination Roar
 SRPG_SkillParam_SK_KERB_HOUKOU_2_EXPR	Lowers COMBO Scope to 0 for three turns [Area: Whole Map]
 SRPG_SkillParam_SK_ARMS_LAN_KUDHAN2_NAME	Dead the End
-SRPG_SkillParam_SK_ARMS_LAN_KUDHAN2_EXPR	Phys Dmg (long-range attack to single target & 100% Hit & raises own CRIT by 50% for three turns)
+SRPG_SkillParam_SK_ARMS_LAN_KUDHAN2_EXPR	Phys Dmg (long-range attack to single target & 100% Hit & raises own Crit by 50% for three turns)
 SRPG_ItemParam_IT_US_PREREG_10EQ_TICKET_NAME	Pre-Registration Equipment 10-Summon Ticket
 SRPG_ItemParam_IT_US_PREREG_10EQ_TICKET_EXPR	Use this ticket to summon 10 equipment items.
 SRPG_ItemParam_IT_US_PREREG_10EQ_TICKET_FLAVOR	 
@@ -40746,7 +40765,7 @@ SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_POTKSHINOBI3_NAME	Featured 5★ Unit S
 SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_POTKSHINOBI3_EXPR	Use this ticket to summon the 5★ unit of your choice. (Eros/Yuri/Cita/Forcas)
 SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_POTKSHINOBI3_FLAVOR	 
 SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_POTKSHINOBI3_NAME	Featured 5★ 50-Soul Shard Selector
-SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_POTKSHINOBI3_EXPR	Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.  (Eros/Yuri/Cita/Forcas)
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_POTKSHINOBI3_EXPR	Use this ticket to summon the 50 Soul Shards of your choice for 5★ units. (Eros/Yuri/Cita/Forcas)
 SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_POTKSHINOBI3_FLAVOR	 
 SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_POTKSHINOBI3_NAME	Featured 5★ 25-Soul Shard Selector
 SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_POTKSHINOBI3_EXPR	Use this ticket to summon the 25 Soul Shards of your choice for 5★ units. (Eros/Yuri/Bashosen)
@@ -40778,11 +40797,68 @@ SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F16_FLAVOR
 SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B16_NAME	4+★ Equipment 10-Summon Ticket
 SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B16_EXPR	Use this ticket to summon ten 4+★ equipment items.
 SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B16_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F17_NAME	Featured 5★ Soul Shard 25-Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F17_EXPR	Use this ticket to summon 25 Soul Shards.
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F17_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B17_NAME	5★ Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B17_EXPR	Use this ticket to summon one 5★ unit.
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B17_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B17_NAME	4★ Gear Summon Ticket
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B17_EXPR	Use this ticket to summon a 4★ gear item.
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B17_FLAVOR	 
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F17_NAME	Featured 5★ Unit Selector
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F17_EXPR	Use this ticket to summon the 5★ unit of your choice.
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F17_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B17_NAME	5★ Equipment 10-Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B17_EXPR	Use this ticket to summon ten 5★ equipment items.
+SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B17_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F17_NAME	Featured 5★ 50-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F17_EXPR	Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F17_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B17_NAME	4+★ Equipment 10-Summon Ticket
+SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B17_EXPR	Use this ticket to summon ten 4+★ equipment items.
+SRPG_ItemParam_IT_US_GL_4PLUS_10EQ_TICKET_B17_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_F17_NAME	Featured 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_F17_EXPR	Use this ticket to summon the 25 Soul Shards of your choice for 5★ units. 
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_F17_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S01_NAME	Rare Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S01_EXPR	Use this ticket to summon one 3-5★ unit.
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S01_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S02_NAME	Rare Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S02_EXPR	Use this ticket to summon one 3-5★ unit.
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S02_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S03_NAME	Rare Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S03_EXPR	Use this ticket to summon one 3-5★ unit.
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S03_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S04_NAME	Rare Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S04_EXPR	Use this ticket to summon one 3-5★ unit.
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S04_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S05_NAME	Rare Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S05_EXPR	Use this ticket to summon one 3-5★ unit.
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_S05_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_GL2_NAME	Featured 5★ Soul Shard 25-Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_GL2_EXPR	Use this ticket to summon 25 Soul Shards. (Shion/Gormalas/Lupinus/Sophia)
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_GL2_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_GL2_NAME	5★ Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_GL2_EXPR	Use this ticket to summon one 5★ unit.
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_GL2_FLAVOR	 
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_GL2_NAME	Featured 5★ Unit Selector
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_GL2_EXPR	Use this ticket to summon the 5★ unit of your choice. (Shion/Gormalas/Lupinus/Sophia)
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_GL2_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_GL2_NAME	Featured 5★ 50-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_GL2_EXPR	Use this ticket to summon the 50 Soul Shards of your choice for 5★ units. (Shion/Gormalas/Lupinus/Sophia)
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_GL2_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_GL2_NAME	Featured 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_GL2_EXPR	Use this ticket to summon the 25 Soul Shards of your choice for 5★ units. (Shion/Neica/Nasario)
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_GL2_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_10PER_TICKET_GL2_NAME	Featured Unit 10% Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_10PER_TICKET_GL2_EXPR	Use this ticket to summon a unit with a 10% chance of it being a featured unit. (Shion/Siegfried)
+SRPG_ItemParam_IT_US_GL_5STAR_10PER_TICKET_GL2_FLAVOR	 
 SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_F16_NAME	Featured 5★ 25-Soul Shard Selector
 SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_F16_EXPR	Use this ticket to summon the 25 Soul Shards of your choice for 5★ units. 
 SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_F16_FLAVOR	 
 SRPG_ItemParam_IT_SI_GL_5STAR_15SOUL_TICKET_SUNGOD_NAME	[The Sun God and the Golden Key] 5★ 15-Soul Shard Selector
-SRPG_ItemParam_IT_SI_GL_5STAR_15SOUL_TICKET_SUNGOD_EXPR	Use this Ticket to select 15 Eros/Yuri Soul Shards.
+SRPG_ItemParam_IT_SI_GL_5STAR_15SOUL_TICKET_SUNGOD_EXPR	Use this ticket to select 15 Eros/Yuri Soul Shards.
 SRPG_ItemParam_IT_SI_GL_5STAR_15SOUL_TICKET_SUNGOD_FLAVOR	 
 SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S01_NAME	4★ Gear Selector
 SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S01_EXPR	Use this ticket to summon the 4★ gear item of your choice.
@@ -41172,6 +41248,32 @@ SRPG_TrophyParam_GL_SUMMER_COIN_SEP02_NAME	[Summer Celebration] Collect coins an
 SRPG_TrophyParam_GL_SUMMER_COIN_SEP03_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [33/35]
 SRPG_TrophyParam_GL_SUMMER_COIN_SEP04_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [34/35]
 SRPG_TrophyParam_GL_SUMMER_COIN_SEP05_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [35/35]
+SRPG_TrophyParam_GL_MH_02_01_NAME	[Magni Historia 2] Clear Deliverance: Stage 1
+SRPG_TrophyParam_GL_MH_02_02_NAME	[Magni Historia 2] Clear Deliverance: Stage 2
+SRPG_TrophyParam_GL_MH_02_03_NAME	[Magni Historia 2] Clear Deliverance: Stage 3
+SRPG_TrophyParam_GL_MH_02_04_NAME	[Magni Historia 2] Clear Deliverance: Stage 4
+SRPG_TrophyParam_GL_MH_02_05_NAME	[Magni Historia 2] Clear Deliverance: Stage 5
+SRPG_TrophyParam_GL_MH_02_06_NAME	[Magni Historia 2] Clear Deliverance: Stage 6
+SRPG_TrophyParam_GL_MH_02_07_NAME	[Magni Historia 2] Clear Deliverance: Stage 7
+SRPG_TrophyParam_GL_MH_02_08_NAME	[Magni Historia 2] Clear Deliverance: Stage 8
+SRPG_TrophyParam_GL_MH_02_09_NAME	[Magni Historia 2] Clear Deliverance: Stage 9
+SRPG_TrophyParam_GL_MH_02_10_NAME	[Magni Historia 2] Clear Deliverance: Stage 10
+SRPG_TrophyParam_GL_MH_02_EX_1_NAME	[Magni Historia 2] Clear Deliverance [EX] [1]
+SRPG_TrophyParam_GL_MH_02_EX_2_NAME	[Magni Historia 2] Clear Deliverance [EX] [2]
+SRPG_TrophyParam_GL_MH_02_EX_3_NAME	[Magni Historia 2] Clear Deliverance [EX] [3]
+SRPG_TrophyParam_GL_MH_02_EX_4_NAME	[Magni Historia 2] Clear Deliverance [EX] [4]
+SRPG_TrophyParam_GL_MH_02_EX_5_NAME	[Magni Historia 2] Clear Deliverance [EX] [5]
+SRPG_TrophyParam_GL_MH_02_EX_6_NAME	[Magni Historia 2] Clear Deliverance [EX] [6]
+SRPG_TrophyParam_GL_MH_02_10_1_NAME	[Magni Historia 2] Clear Deliverance: Stage 10 [1]
+SRPG_TrophyParam_GL_MH_02_10_2_NAME	[Magni Historia 2] Clear Deliverance: Stage 10 [2]
+SRPG_TrophyParam_GL_MH_02_10_3_NAME	[Magni Historia 2] Clear Deliverance: Stage 10 [3]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_1_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [1]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_2_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [2]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_3_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [3]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_4_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [4]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_5_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [5]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_6_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [6]
+SRPG_TrophyCategoryParam_GL_MH_2_TROPHY_NAME	[Magni Historia 2] Deliverance
 SRPG_TrophyParam_SUMMER2018_01_NAME	Clear Challenge Set
 SRPG_TrophyParam_SUMMER2018_01_00_NAME	Clear The Sun God and the Golden Key Episode 1 3 times
 SRPG_TrophyParam_SUMMER2018_01_01_NAME	Clear The Sun God and the Golden Key Episode 3 3 times
@@ -41179,7 +41281,7 @@ SRPG_TrophyParam_SUMMER2018_01_02_NAME	Clear The Sun God and the Golden Key Epis
 SRPG_TrophyParam_SUMMER2018_01_03_NAME	Win 1 battle in the Arena
 SRPG_TrophyParam_SUMMER2018_01_04_NAME	Battle in the Arena 3 times
 SRPG_TrophyParam_SUMMER2018_01_05_NAME	Limit Break Amateratsu 15 Times
-SRPG_TrophyParam_SUMMER2018_01_06_NAME	Change Amateratsu's Job
+SRPG_TrophyParam_SUMMER2018_01_06_NAME	Change Amaterasu's Job
 SRPG_TrophyParam_SUMMER2018_01_07_NAME	Defeat Metal Maiden
 SRPG_TrophyParam_SUMMER2018_01_08_NAME	Defeat Uzushiomaru
 SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_AUG02_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [1/35]
@@ -41217,3 +41319,234 @@ SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_SEP02_NAME	[Summer Celebration] Collect
 SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_SEP03_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [33/35]
 SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_SEP04_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [34/35]
 SRPG_TrophyCategoryParam_GL_SUMMER_DAILY_SEP05_NAME	[Summer Celebration] Collect coins and redeem in Exchange Shop! [35/35]
+SRPG_TrophyParam_SUMMERSPORT_01_NAME	Clear Challenge Set
+SRPG_TrophyParam_SUMMERSPORT_01_00_NAME	Unlock Sports Meet Event by clearing Chapter 1: Episode 1 [3-10] once
+SRPG_TrophyParam_SUMMERSPORT_01_01_NAME	Clear 1st Event: Magic-Ball Game once
+SRPG_TrophyParam_SUMMERSPORT_01_02_NAME	Clear Gear Projection 3 times
+SRPG_TrophyParam_SUMMERSPORT_01_03_NAME	Clear Mineral Garden [Bgn] 1 time
+SRPG_TrophyParam_SUMMERSPORT_01_04_NAME	Win Arena 1 time
+SRPG_TrophyParam_SUMMERSPORT_01_05_NAME	Battle in the Arena 3 times
+SRPG_TrophyParam_SUMMERSPORT_01_06_NAME	Enhance Gear once
+SRPG_TrophyParam_SUMMERSPORT_01_07_NAME	Evolve Gear once
+SRPG_TrophyParam_SUMMERSPORT_01_08_NAME	Enhance Gear to Lv30
+SRPG_TrophyCategoryParam_GL_MH_1_TROPHY_NAME	[Magni Historia] Overture
+SRPG_TrophyCategoryParam_GL_MH_2_TROPHY_NAME	[Magni Historia 2] Deliverance
+SRPG_TrophyCategoryParam_GL_MH_1_TROPHY_EX_MULTI_NAME	[Magni Historia] Overture [Multiplay]
+SRPG_TrophyCategoryParam_GL_MH_2_TROPHY_EX_MULTI_NAME	[Magni Historia] Deliverance [Multiplay]
+SRPG_TrophyCategoryParam_GL_MH_1_TROPHY_EX_NAME	[Magni Historia] [EX] Overture
+SRPG_TrophyCategoryParam_GL_MH_2_TROPHY_EX_NAME	[Magni Historia] [EX] Deliverance
+SRPG_TrophyCategoryParam_GL_SOREN_GROWTH_NAME	[Limited Time] Soren Training Mission
+SRPG_TrophyParam_GL_MH_02_01_NAME	[Magni Historia 2] Clear Deliverance: Stage 1
+SRPG_TrophyParam_GL_MH_02_02_NAME	[Magni Historia 2] Clear Deliverance: Stage 2
+SRPG_TrophyParam_GL_MH_02_03_NAME	[Magni Historia 2] Clear Deliverance: Stage 3
+SRPG_TrophyParam_GL_MH_02_04_NAME	[Magni Historia 2] Clear Deliverance: Stage 4
+SRPG_TrophyParam_GL_MH_02_05_NAME	[Magni Historia 2] Clear Deliverance: Stage 5
+SRPG_TrophyParam_GL_MH_02_06_NAME	[Magni Historia 2] Clear Deliverance: Stage 6
+SRPG_TrophyParam_GL_MH_02_07_NAME	[Magni Historia 2] Clear Deliverance: Stage 7
+SRPG_TrophyParam_GL_MH_02_08_NAME	[Magni Historia 2] Clear Deliverance: Stage 8
+SRPG_TrophyParam_GL_MH_02_09_NAME	[Magni Historia 2] Clear Deliverance: Stage 9
+SRPG_TrophyParam_GL_MH_02_10_1_NAME	[Magni Historia 2] Clear Deliverance: Stage 10 [1]
+SRPG_TrophyParam_GL_MH_02_10_2_NAME	[Magni Historia 2] Clear Deliverance: Stage 10 [2]
+SRPG_TrophyParam_GL_MH_02_10_3_NAME	[Magni Historia 2] Clear Deliverance: Stage 10 [3]
+SRPG_TrophyParam_GL_MH_02_EX_1_NAME	[Magni Historia 2] Clear Deliverance [EX] [1]
+SRPG_TrophyParam_GL_MH_02_EX_2_NAME	[Magni Historia 2] Clear Deliverance [EX] [2]
+SRPG_TrophyParam_GL_MH_02_EX_3_NAME	[Magni Historia 2] Clear Deliverance [EX] [3]
+SRPG_TrophyParam_GL_MH_02_EX_4_NAME	[Magni Historia 2] Clear Deliverance [EX] [4]
+SRPG_TrophyParam_GL_MH_02_EX_5_NAME	[Magni Historia 2] Clear Deliverance [EX] [5]
+SRPG_TrophyParam_GL_MH_02_EX_6_NAME	[Magni Historia 2] Clear Deliverance [EX] [6]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_1_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [1]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_2_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [2]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_3_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [3]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_4_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [4]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_5_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [5]
+SRPG_TrophyParam_MULTI_GL_MH_02_EX_6_NAME	[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [6]
+SRPG_TrophyParam_RECORD_GL_SOREN_01_NAME	Raise Soren's Level to 30
+SRPG_TrophyParam_RECORD_GL_SOREN_02_NAME	Raise Soren's "Divine Speaker" Job Level to 6
+SRPG_TrophyParam_RECORD_GL_SOREN_03_NAME	Raise Soren's Level to 60
+SRPG_TrophyParam_RECORD_GL_SOREN_04_NAME	Raise Soren's "Divine Speaker" Job Level to 11
+SRPG_UnitParam_UN_V2_GL_SHION_NAME	Shion
+SRPG_UnitParam_UN_V2_GL_SOREN_NAME	Soren
+SRPG_AbilityParam_AB_GL_KTN_LOWER_NAME	Basic Blade Arts
+SRPG_AbilityParam_AB_GL_KTN_LOWER_EXPR	Blade Art techniques for use with all job types
+SRPG_AbilityParam_AB_GL_KTN_UPPER_NAME	Blade Arts
+SRPG_AbilityParam_AB_GL_KTN_UPPER_EXPR	Blade Art techniques for use with this job type only
+SRPG_AbilityParam_AB_GL_KTN_REACTION_1_NAME	Elusive Beauty
+SRPG_AbilityParam_AB_GL_KTN_REACTION_1_EXPR	Reaction Ability for use with all job types
+SRPG_AbilityParam_AB_GL_KTN_SUPPORT_1_NAME	Peerless Bladework
+SRPG_AbilityParam_AB_GL_KTN_SUPPORT_1_EXPR	Raises Slash Damage and Evasion
+SRPG_AbilityParam_AB_GL_DIV_LOWER_NAME	Basic Divine Gift
+SRPG_AbilityParam_AB_GL_DIV_LOWER_EXPR	Divine Gift techniques for use with all job types
+SRPG_AbilityParam_AB_GL_DIV_UPPER_NAME	Divine Gift
+SRPG_AbilityParam_AB_GL_DIV_UPPER_EXPR	Divine Gift techniques for use with this job type only
+SRPG_AbilityParam_AB_GL_DIV_REACTION_NAME	Defensive Instinct
+SRPG_AbilityParam_AB_GL_DIV_REACTION_EXPR	Reaction Ability for use with all job types
+SRPG_AbilityParam_AB_GL_DIV_SUPPORT_1_NAME	Divine Power
+SRPG_AbilityParam_AB_GL_DIV_SUPPORT_1_EXPR	Raises MATK
+SRPG_AbilityParam_AB_GL_DIV_SUPPORT_2_NAME	Divine Protection
+SRPG_AbilityParam_AB_GL_DIV_SUPPORT_2_EXPR	Raises PDEF
+SRPG_AbilityParam_AB_ARMS_SWO_GL_SIEG_01_NAME	
+SRPG_AbilityParam_AB_ARMS_SWO_GL_SIEG_01_EXPR	Siegfried Limited Ability
+SRPG_SkillParam_SK_GL_KTN_UPPER_1_NAME	Fatal Devotion
+SRPG_SkillParam_SK_GL_KTN_UPPER_1_EXPR	Inflicts Charm, raise PATK and lower Def of target unit [Range:4, Height Range: 3]
+SRPG_SkillParam_SK_GL_KTN_UPPER_1_MAPEFF	 
+SRPG_SkillParam_SK_GL_KTN_UPPER_2_NAME	Sword Stance
+SRPG_SkillParam_SK_GL_KTN_UPPER_2_EXPR	Raise Patk of Self till next attack.
+SRPG_SkillParam_SK_GL_KTN_UPPER_2_MAPEFF	 
+SRPG_SkillParam_SK_GL_KTN_UPPER_3_NAME	Fleeting Beauty
+SRPG_SkillParam_SK_GL_KTN_UPPER_3_EXPR	Deal Slash Damage to enemies around self with chance to charm, then move to selected location [Range:4, Area: Square (3) around self, Height Range: 2]
+SRPG_SkillParam_SK_GL_KTN_UPPER_3_MAPEFF	 
+SRPG_SkillParam_SK_GL_KTN_UPPER_4_NAME	Cutting Wind
+SRPG_SkillParam_SK_GL_KTN_UPPER_4_EXPR	Deal Wind Slash Dmg to targets around self with chance of critical [Area: Diamond (5), Height Range: 2]
+SRPG_SkillParam_SK_GL_KTN_UPPER_4_MAPEFF	 
+SRPG_SkillParam_SK_GL_KTN_UPPER_5_NAME	Deep and Dreamless Slumber
+SRPG_SkillParam_SK_GL_KTN_UPPER_5_EXPR	Move to selected target and deal non-elemental slash dmg (Hvy).Ignore Def when attacking from the back. Effective against male units [Range: 5, Height Range: 3]
+SRPG_SkillParam_SK_GL_KTN_UPPER_5_MAPEFF	 
+SRPG_SkillParam_SK_GL_KTN_LOWER_1_NAME	Blade Flash
+SRPG_SkillParam_SK_GL_KTN_LOWER_1_EXPR	Move to Target unit and inflict non-elemental Slash Dmg to Target unit. Disrupts target casting. [Range: 5, Height Range: 2]
+SRPG_SkillParam_SK_GL_KTN_LOWER_1_MAPEFF	 
+SRPG_SkillParam_SK_GL_KTN_LOWER_2_NAME	Blade Fang
+SRPG_SkillParam_SK_GL_KTN_LOWER_2_EXPR	Inflict Slash Damage to target + Penetrating. Raise Patk by 50% until next turn. [Range: Cross(3), Height Range: 2]
+SRPG_SkillParam_SK_GL_KTN_LOWER_2_MAPEFF	 
+SRPG_SkillParam_SK_GL_KTN_LOWER_3_NAME	Gale Slash
+SRPG_SkillParam_SK_GL_KTN_LOWER_3_EXPR	Deal Wind Slash Damage to Enemies around self and lower Enemy AGI [Area: Square(3) around self, Height Range: 2]
+SRPG_SkillParam_SK_GL_KTN_LOWER_3_MAPEFF	 
+SRPG_SkillParam_SK_GL_KTN_LOWER_4_NAME	Captivating Visage
+SRPG_SkillParam_SK_GL_KTN_LOWER_4_EXPR	Non-elemental slash damage to targets around self and chance to paralyze units in targeted area for 3 turns [Area: Diamond(5), Height Range: 2]
+SRPG_SkillParam_SK_GL_KTN_LOWER_4_MAPEFF	 
+SRPG_SkillParam_SK_GL_KTN_REACTION_1_NAME	Skillful Counter
+SRPG_SkillParam_SK_GL_KTN_REACTION_1_EXPR	After taking damage, counterattack with chance to stun enemy [Range: 1, Height Range: 2]
+SRPG_SkillParam_SK_GL_KTN_REACTION_1_MAPEFF	 
+SRPG_SkillParam_SK_GL_KTN_SUPPORT_1_NAME	Peerless Bladework
+SRPG_SkillParam_SK_GL_KTN_SUPPORT_1_EXPR	Raises Slash Damage and Evasion
+SRPG_SkillParam_SK_GL_KTN_SUPPORT_1_MAPEFF	 
+SRPG_SkillParam_SK_EQ_GL_SHIO_KIMONO_NAME	Ornate Kimono
+SRPG_SkillParam_SK_EQ_GL_SHIO_KIMONO_EXPR	Patk+25,HP+40,AGI+5,DEX+20,CRIT+15
+SRPG_SkillParam_SK_EQ_GL_SHIO_KIMONO_MAPEFF	 
+SRPG_SkillParam_SK_LS_GL_SHION_NAME	Intriguing Presence
+SRPG_SkillParam_SK_LS_GL_SHION_EXPR	Raises HP/PATK by 20% & Max Jewels by 20 for Wind Units
+SRPG_SkillParam_SK_LS_GL_SHION_MAPEFF	 
+SRPG_SkillParam_SK_GL_DIV_UPPER_1_NAME	Gift of Might
+SRPG_SkillParam_SK_GL_DIV_UPPER_1_EXPR	Raises PATK and MATK for self and allies for 3 turns [Area: Cross(3) around self, Height Range: 2]
+SRPG_SkillParam_SK_GL_DIV_UPPER_1_MAPEFF	 
+SRPG_SkillParam_SK_GL_DIV_UPPER_2_NAME	Gift of Focus
+SRPG_SkillParam_SK_GL_DIV_UPPER_2_EXPR	Raises own MATK and grants Clock up for 3 turns
+SRPG_SkillParam_SK_GL_DIV_UPPER_2_MAPEFF	 
+SRPG_SkillParam_SK_GL_DIV_UPPER_3_NAME	Divine Light
+SRPG_SkillParam_SK_GL_DIV_UPPER_3_EXPR	Inflict non-elemental Mag Dmg to target enemy + Penetrating [Range: 4, Height Range: 2]
+SRPG_SkillParam_SK_GL_DIV_UPPER_3_MAPEFF	 
+SRPG_SkillParam_SK_GL_DIV_UPPER_4_NAME	Divine Missiles
+SRPG_SkillParam_SK_GL_DIV_UPPER_4_EXPR	Inflict non-elemental magic damage to units in target area. [Range: 4, Area: Cross(3), Height Range: Unlimited]
+SRPG_SkillParam_SK_GL_DIV_UPPER_4_MAPEFF	 
+SRPG_SkillParam_SK_GL_DIV_LOWER_1_NAME	Gift of Protection
+SRPG_SkillParam_SK_GL_DIV_LOWER_1_EXPR	Raises PDEF and MDEF of target ally for 3 turns [Area: Cross(3) around self, Height Range: 2]
+SRPG_SkillParam_SK_GL_DIV_LOWER_1_MAPEFF	 
+SRPG_SkillParam_SK_GL_DIV_LOWER_2_NAME	Gift of Power
+SRPG_SkillParam_SK_GL_DIV_LOWER_2_EXPR	Raises P Atk and M Atk of target ally for 3 turns [Range: 4, Height Range: 2]
+SRPG_SkillParam_SK_GL_DIV_LOWER_2_MAPEFF	 
+SRPG_SkillParam_SK_GL_DIV_LOWER_3_NAME	Divine Ray
+SRPG_SkillParam_SK_GL_DIV_LOWER_3_EXPR	Inflict Non-elemental Mag Dmg to units in target area. [Area: Special (Laser Cannon), Height Range: 2]
+SRPG_SkillParam_SK_GL_DIV_LOWER_3_MAPEFF	 
+SRPG_SkillParam_SK_GL_DIV_LOWER_4_NAME	Divine Flare
+SRPG_SkillParam_SK_GL_DIV_LOWER_4_EXPR	Deal magic dmg and knock back enemies around self and chance to inflict bind for 1 turn [Area: Square(3) around self, Height Range: 2]
+SRPG_SkillParam_SK_GL_DIV_LOWER_4_MAPEFF	 
+SRPG_SkillParam_SK_GL_DIV_REACTION_NAME	Defensive Instinct
+SRPG_SkillParam_SK_GL_DIV_REACTION_EXPR	Raises PDEF and MDEF when attacked
+SRPG_SkillParam_SK_GL_DIV_REACTION_MAPEFF	 
+SRPG_SkillParam_SK_GL_DIV_SUPPORT_1_NAME	Divine Wisdom
+SRPG_SkillParam_SK_GL_DIV_SUPPORT_1_EXPR	Raises MATK of self
+SRPG_SkillParam_SK_GL_DIV_SUPPORT_1_MAPEFF	 
+SRPG_SkillParam_SK_GL_DIV_SUPPORT_2_NAME	Divine Armor
+SRPG_SkillParam_SK_GL_DIV_SUPPORT_2_EXPR	Raises PDEF of self
+SRPG_SkillParam_SK_GL_DIV_SUPPORT_2_MAPEFF	 
+SRPG_SkillParam_SK_EQ_GL_SOREN_MASK_NAME	Mask of the Speaker
+SRPG_SkillParam_SK_EQ_GL_SOREN_MASK_EXPR	HP+30, PDEF+20, MATK+16, MDEF+6, Max Jewels+10, Stop Res +8, Silence Res +8
+SRPG_SkillParam_SK_EQ_GL_SOREN_MASK_MAPEFF	 
+SRPG_SkillParam_SK_LS_GL_SOREN_NAME	Protective Presence
+SRPG_SkillParam_SK_LS_GL_SOREN_EXPR	Raises PDEFand MDEF by 20% for whole party
+SRPG_SkillParam_SK_LS_GL_SOREN_MAPEFF	 
+SRPG_SkillParam_SK_AF_ARMS_SWO_GL_SIEG_01_4_NAME	Gram&Balmung★4
+SRPG_SkillParam_SK_AF_ARMS_SWO_GL_SIEG_01_4_EXPR	Attribute: PATK Up, PDEF Up
+SRPG_SkillParam_SK_AF_ARMS_SWO_GL_SIEG_01_4_MAPEFF	 
+SRPG_SkillParam_SK_AF_ARMS_SWO_GL_SIEG_01_5_NAME	Gram&Balmung★5
+SRPG_SkillParam_SK_AF_ARMS_SWO_GL_SIEG_01_5_EXPR	Attribute: PATK Up, PDEF, Crit Up, Luck Up
+SRPG_SkillParam_SK_AF_ARMS_SWO_GL_SIEG_01_5_MAPEFF	 
+SRPG_SkillParam_SK_AF_ARMS_SWO_GL_SIEG_01_AS_NAME	Gram&BalmungAS
+SRPG_SkillParam_SK_AF_ARMS_SWO_GL_SIEG_01_AS_EXPR	Chance to lower target PDEF when attacking.
+SRPG_SkillParam_SK_AF_ARMS_SWO_GL_SIEG_01_AS_MAPEFF	 
+SRPG_SkillParam_SK_ARMS_SWO_GL_SIEG_01_WA_NAME	Devastating Finish
+SRPG_SkillParam_SK_ARMS_SWO_GL_SIEG_01_WA_EXPR	Inflicts 5-hit Light Slash Dmg that ignores DEF on target enemy unit & raises own PATK and AGI for three turns [Range: Diamond (5), Height Range: 3]
+SRPG_SkillParam_SK_ARMS_SWO_GL_SIEG_01_WA_MAPEFF	 
+SRPG_ItemParam_IT_PI_GL_SHIO_NAME	Shion Soul Shard
+SRPG_ItemParam_IT_PI_GL_SHIO_EXPR	An item required for Limit Breaks
+SRPG_ItemParam_IT_PI_GL_SHIO_FLAVOR	 
+SRPG_ItemParam_IT_PI_GL_SORE_NAME	Soren Soul Shard
+SRPG_ItemParam_IT_PI_GL_SORE_EXPR	An item required for Limit Breaks
+SRPG_ItemParam_IT_PI_GL_SORE_FLAVOR	 
+SRPG_ItemParam_IT_EQ_GL_SHIO_KIMONO_NAME	Ornate Garment
+SRPG_ItemParam_IT_EQ_GL_SHIO_KIMONO_EXPR	【Noble Emissary】 ◆PATK+25, HP+40, AGI+5, DEX+20, CRIT+15
+SRPG_ItemParam_IT_EQ_GL_SHIO_KIMONO_FLAVOR	A beautifully intricate garment adorned with detailed flowers and dyed with the deepest and most vibrant colors. Something of this quality can only be worn by someone extremely wealthy and of noble bearing.
+SRPG_ItemParam_IT_EQ_GL_DIAGRAM_SHIO_KIMONO_NAME	Ornate Garment Diagram
+SRPG_ItemParam_IT_EQ_GL_DIAGRAM_SHIO_KIMONO_EXPR	Item necessary for crafting Ornate Garment
+SRPG_ItemParam_IT_EQ_GL_DIAGRAM_SHIO_KIMONO_FLAVOR	 
+SRPG_ItemParam_IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO_NAME	Ornate Garment Diagram Piece
+SRPG_ItemParam_IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO_EXPR	Collect 80 of these to create: Ornate Garment Diagram
+SRPG_ItemParam_IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO_FLAVOR	 
+SRPG_ItemParam_IT_EQ_GL_SOREN_MASK_NAME	Speaker's Mask
+SRPG_ItemParam_IT_EQ_GL_SOREN_MASK_EXPR	【Divine Speaker】 ◆HP+30, PDEF+20, MATK+16, MDEF+6, Max Jewels+10, Stop Res +10, Silence Res +10
+SRPG_ItemParam_IT_EQ_GL_SOREN_MASK_FLAVOR	A mysterious ceremonial mask said to enable the gifted to communicate with the Divine. Closer inspection reveals that its purpose has more to do with the practice of Alchemy than of divinity.
+SRPG_ItemParam_IT_EQ_GL_DIAGRAM_SOREN_MASK_NAME	Speaker's Mask Diagram
+SRPG_ItemParam_IT_EQ_GL_DIAGRAM_SOREN_MASK_EXPR	Item necessary for crafting Speaker's Mask
+SRPG_ItemParam_IT_EQ_GL_DIAGRAM_SOREN_MASK_FLAVOR	 
+SRPG_ItemParam_IT_EQ_GL_DIAGRAMPIECE_SOREN_MASK_NAME	Speaker's Mask Diagram Piece
+SRPG_ItemParam_IT_EQ_GL_DIAGRAMPIECE_SOREN_MASK_EXPR	Collect 80 of these to create: Speaker's Mask Diagram
+SRPG_ItemParam_IT_EQ_GL_DIAGRAMPIECE_SOREN_MASK_FLAVOR	 
+SRPG_ItemParam_IT_AF_ARMS_SWO_GL_SIEG_01_NAME	Gram & Balmung Shard
+SRPG_ItemParam_IT_AF_ARMS_SWO_GL_SIEG_01_EXPR	Collect 80 of these to create: Gram & Balmung
+SRPG_ItemParam_IT_AF_ARMS_SWO_GL_SIEG_01_FLAVOR	 
+SRPG_ItemParam_IT_SK_GL_SHIO_SWIM_NAME	Shion Swimsuit Skin
+SRPG_ItemParam_IT_SK_GL_SHIO_SWIM_EXPR	This skin is only for use with the unit Shion. In order to use it, you must own the unit.
+SRPG_ItemParam_IT_SK_GL_SHIO_SWIM_FLAVOR	 
+SRPG_ArtifactParam_AF_ARMS_SWO_GL_SIEG_01_NAME	Gram & Balmung
+SRPG_ArtifactParam_AF_ARMS_SWO_GL_SIEG_01_EXPR	Attribute: PATK, PDEF Up, (Crit & Luck Up added when evolving to 4★, Chance of PDEF down on target when attacking added when evolving to 5★)<br>Enables Master Ability when equipped on Siegfried when his job type is "Wandering Swordsman"
+SRPG_ArtifactParam_AF_ARMS_SWO_GL_SIEG_01_SPEC	No requirements to equip
+SRPG_ArtifactParam_AF_ARMS_SWO_GL_SIEG_01_FLAVOR	A pair of peerless swords with perfect edges that never go dull. It is said that there is no armor that can withstand their assault.
+SRPG_JobParam_JB_GL_KTN_NAME	Noble Emissary
+SRPG_JobParam_JB_GL_KTN_CHARADESC	 
+SRPG_JobParam_JB_GL_KTN_OTHERDESC	 
+SRPG_JobParam_JB_GL_DIV_NAME	Divine Speaker
+SRPG_JobParam_JB_GL_DIV_CHARADESC	 
+SRPG_JobParam_JB_GL_DIV_OTHERDESC	 
+SRPG_ItemParam_IT_SET_GL_AUG2018_LW_NAME	[Light & Wind] Featured 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SET_GL_AUG2018_LW_EXPR	Use this ticket to summon 25 5★ Soul Shards of your choice. (Neica/Margaret/Spica/Suzuka/Ryle/Chloe/Ramses/Flamel/Balt/Yomi)
+SRPG_ItemParam_IT_SET_GL_AUG2018_LW_FLAVOR	 
+SRPG_ItemParam_IT_SET_GL_AUG2018_DT_NAME	[Dark & Thunder] Featured 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SET_GL_AUG2018_DT_EXPR	Use this ticket to summon 25 5★ Soul Shards of your choice. (Gormalas/Aswald/Albea/Rosa/Anastasia/Zahar/Mei Fang/Deneb/Teona/Aruba/Magnus)
+SRPG_ItemParam_IT_SET_GL_AUG2018_DT_FLAVOR	 
+SRPG_ItemParam_IT_SET_GL_AUG2018_FW_NAME	[Fire & Water] Featured 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SET_GL_AUG2018_FW_EXPR	Use this ticket to summon 25 5★ Soul Shards of your choice. (Vivi/Lupinus/Dorothea/Hazel/Reimei/Vettel/Shenmei/Shayna/Fung Liu/Elizabeth)
+SRPG_ItemParam_IT_SET_GL_AUG2018_FW_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_LW_NAME	[Light & Wind] Featured 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_LW_EXPR	Use this ticket to summon 25 5★ Soul Shards of your choice. (Neica/Margaret/Spica/Suzuka/Ryle/Chloe/Ramses/Flamel/Balt/Yomi)
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_LW_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_DT_NAME	[Dark & Thunder] Featured 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_DT_EXPR	Use this ticket to summon 25 5★ Soul Shards of your choice. (Gormalas/Aswald/Albea/Rosa/Anastasia/Zahar/Mei Fang/Deneb/Teona/Aruba/Magnus)
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_DT_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_FW_NAME	[Fire & Water] Featured 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_FW_EXPR	Use this ticket to summon 25 5★ Soul Shards of your choice. (Vivi/Lupinus/Dorothea/Hazel/Reimei/Vettel/Shenmei/Shayna/Fung Liu/Elizabeth)
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_FW_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_3TO4_GEAR_TICKET_B17_NAME	3-4★ Gear Summon Ticket
+SRPG_ItemParam_IT_US_GL_3TO4_GEAR_TICKET_B17_EXPR	Use this ticket to summon one 3-4★ gear item.
+SRPG_ItemParam_IT_US_GL_3TO4_GEAR_TICKET_B17_FLAVOR	 
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_SUMMER2018_NAME	[Summer Sports Meet] 4★ Gear Selector
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_SUMMER2018_EXPR	Use this ticket to summon one 4★ gear with MOVE/AGI boost of your choice. (Some 4★ gears are not available)
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_SUMMER2018_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_SUMMER2018_NAME	[Summer Sports Meet] 4★ Gear Summon Ticket
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_SUMMER2018_EXPR	Use this ticket to summon one 4★ gear item with MOVE/AGI boost.
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_SUMMER2018_FLAVOR	 
+SRPG_ArtifactParam_AF_SK_GL_SHIO_SWIM_NAME	Swimsuit Skin
+SRPG_ArtifactParam_AF_SK_GL_SHIO_SWIM_EXPR	 
+SRPG_ArtifactParam_AF_SK_GL_SHIO_SWIM_SPEC	 
+SRPG_ArtifactParam_AF_SK_GL_SHIO_SWIM_FLAVOR	
+SRPG_UnitParam_UN_EV_GL_MH_GARRO_NAME	Raider Boss Garro
+SRPG_UnitParam_UN_V2_EN_GL_DIVINEPROTECTOR_NAME	Divine Protector
+SRPG_UnitParam_UN_V2_EN_GL_LIZARDMAN_NAME	Lizardman

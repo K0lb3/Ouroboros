@@ -7213,6 +7213,13 @@
             "JB_SEI",
             "JB_DGR"
         ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "S",
+            "total": "S"
+        },
         "jobchanges": [
             null,
             null,
@@ -8499,6 +8506,13 @@
             "JB_DGR",
             "JB_BAA"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "B/A",
+            "jc": "",
+            "total": "B/A"
+        },
         "jobchanges": [
             null,
             "JB_DGN_GARUDA",
@@ -8895,6 +8909,13 @@
             "JB_NIN",
             "JB_STR"
         ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        },
         "jobchanges": [
             "JB_YOMI_KAM",
             null,
@@ -19800,9 +19821,9 @@
             "JB_FATE_CAS"
         ],
         "tierlist": {
-            "job 1": "D",
-            "job 2": "C",
-            "job 3": "SS",
+            "job 1": "S",
+            "job 2": "SS",
+            "job 3": "S",
             "jc": "",
             "total": "SS"
         },
@@ -19918,10 +19939,10 @@
             "JB_NIN"
         ],
         "tierlist": {
-            "job 1": "C",
-            "job 2": "C",
-            "job 3": "B",
-            "jc": "S",
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "A",
+            "jc": "",
             "total": "S"
         }
     },
@@ -20031,11 +20052,11 @@
             "JB_FATE_LAN"
         ],
         "tierlist": {
-            "job 1": "D",
-            "job 2": "C",
-            "job 3": "B/A",
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "A",
             "jc": "",
-            "total": "B/A"
+            "total": "S"
         }
     },
     "UN_V2_ZEKE": {
@@ -20524,6 +20545,13 @@
             "JB_SAM",
             "JB_SHN"
         ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        },
         "jobchanges": [
             "JB_RAN_TYPE_JEWELDAMEGE",
             null,

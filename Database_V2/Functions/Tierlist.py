@@ -38,7 +38,7 @@ def Tierlist(units):
     ##########################################################
     # add tierlist to units
     unitsN={
-        unit['name']:unit
+        unit['name']+(' [F/sn]' if 'FATE' in key else ''):unit
         for key,unit in units.items()
         }
     used=[]
@@ -58,7 +58,7 @@ def Tierlist(units):
                 if key not in used
             ]
             key, score = max(similarities, key=lambda s: s[1])
-            if score > 0.85:
+            if score > 0.66665:
                 unitsN[key]['tierlist'] = tl[i]
                 print(i + ' to ' + key + ' sim: ' + str(score))
                 used.append(key)

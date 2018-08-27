@@ -652,7 +652,7 @@
         "iname": "AF_ARMS_LAN_02",
         "type": "Weapon",
         "name": "Mellow Lance",
-        "expr": "PATK Up, CRIT Up, DEX Up, Chance of Charm (additional effect)",
+        "expr": "PATK Up, CRIT Up, DEX Up, Chance of Charm",
         "spec": "No requirements to equip",
         "flavor": "This lance is a replica of one thought to have been used in ancient times of Alchemy. Its tip is made from a magical substance that emits a pink glow when its power is activated. This glow will occasionally entrance foes and inflict Charm.",
         "tag": "Lance",
@@ -2641,7 +2641,7 @@
         "ability": [
             {
                 "name": "Hallucination",
-                "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
+                "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
                 "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_DOC_04_WA"
@@ -2690,7 +2690,7 @@
         "iname": "AF_ARMS_EXCALIBUR",
         "type": "Weapon",
         "name": "Excalibur",
-        "expr": "Attributes: PATK Up, MDEF Up, CRIT Up, Chance of AGI Up<br>3★ to 5★  Enables Master Ability when equipped on Saber when her job type is \"Saber\" (Inflicts Wind Phys Dmg & raises own Missile DEF for three turns [Range: 4, Height Range: 3])",
+        "expr": "Attributes: PATK Up, MDEF Up, CRIT Up, Chance of AGI Up<br>3★ to 5★ Enables Master Ability when equipped on Saber when her job type is \"Saber\" (Inflicts Wind Phys Dmg & raises own Missile DEF for three turns [Range: 4, Height Range: 3])",
         "spec": "No requirements to equip",
         "flavor": "Packed with the wishes of mankind and forged on a star, this divine weapon is the holiest of all holy swords. When equipped by Saber, its chosen owner, an even greater power is unlocked.",
         "tag": "Sword",
@@ -3631,7 +3631,7 @@
         "iname": "AF_ARMO_SHIELD_03",
         "type": "Armor",
         "name": "Glitter Guard",
-        "expr": "Attributes: HP Up, Petrify Res Up<br>Gear Ability: Raises Slash Res of ally units  [Range: 3, Area: Cross (3), Height Range: 2]",
+        "expr": "Attributes: HP Up, Petrify Res Up<br>Gear Ability: Raises Slash Res of ally units [Range: 3, Area: Cross (3), Height Range: 2]",
         "spec": "No requirements to equip",
         "flavor": "This trapezium-shaped shield was discovered among some ancient ruins. Made using a combination of metal and a faintly-glowing crystal, it grants resistance against Slash attacks to those who possess Alchemia. The metal sections support the crystal parts, and can be repaired if damaged.",
         "tag": "Armor",
@@ -4021,7 +4021,7 @@
     "AF_ARMS_ZIN_00": {
         "iname": "AF_ARMS_ZIN_00",
         "type": "Weapon",
-        "name": "Eerie Agony Thousand Drop Blade",
+        "name": "Cursed Kunai - Blood Edge",
         "expr": "Attributes: HP Up, PATK Up, DEX Up, Chance of inflicting Daze<br>Enables Master Ability when equipped on Jin (3-hit Dark Dmg & Poison to single target & raises own AGI until next turn [Range: 5, Height Range: 2])",
         "spec": "No requirements to equip",
         "flavor": "This kunai was entrusted to Jin by a young girl called Sen. It sucks blood from foes, which it is then able to convert into Alchemia. Jin takes the trust placed in him by Sen very seriously, and he won't let anyone else touch it.",
@@ -4031,11 +4031,11 @@
         "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ARMS_ZIN_00.png",
         "inputs": [
             "Jin",
-            "Eerie Agony Thousand Drop Blade"
+            "Cursed Kunai - Blood Edge"
         ],
         "ability": [
             {
-                "name": "Purple Poison Three Evils",
+                "name": "Purple Poison - Triple Torment",
                 "expr": "Inflicts 3-hit Dark Dmg on target & Poison & raises own AGI until next turn [Range: 5, Height Range: 2]",
                 "mapeff": " ",
                 "restriction": "Jin",
@@ -4085,7 +4085,7 @@
         "iname": "AF_ARMS_NEC_03",
         "type": "Weapon",
         "name": "Timestealer Scythe",
-        "expr": "Attributes: PATK Up, CRIT Up, AGI Up, Chance of inflicting Stop<br>Gear Ability: Dmg to units within target area & lowers units' MATK [Range: 4, Area: Cross (3), Height Range: 2]",
+        "expr": "Attributes: PATK Up, CRIT Up, AGI Up, Chance of inflicting Stop<br>Gear Ability: Dmg to units within target area & lowers units' Mag DMG [Range: 4, Area: Cross (3), Height Range: 2]",
         "spec": "No requirements to equip",
         "flavor": "The rope tied around the handle of this scythe has been imbued with a time-stopping spell, and the special knot used means that the weapon will occasionally stop time when used. This powerful spell is said to also be able to lower the magical attack power of enemies.",
         "tag": "Greatsword/Scythe",
@@ -4098,7 +4098,7 @@
         "ability": [
             {
                 "name": "Demon Deflector",
-                "expr": "Inflicts Phys Dmg on units within target area with chance of critical & lowers target's MATK [Range: 4, Area: Cross (3), Height Range: 2]",
+                "expr": "Inflicts Phys Dmg on units within target area with chance of critical & lowers target's Mag DMG [Range: 4, Area: Cross (3), Height Range: 2]",
                 "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_NEC_03_WA"
@@ -5473,7 +5473,7 @@
     "AF_ACCS_UNDOKAI2017_01": {
         "iname": "AF_ACCS_UNDOKAI2017_01",
         "type": "Accessory",
-        "name": "Sports Day - Ouroboros Prize",
+        "name": "Ouroboros's Medal",
         "expr": "Attributes: HP Up, PATK Up, MATK Up, AGI Up",
         "spec": "No requirements to equip",
         "flavor": " ",
@@ -5482,7 +5482,7 @@
         "link": "http://www.alchemistcodedb.com/gear/af-accs-undokai2017-01",
         "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ACCS_UNDOKAI2017_01.png",
         "inputs": [
-            "Sports Day - Ouroboros Prize"
+            "Ouroboros's Medal"
         ],
         "ability": [],
         "stats": {
@@ -5657,7 +5657,7 @@
         "ability": [
             {
                 "name": "Stardust Blessing",
-                "expr": "Raises own MATK for three turns",
+                "expr": "Raises own Mag DMG for three turns",
                 "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMO_HAT_01_WA"
@@ -6155,8 +6155,9 @@
         "iname": "AF_ARMS_SWO_GL_SIEG_01",
         "type": "Weapon",
         "name": "Gram & Balmung",
-        "expression": "Attribute: P Atk Up, P Def Up, (CRIT & LUCK Up added when evolving to 4★, Chance of P Def down on target when attacking added when evolving to 5★)<br>Enables Master Ability when equipped on Siegfried when his job type is Wandering Swordsman",
-        "flavor": "A pair of peerless swords with perfect edges that never go dull. It is said that there is no armor that can withstand their assault. ",
+        "expr": "Attribute: PATK, PDEF Up, (Crit & Luck Up added when evolving to 4★, Chance of PDEF down on target when attacking added when evolving to 5★)<br>Enables Master Ability when equipped on Siegfried when his job type is \"Wandering Swordsman\"",
+        "spec": "No requirements to equip",
+        "flavor": "A pair of peerless swords with perfect edges that never go dull. It is said that there is no armor that can withstand their assault.",
         "tag": "Twin Swords",
         "rarity": "★★★☆☆",
         "link": "http://www.alchemistcodedb.com/gear/af-arms-swo-gl-sieg-01",
@@ -6167,8 +6168,9 @@
         ],
         "ability": [
             {
-                "NAME": "Devastating Finish",
-                "EXPR": "Devastating Finish",
+                "name": "Devastating Finish",
+                "expr": "Inflicts 5-hit Light Slash Dmg that ignores DEF on target enemy unit & raises own PATK and AGI for three turns [Range: Diamond (5), Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "Siegfried",
                 "iname": "SK_ARMS_SWO_GL_SIEG_01_WA"
             }

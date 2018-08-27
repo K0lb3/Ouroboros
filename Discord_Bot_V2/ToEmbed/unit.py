@@ -26,6 +26,7 @@ def Unit(iname, page):
     )
     embed.set_author(name=unit['name'], url=embed.url)
     embed.set_thumbnail(url='http://cdn.alchemistcodedb.com/images/units/profiles/' + unit["image"] + ".png")
+    embed.set_footer(text='Unit')
 
     while page:
         if page=='main':
@@ -49,7 +50,9 @@ def Unit(iname, page):
             break  
 
         if 'job' in page:
-            embed.ConvertFields(job(unit,page))
+            fields,name=job(unit,page)
+            embed.ConvertFields(fields)
+            embed.title=name
             break          
 
         if page=='art':
@@ -126,6 +129,7 @@ def lore(unit):
     return fields
 
 def job(unit,job):
+    job=int(job[3])
     if job < 4:
         job=DIRS['Job'][unit['jobs'][job-1]]
     else:
@@ -133,9 +137,9 @@ def job(unit,job):
         if not job:
             return([])
 
-    return [
+    return ([
         {'name': 'Weapon',          'value':job['weapon'],                              'inline':True},
-        {'name': 'Role',            'value':job['type'],                                'inline':True},
+        {'name': 'AI Role',            'value':job['type'],                                'inline':True},
         {'name': 'DMG-Formula',     'value':job['formula'],                             'inline':False},
         {'name': 'Move',            'value':job['move'],                                'inline':True},
         {'name': 'Jump',            'value':job['jump'],                                'inline':True},
@@ -148,9 +152,12 @@ def job(unit,job):
                 if value!=0
                 ]),
             'inline':False},
-        {'name': 'Stats',        
+        {'name': 'Stats without JM bonus',        
             'value': '\n'.join([
-                '{}: {}'.format(stat,int(value+TACScale(unit['ini_status']['param'][stat],unit['max_status']['param'][stat],85,100)*(1+(job['ranks'][-1]['status'][stat]/100))))
+                '{}: {}'.format(
+                    stat,
+                    int(value+((TACScale(unit['ini_status']['param'][stat],unit['max_status']['param'][stat],85,100)*(1+(job['ranks'][-1]['status'][stat]/100))) if stat in unit['max_status']['param'] else 0))
+                    )
                 for stat,value in job['stats'].items()
                 if 'Res' not in stat
             ]),    
@@ -162,7 +169,7 @@ def job(unit,job):
                 if 'Res' in stat
             ]),    
             'inline':True},
-        ]
+        ],job['name'])
 
 def kaigan(unit):
     if 'kaigan' in unit:

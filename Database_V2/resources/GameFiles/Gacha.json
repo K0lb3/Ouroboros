@@ -1,18 +1,18 @@
 {
     "gachas": [
         {
-            "iname": "5Step_Gacha_S1_B16",
+            "iname": "5Step_Gacha_S1_B17",
             "cat": "",
-            "startat": 1533801600,
-            "endat": 1534406399,
+            "startat": 1535011200,
+            "endat": 1535615999,
             "num": 10,
             "name": "Special Summon Step 1",
             "cost": {
                 "coin": 500
             },
-            "asset_title": "tab_GL_019_06",
-            "asset_bg": "GachaImages_GL_5step_Batch16",
-            "detail_url": "5Step_Gacha_B16",
+            "asset_title": "tab_GL_020_01",
+            "asset_bg": "HASH:8cac2b9bb8b859697be4fe08ad0d7f11f781da18f86c3392e8e24fb530c62373aa2c770d3c052073174bf17662ed5c6a43eeb676d92b7406005fab7c304e0752",
+            "detail_url": "5Step_Gacha_B17",
             "units": [],
             "ext_type": [
                 "step",
@@ -36,18 +36,18 @@
             "pickup_art": []
         },
         {
-            "iname": "9Step_Gacha_S1_B16",
+            "iname": "9Step_Gacha_S1_B17",
             "cat": "other",
-            "startat": 1533801600,
-            "endat": 1535011199,
+            "startat": 1535011200,
+            "endat": 1536220799,
             "num": 10,
             "name": "Premium Summon Step 1",
             "cost": {
                 "coin": 2500
             },
-            "asset_title": "tab_GL_018_09",
-            "asset_bg": "GachaImages_GL_9step_Batch16",
-            "detail_url": "9Step_Gacha_B16",
+            "asset_title": "tab_GL_019_10",
+            "asset_bg": "HASH:e9ed39cfbceadb0247c6ca6ec6840ae24b6ec3a4ae569c2bc57403d6706146a4e9f83e498a0d642a8517774ade513b547e03e6614240e99200f09b3c6d9a5cb9",
+            "detail_url": "9Step_Gacha_B17",
             "units": [],
             "ext_type": [
                 "step",
@@ -74,18 +74,18 @@
             "pickup_art": []
         },
         {
-            "iname": "Daily_Gacha_D07_S1_SoulB16",
+            "iname": "Daily_Gacha_D05_S1_SoulB17",
             "cat": "",
-            "startat": 1534320000,
-            "endat": 1534406399,
+            "startat": 1535356800,
+            "endat": 1535443199,
             "num": 10,
             "name": "Daily Soul Summon",
             "cost": {
                 "coin": 2500
             },
-            "asset_title": "tab_GL_018_10",
-            "asset_bg": "GachaImages_GL_DailySoul_Batch16",
-            "detail_url": "Daily_Gacha_SoulB16",
+            "asset_title": "tab_GL_020_02",
+            "asset_bg": "HASH:179dbe28bf6b7942886b2e8b3490ce494687e090e263d1a2e4d112d3a9895447195d3c0f39348b6a66bfb4ecf54a271e0fc822c64e3be4a28255b9f51605824a",
+            "detail_url": "Daily_Gacha_SoulB17",
             "units": [],
             "ext_type": [
                 "limit_cnt",
@@ -105,18 +105,18 @@
             "pickup_art": []
         },
         {
-            "iname": "3Step_Gacha_S1_Swimsuit2018a",
+            "iname": "3Step_Gacha_S1_Swimsuit2018b",
             "cat": "",
-            "startat": 1533196800,
-            "endat": 1534406399,
+            "startat": 1534406400,
+            "endat": 1535615999,
             "num": 3,
             "name": "Special Summon Step 1",
             "cost": {
                 "coin": 750
             },
-            "asset_title": "tab_GL_019_04",
-            "asset_bg": "GachaImages_GL_3step_Swimsuit2018a",
-            "detail_url": "3Step_Gacha_Swimsuit2018a",
+            "asset_title": "tab_GL_020_06",
+            "asset_bg": "GachaImages_GL_3step_Swimsuit2018b",
+            "detail_url": "3Step_Gacha_Swimsuit2018b",
             "units": [],
             "ext_type": [
                 "step",
@@ -145,18 +145,18 @@
             "pickup_art": []
         },
         {
-            "iname": "9Step_Gacha_S1_PotkShinobi3",
+            "iname": "9Step_Gacha_S1_GL2",
             "cat": "other",
-            "startat": 1533196800,
-            "endat": 1534406399,
+            "startat": 1534406400,
+            "endat": 1535615999,
             "num": 10,
             "name": "Premium Summon Step 1",
             "cost": {
                 "coin": 2500
             },
-            "asset_title": "tab_GL_019_01",
-            "asset_bg": "GachaImages_GL_9step_PotkShinobi3",
-            "detail_url": "9Step_Gacha_PotkShinobi3",
+            "asset_title": "tab_GL_020_03",
+            "asset_bg": "GachaImages_GL_9step_GL2",
+            "detail_url": "9Step_Gacha_GL2",
             "units": [],
             "ext_type": [
                 "step",
@@ -183,18 +183,18 @@
             "pickup_art": []
         },
         {
-            "iname": "Unlimited_Gacha_PotkShinobi3",
+            "iname": "Unlimited_Gacha_GL2",
             "cat": "",
-            "startat": 1533196800,
-            "endat": 1534406399,
+            "startat": 1534406400,
+            "endat": 1535615999,
             "num": 10,
             "name": "Unlimited Unit Summon",
             "cost": {
                 "coin": 2500
             },
-            "asset_title": "tab_GL_019_05",
-            "asset_bg": "GachaImages_GL_Unlimited_PotkShinobi3",
-            "detail_url": "Unlimited_PotkShinobi3",
+            "asset_title": "tab_GL_020_08",
+            "asset_bg": "GachaImages_GL_Unlimited_GL2",
+            "detail_url": "Unlimited_GL2",
             "units": [],
             "ext_type": [],
             "ext_param": {},
@@ -202,25 +202,25 @@
             "group": "",
             "bonus_items": [
                 {
-                    "iname": "IT_US_GL_5STAR_10PER_TICKET_POTKSHINOBI3",
-                    "num": 1
+                    "iname": "IT_CV_GOLD3",
+                    "num": 20
                 }
             ],
             "pickup_art": []
         },
         {
-            "iname": "3Step_Gear_S1_B16",
+            "iname": "3Step_Gear_S1_B17",
             "cat": "",
-            "startat": 1533801600,
-            "endat": 1535011199,
+            "startat": 1535011200,
+            "endat": 1536220799,
             "num": 10,
             "name": "Gear Summon Step 1",
             "cost": {
                 "coin": 300
             },
             "asset_title": "tab_GL_002_01",
-            "asset_bg": "GachaImages_GL_3stepGear_Batch16",
-            "detail_url": "3Step_Gear_B16",
+            "asset_bg": "GachaImages_GL_3stepGear_Batch17",
+            "detail_url": "3Step_Gear_B17",
             "units": [],
             "ext_type": [
                 "step",
@@ -244,18 +244,18 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_GearSummon_01_B16",
+            "iname": "Rare_GearSummon_01_B17",
             "cat": "",
-            "startat": 1533801600,
-            "endat": 1535011199,
+            "startat": 1535011200,
+            "endat": 1536220799,
             "num": 1,
             "name": "Gear Summon",
             "cost": {
                 "coin": 150
             },
             "asset_title": "tab_GL_002_02",
-            "asset_bg": "GachaImages_GL_RareGear_Batch16",
-            "detail_url": "Rare_Gear_B16",
+            "asset_bg": "GachaImages_GL_RareGear_Batch17",
+            "detail_url": "Rare_Gear_B17",
             "units": [],
             "ext_type": [],
             "ext_param": {},
@@ -265,18 +265,18 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_GearSummon_10_B16",
+            "iname": "Rare_GearSummon_10_B17",
             "cat": "",
-            "startat": 1533801600,
-            "endat": 1535011199,
+            "startat": 1535011200,
+            "endat": 1536220799,
             "num": 10,
             "name": "Gear 10-Summon",
             "cost": {
                 "coin": 1500
             },
             "asset_title": "tab_GL_002_02",
-            "asset_bg": "GachaImages_GL_RareGear_Batch16",
-            "detail_url": "Rare_Gear_B16",
+            "asset_bg": "GachaImages_GL_RareGear_Batch17",
+            "detail_url": "Rare_Gear_B17",
             "units": [],
             "ext_type": [
                 "promise"
@@ -284,85 +284,6 @@
             "ext_param": {},
             "is_valid": 0,
             "group": "Gear",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "3Step_Gear_S1_PotkShinobi3",
-            "cat": "",
-            "startat": 1533196800,
-            "endat": 1534406399,
-            "num": 10,
-            "name": "Gear Summon Step 1",
-            "cost": {
-                "coin": 300
-            },
-            "asset_title": "tab_GL_019_07",
-            "asset_bg": "GachaImages_GL_3stepGear_PotkShinobi3",
-            "detail_url": "3Step_Gear_PotkShinobi3",
-            "units": [],
-            "ext_type": [
-                "step",
-                "limit_cnt"
-            ],
-            "ext_param": {
-                "step": {
-                    "index": 0,
-                    "num": 3
-                },
-                "limit_cnt": {
-                    "rest": 3,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "btext": "",
-            "confirm": "",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "Rare_GearSummon_01_PotkShinobi3",
-            "cat": "",
-            "startat": 1533196800,
-            "endat": 1534406399,
-            "num": 1,
-            "name": "Gear Summon",
-            "cost": {
-                "coin": 150
-            },
-            "asset_title": "tab_GL_019_08",
-            "asset_bg": "HASH:47134a10026c47435d463b1b67ae9e4e7659461311f29b9f1ae23927f89aa77c2c6c815726571d3bf9c83bb86b9bab864cd3c5be1690dc6914a6eef607d91958",
-            "detail_url": "Rare_Gear_PotkShinobi3",
-            "units": [],
-            "ext_type": [],
-            "ext_param": {},
-            "is_valid": 0,
-            "group": "Gear_PotkShinobi3",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "Rare_GearSummon_10_PotkShinobi3",
-            "cat": "",
-            "startat": 1533196800,
-            "endat": 1534406399,
-            "num": 10,
-            "name": "Gear 10-Summon",
-            "cost": {
-                "coin": 1500
-            },
-            "asset_title": "tab_GL_019_08",
-            "asset_bg": "HASH:47134a10026c47435d463b1b67ae9e4e7659461311f29b9f1ae23927f89aa77c2c6c815726571d3bf9c83bb86b9bab864cd3c5be1690dc6914a6eef607d91958",
-            "detail_url": "Rare_Gear_PotkShinobi3",
-            "units": [],
-            "ext_type": [
-                "promise"
-            ],
-            "ext_param": {},
-            "is_valid": 0,
-            "group": "Gear_PotkShinobi3",
             "bonus_items": [],
             "pickup_art": []
         },
@@ -409,10 +330,10 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_Gacha",
+            "iname": "Rare_Gacha_ii",
             "cat": "coin_1",
-            "startat": 1533801600,
-            "endat": 1535011199,
+            "startat": 1535011200,
+            "endat": 1535615999,
             "num": 1,
             "name": "Rare Summon",
             "cost": {
@@ -422,8 +343,8 @@
             "asset_bg": "GachaImages_rare",
             "detail_url": "rare_gacha",
             "units": [
-                "UN_V2_YUNAGI",
-                "UN_V2_ZIN"
+                "UN_V2_OLGA",
+                "UN_V2_CHAO"
             ],
             "ext_type": [],
             "ext_param": {},
@@ -434,10 +355,10 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_Gacha_10",
+            "iname": "Rare_Gacha_10_ii",
             "cat": "coin_n",
-            "startat": 1533801600,
-            "endat": 1535011199,
+            "startat": 1535011200,
+            "endat": 1535615999,
             "num": 10,
             "name": "Rare Summon x 10",
             "cost": {
@@ -447,8 +368,8 @@
             "asset_bg": "GachaImages_rare",
             "detail_url": "rare_gacha",
             "units": [
-                "UN_V2_YUNAGI",
-                "UN_V2_ZIN"
+                "UN_V2_OLGA",
+                "UN_V2_CHAO"
             ],
             "ext_type": [],
             "ext_param": {},

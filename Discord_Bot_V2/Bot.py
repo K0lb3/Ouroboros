@@ -5,7 +5,7 @@ import json
 from discord.ext import commands
 from functions import FindBest
 import ToEmbed
-from settings import BOT_TOKEN,PRESENCES
+from settings import BOT_TOKEN,PRESENCES, PAGES
 
 # Constants
 prefix='o.'
@@ -56,23 +56,79 @@ async def quest(ctx, *, name):
 @bot.command()
 async def unit(ctx, *, name):
     unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
-    await ctx.send(embed=ToEmbed.Unit(unit,'main'))
+    msg = await ctx.send(embed=ToEmbed.Unit(unit,'main'))
+    await add_reactions(msg,PAGES['unit'])
+    jemoji=['1⃣','2⃣','3⃣','4⃣','5⃣','6⃣']
 
 @bot.command()
 async def kaigan(ctx, *, name):
     unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
-    await ctx.send(embed=ToEmbed.Unit(unit,'kaigan'))
+    msg = await ctx.send(embed=ToEmbed.Unit(unit,'kaigan'))
+    await add_reactions(msg,PAGES['unit'])
+
+@bot.command()
+async def nensou(ctx,*,name):
+    card = FindBest(ToEmbed.DIRS['Conceptcard'], name, True)
+    msg = await ctx.send(embed=ToEmbed.Conceptcard(card,'main'))
+    await add_reactions(msg,PAGES['conceptcard'])
+
+@bot.command()
+async def job(ctx, *, name):
+    job = FindBest(ToEmbed.DIRS['Job'], name,True)
+    msg = await ctx.send(embed= ToEmbed.Job(job, 'main'))
+    await add_reactions(msg,PAGES['job'])
 
 #done
 @bot.command()
+async def gear(ctx, *, name):
+    gear = FindBest(ToEmbed.DIRS['Artifact'], name,True)
+    msg = await ctx.send(embed= ToEmbed.Gear(gear, 'main'))
+    await add_reactions(msg,PAGES['gear'])
+
+@bot.command()
 async def lore(ctx,*,name):
     unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
-    await ctx.send(embed=ToEmbed.Unit(unit,'lore'))
+    msg = await ctx.send(embed=ToEmbed.Unit(unit,'lore'))
+    await add_reactions(msg,PAGES['unit'])
 
 @bot.command()
 async def art(ctx,*,name):
     unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
     for embed in ToEmbed.Unit(unit,'art'):
         await ctx.send(embed=embed)
+
+
+
+@bot.event
+async def on_raw_reaction_add(payload):
+    #message_id #int – The message ID that got or lost a reaction.
+    #user_id #int – The user ID who added or removed the reaction.
+    #channel_id #int – The channel ID where the reaction got added or removed.
+    #guild_id #Optional[int] – The guild ID where the reaction got added or removed, if applicable.
+    #emoji #PartialEmoji – The custom or unicode emoji being used.
+    msg = await bot.get_channel(payload.channel_id).get_message(payload.message_id)
+    if payload.user_id != bot.user.id and msg.author == bot.user:
+        
+        emoji = payload.emoji.name
+        ftext=msg.embeds[0].footer.text
+        etitle = msg.embeds[0].author.name
+
+        if ftext == 'Emoji-Converter':
+            embed2 = discord.Embed(title="Reaction", description='```'+emoji+'```', color=0x00FF00)
+            embed2.set_footer(text='Emoji-Converter')
+            await msg.edit(embed=embed2)
+
+        elif ftext == 'Unit':
+                unit = FindBest(ToEmbed.DIRS['Unit'], etitle, False)
+                await msg.edit(embed=ToEmbed.Unit(unit,PAGES['unit'][emoji]))
+        elif ftext == 'Job':
+                job = FindBest(ToEmbed.DIRS['Job'], etitle, False)
+                await msg.edit(embed=ToEmbed.Job(job,PAGES['job'][emoji]))
+    
+@bot.command()
+async def emoji(ctx):
+    embed = discord.Embed(title="Emoji to Unicode", description='~emoji~', color=8355711)
+    embed.set_footer(text='Emoji-Converter')
+    await ctx.send(embed=embed)
 
 bot.run(BOT_TOKEN)

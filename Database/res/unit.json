@@ -2145,7 +2145,7 @@
         "cv": "熊谷健太郎"
     },
     "UN_V2_BLANCHETT": {
-        "profile": "Blanshett is a young girl who is the sole survivor of a village destroyed by war. The codename of the group that destroyed it was \"WOLF,\" and as a result she hates anything and everything related to wolves. She's usually cheerful, but if wolves somehow become involved she'll instantly change and unleash a furious, raw power.",
+        "profile": "Blanchett is a young girl who is the sole survivor of a village destroyed by war. The codename of the group that destroyed it was \"WOLF,\" and as a result she hates anything and everything related to wolves. She's usually cheerful, but if wolves somehow become involved she'll instantly change and unleash a furious, raw power.",
         "country": "Wratharis",
         "height": "150cm",
         "weight": "42kg",
@@ -2857,7 +2857,7 @@
         "favorite": "シチュー",
         "hobby": "―",
         "illust": "―",
-        "cv": "朴?美"
+        "cv": "朴璐美"
     },
     "UN_V2_FA_ALPHONSE": {
         "profile": "異なる錬金術を使用する世界から魂だけ導かれた錬金術師。過去に禁忌を侵したことで肉体を失ったため、鎧に魂を定着させている。基本的に素直で温和な性格で、大人びた面を持つ。戦闘では鎧の体を活かした格闘を得意とする。",
@@ -3563,6 +3563,32 @@
         "illust": "RINZO",
         "cv": "藤井ゆきよ"
     },
+    "UN_V2_AOT_EREN": {
+        "profile": "巨人が猛威を振るう異世界から導かれた調査兵団の少年。怒りや衝動に任せた無鉄砲な行動が多い一方で、困難な状況を打破する強い意志も併せ持つ。巨人化できる能力を有しており、人類を脅かす巨人たちを駆逐すべく戦う。",
+        "country": "─",
+        "height": "170cm",
+        "weight": "63kg",
+        "birth": "3月30日",
+        "zodiac": "─",
+        "blood": "─型",
+        "favorite": "─",
+        "hobby": "─",
+        "illust": "─",
+        "cv": "梶裕貴"
+    },
+    "UN_V2_AOT_REINER": {
+        "profile": "巨人が猛威を振るう異世界から導かれた戦士。屈強な体と強い精神力を持ち、仲間からも高い信頼を得る、エレンたち同期の中心的な存在。巨人化できる能力を有しており、頑強な鎧に身を包んだ巨人へと変貌し絶大な力を見せる。",
+        "country": "─",
+        "height": "188cm",
+        "weight": "83kg",
+        "birth": "8月1日",
+        "zodiac": "─",
+        "blood": "─型",
+        "favorite": "─",
+        "hobby": "─",
+        "illust": "─",
+        "cv": "細谷佳正"
+    },
     "UN_V2_GL_SIEG": {
         "profile": "Siegfried was an orphan who showed great promise and was recruited into the Holy Guard. He excelled in the training but never got along with the rigid lifestyles and doctrines of the order. A visiting prodigy from Lustburg recognized his ability and offered him a chance to train under her. After he completed his training, he would lend his skills to the Holy Guard as a free agent. ",
         "country": "Envylia",
@@ -3575,5 +3601,31 @@
         "hobby": "Studying, Exploring, Reading",
         "illust": "gumi Asia",
         "cv": "鈴木 崚汰"
+    },
+    "UN_V2_GL_SHION": {
+        "profile": "Shion is a visage of ethereal beauty which steals the breaths of everyone. Shion has unparalleled skill with both dance and bladework transforming them into a deadly and flawless art form. Everywhere Shion travels to is followed by an endless line of suitors desiring to win Shion's affections. However that which they desire is reserved by Shion's younger sister. Beneath that beautiful exterior however, Shion is a deadly effecient agent working for an unknown patron. The air of mystery surrounding this lithe and haunting beauty is bound to hide many more secrets. Perhaps one of these secrets is the reason why Shion's face is often tinged with sorrow.",
+        "country": "Wadatsumi",
+        "height": "172cm",
+        "weight": "Slender",
+        "birth": "???",
+        "zodiac": "Moon of the Fiery Imperial Skies",
+        "blood": "Type Pa",
+        "favorite": "Kimonos, Stage plays, Younger Sister",
+        "hobby": "Music, Swords",
+        "illust": "Raijuu",
+        "cv": "佐竹海莉"
+    },
+    "UN_V2_GL_SOREN": {
+        "profile": "Soren is a mysterious man with no recollection of his past. He is the Speaker of a peculiar village with an incredible talent for Alchemy. A traveller showed Soren that people need to fend for themselves to grow, so he left with the traveller to discover more about his own past.",
+        "country": "Saga Region",
+        "height": "158cm",
+        "weight": "42kg",
+        "birth": "???",
+        "zodiac": "Moon of the Ice Water Wolf",
+        "blood": "Type Pa",
+        "favorite": "Small animals",
+        "hobby": "Discovering his past",
+        "illust": "gumi Asia",
+        "cv": "寺島愛"
     }
 }

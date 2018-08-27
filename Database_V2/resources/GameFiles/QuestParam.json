@@ -1097,6 +1097,14 @@
             "item": "quest_trial"
         },
         {
+            "iname": "AR_SO_ZEKE",
+            "name": "血狼と呼ばれても",
+            "expr": "血狼と呼ばれても",
+            "world": "AREA_DAILY",
+            "chap": "WD_DAILY",
+            "item": "quest_so_zeke"
+        },
+        {
             "iname": "AR_VALENTINE",
             "name": "チョコレート・トイボックス",
             "expr": "チョコレート・トイボックス",
@@ -1271,14 +1279,6 @@
             "world": "AREA_DAILY",
             "chap": "WD_DAILY",
             "item": "quest_so_erurike"
-        },
-        {
-            "iname": "AR_SO_ZEKE",
-            "name": "血狼と呼ばれても",
-            "expr": "血狼と呼ばれても",
-            "world": "AREA_DAILY",
-            "chap": "WD_DAILY",
-            "item": "quest_so_zeke"
         },
         {
             "iname": "AR_SO_PERI",
@@ -2486,12 +2486,6 @@
             "item": "quest_mon"
         },
         {
-            "iname": "MULTI_MIAN",
-            "name": "限定",
-            "expr": "魂の邂逅 ミアンヌ編",
-            "item": "quest_miannu"
-        },
-        {
             "iname": "MULTI_NICONAMA",
             "name": "限定",
             "expr": "Let's Play: MP Quest!",
@@ -2680,6 +2674,12 @@
             "item": "quest_ev_seiseki5"
         },
         {
+            "iname": "MULTI_MIAN",
+            "name": "限定",
+            "expr": "魂の邂逅 ミアンヌ編",
+            "item": "quest_miannu"
+        },
+        {
             "iname": "AR_MULTI_TIHAYA2",
             "name": "【期間限定】",
             "expr": "【高難度】ワダツミの奉舞",
@@ -2837,10 +2837,18 @@
             "item": "quest_ev_gl_mh"
         },
         {
+            "iname": "AR_GL_MH_02",
+            "name": "Magni Historia 2",
+            "expr": "Episode 2: Deliverance",
+            "world": "AREA_DAILY",
+            "chap": "WD_DAILY",
+            "item": "quest_ev_gl_mh2"
+        },
+        {
             "iname": "MULTI_GL_MH",
-            "name": "Magni Historia 1",
-            "expr": "Episode 1: Overture",
-            "item": "quest_ev_gl_mh"
+            "name": "Magni Historia",
+            "expr": "Episode 2: Deliverance",
+            "item": "quest_ev_gl_mh2"
         }
     ],
     "CampaignChildren": [
@@ -6107,8 +6115,8 @@
         },
         {
             "iname": "CAP_EVENT_AP_001",
-            "begin_at": "1/1/2016 12:00:00 PM",
-            "end_at": "1/1/2017 12:00:00 PM",
+            "begin_at": "8/16/2018 12:00:00 PM",
+            "end_at": "8/22/2018 11:59:59 PM",
             "children": [
                 "CAC_EVENT_AP_001"
             ]
@@ -6155,10 +6163,9 @@
         },
         {
             "iname": "CAP_AP_HALF_001",
-            "begin_at": "1/1/2016 12:00:00 PM",
-            "end_at": "1/1/2017 12:00:00 PM",
+            "begin_at": "8/23/2018 12:00:00 PM",
+            "end_at": "8/29/2018 11:59:59 PM",
             "children": [
-                "CAC_AP_HALF_001_NORMAL",
                 "CAC_AP_HALF_001_HARD"
             ]
         },
@@ -6191,16 +6198,16 @@
         },
         {
             "iname": "CAP_DROP_2_001",
-            "begin_at": "7/12/2018",
-            "end_at": "7/25/2018 11:59:59 PM",
+            "begin_at": "8/20/2018",
+            "end_at": "8/22/2018 11:59:59 PM",
             "children": [
                 "CAC_DROP_2_001_NORMAL"
             ]
         },
         {
             "iname": "CAP_DROP_2_002",
-            "begin_at": "8/13/2018",
-            "end_at": "8/15/2018 11:59:59 PM",
+            "begin_at": "1/1/2016 12:00:00 PM",
+            "end_at": "1/1/2017 12:00:00 PM",
             "children": [
                 "CAC_DROP_2_001_HARD"
             ]
@@ -15381,6 +15388,34 @@
             "el_thdr": 0,
             "el_lit": 0,
             "el_drk": 0,
+            "sex": 0,
+            "rmax": 0,
+            "rmin": 0,
+            "hmax": 0,
+            "hmin": 0,
+            "wmax": 0,
+            "wmin": 0,
+            "jobset1": 0,
+            "jobset2": 0,
+            "jobset3": 0
+        },
+        {
+            "iname": "COND_GL_MH_02_10",
+            "plvmax": 0,
+            "plvmin": 0,
+            "ulvmax": 0,
+            "ulvmin": 0,
+            "el_none": 0,
+            "el_fire": 0,
+            "el_watr": 0,
+            "el_wind": 0,
+            "el_thdr": 0,
+            "el_lit": 0,
+            "el_drk": 0,
+            "party_type": 1,
+            "unit": [
+                "UN_V2_GL_SOREN"
+            ],
             "sex": 0,
             "rmax": 0,
             "rmin": 0,
@@ -52214,6 +52249,309 @@
                     "num": 10
                 }
             ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_02_01",
+            "objective": [
+                {
+                    "type": 0,
+                    "item_type": 0,
+                    "item": "IT_PI_GL_SORE",
+                    "num": 50
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_TICKET",
+                    "num": 2
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD2",
+                    "num": 2
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_02_02",
+            "objective": [
+                {
+                    "type": 0,
+                    "item_type": 0,
+                    "item": "IT_PI_GL_SORE",
+                    "num": 25
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_TICKET",
+                    "num": 3
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD2",
+                    "num": 3
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_02_03",
+            "objective": [
+                {
+                    "type": 0,
+                    "item_type": 0,
+                    "item": "IT_PI_GL_SORE",
+                    "num": 25
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE4",
+                    "num": 1
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 1
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_02_04",
+            "objective": [
+                {
+                    "type": 4,
+                    "val": "0",
+                    "item_type": 0,
+                    "item": "IT_PI_GL_SORE",
+                    "num": 25
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE4",
+                    "num": 2
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 2
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_02_05",
+            "objective": [
+                {
+                    "type": 4,
+                    "val": "5",
+                    "item_type": 0,
+                    "item": "IT_PI_GL_SORE",
+                    "num": 25
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE4",
+                    "num": 2
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 3
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_02_06",
+            "objective": [
+                {
+                    "type": 4,
+                    "val": "0",
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE4",
+                    "num": 5
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 5
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_02_07",
+            "objective": [
+                {
+                    "type": 19,
+                    "item_type": 0,
+                    "item": "IT_EQ_DEF_SHELM",
+                    "num": 1
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 5
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_02_08",
+            "objective": [
+                {
+                    "type": 19,
+                    "item_type": 0,
+                    "item": "IT_EQ_ATK_LANCE",
+                    "num": 1
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 5
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_02_09",
+            "objective": [
+                {
+                    "type": 4,
+                    "val": "0",
+                    "item_type": 0,
+                    "item": "IT_EQ_DEF_SHIELD",
+                    "num": 1
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 10,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 5
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_02_10",
+            "objective": [
+                {
+                    "type": 19,
+                    "item_type": 0,
+                    "item": "IT_EQ_ATK_SWORD",
+                    "num": 1
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 2
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 5
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_02_EX",
+            "objective": [
+                {
+                    "type": 7,
+                    "val": "Water",
+                    "item_type": 0,
+                    "item": "IT_PI_COMMON_WATER",
+                    "num": 5
+                },
+                {
+                    "type": 7,
+                    "val": "Shine",
+                    "item_type": 0,
+                    "item": "IT_PI_COMMON_LIGHT",
+                    "num": 5
+                },
+                {
+                    "type": 7,
+                    "val": "Wind",
+                    "item_type": 0,
+                    "item": "IT_PI_COMMON_WIND",
+                    "num": 5
+                },
+                {
+                    "type": 10,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_EQ_GL_SHIO_KIMONO",
+                    "num": 1
+                },
+                {
+                    "type": 16,
+                    "val": "5000",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD4",
+                    "num": 10
+                },
+                {
+                    "type": 16,
+                    "val": "8000",
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE4",
+                    "num": 30
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 9,
+                    "item_type": 0,
+                    "item": "IT_AF_ARMS_SWO_GL_SIEG_01",
+                    "num": 80
+                }
+            ]
         }
     ],
     "quests": [
@@ -64823,6 +65161,394 @@
             ]
         },
         {
+            "iname": "QE_ST_NO_030051",
+            "title": "３章２話3-1",
+            "name": "三つ巴の戦場",
+            "expr": "第二話：第三幕－１",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_NO_030051",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_BOILER",
+                "IT_EQ_PIECE_CHIKUONKI",
+                "IT_EQ_DIAGRAMPIECE_CIRCLET"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030050"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "lose": 1,
+            "evst": "QE03_2_3_01_a_3d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_mati_001",
+                    "set": "main_no_030051_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030052",
+            "title": "３章２話3-2",
+            "name": "共存の証",
+            "expr": "第二話：第三幕－２",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_NO_030052",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_DRIFTER",
+                "IT_EQ_DIAGRAMPIECE_COMPASS",
+                "IT_EQ_DIAGRAM_VEST"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030051"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "lose": 1,
+            "evst": "QE03_2_3_02_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_mati_002",
+                    "set": "main_no_030052_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030053",
+            "title": "３章２話3-3",
+            "name": "怒りという原動力",
+            "expr": "第二話：第三幕－３",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_NO_030053",
+            "drops": [
+                "IT_EQ_PIECE_ROBE",
+                "IT_EQ_DIAGRAMPIECE_ELEMENTAL",
+                "IT_EQ_DIAGRAM_GETA"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030052"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "lose": 1,
+            "evst": "QE03_2_3_03_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_mati_003",
+                    "set": "main_no_030053_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030054",
+            "title": "３章２話3-4",
+            "name": "恐れという原動力",
+            "expr": "第二話：第三幕－４",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_NO_030054",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ARROWCASE",
+                "IT_EQ_PIECE_DICE",
+                "IT_EQ_PIECE_SABER"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030053"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "lose": 1,
+            "evst": "QE03_2_3_04_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_mati_001",
+                    "set": "main_no_030054_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030055",
+            "title": "３章２話3-5",
+            "name": "サロモ再び",
+            "expr": "第二話：第三幕－５",
+            "cond": "サロモを退けろ！",
+            "mission": "OB_ST_NO_030055",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_KAI_RUDDER",
+                "IT_EQ_DIAGRAMPIECE_SCOPE",
+                "IT_EQ_DIAGRAM_GROVE"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030054"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "win": 1,
+            "lose": 1,
+            "evst": "QE03_2_3_05_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_mati_002",
+                    "set": "main_no_030055_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030056",
+            "title": "３章２話3-6",
+            "name": "成長の否定",
+            "expr": "第二話：第三幕－６",
+            "cond": "サロモを退けろ！",
+            "mission": "OB_ST_NO_030056",
+            "drops": [
+                "IT_EQ_PIECE_RABBITDOLL",
+                "IT_EQ_PIECE_NOTEBOOK",
+                "IT_EQ_ATK_MACE"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030055"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "win": 1,
+            "lose": 1,
+            "evst": "QE03_2_3_06_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_mati_003",
+                    "set": "main_no_030056_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030057",
+            "title": "３章２話3-7",
+            "name": "どこを見てるのか",
+            "expr": "第二話：第三幕－７",
+            "cond": "サロモを退けろ！",
+            "mission": "OB_ST_NO_030057",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_WOR_AX",
+                "IT_EQ_DIAGRAMPIECE_ARMSWORD",
+                "IT_EQ_PIECE_TRUMPET"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030056"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "win": 1,
+            "lose": 1,
+            "evst": "QE03_2_3_07_a_3d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_jyoukamati_001",
+                    "set": "main_no_030057_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030058",
+            "title": "３章２話3-8",
+            "name": "目線の違い",
+            "expr": "第二話：第三幕－８",
+            "cond": "サロモを退けろ！",
+            "mission": "OB_ST_NO_030058",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_HUNTERMANTLE",
+                "IT_EQ_PIECE_MACHINEWING",
+                "IT_EQ_HP_CAP"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030057"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "win": 1,
+            "lose": 1,
+            "evst": "QE03_2_3_08_a_2d",
+            "evw": "QE03_2_3_08_b_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_jyoukamati_002",
+                    "set": "main_no_030058_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030059",
+            "title": "３章２話3-9",
+            "name": "アリの王",
+            "expr": "第二話：第三幕－９",
+            "cond": "カイザーを退けろ！",
+            "mission": "OB_ST_NO_030059",
+            "drops": [
+                "IT_EQ_PIECE_RADIO",
+                "IT_EQ_PIECE_KATAR",
+                "IT_EQ_MAG_WAND"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030058"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "win": 1,
+            "lose": 1,
+            "evst": "QE03_2_3_09_a_2d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_siromae_001",
+                    "set": "main_no_030059_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_NO_030060",
+            "title": "３章２話3-10",
+            "name": "断ち切られる連鎖",
+            "expr": "第二話：第三幕－１０",
+            "cond": "カイザーを倒せ！",
+            "mission": "OB_ST_NO_030060",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_HEELHAT",
+                "IT_EQ_DIAGRAMPIECE_MND_CAP",
+                "IT_EQ_DIAGRAMPIECE_ZAYI_ARMOR"
+            ],
+            "type": 0,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030059"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 560,
+            "gold": 3000,
+            "win": 1,
+            "lose": 1,
+            "evst": "QE03_2_3_10_a_2d",
+            "evw": "QE03_2_3_10_b_3d",
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_03_siromae_001",
+                    "set": "main_no_030060_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
             "iname": "QE_ST_HA_010001",
             "title": "【ハード】１章１話1-1",
             "name": "騒がしき旅立ち",
@@ -69591,6 +70317,186 @@
             ]
         },
         {
+            "iname": "QE_ST_HA_030017",
+            "title": "【ハード】３章２話3-1",
+            "name": "三つ巴の戦場",
+            "expr": "【ハード】第二話：第三幕－１",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_HA_030017",
+            "pieces": [
+                "IT_PI_MICHAEL"
+            ],
+            "drops": [
+                "IT_PI_MICHAEL",
+                "IT_EQ_DIAGRAMPIECE_BOILER",
+                "IT_EQ_PIECE_CHIKUONKI",
+                "IT_EQ_DIAGRAMPIECE_CIRCLET"
+            ],
+            "type": 4,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030051"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 920,
+            "gold": 7200,
+            "lose": 1,
+            "mode": 1,
+            "lv": 80,
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "limit": 3,
+            "dayreset": 1,
+            "map": [
+                {
+                    "scn": "bg_03_mati_001",
+                    "set": "main_ha_030051_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_HA_030018",
+            "title": "【ハード】３章２話3-2",
+            "name": "共存の証",
+            "expr": "【ハード】第二話：第三幕－２",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_HA_030018",
+            "pieces": [
+                "IT_PI_ENNIS"
+            ],
+            "drops": [
+                "IT_PI_ENNIS",
+                "IT_EQ_DIAGRAMPIECE_DRIFTER",
+                "IT_EQ_DIAGRAMPIECE_COMPASS",
+                "IT_EQ_DIAGRAM_VEST"
+            ],
+            "type": 4,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030052"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 920,
+            "gold": 7200,
+            "lose": 1,
+            "mode": 1,
+            "lv": 80,
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "limit": 3,
+            "dayreset": 1,
+            "map": [
+                {
+                    "scn": "bg_03_mati_002",
+                    "set": "main_ha_030052_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0019"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_HA_030019",
+            "title": "【ハード】３章２話3-9",
+            "name": "アリの王",
+            "expr": "【ハード】第二話：第三幕－９",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_HA_030019",
+            "pieces": [
+                "IT_PI_RION"
+            ],
+            "drops": [
+                "IT_PI_RION",
+                "IT_EQ_PIECE_RADIO",
+                "IT_EQ_PIECE_KATAR",
+                "IT_EQ_MAG_WAND"
+            ],
+            "type": 4,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030059"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 920,
+            "gold": 7200,
+            "lose": 1,
+            "mode": 1,
+            "lv": 80,
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "limit": 3,
+            "dayreset": 1,
+            "map": [
+                {
+                    "scn": "bg_03_siromae_001",
+                    "set": "main_ha_030059_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_ST_HA_030020",
+            "title": "【ハード】３章２話3-10",
+            "name": "断ち切られる連鎖",
+            "expr": "【ハード】第二話：第三幕－１０",
+            "cond": "敵を全滅せよ！",
+            "mission": "OB_ST_HA_030020",
+            "pieces": [
+                "IT_PI_ALAIA"
+            ],
+            "drops": [
+                "IT_PI_ALAIA",
+                "IT_EQ_DIAGRAMPIECE_HEELHAT",
+                "IT_EQ_DIAGRAMPIECE_MND_CAP",
+                "IT_EQ_DIAGRAMPIECE_TURBAN"
+            ],
+            "type": 4,
+            "world": "WD_10",
+            "area": "AR_03_06",
+            "cond_quests": [
+                "QE_ST_NO_030060"
+            ],
+            "units": [
+                "UN_V2_LIESBET"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 920,
+            "gold": 7200,
+            "lose": 1,
+            "mode": 1,
+            "lv": 80,
+            "ticket": "IT_US_TICKET",
+            "aplv": 1,
+            "limit": 3,
+            "dayreset": 1,
+            "map": [
+                {
+                    "scn": "bg_03_siromae_001",
+                    "set": "main_ha_030060_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
             "iname": "QE_TM_HA_EXP_LV1",
             "title": "【１日３回限定】",
             "name": "林檎の帝園[初級]",
@@ -72326,6 +73232,40 @@
             ]
         },
         {
+            "iname": "QE_LIMIT_MELEE_Lv1",
+            "title": "【期間限定】",
+            "name": "白兵の修練戦",
+            "expr": "スポット召還対応のコース、JobLv5程度向け",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_LIMIT_MELEE_Lv1",
+            "drops": [
+                "IT_EQ_PIECE_SABER",
+                "IT_EQ_PIECE_SHELM",
+                "IT_EQ_CRI_NEEDLE"
+            ],
+            "type": 5,
+            "subtype": 0,
+            "world": "WD_DAILY",
+            "area": "AR_EVENT_IT_EQ02",
+            "hide": 1,
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 250,
+            "gold": 2000,
+            "lv": 35,
+            "aplv": 1,
+            "atk_mag": "ATK_MAG_MELEE",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_env_shiro_zyouheki_001_A",
+                    "set": "limit_melee_lv1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
             "iname": "QE_LIMIT_LONGRANGE_Lv1",
             "title": "【期間限定】",
             "name": "遠戦の修練戦",
@@ -73832,7 +74772,7 @@
             "uexp": 150,
             "gold": 1000,
             "lv": 5,
-            "evst": "EQ_3APPLI_2017_01_a_2d_SG",
+            "evst": "EQ_3APPLI_2017_01_a_2d",
             "aplv": 1,
             "map": [
                 {
@@ -74887,6 +75827,426 @@
             ]
         },
         {
+            "iname": "QE_EV_UNDOUKAI_2017_MAGIC",
+            "title": "UnitLv40 JobLv5推奨",
+            "name": "第1種目：魔法玉入れ",
+            "expr": "大運動会2017(魔法玉入れ)",
+            "cond": "行動回数内にできるだけ魔人を倒せ",
+            "mission": "OB_EV_UNDOUKAI_2017_MAGIC",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_UNDOUKAI_2017",
+            "hide": 1,
+            "cond_quests": [
+                "QE_ST_NO_010030"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 350,
+            "gold": 2600,
+            "win": 3,
+            "lv": 45,
+            "aplv": 1,
+            "notcon": 1,
+            "map": [
+                {
+                    "scn": "bg_01_env_kyoukai_mae_001_A",
+                    "set": "ev_undoukai_2017_01_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0100"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_UNDOUKAI_2017_SPEED",
+            "title": "UnitLv40 JobLv5推奨",
+            "name": "第2種目：リレー",
+            "expr": "大運動会2017(リレー)",
+            "cond": "全ての走者とタッチして審判を倒せ！",
+            "mission": "OB_EV_UNDOUKAI_2017_SPEED",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_UNDOUKAI_2017",
+            "hide": 1,
+            "cond_quests": [
+                "QE_ST_NO_010030"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 350,
+            "gold": 2600,
+            "win": 1,
+            "lv": 45,
+            "aplv": 1,
+            "notcon": 1,
+            "map": [
+                {
+                    "scn": "bg_04_murahazure_002",
+                    "set": "ev_undoukai_2017_02_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0100",
+                    "ev": "BT_UNDOUKAI_2017_RELAY"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_UNDOUKAI_2017_ATTACK",
+            "title": "UnitLv40 JobLv5推奨",
+            "name": "第3種目：障害物競走",
+            "expr": "大運動会2017(障害物競走)",
+            "cond": "障害物を破壊し、相手より早くゴール地点へたどり着け",
+            "mission": "OB_EV_UNDOUKAI_2017_ATTACK",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_UNDOUKAI_2017",
+            "hide": 1,
+            "cond_quests": [
+                "QE_ST_NO_010030"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 350,
+            "gold": 2600,
+            "win": 1,
+            "lv": 45,
+            "aplv": 1,
+            "notcon": 1,
+            "map": [
+                {
+                    "scn": "bg_02_areti_008",
+                    "set": "ev_undoukai_2017_03_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0100",
+                    "ev": "BT_UNDOUKAI_2017_SC"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_UNDOUKAI_2017_DEF",
+            "title": "UnitLv40 JobLv5推奨",
+            "name": "第4種目：ディルガ像倒し",
+            "expr": "大運動会2017(ディルガ像倒し)",
+            "cond": "ディルガ像を守りつつ、ゴルマラス像を倒せ！",
+            "mission": "OB_EV_UNDOUKAI_2017_DEF",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_UNDOUKAI_2017",
+            "hide": 1,
+            "cond_quests": [
+                "QE_ST_NO_010030"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 350,
+            "gold": 2600,
+            "win": 1,
+            "lose": 1,
+            "lv": 45,
+            "aplv": 1,
+            "notcon": 1,
+            "map": [
+                {
+                    "scn": "bg_event_undoukai_001",
+                    "set": "ev_undoukai_2017_04_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0100",
+                    "ev": "BT_UNDOUKAI_2017"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SWIM_GORM_01",
+            "title": "１話",
+            "name": "狂気に満ちるゴルマラス",
+            "expr": "水着イベント/1話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SWIM_GORM_01",
+            "drops": [
+                "IT_EQ_PIECE_DILG_BUSTLE",
+                "IT_EQ_PIECE_DILG_GRIEVE",
+                "IT_EQ_PIECE_DILG_GAUNTLET",
+                "IT_EQ_DIAGRAMPIECE_HOLYSHIELD",
+                "IT_EQ_PIECE_ARMOR",
+                "IT_EQ_DIAGRAMPIECE_BELT",
+                "IT_EQ_DIAGRAMPIECE_CIRCLET",
+                "IT_EQ_PIECE_JACKET"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SWIM_GORM",
+            "hide": 1,
+            "pt": 12,
+            "pexp": 12,
+            "uexp": 200,
+            "gold": 2000,
+            "lv": 35,
+            "evst": "EQ_SUMMER2017_01_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_003",
+                    "set": "ev_swim_gorm_01_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0100"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SWIM_GORM_02",
+            "title": "２話",
+            "name": "古の褌伝説",
+            "expr": "水着イベント/2話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SWIM_GORM_02",
+            "drops": [
+                "IT_EQ_PIECE_DILG_BUSTLE",
+                "IT_EQ_PIECE_DILG_GRIEVE",
+                "IT_EQ_PIECE_DILG_GAUNTLET",
+                "IT_EQ_DIAGRAMPIECE_HOLYSHIELD",
+                "IT_EQ_PIECE_ARMOR",
+                "IT_EQ_DIAGRAMPIECE_BELT",
+                "IT_EQ_DIAGRAMPIECE_CIRCLET",
+                "IT_EQ_PIECE_JACKET"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SWIM_GORM",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_SWIM_GORM_01"
+            ],
+            "pt": 14,
+            "pexp": 14,
+            "uexp": 250,
+            "gold": 2200,
+            "lv": 45,
+            "evst": "EQ_SUMMER2017_02_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_003",
+                    "set": "ev_swim_gorm_02_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0100"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SWIM_GORM_03",
+            "title": "３話",
+            "name": "デ族とゴ族",
+            "expr": "水着イベント/3話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SWIM_GORM_03",
+            "drops": [
+                "IT_EQ_PIECE_DILG_BUSTLE",
+                "IT_EQ_PIECE_DILG_GRIEVE",
+                "IT_EQ_PIECE_DILG_GAUNTLET",
+                "IT_EQ_DIAGRAMPIECE_HOLYARMOR",
+                "IT_EQ_PIECE_ARMOR",
+                "IT_EQ_DIAGRAMPIECE_COMPASS",
+                "IT_EQ_PIECE_DICE",
+                "IT_EQ_PIECE_NOTEBOOK"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SWIM_GORM",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_SWIM_GORM_02"
+            ],
+            "pt": 16,
+            "pexp": 16,
+            "uexp": 300,
+            "gold": 2400,
+            "lv": 55,
+            "evst": "EQ_SUMMER2017_03_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_003",
+                    "set": "ev_swim_gorm_03_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0100"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SWIM_GORM_04",
+            "title": "４話",
+            "name": "漢、参上",
+            "expr": "水着イベント/4話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SWIM_GORM_04",
+            "drops": [
+                "IT_EQ_PIECE_DILG_BUSTLE",
+                "IT_EQ_PIECE_DILG_GRIEVE",
+                "IT_EQ_PIECE_DILG_GAUNTLET",
+                "IT_EQ_DIAGRAMPIECE_HOLYARMOR",
+                "IT_EQ_PIECE_ARMOR",
+                "IT_EQ_DIAGRAMPIECE_COMPASS",
+                "IT_EQ_PIECE_DICE",
+                "IT_EQ_PIECE_NOTEBOOK"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SWIM_GORM",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_SWIM_GORM_03"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 350,
+            "gold": 2600,
+            "lv": 65,
+            "evst": "EQ_SUMMER2017_04_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_event_beach_001",
+                    "set": "ev_swim_gorm_04_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0101",
+                    "ev": "BT_SUMMER2017_04"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SWIM_GORM_05",
+            "title": "５話",
+            "name": "褌祭の合戦",
+            "expr": "水着イベント/5話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SWIM_GORM_05",
+            "drops": [
+                "IT_EQ_PIECE_DILG_BUSTLE",
+                "IT_EQ_PIECE_DILG_GRIEVE",
+                "IT_EQ_PIECE_DILG_GAUNTLET",
+                "IT_EQ_DIAGRAMPIECE_HOLYARMOR",
+                "IT_EQ_PIECE_ARMOR",
+                "IT_EQ_DIAGRAMPIECE_COMPASS",
+                "IT_EQ_PIECE_DICE",
+                "IT_EQ_PIECE_NOTEBOOK"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SWIM_GORM",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_SWIM_GORM_04"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 400,
+            "gold": 2800,
+            "lv": 75,
+            "evst": "EQ_SUMMER2017_05_a_2d",
+            "evw": "EQ_SUMMER2017_05_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_event_ship_001",
+                    "set": "ev_swim_gorm_05_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0101",
+                    "ev": "BT_SUMMER2017_05"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SWIM_GORM_EX",
+            "title": "高難易度クエスト",
+            "name": "【EX】荒ぶる海の漢 -猛装伝-",
+            "expr": "水着イベント/EX",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SWIM_GORM_EX",
+            "drops": [
+                "IT_EQ_PIECE_DILG_BUSTLE",
+                "IT_EQ_PIECE_DILG_GRIEVE",
+                "IT_EQ_PIECE_DILG_GAUNTLET",
+                "IT_EQ_DIAGRAMPIECE_HOLYARMOR",
+                "IT_EQ_PIECE_ARMOR",
+                "IT_EQ_DIAGRAMPIECE_COMPASS",
+                "IT_EQ_PIECE_DICE",
+                "IT_EQ_PIECE_NOTEBOOK"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SWIM_GORM_EX",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_SWIM_GORM_05"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 400,
+            "gold": 5000,
+            "lv": 75,
+            "aplv": 1,
+            "extra": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_003",
+                    "set": "ev_swim_gorm_ex_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0101"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SWIM_GORM_EX_SP",
+            "title": "超高難易度クエスト",
+            "name": "【EX・極】荒ぶる海の漢 -猛装伝-",
+            "expr": "水着イベント/EX・極",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SWIM_GORM_EX_SP",
+            "drops": [
+                "IT_EQ_PIECE_DILG_BUSTLE",
+                "IT_EQ_PIECE_DILG_GRIEVE",
+                "IT_EQ_PIECE_DILG_GAUNTLET",
+                "IT_EQ_DIAGRAMPIECE_HOLYARMOR",
+                "IT_EQ_PIECE_ARMOR",
+                "IT_EQ_DIAGRAMPIECE_COMPASS",
+                "IT_EQ_PIECE_DICE",
+                "IT_EQ_PIECE_NOTEBOOK"
+            ],
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_SWIM_GORM_EX",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_SWIM_GORM_EX"
+            ],
+            "pt": 50,
+            "pexp": 50,
+            "uexp": 500,
+            "gold": 5000,
+            "lv": 85,
+            "aplv": 1,
+            "notcon": 1,
+            "extra": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_003",
+                    "set": "ev_swim_gorm_ex_sp_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0101"
+                }
+            ]
+        },
+        {
             "iname": "QE_WA_ZIN_1",
             "title": "UnitLv10 JobLv2推奨",
             "name": "黄泉路への帰郷1話　ヤミとカゼ",
@@ -75343,40 +76703,6 @@
                     "set": "ch_retzius_lv3_set",
                     "btl": "plain01",
                     "bgm": "BGM_0015"
-                }
-            ]
-        },
-        {
-            "iname": "QE_LIMIT_MELEE_Lv1",
-            "title": "【期間限定】",
-            "name": "白兵の修練戦",
-            "expr": "スポット召還対応のコース、JobLv5程度向け",
-            "cond": "敵を全滅させろ",
-            "mission": "OB_LIMIT_MELEE_Lv1",
-            "drops": [
-                "IT_EQ_PIECE_SABER",
-                "IT_EQ_PIECE_SHELM",
-                "IT_EQ_CRI_NEEDLE"
-            ],
-            "type": 5,
-            "subtype": 0,
-            "world": "WD_DAILY",
-            "area": "AR_EVENT_IT_EQ02",
-            "hide": 1,
-            "pt": 20,
-            "pexp": 20,
-            "uexp": 250,
-            "gold": 2000,
-            "lv": 35,
-            "aplv": 1,
-            "atk_mag": "ATK_MAG_MELEE",
-            "not_search": 1,
-            "map": [
-                {
-                    "scn": "bg_01_env_shiro_zyouheki_001_A",
-                    "set": "limit_melee_lv1_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0011"
                 }
             ]
         },
@@ -76233,7 +77559,8 @@
             "lv": 1,
             "evw": "EQ_ZEKE_04_b_3d",
             "aplv": 1,
-            "limit": 3,
+            "limit": 1,
+            "dayreset": 1,
             "rdy_cnd": "COND_LIMIT_17",
             "map": [
                 {
@@ -78770,6 +80097,339 @@
                 {
                     "scn": "bg_01_mori_M_004_N",
                     "set": "ch_shenmei_lv3_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_FUNGLIU_1",
+            "title": "Episode1",
+            "name": "思い出無き出身地",
+            "expr": "Lv.30から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_FUNGLIU_1",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_MAGICBREATH"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_FUNGLIU",
+            "units": [
+                "UN_V2_FUNGLIU"
+            ],
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 55,
+            "gold": 2000,
+            "lose": 1,
+            "lv": 30,
+            "evst": "CQ_FUNGLIU_01_a_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_FUNGLIU_1",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_03_mori_001",
+                    "set": "ch_fungliu_lv1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_FUNGLIU_2",
+            "title": "Episode2",
+            "name": "実験体零号",
+            "expr": "Lv.60から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_FUNGLIU_2",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ELEMENTAL"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_FUNGLIU",
+            "cond_quests": [
+                "QE_CH_FUNGLIU_1"
+            ],
+            "units": [
+                "UN_V2_FUNGLIU"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 110,
+            "gold": 3000,
+            "lose": 1,
+            "lv": 60,
+            "evst": "CQ_FUNGLIU_02_a_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_FUNGLIU_2",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_03_mori_002",
+                    "set": "ch_fungliu_lv2_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_FUNGLIU_3",
+            "title": "Episode3",
+            "name": "生まれたての涙",
+            "expr": "Lv.80から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_FUNGLIU_3",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ORB"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_FUNGLIU",
+            "cond_quests": [
+                "QE_CH_FUNGLIU_2"
+            ],
+            "units": [
+                "UN_V2_FUNGLIU"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 250,
+            "gold": 4000,
+            "lose": 1,
+            "lv": 80,
+            "evw": "CQ_FUNGLIU_03_b_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_FUNGLIU_3",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_03_mori_006",
+                    "set": "ch_fungliu_lv3_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_SUZUKA_1",
+            "title": "Episode1",
+            "name": "未知なる出会い",
+            "expr": "Lv.30から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_SUZUKA_1",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_CRANE"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_SUZUKA",
+            "units": [
+                "UN_V2_SUZUKA"
+            ],
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 55,
+            "gold": 2000,
+            "lose": 1,
+            "lv": 30,
+            "evst": "CQ_SUZUKA_01_a_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_SUZUKA_1",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mati_002_A",
+                    "set": "ch_suzuka_lv1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_SUZUKA_2",
+            "title": "Episode2",
+            "name": "可愛さとは",
+            "expr": "Lv.60から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_SUZUKA_2",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ZUKIN"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_SUZUKA",
+            "cond_quests": [
+                "QE_CH_SUZUKA_1"
+            ],
+            "units": [
+                "UN_V2_SUZUKA"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 110,
+            "gold": 3000,
+            "lose": 1,
+            "lv": 60,
+            "evst": "CQ_SUZUKA_02_a_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_SUZUKA_2",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_sougen_002_A",
+                    "set": "ch_suzuka_lv2_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_SUZUKA_3",
+            "title": "Episode3",
+            "name": "女子力の道も一歩から",
+            "expr": "Lv.80から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_SUZUKA_3",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_DARKKABUTO"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_SUZUKA",
+            "cond_quests": [
+                "QE_CH_SUZUKA_2"
+            ],
+            "units": [
+                "UN_V2_SUZUKA"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 250,
+            "gold": 4000,
+            "lose": 1,
+            "lv": 80,
+            "evw": "CQ_SUZUKA_03_b_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_SUZUKA_3",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_sougen_004_A",
+                    "set": "ch_suzuka_lv3_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_MIELIKKI_1",
+            "title": "Episode1",
+            "name": "森の迷子ちゃん",
+            "expr": "Lv.30から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_MIELIKKI_1",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ORB"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_MIELIKKI",
+            "units": [
+                "UN_V2_MIELIKKI"
+            ],
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 55,
+            "gold": 2000,
+            "lose": 1,
+            "lv": 30,
+            "evst": "CQ_MIELIKKI_01_a_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_MIELIKKI_1",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mori_H_002_A",
+                    "set": "ch_mielikki_lv1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_MIELIKKI_2",
+            "title": "Episode2",
+            "name": "静かな森の交流",
+            "expr": "Lv.60から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_MIELIKKI_2",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_MAGICBREATH"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_MIELIKKI",
+            "cond_quests": [
+                "QE_CH_MIELIKKI_1"
+            ],
+            "units": [
+                "UN_V2_MIELIKKI"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 110,
+            "gold": 3000,
+            "lose": 1,
+            "lv": 60,
+            "evst": "CQ_MIELIKKI_02_a_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_MIELIKKI_2",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mori_H_001_A",
+                    "set": "ch_mielikki_lv2_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_MIELIKKI_3",
+            "title": "Episode3",
+            "name": "ともだち",
+            "expr": "Lv.80から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_MIELIKKI_3",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ANGELA"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_MIELIKKI",
+            "cond_quests": [
+                "QE_CH_MIELIKKI_2"
+            ],
+            "units": [
+                "UN_V2_MIELIKKI"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 250,
+            "gold": 4000,
+            "lose": 1,
+            "lv": 80,
+            "evw": "CQ_MIELIKKI_03_b_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_MIELIKKI_3",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mori_H_007_A",
+                    "set": "ch_mielikki_lv3_set",
                     "btl": "plain01",
                     "bgm": "BGM_0011"
                 }
@@ -84504,6 +86164,34 @@
             ]
         },
         {
+            "iname": "QE_EV_GL_MH_02_MULTI_EX",
+            "title": "【期間限定】",
+            "name": "Deliverance[EX]",
+            "cond": "敵を全滅させろ",
+            "type": 1,
+            "subtype": 1,
+            "world": "WD_01",
+            "area": "MULTI_GL_MH",
+            "hide": 1,
+            "pt": 25,
+            "pexp": 50,
+            "uexp": 400,
+            "mcoin": 50,
+            "lv": 75,
+            "multi": 1,
+            "pnum": 4,
+            "unum": 1,
+            "multi_dead": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_mazin_001_N",
+                    "set": "ev_gl_mh_2_EX_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
             "iname": "QE_MULTI_EV_FATE_EX_1",
             "title": "【期間限定】",
             "name": "Fate/stay night [UBW]EX極ｽﾃｰｼﾞ1",
@@ -85242,6 +86930,36 @@
             ]
         },
         {
+            "iname": "QE_EV_MULTI_GORM_EX",
+            "title": "高難易度クエスト",
+            "name": "【EX】荒ぶる海の漢 -猛装伝-",
+            "expr": "水着イベント/EX",
+            "cond": "敵を全滅させろ",
+            "type": 1,
+            "world": "WD_01",
+            "area": "MULTI_SWIM_GORM",
+            "hide": 1,
+            "pt": 20,
+            "pexp": 40,
+            "uexp": 400,
+            "mcoin": 80,
+            "lv": 75,
+            "multi": 1,
+            "pnum": 4,
+            "unum": 1,
+            "multi_dead": 1,
+            "aplv": 1,
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "collabo_3Title_003",
+                    "set": "ev_swim_gorm_ex_m_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0101"
+                }
+            ]
+        },
+        {
             "iname": "QE_MULTI_WA_ZIN_EX_1",
             "title": "高難易度クエスト",
             "name": "【エクストラ】黄泉路への帰郷",
@@ -85274,6 +86992,78 @@
                 {
                     "scn": "bg_02_yama_002",
                     "set": "qe_wa_zin_ex_01_m_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_MULTI_SO_ZEKE_EX_2",
+            "title": "【期間限定】",
+            "name": "【2人用】【エクストラ】血狼と呼ばれても",
+            "expr": "ジーク邂逅",
+            "cond": "敵を全滅させろ",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ANAS_BLADE",
+                "IT_EQ_DIAGRAMPIECE_ANAS_GANTLET",
+                "IT_EQ_DIAGRAMPIECE_ANAS_BARRETTA",
+                "IT_EQ_DIAGRAMPIECE_ANAS_MAIL",
+                "IT_EQ_DIAGRAMPIECE_ANAS_BOOTS",
+                "IT_EQ_DIAGRAMPIECE_ANAS_BLOSSOM"
+            ],
+            "type": 1,
+            "world": "WD_01",
+            "area": "MULTI_SO_ZEKE",
+            "hide": 1,
+            "pt": 20,
+            "pexp": 40,
+            "uexp": 400,
+            "mcoin": 40,
+            "lv": 80,
+            "multi": 1,
+            "pnum": 2,
+            "unum": 2,
+            "multi_dead": 1,
+            "map": [
+                {
+                    "scn": "bg_02_tikasisetu_N",
+                    "set": "qe_so_zeke_EX_1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0025"
+                }
+            ]
+        },
+        {
+            "iname": "QE_MULTI_SO_ZEKE_EX_4",
+            "title": "【期間限定】",
+            "name": "【4人用】【エクストラ】血狼と呼ばれても",
+            "expr": "ジーク邂逅",
+            "cond": "敵を全滅させろ",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_ANAS_BLADE",
+                "IT_EQ_DIAGRAMPIECE_ANAS_GANTLET",
+                "IT_EQ_DIAGRAMPIECE_ANAS_BARRETTA",
+                "IT_EQ_DIAGRAMPIECE_ANAS_MAIL",
+                "IT_EQ_DIAGRAMPIECE_ANAS_BOOTS",
+                "IT_EQ_DIAGRAMPIECE_ANAS_BLOSSOM"
+            ],
+            "type": 1,
+            "world": "WD_01",
+            "area": "MULTI_SO_ZEKE",
+            "hide": 1,
+            "pt": 20,
+            "pexp": 40,
+            "uexp": 400,
+            "mcoin": 40,
+            "lv": 80,
+            "multi": 1,
+            "pnum": 4,
+            "unum": 1,
+            "multi_dead": 1,
+            "map": [
+                {
+                    "scn": "bg_02_tikasisetu_N",
+                    "set": "qe_so_zeke_EX_1_set",
                     "btl": "plain01",
                     "bgm": "BGM_0025"
                 }
@@ -86187,78 +87977,6 @@
                 {
                     "scn": "bg_01_mori_H_007_A",
                     "set": "qe_so_peri_ex_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0025"
-                }
-            ]
-        },
-        {
-            "iname": "QE_MULTI_SO_ZEKE_EX_2",
-            "title": "【期間限定】",
-            "name": "【2人用】【エクストラ】血狼と呼ばれても",
-            "expr": "ジーク邂逅",
-            "cond": "敵を全滅させろ",
-            "drops": [
-                "IT_EQ_DIAGRAMPIECE_ANAS_BLADE",
-                "IT_EQ_DIAGRAMPIECE_ANAS_GANTLET",
-                "IT_EQ_DIAGRAMPIECE_ANAS_BARRETTA",
-                "IT_EQ_DIAGRAMPIECE_ANAS_MAIL",
-                "IT_EQ_DIAGRAMPIECE_ANAS_BOOTS",
-                "IT_EQ_DIAGRAMPIECE_ANAS_BLOSSOM"
-            ],
-            "type": 1,
-            "world": "WD_01",
-            "area": "MULTI_SO_ZEKE",
-            "hide": 1,
-            "pt": 20,
-            "pexp": 40,
-            "uexp": 400,
-            "mcoin": 40,
-            "lv": 80,
-            "multi": 1,
-            "pnum": 2,
-            "unum": 2,
-            "multi_dead": 1,
-            "map": [
-                {
-                    "scn": "bg_02_tikasisetu_N",
-                    "set": "qe_so_zeke_EX_1_set",
-                    "btl": "plain01",
-                    "bgm": "BGM_0025"
-                }
-            ]
-        },
-        {
-            "iname": "QE_MULTI_SO_ZEKE_EX_4",
-            "title": "【期間限定】",
-            "name": "【4人用】【エクストラ】血狼と呼ばれても",
-            "expr": "ジーク邂逅",
-            "cond": "敵を全滅させろ",
-            "drops": [
-                "IT_EQ_DIAGRAMPIECE_ANAS_BLADE",
-                "IT_EQ_DIAGRAMPIECE_ANAS_GANTLET",
-                "IT_EQ_DIAGRAMPIECE_ANAS_BARRETTA",
-                "IT_EQ_DIAGRAMPIECE_ANAS_MAIL",
-                "IT_EQ_DIAGRAMPIECE_ANAS_BOOTS",
-                "IT_EQ_DIAGRAMPIECE_ANAS_BLOSSOM"
-            ],
-            "type": 1,
-            "world": "WD_01",
-            "area": "MULTI_SO_ZEKE",
-            "hide": 1,
-            "pt": 20,
-            "pexp": 40,
-            "uexp": 400,
-            "mcoin": 40,
-            "lv": 80,
-            "multi": 1,
-            "pnum": 4,
-            "unum": 1,
-            "multi_dead": 1,
-            "map": [
-                {
-                    "scn": "bg_02_tikasisetu_N",
-                    "set": "qe_so_zeke_EX_1_set",
                     "btl": "plain01",
                     "bgm": "BGM_0025"
                 }
@@ -88708,6 +90426,340 @@
                     "bgm": "BGM_0011"
                 }
             ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_02_01",
+            "title": "【期間限定】",
+            "name": "Stage 1: Run towards divinity",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_02_01",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_02",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_01_10"
+            ],
+            "pt": 8,
+            "pexp": 8,
+            "uexp": 20,
+            "gold": 900,
+            "lv": 5,
+            "evst": "EQ_GL_MH_C01_Ep02_01_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_areti_003_N",
+                    "set": "ev_gl_mh_2_01_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_02_02",
+            "title": "【期間限定】",
+            "name": "Stage 2: Crisis",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_02_02",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_02",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_02_01"
+            ],
+            "pt": 8,
+            "pexp": 8,
+            "uexp": 50,
+            "gold": 1200,
+            "lv": 10,
+            "evst": "EQ_GL_MH_C01_Ep02_02_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_001_N",
+                    "set": "ev_gl_mh_2_02_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_02_03",
+            "title": "【期間限定】",
+            "name": "Stage 3: The Red Tithe",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_02_03",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_02",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_02_02"
+            ],
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 100,
+            "gold": 1500,
+            "lv": 15,
+            "evst": "EQ_GL_MH_C01_Ep02_03_a_2d",
+            "evw": "EQ_GL_MH_C01_Ep02_03_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_003_N",
+                    "set": "ev_gl_mh_2_03_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_02_04",
+            "title": "【期間限定】",
+            "name": "Stage 4: The Wolf Lord",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_02_04",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_02",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_02_03"
+            ],
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 150,
+            "gold": 1800,
+            "lv": 20,
+            "evst": "EQ_GL_MH_C01_Ep02_04_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_004_N",
+                    "set": "ev_gl_mh_2_04_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_02_05",
+            "title": "【期間限定】",
+            "name": "Stage 5: To Rouse The Guardian",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_02_05",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_02",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_02_04"
+            ],
+            "pt": 16,
+            "pexp": 16,
+            "uexp": 200,
+            "gold": 2000,
+            "lv": 25,
+            "evst": "EQ_GL_MH_C01_Ep02_05_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_006_N",
+                    "set": "ev_gl_mh_2_05_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_02_06",
+            "title": "【期間限定】",
+            "name": "Stage 6: A Divine Outburst",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_02_06",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_02",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_02_05"
+            ],
+            "pt": 16,
+            "pexp": 16,
+            "uexp": 250,
+            "gold": 2200,
+            "lv": 30,
+            "evst": "EQ_GL_MH_C01_Ep02_06_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_006_N",
+                    "set": "ev_gl_mh_2_06_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_02_07",
+            "title": "【期間限定】",
+            "name": "Stage 7: An Unexpected Guest",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_02_07",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_02",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_02_06"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 300,
+            "gold": 2400,
+            "lv": 35,
+            "evst": "EQ_GL_MH_C01_Ep02_07_a_2d",
+            "evw": "EQ_GL_MH_C01_Ep02_07_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_007_N",
+                    "set": "ev_gl_mh_2_07_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_02_08",
+            "title": "【期間限定】",
+            "name": "Stage 8: Spiriting Away",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_02_08",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_02",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_02_07"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 350,
+            "gold": 2600,
+            "lv": 40,
+            "evst": "EQ_GL_MH_C01_Ep02_08_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_005_N",
+                    "set": "ev_gl_mh_2_08_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_02_09",
+            "title": "【期間限定】",
+            "name": "Stage 9: Diverging Paths",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_02_09",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_02",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_02_08"
+            ],
+            "pt": 24,
+            "pexp": 24,
+            "uexp": 400,
+            "gold": 2800,
+            "lv": 45,
+            "evst": "EQ_GL_MH_C01_Ep02_09_a_2d",
+            "evw": "EQ_GL_MH_C01_Ep02_09_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_005_N",
+                    "set": "ev_gl_mh_2_09_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_02_10",
+            "title": "【期間限定】",
+            "name": "Stage 10: The End of Duty",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_02_10",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_02",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_02_09"
+            ],
+            "pt": 24,
+            "pexp": 24,
+            "uexp": 200,
+            "gold": 1300,
+            "lv": 50,
+            "evst": "EQ_GL_MH_C01_Ep02_10_a_2d",
+            "evw": "EQ_GL_MH_C01_Ep02_10_b_2d",
+            "aplv": 1,
+            "rdy_cnd": "COND_GL_MH_02_10",
+            "map": [
+                {
+                    "scn": "bg_01_iseki_mazin_001_N",
+                    "set": "ev_gl_mh_2_10_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_02_EX",
+            "title": "【期間限定】",
+            "name": "Deliverance[EX]",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_02_EX",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_02",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_02_10"
+            ],
+            "pt": 50,
+            "pexp": 50,
+            "uexp": 400,
+            "gold": 5000,
+            "lv": 75,
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_mazin_001_N",
+                    "set": "ev_gl_mh_2_EX_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
         }
     ],
     "rankingQuestRewards": [
@@ -90489,6 +92541,141 @@
                     "scn": "tower_normal_0c_13",
                     "set": "tower_babel01_065_set",
                     "bgm": "BGM_0103"
+                }
+            ]
+        },
+        {
+            "iname": "TW_BABEL_FLOOR_066",
+            "title": "異層塔ヴェーダ",
+            "floor": 66,
+            "name": "66F",
+            "cond": "敵を全滅させろ",
+            "tower_id": "QE_TW_BABEL",
+            "cond_quest": "TW_BABEL_FLOOR_065",
+            "rand_tag": [
+                0,
+                0,
+                0,
+                0
+            ],
+            "lv": 85,
+            "joblv": 11,
+            "can_help": 0,
+            "rdy_cnd": "COND_TOWER_066",
+            "reward_id": "TW_BABEL_FLOOR_066",
+            "map": [
+                {
+                    "scn": "tower_normal_0a_12",
+                    "set": "tower_babel01_066_set",
+                    "bgm": "BGM_0103"
+                }
+            ]
+        },
+        {
+            "iname": "TW_BABEL_FLOOR_067",
+            "title": "異層塔ヴェーダ",
+            "floor": 67,
+            "name": "67F",
+            "cond": "敵を全滅させろ",
+            "tower_id": "QE_TW_BABEL",
+            "cond_quest": "TW_BABEL_FLOOR_066",
+            "rand_tag": [
+                0,
+                0,
+                0,
+                0
+            ],
+            "lv": 85,
+            "joblv": 11,
+            "can_help": 0,
+            "rdy_cnd": "COND_TOWER_067",
+            "reward_id": "TW_BABEL_FLOOR_067",
+            "map": [
+                {
+                    "scn": "tower_normal_0a_14",
+                    "set": "tower_babel01_067_set",
+                    "bgm": "BGM_0103"
+                }
+            ]
+        },
+        {
+            "iname": "TW_BABEL_FLOOR_068",
+            "title": "異層塔ヴェーダ",
+            "floor": 68,
+            "name": "68F",
+            "cond": "敵を全滅させろ",
+            "tower_id": "QE_TW_BABEL",
+            "cond_quest": "TW_BABEL_FLOOR_067",
+            "rand_tag": [
+                0,
+                0,
+                0,
+                0
+            ],
+            "lv": 85,
+            "joblv": 11,
+            "can_help": 0,
+            "rdy_cnd": "COND_TOWER_068",
+            "reward_id": "TW_BABEL_FLOOR_068",
+            "map": [
+                {
+                    "scn": "tower_normal_0a_13",
+                    "set": "tower_babel01_068_set",
+                    "bgm": "BGM_0103"
+                }
+            ]
+        },
+        {
+            "iname": "TW_BABEL_FLOOR_069",
+            "title": "異層塔ヴェーダ",
+            "floor": 69,
+            "name": "69F",
+            "cond": "敵を全滅させろ",
+            "tower_id": "QE_TW_BABEL",
+            "cond_quest": "TW_BABEL_FLOOR_068",
+            "rand_tag": [
+                0,
+                0,
+                0,
+                0
+            ],
+            "lv": 85,
+            "joblv": 11,
+            "can_help": 0,
+            "rdy_cnd": "COND_TOWER_069",
+            "reward_id": "TW_BABEL_FLOOR_069",
+            "map": [
+                {
+                    "scn": "tower_normal_0b_13",
+                    "set": "tower_babel01_069_set",
+                    "bgm": "BGM_0104"
+                }
+            ]
+        },
+        {
+            "iname": "TW_BABEL_FLOOR_070",
+            "title": "異層塔ヴェーダ",
+            "floor": 70,
+            "name": "70F",
+            "cond": "敵を全滅させろ",
+            "tower_id": "QE_TW_BABEL",
+            "cond_quest": "TW_BABEL_FLOOR_069",
+            "rand_tag": [
+                0,
+                0,
+                0,
+                0
+            ],
+            "lv": 85,
+            "joblv": 11,
+            "can_help": 0,
+            "rdy_cnd": "COND_TOWER_070",
+            "reward_id": "TW_BABEL_FLOOR_070",
+            "map": [
+                {
+                    "scn": "tower_normal_0c_12",
+                    "set": "tower_babel01_070_set",
+                    "bgm": "BGM_0104"
                 }
             ]
         }

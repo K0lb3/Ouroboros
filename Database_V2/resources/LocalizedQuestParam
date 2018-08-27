@@ -170,8 +170,8 @@ SRPG_ChapterParam_AR_EVENT_UEXP_02_NAME	[EXP Quest]
 SRPG_ChapterParam_AR_EVENT_UEXP_02_EXPR	Ultra EXP! The Way to True Skill
 SRPG_ChapterParam_AR_3TITLE_NAME	The Sun God and the Golden Key
 SRPG_ChapterParam_AR_3TITLE_EXPR	The Sun God and the Golden Key
-SRPG_ChapterParam_AR_3TITLE_EX_NAME	The Sun God and the Golden Key - Ex
-SRPG_ChapterParam_AR_3TITLE_EX_EXPR	The Sun God and the Golden Key - Ex
+SRPG_ChapterParam_AR_3TITLE_EX_NAME	The Sun God and the Golden Key - EX
+SRPG_ChapterParam_AR_3TITLE_EX_EXPR	The Sun God and the Golden Key - EX
 SRPG_ChapterParam_AR_3TITLE_GL_END_TOP_NAME	[True Ending] The Sun God and the Golden Key
 SRPG_ChapterParam_AR_3TITLE_GL_END_TOP_EXPR	[True Ending] The Sun God and the Golden Key
 SRPG_ChapterParam_AR_3TITLE_END1_NAME	The Sun God and the Golden Key - Episode 1
@@ -192,10 +192,10 @@ SRPG_ChapterParam_AR_FATHERS_2017_NAME	Logi & Dias Gift on Father's Day
 SRPG_ChapterParam_AR_FATHERS_2017_EXPR	Father's Day Quest
 SRPG_ChapterParam_AR_EVENT_TANABATA_NAME	[Limited Time]
 SRPG_ChapterParam_AR_EVENT_TANABATA_EXPR	Tanabata Quest
-SRPG_ChapterParam_AR_UNDOUKAI_2017_NAME	TAC Sports Meet 2018
-SRPG_ChapterParam_AR_UNDOUKAI_2017_EXPR	TAC Sports Meet 2018
-SRPG_ChapterParam_AR_EV_BLANCHETT_NAME	[Max 1/d] Blanshett's Wolf Hunting
-SRPG_ChapterParam_AR_EV_BLANCHETT_EXPR	Blanshett Encounter Celebration Quest
+SRPG_ChapterParam_AR_UNDOUKAI_2017_NAME	Summer Sports Meet
+SRPG_ChapterParam_AR_UNDOUKAI_2017_EXPR	Summer Sports Meet
+SRPG_ChapterParam_AR_EV_BLANCHETT_NAME	[Max 1/d] Blanchett's Wolf Hunting
+SRPG_ChapterParam_AR_EV_BLANCHETT_EXPR	Blanchett Encounter Celebration Quest
 SRPG_ChapterParam_AR_SWIM_PRESENT_01_NAME	No Women Allowed! Fight! Manliness Lessons Now Accepting Second-Term Students!
 SRPG_ChapterParam_AR_SWIM_PRESENT_01_EXPR	No Women Allowed! Fight! Manliness Lessons Now Accepting Second-Term Students!
 SRPG_ChapterParam_AR_EVENT_IT_EQ_NAME	[Limited Time]
@@ -294,12 +294,12 @@ SRPG_ChapterParam_AR_SO_SABALETA_EX_NAME	Lizards of the Lost Kingdom
 SRPG_ChapterParam_AR_SO_SABALETA_EX_EXPR	Lizards of the Lost Kingdom
 SRPG_ChapterParam_AR_WEDDING_2017_NAME	Marriage-Go-Round
 SRPG_ChapterParam_AR_WEDDING_2017_EXPR	Marriage-Go-Round
-SRPG_ChapterParam_AR_WEDDING_2017_EX_NAME	Marriage-Go-Round Ex
-SRPG_ChapterParam_AR_WEDDING_2017_EX_EXPR	Marriage-Go-Round Ex
+SRPG_ChapterParam_AR_WEDDING_2017_EX_NAME	Marriage-Go-Round EX
+SRPG_ChapterParam_AR_WEDDING_2017_EX_EXPR	Marriage-Go-Round EX
 SRPG_ChapterParam_AR_SO_JUSTIN_NAME	Justin's Justice
 SRPG_ChapterParam_AR_SO_JUSTIN_EXPR	Justin's Justice
-SRPG_ChapterParam_AR_SO_JUSTIN_EX_NAME	Justin's Justice Ex
-SRPG_ChapterParam_AR_SO_JUSTIN_EX_EXPR	Justin's Justice Ex
+SRPG_ChapterParam_AR_SO_JUSTIN_EX_NAME	Justin's Justice EX
+SRPG_ChapterParam_AR_SO_JUSTIN_EX_EXPR	Justin's Justice EX
 SRPG_ChapterParam_AR_WA_ZIN_NAME	Return to the Underworld
 SRPG_ChapterParam_AR_WA_ZIN_EXPR	Jin Gear Quest
 SRPG_ChapterParam_AR_WA_ZIN_EX_NAME	Return to the Underworld [EX]
@@ -318,9 +318,9 @@ SRPG_ChapterParam_AR_SWIM_DILG_EX_2_NAME	Max
 SRPG_ChapterParam_AR_SWIM_DILG_EX_2_EXPR	Savage Sea Warrior [EX]
 SRPG_ChapterParam_AR_EVENT_PEXP_NAME	[EXP Quest]
 SRPG_ChapterParam_AR_EVENT_PEXP_EXPR	Experience of Wrath! Hero Empire
-SRPG_ChapterParam_AR_SWIM_GORM_NAME	Savage Sea Warrior Storm Legend Ex
+SRPG_ChapterParam_AR_SWIM_GORM_NAME	Savage Sea Warrior Storm Legend
 SRPG_ChapterParam_AR_SWIM_GORM_EXPR	Swimsuit Event (Gormalas)
-SRPG_ChapterParam_AR_SWIM_GORM_EX_NAME	Savage Sea Warrior Storm Legend Ex
+SRPG_ChapterParam_AR_SWIM_GORM_EX_NAME	Savage Sea Warrior Storm Legend EX
 SRPG_ChapterParam_AR_SWIM_GORM_EX_EXPR	Swimsuit Event (Gormalas) EX
 SRPG_ChapterParam_AR_SO_DARTAGNAN_NAME	Stairway to Heaven
 SRPG_ChapterParam_AR_SO_DARTAGNAN_EXPR	Stairway to Heaven
@@ -332,8 +332,8 @@ SRPG_ChapterParam_AR_SO_YUTO_EX_NAME	Forest Protector
 SRPG_ChapterParam_AR_SO_YUTO_EX_EXPR	Forest Protector [EX]
 SRPG_ChapterParam_AR_SO_CELLIERS_NAME	Crystal-Shot Heart
 SRPG_ChapterParam_AR_SO_CELLIERS_EXPR	Crystal-Shot Heart
-SRPG_ChapterParam_AR_SO_CELLIERS_EX_NAME	Crystal-Shot Heart Ex
-SRPG_ChapterParam_AR_SO_CELLIERS_EX_EXPR	Crystal-Shot Heart Ex
+SRPG_ChapterParam_AR_SO_CELLIERS_EX_NAME	Crystal-Shot Heart EX
+SRPG_ChapterParam_AR_SO_CELLIERS_EX_EXPR	Crystal-Shot Heart EX
 SRPG_ChapterParam_AR_SO_ERURIKE_NAME	The Desert Merchant
 SRPG_ChapterParam_AR_SO_ERURIKE_EXPR	The Desert Merchant
 SRPG_ChapterParam_AR_SO_ZEKE_NAME	Blood Wolf by Any Other Name
@@ -344,8 +344,8 @@ SRPG_ChapterParam_AR_SO_PERI_EX_NAME	Sunrays Beyond Reach
 SRPG_ChapterParam_AR_SO_PERI_EX_EXPR	Sunrays Beyond Reach
 SRPG_ChapterParam_AR_SO_FEIRIN_NAME	Encounters, Fate, and the Sound of Pipa
 SRPG_ChapterParam_AR_SO_FEIRIN_EXPR	Encounters, Fate, and the Sound of Pipa
-SRPG_ChapterParam_AR_SO_FEIRIN_EX_NAME	Encounters, Fate, and the Sound of Pipa Ex
-SRPG_ChapterParam_AR_SO_FEIRIN_EX_EXPR	Encounters, Fate, and the Sound of Pipa Ex
+SRPG_ChapterParam_AR_SO_FEIRIN_EX_NAME	Encounters, Fate, and the Sound of Pipa EX
+SRPG_ChapterParam_AR_SO_FEIRIN_EX_EXPR	Encounters, Fate, and the Sound of Pipa EX
 SRPG_ChapterParam_AR_HALL_ALEX_NAME	Halloween Sugar Rush!
 SRPG_ChapterParam_AR_HALL_ALEX_EXPR	Halloween Sugar Rush!
 SRPG_ChapterParam_AR_HALL_ALEX_EX_NAME	Halloween Sugar Rush!
@@ -649,7 +649,7 @@ SRPG_ChapterParam_MULTI_AR_XMAS_EX_EXPR	Winter Holiday Time in Babel [EX]
 SRPG_ChapterParam_MULTI_AR_VALENTINE_EX_NAME	Max
 SRPG_ChapterParam_MULTI_AR_VALENTINE_EX_EXPR	Chocolate Toy Box [EX]
 SRPG_ChapterParam_MULTI_AR_HALL_HAYATE_EX_NAME	Max
-SRPG_ChapterParam_MULTI_AR_HALL_HAYATE_EX_EXPR	[Ex] Squeak Squeak ★ Halloween!!!
+SRPG_ChapterParam_MULTI_AR_HALL_HAYATE_EX_EXPR	[EX] Squeak Squeak ★ Halloween!!!
 SRPG_ChapterParam_MULTI_POK_EX_NAME	Max
 SRPG_ChapterParam_MULTI_POK_EX_EXPR	Phantom of the Alchemist [EX]
 SRPG_ChapterParam_MULTI_POK2_EX_NAME	Max
@@ -660,8 +660,8 @@ SRPG_ChapterParam_MULTI_SEISEKI_DJ_NAME	Max
 SRPG_ChapterParam_MULTI_SEISEKI_DJ_EXPR	Sacred Stone Memories
 SRPG_ChapterParam_MULTI_POK_SAM_EX_NAME	3 Titles Collaboration
 SRPG_ChapterParam_MULTI_POK_SAM_EX_EXPR	3 Titles Collaboration
-SRPG_ChapterParam_MULTI_3TITLE_EX_NAME	The Sun God and the Golden Key - Ex
-SRPG_ChapterParam_MULTI_3TITLE_EX_EXPR	The Sun God and the Golden Key - Ex
+SRPG_ChapterParam_MULTI_3TITLE_EX_NAME	The Sun God and the Golden Key - EX
+SRPG_ChapterParam_MULTI_3TITLE_EX_EXPR	The Sun God and the Golden Key - EX
 SRPG_ChapterParam_MULTI_SWIM_GORM_NAME	Max
 SRPG_ChapterParam_MULTI_SWIM_GORM_EXPR	Savage Sea Warrior -Storm Legend- [EX]
 SRPG_ChapterParam_MULTI_SO_FEIRIN_NAME	Max
@@ -1300,7 +1300,7 @@ SRPG_QuestParam_QE_ST_NO_010149_NAME	Logi and Dias
 SRPG_QuestParam_QE_ST_NO_010149_EXPR	Episode 5: Act 3-9
 SRPG_QuestParam_QE_ST_NO_010149_COND	Fight off Dias!
 SRPG_QuestParam_QE_ST_NO_010149_TITLE	Ch 1: Ep 5 [3-9]
-SRPG_QuestParam_QE_ST_NO_010150_NAME	The Code...
+SRPG_QuestParam_QE_ST_NO_010150_NAME	For Whom...
 SRPG_QuestParam_QE_ST_NO_010150_EXPR	Episode 5: Act 3-10
 SRPG_QuestParam_QE_ST_NO_010150_COND	Fight off Dias!
 SRPG_QuestParam_QE_ST_NO_010150_TITLE	Ch 1: Ep 5 [3-10]
@@ -2820,7 +2820,7 @@ SRPG_QuestParam_QE_ST_HA_010049_NAME	Riot in the Capital
 SRPG_QuestParam_QE_ST_HA_010049_EXPR	[Hard] Episode 5: Act 3-4
 SRPG_QuestParam_QE_ST_HA_010049_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_ST_HA_010049_TITLE	[Hard] Ch 1: Ep 5 [3-4]
-SRPG_QuestParam_QE_ST_HA_010050_NAME	The Code...
+SRPG_QuestParam_QE_ST_HA_010050_NAME	For Whom...
 SRPG_QuestParam_QE_ST_HA_010050_EXPR	[Hard] Episode 5: Act 3-10
 SRPG_QuestParam_QE_ST_HA_010050_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_ST_HA_010050_TITLE	[Hard] Ch 1: Ep 5 [3-10]
@@ -3996,25 +3996,25 @@ SRPG_QuestParam_QE_SO_YUTO_EX_1_EXPR	Encounter with Yuto Quest
 SRPG_QuestParam_QE_SO_YUTO_EX_1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_SO_YUTO_EX_1_TITLE	[Limited Time]
 SRPG_QuestParam_QE_SO_BLAN_1_NAME	Beyond Life or Death Episode 1
-SRPG_QuestParam_QE_SO_BLAN_1_EXPR	Encounter with Blanshett Quest
+SRPG_QuestParam_QE_SO_BLAN_1_EXPR	Encounter with Blanchett Quest
 SRPG_QuestParam_QE_SO_BLAN_1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_SO_BLAN_1_TITLE	Unit Lv10 JobLv2 Recommended
 SRPG_QuestParam_QE_SO_BLAN_2_NAME	Beyond Life or Death Episode 2
-SRPG_QuestParam_QE_SO_BLAN_2_EXPR	Encounter with Blanshett Quest
+SRPG_QuestParam_QE_SO_BLAN_2_EXPR	Encounter with Blanchett Quest
 SRPG_QuestParam_QE_SO_BLAN_2_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_SO_BLAN_2_TITLE	Unit Lv35 JobLv6 Recommended
 SRPG_QuestParam_QE_SO_BLAN_3_NAME	Beyond Life or Death Episode 3
-SRPG_QuestParam_QE_SO_BLAN_3_EXPR	Encounter with Blanshett Quest
+SRPG_QuestParam_QE_SO_BLAN_3_EXPR	Encounter with Blanchett Quest
 SRPG_QuestParam_QE_SO_BLAN_3_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_SO_BLAN_3_TITLE	Unit Lv65 JobLv9 Recommended
 SRPG_QuestParam_QE_SO_BLAN_EX_1_NAME	Beyond Life or Death [EX]
-SRPG_QuestParam_QE_SO_BLAN_EX_1_EXPR	Encounter with Blanshett Quest
+SRPG_QuestParam_QE_SO_BLAN_EX_1_EXPR	Encounter with Blanchett Quest
 SRPG_QuestParam_QE_SO_BLAN_EX_1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_SO_BLAN_EX_1_TITLE	Hard - Map
-SRPG_QuestParam_QE_EV_BLANCHETT_01_NAME	Blanshett's Wolf Hunting
-SRPG_QuestParam_QE_EV_BLANCHETT_01_EXPR	Blanshett Encounter Celebration Quest
+SRPG_QuestParam_QE_EV_BLANCHETT_01_NAME	Blanchett's Wolf Hunting
+SRPG_QuestParam_QE_EV_BLANCHETT_01_EXPR	Blanchett Encounter Celebration Quest
 SRPG_QuestParam_QE_EV_BLANCHETT_01_COND	Defeat as many opponents as possible!
-SRPG_QuestParam_QE_EV_BLANCHETT_01_TITLE	1/d Blanshett Exclusive
+SRPG_QuestParam_QE_EV_BLANCHETT_01_TITLE	1/d Blanchett Exclusive
 SRPG_QuestParam_QE_SO_JUSTIN_1_NAME	Justin's Justice Story 1
 SRPG_QuestParam_QE_SO_JUSTIN_1_EXPR	Encounter with Justin Quest
 SRPG_QuestParam_QE_SO_JUSTIN_1_COND	Defeat all enemy units!
@@ -4427,7 +4427,7 @@ SRPG_QuestParam_QE_CH_FUNGLIU_1_NAME	Origin of No Memories
 SRPG_QuestParam_QE_CH_FUNGLIU_1_EXPR	From Lv30
 SRPG_QuestParam_QE_CH_FUNGLIU_1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_CH_FUNGLIU_1_TITLE	Episode 1
-SRPG_QuestParam_QE_CH_FUNGLIU_2_NAME	Prototype Zerp
+SRPG_QuestParam_QE_CH_FUNGLIU_2_NAME	Prototype Zero
 SRPG_QuestParam_QE_CH_FUNGLIU_2_EXPR	From Lv60
 SRPG_QuestParam_QE_CH_FUNGLIU_2_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_CH_FUNGLIU_2_TITLE	Episode 2
@@ -5039,34 +5039,34 @@ SRPG_QuestParam_QE_EV_HA_SEISEKI_DJ_09_NAME	Obtain Basheeny Soul Shards
 SRPG_QuestParam_QE_EV_HA_SEISEKI_DJ_09_EXPR	Sacred Stone Hard
 SRPG_QuestParam_QE_EV_HA_SEISEKI_DJ_09_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_HA_SEISEKI_DJ_09_TITLE	[Hard] Sacred Stone Memories
-SRPG_QuestParam_QE_EV_SWIM_GORM_01_NAME	Madness-Fallen Gormalas
+SRPG_QuestParam_QE_EV_SWIM_GORM_01_NAME	Madness-Fallen Gormalas - Episode 1
 SRPG_QuestParam_QE_EV_SWIM_GORM_01_EXPR	Swimsuit Event - Act 1
 SRPG_QuestParam_QE_EV_SWIM_GORM_01_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_GORM_01_TITLE	Episode 1
-SRPG_QuestParam_QE_EV_SWIM_GORM_02_NAME	Ancient Legend
+SRPG_QuestParam_QE_EV_SWIM_GORM_01_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_SWIM_GORM_02_NAME	Ancient Legend - Episode 2
 SRPG_QuestParam_QE_EV_SWIM_GORM_02_EXPR	Swimsuit Event - Act 2
 SRPG_QuestParam_QE_EV_SWIM_GORM_02_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_GORM_02_TITLE	Episode 2
-SRPG_QuestParam_QE_EV_SWIM_GORM_03_NAME	De Tribe & Go Tribe
+SRPG_QuestParam_QE_EV_SWIM_GORM_02_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_SWIM_GORM_03_NAME	De Tribe & Go Tribe - Episode 3
 SRPG_QuestParam_QE_EV_SWIM_GORM_03_EXPR	Swimsuit Event - Act 3
 SRPG_QuestParam_QE_EV_SWIM_GORM_03_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_GORM_03_TITLE	Episode 3
-SRPG_QuestParam_QE_EV_SWIM_GORM_04_NAME	The Man Has Arrived
+SRPG_QuestParam_QE_EV_SWIM_GORM_03_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_SWIM_GORM_04_NAME	The Man Has Arrived - Episode 4
 SRPG_QuestParam_QE_EV_SWIM_GORM_04_EXPR	Swimsuit Event - Act 4
 SRPG_QuestParam_QE_EV_SWIM_GORM_04_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_GORM_04_TITLE	Episode 4
-SRPG_QuestParam_QE_EV_SWIM_GORM_05_NAME	Festive Battle
+SRPG_QuestParam_QE_EV_SWIM_GORM_04_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_SWIM_GORM_05_NAME	Festive Battle - Episode 5
 SRPG_QuestParam_QE_EV_SWIM_GORM_05_EXPR	Swimsuit Event - Act 5
 SRPG_QuestParam_QE_EV_SWIM_GORM_05_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_GORM_05_TITLE	Episode 5
+SRPG_QuestParam_QE_EV_SWIM_GORM_05_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_SWIM_GORM_EX_NAME	Savage Sea Warrior -Storm Legend- [EX]
 SRPG_QuestParam_QE_EV_SWIM_GORM_EX_EXPR	Swimsuit Event - EX
 SRPG_QuestParam_QE_EV_SWIM_GORM_EX_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_GORM_EX_TITLE	Hard Quest
-SRPG_QuestParam_QE_EV_SWIM_GORM_EX_SP_NAME	[Ex+] Savage Sea Warrior -Storm Legend-
+SRPG_QuestParam_QE_EV_SWIM_GORM_EX_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_SWIM_GORM_EX_SP_NAME	Savage Sea Warrior -Storm Legend- [Ex+]
 SRPG_QuestParam_QE_EV_SWIM_GORM_EX_SP_EXPR	Swimsuit Event - EX+
 SRPG_QuestParam_QE_EV_SWIM_GORM_EX_SP_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_GORM_EX_SP_TITLE	Extreme Hard Quest
+SRPG_QuestParam_QE_EV_SWIM_GORM_EX_SP_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_SWIM_DILG_01_NAME	Pirate Raid - Episode 1
 SRPG_QuestParam_QE_EV_SWIM_DILG_01_EXPR	Swimsuit Event - Act 1
 SRPG_QuestParam_QE_EV_SWIM_DILG_01_COND	Defeat all enemy units!
@@ -5251,20 +5251,20 @@ SRPG_QuestParam_QE_EV_WEDDING_2017_EX_SP_NAME	[Ex+] Marriage-Go-Round
 SRPG_QuestParam_QE_EV_WEDDING_2017_EX_SP_EXPR	Wedding Event - EX+
 SRPG_QuestParam_QE_EV_WEDDING_2017_EX_SP_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_WEDDING_2017_EX_SP_TITLE	Extreme Hard Quest
-SRPG_QuestParam_QE_EV_UNDOUKAI_2017_MAGIC_NAME	1st Discipline: Magic-Ball Game
-SRPG_QuestParam_QE_EV_UNDOUKAI_2017_MAGIC_EXPR	Sports Day 2017 (Magic-Ball Game)
+SRPG_QuestParam_QE_EV_UNDOUKAI_2017_MAGIC_NAME	1st Event: Magic-Ball Game
+SRPG_QuestParam_QE_EV_UNDOUKAI_2017_MAGIC_EXPR	Summer Sports Meet (Magic-Ball Game)
 SRPG_QuestParam_QE_EV_UNDOUKAI_2017_MAGIC_COND	Defeat as many Demons as possible within turn limit
 SRPG_QuestParam_QE_EV_UNDOUKAI_2017_MAGIC_TITLE	Unit Lv40 JobLv5 Recommended
-SRPG_QuestParam_QE_EV_UNDOUKAI_2017_SPEED_NAME	2nd Discipline: Relay
-SRPG_QuestParam_QE_EV_UNDOUKAI_2017_SPEED_EXPR	Sports Day 2017 (Relay)
+SRPG_QuestParam_QE_EV_UNDOUKAI_2017_SPEED_NAME	2nd Event: Relay
+SRPG_QuestParam_QE_EV_UNDOUKAI_2017_SPEED_EXPR	Summer Sports Meet (Relay)
 SRPG_QuestParam_QE_EV_UNDOUKAI_2017_SPEED_COND	Touch all runners and defeat the referee!
 SRPG_QuestParam_QE_EV_UNDOUKAI_2017_SPEED_TITLE	Unit Lv40 JobLv5 Recommended
-SRPG_QuestParam_QE_EV_UNDOUKAI_2017_ATTACK_NAME	3rd Discipline: Obstacle Race
-SRPG_QuestParam_QE_EV_UNDOUKAI_2017_ATTACK_EXPR	Sports Day 2017 (Obstacle Race)
+SRPG_QuestParam_QE_EV_UNDOUKAI_2017_ATTACK_NAME	3rd Event: Obstacle Race
+SRPG_QuestParam_QE_EV_UNDOUKAI_2017_ATTACK_EXPR	Summer Sports Meet (Obstacle Race)
 SRPG_QuestParam_QE_EV_UNDOUKAI_2017_ATTACK_COND	Destroy the obstacles and reach the goal quicker than the opponent
 SRPG_QuestParam_QE_EV_UNDOUKAI_2017_ATTACK_TITLE	Unit Lv40 JobLv5 Recommended
-SRPG_QuestParam_QE_EV_UNDOUKAI_2017_DEF_NAME	4th Discipline: Dilga Statue Crush
-SRPG_QuestParam_QE_EV_UNDOUKAI_2017_DEF_EXPR	Sports Day 2017 (Dilga Statue Crush)
+SRPG_QuestParam_QE_EV_UNDOUKAI_2017_DEF_NAME	4th Event: Dilga Statue Crush
+SRPG_QuestParam_QE_EV_UNDOUKAI_2017_DEF_EXPR	Summer Sports Meet (Dilga Statue Crush)
 SRPG_QuestParam_QE_EV_UNDOUKAI_2017_DEF_COND	Destroy the Gormalas statue while protecting the Dilga statue
 SRPG_QuestParam_QE_EV_UNDOUKAI_2017_DEF_TITLE	Unit Lv40 JobLv5 Recommended
 SRPG_QuestParam_QE_EV_CD_1ST_NAME	Mystery Quest...
@@ -6330,13 +6330,13 @@ SRPG_QuestParam_QE_MULTI_TIHAYA_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_MULTI_GORM_EX_NAME	Savage Sea Warrior -Storm Legend- [EX]
 SRPG_QuestParam_QE_EV_MULTI_GORM_EX_EXPR	Swimsuit Event - EX
 SRPG_QuestParam_QE_EV_MULTI_GORM_EX_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_MULTI_GORM_EX_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_MULTI_GORM_EX_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_MULTI_DARTAGNAN_EX_NAME	Stairway to Heaven [EX]
 SRPG_QuestParam_QE_EV_MULTI_DARTAGNAN_EX_EXPR	Encounter with D'Artagnan Quest
 SRPG_QuestParam_QE_EV_MULTI_DARTAGNAN_EX_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_MULTI_DARTAGNAN_EX_TITLE	Hard Quest
 SRPG_QuestParam_QE_MULTI_SO_BLAN_EX_NAME	Beyond Life or Death [EX]
-SRPG_QuestParam_QE_MULTI_SO_BLAN_EX_EXPR	Encounter with Blanshett Quest
+SRPG_QuestParam_QE_MULTI_SO_BLAN_EX_EXPR	Encounter with Blanchett Quest
 SRPG_QuestParam_QE_MULTI_SO_BLAN_EX_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_MULTI_SO_BLAN_EX_TITLE	[Limited Time]
 SRPG_QuestParam_QE_MULTI_WA_ZIN_EX_1_NAME	Return to the Underworld [EX]
@@ -7248,10 +7248,10 @@ SRPG_ChapterParam_AR_GL_TRIAL_MAGE_NAME	[Limited Time]
 SRPG_ChapterParam_AR_GL_TRIAL_MAGE_EXPR	Trial of the Ether
 SRPG_ChapterParam_MULTI_GL_TRIAL_MAGE_NAME	Max
 SRPG_ChapterParam_MULTI_GL_TRIAL_MAGE_EXPR	Trial of the Ether
-SRPG_ChapterParam_AR_GL_MH_01_NAME	Magni Historia
+SRPG_ChapterParam_AR_GL_MH_01_NAME	Magni Historia Chapter 1
 SRPG_ChapterParam_AR_GL_MH_01_EXPR	Episode 1: Overture
-SRPG_ChapterParam_MULTI_GL_MH_NAME	Magni Historia
-SRPG_ChapterParam_MULTI_GL_MH_EXPR	Episode 1: Overture
+SRPG_ChapterParam_MULTI_GL_MH_NAME	Magni Historia Chapter 1
+SRPG_ChapterParam_MULTI_GL_MH_EXPR	Episode 2: Deliverance
 SRPG_QuestParam_QE_GL_MAGE_1_NAME	Trial of the Ether [Bgn]
 SRPG_QuestParam_QE_GL_MAGE_1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_GL_MAGE_1_TITLE	[Limited Time]
@@ -7324,3 +7324,53 @@ SRPG_QuestParam_QE_EV_GL_MH_01_MULTI_EX_NAME	Overture[EX]
 SRPG_QuestParam_QE_EV_GL_MH_01_MULTI_EX_EXPR	 
 SRPG_QuestParam_QE_EV_GL_MH_01_MULTI_EX_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_GL_MH_01_MULTI_EX_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_01_NAME	Stage 1: Run Towards Divinity
+SRPG_QuestParam_QE_EV_GL_MH_02_01_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_01_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_01_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_02_NAME	Stage 2: Crisis
+SRPG_QuestParam_QE_EV_GL_MH_02_02_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_02_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_02_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_03_NAME	Stage 3: The Red Tithe
+SRPG_QuestParam_QE_EV_GL_MH_02_03_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_03_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_03_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_04_NAME	Stage 4: The Wolf Lord
+SRPG_QuestParam_QE_EV_GL_MH_02_04_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_04_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_04_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_05_NAME	Stage 5: To Rouse The Guardian
+SRPG_QuestParam_QE_EV_GL_MH_02_05_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_05_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_05_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_06_NAME	Stage 6: A Divine Outburst
+SRPG_QuestParam_QE_EV_GL_MH_02_06_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_06_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_06_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_07_NAME	Stage 7: An Unexpected Guest
+SRPG_QuestParam_QE_EV_GL_MH_02_07_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_07_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_07_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_08_NAME	Stage 8: Spiriting Away
+SRPG_QuestParam_QE_EV_GL_MH_02_08_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_08_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_08_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_09_NAME	Stage 9: Diverging Paths
+SRPG_QuestParam_QE_EV_GL_MH_02_09_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_09_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_09_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_10_NAME	Stage 10: The End of Duty
+SRPG_QuestParam_QE_EV_GL_MH_02_10_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_10_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_10_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_EX_NAME	Deliverance [EX]
+SRPG_QuestParam_QE_EV_GL_MH_02_EX_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_EX_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_EX_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_02_MULTI_EX_NAME	Deliverance [EX]
+SRPG_QuestParam_QE_EV_GL_MH_02_MULTI_EX_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_02_MULTI_EX_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_02_MULTI_EX_TITLE	[Limited Time]
+SRPG_ChapterParam_AR_GL_MH_02_NAME	Magni Historia Chapter 1
+SRPG_ChapterParam_AR_GL_MH_02_EXPR	Episode 2: Deliverance

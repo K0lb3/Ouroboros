@@ -2685,7 +2685,7 @@ UN_V2_FA_EDWARD_BLOOD	―型
 UN_V2_FA_EDWARD_FAVORITE	シチュー
 UN_V2_FA_EDWARD_HOBBY	―
 UN_V2_FA_EDWARD_ILLUST	―
-UN_V2_FA_EDWARD_CV	朴?美
+UN_V2_FA_EDWARD_CV	朴璐美
 
 UN_V2_FA_ALPHONSE_PROFILE	異なる錬金術を使用する世界から魂だけ導かれた錬金術師。過去に禁忌を侵したことで肉体を失ったため、鎧に魂を定着させている。基本的に素直で温和な性格で、大人びた面を持つ。戦闘では鎧の体を活かした格闘を得意とする。
 UN_V2_FA_ALPHONSE_COUNTRY	―
@@ -2984,7 +2984,7 @@ UN_V2_TERESA_ZODIAC	闇夢楼の月
 UN_V2_TERESA_BLOOD	Pa型
 UN_V2_TERESA_FAVORITE	平穏・ポピーの花
 UN_V2_TERESA_HOBBY	静かに花を愛でること
-UN_V2_TERESA_ILLUST	だーくろ	
+UN_V2_TERESA_ILLUST	だーくろ		
 UN_V2_TERESA_CV	椎名へきる
 
 UN_V2_POK_BLK_LAEVATEINN_PROFILE	異世界のラグナ大陸から導かれた“怠惰”の大罪を背負うブラックキラーズ。性格は真面目で、どこか達観している。常に気だるげにしているが戦闘時は別。「めんどうだからとりあえず滅ぼす」という考えのもと、積極性を見せる。
@@ -3045,7 +3045,7 @@ UN_V2_FIONA_BLOOD	Kn型
 UN_V2_FIONA_FAVORITE	花・アルちゃん
 UN_V2_FIONA_HOBBY	刺繍・手芸
 UN_V2_FIONA_ILLUST	RINZO
-UN_V2_FIONA_CV	赤司よしか
+UN_V2_FIONA_CV		赤司よしか
 
 UN_V2_L_UROB_PROFILE	人間をより間近で観察したいというウロボロスの欲求から誕生した分離体。ウロボロスの力から切り出された一幻影兵レベルの存在の為か、心身ともに幼さが残る。ウロボロス本体に憧れを持ち、その振る舞いを真似したがる一面も。
 UN_V2_L_UROB_COUNTRY	？
@@ -3336,3 +3336,27 @@ UN_V2_KAYA_FAVORITE	歴史、好奇心
 UN_V2_KAYA_HOBBY	調査メカの改良
 UN_V2_KAYA_ILLUST	RINZO
 UN_V2_KAYA_CV	藤井ゆきよ
+
+UN_V2_AOT_EREN_PROFILE	巨人が猛威を振るう異世界から導かれた調査兵団の少年。怒りや衝動に任せた無鉄砲な行動が多い一方で、困難な状況を打破する強い意志も併せ持つ。巨人化できる能力を有しており、人類を脅かす巨人たちを駆逐すべく戦う。
+UN_V2_AOT_EREN_COUNTRY	─
+UN_V2_AOT_EREN_HEIGHT	170cm
+UN_V2_AOT_EREN_WEIGHT	63kg
+UN_V2_AOT_EREN_BIRTH	3月30日
+UN_V2_AOT_EREN_ZODIAC	─
+UN_V2_AOT_EREN_BLOOD	─型
+UN_V2_AOT_EREN_FAVORITE	─
+UN_V2_AOT_EREN_HOBBY	─
+UN_V2_AOT_EREN_ILLUST	─
+UN_V2_AOT_EREN_CV	梶裕貴
+
+UN_V2_AOT_REINER_PROFILE	巨人が猛威を振るう異世界から導かれた戦士。屈強な体と強い精神力を持ち、仲間からも高い信頼を得る、エレンたち同期の中心的な存在。巨人化できる能力を有しており、頑強な鎧に身を包んだ巨人へと変貌し絶大な力を見せる。
+UN_V2_AOT_REINER_COUNTRY	─
+UN_V2_AOT_REINER_HEIGHT	188cm
+UN_V2_AOT_REINER_WEIGHT	83kg
+UN_V2_AOT_REINER_BIRTH	8月1日
+UN_V2_AOT_REINER_ZODIAC	─
+UN_V2_AOT_REINER_BLOOD	─型
+UN_V2_AOT_REINER_FAVORITE	─
+UN_V2_AOT_REINER_HOBBY	─
+UN_V2_AOT_REINER_ILLUST	─
+UN_V2_AOT_REINER_CV	細谷佳正

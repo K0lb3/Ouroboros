@@ -2765,7 +2765,8 @@
         "149": "Assist_MaxDamageHp",
         "150": "Assist_MaxDamageMp",
         "151": "Resist_MaxDamageHp",
-        "152": "Resist_MaxDamageMp"
+        "152": "Resist_MaxDamageMp",
+        "153": "Assisst_TitanDamage"
     },
     "PartyCondType": [
         "None",

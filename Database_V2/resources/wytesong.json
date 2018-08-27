@@ -594,7 +594,7 @@
             "Job3": "Pirate\n海賊",
             "JC1": "N/A",
             "JC2": "Ranger: Wolf\nレンジャー【狼】",
-            "JC3": "N/A",
+            "JC3": "Pirate Empress: Alwida\n海賊皇【アルビダ】",
             "ELB": "N/A",
             "Acquire": "Zeny Summon",
             "Origin": "Envylia",
@@ -1553,7 +1553,7 @@
             "Job2": "Enhancer\nエンハンサー",
             "Job3": "Illusionist\n奇術師",
             "JC1": "N/A",
-            "JC2": "N/A",
+            "JC2": "Zero Enhancer\n零のエンハンサー",
             "JC3": "Sugar Wizard\nシュガーウィザード",
             "ELB": "N/A",
             "Acquire": "Rare Summon",
@@ -1732,7 +1732,7 @@
             "Job1": "Thief\nシーフ",
             "Job2": "Gunner\nガンナー",
             "Job3": "Magic Knight\n魔法剣士",
-            "JC1": "Assassin+\n暗殺者+",
+            "JC1": "Beautiful Gambler\n麗しのギャンブラー",
             "JC2": "N/A",
             "JC3": "N/A",
             "ELB": "N/A",
@@ -3022,7 +3022,7 @@
             "Job1": "Pirate\n海賊",
             "Job2": "Thief\nシーフ",
             "Job3": "Crafter\nクラフター",
-            "JC1": "N/A",
+            "JC1": "Pirate Emperor: Blackbeard\n海賊帝【ティーチ】",
             "JC2": "Assassin: Evening\n暗殺者【宵】",
             "JC3": "N/A",
             "ELB": "N/A",
@@ -3292,7 +3292,7 @@
             "Job1": "Pirate\n海賊",
             "Job2": "Dragon Warrior\n竜騎士",
             "Job3": "Saint of Fist\n拳聖",
-            "JC1": "Pirate[+]\n海賊[+]",
+            "JC1": "Black Kiels Boss\nブラックキールズ首領",
             "JC2": "N/A",
             "JC3": "Saint of Fist: Senju\n拳聖【千手】",
             "ELB": "N/A",
@@ -3952,7 +3952,7 @@
             "Job1": "Necromancer\nネクロマンサー",
             "Job2": "Magic Knight\n魔法剣士",
             "Job3": "Axe Warrior\nウォーリア",
-            "JC1": "N/A",
+            "JC1": "Lovestruck Necromancer\n恋してネクロマンサー",
             "JC2": "Magic Knight: Ifrit\n魔法剣士【イフリート】",
             "JC3": "N/A",
             "ELB": "N/A",
@@ -4912,7 +4912,7 @@
             "Job1": "Necromancer\nネクロマンサー",
             "Job2": "Shadow Knight\n暗黒騎士",
             "Job3": "Merchant\n商人",
-            "JC1": "N/A",
+            "JC1": "Necromancer of Darkness and Disaster\n闇厄のネクロマンサー",
             "JC2": "N/A",
             "JC3": "Merchant: Grace Crane\n商人【恵み鶴】",
             "ELB": "N/A",
@@ -5193,7 +5193,7 @@
             "Portait URL": "http://i.imgur.com/HJkTWLJ.png",
             "Source": "https://al.fg-games.co.jp/news/8108/",
             "Keyword": "ナサリオ;nasario",
-            "Hard Quest": "",
+            "Hard Quest": "3-4-3-6",
             "Event": "",
             "Skin": "",
             "Original": "=IMAGE(R[0]C[-6])",
@@ -5482,7 +5482,7 @@
             "Job1": "Necromancer\nネクロマンサー",
             "Job2": "Twin Blade\n双剣士",
             "Job3": "Dark Knight\nダークナイト",
-            "JC1": "N/A",
+            "JC1": "Falling Thunder Necromancer\n落霹のネクロマンサー",
             "JC2": "N/A",
             "JC3": "Dark Knight: Faust\nダークナイト【ファウスト】",
             "ELB": "N/A",
@@ -6442,7 +6442,7 @@
             "Job1": "Necromancer\nネクロマンサー",
             "Job2": "Dancer\n踊り子",
             "Job3": "Samurai\n侍",
-            "JC1": "N/A",
+            "JC1": "Storm Burial Necromancer\n嵐葬のネクロマンサー",
             "JC2": "N/A",
             "JC3": "N/A",
             "ELB": "N/A",
@@ -6712,9 +6712,9 @@
             "Job1": "Feng Shui\n風水士",
             "Job2": "Crafter\nクラフター",
             "Job3": "Pirate\n海賊",
-            "JC1": "N/A",
+            "JC1": "One who Reads the Earth and Waters\n大地と水の読み人",
             "JC2": "N/A",
-            "JC3": "N/A",
+            "JC3": "Pirate Emperor: Blackbeard\n海賊帝【ティーチ】",
             "ELB": "N/A",
             "Acquire": "Rare Summon: September 2017",
             "Origin": "Desert",
@@ -6864,7 +6864,7 @@
             "Job3": "Pirate\n海賊",
             "JC1": "N/A",
             "JC2": "Saint of Fist: Maitreya\n拳聖【弥勒】",
-            "JC3": "N/A",
+            "JC3": "Pirate Empress: Alwida\n海賊皇【アルビダ】",
             "ELB": "N/A",
             "Acquire": "Rare Summon: October 2017",
             "Origin": "Greed Dike",
@@ -7137,7 +7137,7 @@
             "JC3": "Dark Knight: Spion\nダークナイト【シュピオン】",
             "ELB": "N/A",
             "Acquire": "Rare Summon: November 2017",
-            "Origin": "Arcadia",
+            "Origin": "Lustoberg",
             "Builds/Strategy": "・おすすめジョブ：ダークナイト【シュピオン】\n・おすすめ基本アビリティ：『基本闘技』（第2ジョブ：武闘家）\n・おすすめリアクションアビリティ：オーディンの報復 効果：被ダメージ時に物理カウンター&貫通効果[射程:2,高低差:2]\n・おすすめサポートアビリティ：『エインフェリアの守護』（第1ジョブ：ヴァルキリー）効果：自身の物防&HP上限UP\n・おすすめサポートアビリティ：『オーバードライブ』（第3ジョブ：ダークナイト）効果：物理&魔法攻撃力が大幅UPし、物理&魔法防御力がDOWNする",
             "Details": "https://al.fg-games.co.jp/news/wp-content/uploads/2017/10/g171101_explain_2pidh9rqr.png",
             "Portait URL": "https://i.imgur.com/uPcOj9X.png",
@@ -8148,7 +8148,7 @@
             "Romanji": "karura",
             "Rarity": "★★★★★",
             "Element": "Fire",
-            "LeaderSkill": "Fire: HP+50% / PATK+30% / AgainstWind+20%",
+            "LeaderSkill": "Fire: HP+50% / PATK+30% / Anti-Wind+20%",
             "Job1": "Inferno Rakshasa\n烈火羅刹",
             "Job2": "Valkyrie\nヴァルキリー",
             "Job3": "Necromancer\nネクロマンサー",
@@ -8178,7 +8178,7 @@
             "Romanji": "anku",
             "Rarity": "★★★★★",
             "Element": "Water",
-            "LeaderSkill": "Water: HP+30% / PATK+20% / AgainstFire+20%",
+            "LeaderSkill": "Water: HP+30% / PATK+20% / Anti-Fire+20%",
             "Job1": "Fluid Gunlance\n蒼水銃槍師",
             "Job2": "Pirate\n海賊",
             "Job3": "Dark Knight\nダークナイト",
@@ -8238,7 +8238,7 @@
             "Romanji": "neferuti",
             "Rarity": "★★★★★",
             "Element": "Wind",
-            "LeaderSkill": "Wind: HP+50% /  PATK+30% / AgainstLightning+20%",
+            "LeaderSkill": "Wind: HP+50% /  PATK+30% / Anti-Lightning+20%",
             "Job1": "Sage\n賢者",
             "Job2": "Armored Mage\n鎧魔道師",
             "Job3": "Forecaster\n天候師",
@@ -8328,7 +8328,7 @@
             "Romanji": "oraion",
             "Rarity": "★★★★★",
             "Element": "Thunder",
-            "LeaderSkill": "Thunder: HP+50% / PATK+20% / AgainstWater+20%",
+            "LeaderSkill": "Thunder: HP+50% / PATK+20% / Anti-Water+20%",
             "Job1": "Lion King\n獅子王",
             "Job2": "Holy Spear General\n聖槍将",
             "Job3": "Axe Warrior\nウォーリア",
@@ -8478,7 +8478,7 @@
             "Romanji": "moa",
             "Rarity": "★★★★★",
             "Element": "Light",
-            "LeaderSkill": "Light: HP+50% / PATK+30% / AgainstDark+20%",
+            "LeaderSkill": "Light: HP+50% / PATK+30% / Anti-Dark+20%",
             "Job1": "Twillight Rakshasa\n暁光羅刹",
             "Job2": "Beast Master\n猛獣使い",
             "Job3": "Axe Warrior\nウォーリア",
@@ -8542,7 +8542,7 @@
             "Job1": "Mage\n魔道士",
             "Job2": "\nMagia Controller\n魔弾操師",
             "Job3": "Forecaster\n天候師",
-            "JC1": "N/A",
+            "JC1": "Sage: Monolith\n賢者【モノリス】",
             "JC2": "N/A",
             "JC3": "N/A",
             "ELB": "N/A",
@@ -8619,6 +8619,66 @@
             "Original": "=IMAGE(R[0]C[-6])",
             "baseicon": "=IMAGE(R[0]C[1])",
             "icon url": "https://i.imgur.com/ws2zj1w.png"
+        },
+        {
+            " unitid": 275,
+            "Icon": "=IMAGE(R[0]C[26])",
+            "Name": "Eren",
+            "Name JPN": "エレン",
+            "Romanji": "eren",
+            "Rarity": "★★★★★",
+            "Element": "Fire",
+            "LeaderSkill": "Fire: HP+40% / PATK+40% / Anti-Giant+20%",
+            "Job1": "Survey Corps Member\n調査兵団員",
+            "Job2": "Axe Warrior\nウォーリア",
+            "Job3": "Necromancer\nネクロマンサー",
+            "JC1": "N/A",
+            "JC2": "N/A",
+            "JC3": "Flame Punishment Necromancer\n炎刑のネクロマンサー",
+            "ELB": "N/A",
+            "Acquire": "Shingeki no Kyojin Collab Gacha: 23 August 2018",
+            "Origin": "ETC",
+            "Builds/Strategy": "・おすすめジョブ：調査兵団員\n・おすすめ基本アビリティ：基本調査兵団技（第1ジョブ：調査兵団員）\n・おすすめリアクションアビリティ：やられたらやり返す（第1ジョブ：調査兵団員）\n・おすすめサポートアビリティ：負けず嫌い（第1ジョブ：調査兵団員）\n・おすすめサポートアビリティ：巨人の力（第1ジョブ：調査兵団員）",
+            "Details": "https://al.fg-games.co.jp/news/wp-content/uploads/2018/08/e180838_explain1lkjhgtf.png",
+            "Portait URL": "https://i.imgur.com/EmfJJue.png",
+            "Source": "https://al.fg-games.co.jp/news/25235/",
+            "Keyword": "Eren;エレン",
+            "Hard Quest": "",
+            "Event": "",
+            "Skin": "",
+            "Original": "=IMAGE(R[0]C[-6])",
+            "baseicon": "=IMAGE(R[0]C[1])",
+            "icon url": "https://i.imgur.com/YrGuNkj.png"
+        },
+        {
+            " unitid": 276,
+            "Icon": "=IMAGE(R[0]C[26])",
+            "Name": "Reiner",
+            "Name JPN": "ライナー",
+            "Romanji": "Rainā",
+            "Rarity": "★★★☆☆",
+            "Element": "Wind",
+            "LeaderSkill": "Wind: HP+30% / PATK+20% / PDEF+20%",
+            "Job1": "Survey Corps Member\n調査兵団員",
+            "Job2": "Monk\n武闘家",
+            "Job3": "Holy Knight\nホーリーナイト",
+            "JC1": "N/A",
+            "JC2": "N/A",
+            "JC3": "Holy Knight: David\nホーリーナイト【ダビデ】",
+            "ELB": "N/A",
+            "Acquire": "Shingeki no Kyojin Collab: 23 August 2018",
+            "Origin": "ETC",
+            "Builds/Strategy": "・おすすめジョブ：調査兵団員\n・おすすめ基本アビリティ：基本調査兵団技（第1ジョブ：調査兵団員）\n・おすすめリアクションアビリティ：受身（第1ジョブ：調査兵団員）\n・おすすめサポートアビリティ：機動技術（第1ジョブ：調査兵団員）\n・おすすめサポートアビリティ：ブローガーディアン（第3ジョブ：ホーリーナイト【ダビデ】）",
+            "Details": "https://al.fg-games.co.jp/news/wp-content/uploads/2018/08/e180838_explain2jyuhgtf.png",
+            "Portait URL": "https://i.imgur.com/JhTFlE7.png",
+            "Source": "https://al.fg-games.co.jp/news/25235/",
+            "Keyword": "reiner;ライナー",
+            "Hard Quest": "",
+            "Event": "",
+            "Skin": "",
+            "Original": "=IMAGE(R[0]C[-6])",
+            "baseicon": "=IMAGE(R[0]C[1])",
+            "icon url": "https://i.imgur.com/6KXbQnz.png"
         }
     ],
     "Global": [
@@ -14606,7 +14666,7 @@
             "Passive Abilities Upgrade": "Range"
         },
         {
-            "Dark Knight [Spion]\nダークナイト【シュピオン】": "Job Enchant: Sieg ジーク",
+            "Dark Knight [Spion]\nダークナイト【シュピオン】": "Job Enchant: Sieg ジーク / Reiner",
             "": "",
             "Sub.Technique 基本漆黒剣": "",
             "Passive Abilities Upgrade": ""
@@ -20330,7 +20390,7 @@
             "Sub.Technique 基本魔剣": "Range"
         },
         {
-            "Magic Knight [Ifrit]\n魔法剣士【イフリート】": "Job Enchant: Peridot / Tsukuyomi / Vincent / Celine / Meili",
+            "Magic Knight [Ifrit]\n魔法剣士【イフリート】": "Job Enchant: Peridot / Tsukuyomi / Vincent / Celine / Meili / Rebecca",
             "": "",
             "Main.Technique 魔剣": "",
             "Sub.Technique 基本魔剣": ""
@@ -22336,7 +22396,7 @@
             "Sub.Technique 基本魔銃技": ""
         },
         {
-            "Horus: Magia Shooter\nホルス・マギアシューター": "Job Enchant: Rahu / Tsang Lei / Soreiyu / D.Rosa / Mierikki",
+            "Horus: Magia Shooter\nホルス・マギアシューター": "Job Enchant: Rahu / Tsang Lei / Soreiyu / D.Rosa / Mierikki / Rofia",
             "": "",
             "Main.Technique 魔銃技": "",
             "Sub.Technique 基本魔銃技": ""
@@ -28339,6 +28399,1268 @@
             "Main.Technique 砲撃": "",
             "Sub.Technique 基本砲撃": "",
             "\nPassive Upgrade": ""
+        }
+    ],
+    "JEP7": [
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "=image(\"https://i.imgur.com/wdzQEK0.png\")",
+            "": "三角逆波  三角波",
+            "Main.Technique 海技": "Name",
+            "Sub.Technique 基本海技": "Name",
+            "\nReactive Upgrade": "Name"
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "Chopping Counter Waves  Chopping Waves",
+            "Main.Technique 海技": "English Name",
+            "Sub.Technique 基本海技": "English Name",
+            "\nReactive Upgrade": "English Name"
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "Reactive",
+            "Main.Technique 海技": "Cost",
+            "Sub.Technique 基本海技": "Cost",
+            "\nReactive Upgrade": "Type"
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Scaling",
+            "Sub.Technique 基本海技": "Scaling",
+            "\nReactive Upgrade": "Level Learned"
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "When damaged, counter & inflict stun & triggers on skills\n被ダメージ時に反撃&スタン効果&スキル攻撃にも発動\n[射程:2,範囲:特殊（扇）,高低差:2]",
+            "Main.Technique 海技": "Range",
+            "Sub.Technique 基本海技": "Range",
+            "\nReactive Upgrade": "Effect"
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant: Wong / Regart",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Area",
+            "Sub.Technique 基本海技": "Area",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Changes",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Scroll",
+            "": "",
+            "Main.Technique 海技": "Height",
+            "Sub.Technique 基本海技": "Height",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Cast Speed",
+            "Sub.Technique 基本海技": "Cast Speed",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Usage",
+            "Sub.Technique 基本海技": "Usage",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Trait",
+            "": "",
+            "Main.Technique 海技": "Effect",
+            "Sub.Technique 基本海技": "Effect",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "PATK",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "PDEF",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "CRIT",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Pirate Emperor: Blackbeard\n海賊帝【ティーチ】",
+            "": "",
+            "Main.Technique 海技": "Main.Technique 海技",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": "\nReactive Upgrade"
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "=image(\"http://i.imgur.com/yq3M0HN.png\")",
+            "": "三角荒波  三角波",
+            "Main.Technique 海技": "Name",
+            "Sub.Technique 基本海技": "Name",
+            "\nReactive Upgrade": "Name"
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "Chopping Rough Waves  Chopping Waves",
+            "Main.Technique 海技": "English Name",
+            "Sub.Technique 基本海技": "English Name",
+            "\nReactive Upgrade": "English Name"
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "Reactive",
+            "Main.Technique 海技": "Cost",
+            "Sub.Technique 基本海技": "Cost",
+            "\nReactive Upgrade": "Type"
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Scaling",
+            "Sub.Technique 基本海技": "Scaling",
+            "\nReactive Upgrade": "Level Learned"
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "When damaged, counter & reduce their Slash RES(repeatable up to 3 times) & triggers on skills\n被ダメージ時に反撃&\n斬撃耐性ダウン（3回まで重複可）&\nスキル攻撃にも発動\n[射程:2,範囲:特殊（扇）,高低差:2]",
+            "Main.Technique 海技": "Range",
+            "Sub.Technique 基本海技": "Range",
+            "\nReactive Upgrade": "Effect"
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant: Shenmei / Hisham",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Area",
+            "Sub.Technique 基本海技": "Area",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Changes",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Scroll",
+            "": "",
+            "Main.Technique 海技": "Height",
+            "Sub.Technique 基本海技": "Height",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Cast Speed",
+            "Sub.Technique 基本海技": "Cast Speed",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Usage",
+            "Sub.Technique 基本海技": "Usage",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Trait",
+            "": "",
+            "Main.Technique 海技": "Effect",
+            "Sub.Technique 基本海技": "Effect",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "PATK",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "PDEF",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "CRIT",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Storm Burial Necromancer\n嵐葬のネクロマンサー",
+            "": "",
+            "Main.Technique 海技": "Main.Technique 死霊技",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "=image(\"http://i.imgur.com/HMb03cm.png\")",
+            "": "",
+            "Main.Technique 海技": "Name",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "English Name",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Cost",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Scaling",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Range",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant: Faylin",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Area",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Changes",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Scroll",
+            "": "",
+            "Main.Technique 海技": "Height",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Cast Speed",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Usage",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Trait",
+            "": "",
+            "Main.Technique 海技": "Effect",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "PATK",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "DEX",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "SPD",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "LUCK",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Falling Thunder Necromancer\n落霹のネクロマンサー",
+            "": "",
+            "Main.Technique 海技": "Main.Technique 死霊技",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "=image(\"http://i.imgur.com/4gKCyw1.png\")",
+            "": "",
+            "Main.Technique 海技": "Name",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "English Name",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Cost",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Scaling",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Range",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant: Zophie",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Area",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Changes",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Scroll",
+            "": "",
+            "Main.Technique 海技": "Height",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Cast Speed",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Usage",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Trait",
+            "": "",
+            "Main.Technique 海技": "Effect",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "PATK",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "DEX",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "SPD",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "LUCK",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Necromancer of Darkness and Disaster\n闇厄のネクロマンサー",
+            "": "",
+            "Main.Technique 海技": "Main.Technique 死霊技",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "=image(\"http://i.imgur.com/sOLKdLd.png\")",
+            "": "",
+            "Main.Technique 海技": "Name",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "English Name",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Cost",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Scaling",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Range",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant: Marianne",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Area",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Changes",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Scroll",
+            "": "",
+            "Main.Technique 海技": "Height",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Cast Speed",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Usage",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Trait",
+            "": "",
+            "Main.Technique 海技": "Effect",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "PATK",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "DEX",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "SPD",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "LUCK",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Flame Punishment Necromancer\n炎刑のネクロマンサー",
+            "": "",
+            "Main.Technique 海技": "Main.Technique 死霊技",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "=image(\"https://i.imgur.com/YrGuNkj.png\")",
+            "": "",
+            "Main.Technique 海技": "Name",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "English Name",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Cost",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Scaling",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Range",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant: Eren",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Area",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Changes",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Scroll",
+            "": "",
+            "Main.Technique 海技": "Height",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Cast Speed",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "",
+            "": "",
+            "Main.Technique 海技": "Usage",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Trait",
+            "": "",
+            "Main.Technique 海技": "Effect",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "PATK",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "DEX",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "SPD",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "LUCK",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Pirate Empress: Alwida\n海賊皇【アルビダ】": "HP",
+            "": "",
+            "Main.Technique 海技": "",
+            "Sub.Technique 基本海技": "",
+            "\nReactive Upgrade": ""
         }
     ],
     "EnlightenLB": [
@@ -45508,7 +46830,7 @@
             "Fighting Technique 戦技": ""
         },
         {
-            "Warrior (Bronze)\n戦士": "Necromancer\nネクロマンサー",
+            "Warrior (Bronze)\n戦士": "Necromancer (+)\nネクロマンサー (+)",
             "": "",
             "Fighting Technique 戦技": "Deceased Soul Technique 死霊技"
         },
@@ -58671,7 +59993,7 @@
             "Magic 魔術": ""
         },
         {
-            "Mage (Bronze)\n魔道士": "Feng Shui (Gold)\n風水士",
+            "Mage (Bronze)\n魔道士": "Feng Shui (Gold) (+)\n風水士 (+)",
             "": "",
             "Magic 魔術": "Feng Shui 風水術"
         },
@@ -58726,6 +60048,21 @@
             "Magic 魔術": ""
         },
         {
+            "Mage (Bronze)\n魔道士": "Hisham's Job Change Icon",
+            "": "",
+            "Magic 魔術": ""
+        },
+        {
+            "Mage (Bronze)\n魔道士": "",
+            "": "",
+            "Magic 魔術": "Area"
+        },
+        {
+            "Mage (Bronze)\n魔道士": "",
+            "": "",
+            "Magic 魔術": ""
+        },
+        {
             "Mage (Bronze)\n魔道士": "Move",
             "": "",
             "Magic 魔術": ""
@@ -58733,7 +60070,7 @@
         {
             "Mage (Bronze)\n魔道士": "Jump",
             "": "",
-            "Magic 魔術": "Area"
+            "Magic 魔術": ""
         },
         {
             "Mage (Bronze)\n魔道士": "Starting Jewel",
@@ -58748,37 +60085,37 @@
         {
             "Mage (Bronze)\n魔道士": "Combat Info",
             "": "",
-            "Magic 魔術": ""
+            "Magic 魔術": "Height"
         },
         {
             "Mage (Bronze)\n魔道士": "Damage Type",
             "": "",
-            "Magic 魔術": ""
+            "Magic 魔術": "Cast Speed"
         },
         {
             "Mage (Bronze)\n魔道士": "Characteristic",
             "": "",
-            "Magic 魔術": ""
+            "Magic 魔術": "Usage"
         },
         {
             "Mage (Bronze)\n魔道士": "Scaling",
             "": "",
-            "Magic 魔術": "Height"
+            "Magic 魔術": "Effect"
         },
         {
             "Mage (Bronze)\n魔道士": "Basic Attack Range",
             "": "",
-            "Magic 魔術": "Cast Speed"
+            "Magic 魔術": ""
         },
         {
             "Mage (Bronze)\n魔道士": "",
             "": "",
-            "Magic 魔術": "Usage"
+            "Magic 魔術": ""
         },
         {
             "Mage (Bronze)\n魔道士": "",
             "": "",
-            "Magic 魔術": "Effect"
+            "Magic 魔術": ""
         },
         {
             "Mage (Bronze)\n魔道士": "",
@@ -58798,7 +60135,7 @@
         {
             "Mage (Bronze)\n魔道士": "Height",
             "": "",
-            "Magic 魔術": ""
+            "Magic 魔術": "Basic Feng Shui 基本風水術"
         },
         {
             "Mage (Bronze)\n魔道士": "Jewel Gain",
@@ -58808,44 +60145,34 @@
         {
             "Mage (Bronze)\n魔道士": "Ability Info",
             "": "",
-            "Magic 魔術": ""
+            "Magic 魔術": "Name"
         },
         {
             "Mage (Bronze)\n魔道士": "Main",
             "": "",
-            "Magic 魔術": "Basic Feng Shui 基本風水術"
-        },
-        {
-            "Mage (Bronze)\n魔道士": "",
-            "": "",
-            "Magic 魔術": ""
-        },
-        {
-            "Mage (Bronze)\n魔道士": "Sub",
-            "": "",
-            "Magic 魔術": "Name"
-        },
-        {
-            "Mage (Bronze)\n魔道士": "",
-            "": "",
             "Magic 魔術": "English Name"
         },
         {
-            "Mage (Bronze)\n魔道士": "Reactive",
+            "Mage (Bronze)\n魔道士": "",
             "": "",
             "Magic 魔術": "Cost"
         },
         {
-            "Mage (Bronze)\n魔道士": "",
+            "Mage (Bronze)\n魔道士": "Sub",
             "": "",
             "Magic 魔術": "Multiplier"
         },
         {
-            "Mage (Bronze)\n魔道士": "Passive",
+            "Mage (Bronze)\n魔道士": "",
             "": "",
             "Magic 魔術": "Range"
         },
         {
+            "Mage (Bronze)\n魔道士": "Reactive",
+            "": "",
+            "Magic 魔術": ""
+        },
+        {
             "Mage (Bronze)\n魔道士": "",
             "": "",
             "Magic 魔術": ""
@@ -58859,6 +60186,16 @@
             "Mage (Bronze)\n魔道士": "",
             "": "",
             "Magic 魔術": ""
+        },
+        {
+            "Mage (Bronze)\n魔道士": "Passive",
+            "": "",
+            "Magic 魔術": ""
+        },
+        {
+            "Mage (Bronze)\n魔道士": "",
+            "": "",
+            "Magic 魔術": "Area"
         },
         {
             "Mage (Bronze)\n魔道士": "Job Master Bonus",
@@ -58873,7 +60210,7 @@
         {
             "Mage (Bronze)\n魔道士": "PDEF",
             "": "",
-            "Magic 魔術": "Area"
+            "Magic 魔術": ""
         },
         {
             "Mage (Bronze)\n魔道士": "MATK",
@@ -58882,21 +60219,6 @@
         },
         {
             "Mage (Bronze)\n魔道士": "LUK",
-            "": "",
-            "Magic 魔術": ""
-        },
-        {
-            "Mage (Bronze)\n魔道士": "",
-            "": "",
-            "Magic 魔術": ""
-        },
-        {
-            "Mage (Bronze)\n魔道士": "",
-            "": "",
-            "Magic 魔術": ""
-        },
-        {
-            "Mage (Bronze)\n魔道士": "",
             "": "",
             "Magic 魔術": ""
         },
@@ -63878,6 +65200,1018 @@
             "Holy Technique 聖術": "Effect"
         }
     ],
+    "Shingeki no Kyojin": [
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "背面斬り・火",
+            "Survey Corps Technique 調査兵団技": "Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "English Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "45",
+            "Survey Corps Technique 調査兵団技": "Cost"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Multiplier"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "=image(\"http://i.imgur.com/bfsFTyj.png\")",
+            "Survey Corps Technique 調査兵団技": "Range"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "=image(\"http://i.imgur.com/G2PvRkm.png\")",
+            "Survey Corps Technique 調査兵団技": "Area"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Eren's 1st Job",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "5",
+            "Survey Corps Technique 調査兵団技": "Height"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "-",
+            "Survey Corps Technique 調査兵団技": "Cast Speed"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "3",
+            "Survey Corps Technique 調査兵団技": "Usage"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "Teleport to enemy's back & deal DEF-Ignore Fire Slash Damage & sure-hit & inflict heal-null & anti-Giant\n敵の背後に移動後防御無視の火属性斬撃攻撃&必中&回復無効効果&巨体特効\n[射程:5,高低差:5]",
+            "Survey Corps Technique 調査兵団技": "Effect"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Basic Info",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Job Icon",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Move",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Jump",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Starting Jewel",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Basic Survey Corps Technique 基本調査兵団技"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Weapon Type",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Combat Info",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Damage Type",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "English Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Characteristic",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Cost"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Scaling",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Multiplier"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Basic Attack Range",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Range"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Height",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Area"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Jewel Gain",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Ability Info",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Main",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Sub",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Height"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Reactive",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Cast Speed"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Usage"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Passive",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Effect"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Passive",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Job Master Bonus",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "HP",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "PATK",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "PDEF",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Reactive & Passive Abilities"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "SPD",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "English Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Type"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Learnt At"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Effect"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Survey Corps Member\n調査兵団員",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Survey Corps Technique 調査兵団技"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "背面斬り・風",
+            "Survey Corps Technique 調査兵団技": "Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "English Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "50",
+            "Survey Corps Technique 調査兵団技": "Cost"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Multiplier"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "=image(\"http://i.imgur.com/bfsFTyj.png\")",
+            "Survey Corps Technique 調査兵団技": "Range"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "=image(\"http://i.imgur.com/G2PvRkm.png\")",
+            "Survey Corps Technique 調査兵団技": "Area"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Reiner's 1st Job",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "5",
+            "Survey Corps Technique 調査兵団技": "Height"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "-",
+            "Survey Corps Technique 調査兵団技": "Cast Speed"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "3",
+            "Survey Corps Technique 調査兵団技": "Usage"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "Teleport to enemy's back & Deal Wind-Slash Damage & inflict heal-null & Powerful Anti-Giant effect\n敵の背後に移動後風属性の斬撃攻撃&回復無効効果&強力な巨体特効\n[射程:5,高低差:5]",
+            "Survey Corps Technique 調査兵団技": "Effect"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Basic Info",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Job Icon",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Move",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Jump",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Starting Jewel",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Basic Survey Corps Technique 基本調査兵団技"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Weapon Type",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Combat Info",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Damage Type",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "English Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Characteristic",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Cost"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Scaling",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Multiplier"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Basic Attack Range",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Range"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Height",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Area"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Jewel Gain",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Ability Info",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Main",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Sub",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Height"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Reactive",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Cast Speed"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Usage"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Passive",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Effect"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Passive",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Job Master Bonus",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "HP",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "PATK",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "PDEF",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Reactive & Passive Abilities"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "SPD",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "English Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Type"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Learnt At"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Effect"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "English Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Cost"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Multiplier"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Range"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Area"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Height"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Cast Speed"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Usage"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Effect"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Basic Info",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Job Icon",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Move",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Jump",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Starting Jewel",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Weapon Type",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Combat Info",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Damage Type",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "English Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Characteristic",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Cost"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Scaling",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Multiplier"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Basic Attack Range",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Range"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Height",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Area"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Jewel Gain",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Ability Info",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Main",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Sub",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Height"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Reactive",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Cast Speed"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Usage"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Passive",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Effect"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Passive",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "Job Master Bonus",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "HP",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "PDEF",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "MATK",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Reactive & Passive Abilities"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "MDEF",
+            "": "",
+            "Survey Corps Technique 調査兵団技": ""
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "English Name"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Type"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Learnt At"
+        },
+        {
+            "Survey Corps Member\n調査兵団員": "",
+            "": "",
+            "Survey Corps Technique 調査兵団技": "Effect"
+        }
+    ],
     "Crystal of Reunion": [
         {
             "Heroine of Truth or Falsehood\n虚実の英雄": "",
@@ -64368,356 +66702,6 @@
             "Heroine of Truth or Falsehood\n虚実の英雄": "Starting Jewel",
             "": "",
             "Truth or Falsehood Technique 虚実技": "Basic Truth Seeking Technique 基本求道技"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Weapon Type",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Combat Info",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Name"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Damage Type",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "English Name"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Characteristic",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Cost"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Scaling",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Multiplier"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Basic Attack Range",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Range"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Height",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Area"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Jewel Gain",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Ability Info",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Main",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Sub",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Height"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Reactive",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Cast Speed"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Usage"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Passive",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Effect"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Passive",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Job Master Bonus",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "HP",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "PDEF",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "MATK",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Reactive & Passive Abilities"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "MDEF",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Name"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "English Name"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Type"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Learnt At"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Effect"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Name"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "English Name"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Cost"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Multiplier"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Range"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Area"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Height"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Cast Speed"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Usage"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": "Effect"
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Basic Info",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Job Icon",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Move",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Jump",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
-        },
-        {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "Starting Jewel",
-            "": "",
-            "Truth or Falsehood Technique 虚実技": ""
         },
         {
             "Heroine of Truth or Falsehood\n虚実の英雄": "Weapon Type",
@@ -97871,6 +99855,70 @@
             "img": "https://media.discordapp.net/attachments/309461156194418688/454175261018161162/Untitled.png",
             "keyword": "yuunagi;ユウナギ",
             "simplename": "yuunagi"
+        },
+        {
+            "character": "Daisy",
+            "skillname": "Number One Mechanical Spear\n機甲一番槍",
+            "Effect": "物攻・初期ジュエルアップ＆移動力+1\nPATK+50 & Starting Jewel+15 & Move+1",
+            "unlockcond": "Char.キャラEP1/2/3 Lv80",
+            "Range": "",
+            "Area": "",
+            "Height": "",
+            "Jewels": "",
+            "Uses": "",
+            "Index": "https://al.fg-games.co.jp/news/23721/",
+            "image": "=IMAGE(R[0]C[1])",
+            "img": "https://cdn.discordapp.com/attachments/309461156194418688/466864041395224576/unknown.png",
+            "keyword": "daisy;デイジー",
+            "simplename": "daisy"
+        },
+        {
+            "character": "Lavina",
+            "skillname": "Heat Control\nヒートコントロール",
+            "Effect": "獲得ジュエル・素早さアップ & 射程+1\nJewel Gain+8 & Speed+10 & Range+1",
+            "unlockcond": "Char.キャラEP1/2/3 Lv80",
+            "Range": "",
+            "Area": "",
+            "Height": "",
+            "Jewels": "",
+            "Uses": "",
+            "Index": "https://al.fg-games.co.jp/news/23721/",
+            "image": "=IMAGE(R[0]C[1])",
+            "img": "https://cdn.discordapp.com/attachments/309461156194418688/466864256021954580/unknown.png",
+            "keyword": "lavina;ラヴィーナ",
+            "simplename": "lavina"
+        },
+        {
+            "character": "Nasario\nナサリオ",
+            "skillname": "High Elf's Dignity\nハイエルフの品格",
+            "Effect": "HP上限・治癒力・素早さアップ\nHP+100 & SPD+15 & RecoveryStat+30",
+            "unlockcond": "Char.キャラEP1/2/3 Lv80",
+            "Range": "",
+            "Area": "",
+            "Height": "",
+            "Jewels": "",
+            "Uses": "",
+            "Index": "https://al.fg-games.co.jp/news/24960/",
+            "image": "=IMAGE(R[0]C[1])",
+            "img": "https://cdn.discordapp.com/attachments/309461156194418688/479639200941998080/Screenshot_20180816-165957.png",
+            "keyword": "nasario;ナサリオ",
+            "simplename": "nasario"
+        },
+        {
+            "character": "Jin\nジン",
+            "skillname": "Aloof Demon Killer\n孤高の妖杀",
+            "Effect": "物攻・物防アップ& [暗闇円] [神威転] の移動範囲+1 & スキル使用後移動可能\nPATK +40 & PDEF+40 & [暗闇円] [神威転] Teleport Range +1 & Able to move after skill use",
+            "unlockcond": "Char.キャラEP1/2/3 Lv80",
+            "Range": "",
+            "Area": "",
+            "Height": "",
+            "Jewels": "",
+            "Uses": "",
+            "Index": "https://al.fg-games.co.jp/news/24960/",
+            "image": "=IMAGE(R[0]C[1])",
+            "img": "https://cdn.discordapp.com/attachments/309461156194418688/479639869602398209/Screenshot_20180816-165922.png",
+            "keyword": "jin;ジン",
+            "simplename": "jin"
         }
     ],
     "WeaponAbilities": [
@@ -100895,7 +102943,7 @@
             "JPNname": "戒環・黒炎",
             "Rarity": "★★★★☆",
             "Stats": "PATK+5(+50)\nFireRES+1(+15) / DarkRES+1(+15)\n物攻+50　火耐性+15　闇耐性+15",
-            "WeaponAbility": "5★REQ: Power of 10\n十戒・術防陣 / 術攻陣 / 剛攻陣 / 会心陣 / 活命陣  ",
+            "WeaponAbility": "5★REQ: Power of 10\n十戒・術防陣 / 術攻陣 / 剛攻陣 / 会心陣 / 活命陣\nBuff the Selected Stat for the User in the area around self for 3 Turns\n3ターンの間、自身を中心にした指定範囲の味方の[====]を大きくアップさせる[範囲:菱形2マス,高低差:2]\nMDEF+100% [Acht 8 アハト]\nMATK+70% [Vier 4 フィーア]\nPATK+70% [Zierva 7 ズィーヴァ]\nCRIT+100% [Neun 9 ノイン]\nMaxHP+50%  [Fuelie 5 フューリー]\nSPD+40% [Zehn 10 ゼン]\nAllStat+30% & SingleTargetDMG+10% & AoEDMG+10% [Sol 0 ソル]",
             "keyword": "10ring;ring10;戒環・黒炎",
             "simplename": "vedaring",
             "Note": "Acquire: Gacha: Armament & Secret Shop [Paid]\n4★Scaling: PATK+5(+20) / FireRES+1(+9) / DarkRES+1(+9)\n5★Scaling: PATK+5(+50) / FireRES+1(+15) / DarkRES+1(+15)",
@@ -101207,7 +103255,7 @@
             "JPNname": "聖環・白夜",
             "Rarity": "★★★★☆",
             "Stats": "MATK+10(+30) / InitialJewels+2(+5)\nLightRES+3(+15) / DarkRES+3(+15)\n魔攻アップ、初期ジュエルアップ、闇耐性アップ、光耐性アップ",
-            "WeaponAbility": "聖騎 Series\nEquipping the ring will give permanent buff\nKadanoba:PDEF+20%\nKagura:SpellDMG+20%\nKudanstein:PierceDMG+20%\nSeda: ShotDMG+20%\nMonzein:SlashDMG+20%\nZain:SlashDMG+20%\nYauras:SPD+10%\nAutima:SpellDMG+20%\nKanon:ALLStatExceptSPD+10% / SPD+5%",
+            "WeaponAbility": "聖騎 Series\nEquipping the ring will give permanent buff\nKadanoba:PDEF+20%\nKagura:SpellDMG+20%\nKudanstein:PierceDMG+20%\nSeda: ShotDMG+20%\nMonzein:SlashDMG+20%\nZain:SlashDMG+20%\nYauras:SPD+10%\nAutima:SpellDMG+20%\nKanon:ALLStatExceptSPD+10% / SPD+5%\nKaya: ShotDMG+20% / SpellDMG+20%",
             "keyword": "dgring;dg;聖環・白夜",
             "simplename": "holyring",
             "Note": "Acquire: Gacha: Armament & Secret Shop [Paid]",
@@ -101939,6 +103987,22 @@
             "Units": "",
             "Jobs": "",
             "Notes": ""
+        },
+        {
+            "INDEX": "2018-08-22T14:00:00.000Z",
+            "Compendium": "New Update",
+            "Reason": "Update",
+            "Units": "Eren, Reiner",
+            "Jobs": "Survey Corps Member\nFire Necro JE",
+            "Notes": "SnK Collab, Eren & Reiner Info, Fire Necro JE Info\nhttps://al.fg-games.co.jp/news/25235/"
+        },
+        {
+            "INDEX": "2018-08-17T14:00:00.000Z",
+            "Compendium": "New Update",
+            "Reason": "Update",
+            "Units": "",
+            "Jobs": "Necro JE\nPirate JE\nDorothia Job+",
+            "Notes": "Necro JEs, Doro Job+\nhttps://al.fg-games.co.jp/news/24960/\n\nEO Kaigan Part 2, Pirate JE\nhttps://al.fg-games.co.jp/news/24725/"
         },
         {
             "INDEX": "2018-07-30T14:00:00.000Z",
@@ -103197,7 +105261,7 @@
             "Element": "Fire",
             "LeaderSkill": "All: 20%SlashDMG+",
             "Jobs": "Jobs: Thief\nシーフ\n・Gunner\nガンナー\n・Magic Knight\n魔法剣士",
-            "Job Change": "Assassin+\n暗殺者+",
+            "Job Change": "Beautiful Gambler\n麗しのギャンブラー",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
@@ -103925,7 +105989,7 @@
             "Element": "Dark",
             "LeaderSkill": "Dark: 50% PATK+",
             "Jobs": "Jobs: Pirate\n海賊\n・Dragon Warrior\n竜騎士\n・Saint of Fist\n拳聖",
-            "Job Change": "Pirate[+]\n海賊[+]",
+            "Job Change": "Black Kiels Boss\nブラックキールズ首領",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
@@ -104681,7 +106745,7 @@
             "Element": "Dark",
             "LeaderSkill": "Dark: HP+20% JewelGain+5",
             "Jobs": "Jobs: Necromancer\nネクロマンサー\n・Shadow Knight\n暗黒騎士\n・Merchant\n商人",
-            "Job Change": "N/A",
+            "Job Change": "Necromancer of Darkness and Disaster\n闇厄のネクロマンサー",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
@@ -104885,228 +106949,228 @@
             "icon url": "http://i.imgur.com/PEGx7Zg.png"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         },
         {
-            "Return to Index": "=Units!R[109]C[1]",
-            "Name": "=Units!R[109]C[1]",
-            "Rarity": "=Units!R[109]C[3]",
-            "Element": "=Units!R[109]C[3]",
-            "LeaderSkill": "=Units!R[109]C[3]",
+            "Return to Index": "=Units!R[111]C[1]",
+            "Name": "=Units!R[111]C[1]",
+            "Rarity": "=Units!R[111]C[3]",
+            "Element": "=Units!R[111]C[3]",
+            "LeaderSkill": "=Units!R[111]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[109]C[5]",
+            "Job Change": "=Units!R[111]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[109]C[-7]",
-            "icon url": "=Units!R[109]C[16]"
+            "JP Name": "=Units!R[111]C[-7]",
+            "icon url": "=Units!R[111]C[16]"
         }
     ],
     "Gem Bonus": [

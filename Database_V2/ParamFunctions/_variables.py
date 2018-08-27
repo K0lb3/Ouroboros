@@ -46,6 +46,7 @@ RAWBIRTH = {    #~EBirth
     "砂漠地帯": "Desert Zone",  #9
     "ノーザンブライド": "Northern Pride",   #10
     "ロストブルー": "Lost Blue",    #11
+    "異界の巨人":   "World of Titans",
     '神戸あいしす':'Kobe Aisushi', #placeholder? only one Doro enemy and 8 buffs/conds
     '神戸IJ': 'Kobe IJ',
     'ラットン田崎': 'Tasaki Kobe',

@@ -200,7 +200,8 @@ def Fixes(master):
                     QUEST[quest]['dropList'].append(key)
 
         del master['simpleQuestDrops']
-        #save1
+        #save
+        saveAsJSON(PATH_convert2, 'Item.json',master['Item'])
         saveAsJSON(PATH_convert2, 'Quests.json',master['quests'])
     ##units##########################################################
     print('Fix - Unit')
@@ -258,6 +259,7 @@ def Fixes(master):
                 unit=UNIT['UN_V2_'+key.rsplit('_',2)[1]]
                 unit['conceptcard']=key
                 card['unit']=unit['iname']
+                print('Direct: ',key,unit['iname'])
             except:
                 unit=None
                 
@@ -274,6 +276,7 @@ def Fixes(master):
                         unit=UNIT[units[0]]
                         unit['conceptcard']=key
                         card['unit']=unit['iname']
+                        print('Indirect: ',key,unit['iname'])
                     else:
                         continue
                 #skin
@@ -294,7 +297,9 @@ def Fixes(master):
                                 if key not in UNIT[enemy['iname']]['occurrence']:
                                     UNIT[enemy['iname']]['occurrence'].append(key)
                             else:
-                                print(enemy['iname'])
+                                pass
+                                #Missing enemies
+                                #print(enemy['iname'])
         
         master['Enemy']=eEnemy
         master['Unit']=eUnit

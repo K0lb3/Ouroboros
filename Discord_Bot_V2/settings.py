@@ -16,18 +16,20 @@ BOT_TOKEN = environ.get('DISCORD_BOT_TOKEN')
 
 global PRESENCES
 PRESENCES=[
-        'WIP Job: o?job',
-        'Collabs: o?collabs',
+        'Job: o?job',
         'Unit: o?unit',
         'Lore: o?lore',
         'Art:  o?art',
         'Gear: o?gear',
+        'Nensou: o?nensou',
+        'Item: o?item',
+        #'Recipe: o?recipe',
         'Farm: o?farm',
         'Ranking: o?arena',
         'Arena Enemy: o?rank x'
-        'Tierlist: o?tierlist',
+        #'Tierlist: o?tierlist',
         'Info: o?info',
-        'Help: o?help'
+        #'Help: o?help'
         ]
 
 global PAGES
@@ -35,27 +37,37 @@ PAGES={
     'gear':{
         '🗃':  'main',
     },
+    'conceptcard':{
+        '🗃':  'main',
+    },
     'job':{
         '🗃':  'main',
         '🇲':   'main ability',     
         '🇸':   'sub ability',
-        '🇷':   'reactives',
-        '🇵':   'passives',
+        '🇷':   'reaction ability',
+        '🇵':   'passive ability',
     },
     'unit':{
         '🗃':   'main',
         '📰':  'lore',
-        '1⃣':   'job 1',     
-        '2⃣':   'job 2',
-        '3⃣':   'job 3',
-        '4⃣':   'jc 1',
-        '5⃣':   'jc 2',
-        '6⃣':   'jc 3'
+        '🇰':    'kaigan',
+        #'🇳':    'nensou',
+        '1⃣':   'job1',     
+        '2⃣':   'job2',
+        '3⃣':   'job3',
+        '4⃣':   'job4',
+        '5⃣':   'job5',
+        '6⃣':   'job6'
     },
-    'drop':{
-        's':  'story',
-        'h':  'hard',
-        'e':  'event'
+    'quest':{
+        '🗃':   'main',
+        '📰':  'drop',
+    },
+    'item':{
+        '🗃':   'main',
+        '🇸':  'story',
+        '🇭':  'hard',
+        '🇪':  'event'
     },
 
 }

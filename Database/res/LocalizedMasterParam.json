@@ -489,7 +489,7 @@
         "name": "Suiran"
     },
     "UN_V2_BLANCHETT": {
-        "name": "Blanshett"
+        "name": "Blanchett"
     },
     "UN_V2_ZIN": {
         "name": "Jin"
@@ -4458,13 +4458,13 @@
         "name": "Freed"
     },
     "UN_V2_EN_BLANCHETT_SOL": {
-        "name": "Blanshett"
+        "name": "Blanchett"
     },
     "UN_V2_EN_BLANCHETT_SAM": {
-        "name": "Blanshett"
+        "name": "Blanchett"
     },
     "UN_V2_EN_BLANCHETT_KAK": {
-        "name": "Blanshett"
+        "name": "Blanchett"
     },
     "UN_V2_EN_FF15_NOCTIS_NOCT": {
         "name": "Noctis"
@@ -5262,10 +5262,10 @@
         "name": "Envylia Soldier B"
     },
     "UN_EV_LIZARD_BRIGADE_A": {
-        "name": "Lizard Brigade Knight A"
+        "name": "Lizard Brigade Member A"
     },
     "UN_EV_LIZARD_BRIGADE_B": {
-        "name": "Lizard Brigade Knight B"
+        "name": "Lizard Brigade Member B"
     },
     "UN_EV_MISTRESS": {
         "name": "Landlady"
@@ -9584,12 +9584,12 @@
         "expr": "Enemy Unit Abilities"
     },
     "AB_RAT_ARM_RELAY": {
-        "name": "Rat War Arts [For Sports Day Relay]",
-        "expr": "[For Sports Day Relay]"
+        "name": "Rat War Arts [For Summer Sports Meet Relay]",
+        "expr": "[For Summer Sports Meet Relay]"
     },
     "AB_RAT_TAMAIRE": {
-        "name": "Rat War Arts [For Sports Day Ball Game]",
-        "expr": "[For Sports Day Relay]"
+        "name": "Rat War Arts [For Summer Sports Meet Ball Game]",
+        "expr": "[For Summer Sports Meet Relay]"
     },
     "AB_RAT_WIZ_FIRE": {
         "name": "Rat Magic - Fire",
@@ -9664,15 +9664,15 @@
         "expr": "Enemy Unit Abilities"
     },
     "AB_RAT_WIZ_REACTION_BLAN": {
-        "name": "Rat Magic - Blanshett Encounter",
+        "name": "Rat Magic - Blanchett Encounter",
         "expr": "Enemy Unit Abilities"
     },
     "AB_RAT_WIZ_SKL01_BLAN": {
-        "name": "Rat Magic - Blanshett Encounter",
+        "name": "Rat Magic - Blanchett Encounter",
         "expr": "Enemy Unit Abilities"
     },
     "AB_RAT_WIZ_SKL02_BLAN": {
-        "name": "Rat Magic - Blanshett Encounter",
+        "name": "Rat Magic - Blanchett Encounter",
         "expr": "Enemy Unit Abilities"
     },
     "AB_RAT_WIZ_HALL": {
@@ -9924,8 +9924,8 @@
         "expr": "Enemy Unit Abilities"
     },
     "AB_MAN_YUJ_UPPER_RELAY": {
-        "name": "Mandragora [For Sports Day Relay]",
-        "expr": "[For Sports Day Relay]"
+        "name": "Mandragora [For Summer Sports Meet Relay]",
+        "expr": "[For Summer Sports Meet Relay]"
     },
     "AB_MAN_MOTHER_JEM_REGENERATE": {
         "name": "Mandragora Mother's Day Jewels Control",
@@ -10372,19 +10372,19 @@
         "expr": "Enemy Unit Abilities"
     },
     "AB_DMN_WIZ_UNDOUKAI": {
-        "name": "Demon [For Sports Day]",
+        "name": "Demon [For Summer Sports Meet]",
         "expr": "Enemy Unit Abilities"
     },
     "AB_LS_JEWEL_DOWN_2": {
-        "name": "[Sports Day Enemy LS] Initial Jewel Reduction",
-        "expr": "Sports Day Enemy Unit Leader Abilities"
+        "name": "[Summer Sports Meet Enemy LS] Initial Jewel Reduction",
+        "expr": "Summer Sports Meet Enemy Unit Leader Abilities"
     },
     "AB_DMN_WIZ_UNDOUKAI2": {
-        "name": "Demon [For Sports Day Obstacle Race]",
+        "name": "Demon [For Summer Sports Meet Obstacle Race]",
         "expr": "Enemy Unit Abilities"
     },
     "AB_DMN_WIZ_UNDOUKAI3": {
-        "name": "Demon [For Sports Day Obstacle Race]",
+        "name": "Demon [For Summer Sports Meet Obstacle Race]",
         "expr": "Enemy Unit Abilities"
     },
     "AB_VEDA_BOSS": {
@@ -10992,7 +10992,7 @@
         "expr": "[Sunlight EX] Enemy Unit Abilities"
     },
     "AB_GLU_ARM_UNDOUKAI": {
-        "name": "For Riddles [For Sports Day Obstacle Race]",
+        "name": "For Riddles [For Summer Sports Meet Obstacle Race]",
         "expr": "Enemy Unit Abilities"
     },
     "AB_BAA_SO_ZEKE_UPPER": {
@@ -11064,8 +11064,8 @@
         "expr": "Enemy Unit Abilities"
     },
     "AB_BAR_LOWER_BLA": {
-        "name": "Basic Poetry_3_Blanshett Encounter",
-        "expr": "Poetry_3_Blanshett Encounter (All Job Types)"
+        "name": "Basic Poetry_3_Blanchett Encounter",
+        "expr": "Poetry_3_Blanchett Encounter (All Job Types)"
     },
     "AB_WEA_UPPER_TOWER": {
         "name": "TOWER_ENEMY Snail (50~100% Slow)",
@@ -11268,11 +11268,11 @@
         "expr": "[Transcender of All]"
     },
     "AB_EN_UNDOUKAI_DEF": {
-        "name": "[Enemy] Sports Day PDEF Combination",
+        "name": "[Enemy] Summer Sports Meet PDEF Combination",
         "expr": "[Enemy use] This job type only"
     },
     "AB_EN_UNDOUKAI_DEF_REACT": {
-        "name": "[Enemy] Sports Day PDEF Counter",
+        "name": "[Enemy] Summer Sports Meet PDEF Counter",
         "expr": "[Enemy use] This job type only"
     },
     "AB_HAL7_NEICA_EAT": {
@@ -13721,11 +13721,11 @@
     },
     "AB_AF_ARMS_SWO_ZAYI_01_CANO": {
         "name": "Eternal Glow",
-        "expr": "Zain-Only Ability (\"Eternal Glow\" when equipped on Kanon)"
+        "expr": "Kanon-Only Ability (\"Eternal Glow\" when equipped on Kanon)"
     },
     "AB_AF_ARMS_SWO_ZAYI_01_ZAYI": {
         "name": "Rising Sun",
-        "expr": "Zain-Only Ability (\"Eternal Glow\" when equipped on Kanon)"
+        "expr": "Zain-Only Ability (\"Rising Sun\" when equipped on Zain)"
     },
     "AB_AF_ARMS_SAKURA_00": {
         "name": "Blossom's Fury",
@@ -13784,7 +13784,7 @@
         "expr": "Raises All Elements Res of ally units within target area for three turns [Range: 3, Area: Cross (3), Height Range: 2]"
     },
     "AB_AF_ARMS_ZIN_00_WA": {
-        "name": "Purple Poison Three Evils",
+        "name": "Purple Poison - Triple Torment",
         "expr": "Jin-Only Ability"
     },
     "AB_AF_ARMS_NIN_04_WA": {
@@ -13793,7 +13793,7 @@
     },
     "AB_AF_ARMS_NEC_03_WA": {
         "name": "Demon Deflector",
-        "expr": "Inflicts Phys Dmg on units within target area with chance of critical & lowers target's MATK [Range: 4, Area: Cross (3), Height Range: 2]"
+        "expr": "Inflicts Phys Dmg on units within target area with chance of critical & lowers target's Mag DMG [Range: 4, Area: Cross (3), Height Range: 2]"
     },
     "AB_AF_ARMO_BEGINNER_WA": {
         "name": "Auto Regeneration",
@@ -13957,7 +13957,7 @@
     },
     "AB_AF_ARMO_HAT_01": {
         "name": "Stardust Blessing",
-        "expr": "Raises own MATK for three turns"
+        "expr": "Raises own Mag DMG for three turns"
     },
     "AB_AF_ACCS_CLOCK_01": {
         "name": "Chronos Drive",
@@ -14580,8 +14580,8 @@
         "expr": "Support techniques for use with all jobs"
     },
     "AB_MAH_KAGO_SUPER_RELAY": {
-        "name": "Nullify All Attacks [For Sports Day Relay]",
-        "expr": "[For Sports Day Relay]"
+        "name": "Nullify All Attacks [For Summer Sports Meet Relay]",
+        "expr": "[For Summer Sports Meet Relay]"
     },
     "AB_DOWN_RESIST_WOLF": {
         "name": "Wolf Res Down",
@@ -14816,7 +14816,7 @@
         "expr": "[Map Effect Set]"
     },
     "AB_ME_KIL": {
-        "name": "Shadow Assassin: Map Effect Ability",
+        "name": "Dark Assassin: Map Effect Ability",
         "expr": "[Map Effect Set]"
     },
     "AB_ME_NIN": {
@@ -21808,7 +21808,7 @@
     },
     "SK_BASI_SOL_REACTION": {
         "name": "Counterattack Poison Slash",
-        "expr": "Chance of performing counter & inflicting Poison when Dmg is received [Range: 1, Height Range: 2]",
+        "expr": "Chance of performing counter & inflicting Poison when Phys Dmg is received [Range: 1, Height Range: 2]",
         "mapeff": " "
     },
     "SK_BASI_SOL_SUPPORT_1": {
@@ -23242,7 +23242,7 @@
         "mapeff": " "
     },
     "SK_TINA_SCOUTING_SHOOT": {
-        "name": "Fey",
+        "name": "Bladestorm",
         "expr": "Inflicts Missile Dmg (strong vs amorphous) [Range: 3, Height Range: Unlimited]",
         "mapeff": " "
     },
@@ -23838,7 +23838,7 @@
     },
     "SK_DENEB_MA_01": {
         "name": "Wish to the First Star",
-        "expr": "Raises HP/AGI & reduces charge time by 1/3",
+        "expr": "Raises HP/AGI & reduces cast time by 1/3",
         "mapeff": " "
     },
     "SK_LUPINUS_MA_01": {
@@ -24058,7 +24058,7 @@
     },
     "SK_ARMS_DOC_04_WA": {
         "name": "Hallucination",
-        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
+        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
         "mapeff": " "
     },
     "SK_ACCS_SNOWMAN_HAT_WA": {
@@ -24232,7 +24232,7 @@
         "mapeff": " "
     },
     "SK_AF_ARMS_ZIN_00_WA": {
-        "name": "Purple Poison Three Evils",
+        "name": "Purple Poison - Triple Torment",
         "expr": "Inflicts 3-hit Dark Dmg on target & Poison & raises own AGI until next turn [Range: 5, Height Range: 2]",
         "mapeff": " "
     },
@@ -24243,7 +24243,7 @@
     },
     "SK_AF_ARMS_NEC_03_WA": {
         "name": "Demon Deflector",
-        "expr": "Inflicts Phys Dmg on units within target area with chance of critical & lowers target's MATK [Range: 4, Area: Cross (3), Height Range: 2]",
+        "expr": "Inflicts Phys Dmg on units within target area with chance of critical & lowers target's Mag DMG [Range: 4, Area: Cross (3), Height Range: 2]",
         "mapeff": " "
     },
     "SK_AF_ARMO_BEGINNER_WA": {
@@ -24743,32 +24743,32 @@
     },
     "SK_RAT_ARM_KB_TACKLE": {
         "name": "Knockback Tackle",
-        "expr": "[Sports Day Relay] Normal Attack",
+        "expr": "[Summer Sports Meet Relay] Normal Attack",
         "mapeff": " "
     },
     "SK_RAT_ARM_TACKLE_FAST_JUDGE": {
         "name": "Judgement - Quicken",
-        "expr": "[Sports Day Relay] Quicken",
+        "expr": "[Summer Sports Meet Relay] Quicken",
         "mapeff": " "
     },
     "SK_RAT_BOOST_MOVE_WIDE_JUDGE": {
         "name": "Judgement - Move Up",
-        "expr": "[For Sports Day Relay]",
+        "expr": "[For Summer Sports Meet Relay]",
         "mapeff": " "
     },
     "SK_RAT_ARM_TACKLE_FAST_JUDGE_EN": {
         "name": "Judgement - Quicken",
-        "expr": "[Sports Day Relay] Quicken",
+        "expr": "[Summer Sports Meet Relay] Quicken",
         "mapeff": " "
     },
     "SK_RAT_BOOST_MOVE_WIDE_JUDGE_EN": {
         "name": "Judgement - Move Up",
-        "expr": "[For Sports Day Relay]",
+        "expr": "[For Summer Sports Meet Relay]",
         "mapeff": " "
     },
     "SK_RAT_KAGO_DOWN_RELAY": {
         "name": "Judgement - Res Down",
-        "expr": "[For Sports Day Relay]",
+        "expr": "[For Summer Sports Meet Relay]",
         "mapeff": " "
     },
     "SK_RAT_WIZ_TACKLE": {
@@ -25868,27 +25868,27 @@
     },
     "SK_MAN_YUJ_STOP_RANDOM_JUDGE": {
         "name": "Judgement - Stop [Curse / Cannot Defend]",
-        "expr": "[Sports Day Relay] Only forced Stop cannot be blocked by Res",
+        "expr": "[Summer Sports Meet Relay] Only forced Stop cannot be blocked by Res",
         "mapeff": " "
     },
     "SK_MAN_YUJ_PAR_WIDE_JUDGE": {
         "name": "Judgement - Paralyze",
-        "expr": "[Sports Day Relay] Res equipment used for allies",
+        "expr": "[Summer Sports Meet Relay] Res equipment used for allies",
         "mapeff": " "
     },
     "SK_MAN_YUJ_SLOW_WIDE_JUDGE": {
         "name": "Judgement - Delay",
-        "expr": "[Sports Day Relay] Res equipment used for allies",
+        "expr": "[Summer Sports Meet Relay] Res equipment used for allies",
         "mapeff": " "
     },
     "SK_MAN_YUJ_PAR_WIDE_JUDGE_EN": {
         "name": "Judgement - Paralyze",
-        "expr": "[Sports Day Relay] Res-breaking effect for enemy use",
+        "expr": "[Summer Sports Meet Relay] Res-breaking effect for enemy use",
         "mapeff": " "
     },
     "SK_MAN_YUJ_SLOW_WIDE_JUDGE_EN": {
         "name": "Judgement - Delay",
-        "expr": "[Sports Day Relay] Res-breaking effect for enemy use",
+        "expr": "[Summer Sports Meet Relay] Res-breaking effect for enemy use",
         "mapeff": " "
     },
     "SK_MACHINE_ARM_DIRECT_UNDOUKAI": {
@@ -25903,17 +25903,17 @@
     },
     "SK_GUN_SHOT_UNDOUKAI1": {
         "name": "Problem!",
-        "expr": "[Sports Day Obstacle Race] Fixed Phys Dmg to single target",
+        "expr": "[Summer Sports Meet Obstacle Race] Fixed Phys Dmg to single target",
         "mapeff": " "
     },
     "SK_GUN_SHOT_UNDOUKAI2": {
         "name": "Problem!",
-        "expr": "[Sports Day Obstacle Race] Fixed Phys Dmg to single target",
+        "expr": "[Summer Sports Meet Obstacle Race] Fixed Phys Dmg to single target",
         "mapeff": " "
     },
     "SK_GUN_SHOT_UNDOUKAI3": {
         "name": "Problem!",
-        "expr": "[Sports Day Obstacle Race] Fixed Phys Dmg to single target",
+        "expr": "[Summer Sports Meet Obstacle Race] Fixed Phys Dmg to single target",
         "mapeff": " "
     },
     "SK_HUN_BOOBY_TRAP_UNDOUKAI": {
@@ -26603,7 +26603,7 @@
     },
     "SK_MAN_YUJ_STO_WIDE": {
         "name": "Grand Petrify",
-        "expr": "Inflicts Petrify on all enemy units (Castes)",
+        "expr": "Inflicts Petrify on all enemy units (Casts)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_STO_RANDOM": {
@@ -26683,7 +26683,7 @@
     },
     "SK_MAN_YUJ_MAGIC_DOWN_ALL": {
         "name": "Anti-Magic [Magic Down]",
-        "expr": "Lowers MATK of all enemy units for three turns",
+        "expr": "Lowers Mag DMG of all enemy units for three turns",
         "mapeff": " "
     },
     "SK_MAN_YUJ_BLI_WIDE": {
@@ -27378,7 +27378,7 @@
     },
     "SK_DMN_WIZ_THUNDER_MONS_HANSOKU": {
         "name": "Leave!",
-        "expr": "For Sports Day 2017",
+        "expr": "For Summer Sports Meet",
         "mapeff": " "
     },
     "SK_DMN_JEWEL_DRAIN_WIDE_S_2": {
@@ -27408,7 +27408,7 @@
     },
     "SK_DMN_WIZ_THUNDER_MONS_HAZURE": {
         "name": "Miss!",
-        "expr": "Sports Day 2017 (Obstacle Race)",
+        "expr": "Summer Sports Meet (Obstacle Race)",
         "mapeff": " "
     },
     "SK_RAT_WIZ_DYNAMITE_RECOVERY_UNDOUKAI": {
@@ -27428,7 +27428,7 @@
     },
     "SK_DMN_WIZ_THUNDER_MONS_HANSOKU2": {
         "name": "Fault!",
-        "expr": "For Sports Day 2017",
+        "expr": "For Summer Sports Meet",
         "mapeff": " "
     },
     "SK_VEDA_BOSS_STRIKE": {
@@ -30482,7 +30482,7 @@
         "mapeff": " "
     },
     "SK_MAN_YUJ_HEAL_DJ_9EX": {
-        "name": "Curing Spores Ex",
+        "name": "Curing Spores EX",
         "expr": "Recovers HP of target [Range: 6]",
         "mapeff": " "
     },
@@ -30717,8 +30717,8 @@
         "mapeff": " "
     },
     "SK_CI_APP_01": {
-        "name": "Buff Adjacent (MAG Dmg Up)",
-        "expr": "Raises MATK of self and adjacent allies when one or more ally units are in adjacent squares.",
+        "name": "Buff Adjacent (Mag Dmg Up)",
+        "expr": "Raises Mag DMG of self and adjacent allies when one or more ally units are in adjacent squares.",
         "mapeff": " "
     },
     "SK_CI_PLS_01": {
@@ -31603,7 +31603,7 @@
     },
     "SK_LS_ELEM_WATER_30_U_MATK_20_U_HP": {
         "name": "Blue Water's Art",
-        "expr": "Raises MATK by 30% & HP by 20% for Water units",
+        "expr": "Raises Mag DMG by 30% & HP by 20% for Water units",
         "mapeff": " "
     },
     "SK_LS_ELEM_WATER_20_U_SHOT_10_U_HP": {
@@ -31708,7 +31708,7 @@
     },
     "SK_LS_ELEM_WIND_30_U_MATK_20_U_HP": {
         "name": "Fresh Wind's Art",
-        "expr": "Raises MATK by 30% & HP by 20% for Wind units",
+        "expr": "Raises Mag DMG by 30% & HP by 20% for Wind units",
         "mapeff": " "
     },
     "SK_LS_ELEM_WIND_30_U_SHOT_20_U_HP": {
@@ -31888,7 +31888,7 @@
     },
     "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP": {
         "name": "Thunderer's Secret",
-        "expr": "Raises MATK by 30% & HP by 20% for Thunder units",
+        "expr": "Raises Mag DMG by 30% & HP by 20% for Thunder units",
         "mapeff": " "
     },
     "SK_LS_ELEM_THUNDER_40_U_ATK_5_U_AVO": {
@@ -34132,7 +34132,7 @@
         "mapeff": " "
     },
     "SK_EQ_YUAN_GEAR": {
-        "name": "Reida's Gear",
+        "name": "Raider's Gear",
         "expr": "PDEF +12, MDEF +12, HP +24, Stun Res +2, Water Res +1",
         "mapeff": " "
     },
@@ -34142,7 +34142,7 @@
         "mapeff": " "
     },
     "SK_EQ_YUAN_BOOTS": {
-        "name": "Reida's Boots",
+        "name": "Raider's Boots",
         "expr": "AGI +4, DEX +10, MDEF +12, Sleep Res +2, Paralyze Res +2",
         "mapeff": " "
     },
@@ -36182,7 +36182,7 @@
         "mapeff": " "
     },
     "SK_AF_ARMS_ZIN_00": {
-        "name": "Eerie Agony Thousand Drop Blade",
+        "name": "Cursed Kunai - Blood Edge",
         "expr": "Attributes: HP +30, PATK +20, DEX +40, Daze +10%",
         "mapeff": " "
     },
@@ -36642,12 +36642,12 @@
         "mapeff": " "
     },
     "SK_AF_ACCS_UNDOKAI2017_01_04": {
-        "name": "Sports Day - Ouroboros Prize 4★",
+        "name": "Ouroboros's Medal 4★",
         "expr": "Attributes: HP Up, PATK Up, MATK Up, AGI Up",
         "mapeff": " "
     },
     "SK_AF_ACCS_UNDOKAI2017_01_05": {
-        "name": "Sports Day - Ouroboros Prize 5★",
+        "name": "Ouroboros's Medal 5★",
         "expr": "Attributes: HP Up, PATK Up, MATK Up, AGI Up",
         "mapeff": " "
     },
@@ -36733,7 +36733,7 @@
     },
     "SK_AF_ARMO_HAT_01_WA": {
         "name": "Stardust Blessing",
-        "expr": "Raises own MATK for three turns",
+        "expr": "Raises own Mag DMG for three turns",
         "mapeff": " "
     },
     "SK_AF_ACCS_CLOCK_01_4": {
@@ -40763,7 +40763,7 @@
     },
     "SK_MAH_KAGO_SUPER_RELAY": {
         "name": "Divine Shelter+",
-        "expr": "[Sports Day Relay] Nullifies all attacks",
+        "expr": "[Summer Sports Meet Relay] Nullifies all attacks",
         "mapeff": " "
     },
     "SK_DOWN_RESIST_WOLF": {
@@ -40967,7 +40967,7 @@
         "mapeff": "<color=cyan>PDEF +20%</color>"
     },
     "SK_ME_TOWN_STR": {
-        "name": "[Unused: City] Holy Brawler",
+        "name": "[Unused: City] Sacred Brawler",
         "expr": "[Map Effect] PDEF +20%",
         "mapeff": "<color=cyan>PDEF +20%</color>"
     },
@@ -41052,7 +41052,7 @@
         "mapeff": "<color=cyan>Hit Rate +20%</color>"
     },
     "SK_ME_PLAIN_KIL": {
-        "name": "[Unused: Prairie] Shadow Assassin",
+        "name": "[Unused: Prairie] Dark Assassin",
         "expr": "[Map Effect] Hit Rate -20%",
         "mapeff": "<color=red>Hit Rate -20%</color>"
     },
@@ -41238,7 +41238,7 @@
     },
     "SK_ME_MAGIC_CASTLE_LIES1": {
         "name": "[Unused: Magic City] Apprentice Witch",
-        "expr": "[Map Effect] Cast Time -20%",
+        "expr": "[Map Effect] Cast Time -20%",
         "mapeff": "<color=cyan>Cast Time -20%</color>"
     },
     "SK_ME_MAGIC_CASTLE_LIES2": {
@@ -41793,7 +41793,7 @@
     },
     "SK_AF_ACCS_GL_CRYSTALROSE": {
         "name": "Blue Crystal Rose",
-        "expr": "Attributes: MDEF Up, Water Res UP,  Jewels Obtained Up",
+        "expr": "Attributes: MDEF Up, Water Res UP, Jewels Obtained Up",
         "mapeff": " "
     },
     "IT_EQ_SOUL_STR_MILOKU": {
@@ -41909,7 +41909,7 @@
     "IT_EQ_DRAGON_GARUDA": {
         "name": "Garuda Sphere",
         "expr": "[Dragon Cavalier [Garuda]-Only Equipment] Max HP +40, PATK +18, DEX +16, LUCK +6, Fire Res +1, Charm Res +8, Sleep Res +8, Slow Res +8",
-        "flavor": "Only dragon cavaliers, a more powerful form of the dragon knight, are permitted to carry orbs such as this. They symbolize a bond with dragons, and this particular orb is said to bestow all the power of the dragon Garuda upon the bearer. Garuda's powerful  wings make it possible to soar high up to the heavens--high enough to touch the sun."
+        "flavor": "Only dragon cavaliers, a more powerful form of the dragon knight, are permitted to carry orbs such as this. They symbolize a bond with dragons, and this particular orb is said to bestow all the power of the dragon Garuda upon the bearer. Garuda's powerful wings make it possible to soar high up to the heavens--high enough to touch the sun."
     },
     "IT_EQ_DRAGON_RUDRA": {
         "name": "Rudra Sphere",
@@ -44932,12 +44932,12 @@
         "flavor": " "
     },
     "IT_US_2017SEPT_SUMMONCOIN_TICKET05": {
-        "name": "Sports Day Relevant Magic Unit Guaranteed 10-Summon Ticket",
+        "name": "Summer Sports Meet Relevant Magic Unit Guaranteed 10-Summon Ticket",
         "expr": "Use this special 10-summon ticket to get one guaranteed \"effective\" unit (Füry, Ravina, Chao, Nasario, or Neica.)",
         "flavor": " "
     },
     "IT_US_2017SEPT_SUMMONCOIN_TICKET06": {
-        "name": "Sports Day Relevant Agility Unit Guaranteed 10-Summon Ticket",
+        "name": "Summer Sports Meet Relevant Agility Unit Guaranteed 10-Summon Ticket",
         "expr": "Use this special 10-summon ticket to get one guaranteed \"effective\" unit (Yauras, Basheeny, Sieba, Hazel, or Setsuna.)",
         "flavor": " "
     },
@@ -46612,7 +46612,7 @@
         "flavor": "The belt that Yuan wears around his waist. It's fitted with a range of professional tools, and is actually pretty heavy. His younger brother, Lucido, says it's goofy-looking, but Yuan finds it very useful and doesn't plan on getting rid of it any time soon."
     },
     "IT_EQ_YUAN_GEAR": {
-        "name": "Reida's Gear",
+        "name": "Raider's Gear",
         "expr": "[Yuan/Ninja+-Only Equipment] PDEF +26, MDEF +26, HP +80, Stun Res +25, Water Res +2",
         "flavor": "Yuan's sturdy single shoulder pad. He chose it for its functionality above all else, and as a result hasn't sustained a shoulder wound since he bought it. Yuan would like Lucido to wear one as well, but Lucido isn't interested at all."
     },
@@ -46622,7 +46622,7 @@
         "flavor": "Yuan carries this quiver with him when he heads into battle. Yuan is always practical and well-equipped, whereas his younger brother, Lucido, refuses flat-out to wear anything that doesn't look good--which is a constant source of worry for his older brother."
     },
     "IT_EQ_YUAN_BOOTS": {
-        "name": "Reida's Boots",
+        "name": "Raider's Boots",
         "expr": "[Yuan/Ninja+-Only Equipment] AGI +6, DEX +20, MDEF +32, Sleep Res +25, Paralyze Res +25",
         "flavor": "Yuan wears these boots to protect his feet. He treasures them for their particularly thick soles, which help prevent needless injuries during battle. He often worries that the pointy tipped shoes worn by Lucido must be hurting his feet..."
     },
@@ -46793,7 +46793,7 @@
     },
     "IT_EQ_VIER_PIPE": {
         "name": "Aromatic Spell Kiselle",
-        "expr": "[Vier/Phantom Master-Only Equipment] HP +20, MATK +24, MDEF +24, Hit Rate +6, Wind Res +2, Petrify Res +8, Stop Res +8, Silence Res +8",
+        "expr": "[Vier/Phantom Artist-Only Equipment] HP +20, MATK +24, MDEF +24, Hit Rate +6, Wind Res +2, Petrify Res +8, Stop Res +8, Silence Res +8",
         "flavor": "Vier's trusty pipe. It's been customized based on detailed instructions from Vier, and as well as the mystical aromas it gives off, it's able to absorb magical energy from the surrounding atmosphere. She changes the aroma each day depending on her mood, apparently."
     },
     "IT_EQ_MONZ_WOR2_01": {
@@ -46979,7 +46979,7 @@
     "IT_EQ_REIM_TEKKO": {
         "name": "Black Lacquer Gauntlet",
         "expr": "[Reimei/Blademaster+-Only Equipment] DEX +14, CRIT +16, MDEF +14, PDEF +8, Charm Res +7",
-        "flavor": "This thin but strong gauntlet is worn by Reimei.  Coated in a black lacquer, it's made using an ore that's rare in Babel but common in Wadatsumi, and is said to be as light as bamboo but as hard as steel.  "
+        "flavor": "This thin but strong gauntlet is worn by Reimei. Coated in a black lacquer, it's made using an ore that's rare in Babel but common in Wadatsumi, and is said to be as light as bamboo but as hard as steel. "
     },
     "IT_EQ_REIM_EYEPATCH": {
         "name": "Dyed Eyepatch",
@@ -48532,8 +48532,8 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_YUAN_GEAR": {
-        "name": "Reida's Gear Diagram",
-        "expr": "Required in order to create: Reida's Gear",
+        "name": "Raider's Gear Diagram",
+        "expr": "Required in order to create: Raider's Gear",
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_YUAN_BUNDLE": {
@@ -48542,8 +48542,8 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_YUAN_BOOTS": {
-        "name": "Reida's Boots Diagram",
-        "expr": "Required in order to create: Reida's Boots",
+        "name": "Raider's Boots Diagram",
+        "expr": "Required in order to create: Raider's Boots",
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_YUAN_BLADE": {
@@ -49922,7 +49922,7 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_LUCA_TWIN_SWORD": {
-        "name": "Alchemic Kukri Diagram Piece",
+        "name": "Morceau de plan de kukri alchimique",
         "expr": "Collect 80 of these to create: Alchemic Kukri Diagram",
         "flavor": " "
     },
@@ -50068,7 +50068,7 @@
     },
     "IT_EQ_DIAGRAMPIECE_YUAN_GEAR": {
         "name": "Reida's Gear Diagram Piece",
-        "expr": "Collect 80 of these to create: Reida's Gear Diagram",
+        "expr": "Collect 80 of these to create: Raider's Gear Diagram",
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_YUAN_BUNDLE": {
@@ -50078,7 +50078,7 @@
     },
     "IT_EQ_DIAGRAMPIECE_YUAN_BOOTS": {
         "name": "Reida's Boots Diagram Piece",
-        "expr": "Collect 80 of these to create: Reida's Boots Diagram",
+        "expr": "Collect 80 of these to create: Raider's Boots Diagram",
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_YUAN_BLADE": {
@@ -51132,8 +51132,8 @@
         "flavor": " "
     },
     "IT_EQ_SOUL_VIER_WIZ": {
-        "name": "Phantom Master Token",
-        "expr": "Required in order to change to the \"Phantom Master\" job type",
+        "name": "Phantom Artist Master Token",
+        "expr": "Required in order to change to the \"Phantom Artist\" job type",
         "flavor": " "
     },
     "IT_EQ_SOUL_MONZ_WOR2": {
@@ -51987,7 +51987,7 @@
         "flavor": " "
     },
     "IT_PI_BLANCHETT": {
-        "name": "Blanshett Soul Shard",
+        "name": "Blanchett Soul Shard",
         "expr": "Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.",
         "flavor": " "
     },
@@ -53172,8 +53172,8 @@
         "flavor": " "
     },
     "IT_AF_ARMS_ZIN_00": {
-        "name": "Eerie Agony Thousand Drop Blade Shard",
-        "expr": "Collect 80 of these to create: Eerie Agony Thousand Drop Blade",
+        "name": "Cursed Kunai - Blood Edge Shard",
+        "expr": "Collect 80 of these to create: Cursed Kunai - Blood Edge",
         "flavor": " "
     },
     "IT_AF_ARMS_NIN_04": {
@@ -53367,8 +53367,8 @@
         "flavor": " "
     },
     "IT_AF_ACCS_UNDOKAI2017_01": {
-        "name": "Sports Day - Ouroboros Prize Shard",
-        "expr": "Collect 80 of these to create: Sports Day - Ouroboros Prize",
+        "name": "Ouroboros's Medal Shard",
+        "expr": "Collect 80 of these to create: Ouroboros's Medal",
         "flavor": " "
     },
     "IT_AF_ACCS_HOURGLASS_01": {
@@ -53827,7 +53827,7 @@
         "flavor": " "
     },
     "IT_SET_CADANOVA_01": {
-        "name": "Cadanova Specific Equipment Set",
+        "name": "Cadanova Equipment Set",
         "expr": "This set contains rare equipment required for Cadanova. (Jobs: Dragon Slayer, Dragon Knight, and Flame Dragon King.)",
         "flavor": " "
     },
@@ -54107,7 +54107,7 @@
         "flavor": " "
     },
     "IT_SET_KUDHANSTEIN_01": {
-        "name": "Kudan Specific Equipment Set",
+        "name": "Kudan Equipment Set",
         "expr": "This set contains rare equipment required for Kudanstein. (Jobs: Demonic Spearman, Martial Artist, and Dark Cavalier.)",
         "flavor": " "
     },
@@ -54507,7 +54507,7 @@
         "flavor": " "
     },
     "IT_SET_FENCER_01": {
-        "name": "Fencer Specific Equipment Set",
+        "name": "Fencer Equipment Set",
         "expr": "This set contains rare equipment required for Fencer units. (Jobs: Fencer, Illusory Swordsman, and Thunder Swordsman.)",
         "flavor": " "
     },
@@ -54577,12 +54577,12 @@
         "flavor": " "
     },
     "IT_SET_SEIDA_01": {
-        "name": "Seida Specific Equipment Set",
+        "name": "Seida Equipment Set",
         "expr": "This set contains rare equipment required for Seida. (Jobs: Venom Archer, Hunter, and Ninja.)",
         "flavor": " "
     },
     "IT_SET_MONZEIN_01": {
-        "name": "Monzein Specific Equipment Set",
+        "name": "Monzein Equipment Set",
         "expr": "This set contains rare equipment required for Monzein. (Jobs: Indomitable Axe Knight , Dragon Knight, and Holy Cavalier.)",
         "flavor": " "
     },
@@ -54617,7 +54617,7 @@
         "flavor": " "
     },
     "IT_SET_90_EX_01": {
-        "name": "900.000 Downloads Celebration Set Ex",
+        "name": "900.000 Downloads Celebration Set EX",
         "expr": "[900,000 Downloads Celebration Special Offer] This great-value set contains rare equipment that is required at high Job Levels.",
         "flavor": " "
     },
@@ -54822,12 +54822,12 @@
         "flavor": " "
     },
     "IT_SET_ZAYI_01": {
-        "name": "Zain Specific Equipment Set",
+        "name": "Zain Equipment Set",
         "expr": "This set contains rare equipment required for Zain. (Jobs: Lord Commander, Magic Swordsman, and Holy Cavalier.)",
         "flavor": " "
     },
     "IT_SET_YAUL_01": {
-        "name": "Yauras Specific Equipment Set",
+        "name": "Yauras Equipment Set",
         "expr": "This set contains rare equipment required for Yauras. (Jobs: Twin-Blade Knight, Martial Artist, and Twin-Blade Swordsman.)",
         "flavor": " "
     },
@@ -55037,7 +55037,7 @@
         "flavor": " "
     },
     "IT_SET_SU_SEISEKI_TICKET": {
-        "name": "Sacred Stone Unit Selector",
+        "name": "Sacred Stone Memories Unit Selector",
         "expr": "[One Million Downloads!] This ticket allows you to choose one Sacred Stone unit to summon: Cadanova, Kudanstein, Seida, Monzein, Zain, or Yauras. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen. Please note that the ticket will NOT be shown in the list of tickets on the Summon page.)",
         "flavor": " "
     },
@@ -55227,7 +55227,7 @@
         "flavor": " "
     },
     "IT_SET_OTHI_01": {
-        "name": "Othima Specific Equipment Set",
+        "name": "Othima Equipment Set",
         "expr": "This set contains rare equipment required for Othima. (Jobs: Phantom Master, Enchanter, and Sage.)",
         "flavor": " "
     },
@@ -55612,7 +55612,7 @@
         "flavor": " "
     },
     "IT_SET_SABER_01": {
-        "name": "Saber Specific Equipment Set",
+        "name": "Saber Equipment Set",
         "expr": "This set contains rare equipment required for the unit Saber. (Jobs: Saber, Holy Knight, and Valkyrie)",
         "flavor": " "
     },
@@ -55622,7 +55622,7 @@
         "flavor": " "
     },
     "IT_SET_TOSAKA_RINN_01": {
-        "name": "Rin Tohsaka Specific Equipment Set",
+        "name": "Rin Tohsaka Equipment Set",
         "expr": "This set contains rare equipment required for the unit Rin Tohsaka. (Jobs: Jewel Magician, Martial Artist, and Sage)",
         "flavor": " "
     },
@@ -55657,7 +55657,7 @@
         "flavor": " "
     },
     "IT_SET_IRIYA_01": {
-        "name": "Illya Specific Equipment Set",
+        "name": "Illya Equipment Set",
         "expr": "This set contains rare equipment required for the unit Illyasviel. (Jobs: Master Magician, Chronomancer, and Enchanter)",
         "flavor": " "
     },
@@ -55782,7 +55782,7 @@
         "flavor": " "
     },
     "IT_SET_SU_SEISEKI3_TICKET": {
-        "name": "",
+        "name": "[New Year] Sacred Stone Memories Unit Selector",
         "expr": "",
         "flavor": " "
     },
@@ -56417,7 +56417,7 @@
         "flavor": " "
     },
     "IT_SET_VOTE_BUGU_TICKET": {
-        "name": "Recommended Gear Selector",
+        "name": "Recommended Gear Summon Ticket",
         "expr": "[The Alchemist Code Popularity Vote 1st Place Celebration] Use this ticket to summon one guaranteed recommended piece of gear (Ogre Slaying Blade, Spirit Kabutowari, Crimson Cestus, Turquoise Cestus, Tiger Kris, Breaker Kris, Steel Cross Shield, Glittering Guard, Chronos Armor, Armor of Evil-Warding, Crimson Guard, Curious Doll, Swallow's Scarf, or Knight's Gauntlet.)",
         "flavor": " "
     },
@@ -56487,7 +56487,7 @@
         "flavor": " "
     },
     "IT_SET_VOTE_BUGU_TICKET02": {
-        "name": "Recommended Gear Selector",
+        "name": "Recommended Gear Summon Ticket",
         "expr": "[The Alchemist Code Popularity Vote 2nd Place Celebration] Use this ticket to summon one guaranteed recommended piece of gear for Yomi (Oracle's Prayer, Rod of Exorcism, Rod of Blessing, Demonbane Kunai, Ranunculus Kunai, Crimson Cestus, Turquoise Cestus, Steel Cross Shield, Glittering Guard, Chronos Armor, Armor of Evil-Warding, Cloak of Protection, Curious Doll, Swallow's Scarf, or Knight's Gauntlet.)",
         "flavor": " "
     },
@@ -56517,7 +56517,7 @@
         "flavor": " "
     },
     "IT_SET_VOTE_BUGU_TICKET03": {
-        "name": "Recommended Gear Selector",
+        "name": "Recommended Gear Summon Ticket",
         "expr": "[The Alchemist Code Popularity Vote 3rd Place Celebration] Use this ticket to summon one guaranteed recommended piece of gear (Crimson Cestus, Turquoise Cestus, Green Rod of Wisdom, Blue Rod of Sagacity, Valhalla Lance, Mellow Lance, Paralyzing Lance, Steel Cross Shield, Glittering Guard, Chronos Armor, Armor of Evil-Warding, Cloak of Protection, Curious Doll, Swallow's Scarf, or Knight's Gauntlet.)",
         "flavor": " "
     },
@@ -56642,7 +56642,7 @@
         "flavor": " "
     },
     "IT_SET_VOTE_BUGU_TICKET04": {
-        "name": "Recommended Gear Selector",
+        "name": "Recommended Gear Summon Ticket",
         "expr": "[The Alchemist Code Male Phantom Top-Ranking Celebration] Use this ticket to summon one guaranteed recommended piece of gear (Charming Blade, Electrospike Blade, Ogre Slaying Blade, Spirit Kabutowari, Steel Cross Shield, Glittering Guard, Chronos Armor, Armor of Evil-Warding, Crimson Guard, Curious Doll, Swallow's Scarf, or Belva Gauntlet.)",
         "flavor": " "
     },
@@ -56692,7 +56692,7 @@
         "flavor": " "
     },
     "IT_SET_VOTE_BUGU_TICKET05": {
-        "name": "Recommended Gear Selector",
+        "name": "Recommended Gear Summon Ticket",
         "expr": "[The Alchemist Code Male Phantom Top-Ranking Celebration] Use this ticket to summon one guaranteed recommended piece of gear (Giga Blaze Buster, Meteor Launcher, Paralyze Pistols, Charm Pistols, Demonbane Kunai, Ranunculus Kunai, Green Rod of Wisdom, Blue Rod of Sagacity, Binding Scepter, Chronos Armor, Crimson Guard, Cloak of Protection, Steel Cross Shield, Glittering Guard, Curious Doll, Swallow's Scarf, or Belva Pendant.)",
         "flavor": " "
     },
@@ -56742,7 +56742,7 @@
         "flavor": " "
     },
     "IT_SET_VOTE_BUGU_TICKET06": {
-        "name": "Recommended Gear Selector",
+        "name": "Recommended Gear Summon Ticket",
         "expr": "[The Alchemist Code Male Phantom Popularity Vote 5th Place Celebration] Use this ticket to summon one guaranteed recommended piece of gear (Vorpal Geo Blades, Twin Storm-Blades, Harbinger's Blades, Tiger Kris, Breaker Kris, Faustian Greatsword, Phantom Blade, Chronos Armor, Armor of Evil-Warding, Crimson Guard, Steel Cross Shield, Glittering Guard, Curious Doll, Swallow's Scarf, or Knight's Gauntlet.)",
         "flavor": " "
     },
@@ -56827,32 +56827,32 @@
         "flavor": " "
     },
     "IT_SET_2017_LIGHT_PI_TICKET01": {
-        "name": "Light Unit Soul Shards Selector",
+        "name": "Light Unit Shards Selector",
         "expr": "Use this ticket to summon 5 Soul Shards for one 5★ Light unit (Zain, Mielikki, Fraise, Olga, Neica, Margaret, Ryle, Spica, Suzuka, or Chloe) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)",
         "flavor": " "
     },
     "IT_SET_2017_DARK_PI_TICKET01": {
-        "name": "Dark Unit Soul Shards Selector",
+        "name": "Dark Unit Shards Selector",
         "expr": "Use this ticket to summon 5 Soul Shards for one 5★ Dark unit (Kudanstein, Basheeny, Jin, Aswald, Gormalas, Zahar, Albea, Anastasia, or Rosa) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)",
         "flavor": " "
     },
     "IT_SET_2017_FIRE_PI_TICKET01": {
-        "name": "Fire Unit Soul Shards Selector",
+        "name": "Fire Unit Shards Selector",
         "expr": "Use this ticket to summon 5 Soul Shards for one 5★ Fire unit (Cadanova, Miuna, Eve, Noah, Daisy, Vivi, Hazel, Dorothea, Lupinus, Reimei, or Vettel) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)",
         "flavor": " "
     },
     "IT_SET_2017_WIND_PI_TICKET01": {
-        "name": "Wind Unit Soul Shards Selector",
+        "name": "Wind Unit Shards Selector",
         "expr": "Use this ticket to summon 5 Soul Shards for one 5★ Wind unit (Seida, Balt, Setsuna, Ramses, Tamamo, Flamel, Yomi, or Nasario) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)",
         "flavor": " "
     },
     "IT_SET_2017_THUNDER_PI_TICKET01": {
-        "name": "Thunder Unit Soul Shards Selector",
+        "name": "Thunder Unit Shards Selector",
         "expr": "Use this ticket to summon 5 Soul Shards for one 5★ Thunder unit (Monzein, Lucretia, Zofia, Chao, Mei Fang, Eizan, Teona, Aruba, Deneb, or Magnus) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)",
         "flavor": " "
     },
     "IT_SET_2017_WATER_PI_TICKET01": {
-        "name": "Water Unit Soul Shards Selector",
+        "name": "Water Unit Shards Selector",
         "expr": "Use this ticket to summon 5 Soul Shards for one 5★ Water unit (Othima, Yauras, Ravina, Yunagi, Mikoto, Sophia, Shayna, Shenmei, Elizabeth, or Fung Liu) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)",
         "flavor": " "
     },
@@ -57037,7 +57037,7 @@
         "flavor": " "
     },
     "IT_SET_VIER_WIZ_01": {
-        "name": "Phantom Master Rare Equipment Set",
+        "name": "Phantom Artist Rare Equipment Set",
         "expr": "This set contains equipment required for the Vier-only job Phantom Artist.",
         "flavor": " "
     },
@@ -57367,7 +57367,7 @@
         "flavor": " "
     },
     "IT_SET_VOTE_BUGU_TICKET07": {
-        "name": "Recommended Gear Selector",
+        "name": "Recommended Gear Summon Ticket",
         "expr": "[Character Skins Release Celebration] Use this ticket to summon one guaranteed recommended piece of gear for Aswald (Tiger Kris, Breaker Kris, Vorpal Geo Blades, Twin Storm-Blades, Harbinger's Blades, Paralyze Pistols, Charm Pistols, Steel Cross Shield, Yggdrasil Shield, Chronos Armor, Armor of Evil-Warding, Crimson Guard, Curious Doll, Belva Pendant, or Knight's Gauntlet.)",
         "flavor": " "
     },
@@ -57397,7 +57397,7 @@
         "flavor": " "
     },
     "IT_SET_VOTE_BUGU_TICKET08": {
-        "name": "Recommended Gear Selector",
+        "name": "Recommended Gear Summon Ticket",
         "expr": "[Character Skins Release Celebration] Use this ticket to summon one guaranteed recommended piece of gear for Ryle (Atomic Jaeger, Crimson Bow of Wrath, Fierce Azure Bow, Vorpal Geo Blades, Twin Storm-Blades, Harbinger's Blades, Indigo Claw, Beast Lord Talons, Nimble Beast Talons, Steel Cross Shield, Yggdrasil Shield, Infernal Armor, Chronos Armor, Armor of Evil-Warding, Curious Doll, Belva Gauntlet, or Swallow's Scarf.)",
         "flavor": " "
     },
@@ -57442,7 +57442,7 @@
         "flavor": " "
     },
     "IT_SET_VOTE_BUGU_TICKET09": {
-        "name": "Recommended Gear Selector",
+        "name": "Recommended Gear Summon Ticket",
         "expr": "[Character Skins Release Celebration] Use this ticket to summon one guaranteed recommended piece of gear for Rosa (Valhalla Lance, Paralyzing Lance, Mellow Lance, Demonbane Kunai, Ranunculus Kunai, Chronomancy Kunai, Timestealer Scythe, Soulstealer Scythe, Faustian Greatsword, Phantom Blade, Chronos Armor, Armor of Evil-Warding, Crimson Guard, Steel Cross Shield, Glittering Guard, Curious Doll, Belva Pendant, or Knight's Gauntlet.)",
         "flavor": " "
     },
@@ -57642,7 +57642,7 @@
         "flavor": " "
     },
     "IT_SET_KAKUTOU_01": {
-        "name": "Combat / Agility / Support Starter Kit",
+        "name": "Fighter/Supporter Intro Set",
         "expr": "This great-value set contains items that are required for martial arts/agility/support-type jobs from Job Lv. 1-3. (Applicable jobs: Martial Artist, Holy Brawler, Thief, Shadow Assassin, Ninja, Spy, Samurai, Blademaster, Bard, Dancer, Beast Tamer, Wild Beast Tamer, Merchant, Martial Master, and Blacksmith.)",
         "flavor": " "
     },
@@ -57992,9 +57992,9 @@
         "flavor": "A coin that can be obtained in Mystic Tower Veda."
     },
     "IT_EVENT_SPORTS_COIN": {
-        "name": "Sports Day Exchange Medal",
-        "expr": " ",
-        "flavor": "A coin that can be obtained from Sports Day 2017."
+        "name": "[Summer Sports Meet] Coin",
+        "expr": "Exchange this coin for fabulous items in the Summer Sports Meet Coin Exchange Shop.",
+        "flavor": "A coin that can be obtained from Summer Sports Meet."
     },
     "IT_EVENT_HALLOWEEN_COIN": {
         "name": "Halloween Coin",
@@ -62186,7 +62186,7 @@
     },
     "AF_ARMS_LAN_02": {
         "name": "Mellow Lance",
-        "expr": "PATK Up, CRIT Up, DEX Up, Chance of Charm (additional effect)",
+        "expr": "PATK Up, CRIT Up, DEX Up, Chance of Charm",
         "spec": "No requirements to equip",
         "flavor": "This lance is a replica of one thought to have been used in ancient times of Alchemy. Its tip is made from a magical substance that emits a pink glow when its power is activated. This glow will occasionally entrance foes and inflict Charm."
     },
@@ -62624,7 +62624,7 @@
     },
     "AF_ARMS_EXCALIBUR": {
         "name": "Excalibur",
-        "expr": "Attributes: PATK Up, MDEF Up, CRIT Up, Chance of AGI Up<br>3★ to 5★  Enables Master Ability when equipped on Saber when her job type is \"Saber\" (Inflicts Wind Phys Dmg & raises own Missile DEF for three turns [Range: 4, Height Range: 3])",
+        "expr": "Attributes: PATK Up, MDEF Up, CRIT Up, Chance of AGI Up<br>3★ to 5★ Enables Master Ability when equipped on Saber when her job type is \"Saber\" (Inflicts Wind Phys Dmg & raises own Missile DEF for three turns [Range: 4, Height Range: 3])",
         "spec": "No requirements to equip",
         "flavor": "Packed with the wishes of mankind and forged on a star, this divine weapon is the holiest of all holy swords. When equipped by Saber, its chosen owner, an even greater power is unlocked."
     },
@@ -62798,7 +62798,7 @@
     },
     "AF_ARMO_SHIELD_03": {
         "name": "Glitter Guard",
-        "expr": "Attributes: HP Up, Petrify Res Up<br>Gear Ability: Raises Slash Res of ally units  [Range: 3, Area: Cross (3), Height Range: 2]",
+        "expr": "Attributes: HP Up, Petrify Res Up<br>Gear Ability: Raises Slash Res of ally units [Range: 3, Area: Cross (3), Height Range: 2]",
         "spec": "No requirements to equip",
         "flavor": "This trapezium-shaped shield was discovered among some ancient ruins. Made using a combination of metal and a faintly-glowing crystal, it grants resistance against Slash attacks to those who possess Alchemia. The metal sections support the crystal parts, and can be repaired if damaged."
     },
@@ -62833,7 +62833,7 @@
         "flavor": "This pendant has been designed around a \"noble wolf\" theme. The parts that appear to glow blue are evidence of the high concentration of Alchemia particles inside. By diffusing these particles into the surrounding area, the pendant is able to raise the All Elements Res of all units."
     },
     "AF_ARMS_ZIN_00": {
-        "name": "Eerie Agony Thousand Drop Blade",
+        "name": "Cursed Kunai - Blood Edge",
         "expr": "Attributes: HP Up, PATK Up, DEX Up, Chance of inflicting Daze<br>Enables Master Ability when equipped on Jin (3-hit Dark Dmg & Poison to single target & raises own AGI until next turn [Range: 5, Height Range: 2])",
         "spec": "No requirements to equip",
         "flavor": "This kunai was entrusted to Jin by a young girl called Sen. It sucks blood from foes, which it is then able to convert into Alchemia. Jin takes the trust placed in him by Sen very seriously, and he won't let anyone else touch it."
@@ -62846,7 +62846,7 @@
     },
     "AF_ARMS_NEC_03": {
         "name": "Timestealer Scythe",
-        "expr": "Attributes: PATK Up, CRIT Up, AGI Up, Chance of inflicting Stop<br>Gear Ability: Dmg to units within target area & lowers units' MATK [Range: 4, Area: Cross (3), Height Range: 2]",
+        "expr": "Attributes: PATK Up, CRIT Up, AGI Up, Chance of inflicting Stop<br>Gear Ability: Dmg to units within target area & lowers units' Mag DMG [Range: 4, Area: Cross (3), Height Range: 2]",
         "spec": "No requirements to equip",
         "flavor": "The rope tied around the handle of this scythe has been imbued with a time-stopping spell, and the special knot used means that the weapon will occasionally stop time when used. This powerful spell is said to also be able to lower the magical attack power of enemies."
     },
@@ -63067,7 +63067,7 @@
         "flavor": "This earring is said to bring good fortune. It has been exquisitely crafted from gold, with a gemstone set in its center that is rumored to be a fragment of a star. It is also said to possess healing properties, and its popularity and scarcity means it has come to be sold for a truly \"astronomical\" price."
     },
     "AF_ACCS_UNDOKAI2017_01": {
-        "name": "Sports Day - Ouroboros Prize",
+        "name": "Ouroboros's Medal",
         "expr": "Attributes: HP Up, PATK Up, MATK Up, AGI Up",
         "spec": "No requirements to equip",
         "flavor": " "
@@ -64385,7 +64385,7 @@
         "otherdesc": "ATK increases according to AGI/DEX"
     },
     "JB_VIER_WIZ": {
-        "name": "Phantom Master",
+        "name": "Phantom Artist",
         "charadesc": " ",
         "otherdesc": " "
     },
@@ -65175,7 +65175,7 @@
         "name": "Raise your Player Level to 40"
     },
     "RECORD_MONDAY_0914_02": {
-        "name": "Clear TAC Sports Day 2017 Relay"
+        "name": "Clear Summer Sports Meet Relay"
     },
     "RECORD_MONDAY_0914_03": {
         "name": "Clear a quest with a mercenary"
@@ -65190,7 +65190,7 @@
         "name": "Raise your Player Level to 40"
     },
     "RECORD_MONDAY_0921_02": {
-        "name": "Clear TAC Sports Day 2017 Obstacle Race"
+        "name": "Clear Summer Sports Meet Obstacle Race"
     },
     "RECORD_MONDAY_0921_03": {
         "name": "Clear a quest with a mercenary"
@@ -66450,10 +66450,10 @@
         "name": "Clear all the missions"
     },
     "DAILY_STAMINA_DIS1_01": {
-        "name": "[Collab Celebration] Free AP500!"
+        "name": "[Collab Celebration] Free AP x500!"
     },
     "DAILY_STAMINA_DIS1_02": {
-        "name": "[Collab Celebration] Free AP500!"
+        "name": "[Collab Celebration] Free AP x500!"
     },
     "BEGINNER_01": {
         "name": "Clear [Training Arena] Raise Unit Lv"
@@ -71883,7 +71883,7 @@
         "name": "Free AP - Gift 5/5 for Today"
     },
     "DAILY_STAMINA120": {
-        "name": "[1st Anniversary Celebration] Free AP 500!"
+        "name": "[1st Anniversary Celebration] Free AP x500!"
     },
     "DAILY_STAMINA_AUG_01": {
         "name": "[Event Support Campaign] AP 500"
@@ -72906,7 +72906,7 @@
         "name": "Clear Fate/stay night [UBW] [EX+] Stage 4 [Multiplay] five times"
     },
     "GL_FATE_DAILY_01": {
-        "name": "[Daily] Fate/stay night [UBW]  - Defeat Archer three times"
+        "name": "[Daily] Fate/stay night [UBW] - Defeat Archer three times"
     },
     "GL_FATE_DAILY_02": {
         "name": "[Daily] Fate/stay night [UBW] - Defeat Rin Tohsaka five times"
@@ -75513,6 +75513,21 @@
         "expr": "[5 Million Downloads Worldwide!] This set contains rare equipment that is required for magical attack jobs.",
         "flavor": " "
     },
+    "IT_SET_GL_SHIO_01": {
+        "name": "Shion Equipment Set",
+        "expr": "This set contains rare equipment required for Shion. (Jobs: Noble Emissary, Shadow Assassin, and Merchant.)",
+        "flavor": " "
+    },
+    "IT_SET_GL_KTN_01": {
+        "name": "Noble Emissary Rare Equipment Set",
+        "expr": "This set contains equipment required for the job Noble Emissary.",
+        "flavor": " "
+    },
+    "IT_SET_GL_SHIO_SWIM_01": {
+        "name": "Shion Swimsuit Skin Set",
+        "expr": "This great-value set contains skins for the unit Shion. (This set does not include the unit or its Soul Shards. In order to use these skins, you must own the unit.)",
+        "flavor": " "
+    },
     "IT_UG_APRIL_COIN": {
         "name": "Gem of Experience",
         "expr": "A cube that raises a unit's EXP (huge amount).",
@@ -75560,7 +75575,7 @@
     },
     "IT_US_GL_5STAR_50SOUL_TICKET_FATE2": {
         "name": "[Fate] Featured 5★ 50-Soul Shard Ticket",
-        "expr": "Use this Ticket to obtain 50 5★ Soul Shards. (Illyasviel  / Saber Lamia / Archer Zahar)",
+        "expr": "Use this Ticket to obtain 50 5★ Soul Shards. (Illyasviel / Saber Lamia / Archer Zahar)",
         "flavor": " "
     },
     "IT_US_GL_5STAR_25SOUL_TICKET_FATE2": {
@@ -76135,6 +76150,36 @@
     "GL_MM_05_13August": {
         "name": "[Monday] Clear any quest with a mercenary once"
     },
+    "GL_MM_01_20August": {
+        "name": "[Monday] Level up any Unit"
+    },
+    "GL_MM_02_20August": {
+        "name": "[Monday] Level up any Ability"
+    },
+    "GL_MM_03_20August": {
+        "name": "[Monday] Raise any unit's Job Level once"
+    },
+    "GL_MM_04_20August": {
+        "name": "[Monday] Clear any Multiplay Quest once"
+    },
+    "GL_MM_05_20August": {
+        "name": "[Monday] Clear any quest with a mercenary once"
+    },
+    "GL_MM_01_27August": {
+        "name": "[Monday] Level up any Unit"
+    },
+    "GL_MM_02_27August": {
+        "name": "[Monday] Level up any Ability"
+    },
+    "GL_MM_03_27August": {
+        "name": "[Monday] Raise any unit's Job Level once"
+    },
+    "GL_MM_04_27August": {
+        "name": "[Monday] Clear any Multiplay Quest once"
+    },
+    "GL_MM_05_27August": {
+        "name": "[Monday] Clear any quest with a mercenary once"
+    },
     "GL_SO_ZEKE_01_01": {
         "name": "Clear Blood Wolf by Any Other Name - Episode 1 [1]"
     },
@@ -76154,7 +76199,7 @@
         "name": "Clear Blood Wolf by Any Other Name - Episode 2 [3]"
     },
     "WINQUEST_010_MAY2018": {
-        "name": "Clear Chapter 1: Episode 1: Act 1  "
+        "name": "Clear Chapter 1: Episode 1: Act 1 "
     },
     "WINQUEST_020_MAY2018": {
         "name": "Clear Chapter 1: Episode 1: Act 2"
@@ -76163,7 +76208,7 @@
         "name": "Clear Chapter 1: Episode 1: Act 3"
     },
     "WINQUEST_040_MAY2018": {
-        "name": "Clear Chapter 1: Episode 2: Act 1  "
+        "name": "Clear Chapter 1: Episode 2: Act 1 "
     },
     "WINQUEST_050_MAY2018": {
         "name": "Clear Chapter 1: Episode 2: Act 2"
@@ -76199,7 +76244,7 @@
         "name": "Clear Chapter 1: Episode 5: Act 3"
     },
     "WINQUEST_160N_MAY2018": {
-        "name": "Clear Chapter 2: Episode 1: Act 1  "
+        "name": "Clear Chapter 2: Episode 1: Act 1 "
     },
     "WINQUEST_170N_MAY2018": {
         "name": "Clear Chapter 2: Episode 1: Act 2"
@@ -76208,7 +76253,7 @@
         "name": "Clear Chapter 2: Episode 1: Act 3"
     },
     "WINQUEST_190N_MAY2018": {
-        "name": "Clear Chapter 2: Episode 2: Act 1  "
+        "name": "Clear Chapter 2: Episode 2: Act 1 "
     },
     "WINQUEST_200N_MAY2018": {
         "name": "Clear Chapter 2: Episode 2: Act 2"
@@ -76405,7 +76450,7 @@
     },
     "SK_ARMS_LAN_KUDHAN": {
         "name": "The End",
-        "expr": "Physical attack (long-range, single target, 100% Hit) & raises own CRIT by 50% for two turns"
+        "expr": "Physical attack (long-range, single target, 100% Hit) & raises own Crit by 50% for two turns"
     },
     "SK_KERB_HOUKOU_2": {
         "name": "COMBO Elimination Roar",
@@ -76413,7 +76458,7 @@
     },
     "SK_ARMS_LAN_KUDHAN2": {
         "name": "Dead the End",
-        "expr": "Phys Dmg (long-range attack to single target & 100% Hit & raises own CRIT by 50% for three turns)"
+        "expr": "Phys Dmg (long-range attack to single target & 100% Hit & raises own Crit by 50% for three turns)"
     },
     "IT_US_PREREG_10EQ_TICKET": {
         "name": "Pre-Registration Equipment 10-Summon Ticket",
@@ -76621,7 +76666,7 @@
     },
     "IT_SI_GL_5STAR_50SOUL_TICKET_POTKSHINOBI3": {
         "name": "Featured 5★ 50-Soul Shard Selector",
-        "expr": "Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.  (Eros/Yuri/Cita/Forcas)",
+        "expr": "Use this ticket to summon the 50 Soul Shards of your choice for 5★ units. (Eros/Yuri/Cita/Forcas)",
         "flavor": " "
     },
     "IT_SI_GL_5STAR_25SOUL_TICKET_POTKSHINOBI3": {
@@ -76674,6 +76719,101 @@
         "expr": "Use this ticket to summon ten 4+★ equipment items.",
         "flavor": " "
     },
+    "IT_US_GL_5STAR_25SOUL_TICKET_F17": {
+        "name": "Featured 5★ Soul Shard 25-Summon Ticket",
+        "expr": "Use this ticket to summon 25 Soul Shards.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_B17": {
+        "name": "5★ Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_4STAR_GEAR_TICKET_B17": {
+        "name": "4★ Gear Summon Ticket",
+        "expr": "Use this ticket to summon a 4★ gear item.",
+        "flavor": " "
+    },
+    "IT_SU_GL_5STAR_UNIT_TICKET_F17": {
+        "name": "Featured 5★ Unit Selector",
+        "expr": "Use this ticket to summon the 5★ unit of your choice.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_10EQ_TICKET_B17": {
+        "name": "5★ Equipment 10-Summon Ticket",
+        "expr": "Use this ticket to summon ten 5★ equipment items.",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_50SOUL_TICKET_F17": {
+        "name": "Featured 5★ 50-Soul Shard Selector",
+        "expr": "Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.",
+        "flavor": " "
+    },
+    "IT_US_GL_4PLUS_10EQ_TICKET_B17": {
+        "name": "4+★ Equipment 10-Summon Ticket",
+        "expr": "Use this ticket to summon ten 4+★ equipment items.",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_F17": {
+        "name": "Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon the 25 Soul Shards of your choice for 5★ units. ",
+        "flavor": " "
+    },
+    "IT_US_GL_RARE_UNIT_TICKET_S01": {
+        "name": "Rare Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 3-5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_RARE_UNIT_TICKET_S02": {
+        "name": "Rare Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 3-5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_RARE_UNIT_TICKET_S03": {
+        "name": "Rare Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 3-5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_RARE_UNIT_TICKET_S04": {
+        "name": "Rare Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 3-5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_RARE_UNIT_TICKET_S05": {
+        "name": "Rare Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 3-5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_25SOUL_TICKET_GL2": {
+        "name": "Featured 5★ Soul Shard 25-Summon Ticket",
+        "expr": "Use this ticket to summon 25 Soul Shards. (Shion/Gormalas/Lupinus/Sophia)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_GL2": {
+        "name": "5★ Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 5★ unit.",
+        "flavor": " "
+    },
+    "IT_SU_GL_5STAR_UNIT_TICKET_GL2": {
+        "name": "Featured 5★ Unit Selector",
+        "expr": "Use this ticket to summon the 5★ unit of your choice. (Shion/Gormalas/Lupinus/Sophia)",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_50SOUL_TICKET_GL2": {
+        "name": "Featured 5★ 50-Soul Shard Selector",
+        "expr": "Use this ticket to summon the 50 Soul Shards of your choice for 5★ units. (Shion/Gormalas/Lupinus/Sophia)",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_GL2": {
+        "name": "Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon the 25 Soul Shards of your choice for 5★ units. (Shion/Neica/Nasario)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_10PER_TICKET_GL2": {
+        "name": "Featured Unit 10% Summon Ticket",
+        "expr": "Use this ticket to summon a unit with a 10% chance of it being a featured unit. (Shion/Siegfried)",
+        "flavor": " "
+    },
     "IT_SI_GL_5STAR_25SOUL_TICKET_F16": {
         "name": "Featured 5★ 25-Soul Shard Selector",
         "expr": "Use this ticket to summon the 25 Soul Shards of your choice for 5★ units. ",
@@ -76681,7 +76821,7 @@
     },
     "IT_SI_GL_5STAR_15SOUL_TICKET_SUNGOD": {
         "name": "[The Sun God and the Golden Key] 5★ 15-Soul Shard Selector",
-        "expr": "Use this Ticket to select 15 Eros/Yuri Soul Shards.",
+        "expr": "Use this ticket to select 15 Eros/Yuri Soul Shards.",
         "flavor": " "
     },
     "IT_SA_GL_4STAR_GEAR_TICKET_S01": {
@@ -77693,6 +77833,84 @@
     "GL_SUMMER_COIN_SEP05": {
         "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [35/35]"
     },
+    "GL_MH_02_01": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 1"
+    },
+    "GL_MH_02_02": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 2"
+    },
+    "GL_MH_02_03": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 3"
+    },
+    "GL_MH_02_04": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 4"
+    },
+    "GL_MH_02_05": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 5"
+    },
+    "GL_MH_02_06": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 6"
+    },
+    "GL_MH_02_07": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 7"
+    },
+    "GL_MH_02_08": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 8"
+    },
+    "GL_MH_02_09": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 9"
+    },
+    "GL_MH_02_10": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 10"
+    },
+    "GL_MH_02_EX_1": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [1]"
+    },
+    "GL_MH_02_EX_2": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [2]"
+    },
+    "GL_MH_02_EX_3": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [3]"
+    },
+    "GL_MH_02_EX_4": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [4]"
+    },
+    "GL_MH_02_EX_5": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [5]"
+    },
+    "GL_MH_02_EX_6": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [6]"
+    },
+    "GL_MH_02_10_1": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 10 [1]"
+    },
+    "GL_MH_02_10_2": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 10 [2]"
+    },
+    "GL_MH_02_10_3": {
+        "name": "[Magni Historia 2] Clear Deliverance: Stage 10 [3]"
+    },
+    "MULTI_GL_MH_02_EX_1": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [1]"
+    },
+    "MULTI_GL_MH_02_EX_2": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [2]"
+    },
+    "MULTI_GL_MH_02_EX_3": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [3]"
+    },
+    "MULTI_GL_MH_02_EX_4": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [4]"
+    },
+    "MULTI_GL_MH_02_EX_5": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [5]"
+    },
+    "MULTI_GL_MH_02_EX_6": {
+        "name": "[Magni Historia 2] Clear Deliverance [EX] [Multiplay] [6]"
+    },
+    "GL_MH_2_TROPHY": {
+        "name": "[Magni Historia 2] Deliverance"
+    },
     "SUMMER2018_01": {
         "name": "Clear Challenge Set"
     },
@@ -77715,7 +77933,7 @@
         "name": "Limit Break Amateratsu 15 Times"
     },
     "SUMMER2018_01_06": {
-        "name": "Change Amateratsu's Job"
+        "name": "Change Amaterasu's Job"
     },
     "SUMMER2018_01_07": {
         "name": "Defeat Metal Maiden"
@@ -77827,5 +78045,375 @@
     },
     "GL_SUMMER_DAILY_SEP05": {
         "name": "[Summer Celebration] Collect coins and redeem in Exchange Shop! [35/35]"
+    },
+    "SUMMERSPORT_01": {
+        "name": "Clear Challenge Set"
+    },
+    "SUMMERSPORT_01_00": {
+        "name": "Unlock Sports Meet Event by clearing Chapter 1: Episode 1 [3-10] once"
+    },
+    "SUMMERSPORT_01_01": {
+        "name": "Clear 1st Event: Magic-Ball Game once"
+    },
+    "SUMMERSPORT_01_02": {
+        "name": "Clear Gear Projection 3 times"
+    },
+    "SUMMERSPORT_01_03": {
+        "name": "Clear Mineral Garden [Bgn] 1 time"
+    },
+    "SUMMERSPORT_01_04": {
+        "name": "Win Arena 1 time"
+    },
+    "SUMMERSPORT_01_05": {
+        "name": "Battle in the Arena 3 times"
+    },
+    "SUMMERSPORT_01_06": {
+        "name": "Enhance Gear once"
+    },
+    "SUMMERSPORT_01_07": {
+        "name": "Evolve Gear once"
+    },
+    "SUMMERSPORT_01_08": {
+        "name": "Enhance Gear to Lv30"
+    },
+    "GL_MH_2_TROPHY_EX_MULTI": {
+        "name": "[Magni Historia] Deliverance [Multiplay]"
+    },
+    "GL_MH_2_TROPHY_EX": {
+        "name": "[Magni Historia] [EX] Deliverance"
+    },
+    "GL_SOREN_GROWTH": {
+        "name": "[Limited Time] Soren Training Mission"
+    },
+    "RECORD_GL_SOREN_01": {
+        "name": "Raise Soren's Level to 30"
+    },
+    "RECORD_GL_SOREN_02": {
+        "name": "Raise Soren's \"Divine Speaker\" Job Level to 6"
+    },
+    "RECORD_GL_SOREN_03": {
+        "name": "Raise Soren's Level to 60"
+    },
+    "RECORD_GL_SOREN_04": {
+        "name": "Raise Soren's \"Divine Speaker\" Job Level to 11"
+    },
+    "UN_V2_GL_SHION": {
+        "name": "Shion"
+    },
+    "AB_GL_KTN_LOWER": {
+        "name": "Basic Blade Arts",
+        "expr": "Blade Art techniques for use with all job types"
+    },
+    "AB_GL_KTN_UPPER": {
+        "name": "Blade Arts",
+        "expr": "Blade Art techniques for use with this job type only"
+    },
+    "AB_GL_KTN_REACTION_1": {
+        "name": "Elusive Beauty",
+        "expr": "Reaction Ability for use with all job types"
+    },
+    "AB_GL_KTN_SUPPORT_1": {
+        "name": "Peerless Bladework",
+        "expr": "Raises Slash Damage and Evasion"
+    },
+    "AB_GL_DIV_LOWER": {
+        "name": "Basic Divine Gift",
+        "expr": "Divine Gift techniques for use with all job types"
+    },
+    "AB_GL_DIV_UPPER": {
+        "name": "Divine Gift",
+        "expr": "Divine Gift techniques for use with this job type only"
+    },
+    "AB_GL_DIV_REACTION": {
+        "name": "Defensive Instinct",
+        "expr": "Reaction Ability for use with all job types"
+    },
+    "AB_GL_DIV_SUPPORT_1": {
+        "name": "Divine Power",
+        "expr": "Raises MATK"
+    },
+    "AB_GL_DIV_SUPPORT_2": {
+        "name": "Divine Protection",
+        "expr": "Raises PDEF"
+    },
+    "AB_ARMS_SWO_GL_SIEG_01": {
+        "name": "",
+        "expr": "Siegfried Limited Ability"
+    },
+    "SK_GL_KTN_UPPER_1": {
+        "name": "Fatal Devotion",
+        "expr": "Inflicts Charm, raise PATK and lower Def of target unit [Range:4, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_GL_KTN_UPPER_2": {
+        "name": "Sword Stance",
+        "expr": "Raise Patk of Self till next attack.",
+        "mapeff": " "
+    },
+    "SK_GL_KTN_UPPER_3": {
+        "name": "Fleeting Beauty",
+        "expr": "Deal Slash Damage to enemies around self with chance to charm, then move to selected location [Range:4, Area: Square (3) around self, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_KTN_UPPER_4": {
+        "name": "Cutting Wind",
+        "expr": "Deal Wind Slash Dmg to targets around self with chance of critical [Area: Diamond (5), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_KTN_UPPER_5": {
+        "name": "Deep and Dreamless Slumber",
+        "expr": "Move to selected target and deal non-elemental slash dmg (Hvy).Ignore Def when attacking from the back. Effective against male units [Range: 5, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_GL_KTN_LOWER_1": {
+        "name": "Blade Flash",
+        "expr": "Move to Target unit and inflict non-elemental Slash Dmg to Target unit. Disrupts target casting. [Range: 5, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_KTN_LOWER_2": {
+        "name": "Blade Fang",
+        "expr": "Inflict Slash Damage to target + Penetrating. Raise Patk by 50% until next turn. [Range: Cross(3), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_KTN_LOWER_3": {
+        "name": "Gale Slash",
+        "expr": "Deal Wind Slash Damage to Enemies around self and lower Enemy AGI [Area: Square(3) around self, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_KTN_LOWER_4": {
+        "name": "Captivating Visage",
+        "expr": "Non-elemental slash damage to targets around self and chance to paralyze units in targeted area for 3 turns [Area: Diamond(5), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_KTN_REACTION_1": {
+        "name": "Skillful Counter",
+        "expr": "After taking damage, counterattack with chance to stun enemy [Range: 1, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_KTN_SUPPORT_1": {
+        "name": "Peerless Bladework",
+        "expr": "Raises Slash Damage and Evasion",
+        "mapeff": " "
+    },
+    "SK_EQ_GL_SHIO_KIMONO": {
+        "name": "Ornate Kimono",
+        "expr": "Patk+25,HP+40,AGI+5,DEX+20,CRIT+15",
+        "mapeff": " "
+    },
+    "SK_LS_GL_SHION": {
+        "name": "Intriguing Presence",
+        "expr": "Raises HP/PATK by 20% & Max Jewels by 20 for Wind Units",
+        "mapeff": " "
+    },
+    "SK_GL_DIV_UPPER_1": {
+        "name": "Gift of Might",
+        "expr": "Raises PATK and MATK for self and allies for 3 turns [Area: Cross(3) around self, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_DIV_UPPER_2": {
+        "name": "Gift of Focus",
+        "expr": "Raises own MATK and grants Clock up for 3 turns",
+        "mapeff": " "
+    },
+    "SK_GL_DIV_UPPER_3": {
+        "name": "Divine Light",
+        "expr": "Inflict non-elemental Mag Dmg to target enemy + Penetrating [Range: 4, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_DIV_UPPER_4": {
+        "name": "Divine Missiles",
+        "expr": "Inflict non-elemental magic damage to units in target area. [Range: 4, Area: Cross(3), Height Range: Unlimited]",
+        "mapeff": " "
+    },
+    "SK_GL_DIV_LOWER_1": {
+        "name": "Gift of Protection",
+        "expr": "Raises PDEF and MDEF of target ally for 3 turns [Area: Cross(3) around self, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_DIV_LOWER_2": {
+        "name": "Gift of Power",
+        "expr": "Raises P Atk and M Atk of target ally for 3 turns [Range: 4, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_DIV_LOWER_3": {
+        "name": "Divine Ray",
+        "expr": "Inflict Non-elemental Mag Dmg to units in target area. [Area: Special (Laser Cannon), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_DIV_LOWER_4": {
+        "name": "Divine Flare",
+        "expr": "Deal magic dmg and knock back enemies around self and chance to inflict bind for 1 turn [Area: Square(3) around self, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_DIV_REACTION": {
+        "name": "Defensive Instinct",
+        "expr": "Raises PDEF and MDEF when attacked",
+        "mapeff": " "
+    },
+    "SK_GL_DIV_SUPPORT_1": {
+        "name": "Divine Wisdom",
+        "expr": "Raises MATK of self",
+        "mapeff": " "
+    },
+    "SK_GL_DIV_SUPPORT_2": {
+        "name": "Divine Armor",
+        "expr": "Raises PDEF of self",
+        "mapeff": " "
+    },
+    "SK_EQ_GL_SOREN_MASK": {
+        "name": "Mask of the Speaker",
+        "expr": "HP+30, PDEF+20, MATK+16, MDEF+6, Max Jewels+10, Stop Res +8, Silence Res +8",
+        "mapeff": " "
+    },
+    "SK_LS_GL_SOREN": {
+        "name": "Protective Presence",
+        "expr": "Raises PDEFand MDEF by 20% for whole party",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_SWO_GL_SIEG_01_4": {
+        "name": "Gram&Balmung★4",
+        "expr": "Attribute: PATK Up, PDEF Up",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_SWO_GL_SIEG_01_5": {
+        "name": "Gram&Balmung★5",
+        "expr": "Attribute: PATK Up, PDEF, Crit Up, Luck Up",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_SWO_GL_SIEG_01_AS": {
+        "name": "Gram&BalmungAS",
+        "expr": "Chance to lower target PDEF when attacking.",
+        "mapeff": " "
+    },
+    "SK_ARMS_SWO_GL_SIEG_01_WA": {
+        "name": "Devastating Finish",
+        "expr": "Inflicts 5-hit Light Slash Dmg that ignores DEF on target enemy unit & raises own PATK and AGI for three turns [Range: Diamond (5), Height Range: 3]",
+        "mapeff": " "
+    },
+    "IT_PI_GL_SHIO": {
+        "name": "Shion Soul Shard",
+        "expr": "An item required for Limit Breaks",
+        "flavor": " "
+    },
+    "IT_PI_GL_SORE": {
+        "name": "Soren Soul Shard",
+        "expr": "An item required for Limit Breaks",
+        "flavor": " "
+    },
+    "IT_EQ_GL_SHIO_KIMONO": {
+        "name": "Ornate Garment",
+        "expr": "【Noble Emissary】 ◆PATK+25, HP+40, AGI+5, DEX+20, CRIT+15",
+        "flavor": "A beautifully intricate garment adorned with detailed flowers and dyed with the deepest and most vibrant colors. Something of this quality can only be worn by someone extremely wealthy and of noble bearing."
+    },
+    "IT_EQ_GL_DIAGRAM_SHIO_KIMONO": {
+        "name": "Ornate Garment Diagram",
+        "expr": "Item necessary for crafting Ornate Garment",
+        "flavor": " "
+    },
+    "IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO": {
+        "name": "Ornate Garment Diagram Piece",
+        "expr": "Collect 80 of these to create: Ornate Garment Diagram",
+        "flavor": " "
+    },
+    "IT_EQ_GL_SOREN_MASK": {
+        "name": "Speaker's Mask",
+        "expr": "【Divine Speaker】 ◆HP+30, PDEF+20, MATK+16, MDEF+6, Max Jewels+10, Stop Res +10, Silence Res +10",
+        "flavor": "A mysterious ceremonial mask said to enable the gifted to communicate with the Divine. Closer inspection reveals that its purpose has more to do with the practice of Alchemy than of divinity."
+    },
+    "IT_EQ_GL_DIAGRAM_SOREN_MASK": {
+        "name": "Speaker's Mask Diagram",
+        "expr": "Item necessary for crafting Speaker's Mask",
+        "flavor": " "
+    },
+    "IT_EQ_GL_DIAGRAMPIECE_SOREN_MASK": {
+        "name": "Speaker's Mask Diagram Piece",
+        "expr": "Collect 80 of these to create: Speaker's Mask Diagram",
+        "flavor": " "
+    },
+    "IT_AF_ARMS_SWO_GL_SIEG_01": {
+        "name": "Gram & Balmung Shard",
+        "expr": "Collect 80 of these to create: Gram & Balmung",
+        "flavor": " "
+    },
+    "IT_SK_GL_SHIO_SWIM": {
+        "name": "Shion Swimsuit Skin",
+        "expr": "This skin is only for use with the unit Shion. In order to use it, you must own the unit.",
+        "flavor": " "
+    },
+    "AF_ARMS_SWO_GL_SIEG_01": {
+        "name": "Gram & Balmung",
+        "expr": "Attribute: PATK, PDEF Up, (Crit & Luck Up added when evolving to 4★, Chance of PDEF down on target when attacking added when evolving to 5★)<br>Enables Master Ability when equipped on Siegfried when his job type is \"Wandering Swordsman\"",
+        "spec": "No requirements to equip",
+        "flavor": "A pair of peerless swords with perfect edges that never go dull. It is said that there is no armor that can withstand their assault."
+    },
+    "JB_GL_KTN": {
+        "name": "Noble Emissary",
+        "charadesc": " ",
+        "otherdesc": " "
+    },
+    "JB_GL_DIV": {
+        "name": "Divine Speaker",
+        "charadesc": " ",
+        "otherdesc": " "
+    },
+    "IT_SET_GL_AUG2018_LW": {
+        "name": "[Light & Wind] Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice. (Neica/Margaret/Spica/Suzuka/Ryle/Chloe/Ramses/Flamel/Balt/Yomi)",
+        "flavor": " "
+    },
+    "IT_SET_GL_AUG2018_DT": {
+        "name": "[Dark & Thunder] Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice. (Gormalas/Aswald/Albea/Rosa/Anastasia/Zahar/Mei Fang/Deneb/Teona/Aruba/Magnus)",
+        "flavor": " "
+    },
+    "IT_SET_GL_AUG2018_FW": {
+        "name": "[Fire & Water] Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice. (Vivi/Lupinus/Dorothea/Hazel/Reimei/Vettel/Shenmei/Shayna/Fung Liu/Elizabeth)",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_LW": {
+        "name": "[Light & Wind] Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice. (Neica/Margaret/Spica/Suzuka/Ryle/Chloe/Ramses/Flamel/Balt/Yomi)",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_DT": {
+        "name": "[Dark & Thunder] Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice. (Gormalas/Aswald/Albea/Rosa/Anastasia/Zahar/Mei Fang/Deneb/Teona/Aruba/Magnus)",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_AUG2018_FW": {
+        "name": "[Fire & Water] Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice. (Vivi/Lupinus/Dorothea/Hazel/Reimei/Vettel/Shenmei/Shayna/Fung Liu/Elizabeth)",
+        "flavor": " "
+    },
+    "IT_US_GL_3TO4_GEAR_TICKET_B17": {
+        "name": "3-4★ Gear Summon Ticket",
+        "expr": "Use this ticket to summon one 3-4★ gear item.",
+        "flavor": " "
+    },
+    "IT_SA_GL_4STAR_GEAR_TICKET_SUMMER2018": {
+        "name": "[Summer Sports Meet] 4★ Gear Selector",
+        "expr": "Use this ticket to summon one 4★ gear with MOVE/AGI boost of your choice. (Some 4★ gears are not available)",
+        "flavor": " "
+    },
+    "IT_US_GL_4STAR_GEAR_TICKET_SUMMER2018": {
+        "name": "[Summer Sports Meet] 4★ Gear Summon Ticket",
+        "expr": "Use this ticket to summon one 4★ gear item with MOVE/AGI boost.",
+        "flavor": " "
+    },
+    "AF_SK_GL_SHIO_SWIM": {
+        "name": "Swimsuit Skin",
+        "expr": " ",
+        "spec": " ",
+        "flavor": ""
+    },
+    "UN_EV_GL_MH_GARRO": {
+        "name": "Raider Boss Garro"
+    },
+    "UN_V2_EN_GL_DIVINEPROTECTOR": {
+        "name": "Divine Protector"
+    },
+    "UN_V2_EN_GL_LIZARDMAN": {
+        "name": "Lizardman"
     }
 }

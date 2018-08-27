@@ -305,7 +305,8 @@ def get_files():
         "Assist_MaxDamageHp" : "Max HP Dmg",
         "Assist_MaxDamageMp" : "Max Jewel Dmg",
         "Resist_MaxDamageHp" : "Max HP Dmg Res",
-        "Resist_MaxDamageMp" : "Max Jewel Dmg Res"
+        "Resist_MaxDamageMp" : "Max Jewel Dmg Res",
+        "Assisst_TitanDamage": "Damage against Titans"
     }
     for key, val in SYS_FIX.items():
         file+= '\n{key}\t{val}'.format(key=key,val=val)

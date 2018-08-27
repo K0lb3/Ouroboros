@@ -21,6 +21,7 @@ def Job(iname, page):
         )
     embed.set_author(name=job['name'], url=LinkDB('job',iname))
     embed.set_thumbnail(url=icon)
+    embed.set_footer(text='Job')
 
     while page:
         if page=='main':
@@ -33,8 +34,8 @@ def Job(iname, page):
         if page=='sub ability':
             embed.ConvertFields(ability(job['abilities']['sub']))
             embed.title=page
-        if page=='reactive ability':
-            embed.ConvertFields(ability(job['abilities']['reactive']))
+        if page=='reaction ability':
+            embed.ConvertFields(ability(job['abilities']['reaction']))
             embed.title=page
         if page=='passive ability':
             embed.ConvertFields(ability(job['abilities']['passive']))
@@ -70,7 +71,7 @@ def ability(ability):
 def main(job):
     return [
         {'name': 'Weapon',          'value':job['weapon'],                              'inline':True},
-        {'name': 'Role',            'value':job['type'],                                'inline':True},
+        {'name': 'AI Role',            'value':job['type'],                                'inline':True},
         {'name': 'DMG-Formula',     'value':job['formula'],                             'inline':False},
         {'name': 'Move',            'value':job['move'],                                'inline':True},
         {'name': 'Jump',            'value':job['jump'],                                'inline':True},
@@ -82,6 +83,9 @@ def main(job):
                 for stat,value in job['ranks'][-1]['status'].items()
                 if value!=0
                 ]),
+            'inline':False},
+        {'name': 'JM Bonus Stats',        
+            'value': StrBuff(DIRS['Skill'][job['master']]['target_buff_iname']),
             'inline':False},
         {'name': 'Stats',        
             'value': '\n'.join([

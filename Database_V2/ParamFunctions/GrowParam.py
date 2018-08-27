@@ -1,3 +1,4 @@
+from ParamFunctions._variables import TRANSLATION
 def GrowParam(json):
     this={}#GrowParamjson)
     if 'type' in json:
@@ -8,85 +9,75 @@ def GrowParam(json):
             'scale'	:	curve['val'],
             'status':{
                 'param':{
-                    'hp'	:	curve['hp'],
-                    'mp'	:	curve['mp'],
-                    'atk'	:	curve['atk'],
-                    'def'	:	curve['def'],
-                    'mag'	:	curve['mag'],
-                    'mnd'	:	curve['mnd'],
-                    'dex'	:	curve['dex'],
-                    'spd'	:	curve['spd'],
-                    'cri'	:	curve['cri'],
-                    'luk'	:	curve['lu'],
+                    'HP'	:	curve['hp'],
+                    'Max Jewels'	:	curve['mp'],
+                    'PATK'	:	curve['atk'],
+                    'PDEF'	:	curve['def'],
+                    'MATK'	:	curve['mag'],
+                    'MDEF'	:	curve['mnd'],
+                    'DEX'	:	curve['dex'],
+                    'AGI'	:	curve['spd'],
+                    'CRIT'	:	curve['cri'],
+                    'LUCK'	:	curve['luk'],
                 },
                 'element_assist':{
-                    'fire'	:	curve['afi'],
-                    'water'	:	curve['awa'],
-                    'wind'	:	curve['awi'],
-                    'thunder'	:	curve['ath'],
-                    'shine'	:	curve['ash'],
-                    'dark'	:	curve['ad'],
+                    TRANSLATION['Assist_'+trans]:curve['a'+key]
+                    for trans,key in ELEMENT.items()
+                    if 'a'+key in curve
                 },
                 'element_resist':{
-                    'fire'	:	curve['rfi'],
-                    'water'	:	curve['rwa'],
-                    'wind'	:	curve['rwi'],
-                    'thunder'	:	curve['rth'],
-                    'shine'	:	curve['rsh'],
-                    'dark'	:	curve['rd'],
+                    TRANSLATION['Resist_'+trans]:curve['r'+key]
+                    for trans,key in ELEMENT.items()
+                    if 'r'+key in curve
                     },
                 'enchant_assist':{
-                    'poison'	:	curve['apo'],
-                    'paralyse'	:	curve['apa'],
-                    'stun'	:	curve['ast'],
-                    'sleep'	:	curve['asl'],
-                    'charm'	:	curve['ach'],
-                    'stone'	:	curve['asn'],
-                    'blind'	:	curve['abl'],
-                    'notskl'	:	curve['ans'],
-                    'notmov'	:	curve['anm'],
-                    'notatk'	:	curve['ana'],
-                    'zombie'	:	curve['azo'],
-                    'death'	:	curve['ade'],
-                    'knockback'	:	curve['akn'],
-                    'berserk'	:	curve['abe'],
-                    'resist_buff'	:	curve['abf'],
-                    'resist_debuff'	:	curve['adf'],
-                    'stop'	:	curve['acs'],
-                    'fast'	:	curve['acu'],
-                    'slow'	:	curve['acd'],
-                    'donsoku'	:	curve['ado'],
-                    'rage'	:	curve['ara'],
-                    'dec_ct'	:	curve['adc'],
-                    'inc_ct'	:	curve['ai'],
+                    TRANSLATION['Assist_'+trans]:curve['a'+key]
+                    for trans,key in STATUS.items()
+                    if 'a'+key in curve
                     },
                 'enchant_resist':{
-                    'poison'	:	curve['rpo'],
-                    'paralyse'	:	curve['rpa'],
-                    'stun'	:	curve['rst'],
-                    'sleep'	:	curve['rsl'],
-                    'charm'	:	curve['rch'],
-                    'stone'	:	curve['rsn'],
-                    'blind'	:	curve['rbl'],
-                    'notskl'	:	curve['rns'],
-                    'notmov'	:	curve['rnm'],
-                    'notatk'	:	curve['rna'],
-                    'zombie'	:	curve['rzo'],
-                    'death'	:	curve['rde'],
-                    'knockback'	:	curve['rkn'],
-                    'berserk'	:	curve['rbe'],
-                    'resist_buff'	:	curve['rbf'],
-                    'resist_debuff'	:	curve['rdf'],
-                    'stop'	:	curve['rcs'],
-                    'fast'	:	curve['rcu'],
-                    'slow'	:	curve['rcd'],
-                    'donsoku'	:	curve['rdo'],
-                    'rage'	:	curve['rra'],
-                    'dec_ct'	:	curve['rdc'],
-                    'inc_ct'	:	curve['ri'],
+                    TRANSLATION['Resist_'+trans]:curve['r'+key]
+                    for trans,key in STATUS.items()
+                    if 'r'+key in curve
                 }
             }
         }
         for curve in json['curve']
         ]
     return this
+
+
+ELEMENT={
+    'Fire'	:	'fi',
+    'Water'	:	'wa',
+    'Wind'	:	'wi',
+    'Thunder':	'th',
+    'Shine'	:	'sh',
+    'Dark'	:	'da',
+}
+
+STATUS={
+    'Poison'	:	'po',
+    'Paralysed'	:	'pa',
+    'Stun'	:	'st',
+    'Sleep'	:	'sl',
+    'Charm'	:	'ch',
+    'Stone'	:	'sn',
+    'Blind'	:	'bl',
+    'DisableSkill'	:	'ns',
+    'DisableMove'	:	'nm',
+    'DisableAttack'	:	'na',
+    'Zombie'	:	'zo',
+    'DeathSentence'	:	'de',
+    'Knockback'	:	'kn',
+    'Berserk'	:	'be',
+    'ResistBuff'	:	'bf',
+    'ResistDebuff'	:	'df',
+    'Stop'	:	'cs',
+    'Fast'	:	'cu',
+    'Slow'	:	'cd',
+    'Donsoku'	:	'do',
+    'Rage'	:	'ra',
+    'DecCT'	:	'dc',
+    'IncCT'	:	'ic',
+}

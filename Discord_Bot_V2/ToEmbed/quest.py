@@ -46,7 +46,7 @@ def Quest(iname,page):
             {'name':    'AP',       'value':    quest['ap'],  'inline':True},
             {'name':    'Enemies',  'value':    str(len(SET['enemy'])),  'inline':True},
             {'name':    'Chests',   'value':    str(len(SET['treasure'])),  'inline':True},
-            {'name': 'Drops',       'value': '\n'.join(quest['dropList']), 'inline':True}
+            {'name':    'Drops',       'value': '\n'.join(quest['dropList']), 'inline':True}
         ]
         embed.ConvertFields(fields)
         return(embed,False)

@@ -4,36 +4,59 @@ import os
 import http.client
 import urllib.request
 import struct
+import zlib
 
-#vars ############################
 gameVersion = "3b43e34d4f54bc49d5e84dd80c27a7a30148023d_a"
 host = "api.alcww.gumi.sg"
 
-def main():
+def Download_Text_Assets():
+    global host, gameVersion
+    #global
+    path=os.path.join(os.path.dirname(os.path.realpath(__file__)),'resources\\Assets')
+
+    gTEXT=get_assetlist()
+    for asset in gTEXT['assets']:
+        if 'Compressed' not in asset['flags'] or 'RawData' not in asset['flags']:
+            continue
+        print(asset['path'])
+        data = requestAsset(gTEXT['host'],gTEXT['version'],'aatc',asset['id'])
+        if 'Compressed' in asset['flags']:
+            data=zlib.decompress(data)
+
+        fpath=os.path.join(path,asset['path'].replace('/','\\'))
+        os.makedirs(fpath.rsplit('\\',1)[0], exist_ok=True)
+        with open(fpath, 'wb') as f:
+            f.write(data)
+
+def get_assetlist(listT='aatc',save=False):
     ver = req_chkver()['body']
     version= ver['assets']
     host_dl= ver['host_dl']
-    #with open("ASSETLIST-aatc", "rb") as fh:
-    #    AssetList=fh.read()
-    lists=['apvr','aatc','text']
-    for l in lists:
-        AssetList = requestAsset(host_dl,version,l,"ASSETLIST")
-        res= parse_assetlist(AssetList)
-        #format to path
-        a2={}
-        for asset in res['assets']:
-            f = asset['path'].split('/')
-            path=a2
-            for index,p in enumerate(f):
-                if index!= len(f)-1:
-                    if p not in path:
-                        path[p]={}
-                    path=path[p]
-                else:
-                    path[p]=asset
-        res['path']=a2
-        with open('AssetList-{}.json'.format(l),'w') as f:
+    #lists=['apvr','aatc','text']
+
+    AssetList = requestAsset(host_dl,version,listT,"ASSETLIST")
+    res= parse_assetlist(AssetList)
+    res['gameVersion']=gameVersion
+    res['version']=version
+    res['host']= host_dl
+    #format to path
+    a2={}
+    for asset in res['assets']:
+        f = asset['path'].split('/')
+        path=a2
+        for index,p in enumerate(f):
+            if index!= len(f)-1:
+                if p not in path:
+                    path[p]={}
+                path=path[p]
+            else:
+                path[p]=asset
+    res['path']=a2
+    if save:
+        with open('AssetList-{}.json'.format(listT),'w') as f:
             json.dump(res,f,indent=2)
+    return res
+
 
 def parse_assetlist(fh):
     global pointer
@@ -108,6 +131,7 @@ def requestAsset(host_dl,version,typ,name):
         typ=typ,
         name=name
         )
+    print(url)
     asset = urllib.request.urlopen(url).read()
     return asset
 
@@ -143,4 +167,5 @@ def req_chkver():
 
     return json.loads(res_body)
 
-main()
+
+Download_Text_Assets()

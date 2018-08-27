@@ -344,8 +344,8 @@
         "expr": "The Sun God and the Golden Key"
     },
     "AR_3TITLE_EX": {
-        "name": "The Sun God and the Golden Key - Ex",
-        "expr": "The Sun God and the Golden Key - Ex"
+        "name": "The Sun God and the Golden Key - EX",
+        "expr": "The Sun God and the Golden Key - EX"
     },
     "AR_3TITLE_GL_END_TOP": {
         "name": "[True Ending] The Sun God and the Golden Key",
@@ -388,12 +388,12 @@
         "expr": "Tanabata Quest"
     },
     "AR_UNDOUKAI_2017": {
-        "name": "TAC Sports Meet 2018",
-        "expr": "TAC Sports Meet 2018"
+        "name": "Summer Sports Meet",
+        "expr": "Summer Sports Meet"
     },
     "AR_EV_BLANCHETT": {
-        "name": "[Max 1/d] Blanshett's Wolf Hunting",
-        "expr": "Blanshett Encounter Celebration Quest"
+        "name": "[Max 1/d] Blanchett's Wolf Hunting",
+        "expr": "Blanchett Encounter Celebration Quest"
     },
     "AR_SWIM_PRESENT_01": {
         "name": "No Women Allowed! Fight! Manliness Lessons Now Accepting Second-Term Students!",
@@ -592,16 +592,16 @@
         "expr": "Marriage-Go-Round"
     },
     "AR_WEDDING_2017_EX": {
-        "name": "Marriage-Go-Round Ex",
-        "expr": "Marriage-Go-Round Ex"
+        "name": "Marriage-Go-Round EX",
+        "expr": "Marriage-Go-Round EX"
     },
     "AR_SO_JUSTIN": {
         "name": "Justin's Justice",
         "expr": "Justin's Justice"
     },
     "AR_SO_JUSTIN_EX": {
-        "name": "Justin's Justice Ex",
-        "expr": "Justin's Justice Ex"
+        "name": "Justin's Justice EX",
+        "expr": "Justin's Justice EX"
     },
     "AR_WA_ZIN": {
         "name": "Return to the Underworld",
@@ -640,11 +640,11 @@
         "expr": "Experience of Wrath! Hero Empire"
     },
     "AR_SWIM_GORM": {
-        "name": "Savage Sea Warrior Storm Legend Ex",
+        "name": "Savage Sea Warrior Storm Legend",
         "expr": "Swimsuit Event (Gormalas)"
     },
     "AR_SWIM_GORM_EX": {
-        "name": "Savage Sea Warrior Storm Legend Ex",
+        "name": "Savage Sea Warrior Storm Legend EX",
         "expr": "Swimsuit Event (Gormalas) EX"
     },
     "AR_SO_DARTAGNAN": {
@@ -668,8 +668,8 @@
         "expr": "Crystal-Shot Heart"
     },
     "AR_SO_CELLIERS_EX": {
-        "name": "Crystal-Shot Heart Ex",
-        "expr": "Crystal-Shot Heart Ex"
+        "name": "Crystal-Shot Heart EX",
+        "expr": "Crystal-Shot Heart EX"
     },
     "AR_SO_ERURIKE": {
         "name": "The Desert Merchant",
@@ -692,8 +692,8 @@
         "expr": "Encounters, Fate, and the Sound of Pipa"
     },
     "AR_SO_FEIRIN_EX": {
-        "name": "Encounters, Fate, and the Sound of Pipa Ex",
-        "expr": "Encounters, Fate, and the Sound of Pipa Ex"
+        "name": "Encounters, Fate, and the Sound of Pipa EX",
+        "expr": "Encounters, Fate, and the Sound of Pipa EX"
     },
     "AR_HALL_ALEX": {
         "name": "Halloween Sugar Rush!",
@@ -1301,7 +1301,7 @@
     },
     "MULTI_AR_HALL_HAYATE_EX": {
         "name": "Max",
-        "expr": "[Ex] Squeak Squeak ★ Halloween!!!"
+        "expr": "[EX] Squeak Squeak ★ Halloween!!!"
     },
     "MULTI_POK_EX": {
         "name": "Max",
@@ -1324,8 +1324,8 @@
         "expr": "3 Titles Collaboration"
     },
     "MULTI_3TITLE_EX": {
-        "name": "The Sun God and the Golden Key - Ex",
-        "expr": "The Sun God and the Golden Key - Ex"
+        "name": "The Sun God and the Golden Key - EX",
+        "expr": "The Sun God and the Golden Key - EX"
     },
     "MULTI_SWIM_GORM": {
         "name": "Max",
@@ -2294,7 +2294,7 @@
         "title": "Ch 1: Ep 5 [3-9]"
     },
     "QE_ST_NO_010150": {
-        "name": "The Code...",
+        "name": "For Whom...",
         "expr": "Episode 5: Act 3-10",
         "cond": "Fight off Dias!",
         "title": "Ch 1: Ep 5 [3-10]"
@@ -4574,7 +4574,7 @@
         "title": "[Hard] Ch 1: Ep 5 [3-4]"
     },
     "QE_ST_HA_010050": {
-        "name": "The Code...",
+        "name": "For Whom...",
         "expr": "[Hard] Episode 5: Act 3-10",
         "cond": "Defeat all enemy units!",
         "title": "[Hard] Ch 1: Ep 5 [3-10]"
@@ -6338,33 +6338,33 @@
     },
     "QE_SO_BLAN_1": {
         "name": "Beyond Life or Death Episode 1",
-        "expr": "Encounter with Blanshett Quest",
+        "expr": "Encounter with Blanchett Quest",
         "cond": "Defeat all enemy units!",
         "title": "Unit Lv10 JobLv2 Recommended"
     },
     "QE_SO_BLAN_2": {
         "name": "Beyond Life or Death Episode 2",
-        "expr": "Encounter with Blanshett Quest",
+        "expr": "Encounter with Blanchett Quest",
         "cond": "Defeat all enemy units!",
         "title": "Unit Lv35 JobLv6 Recommended"
     },
     "QE_SO_BLAN_3": {
         "name": "Beyond Life or Death Episode 3",
-        "expr": "Encounter with Blanshett Quest",
+        "expr": "Encounter with Blanchett Quest",
         "cond": "Defeat all enemy units!",
         "title": "Unit Lv65 JobLv9 Recommended"
     },
     "QE_SO_BLAN_EX_1": {
         "name": "Beyond Life or Death [EX]",
-        "expr": "Encounter with Blanshett Quest",
+        "expr": "Encounter with Blanchett Quest",
         "cond": "Defeat all enemy units!",
         "title": "Hard - Map"
     },
     "QE_EV_BLANCHETT_01": {
-        "name": "Blanshett's Wolf Hunting",
-        "expr": "Blanshett Encounter Celebration Quest",
+        "name": "Blanchett's Wolf Hunting",
+        "expr": "Blanchett Encounter Celebration Quest",
         "cond": "Defeat as many opponents as possible!",
-        "title": "1/d Blanshett Exclusive"
+        "title": "1/d Blanchett Exclusive"
     },
     "QE_SO_JUSTIN_1": {
         "name": "Justin's Justice Story 1",
@@ -6985,7 +6985,7 @@
         "title": "Episode 1"
     },
     "QE_CH_FUNGLIU_2": {
-        "name": "Prototype Zerp",
+        "name": "Prototype Zero",
         "expr": "From Lv60",
         "cond": "Defeat all enemy units!",
         "title": "Episode 2"
@@ -7903,46 +7903,46 @@
         "title": "[Hard] Sacred Stone Memories"
     },
     "QE_EV_SWIM_GORM_01": {
-        "name": "Madness-Fallen Gormalas",
+        "name": "Madness-Fallen Gormalas - Episode 1",
         "expr": "Swimsuit Event - Act 1",
         "cond": "Defeat all enemy units!",
-        "title": "Episode 1"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_GORM_02": {
-        "name": "Ancient Legend",
+        "name": "Ancient Legend - Episode 2",
         "expr": "Swimsuit Event - Act 2",
         "cond": "Defeat all enemy units!",
-        "title": "Episode 2"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_GORM_03": {
-        "name": "De Tribe & Go Tribe",
+        "name": "De Tribe & Go Tribe - Episode 3",
         "expr": "Swimsuit Event - Act 3",
         "cond": "Defeat all enemy units!",
-        "title": "Episode 3"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_GORM_04": {
-        "name": "The Man Has Arrived",
+        "name": "The Man Has Arrived - Episode 4",
         "expr": "Swimsuit Event - Act 4",
         "cond": "Defeat all enemy units!",
-        "title": "Episode 4"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_GORM_05": {
-        "name": "Festive Battle",
+        "name": "Festive Battle - Episode 5",
         "expr": "Swimsuit Event - Act 5",
         "cond": "Defeat all enemy units!",
-        "title": "Episode 5"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_GORM_EX": {
         "name": "Savage Sea Warrior -Storm Legend- [EX]",
         "expr": "Swimsuit Event - EX",
         "cond": "Defeat all enemy units!",
-        "title": "Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_GORM_EX_SP": {
-        "name": "[Ex+] Savage Sea Warrior -Storm Legend-",
+        "name": "Savage Sea Warrior -Storm Legend- [Ex+]",
         "expr": "Swimsuit Event - EX+",
         "cond": "Defeat all enemy units!",
-        "title": "Extreme Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_DILG_01": {
         "name": "Pirate Raid - Episode 1",
@@ -8221,26 +8221,26 @@
         "title": "Extreme Hard Quest"
     },
     "QE_EV_UNDOUKAI_2017_MAGIC": {
-        "name": "1st Discipline: Magic-Ball Game",
-        "expr": "Sports Day 2017 (Magic-Ball Game)",
+        "name": "1st Event: Magic-Ball Game",
+        "expr": "Summer Sports Meet (Magic-Ball Game)",
         "cond": "Defeat as many Demons as possible within turn limit",
         "title": "Unit Lv40 JobLv5 Recommended"
     },
     "QE_EV_UNDOUKAI_2017_SPEED": {
-        "name": "2nd Discipline: Relay",
-        "expr": "Sports Day 2017 (Relay)",
+        "name": "2nd Event: Relay",
+        "expr": "Summer Sports Meet (Relay)",
         "cond": "Touch all runners and defeat the referee!",
         "title": "Unit Lv40 JobLv5 Recommended"
     },
     "QE_EV_UNDOUKAI_2017_ATTACK": {
-        "name": "3rd Discipline: Obstacle Race",
-        "expr": "Sports Day 2017 (Obstacle Race)",
+        "name": "3rd Event: Obstacle Race",
+        "expr": "Summer Sports Meet (Obstacle Race)",
         "cond": "Destroy the obstacles and reach the goal quicker than the opponent",
         "title": "Unit Lv40 JobLv5 Recommended"
     },
     "QE_EV_UNDOUKAI_2017_DEF": {
-        "name": "4th Discipline: Dilga Statue Crush",
-        "expr": "Sports Day 2017 (Dilga Statue Crush)",
+        "name": "4th Event: Dilga Statue Crush",
+        "expr": "Summer Sports Meet (Dilga Statue Crush)",
         "cond": "Destroy the Gormalas statue while protecting the Dilga statue",
         "title": "Unit Lv40 JobLv5 Recommended"
     },
@@ -9838,7 +9838,7 @@
         "name": "Savage Sea Warrior -Storm Legend- [EX]",
         "expr": "Swimsuit Event - EX",
         "cond": "Defeat all enemy units!",
-        "title": "Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_EV_MULTI_DARTAGNAN_EX": {
         "name": "Stairway to Heaven [EX]",
@@ -9848,7 +9848,7 @@
     },
     "QE_MULTI_SO_BLAN_EX": {
         "name": "Beyond Life or Death [EX]",
-        "expr": "Encounter with Blanshett Quest",
+        "expr": "Encounter with Blanchett Quest",
         "cond": "Defeat all enemy units!",
         "title": "[Limited Time]"
     },
@@ -11284,12 +11284,12 @@
         "expr": "Trial of the Ether"
     },
     "AR_GL_MH_01": {
-        "name": "Magni Historia",
+        "name": "Magni Historia Chapter 1",
         "expr": "Episode 1: Overture"
     },
     "MULTI_GL_MH": {
-        "name": "Magni Historia",
-        "expr": "Episode 1: Overture"
+        "name": "Magni Historia Chapter 1",
+        "expr": "Episode 2: Deliverance"
     },
     "QE_GL_MAGE_1": {
         "name": "Trial of the Ether [Bgn]",
@@ -11402,5 +11402,81 @@
         "expr": " ",
         "cond": "Defeat all enemy units!",
         "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_01": {
+        "name": "Stage 1: Run Towards Divinity",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_02": {
+        "name": "Stage 2: Crisis",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_03": {
+        "name": "Stage 3: The Red Tithe",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_04": {
+        "name": "Stage 4: The Wolf Lord",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_05": {
+        "name": "Stage 5: To Rouse The Guardian",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_06": {
+        "name": "Stage 6: A Divine Outburst",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_07": {
+        "name": "Stage 7: An Unexpected Guest",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_08": {
+        "name": "Stage 8: Spiriting Away",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_09": {
+        "name": "Stage 9: Diverging Paths",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_10": {
+        "name": "Stage 10: The End of Duty",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_EX": {
+        "name": "Deliverance [EX]",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_02_MULTI_EX": {
+        "name": "Deliverance [EX]",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "AR_GL_MH_02": {
+        "name": "Magni Historia Chapter 1",
+        "expr": "Episode 2: Deliverance"
     }
 }

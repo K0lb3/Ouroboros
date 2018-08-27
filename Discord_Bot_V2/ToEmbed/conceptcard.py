@@ -48,12 +48,12 @@ def main(card):
             )
         #abil_iname
         if 'abil_iname' in effect:
-            value.append('__**Vision Ability:**__'+
+            value.append('__**Vision Ability:**__\n'+
             DIRS['Ability'][effect['abil_iname']]['name']
             )
         #skin
         if 'skin' in effect:
-            value.append('__**Skin:**__'+DIRS['Artifact'][effect['skin']]['name'])
+            value.append('__**Skin:**__\n'+DIRS['Artifact'][effect['skin']]['name'])
         #statusup_skill
         if 'statusup_skill' in effect:
             value.append('__**Unit Stats**__\n:'+
@@ -61,17 +61,17 @@ def main(card):
             )
         #card_skill
         if 'card_skill' in effect:
-            value.append('__**Stats**__\n:'+
+            value.append('__**Stats:**__\n'+
             StrBuff(DIRS['Skill'][effect['card_skill']]['target_buff_iname'],2,2)
             )
         #add_card_skill_buff_awake
         if 'add_card_skill_buff_awake' in effect:
-            value.append('__**Awakenend Stats**__\n:'+
+            value.append('__**Awakenend Stats:**__\n'+
             StrBuff(effect['add_card_skill_buff_awake'],2,2)
             )
         #add_card_skill_buff_lvmax
         if 'add_card_skill_buff_lvmax' in effect:
-            value.append('__**Max LV Stats**__\n:'+
+            value.append('__**Max LV Stats:**__\n:'+
             StrBuff(effect['add_card_skill_buff_lvmax'],2,2)
             )
         fields.append({'name':  'Effect '+str(i+1),      'value': '\n'.join(value), 'inline':False})

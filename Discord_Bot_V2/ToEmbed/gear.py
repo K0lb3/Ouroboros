@@ -10,8 +10,7 @@ def Gear(iname, page):
         url=LinkDB('gear',iname)  #page link
         )
     embed.set_author(name=gear['name'], url=LinkDB('gear',iname))
-    embed.set_thumbnail(url=LinkDB('/items/icons/',gear['icon'],'.png',False))
-
+    embed.set_thumbnail(url='http://cdn.alchemistcodedb.com/images/items/icons/{}.png'.format(gear['icon']))
     while page:
         if page=='main':
             embed.ConvertFields(main(gear))
@@ -73,18 +72,18 @@ def main(gear):
     if 'abil_inames' in gear:
         for abil in gear['abil_inames']:
             ability=DIRS['Ability'][abil]
-            conditions=''
+            conditions=[]
             if 'condition_units'    in ability:
-                conditions+=', '.join([
+                conditions.append(', '.join([
                     DIRS['Unit'][unit]['name']
                     for unit in ability['condition_units']
-                ])
+                ]))
             if 'condition_jobs'     in ability:
-                conditions+='Job: '+DIRS['Job'][ability['condition_jobs'][0]]['name']
+                conditions.append('Job: '+DIRS['Job'][ability['condition_jobs'][0]]['name'])
             elif 'condition_sex'    in ability:
-                conditions+=ability['condition_sex']
+                conditions.append(ability['condition_sex'])
 
-            abilities.append(conditions+': '+ability['name'])
+            abilities.append(', '.join(conditions)+': '+ability['name'])
         fields.append({'name': 'Ability', 'value': "\n".join(abilities), 'inline': False})
 
     #lore

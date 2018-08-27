@@ -86,10 +86,13 @@ def UnitParam(json):
         this['jobsets'] = json['jobsets']
     
     if 'tag' in json:
-        this['tags']=[
-            TAG_UNIT[tag]
-            for tag in json['tag'].split(',')
-        ]
+        try:
+            this['tags']=[
+                TAG_UNIT[tag]
+                for tag in json['tag'].split(',')
+            ]
+        except:
+            this['tags']=[json['tag']]
         
     #stats
     this['ini_status']={
