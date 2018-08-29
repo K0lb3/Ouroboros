@@ -6281,6 +6281,36 @@
             "iname": "JB_GL_WSM"
         }
     },
+    "JS_GL_SHIO1": {
+        "iname": "JS_GL_SHIO1",
+        "job": "JB_GL_KTN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_GL_SHIO2": {
+        "iname": "JS_GL_SHIO2",
+        "job": "JB_KIL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GL_KTN"
+        }
+    },
+    "JS_GL_SHIO3": {
+        "iname": "JS_GL_SHIO3",
+        "job": "JB_SHN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_GL_KTN"
+        }
+    },
+    "JS_GL_SORE1": {
+        "iname": "JS_GL_SORE1",
+        "job": "JB_GL_DIV",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
     "JS_MICHAEL_04_MICH_DOC": {
         "iname": "JS_MICHAEL_04_MICH_DOC",
         "job": "JB_MICH_DOC",
@@ -6499,6 +6529,31 @@
         },
         "dif": {}
     },
+    "JS_GORM_04_KAI": {
+        "iname": "JS_GORM_04_KAI",
+        "job": "JB_GORM_KAI",
+        "jobchange": "JS_KAI",
+        "target_unit": "UN_V2_GORMALAS",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAI",
+            "lv": 11
+        },
+        "dif": {}
+    },
+    "JS_KAGURA_04_KAGU_DAI2": {
+        "iname": "JS_KAGURA_04_KAGU_DAI2",
+        "job": "JB_KAGU_DAI2",
+        "jobchange": "JS_KAGU_DAI",
+        "target_unit": "UN_V2_KAGURA",
+        "lock_rarity": 0,
+        "lock_jobs": {
+            "iname": "JB_KAGU_DAI",
+            "lv": 11
+        },
+        "dif": {}
+    },
     "JS_BAA_HAGOITA": {
         "iname": "JS_BAA_HAGOITA",
         "job": "JB_BAA_HAGOITA",
@@ -6582,17 +6637,6 @@
         "job": "JB_HENC_WIND",
         "lock_rarity": 0,
         "lock_jobs": {}
-    },
-    "JS_KAGURA_04_KAGU_DAI2": {
-        "iname": "JS_KAGURA_04_KAGU_DAI2",
-        "job": "JB_KAGU_DAI2",
-        "jobchange": "JS_KAGU_DAI",
-        "target_unit": "UN_V2_KAGURA",
-        "lock_rarity": 0,
-        "lock_jobs": {
-            "iname": "JB_KAGU_DAI",
-            "lv": 11
-        }
     },
     "JS_ZENN01": {
         "iname": "JS_ZENN01",
@@ -6833,6 +6877,18 @@
             "lv": 11
         }
     },
+    "JS_DOROTHEA_04_NEC": {
+        "iname": "JS_DOROTHEA_04_NEC",
+        "job": "JB_DORO_NEC",
+        "jobchange": "JS_NEC",
+        "target_unit": "UN_V2_DOROTHEA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NEC",
+            "lv": 11
+        }
+    },
     "JS_KYARORU_04_SHN": {
         "iname": "JS_KYARORU_04_SHN",
         "job": "JB_SHN_FINANCIAL_KYARORU",
@@ -6914,18 +6970,6 @@
         "lock_awakelv": 15,
         "lock_jobs": {
             "iname": "JB_PRI",
-            "lv": 11
-        }
-    },
-    "JS_GORM_04_KAI": {
-        "iname": "JS_GORM_04_KAI",
-        "job": "JB_GORM_KAI",
-        "jobchange": "JS_KAI",
-        "target_unit": "UN_V2_GORMALAS",
-        "lock_rarity": 0,
-        "lock_awakelv": 15,
-        "lock_jobs": {
-            "iname": "JB_KAI",
             "lv": 11
         }
     },
@@ -8313,6 +8357,18 @@
             "iname": "JB_WIZ"
         }
     },
+    "JS_REBECCA_01_DAI_THUNDER": {
+        "iname": "JS_REBECCA_01_DAI_THUNDER",
+        "job": "JB_DAI_THUNDER",
+        "jobchange": "JS_WIZ",
+        "target_unit": "UN_V2_REBECCA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ",
+            "lv": 11
+        }
+    },
     "JS_KAYA01": {
         "iname": "JS_KAYA01",
         "job": "JB_KAYA01",
@@ -8348,6 +8404,90 @@
             "iname": "JB_WED_F",
             "lv": 11
         }
+    },
+    "JS_AOT_EREN01": {
+        "iname": "JS_AOT_EREN01",
+        "job": "JB_AOT_EREN01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AOT_EREN01_02_WOR": {
+        "iname": "JS_AOT_EREN01_02_WOR",
+        "job": "JB_WOR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_AOT_EREN01"
+        }
+    },
+    "JS_AOT_EREN01_03_NEC": {
+        "iname": "JS_AOT_EREN01_03_NEC",
+        "job": "JB_NEC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_AOT_EREN01"
+        }
+    },
+    "JS_AOT_EREN01_03_NEC_FIRE": {
+        "iname": "JS_AOT_EREN01_03_NEC_FIRE",
+        "job": "JB_NEC_FIRE",
+        "jobchange": "JS_AOT_EREN01_03_NEC",
+        "target_unit": "UN_V2_AOT_EREN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NEC",
+            "lv": 11
+        }
+    },
+    "JS_AOT_G_EREN01": {
+        "iname": "JS_AOT_G_EREN01",
+        "job": "JB_AOT_G_EREN01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AOT_REIN01": {
+        "iname": "JS_AOT_REIN01",
+        "job": "JB_AOT_REIN01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AOT_REIN01_02_KAK": {
+        "iname": "JS_AOT_REIN01_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_AOT_REIN01"
+        }
+    },
+    "JS_AOT_REIN01_03_GUA": {
+        "iname": "JS_AOT_REIN01_03_GUA",
+        "job": "JB_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_AOT_REIN01"
+        }
+    },
+    "JS_AOT_REIN01_03_GUA_TYPE_ANTI_BLOW": {
+        "iname": "JS_AOT_REIN01_03_GUA_TYPE_ANTI_BLOW",
+        "job": "JB_GUA_TYPE_ANTI_BLOW",
+        "jobchange": "JS_AOT_REIN01_03_GUA",
+        "target_unit": "UN_V2_AOT_REINER",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GUA",
+            "lv": 11
+        }
+    },
+    "JS_AOT_G_REIN01": {
+        "iname": "JS_AOT_G_REIN01",
+        "job": "JB_AOT_G_REIN01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
     },
     "JS_KURAJU_01_SNI_SNIPE": {
         "iname": "JS_KURAJU_01_SNI_SNIPE",
@@ -10941,6 +11081,42 @@
             "lv": 11
         }
     },
+    "JS_FEIRIN_01_NEC_WIND": {
+        "iname": "JS_FEIRIN_01_NEC_WIND",
+        "job": "JB_NEC_WIND",
+        "jobchange": "JS_NEC",
+        "target_unit": "UN_V2_FEIRIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NEC",
+            "lv": 11
+        }
+    },
+    "JS_ZOPHIE_01_NEC_THUNDER": {
+        "iname": "JS_ZOPHIE_01_NEC_THUNDER",
+        "job": "JB_NEC_THUNDER",
+        "jobchange": "JS_NEC",
+        "target_unit": "UN_V2_ZOPHIE",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NEC",
+            "lv": 11
+        }
+    },
+    "JS_MARIANNU_01_NEC_DARK": {
+        "iname": "JS_MARIANNU_01_NEC_DARK",
+        "job": "JB_NEC_DARK",
+        "jobchange": "JS_NEC",
+        "target_unit": "UN_V2_MARIANNU",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NEC",
+            "lv": 11
+        }
+    },
     "JS_RUNBELL_03_GUA_GUA02_V": {
         "iname": "JS_RUNBELL_03_GUA_GUA02_V",
         "job": "JB_RUNBELL_03_GUA_GUA02_V",
@@ -11091,6 +11267,12 @@
         "lock_rarity": 0,
         "lock_jobs": {}
     },
+    "JS_ALC_IJ_GIANT": {
+        "iname": "JS_ALC_IJ_GIANT",
+        "job": "JB_ALC_IJ_GIANT",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
     "JS_ALC_FUJITA": {
         "iname": "JS_ALC_FUJITA",
         "job": "JB_ALC_FUJITA",
@@ -11166,6 +11348,24 @@
     "JS_JAM_HUMAN_KIL_MEBI": {
         "iname": "JS_JAM_HUMAN_KIL_MEBI",
         "job": "JB_KIL_SCOUT",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AOT_GIANT_SMALL": {
+        "iname": "JS_AOT_GIANT_SMALL",
+        "job": "JB_AOT_GIANT_SMALL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_TOROS": {
+        "iname": "JS_TOROS",
+        "job": "JB_TOROS",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AOT_G_ABNORNAL01": {
+        "iname": "JS_AOT_G_ABNORNAL01",
+        "job": "JB_AOT_G_ABNORNAL01",
         "lock_rarity": 0,
         "lock_jobs": {}
     }

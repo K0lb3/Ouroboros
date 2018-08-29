@@ -20,10 +20,10 @@ def ConvertFields(self,fields):
 Embed.ConvertFields=ConvertFields
 
 #functions
-def LinkDB(typ,iname,post='',convert=True):
+def LinkDB(typ,iname,post='',convert=True,region=''):
     if convert:
         iname = iname.replace('_','-').lower()
-    return 'http://www.alchemistcodedb.com/{typ}/{iname}{post}'.format(typ=typ,iname=iname,post=post)
+    return 'http://www.alchemistcodedb.com/{region}{typ}/{iname}{post}'.format(typ=typ,iname=iname,post=post,region=(region+'/') if region else '')
 
 def TimeDif_hms(time,time2=datetime.now()):
     FMT = '%H:%M:%S'
@@ -110,10 +110,6 @@ def StrCondition(cond,lv=0,mlv=99):
         return(', '.join(cond['conds']))
 
 def Rarity(base, max):
-    text = ""
-    for i in range(0, base+1):
-        text += "★"
-    for i in range(base, max):
-        text += "☆"
-
-    return text
+    base+=1
+    max+=1
+    return "★"*base + "☆"*(max-base)

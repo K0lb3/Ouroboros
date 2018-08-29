@@ -774,6 +774,20 @@
             "UN_V2_REBECCA"
         ]
     },
+    "UG_REBECCA": {
+        "iname": "UG_REBECCA",
+        "name": "レベッカ",
+        "units": [
+            "UN_V2_REBECCA"
+        ]
+    },
+    "UG_ALMA": {
+        "iname": "UG_ALMA",
+        "name": "アルマ",
+        "units": [
+            "UN_V2_ALMA"
+        ]
+    },
     "UG_TERESA": {
         "iname": "UG_TERESA",
         "name": "テレサ",
@@ -926,6 +940,16 @@
         "name": "ドロシア",
         "units": [
             "UN_V2_DOROTHEA"
+        ]
+    },
+    "UG_AOT": {
+        "iname": "UG_AOT",
+        "name": "進撃キャラ+ユーディット",
+        "units": [
+            "UN_V2_AOT_EREN",
+            "UN_V2_AOT_G_EREN",
+            "UN_V2_AOT_REINER",
+            "UN_V2_AOT_G_REINER"
         ]
     }
 }

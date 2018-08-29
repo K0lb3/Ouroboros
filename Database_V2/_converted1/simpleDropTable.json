@@ -1562,7 +1562,7 @@
         "dropList": [
             "IT_EQ_DIAGRAMPIECE_COMPASS",
             "IT_EQ_PIECE_GEARROD",
-            "IT_EQ_DIAGRAMPIECE_COWBOY",
+            "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA",
             "IT_EQ_DIAGRAMPIECE_CRANE"
         ],
         "beginAt": "2014/04/10 10:00:00",
@@ -1629,7 +1629,7 @@
             "IT_EQ_PIECE_TWOSWORDS",
             "IT_EQ_DIAGRAMPIECE_KUDH_ARMOR",
             "IT_EQ_DIAGRAMPIECE_SHOULDER",
-            "IT_EQ_DIAGRAMPIECE_WAISTCLOTH"
+            "IT_EQ_DIAGRAMPIECE_ONM_SOUBI"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -2243,7 +2243,7 @@
             "IT_EQ_PIECE_TWOSWORDS",
             "IT_EQ_PIECE_LANCE",
             "IT_EQ_MND_CHARM",
-            "IT_EQ_DIAGRAMPIECE_KAI_RUDDER"
+            "IT_EQ_DIAGRAMPIECE_ONM_SOUBI"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -2345,7 +2345,7 @@
             "IT_EQ_PIECE_RADIO",
             "IT_EQ_PIECE_DICE",
             "IT_EQ_PIECE_HOURGLASS",
-            "IT_EQ_DIAGRAMPIECE_KAI_RUDDER"
+            "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -4722,7 +4722,7 @@
     "QE_ST_HA_020021": {
         "iname": "QE_ST_HA_020021",
         "dropList": [
-            "IT_EQ_DIAGRAMPIECE_WAISTCLOTH",
+            "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA",
             "IT_EQ_DIAGRAMPIECE_MND_CAP",
             "IT_EQ_DIAGRAM_VEST"
         ],
@@ -4947,7 +4947,7 @@
     "QE_ST_HA_030002": {
         "iname": "QE_ST_HA_030002",
         "dropList": [
-            "IT_EQ_DIAGRAMPIECE_VAL_WING",
+            "IT_EQ_DIAGRAMPIECE_ONM_SOUBI",
             "IT_EQ_MND_CHARM"
         ],
         "beginAt": "2014/04/10 10:00:00",
@@ -5057,7 +5057,7 @@
         "iname": "QE_ST_HA_030014",
         "dropList": [
             "IT_EQ_DIAGRAMPIECE_SUZU",
-            "IT_EQ_DIAGRAMPIECE_WEA_SOUBI",
+            "IT_EQ_ATK_MACE",
             "IT_EQ_PIECE_FURO"
         ],
         "beginAt": "2014/04/10 10:00:00",
@@ -5826,7 +5826,9 @@
             "IT_EQ_DIAGRAMPIECE_VAL_WING",
             "IT_EQ_DIAGRAMPIECE_NEC_STORNE",
             "IT_EQ_DIAGRAMPIECE_JAMADHAR",
-            "IT_EQ_DIAGRAMPIECE_MFEN_SWORD"
+            "IT_EQ_DIAGRAMPIECE_ANVIL",
+            "IT_EQ_DIAGRAMPIECE_MFEN_SWORD",
+            "IT_EQ_DIAGRAMPIECE_ONM_SOUBI"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -5862,6 +5864,8 @@
             "IT_EQ_DIAGRAMPIECE_ARROWCASE",
             "IT_EQ_DIAGRAMPIECE_SEN_EQUIP",
             "IT_EQ_DIAGRAMPIECE_SYO_HORN",
+            "IT_EQ_DIAGRAMPIECE_MAJ_GUNHOLDER",
+            "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA",
             "IT_EQ_DIAGRAMPIECE_HWIZ_KABUTO"
         ],
         "beginAt": "2014/04/10 10:00:00",
@@ -5937,6 +5941,7 @@
             "IT_EQ_DIAGRAMPIECE_SEN_EQUIP",
             "IT_EQ_DIAGRAMPIECE_SYO_HORN",
             "IT_EQ_DIAGRAMPIECE_MAJ_GUNHOLDER",
+            "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA",
             "IT_EQ_DIAGRAMPIECE_HWIZ_KABUTO"
         ],
         "beginAt": "2014/04/10 10:00:00",
@@ -6483,7 +6488,10 @@
             "IT_EQ_SOUL_LNC",
             "IT_EQ_SOUL_SOL",
             "IT_EQ_SOUL_RAN",
-            "IT_EQ_SOUL_KIL"
+            "IT_EQ_SOUL_KIL",
+            "IT_EQ_SOUL_MAJ",
+            "IT_EQ_SOUL_ONM",
+            "IT_EQ_SOUL_KAM"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -6611,7 +6619,10 @@
             "IT_EQ_SOUL_LNC",
             "IT_EQ_SOUL_SOL",
             "IT_EQ_SOUL_RAN",
-            "IT_EQ_SOUL_KIL"
+            "IT_EQ_SOUL_KIL",
+            "IT_EQ_SOUL_MAJ",
+            "IT_EQ_SOUL_ONM",
+            "IT_EQ_SOUL_KAM"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -14287,7 +14298,7 @@
             "IT_PI_ARCHER",
             "IT_EQ_PIECE_FATE_EMIYA_C",
             "IT_EV_ARCH02",
-            "IT_EQ_ATK_SABER",
+            "IT_EQ_PIECE_SABER",
             "IT_EQ_DEF_MANTLE",
             "IT_EQ_DEX_INK",
             "IT_EQ_SPD_GEAR",
@@ -25002,7 +25013,7 @@
     "QE_EV_GL_MH_01_03": {
         "iname": "QE_EV_GL_MH_01_03",
         "dropList": [
-            "IT_EQ_ATK_SABER",
+            "IT_EQ_PIECE_SABER",
             "IT_EQ_DEF_MANTLE",
             "IT_EQ_DEX_INK",
             "IT_EQ_SPD_GEAR",
@@ -25016,7 +25027,7 @@
     "QE_EV_GL_MH_01_04": {
         "iname": "QE_EV_GL_MH_01_04",
         "dropList": [
-            "IT_EQ_ATK_SABER",
+            "IT_EQ_PIECE_SABER",
             "IT_EQ_DEF_MANTLE",
             "IT_EQ_DEX_INK",
             "IT_EQ_MAG_WAND",
@@ -25029,7 +25040,7 @@
     "QE_EV_GL_MH_01_05": {
         "iname": "QE_EV_GL_MH_01_05",
         "dropList": [
-            "IT_EQ_ATK_SABER",
+            "IT_EQ_PIECE_SABER",
             "IT_EQ_PIECE_SHELM",
             "IT_EQ_DEX_INK",
             "IT_EQ_DIAGRAM_GETA",
@@ -25156,6 +25167,181 @@
             "IT_EQ_DIAGRAM_SMALL",
             "IT_EQ_DIAGRAM_CHOKER",
             "IT_EQ_PIECE_ARMOR"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_01": {
+        "iname": "QE_EV_GL_MH_02_01",
+        "dropList": [
+            "IT_EQ_ATK_WOODENSWORD",
+            "IT_EQ_DEF_VEST",
+            "IT_EQ_DEX_PEN",
+            "IT_EQ_SPD_FEATHER",
+            "IT_EQ_MAG_BRANCH",
+            "IT_EQ_LUK_SILVERCOIN"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_02": {
+        "iname": "QE_EV_GL_MH_02_02",
+        "dropList": [
+            "IT_EQ_MND_GROVE",
+            "IT_EQ_CRI_NEEDLE",
+            "IT_EQ_HP_CAP",
+            "IT_EQ_SPD_FEATHER",
+            "IT_EQ_MAG_BRANCH",
+            "IT_EQ_LUK_SILVERCOIN"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_03": {
+        "iname": "QE_EV_GL_MH_02_03",
+        "dropList": [
+            "IT_EQ_ATK_MACE",
+            "IT_EQ_DEF_VEST",
+            "IT_EQ_DEX_PEN",
+            "IT_EQ_SPD_FEATHER",
+            "IT_EQ_CRI_NEEDLE",
+            "IT_EQ_LUK_SILVERCOIN"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_04": {
+        "iname": "QE_EV_GL_MH_02_04",
+        "dropList": [
+            "IT_EQ_MND_GROVE",
+            "IT_EQ_GEM_WHISTLE",
+            "IT_EQ_ATK_WOODENSWORD",
+            "IT_EQ_DEF_VEST",
+            "IT_EQ_MAG_WAND",
+            "IT_EQ_LUK_SILVERCOIN"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_05": {
+        "iname": "QE_EV_GL_MH_02_05",
+        "dropList": [
+            "IT_EQ_PIECE_SABER",
+            "IT_EQ_DEF_MANTLE",
+            "IT_EQ_DEX_INK",
+            "IT_EQ_SPD_GEAR",
+            "IT_EQ_MAG_WAND",
+            "IT_EQ_GEM_TRUMPET",
+            "IT_EQ_HP_CAP"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_06": {
+        "iname": "QE_EV_GL_MH_02_06",
+        "dropList": [
+            "IT_EQ_PIECE_ROD",
+            "IT_EQ_MND_MUFFLER",
+            "IT_EQ_CRI_KUKURI",
+            "IT_EQ_SPD_GEAR",
+            "IT_EQ_LUK_KEY",
+            "IT_EQ_ATK_MACE",
+            "IT_EQ_HP_CAP"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_07": {
+        "iname": "QE_EV_GL_MH_02_07",
+        "dropList": [
+            "IT_EQ_PIECE_LANCE",
+            "IT_EQ_PIECE_SHELM",
+            "IT_EQ_PIECE_FURO",
+            "IT_EQ_DIAGRAMPIECE_SHINOBI",
+            "IT_EQ_DEF_BANGLE",
+            "IT_EQ_DIAGRAMPIECE_MAS",
+            "IT_EQ_DIAGRAM_CHOKER",
+            "IT_EQ_GL_DIAGRAMPIECE_SOREN_MASK"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_08": {
+        "iname": "QE_EV_GL_MH_02_08",
+        "dropList": [
+            "IT_EQ_PIECE_STAFF",
+            "IT_EQ_PIECE_CAPE",
+            "IT_EQ_LUK_KEY",
+            "IT_EQ_DIAGRAMPIECE_SHINOBI",
+            "IT_EQ_DIAGRAM_EARRING",
+            "IT_EQ_CRI_DAGGER",
+            "IT_EQ_DIAGRAM_CHOKER",
+            "IT_EQ_GL_DIAGRAMPIECE_SOREN_MASK"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_09": {
+        "iname": "QE_EV_GL_MH_02_09",
+        "dropList": [
+            "IT_EQ_PIECE_STAFF",
+            "IT_EQ_PIECE_PARKA",
+            "IT_EQ_DIAGRAMPIECE_CHESS",
+            "IT_EQ_DIAGRAMPIECE_BELT",
+            "IT_EQ_DIAGRAM_EARRING",
+            "IT_EQ_PIECE_GEARROD",
+            "IT_EQ_DIAGRAMPIECE_COMPASS",
+            "IT_EQ_GL_DIAGRAMPIECE_SOREN_MASK"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_10": {
+        "iname": "QE_EV_GL_MH_02_10",
+        "dropList": [
+            "IT_EQ_GL_DIAGRAMPIECE_SOREN_MASK"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_EX": {
+        "iname": "QE_EV_GL_MH_02_EX",
+        "dropList": [
+            "IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO",
+            "IT_EQ_PIECE_SWORD",
+            "IT_EQ_PIECE_LANCE",
+            "IT_EQ_PIECE_SHIELD",
+            "IT_EQ_DIAGRAM_SMALL",
+            "IT_AF_ARMS_SWO_GL_SIEG_01"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_MULTI_EX": {
+        "iname": "QE_EV_GL_MH_02_MULTI_EX",
+        "dropList": [
+            "IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO",
+            "IT_EQ_PIECE_SWORD",
+            "IT_EQ_PIECE_LANCE",
+            "IT_EQ_PIECE_SHIELD",
+            "IT_EQ_DIAGRAM_SMALL",
+            "IT_AF_ARMS_SWO_GL_SIEG_01"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_EX_BOSS1": {
+        "iname": "QE_EV_GL_MH_02_EX_BOSS1",
+        "dropList": [
+            "IT_AF_ARMS_SWO_GL_SIEG_01"
+        ],
+        "beginAt": "2014/04/10 10:00:00",
+        "endAt": "2114/04/12 10:00:00"
+    },
+    "QE_EV_GL_MH_02_EX_BOSS2": {
+        "iname": "QE_EV_GL_MH_02_EX_BOSS2",
+        "dropList": [
+            "IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"

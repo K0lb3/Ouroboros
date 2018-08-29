@@ -3194,7 +3194,8 @@
         "SetBreakObj",
         "ChangeWeather",
         "RateDamageCurrent",
-        "TransformUnitTakeOverHP"
+        "TransformUnitTakeOverHP",
+        "Titan?"
     ],
     "SkillFlags": {
         "1": "EnableRankUp",

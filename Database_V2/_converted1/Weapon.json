@@ -673,5 +673,15 @@
         "iname": "WE_KAYA01",
         "atk": 15,
         "formula": 2
+    },
+    "WE_AOT_SWORD_DEF": {
+        "iname": "WE_AOT_SWORD_DEF",
+        "atk": 14,
+        "formula": 20
+    },
+    "WE_AOT_SWORD": {
+        "iname": "WE_AOT_SWORD",
+        "atk": 14,
+        "formula": 1
     }
 }

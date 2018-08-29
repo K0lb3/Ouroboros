@@ -34,23 +34,21 @@ def FuseTranslations():
             loc[i] = Translations[i]
     return loc
 
-def wytesong(UNITS):
+def wytesong_units(UNITS):
     loc = TRANSLATION
     def similarity(ori, inp):
         return (jellyfish.levenshtein_distance(inp, ori))
 
     ReBr = re.compile(r'(\s+)?(\n)?(\[|\『|\().*')
-    path = os.path.dirname(os.path.realpath(__file__)).replace('\\Functions','')+'\\resources\\wytesong.json'
-    print('wytesong.json')
-    with open(path, "rt", encoding='utf8') as f:
-        wunit= {
-            unit['Name JPN'] : {
-                'Name':ReBr.sub('', unit['Name']).rstrip(' ').title(),
-                'Original': unit['Name'],
-                'Romanji': unit['Romanji']
-            }
-            for unit in json.loads(f.read())['Units']
+
+    wunit= {
+        unit['Name JPN'] : {
+            'Name':ReBr.sub('', unit['Name']).rstrip(' ').title(),
+            'Original': unit['Name'],
+            'Romanji': unit['Romanji']
         }
+        for unit in wytesong['Units']
+    }
 
     none = {}
     used = []
@@ -88,6 +86,28 @@ def wytesong(UNITS):
             else:
                 print('Not found:',iname)
 
+def wytesong_cards(cards):
+    VA='Vision Ability {}'
+    for wcard in wytesong['memcardnensou']:
+        try:
+            card=cards[wcard['code']]
+            card.update({
+                'name'  : wcard['nameEN'],
+                'kanji' : card['name'],
+                'VCR' : wcard['VCR'].split('\n',1)[0],
+                'TL_note': wcard['TLNotes'],
+                'ability_names':[
+                    wcard[VA.format(i)]
+                    for i in range(1,10)
+                    if VA.format(i) in wcard
+                ]
+            })
+        except:
+            print('Cards: Failed to connect ',wcard['nameEN'])
 
 TRANSLATION=FuseTranslations()
 print('Loaded: Translations')
+
+print('wytesong.json')
+with open(os.path.dirname(os.path.realpath(__file__)).replace('\\Functions','')+'\\resources\\wytesong.json', "rt", encoding='utf8') as f:
+    wytesong=json.loads(f.read())

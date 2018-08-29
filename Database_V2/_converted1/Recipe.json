@@ -31829,6 +31829,70 @@
             }
         ]
     },
+    "RECIPE_GL_SHIO_KIMONO": {
+        "iname": "RECIPE_GL_SHIO_KIMONO",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_GL_DIAGRAM_SHIO_KIMONO",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_ATK_SWORD",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_ATK_LANCE",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_ATK_AX",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_GL_DIAGRAM_SHIO_KIMONO": {
+        "iname": "RECIPE_GL_DIAGRAM_SHIO_KIMONO",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO",
+                "num": 80
+            }
+        ]
+    },
+    "RECIPE_GL_SOREN_MASK": {
+        "iname": "RECIPE_GL_SOREN_MASK",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_GL_DIAGRAM_SOREN_MASK",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_MAG_GEARROD",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_GEM_RADIO",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_COMPASS",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_GL_DIAGRAM_SOREN_MASK": {
+        "iname": "RECIPE_GL_DIAGRAM_SOREN_MASK",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_GL_DIAGRAMPIECE_SOREN_MASK",
+                "num": 80
+            }
+        ]
+    },
     "RECIPE_KAMUI_1": {
         "iname": "RECIPE_KAMUI_1",
         "cost": 10000,
@@ -34873,6 +34937,126 @@
             }
         ]
     },
+    "RECIPE_AOT_EREN_1": {
+        "iname": "RECIPE_AOT_EREN_1",
+        "cost": 10000,
+        "items": [
+            {
+                "iname": "IT_EV_ARUKEMYI01",
+                "num": 1
+            },
+            {
+                "iname": "IT_EV_FIRE_L_GOLEM",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_AOT_EREN_2": {
+        "iname": "RECIPE_AOT_EREN_2",
+        "cost": 25000,
+        "items": [
+            {
+                "iname": "IT_EV_ARUKEMYI02",
+                "num": 1
+            },
+            {
+                "iname": "IT_EV_FIRE_POT",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_AOT_EREN_3": {
+        "iname": "RECIPE_AOT_EREN_3",
+        "cost": 50000,
+        "items": [
+            {
+                "iname": "IT_EV_ARUKEMYI03",
+                "num": 1
+            },
+            {
+                "iname": "IT_EV_FIRE_M_GOLEM",
+                "num": 1
+            },
+            {
+                "iname": "IT_EV_RAINBOW_POT",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_AOT_EREN_4": {
+        "iname": "RECIPE_AOT_EREN_4",
+        "cost": 150000,
+        "items": [
+            {
+                "iname": "IT_EV_ARUKEMYI04",
+                "num": 1
+            },
+            {
+                "iname": "IT_EV_FIRE_S_GOLEM",
+                "num": 1
+            },
+            {
+                "iname": "IT_EV_FIRE_TSUBO",
+                "num": 1
+            },
+            {
+                "iname": "IT_EV_RAINBOW_S_GOLEM",
+                "num": 1
+            },
+            {
+                "iname": "IT_EV_RAINBOW_TSUBO",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_AOT_REINER_1": {
+        "iname": "RECIPE_AOT_REINER_1",
+        "cost": 10000,
+        "items": [
+            {
+                "iname": "IT_EV_ARUKEMYI01",
+                "num": 1
+            },
+            {
+                "iname": "IT_EV_WIND_L_GOLEM",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_AOT_REINER_2": {
+        "iname": "RECIPE_AOT_REINER_2",
+        "cost": 25000,
+        "items": [
+            {
+                "iname": "IT_EV_ARUKEMYI02",
+                "num": 1
+            },
+            {
+                "iname": "IT_EV_WIND_POT",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_AOT_REINER_3": {
+        "iname": "RECIPE_AOT_REINER_3",
+        "cost": 50000,
+        "items": [
+            {
+                "iname": "IT_EV_AOT_REIN01",
+                "num": 2
+            }
+        ]
+    },
+    "RECIPE_AOT_REINER_4": {
+        "iname": "RECIPE_AOT_REINER_4",
+        "cost": 150000,
+        "items": [
+            {
+                "iname": "IT_EV_AOT_REIN01",
+                "num": 3
+            }
+        ]
+    },
     "RECIPE_EQ_DIAGRAM_THOL_CLOTHES": {
         "iname": "RECIPE_EQ_DIAGRAM_THOL_CLOTHES",
         "cost": 18000,
@@ -34889,6 +35073,26 @@
         "items": [
             {
                 "iname": "IT_EQ_DIAGRAMPIECE_ALMA01",
+                "num": 80
+            }
+        ]
+    },
+    "RECIPE_EQ_DIAGRAM_AOT_EREN01": {
+        "iname": "RECIPE_EQ_DIAGRAM_AOT_EREN01",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_AOT_EREN01",
+                "num": 80
+            }
+        ]
+    },
+    "RECIPE_EQ_DIAGRAM_AOT_REIN01": {
+        "iname": "RECIPE_EQ_DIAGRAM_AOT_REIN01",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_AOT_REIN01",
                 "num": 80
             }
         ]
@@ -35861,6 +36065,198 @@
             }
         ]
     },
+    "RECIPE_EQ_DORO_DIAGRAM_SICKLE": {
+        "iname": "RECIPE_EQ_DORO_DIAGRAM_SICKLE",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAMPIECE_SICKLE",
+                "num": 80
+            }
+        ]
+    },
+    "RECIPE_EQ_DORO_DIAGRAM_WHIP": {
+        "iname": "RECIPE_EQ_DORO_DIAGRAM_WHIP",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAMPIECE_WHIP",
+                "num": 80
+            }
+        ]
+    },
+    "RECIPE_EQ_DORO_DIAGRAM_CLOTHES": {
+        "iname": "RECIPE_EQ_DORO_DIAGRAM_CLOTHES",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAMPIECE_CLOTHES",
+                "num": 80
+            }
+        ]
+    },
+    "RECIPE_EQ_DORO_DIAGRAM_GLOVES": {
+        "iname": "RECIPE_EQ_DORO_DIAGRAM_GLOVES",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAMPIECE_GLOVES",
+                "num": 80
+            }
+        ]
+    },
+    "RECIPE_EQ_DORO_DIAGRAM_BOOT": {
+        "iname": "RECIPE_EQ_DORO_DIAGRAM_BOOT",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAMPIECE_BOOT",
+                "num": 80
+            }
+        ]
+    },
+    "RECIPE_EQ_DORO_DIAGRAM_DOLL": {
+        "iname": "RECIPE_EQ_DORO_DIAGRAM_DOLL",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAMPIECE_DOLL",
+                "num": 80
+            }
+        ]
+    },
+    "RECIPE_NEC_STORNE_FIRE": {
+        "iname": "RECIPE_NEC_STORNE_FIRE",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE_FIRE",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_SPD_WATCH",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_NOTEBOOK",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_COMPASS",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_NEC_STORNE_WATER": {
+        "iname": "RECIPE_NEC_STORNE_WATER",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE_WATER",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_SPD_WATCH",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_NOTEBOOK",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_COMPASS",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_NEC_STORNE_WIND": {
+        "iname": "RECIPE_NEC_STORNE_WIND",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE_WIND",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_SPD_WATCH",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_NOTEBOOK",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_COMPASS",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_NEC_STORNE_THUNDER": {
+        "iname": "RECIPE_NEC_STORNE_THUNDER",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE_THUNDER",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_SPD_WATCH",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_NOTEBOOK",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_COMPASS",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_NEC_STORNE_SHINE": {
+        "iname": "RECIPE_NEC_STORNE_SHINE",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE_SHINE",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_SPD_WATCH",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_NOTEBOOK",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_COMPASS",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_NEC_STORNE_DARK": {
+        "iname": "RECIPE_NEC_STORNE_DARK",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE_DARK",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_SPD_WATCH",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_NOTEBOOK",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_COMPASS",
+                "num": 1
+            }
+        ]
+    },
     "RECIPE_EQ_ZENN_SCARF": {
         "iname": "RECIPE_EQ_ZENN_SCARF",
         "cost": 30000,
@@ -36209,6 +36605,50 @@
             },
             {
                 "iname": "IT_EQ_ATK_MORNINGSTAR",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_EQ_AOT_EREN01": {
+        "iname": "RECIPE_EQ_AOT_EREN01",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAM_AOT_EREN01",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEF_ARMOR",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEF_SHIELD",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_MND_PARKA",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_EQ_AOT_REIN01": {
+        "iname": "RECIPE_EQ_AOT_REIN01",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAM_AOT_REIN01",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_HP_FURCOAT",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_LUK_DICE",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_COMPASS",
                 "num": 1
             }
         ]
@@ -37159,6 +37599,138 @@
             }
         ]
     },
+    "RECIPE_EQ_DORO_SICKLE": {
+        "iname": "RECIPE_EQ_DORO_SICKLE",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAM_SICKLE",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_ATK_SWORD",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_MAG_STAFF",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_MAG_MAGICWAND",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_EQ_DORO_WHIP": {
+        "iname": "RECIPE_EQ_DORO_WHIP",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAM_WHIP",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_LUK_RABBITDOLL",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_ATK_LANCE",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_SPD_SHINOBI",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_EQ_DORO_CLOTHES": {
+        "iname": "RECIPE_EQ_DORO_CLOTHES",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAM_CLOTHES",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_MND_ROBE",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_SPD_HOURGLASS",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_ATTRIBUTE_CHOKER",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_EQ_DORO_GLOVES": {
+        "iname": "RECIPE_EQ_DORO_GLOVES",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAM_GLOVES",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_GEM_TENBIN",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_LUK_DICE",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEF_TURBAN",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_EQ_DORO_BOOT": {
+        "iname": "RECIPE_EQ_DORO_BOOT",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAM_BOOT",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_GEM_CHIKUONKI",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_MAG_NECRO",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_NOTEBOOK",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_EQ_DORO_DOLL": {
+        "iname": "RECIPE_EQ_DORO_DOLL",
+        "cost": 30000,
+        "items": [
+            {
+                "iname": "IT_EQ_DORO_DIAGRAM_DOLL",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_GEM_RADIO",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_LUK_TRUMP",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_DEX_COMPASS",
+                "num": 1
+            }
+        ]
+    },
     "RECIPE_EQ_DIAGRAM_RIFLE_SNIPE": {
         "iname": "RECIPE_EQ_DIAGRAM_RIFLE_SNIPE",
         "cost": 18000,
@@ -37855,6 +38427,90 @@
             },
             {
                 "iname": "IT_EQ_DIAGRAM_KAI_RUDDER",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_DIAGRAM_NEC_STORNE_FIRE": {
+        "iname": "RECIPE_DIAGRAM_NEC_STORNE_FIRE",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_NEC_STORNE_FIRE",
+                "num": 80
+            },
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_DIAGRAM_NEC_STORNE_WATER": {
+        "iname": "RECIPE_DIAGRAM_NEC_STORNE_WATER",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_NEC_STORNE_WATER",
+                "num": 80
+            },
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_DIAGRAM_NEC_STORNE_WIND": {
+        "iname": "RECIPE_DIAGRAM_NEC_STORNE_WIND",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_NEC_STORNE_WIND",
+                "num": 80
+            },
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_DIAGRAM_NEC_STORNE_THUNDER": {
+        "iname": "RECIPE_DIAGRAM_NEC_STORNE_THUNDER",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_NEC_STORNE_THUNDER",
+                "num": 80
+            },
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_DIAGRAM_NEC_STORNE_SHINE": {
+        "iname": "RECIPE_DIAGRAM_NEC_STORNE_SHINE",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_NEC_STORNE_SHINE",
+                "num": 80
+            },
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE",
+                "num": 1
+            }
+        ]
+    },
+    "RECIPE_DIAGRAM_NEC_STORNE_DARK": {
+        "iname": "RECIPE_DIAGRAM_NEC_STORNE_DARK",
+        "cost": 18000,
+        "items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_NEC_STORNE_DARK",
+                "num": 80
+            },
+            {
+                "iname": "IT_EQ_DIAGRAM_NEC_STORNE",
                 "num": 1
             }
         ]

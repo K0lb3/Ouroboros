@@ -1,42 +1,61 @@
 {
-    "BANR_3TITLE_EX": {
-        "iname": "BANR_3TITLE_EX",
+    "BANR_EVENT_SEISEKI_06": {
+        "iname": "BANR_EVENT_SEISEKI_06",
         "type": "eventQuest",
-        "sval": "QE_EV_3TITLE_EX1",
+        "sval": "QE_EV_SEISEKI_DJ_01",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_gl_3title_02",
-        "begin_at": "8/2/2018",
-        "end_at": "8/15/2018 11:59:59 PM",
+        "banr_sprite": "Banner_Home_013_00",
+        "begin_at": "8/30/2018",
+        "end_at": "9/12/2018 11:59:59 PM",
         "priority": 1
     },
-    "BANR_3TITLE_ENDING": {
-        "iname": "BANR_3TITLE_ENDING",
+    "BANR_MH_EVENT": {
+        "iname": "BANR_MH_EVENT",
         "type": "eventQuest",
+        "sval": "QE_EV_GL_MH_02_01",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_gl_3title_parent",
-        "begin_at": "8/2/2018",
-        "end_at": "8/15/2018 11:59:59 PM",
+        "banr_sprite": "Banner_Home_g_mh_02",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
         "priority": 2
     },
-    "BANR_3TITLE": {
-        "iname": "BANR_3TITLE",
+    "BANR_UNDOUKAI_EVENT1": {
+        "iname": "BANR_UNDOUKAI_EVENT1",
         "type": "eventQuest",
-        "sval": "QE_EV_3TITLE_1",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_gl_3title_01",
-        "begin_at": "8/2/2018",
-        "end_at": "8/15/2018 11:59:59 PM",
+        "banr_sprite": "Banner_Home_037_02",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
         "priority": 3
     },
-    "BANR_3TITLE_APPLE": {
-        "iname": "BANR_3TITLE_APPLE",
-        "type": "eventQuest",
-        "sval": "QE_TM_EXP_GOLD_3TITLE",
+    "BANR_VEDA_TOWER": {
+        "iname": "BANR_VEDA_TOWER",
+        "type": "towerQuest",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_gl_3title_apple",
-        "begin_at": "8/2/2018",
-        "end_at": "8/15/2018 11:59:59 PM",
+        "banr_sprite": "Banner_Home_g_tower_04",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
         "priority": 4
+    },
+    "BANR_GOLMARAS_EVENTEX": {
+        "iname": "BANR_GOLMARAS_EVENTEX",
+        "type": "eventQuest",
+        "sval": "QE_EV_SWIM_GORM_EX",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_035_01",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
+        "priority": 5
+    },
+    "BANR_GOLMARAS_EVENT": {
+        "iname": "BANR_GOLMARAS_EVENT",
+        "type": "eventQuest",
+        "sval": "QE_EV_SWIM_GORM_01",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_035_00",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
+        "priority": 6
     },
     "BANR_ZIN_EVENT_EX": {
         "iname": "BANR_ZIN_EVENT_EX",
@@ -46,7 +65,7 @@
         "banr_sprite": "Banner_Home_024_01",
         "begin_at": "8/9/2018",
         "end_at": "8/22/2018 11:59:59 PM",
-        "priority": 5
+        "priority": 7
     },
     "BANR_ZIN_EVENT": {
         "iname": "BANR_ZIN_EVENT",
@@ -56,84 +75,63 @@
         "banr_sprite": "Banner_Home_024_00",
         "begin_at": "8/9/2018",
         "end_at": "8/22/2018 11:59:59 PM",
-        "priority": 6
-    },
-    "BANR_MIANNU_EVENT": {
-        "iname": "BANR_MIANNU_EVENT",
-        "type": "eventQuest",
-        "sval": "QE_SO_MIANNU_LV0",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_g_rerun_01",
-        "begin_at": "8/9/2018",
-        "end_at": "8/22/2018 11:59:59 PM",
-        "priority": 7
-    },
-    "BANR_FFXV_EVENT_EX01": {
-        "iname": "BANR_FFXV_EVENT_EX01",
-        "type": "eventQuest",
-        "sval": "QE_EV_FF15_EX_1",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_027_03",
-        "begin_at": "7/12/2018",
-        "end_at": "8/1/2018 11:59:59 PM",
         "priority": 8
     },
-    "BANR_EVENT_FFXV": {
-        "iname": "BANR_EVENT_FFXV",
+    "BANR_ZEKE_EVENT EX": {
+        "iname": "BANR_ZEKE_EVENT EX",
         "type": "eventQuest",
-        "sval": "QE_EV_FF15_1",
+        "sval": "QE_SO_ZEKE_EX_1",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_027_00",
-        "begin_at": "7/5/2018",
-        "end_at": "8/1/2018 11:59:59 PM",
+        "banr_sprite": "Banner_Home_002_03",
+        "begin_at": "8/23/2018",
+        "end_at": "9/12/2018 11:59:59 PM",
         "priority": 9
     },
-    "BANR_FFXV_EVENT_TEIEN": {
-        "iname": "BANR_FFXV_EVENT_TEIEN",
+    "BANR_ZEKE_EVENT": {
+        "iname": "BANR_ZEKE_EVENT",
         "type": "eventQuest",
-        "sval": "QE_TM_EXP_FF15_LV1",
+        "sval": "QE_SO_ZEKE_1",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_027_01",
-        "begin_at": "7/5/2018",
-        "end_at": "8/1/2018 11:59:59 PM",
+        "banr_sprite": "Banner_Home_002_01",
+        "begin_at": "8/23/2018",
+        "end_at": "9/12/2018 11:59:59 PM",
         "priority": 10
     },
-    "BANR_VEDA_TOWER": {
-        "iname": "BANR_VEDA_TOWER",
-        "type": "towerQuest",
+    "BANR_RETZIUS_EVENT": {
+        "iname": "BANR_RETZIUS_EVENT",
+        "type": "eventQuest",
+        "sval": "QE_SO_RETZIUS_LV1",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_g_tower_03",
-        "begin_at": "7/19/2018",
-        "end_at": "8/1/2018 11:59:59 PM",
+        "banr_sprite": "Banner_Home_g_soulquest_03",
+        "begin_at": "8/30/2018",
+        "end_at": "9/12/2018 11:59:59 PM",
         "priority": 11
     },
-    "BANR_YUTO_EX_EVENT": {
-        "iname": "BANR_YUTO_EX_EVENT",
-        "type": "eventQuest",
-        "sval": "QE_SO_YUTO_EX_1",
+    "BANR_SHOP_20180830DLC": {
+        "iname": "BANR_SHOP_20180830DLC",
+        "type": "shop",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_016_03",
-        "begin_at": "7/26/2018",
-        "end_at": "8/1/2018 11:59:59 PM",
+        "banr_sprite": "Banner_Home_g_shop_180830_17b",
+        "begin_at": "8/30/2018",
+        "end_at": "9/12/2018 11:59:59 PM",
         "priority": 12
     },
-    "BANR_YUTO_EVENT": {
-        "iname": "BANR_YUTO_EVENT",
-        "type": "eventQuest",
-        "sval": "QE_SO_YUTO_1",
+    "BANR_SHOP_20180823DLC": {
+        "iname": "BANR_SHOP_20180823DLC",
+        "type": "shop",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_016_02",
-        "begin_at": "7/19/2018",
-        "end_at": "8/1/2018 11:59:59 PM",
+        "banr_sprite": "Banner_Home_g_shop_180823_17a",
+        "begin_at": "8/23/2018",
+        "end_at": "9/5/2018 11:59:59 PM",
         "priority": 13
     },
-    "BANR_TREASURY_EVENT": {
-        "iname": "BANR_TREASURY_EVENT",
-        "type": "eventQuest",
+    "BANR_SHOP_20180816DLC": {
+        "iname": "BANR_SHOP_20180816DLC",
+        "type": "shop",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_g_dailyquest_03",
-        "begin_at": "7/26/2018",
-        "end_at": "8/1/2018 11:59:59 PM",
+        "banr_sprite": "Banner_Home_g_shop_180816_16b",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:59 PM",
         "priority": 14
     },
     "BANR_SHOP_20180809DLC": {
@@ -154,33 +152,6 @@
         "end_at": "8/15/2018 11:59:59 PM",
         "priority": 16
     },
-    "BANR_SHOP_20180726DLC": {
-        "iname": "BANR_SHOP_20180726DLC",
-        "type": "shop",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_g_shop_180726_15a",
-        "begin_at": "7/26/2018",
-        "end_at": "8/8/2018 11:59:59 PM",
-        "priority": 17
-    },
-    "BANR_SHOP_20180719DLC_A": {
-        "iname": "BANR_SHOP_20180719DLC_A",
-        "type": "shop",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_g_shop_180719_14d1",
-        "begin_at": "7/19/2018",
-        "end_at": "8/1/2018 11:59:59 PM",
-        "priority": 18
-    },
-    "BANR_SHOP_20180719DLC_B": {
-        "iname": "BANR_SHOP_20180719DLC_B",
-        "type": "shop",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_g_shop_180719_14d2",
-        "begin_at": "7/19/2018",
-        "end_at": "8/1/2018 11:59:59 PM",
-        "priority": 19
-    },
     "BANR_SHOP_ADV": {
         "iname": "BANR_SHOP_ADV",
         "type": "shop",
@@ -188,7 +159,7 @@
         "banr_sprite": "Banner_Home_g_shop_01",
         "begin_at": "10/3/2017",
         "end_at": "9/15/2027 2:59:59 PM",
-        "priority": 20
+        "priority": 17
     },
     "BANR_Beginner": {
         "iname": "BANR_Beginner",
@@ -198,7 +169,7 @@
         "banr_sprite": "Banner_Home_014_02",
         "begin_at": "6/28/2017",
         "end_at": "9/15/2027 2:59:59 PM",
-        "priority": 21
+        "priority": 18
     },
     "BANR_EVENT_UEXP_02": {
         "iname": "BANR_EVENT_UEXP_02",
@@ -209,6 +180,36 @@
         "priority": 1,
         "message": "月曜日限定！経験値をGETしよう！"
     },
+    "QE_EV_AOT_1": {
+        "iname": "QE_EV_AOT_1",
+        "type": "eventQuest",
+        "sval": "QE_EV_AOT_1",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_sk001_02",
+        "end_at": "2018/09/20 14:59:59",
+        "priority": 2,
+        "message": "『進撃の巨人』コラボ開催中！ユニット『ライナー』をGET！"
+    },
+    "QE_TM_EXP_AOT_LV1": {
+        "iname": "QE_TM_EXP_AOT_LV1",
+        "type": "eventQuest",
+        "sval": "QE_TM_EXP_AOT_LV1",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_sk001_01",
+        "end_at": "2018/09/20 14:59:59",
+        "priority": 3,
+        "message": "1日1回挑戦！コラボアイテムをGETしよう！"
+    },
+    "QE_EV_GIANT_IJ_01": {
+        "iname": "QE_EV_GIANT_IJ_01",
+        "type": "eventQuest",
+        "sval": "QE_EV_GIANT_IJ_01",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_072_01",
+        "end_at": "2018/08/26 23:59:59",
+        "priority": 4,
+        "message": "『コラボユニットの魂の欠片』をGETしよう！"
+    },
     "QE_EV_SWIM_HISHARMU": {
         "iname": "QE_EV_SWIM_HISHARMU",
         "type": "eventQuest",
@@ -216,7 +217,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_070_03",
         "end_at": "2018/08/22 23:59:59",
-        "priority": 2,
+        "priority": 5,
         "message": "ヒシャームのクラスチェンジ装備品をGET！"
     },
     "QE_EV_SWIM_DOROTHEA_01": {
@@ -226,8 +227,18 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_071_00",
         "end_at": "2018/08/31 23:59:59",
-        "priority": 3,
+        "priority": 6,
         "message": "真理念装『断崖ディスティニー』をGETしよう！"
+    },
+    "QE_EV_SWIM_DOROTHEA_EX": {
+        "iname": "QE_EV_SWIM_DOROTHEA_EX",
+        "type": "eventQuest",
+        "sval": "QE_EV_SWIM_DOROTHEA_EX",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_071_03",
+        "end_at": "2018/08/31 23:59:59",
+        "priority": 7,
+        "message": "『ワンダフル☆SUMMER』高難易度ステージ追加！"
     },
     "QE_WA_SEISEKI_KAYA_1": {
         "iname": "QE_WA_SEISEKI_KAYA_1",
@@ -236,7 +247,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_070_00",
         "end_at": "2018/08/23 23:59:59",
-        "priority": 4,
+        "priority": 8,
         "message": "ザインのクラスチェンジ装備品をGET！"
     },
     "QE_WA_SEISEKI_KAYA_EX_1": {
@@ -246,36 +257,8 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_071_01",
         "end_at": "2018/08/23 23:59:59",
-        "priority": 5,
+        "priority": 9,
         "message": "『夜明け前、罪の扉に至りて』高難易度ステージ追加！"
-    },
-    "QE_EV_BABEL_4_08": {
-        "iname": "QE_EV_BABEL_4_08",
-        "type": "eventQuest",
-        "sval": "QE_EV_BABEL_4_08",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_069_03",
-        "priority": 6,
-        "message": "『亡国の乱、時代の岐路に咲く』後編追加！"
-    },
-    "QE_EV_BABEL_4_EX": {
-        "iname": "QE_EV_BABEL_4_EX",
-        "type": "eventQuest",
-        "sval": "QE_EV_BABEL_4_EX",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_071_02",
-        "priority": 7,
-        "message": "『亡国の乱、時代の岐路に咲く』高難易度ステージ追加！"
-    },
-    "QE_EV_SEKAIJU2_01": {
-        "iname": "QE_EV_SEKAIJU2_01",
-        "type": "eventQuest",
-        "sval": "QE_EV_SEKAIJU2_01",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_sq001_02",
-        "end_at": "2018/08/16 14:59:59",
-        "priority": 8,
-        "message": "コラボイベント開催中！"
     },
     "QE_CB_POK_LV1_1": {
         "iname": "QE_CB_POK_LV1_1",
@@ -284,7 +267,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_012_02",
         "end_at": "2018/09/13 14:59:59",
-        "priority": 9,
+        "priority": 10,
         "message": "ユニット『ティルフィング』をGET！"
     },
     "QE_EV_3TITLE_1": {
@@ -294,7 +277,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_031_03",
         "end_at": "2018/09/13 14:59:59",
-        "priority": 10,
+        "priority": 11,
         "message": "ユニット『アマテラス』をGET！"
     },
     "QE_DM_01": {
@@ -302,8 +285,8 @@
         "type": "pvp",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_067_02",
-        "end_at": "2018/08/08 23:59:59",
-        "priority": 11,
+        "end_at": "2018/08/22 23:59:59",
+        "priority": 12,
         "message": "選抜ユニットで対戦しよう！"
     },
     "BANR_2017930_TOWER": {
@@ -312,18 +295,8 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_038_03",
         "end_at": "2018/08/30 23:59:59",
-        "priority": 12,
-        "message": "異層塔ヴェーダ開催！限定武具を手に入れよう！"
-    },
-    "QE_EV_SIZUKU": {
-        "iname": "QE_EV_SIZUKU",
-        "type": "eventQuest",
-        "sval": "QE_EV_SIZUKU",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_067_00",
-        "end_at": "2018/08/16 23:59:59",
         "priority": 13,
-        "message": "1日1回挑戦！アルケミィの雫GETしよう！"
+        "message": "異層塔ヴェーダ開催！限定武具を手に入れよう！"
     },
     "QE_EV_VISION_CLEAR_CP_02": {
         "iname": "QE_EV_VISION_CLEAR_CP_02",
@@ -331,97 +304,18 @@
         "sval": "QE_EV_VISION_CLEAR_CP_02",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_057_01",
-        "end_at": "2018/08/16 23:59:59",
+        "end_at": "2018/08/31 23:59:59",
         "priority": 14,
         "message": "特定の真理念装の錬金境界値が必ずアップ！"
     },
-    "BANR_SHOP_0809DLC": {
-        "iname": "BANR_SHOP_0809DLC",
+    "BANR_SHOP_0823DLC": {
+        "iname": "BANR_SHOP_0823DLC",
         "type": "shop",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_sq003_02",
-        "end_at": "2018/08/16 14:59:59",
+        "banr_sprite": "Banner_Home_sk001_00",
+        "end_at": "2018/08/31 23:59:59",
         "priority": 15,
-        "message": "コラボ終了間近！"
-    },
-    "BANR_SHOP_0731DLC": {
-        "iname": "BANR_SHOP_0731DLC",
-        "type": "shop",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_070_01",
-        "end_at": "2018/08/09 14:59:59",
-        "priority": 25,
-        "message": "ザンゲツのキャラスキン登場！"
-    },
-    "QE_EV_ADVENT_1_HISHARMU": {
-        "iname": "QE_EV_ADVENT_1_HISHARMU",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_HISHARMU",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/08/10 23:59:59",
-        "priority": 17,
-        "message": "今日は『ヒシャームの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_GORMALAS": {
-        "iname": "QE_EV_ADVENT_1_GORMALAS",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_GORMALAS",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/08/11 23:59:59",
-        "priority": 18,
-        "message": "今日は『ゴルマラスの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_SHENMEI": {
-        "iname": "QE_EV_ADVENT_1_SHENMEI",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_SHENMEI",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/08/12 23:59:59",
-        "priority": 19,
-        "message": "今日は『シェンメイの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_DAISY": {
-        "iname": "QE_EV_ADVENT_1_DAISY",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_DAISY",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/08/13 23:59:59",
-        "priority": 20,
-        "message": "今日は『デイジーの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_REIMEI": {
-        "iname": "QE_EV_ADVENT_1_REIMEI",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_REIMEI",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/08/14 23:59:59",
-        "priority": 21,
-        "message": "今日は『レイメイの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_ZANGETSU": {
-        "iname": "QE_EV_ADVENT_1_ZANGETSU",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_ZANGETSU",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/08/15 23:59:59",
-        "priority": 22,
-        "message": "今日は『ザンゲツの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_YUNAGI": {
-        "iname": "QE_EV_ADVENT_1_YUNAGI",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_YUNAGI",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/08/16 23:59:59",
-        "priority": 23,
-        "message": "今日は『ユウナギの魂の欠片』をGET！"
+        "message": "コラボショップOPEN！"
     },
     "QE_EV_VISION_CLEAR_CP_01": {
         "iname": "QE_EV_VISION_CLEAR_CP_01",
@@ -429,89 +323,118 @@
         "sval": "QE_EV_VISION_CLEAR_CP_01",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_057_01",
-        "end_at": "2018/08/09 23:59:59",
-        "priority": 24,
+        "end_at": "2018/08/22 23:59:59",
+        "priority": 16,
         "message": "特定の真理念装の錬金境界値が必ずアップ！"
     },
-    "QE_EV_ADVENT_1_IZAYOI": {
-        "iname": "QE_EV_ADVENT_1_IZAYOI",
+    "BANR_SHOP_0816DLC": {
+        "iname": "BANR_SHOP_0816DLC",
+        "type": "shop",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_072_00",
+        "end_at": "2018/08/22 23:59:59",
+        "priority": 17,
+        "message": "シェンメイのキャラスキン登場！"
+    },
+    "QE_EV_ADVENT_1_KAZAHAYA": {
+        "iname": "QE_EV_ADVENT_1_KAZAHAYA",
         "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_IZAYOI",
+        "sval": "QE_EV_ADVENT_1_KAZAHAYA",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/08/08 23:59:59",
+        "end_at": "2018/08/24 23:59:59",
+        "priority": 18,
+        "message": "今日は『カザハヤの魂の欠片』をGET！"
+    },
+    "QE_EV_ADVENT_1_UZUMA": {
+        "iname": "QE_EV_ADVENT_1_UZUMA",
+        "type": "eventQuest",
+        "sval": "QE_EV_ADVENT_1_UZUMA",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_050_03",
+        "end_at": "2018/08/25 23:59:59",
+        "priority": 19,
+        "message": "今日は『ウズマの魂の欠片』をGET！"
+    },
+    "QE_EV_ADVENT_1_LAVINA": {
+        "iname": "QE_EV_ADVENT_1_LAVINA",
+        "type": "eventQuest",
+        "sval": "QE_EV_ADVENT_1_LAVINA",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_050_03",
+        "end_at": "2018/08/26 23:59:59",
+        "priority": 20,
+        "message": "今日は『ラヴィーナの魂の欠片』をGET！"
+    },
+    "QE_EV_ADVENT_1_CHAO": {
+        "iname": "QE_EV_ADVENT_1_CHAO",
+        "type": "eventQuest",
+        "sval": "QE_EV_ADVENT_1_CHAO",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_050_03",
+        "end_at": "2018/08/27 23:59:59",
+        "priority": 21,
+        "message": "今日は『チャオの魂の欠片』をGET！"
+    },
+    "QE_EV_ADVENT_1_LUCRETIA": {
+        "iname": "QE_EV_ADVENT_1_LUCRETIA",
+        "type": "eventQuest",
+        "sval": "QE_EV_ADVENT_1_LUCRETIA",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_050_03",
+        "end_at": "2018/08/28 23:59:59",
+        "priority": 22,
+        "message": "今日は『ルクレティアの魂の欠片』をGET！"
+    },
+    "QE_EV_ADVENT_1_EVE": {
+        "iname": "QE_EV_ADVENT_1_EVE",
+        "type": "eventQuest",
+        "sval": "QE_EV_ADVENT_1_EVE",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_050_03",
+        "end_at": "2018/08/29 23:59:59",
+        "priority": 23,
+        "message": "今日は『イヴの魂の欠片』をGET！"
+    },
+    "QE_EV_ADVENT_1_FRAISE": {
+        "iname": "QE_EV_ADVENT_1_FRAISE",
+        "type": "eventQuest",
+        "sval": "QE_EV_ADVENT_1_FRAISE",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_050_03",
+        "end_at": "2018/08/30 23:59:59",
+        "priority": 24,
+        "message": "今日は『フレイズの魂の欠片』をGET！"
+    },
+    "QE_EV_ADVENT_1_YOMI": {
+        "iname": "QE_EV_ADVENT_1_YOMI",
+        "type": "eventQuest",
+        "sval": "QE_EV_ADVENT_1_YOMI",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_050_03",
+        "end_at": "2018/08/31 23:59:59",
+        "priority": 25,
+        "message": "今日は『ヨミの魂の欠片』をGET！"
+    },
+    "QE_EV_ADVENT_1_ITSUKI": {
+        "iname": "QE_EV_ADVENT_1_ITSUKI",
+        "type": "eventQuest",
+        "sval": "QE_EV_ADVENT_1_ITSUKI",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_050_03",
+        "end_at": "2018/08/22 23:59:59",
         "priority": 26,
-        "message": "今日は『イザヨイの魂の欠片』をGET！"
+        "message": "今日は『イツキの魂の欠片』をGET！"
     },
-    "QE_EV_ADVENT_1_SETSUNA": {
-        "iname": "QE_EV_ADVENT_1_SETSUNA",
+    "QE_EV_ADVENT_1_FUJICA": {
+        "iname": "QE_EV_ADVENT_1_FUJICA",
         "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_SETSUNA",
+        "sval": "QE_EV_ADVENT_1_FUJICA",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/08/09 23:59:59",
+        "end_at": "2018/08/23 23:59:59",
         "priority": 27,
-        "message": "今日は『セツナの魂の欠片』をGET！"
-    },
-    "QE_ALL600MAN_DL": {
-        "iname": "QE_ALL600MAN_DL",
-        "type": "eventQuest",
-        "sval": "QE_ALL600MAN_DL",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_069_02",
-        "end_at": "2018/08/09 23:59:59",
-        "priority": 28,
-        "message": "『600万人突破記念クエスト』開催！豪華報酬をGETしよう！"
-    },
-    "QE_SO_ALMA_REBECCA_LV1": {
-        "iname": "QE_SO_ALMA_REBECCA_LV1",
-        "type": "eventQuest",
-        "sval": "QE_SO_ALMA_REBECCA_LV1",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_068_02",
-        "end_at": "2018/08/09 14:59:59",
-        "priority": 29,
-        "message": "真理念装『レベッカは完璧、でも…』をGETしよう！"
-    },
-    "QE_MULTI_ALMA_REBECCA_EX_01": {
-        "iname": "QE_MULTI_ALMA_REBECCA_EX_01",
-        "type": "eventQuest",
-        "sval": "QE_MULTI_ALMA_REBECCA_EX_01",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_069_00",
-        "end_at": "2018/08/09 14:59:59",
-        "priority": 30,
-        "message": "『残雪を踏む少女たち』高難易度ステージ追加！"
-    },
-    "QE_SO_ALMA_REBECCA_EX_SP": {
-        "iname": "QE_SO_ALMA_REBECCA_EX_SP",
-        "type": "eventQuest",
-        "sval": "QE_SO_ALMA_REBECCA_EX_SP",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_069_01",
-        "end_at": "2018/08/09 14:59:59",
-        "priority": 31,
-        "message": "超高難度クエストをクリアして豪華報酬をGET！"
-    },
-    "QE_EV_ADVENT_1_VIVI": {
-        "iname": "QE_EV_ADVENT_1_VIVI",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_VIVI",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/31 23:59:59",
-        "priority": 32,
-        "message": "今日は『ヴィヴィの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_MARE": {
-        "iname": "QE_EV_ADVENT_1_MARE",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_MARE",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/26 23:59:59",
-        "priority": 33,
-        "message": "今日は『メアの魂の欠片』をGET！"
+        "message": "今日は『フジカの魂の欠片』をGET！"
     },
     "QE_WK_EJ_GUA": {
         "iname": "QE_WK_EJ_GUA",
@@ -520,7 +443,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_042_00",
         "begin_at": "2017/11/16 15:00:00",
-        "priority": 34,
+        "priority": 28,
         "message": "エンチャントジョブの装備品図片をGETしよう！"
     },
     "QE_WK_EJ_BLA": {
@@ -530,7 +453,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_042_01",
         "begin_at": "2017/11/16 15:00:00",
-        "priority": 35,
+        "priority": 29,
         "message": "エンチャントジョブの装備品図片をGETしよう！"
     },
     "QE_WK_EJ_RAN": {
@@ -540,7 +463,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_042_02",
         "begin_at": "2017/11/16 15:00:00",
-        "priority": 36,
+        "priority": 30,
         "message": "エンチャントジョブの装備品図片をGETしよう！"
     },
     "QE_WK_EJ_DOC": {
@@ -550,7 +473,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_042_03",
         "begin_at": "2017/11/16 15:00:00",
-        "priority": 37,
+        "priority": 31,
         "message": "エンチャントジョブの装備品図片をGETしよう！"
     },
     "BANR_BEGINNER_HOUSE": {
@@ -558,7 +481,7 @@
         "type": "beginner",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_066_00",
-        "priority": 38,
+        "priority": 32,
         "message": "まずはここをプレイしてタガタメを知ろう！",
         "is_not_home": true
     },
@@ -568,7 +491,7 @@
         "sval": "https://www.youtube.com/playlist?list=PLqe86jCIQ0R-YAoeaFmpy8O693yRTHWHB",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_054_02",
-        "priority": 39,
+        "priority": 33,
         "message": "攻略情報はこちらから！"
     },
     "BANR_LOBI": {
@@ -577,7 +500,7 @@
         "sval": "https://web.lobi.co/game/tagatameno_alchemist",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_054_01",
-        "priority": 40,
+        "priority": 34,
         "message": "タガタメ公認コミュニティ！"
     },
     "BANR_BEGINNER_GUIDE": {
@@ -588,7 +511,7 @@
         "banr_sprite": "Banner_Home_014_02",
         "begin_at": "2017/01/27 16:00:00",
         "end_at": "2018/07/19 14:59:00",
-        "priority": 41,
+        "priority": 35,
         "message": "初心者の方は困ったらこちら！"
     }
 }

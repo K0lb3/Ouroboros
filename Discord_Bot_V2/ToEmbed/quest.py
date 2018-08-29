@@ -16,6 +16,7 @@ COLOR={
     'ALLY':         (58,190,98),
     'ENEMY':        (166,16,30),
     'TREASURE':     (249,224,0),
+    'JEWEL':        (255,153,255),
     'BLOCKED':      (139,137,137),
     'HEIGHT_MIN':   (245,245,220),
     'HEIGHT_MAX':   (139,69,19),
@@ -46,18 +47,21 @@ def Quest(iname,page):
             {'name':    'AP',       'value':    quest['ap'],  'inline':True},
             {'name':    'Enemies',  'value':    str(len(SET['enemy'])),  'inline':True},
             {'name':    'Chests',   'value':    str(len(SET['treasure'])),  'inline':True},
-            {'name':    'Drops',       'value': '\n'.join(quest['dropList']), 'inline':True}
+            {'name':    'Drops',       'value': '\n'.join([
+                DIRS[item]['name']
+                for item in quest['dropList']
+                ]), 'inline':True}
         ]
         embed.ConvertFields(fields)
         return(embed,False)
 
     if page=='main':
-        sides=['ally','enemy']
+        sides=['ally','enemy','jewel']
         fields=[
             {'name': side.title(), 'value': '\n'.join([
                 '{num} ~ {name}'.format(num=i+1, name=UNIT[unit['iname']]['name'])
                 for i,unit in enumerate(SET[side])
-            ]), 'inline':False}
+            ]), 'inline':True}
             for side in sides
             if SET[side]
         ]
@@ -109,7 +113,7 @@ def MapImage(MAP):
             'type': typ
             })
 
-    sides=['party','ally','enemy','treasure']
+    sides=['party','ally','enemy','treasure','jewel']
     for side in sides:
         for i,unit in enumerate(Set[side]):
             placeSpawn(unit,i+1,side)

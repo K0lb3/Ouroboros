@@ -32,6 +32,7 @@
             "QE_EV_POK_SAM_04",
             "QE_EV_3TITLE_1",
             "QE_EV_FATE_1",
+            "QE_EV_SWIM_GORM_02",
             "QE_WA_ZIN_1",
             "QE_SO_SABALETA_LV1",
             "QE_SO_MILIS_1",
@@ -50,8 +51,7 @@
             "QE_EV_HALL_ALEX_01",
             "QE_EV_XMAS_01",
             "QE_EV_VALENTINE_01",
-            "QE_EV_BEGINNER_02",
-            "QE_EV_BEGINNER_05"
+            "QE_EV_BEGINNER_02"
         ]
     },
     "IT_EQ_MAG_BRANCH": {
@@ -87,6 +87,8 @@
             "QE_EV_POK_SAM_05",
             "QE_EV_3TITLE_1",
             "QE_EV_3TITLE_2",
+            "QE_EV_SWIM_GORM_01",
+            "QE_EV_SWIM_GORM_02",
             "QE_WA_ZIN_2",
             "QE_SO_SABALETA_LV1",
             "QE_SO_MILIS_1",
@@ -104,9 +106,7 @@
             "QE_EV_HALL_ALEX_01",
             "QE_EV_XMAS_01",
             "QE_EV_VALENTINE_01",
-            "QE_EV_BEGINNER_05",
-            "QE_MULTI_POK2_01",
-            "QE_EV_GL_MH_01_02"
+            "QE_EV_BEGINNER_05"
         ]
     },
     "IT_EQ_DIAGRAM_VEST": {
@@ -126,10 +126,13 @@
             "QE_ST_NO_020098",
             "QE_ST_NO_020119",
             "QE_ST_NO_030025",
+            "QE_ST_NO_030052",
             "QE_ST_HA_020021",
             "QE_ST_HA_020027",
             "QE_ST_HA_020039",
+            "QE_ST_HA_030018",
             "QE_EV_3TITLE_1",
+            "QE_EV_SWIM_GORM_01",
             "QE_WA_ZIN_1",
             "QE_WA_ZIN_2",
             "QE_SO_MILIS_1",
@@ -171,6 +174,7 @@
             "QE_ST_NO_020101",
             "QE_ST_NO_030001",
             "QE_ST_NO_030028",
+            "QE_ST_NO_030055",
             "QE_ST_HA_010003",
             "QE_ST_HA_010015",
             "QE_ST_HA_010028",
@@ -179,6 +183,7 @@
             "QE_EV_POK_SAM_04",
             "QE_EV_3TITLE_1",
             "QE_EV_FATE_1",
+            "QE_EV_SWIM_GORM_01",
             "QE_WA_ZIN_2",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_01",
@@ -214,6 +219,7 @@
             "QE_ST_NO_020104",
             "QE_ST_NO_030005",
             "QE_ST_NO_030034",
+            "QE_ST_NO_030058",
             "QE_ST_HA_010004",
             "QE_ST_HA_010029",
             "QE_ST_HA_010034",
@@ -225,6 +231,7 @@
             "QE_EV_3TITLE_1",
             "QE_EV_3TITLE_2",
             "QE_EV_FATE_2",
+            "QE_EV_SWIM_GORM_02",
             "QE_WA_ZIN_2",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_01",
@@ -247,9 +254,7 @@
             "QE_EV_BEGINNER_03",
             "QE_LIMIT_UEXP",
             "QE_LIMIT_UEXP_02",
-            "QE_MULTI_POK2_01",
-            "QE_EV_GL_MH_01_02",
-            "QE_EV_GL_MH_01_03"
+            "QE_MULTI_POK2_01"
         ]
     },
     "IT_EQ_DIAGRAM_PEN": {
@@ -272,6 +277,7 @@
             "QE_ST_HA_020030",
             "QE_EV_3TITLE_1",
             "QE_EV_3TITLE_2",
+            "QE_EV_SWIM_GORM_01",
             "QE_WA_ZIN_1",
             "QE_WA_ZIN_2",
             "QE_SO_MILIS_1",
@@ -345,7 +351,10 @@
             "QE_LIMIT_TANABATA",
             "QE_MULTI_POK2_01",
             "QE_EV_GL_MH_01_01",
-            "QE_EV_GL_MH_01_03"
+            "QE_EV_GL_MH_01_03",
+            "QE_EV_GL_MH_02_01",
+            "QE_EV_GL_MH_02_02",
+            "QE_EV_GL_MH_02_03"
         ]
     },
     "IT_EQ_LUK_SILVERCOIN": {
@@ -377,7 +386,11 @@
             "QE_EV_XMAS_01",
             "QE_EV_BEGINNER_04",
             "QE_LIMIT_TANABATA",
-            "QE_EV_GL_MH_01_01"
+            "QE_EV_GL_MH_01_01",
+            "QE_EV_GL_MH_02_01",
+            "QE_EV_GL_MH_02_02",
+            "QE_EV_GL_MH_02_03",
+            "QE_EV_GL_MH_02_04"
         ]
     },
     "IT_EQ_DIAGRAM_KNIFE": {
@@ -413,6 +426,7 @@
             "QE_ST_NO_020082",
             "QE_ST_NO_020092",
             "QE_ST_NO_030029",
+            "QE_ST_NO_030056",
             "QE_ST_HA_010002",
             "QE_ST_HA_010006",
             "QE_ST_HA_010018",
@@ -420,9 +434,11 @@
             "QE_ST_HA_020028",
             "QE_ST_HA_020040",
             "QE_ST_HA_030009",
+            "QE_ST_HA_030014",
             "QE_EV_3TITLE_2",
             "QE_EV_3TITLE_4",
             "QE_EV_FATE_2",
+            "QE_EV_SWIM_GORM_01",
             "QE_WA_ZIN_2",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_02",
@@ -436,7 +452,9 @@
             "QE_EV_SEISEKI_DJ_5_02",
             "QE_EV_FF15_1",
             "QE_EV_FF15_4",
-            "QE_EV_GL_MH_01_02"
+            "QE_EV_GL_MH_01_02",
+            "QE_EV_GL_MH_02_03",
+            "QE_EV_GL_MH_02_06"
         ]
     },
     "IT_EQ_MAG_WAND": {
@@ -456,11 +474,13 @@
             "QE_ST_NO_020096",
             "QE_ST_NO_030002",
             "QE_ST_NO_030033",
+            "QE_ST_NO_030059",
             "QE_ST_HA_010002",
             "QE_ST_HA_010007",
             "QE_ST_HA_010023",
             "QE_ST_HA_010035",
             "QE_ST_HA_020019",
+            "QE_ST_HA_030019",
             "QE_EV_3TITLE_2",
             "QE_WA_ZIN_4",
             "QE_SO_PERI_01",
@@ -476,7 +496,9 @@
             "QE_EV_HALL_ALEX_02",
             "QE_EV_XMAS_02",
             "QE_EV_VALENTINE_02",
-            "QE_EV_GL_MH_01_04"
+            "QE_EV_GL_MH_01_04",
+            "QE_EV_GL_MH_02_04",
+            "QE_EV_GL_MH_02_05"
         ]
     },
     "IT_EQ_DIAGRAM_BROOM": {
@@ -537,7 +559,8 @@
             "QE_EV_HALL_ALEX_02",
             "QE_EV_XMAS_02",
             "QE_EV_VALENTINE_02",
-            "QE_MULTI_POK_SAM_EX1"
+            "QE_MULTI_POK_SAM_EX1",
+            "QE_EV_GL_MH_02_07"
         ]
     },
     "IT_EQ_MND_CHARM": {
@@ -562,6 +585,7 @@
             "QE_EV_POK_SAM_04",
             "QE_EV_POK_SAM_05",
             "QE_EV_FATE_4",
+            "QE_EV_SWIM_GORM_03",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_02",
             "QE_SO_ERURIKE_1",
@@ -638,7 +662,9 @@
             "QE_EV_XMAS_04",
             "QE_EV_XMAS_05",
             "QE_EV_GL_MH_01_04",
-            "QE_EV_GL_MH_01_08"
+            "QE_EV_GL_MH_01_08",
+            "QE_EV_GL_MH_02_08",
+            "QE_EV_GL_MH_02_09"
         ]
     },
     "IT_EQ_DEX_TRIANGLE": {
@@ -711,7 +737,8 @@
             "QE_EV_XMAS_02",
             "QE_EV_VALENTINE_02",
             "QE_EV_GL_MH_01_05",
-            "QE_EV_GL_MH_01_07"
+            "QE_EV_GL_MH_01_07",
+            "QE_EV_GL_MH_02_08"
         ]
     },
     "IT_EQ_DIAGRAM_GETA": {
@@ -727,12 +754,14 @@
             "QE_ST_NO_020077",
             "QE_ST_NO_020114",
             "QE_ST_NO_030027",
+            "QE_ST_NO_030053",
             "QE_ST_HA_010020",
             "QE_ST_HA_010030",
             "QE_ST_HA_020008",
             "QE_ST_HA_020015",
             "QE_EV_3TITLE_3",
             "QE_EV_3TITLE_4",
+            "QE_EV_SWIM_GORM_03",
             "QE_SO_PERI_02",
             "QE_SO_PERI_04",
             "QE_SO_YUTO_2",
@@ -766,6 +795,7 @@
             "QE_EV_3TITLE_2",
             "QE_EV_FATE_3",
             "QE_EV_FATE_6",
+            "QE_EV_SWIM_GORM_02",
             "QE_WA_ZIN_3",
             "QE_SO_MILIS_2",
             "QE_SO_PERI_02",
@@ -781,7 +811,9 @@
             "QE_EV_FF15_2",
             "QE_EV_FF15_4",
             "QE_EV_FF15_5",
-            "QE_EV_GL_MH_01_03"
+            "QE_EV_GL_MH_01_03",
+            "QE_EV_GL_MH_02_05",
+            "QE_EV_GL_MH_02_06"
         ]
     },
     "IT_EQ_DIAGRAM_RABBIT": {
@@ -828,6 +860,7 @@
             "QE_ST_HA_010032",
             "QE_EV_3TITLE_2",
             "QE_EV_3TITLE_5",
+            "QE_EV_SWIM_GORM_03",
             "QE_SO_SABALETA_LV3",
             "QE_SO_PERI_03",
             "QE_SO_PERI_05",
@@ -858,6 +891,7 @@
             "QE_ST_NO_020093",
             "QE_ST_NO_020118",
             "QE_ST_NO_030026",
+            "QE_ST_NO_030054",
             "QE_ST_HA_010017",
             "QE_ST_HA_020010",
             "QE_ST_HA_020027",
@@ -868,6 +902,8 @@
             "QE_GL_HARVEST_1",
             "QE_EV_3TITLE_2",
             "QE_EV_3TITLE_3",
+            "QE_EV_FATE_3",
+            "QE_EV_SWIM_GORM_02",
             "QE_SO_MILIS_1",
             "QE_SO_PERI_03",
             "QE_SO_PERI_04",
@@ -885,7 +921,11 @@
             "QE_EV_FF15_3",
             "QE_EV_FF15_4",
             "QE_MULTI_POK2_01",
-            "QE_EV_GL_MH_01_06"
+            "QE_EV_GL_MH_01_03",
+            "QE_EV_GL_MH_01_04",
+            "QE_EV_GL_MH_01_05",
+            "QE_EV_GL_MH_01_06",
+            "QE_EV_GL_MH_02_05"
         ]
     },
     "IT_EQ_PIECE_ROD": {
@@ -919,6 +959,7 @@
             "QE_EV_3TITLE_2",
             "QE_EV_3TITLE_3",
             "QE_EV_3TITLE_4",
+            "QE_EV_SWIM_GORM_03",
             "QE_WA_ZIN_3",
             "QE_SO_PERI_02",
             "QE_SO_YUTO_2",
@@ -932,7 +973,8 @@
             "QE_EV_HALL_ALEX_03",
             "QE_EV_VALENTINE_03",
             "QE_MULTI_POK_SAM_EX1",
-            "QE_GL_TRIAL_MAGE_1"
+            "QE_GL_TRIAL_MAGE_1",
+            "QE_EV_GL_MH_02_06"
         ]
     },
     "IT_EQ_PIECE_SHELM": {
@@ -1018,6 +1060,7 @@
             "QE_EV_POK_SAM_EX1",
             "QE_EV_POK_SAM_KEY_EX1",
             "QE_EV_3TITLE_4",
+            "QE_EV_SWIM_GORM_03",
             "QE_SO_PERI_02",
             "QE_SO_YUTO_2",
             "QE_EV_VELOZ_LV02",
@@ -1029,7 +1072,8 @@
             "QE_EV_FF15_6",
             "QE_MULTI_POK_SAM_EX1",
             "QE_GL_TRIAL_MAGE_1",
-            "QE_GL_TRIAL_MAGE_2"
+            "QE_GL_TRIAL_MAGE_2",
+            "QE_EV_GL_MH_02_08"
         ]
     },
     "IT_EQ_PIECE_JACKET": {
@@ -1080,6 +1124,7 @@
             "QE_TM_MAT_DEX_GEM_LV2",
             "QE_EV_3TITLE_3",
             "QE_EV_FATE_4",
+            "QE_EV_SWIM_GORM_03",
             "QE_SO_SABALETA_LV3",
             "QE_SO_MILIS_2",
             "QE_SO_PERI_05",
@@ -1103,7 +1148,8 @@
             "QE_MULTI_POK2_03",
             "QE_EV_GL_MH_01_06",
             "QE_EV_GL_MH_01_07",
-            "QE_EV_GL_MH_01_08"
+            "QE_EV_GL_MH_01_08",
+            "QE_EV_GL_MH_02_07"
         ]
     },
     "IT_EQ_PIECE_GOGGLES": {
@@ -1152,6 +1198,8 @@
             "QE_EV_3TITLE_3",
             "QE_EV_3TITLE_5",
             "QE_EV_3TITLE_END1",
+            "QE_EV_SWIM_GORM_04",
+            "QE_EV_SWIM_GORM_05",
             "QE_WA_ZIN_5",
             "QE_SO_PERI_06",
             "QE_SO_YUTO_2",
@@ -1178,6 +1226,7 @@
             "QE_ST_NO_020086",
             "QE_ST_NO_020097",
             "QE_ST_NO_030030",
+            "QE_ST_NO_030057",
             "QE_ST_HA_010016",
             "QE_ST_HA_020020",
             "QE_ST_HA_030010",
@@ -1203,6 +1252,7 @@
             "QE_ST_HA_010029",
             "QE_ST_HA_020029",
             "QE_ST_HA_020032",
+            "QE_ST_HA_030020",
             "QE_EV_3TITLE_3",
             "QE_EV_FF15_6"
         ]
@@ -1242,10 +1292,12 @@
             "QE_ST_NO_020078",
             "QE_ST_NO_020115",
             "QE_ST_NO_030023",
+            "QE_ST_NO_030051",
             "QE_ST_HA_010019",
             "QE_ST_HA_010022",
             "QE_ST_HA_010039",
             "QE_ST_HA_020018",
+            "QE_ST_HA_030017",
             "QE_EV_3TITLE_3",
             "QE_WA_ZIN_5",
             "QE_SO_ZEKE_1",
@@ -1324,7 +1376,9 @@
             "QE_EV_FF15_7",
             "QE_EV_FF15_10",
             "QE_MULTI_POK2_03",
-            "QE_EV_GL_MH_01_07"
+            "QE_EV_GL_MH_01_07",
+            "QE_EV_GL_MH_02_07",
+            "QE_EV_GL_MH_02_08"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_BELL": {
@@ -1353,7 +1407,8 @@
             "QE_ST_HA_010032",
             "QE_ST_HA_010035",
             "QE_ST_HA_010039",
-            "QE_EV_FF15_3"
+            "QE_EV_FF15_3",
+            "QE_EV_GL_MH_02_07"
         ]
     },
     "IT_EQ_PIECE_LANCE": {
@@ -1392,6 +1447,7 @@
             "QE_EV_FATE_6",
             "QE_EV_FATE_HA_3",
             "QE_EV_FATE_HA_4",
+            "QE_EV_SWIM_GORM_03",
             "QE_SO_SABALETA_LV3",
             "QE_SO_MILIS_2",
             "QE_SO_PERI_05",
@@ -1407,8 +1463,7 @@
             "QE_EV_SEISEKI_DJ_2_08",
             "QE_EV_SEISEKI_DJ_3_09",
             "QE_EV_SEISEKI_DJ_3_10",
-            "QE_EV_SEISEKI_DJ_5_09",
-            "QE_EV_SEISEKI_DJ_5_10"
+            "QE_EV_SEISEKI_DJ_5_09"
         ]
     },
     "IT_EQ_PIECE_STAFF": {
@@ -1453,7 +1508,9 @@
             "QE_GL_TRIAL_MAGE_1",
             "QE_GL_TRIAL_MAGE_2",
             "QE_GL_TRIAL_MAGE_3",
-            "QE_GL_MULTI_TRIAL_MAGE_3"
+            "QE_GL_MULTI_TRIAL_MAGE_3",
+            "QE_EV_GL_MH_02_08",
+            "QE_EV_GL_MH_02_09"
         ]
     },
     "IT_EQ_PIECE_SHIELD": {
@@ -1496,6 +1553,9 @@
             "QE_EV_3TITLE_EX1",
             "QE_EV_FATE_HA_3",
             "QE_EV_FATE_HA_4",
+            "QE_EV_SWIM_GORM_03",
+            "QE_EV_SWIM_GORM_04",
+            "QE_EV_SWIM_GORM_05",
             "QE_WA_ZIN_5",
             "QE_WA_ZIN_EX_1",
             "QE_SO_SABALETA_LV3",
@@ -1505,10 +1565,7 @@
             "QE_SO_PERI_05",
             "QE_SO_ZEKE_3",
             "QE_SO_ERURIKE_2",
-            "QE_SO_YUTO_2",
-            "QE_EV_SWIM_DILG_06",
-            "QE_SO_LOGI_3",
-            "QE_EV_VELOZ_LV03"
+            "QE_SO_YUTO_2"
         ]
     },
     "IT_EQ_PIECE_PARKA": {
@@ -1551,7 +1608,8 @@
             "QE_MULTI_POK_SAM_EX1",
             "QE_GL_TRIAL_MAGE_2",
             "QE_GL_TRIAL_MAGE_3",
-            "QE_GL_MULTI_TRIAL_MAGE_3"
+            "QE_GL_MULTI_TRIAL_MAGE_3",
+            "QE_EV_GL_MH_02_09"
         ]
     },
     "IT_EQ_PIECE_COAT": {
@@ -1591,6 +1649,7 @@
             "QE_ST_NO_020107",
             "QE_ST_NO_030004",
             "QE_ST_NO_030033",
+            "QE_ST_NO_030056",
             "QE_ST_HA_010024",
             "QE_ST_HA_010025",
             "QE_ST_HA_010033",
@@ -1641,13 +1700,17 @@
             "QE_ST_NO_020109",
             "QE_ST_NO_030008",
             "QE_ST_NO_030036",
+            "QE_ST_NO_030059",
             "QE_ST_HA_010025",
             "QE_ST_HA_010033",
             "QE_ST_HA_020035",
+            "QE_ST_HA_030019",
             "QE_TM_MAT_HP_CRI_LV2",
             "QE_TM_MAT_HP_CRI_LV3",
             "QE_EV_POK_SAM_EX4",
             "QE_EV_3TITLE_END2",
+            "QE_EV_SWIM_GORM_EX",
+            "QE_EV_SWIM_GORM_EX_SP",
             "QE_SO_MILIS_3",
             "QE_SO_ZEKE_2",
             "QE_EV_FF15_4",
@@ -1656,7 +1719,8 @@
             "QE_EV_FF15_EX_3",
             "QE_EV_FF15_EX_SP_3",
             "QE_EV_MULTI_FF15_EX_3",
-            "QE_MULTI_POK_SAM_EX4"
+            "QE_MULTI_POK_SAM_EX4",
+            "QE_EV_MULTI_GORM_EX"
         ]
     },
     "IT_EQ_PIECE_MACHINEWING": {
@@ -1672,6 +1736,7 @@
             "QE_ST_NO_020108",
             "QE_ST_NO_030006",
             "QE_ST_NO_030035",
+            "QE_ST_NO_030058",
             "QE_ST_HA_010026",
             "QE_ST_HA_010031",
             "QE_ST_HA_010035",
@@ -1681,6 +1746,8 @@
             "QE_EV_POK_SAM_EX2",
             "QE_EV_3TITLE_5",
             "QE_EV_3TITLE_END1",
+            "QE_EV_SWIM_GORM_04",
+            "QE_EV_SWIM_GORM_05",
             "QE_WA_ZIN_5",
             "QE_SO_PERI_06",
             "QE_SO_YUTO_3",
@@ -1715,6 +1782,7 @@
             "QE_ST_NO_020089",
             "QE_ST_NO_020105",
             "QE_ST_NO_020120",
+            "QE_ST_NO_030054",
             "QE_ST_HA_010026",
             "QE_ST_HA_010036",
             "QE_ST_HA_020024",
@@ -1727,6 +1795,8 @@
             "QE_TM_IT_EQ_LV4_01",
             "QE_GL_HARVEST_2",
             "QE_EV_3TITLE_5",
+            "QE_EV_SWIM_GORM_EX",
+            "QE_EV_SWIM_GORM_EX_SP",
             "QE_EV_SWIM_DILG_03",
             "QE_EV_SWIM_DILG_04",
             "QE_EV_SWIM_DILG_05",
@@ -1736,7 +1806,8 @@
             "QE_EV_FF15_7",
             "QE_EV_HALL_ALEX_03",
             "QE_EV_XMAS_03",
-            "QE_EV_VALENTINE_03"
+            "QE_EV_VALENTINE_03",
+            "QE_EV_MULTI_GORM_EX"
         ]
     },
     "IT_EQ_PIECE_CHIKUONKI": {
@@ -1753,13 +1824,18 @@
             "QE_ST_NO_020103",
             "QE_ST_NO_020118",
             "QE_ST_NO_030027",
+            "QE_ST_NO_030051",
             "QE_ST_HA_010026",
             "QE_ST_HA_010032",
             "QE_ST_HA_010037",
+            "QE_ST_HA_030017",
             "QE_TM_MAT_DEX_GEM_LV2",
             "QE_TM_MAT_DEX_GEM_LV3",
             "QE_EV_3TITLE_END3",
-            "QE_EV_FF15_7"
+            "QE_EV_SWIM_GORM_EX",
+            "QE_EV_SWIM_GORM_EX_SP",
+            "QE_EV_FF15_7",
+            "QE_EV_MULTI_GORM_EX"
         ]
     },
     "IT_EQ_DIAGRAM_CHOKER": {
@@ -1781,6 +1857,7 @@
             "QE_TM_IT_EQ_LV3_01",
             "QE_EV_3TITLE_4",
             "QE_EV_FATE_6",
+            "QE_EV_SWIM_GORM_04",
             "QE_WA_ZIN_5",
             "QE_SO_SABALETA_LV3",
             "QE_SO_MILIS_2",
@@ -1802,7 +1879,9 @@
             "QE_EV_GL_MH_01_MULTI_EX",
             "QE_EV_GL_MH_01_07",
             "QE_EV_GL_MH_01_10",
-            "QE_EV_GL_MH_01_EX"
+            "QE_EV_GL_MH_01_EX",
+            "QE_EV_GL_MH_02_07",
+            "QE_EV_GL_MH_02_08"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_NECRO": {
@@ -1846,6 +1925,8 @@
             "QE_EV_3TITLE_5",
             "QE_EV_3TITLE_END1",
             "QE_EV_3TITLE_END2",
+            "QE_EV_SWIM_GORM_04",
+            "QE_EV_SWIM_GORM_05",
             "QE_WA_ZIN_5",
             "QE_SO_MILIS_3",
             "QE_SO_PERI_06",
@@ -1859,9 +1940,11 @@
             "QE_EV_FF15_7",
             "QE_EV_FF15_9",
             "QE_EV_GL_MH_01_MULTI_EX",
+            "QE_EV_GL_MH_02_MULTI_EX",
             "QE_EV_GL_MH_01_07",
             "QE_EV_GL_MH_01_09",
-            "QE_EV_GL_MH_01_EX"
+            "QE_EV_GL_MH_01_EX",
+            "QE_EV_GL_MH_02_EX"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_BELT": {
@@ -1886,6 +1969,7 @@
             "QE_ST_HA_020032",
             "QE_EV_POK_SAM_EX3",
             "QE_EV_3TITLE_END1",
+            "QE_EV_SWIM_GORM_05",
             "QE_SO_SABALETA_LV6",
             "QE_SO_SABALETA_LV6_2",
             "QE_SO_MILIS_3",
@@ -1911,7 +1995,8 @@
             "QE_MULTI_POK_SAM_EX3",
             "QE_MULT_SO_SABALETA_LV3",
             "QE_EV_GL_MH_01_08",
-            "QE_EV_GL_MH_01_09"
+            "QE_EV_GL_MH_01_09",
+            "QE_EV_GL_MH_02_09"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_MND_CAP": {
@@ -1930,12 +2015,16 @@
             "QE_ST_NO_020110",
             "QE_ST_NO_030009",
             "QE_ST_NO_030039",
+            "QE_ST_NO_030060",
             "QE_ST_HA_010043",
             "QE_ST_HA_020021",
             "QE_ST_HA_020025",
             "QE_ST_HA_020036",
+            "QE_ST_HA_030020",
             "QE_EV_POK_SAM_EX1",
             "QE_EV_3TITLE_END3",
+            "QE_EV_SWIM_GORM_04",
+            "QE_EV_SWIM_GORM_05",
             "QE_WA_ZIN_5",
             "QE_CH_LOGI_EDGA_3",
             "QE_EV_SEISEKI_DJ_09",
@@ -2028,7 +2117,8 @@
             "QE_EV_SEISEKI_DJ_4_07",
             "QE_EV_SEISEKI_DJ_4_08",
             "QE_EV_FF15_7",
-            "QE_MULTI_POK_SAM_EX3"
+            "QE_MULTI_POK_SAM_EX3",
+            "QE_EV_GL_MH_02_09"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_COMPASS": {
@@ -2045,14 +2135,18 @@
             "QE_ST_NO_020104",
             "QE_ST_NO_020119",
             "QE_ST_NO_030024",
+            "QE_ST_NO_030052",
             "QE_ST_HA_010049",
             "QE_ST_HA_020004",
             "QE_ST_HA_020023",
             "QE_ST_HA_020033",
             "QE_ST_HA_020039",
+            "QE_ST_HA_030018",
             "QE_TM_IT_EQ_LV4_01",
             "QE_EV_POK_SAM_EX3",
             "QE_EV_POK_SAM_EX4",
+            "QE_EV_SWIM_GORM_04",
+            "QE_EV_SWIM_GORM_05",
             "QE_WA_ZIN_5",
             "QE_SO_SABALETA_LV6",
             "QE_SO_SABALETA_LV6_2",
@@ -2079,11 +2173,7 @@
             "QE_EV_VALENTINE_03",
             "QE_EV_GL_MH_01_MULTI_EX",
             "QE_MULTI_POK2_05",
-            "QE_MULTI_POK_SAM_EX3",
-            "QE_MULTI_POK_SAM_EX4",
-            "QE_MULT_SO_SABALETA_LV3",
-            "QE_EV_GL_MH_01_09",
-            "QE_EV_GL_MH_01_10"
+            "QE_MULTI_POK_SAM_EX3"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_SCOPE": {
@@ -2101,6 +2191,7 @@
             "QE_ST_NO_030003",
             "QE_ST_NO_030024",
             "QE_ST_NO_030031",
+            "QE_ST_NO_030055",
             "QE_ST_HA_020030",
             "QE_ST_HA_030011",
             "QE_TM_IT_EQ_LV4_01",
@@ -2164,6 +2255,10 @@
             "QE_EV_3TITLE_EX2",
             "QE_EV_FATE_HA_3",
             "QE_EV_FATE_HA_4",
+            "QE_EV_SWIM_GORM_04",
+            "QE_EV_SWIM_GORM_05",
+            "QE_EV_SWIM_GORM_EX",
+            "QE_EV_SWIM_GORM_EX_SP",
             "QE_WA_ZIN_5",
             "QE_WA_ZIN_EX_1",
             "QE_SO_SABALETA_LV6",
@@ -2173,11 +2268,7 @@
             "QE_SO_ERURIKE_3",
             "QE_SO_ERURIKE_EX_1",
             "QE_SO_ERURIKE_EX",
-            "QE_SO_YUTO_3",
-            "QE_SO_YUTO_EX_1",
-            "QE_EV_SWIM_DILG_06",
-            "QE_SO_LOGI_5",
-            "QE_EV_VELOZ_LV03"
+            "QE_SO_YUTO_3"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_ARMSWORD": {
@@ -2187,6 +2278,7 @@
             "QE_ST_NO_020010",
             "QE_ST_NO_020071",
             "QE_ST_NO_020109",
+            "QE_ST_NO_030057",
             "QE_ST_HA_010045",
             "QE_ST_HA_020035",
             "QE_TM_IT_EQ_LV4_02",
@@ -2200,6 +2292,7 @@
         "questlist": [
             "QE_ST_NO_010123",
             "QE_ST_NO_020110",
+            "QE_ST_NO_030058",
             "QE_ST_HA_020036",
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_03",
@@ -2289,6 +2382,7 @@
             "QE_EV_3TITLE_5",
             "QE_EV_3TITLE_END2",
             "QE_EV_3TITLE_EX2",
+            "QE_EV_SWIM_GORM_05",
             "QE_WA_ZIN_5",
             "QE_SO_MILIS_3",
             "QE_SO_PERI_06",
@@ -2314,8 +2408,7 @@
             "QE_EV_FF15_EX_SP_2",
             "QE_EV_MULTI_FF15_EX_2",
             "QE_EV_VALENTINE_04",
-            "QE_EV_VALENTINE_05",
-            "QE_EV_GL_MH_01_MULTI_EX"
+            "QE_EV_VALENTINE_05"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_HEELHAT": {
@@ -2324,8 +2417,10 @@
             "QE_ST_NO_010124",
             "QE_ST_NO_020016",
             "QE_ST_NO_020111",
+            "QE_ST_NO_030060",
             "QE_ST_HA_010041",
             "QE_ST_HA_020037",
+            "QE_ST_HA_030020",
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_03",
             "QE_MULT_TM_IT_EQ_LV4_03",
@@ -2363,6 +2458,7 @@
             "QE_ST_NO_020107",
             "QE_ST_NO_020117",
             "QE_ST_NO_030020",
+            "QE_ST_NO_030053",
             "QE_ST_HA_010042",
             "QE_ST_HA_010046",
             "QE_ST_HA_020017",
@@ -2421,6 +2517,8 @@
             "QE_TM_IT_EQ_LV5_03",
             "QE_SO_PERI_06",
             "QE_CH_FLAMEL_1",
+            "QE_CH_FUNGLIU_1",
+            "QE_CH_MIELIKKI_2",
             "QE_EV_SEISEKI_DJ_2_09",
             "QE_EV_SEISEKI_DJ_2_10",
             "QE_EV_SEISEKI_DJ_4_09",
@@ -2448,13 +2546,16 @@
             "QE_TM_IT_EQ_LV4_01",
             "QE_EV_3TITLE_5",
             "QE_EV_3TITLE_EX1",
+            "QE_EV_SWIM_GORM_EX",
+            "QE_EV_SWIM_GORM_EX_SP",
             "QE_SO_ERURIKE_3",
             "QE_SO_YUTO_3",
             "QE_SO_LOGI_4",
             "QE_EV_FF15_EX_1",
             "QE_EV_FF15_EX_SP_1",
             "QE_EV_MULTI_FF15_EX_1",
-            "QE_EV_MULTI_3TITLE_EX1"
+            "QE_EV_MULTI_3TITLE_EX1",
+            "QE_EV_MULTI_GORM_EX"
         ]
     },
     "IT_EQ_DIAGRAMPIECE_TRIDENT": {
@@ -2580,6 +2681,8 @@
             "QE_EV_3TITLE_5",
             "QE_EV_3TITLE_END1",
             "QE_CH_ROFI_2",
+            "QE_CH_FUNGLIU_3",
+            "QE_CH_MIELIKKI_1",
             "QE_MULT_TM_IT_EQ_LV4_03",
             "QE_MULT_TM_IT_EQ_LV5_03"
         ]
@@ -2625,6 +2728,7 @@
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_03",
             "QE_CH_ELIZABETH_3",
+            "QE_CH_MIELIKKI_3",
             "QE_MULT_TM_IT_EQ_LV4_03",
             "QE_MULT_TM_IT_EQ_LV5_03"
         ]
@@ -2642,6 +2746,7 @@
             "QE_TM_IT_EQ_LV5_01",
             "QE_CH_ZANG_1",
             "QE_CH_VETTEL_3",
+            "QE_CH_SUZUKA_1",
             "QE_EV_FF15_10",
             "QE_MULTI_POK2_05",
             "QE_MULT_TM_IT_EQ_LV4_02",
@@ -2662,6 +2767,7 @@
             "QE_ST_NO_020108",
             "QE_ST_NO_020118",
             "QE_ST_NO_030023",
+            "QE_ST_NO_030056",
             "QE_ST_HA_010046",
             "QE_TM_MAT_SPD_LUKLV3",
             "QE_EV_3TITLE_END2",
@@ -2690,6 +2796,7 @@
             "QE_ST_NO_020109",
             "QE_ST_NO_020119",
             "QE_ST_NO_030026",
+            "QE_ST_NO_030059",
             "QE_ST_HA_010048",
             "QE_ST_HA_010050",
             "QE_ST_HA_020009",
@@ -2697,6 +2804,7 @@
             "QE_ST_HA_020029",
             "QE_ST_HA_020035",
             "QE_ST_HA_020039",
+            "QE_ST_HA_030019",
             "QE_TM_MAT_DEX_GEM_LV3",
             "QE_EV_FF15_9"
         ]
@@ -2714,6 +2822,7 @@
             "QE_TM_IT_EQ_LV5_01",
             "QE_CH_YOMI_2",
             "QE_CH_MAGNUS_3",
+            "QE_CH_SUZUKA_2",
             "QE_MULT_TM_IT_EQ_LV4_02",
             "QE_MULT_TM_IT_EQ_LV5_01"
         ]
@@ -2747,7 +2856,6 @@
         "item_iname": "IT_EQ_DIAGRAMPIECE_COWBOY",
         "questlist": [
             "QE_ST_NO_010130",
-            "QE_ST_NO_010144",
             "QE_ST_NO_020049",
             "QE_ST_NO_020090",
             "QE_ST_NO_030028",
@@ -2934,11 +3042,9 @@
         "item_iname": "IT_EQ_DIAGRAMPIECE_WAISTCLOTH",
         "questlist": [
             "QE_ST_NO_010135",
-            "QE_ST_NO_010150",
             "QE_ST_NO_020100",
             "QE_ST_NO_030048",
             "QE_ST_HA_010050",
-            "QE_ST_HA_020021",
             "QE_ST_HA_020032",
             "QE_TM_IT_EQ_LV4_02",
             "QE_TM_IT_EQ_LV5_02",
@@ -2995,6 +3101,7 @@
             "QE_SO_ZEKE_EX_1",
             "QE_CH_ZAHAR_3",
             "QE_CH_ANASTASIA_3",
+            "QE_CH_SUZUKA_3",
             "QE_EV_FF15_10",
             "QE_EV_FF15_EX_4",
             "QE_EV_FF15_EX_SP_4",
@@ -3011,6 +3118,7 @@
             "QE_ST_NO_020013",
             "QE_ST_NO_020085",
             "QE_ST_NO_020108",
+            "QE_ST_NO_030057",
             "QE_TM_IT_EQ_LV4_02",
             "QE_TM_IT_EQ_LV5_02",
             "QE_SO_YUTO_3",
@@ -3112,12 +3220,25 @@
             "QE_MULT_TM_IT_EQ_LV5_01"
         ]
     },
+    "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA",
+        "questlist": [
+            "QE_ST_NO_010144",
+            "QE_ST_NO_020075",
+            "QE_ST_NO_030041",
+            "QE_ST_HA_020021",
+            "QE_TM_IT_EQ_LV5_04",
+            "QE_EV_3TITLE_END3",
+            "QE_MULT_TM_IT_EQ_LV5_04"
+        ]
+    },
     "IT_EQ_DIAGRAMPIECE_MAJ_GUNHOLDER": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_MAJ_GUNHOLDER",
         "questlist": [
             "QE_ST_NO_010146",
             "QE_ST_NO_020088",
             "QE_ST_HA_010049",
+            "QE_TM_IT_EQ_LV5_04",
             "QE_MULT_TM_IT_EQ_LV5_04"
         ]
     },
@@ -3130,7 +3251,6 @@
             "QE_ST_NO_030010",
             "QE_ST_HA_010046",
             "QE_ST_HA_020038",
-            "QE_ST_HA_030002",
             "QE_TM_IT_EQ_LV5_02",
             "QE_EV_POK_SAM_EX1",
             "QE_EV_FATE_HA_1",
@@ -3196,12 +3316,25 @@
             "QE_MULTI_EV_XMAS_EX"
         ]
     },
+    "IT_EQ_DIAGRAMPIECE_ONM_SOUBI": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_ONM_SOUBI",
+        "questlist": [
+            "QE_ST_NO_010150",
+            "QE_ST_NO_020065",
+            "QE_ST_HA_030002",
+            "QE_TM_IT_EQ_LV5_02",
+            "QE_WA_ZIN_4",
+            "QE_WA_ZIN_5"
+        ]
+    },
     "IT_EQ_DIAGRAMPIECE_BOILER": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_BOILER",
         "questlist": [
             "QE_ST_NO_020004",
             "QE_ST_NO_020066",
             "QE_ST_NO_020103",
+            "QE_ST_NO_030051",
+            "QE_ST_HA_030017",
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_04",
             "QE_EV_POK_SAM_EX3",
@@ -3218,7 +3351,9 @@
             "QE_ST_NO_020007",
             "QE_ST_NO_020067",
             "QE_ST_NO_020104",
+            "QE_ST_NO_030052",
             "QE_ST_HA_020033",
+            "QE_ST_HA_030018",
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_03",
             "QE_CH_LOGI_EDGA_3",
@@ -3253,6 +3388,7 @@
             "QE_ST_NO_020068",
             "QE_ST_NO_020070",
             "QE_ST_NO_020105",
+            "QE_ST_NO_030053",
             "QE_ST_HA_020022",
             "QE_ST_HA_020034",
             "QE_TM_IT_EQ_LV4_03",
@@ -3260,6 +3396,7 @@
             "QE_EV_FATE_EX_2_EASY",
             "QE_EV_FATE_EX_2",
             "QE_SO_PERI_06",
+            "QE_CH_FUNGLIU_2",
             "QE_EV_FF15_8",
             "QE_EV_HALL_ALEX_EX",
             "QE_MULTI_EV_FATE_EX_2",
@@ -3272,12 +3409,13 @@
         "item_iname": "IT_EQ_DIAGRAMPIECE_KAI_RUDDER",
         "questlist": [
             "QE_ST_NO_020035",
-            "QE_ST_NO_020065",
-            "QE_ST_NO_020075",
             "QE_ST_NO_020107",
+            "QE_ST_NO_030055",
             "QE_ST_HA_020024",
             "QE_TM_IT_EQ_LV4_02",
             "QE_TM_IT_EQ_LV5_02",
+            "QE_EV_SWIM_GORM_04",
+            "QE_EV_SWIM_GORM_05",
             "QE_CH_SHENMEI_1",
             "QE_MULT_TM_IT_EQ_LV4_02",
             "QE_MULT_TM_IT_EQ_LV5_02"
@@ -3290,6 +3428,7 @@
             "QE_ST_NO_020069",
             "QE_ST_NO_020077",
             "QE_ST_NO_020106",
+            "QE_ST_NO_030054",
             "QE_TM_IT_EQ_LV4_03",
             "QE_TM_IT_EQ_LV5_04",
             "QE_EV_POK_SAM_EX4",
@@ -3306,7 +3445,8 @@
     "IT_EQ_DIAGRAMPIECE_ANVIL": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_ANVIL",
         "questlist": [
-            "QE_ST_NO_020094"
+            "QE_ST_NO_020094",
+            "QE_TM_IT_EQ_LV5_02"
         ]
     },
     "IT_EQ_DIAGRAMPIECE__MONZ_ARMOR": {
@@ -3347,13 +3487,6 @@
             "QE_MULT_TM_IT_EQ_LV5_03"
         ]
     },
-    "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA": {
-        "item_iname": "IT_EQ_DIAGRAMPIECE_KAM_MAGATAMA",
-        "questlist": [
-            "QE_ST_NO_030041",
-            "QE_EV_3TITLE_END3"
-        ]
-    },
     "IT_EQ_DIAGRAMPIECE_SPE_FLAGSPEAR": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_SPE_FLAGSPEAR",
         "questlist": [
@@ -3367,6 +3500,15 @@
             "QE_EV_SEISEKI_DJ_5_10",
             "QE_EV_SEISEKI_DJ_5_EX",
             "QE_MULTI_SEISEKI_DJ_5_EX"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_ZAYI_ARMOR": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_ZAYI_ARMOR",
+        "questlist": [
+            "QE_ST_NO_030060",
+            "QE_EV_SEISEKI_DJ_4_10",
+            "QE_EV_SEISEKI_DJ_4_EX",
+            "QE_MULTI_SEISEKI_DJ_4_EX"
         ]
     },
     "IT_PI_LOGI": {
@@ -3388,7 +3530,8 @@
         "questlist": [
             "QE_ST_HA_010003",
             "QE_ST_HA_010045",
-            "QE_ST_HA_020029"
+            "QE_ST_HA_020029",
+            "QE_ST_HA_030020"
         ]
     },
     "IT_PI_RINN": {
@@ -3819,12 +3962,6 @@
             "QE_ST_HA_030013"
         ]
     },
-    "IT_EQ_DIAGRAMPIECE_WEA_SOUBI": {
-        "item_iname": "IT_EQ_DIAGRAMPIECE_WEA_SOUBI",
-        "questlist": [
-            "QE_ST_HA_030014"
-        ]
-    },
     "IT_PI_AYLLU": {
         "item_iname": "IT_PI_AYLLU",
         "questlist": [
@@ -3841,6 +3978,24 @@
         "item_iname": "IT_PI_SARAUZU",
         "questlist": [
             "QE_ST_HA_030016"
+        ]
+    },
+    "IT_PI_MICHAEL": {
+        "item_iname": "IT_PI_MICHAEL",
+        "questlist": [
+            "QE_ST_HA_030017"
+        ]
+    },
+    "IT_PI_ENNIS": {
+        "item_iname": "IT_PI_ENNIS",
+        "questlist": [
+            "QE_ST_HA_030018"
+        ]
+    },
+    "IT_PI_RION": {
+        "item_iname": "IT_PI_RION",
+        "questlist": [
+            "QE_ST_HA_030019"
         ]
     },
     "IT_UG_APPLE1": {
@@ -4478,6 +4633,27 @@
             "QE_MULTI_JOB_LV2_02"
         ]
     },
+    "IT_EQ_SOUL_MAJ": {
+        "item_iname": "IT_EQ_SOUL_MAJ",
+        "questlist": [
+            "QE_WK_JOB_SAT_LV2",
+            "QE_MULTI_JOB_LV2_02"
+        ]
+    },
+    "IT_EQ_SOUL_ONM": {
+        "item_iname": "IT_EQ_SOUL_ONM",
+        "questlist": [
+            "QE_WK_JOB_SAT_LV2",
+            "QE_MULTI_JOB_LV2_02"
+        ]
+    },
+    "IT_EQ_SOUL_KAM": {
+        "item_iname": "IT_EQ_SOUL_KAM",
+        "questlist": [
+            "QE_WK_JOB_SAT_LV2",
+            "QE_MULTI_JOB_LV2_02"
+        ]
+    },
     "IT_EQ_SOUL_PRI": {
         "item_iname": "IT_EQ_SOUL_PRI",
         "questlist": [
@@ -4955,24 +5131,6 @@
             "QE_MULTI_EVO_ALC_LV03"
         ]
     },
-    "IT_PI_MIANNU": {
-        "item_iname": "IT_PI_MIANNU",
-        "questlist": [
-            "QE_SO_MIANNU_LV0",
-            "QE_SO_MIANNU_LV1",
-            "QE_SO_MIANNU_LV2",
-            "QE_MULTI_SO_MIAN_LV0",
-            "QE_MULTI_SO_MIAN_LV2"
-        ]
-    },
-    "IT_PI_RETZIUS": {
-        "item_iname": "IT_PI_RETZIUS",
-        "questlist": [
-            "QE_SO_RETZIUS_LV1",
-            "QE_SO_RETZIUS_LV2",
-            "QE_SO_RETZIUS_LV3"
-        ]
-    },
     "IT_EQ_CRI_NEEDLE": {
         "item_iname": "IT_EQ_CRI_NEEDLE",
         "questlist": [
@@ -4994,7 +5152,9 @@
             "QE_EV_SEISEKI_DJ_5_01",
             "QE_EV_SEISEKI_DJ_5_03",
             "QE_LIMIT_TANABATA",
-            "QE_EV_GL_MH_01_01"
+            "QE_EV_GL_MH_01_01",
+            "QE_EV_GL_MH_02_02",
+            "QE_EV_GL_MH_02_03"
         ]
     },
     "IT_PI_VARGAS": {
@@ -5203,7 +5363,9 @@
             "QE_EV_VELOZ_LV01",
             "QE_EV_HALL_ALEX_01",
             "QE_EV_VALENTINE_01",
-            "QE_EV_BEGINNER_02"
+            "QE_EV_BEGINNER_02",
+            "QE_EV_GL_MH_02_01",
+            "QE_EV_GL_MH_02_03"
         ]
     },
     "IT_EQ_DEF_VEST": {
@@ -5213,7 +5375,10 @@
             "QE_EV_FATE_2",
             "QE_SO_SABALETA_LV1",
             "QE_EV_VELOZ_LV01",
-            "QE_EV_BEGINNER_02"
+            "QE_EV_BEGINNER_02",
+            "QE_EV_GL_MH_02_01",
+            "QE_EV_GL_MH_02_03",
+            "QE_EV_GL_MH_02_04"
         ]
     },
     "IT_EQ_PIECE_FATE_EMIYA_B": {
@@ -5247,19 +5412,11 @@
             "QE_EV_FATE_5"
         ]
     },
-    "IT_EQ_ATK_SABER": {
-        "item_iname": "IT_EQ_ATK_SABER",
-        "questlist": [
-            "QE_EV_FATE_3",
-            "QE_EV_GL_MH_01_03",
-            "QE_EV_GL_MH_01_04",
-            "QE_EV_GL_MH_01_05"
-        ]
-    },
     "IT_EQ_DEF_MANTLE": {
         "item_iname": "IT_EQ_DEF_MANTLE",
         "questlist": [
             "QE_EV_FATE_3",
+            "QE_EV_SWIM_GORM_02",
             "QE_WA_ZIN_3",
             "QE_WA_ZIN_4",
             "QE_EV_SEISEKI_DJ_03",
@@ -5269,13 +5426,15 @@
             "QE_EV_SEISEKI_DJ_5_03",
             "QE_EV_SEISEKI_DJ_5_04",
             "QE_EV_GL_MH_01_03",
-            "QE_EV_GL_MH_01_04"
+            "QE_EV_GL_MH_01_04",
+            "QE_EV_GL_MH_02_05"
         ]
     },
     "IT_EQ_DEX_INK": {
         "item_iname": "IT_EQ_DEX_INK",
         "questlist": [
             "QE_EV_FATE_3",
+            "QE_EV_SWIM_GORM_02",
             "QE_WA_ZIN_3",
             "QE_WA_ZIN_4",
             "QE_CH_LOGI_EDGA_1",
@@ -5290,7 +5449,8 @@
             "QE_EV_SEISEKI_DJ_5_05",
             "QE_EV_GL_MH_01_03",
             "QE_EV_GL_MH_01_04",
-            "QE_EV_GL_MH_01_05"
+            "QE_EV_GL_MH_01_05",
+            "QE_EV_GL_MH_02_05"
         ]
     },
     "IT_EQ_LUK_KEY": {
@@ -5302,7 +5462,9 @@
             "QE_EV_SEISEKI_DJ_03",
             "QE_EV_SEISEKI_DJ_3_03",
             "QE_EV_SEISEKI_DJ_5_03",
-            "QE_EV_GL_MH_01_03"
+            "QE_EV_GL_MH_01_03",
+            "QE_EV_GL_MH_02_06",
+            "QE_EV_GL_MH_02_08"
         ]
     },
     "IT_EQ_GEM_WHISTLE": {
@@ -5310,9 +5472,11 @@
         "questlist": [
             "QE_EV_FATE_3",
             "QE_EV_FATE_5",
+            "QE_EV_SWIM_GORM_01",
             "QE_SO_PERI_01",
             "QE_EV_SEISEKI_DJ_4_01",
-            "QE_EV_SEISEKI_DJ_4_03"
+            "QE_EV_SEISEKI_DJ_4_03",
+            "QE_EV_GL_MH_02_04"
         ]
     },
     "IT_EQ_MAG_MAGICWAND": {
@@ -5536,6 +5700,63 @@
             "QE_MULTI_EV_FATE_EX_4"
         ]
     },
+    "IT_EVENT_SPORTS_COIN": {
+        "item_iname": "IT_EVENT_SPORTS_COIN",
+        "questlist": [
+            "QE_EV_UNDOUKAI_2017_MAGIC",
+            "QE_EV_UNDOUKAI_2017_SPEED",
+            "QE_EV_UNDOUKAI_2017_ATTACK",
+            "QE_EV_UNDOUKAI_2017_DEF"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_GORM_KAI_06": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_06",
+        "questlist": [
+            "QE_EV_SWIM_GORM_01",
+            "QE_EV_SWIM_GORM_04",
+            "QE_EV_SWIM_GORM_05"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_GORM_KAI_05": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_05",
+        "questlist": [
+            "QE_EV_SWIM_GORM_02",
+            "QE_EV_SWIM_GORM_04",
+            "QE_EV_SWIM_GORM_05"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_GORM_KAI_04": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_04",
+        "questlist": [
+            "QE_EV_SWIM_GORM_03",
+            "QE_EV_SWIM_GORM_04",
+            "QE_EV_SWIM_GORM_05"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_GORM_KAI_01": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_01",
+        "questlist": [
+            "QE_EV_SWIM_GORM_EX",
+            "QE_EV_SWIM_GORM_EX_SP",
+            "QE_EV_MULTI_GORM_EX"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_GORM_KAI_02": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_02",
+        "questlist": [
+            "QE_EV_SWIM_GORM_EX",
+            "QE_EV_SWIM_GORM_EX_SP",
+            "QE_EV_MULTI_GORM_EX"
+        ]
+    },
+    "IT_EQ_DIAGRAMPIECE_GORM_KAI_03": {
+        "item_iname": "IT_EQ_DIAGRAMPIECE_GORM_KAI_03",
+        "questlist": [
+            "QE_EV_SWIM_GORM_EX",
+            "QE_EV_SWIM_GORM_EX_SP",
+            "QE_EV_MULTI_GORM_EX"
+        ]
+    },
     "IT_EQ_DIAGRAMPIECE_ARKI_HOOKAH": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_ARKI_HOOKAH",
         "questlist": [
@@ -5570,18 +5791,12 @@
             "QE_WA_ZIN_4",
             "QE_EV_SEISEKI_DJ_04",
             "QE_EV_SEISEKI_DJ_3_04",
-            "QE_EV_SEISEKI_DJ_5_04"
+            "QE_EV_SEISEKI_DJ_5_04",
+            "QE_EV_GL_MH_02_06"
         ]
     },
     "IT_EQ_SOUL_ARKI_MAH": {
         "item_iname": "IT_EQ_SOUL_ARKI_MAH",
-        "questlist": [
-            "QE_WA_ZIN_4",
-            "QE_WA_ZIN_5"
-        ]
-    },
-    "IT_EQ_DIAGRAMPIECE_ONM_SOUBI": {
-        "item_iname": "IT_EQ_DIAGRAMPIECE_ONM_SOUBI",
         "questlist": [
             "QE_WA_ZIN_4",
             "QE_WA_ZIN_5"
@@ -5609,6 +5824,24 @@
             "QE_WA_ZIN_5",
             "QE_WA_ZIN_EX_1",
             "QE_MULTI_WA_ZIN_EX_1"
+        ]
+    },
+    "IT_PI_MIANNU": {
+        "item_iname": "IT_PI_MIANNU",
+        "questlist": [
+            "QE_SO_MIANNU_LV0",
+            "QE_SO_MIANNU_LV1",
+            "QE_SO_MIANNU_LV2",
+            "QE_MULTI_SO_MIAN_LV0",
+            "QE_MULTI_SO_MIAN_LV2"
+        ]
+    },
+    "IT_PI_RETZIUS": {
+        "item_iname": "IT_PI_RETZIUS",
+        "questlist": [
+            "QE_SO_RETZIUS_LV1",
+            "QE_SO_RETZIUS_LV2",
+            "QE_SO_RETZIUS_LV3"
         ]
     },
     "IT_PI_SABALETA": {
@@ -6279,14 +6512,6 @@
             "QE_EV_SEISEKI_DJ_4_09"
         ]
     },
-    "IT_EQ_DIAGRAMPIECE_ZAYI_ARMOR": {
-        "item_iname": "IT_EQ_DIAGRAMPIECE_ZAYI_ARMOR",
-        "questlist": [
-            "QE_EV_SEISEKI_DJ_4_10",
-            "QE_EV_SEISEKI_DJ_4_EX",
-            "QE_MULTI_SEISEKI_DJ_4_EX"
-        ]
-    },
     "IT_EQ_SOUL_KAGU_DAI": {
         "item_iname": "IT_EQ_SOUL_KAGU_DAI",
         "questlist": [
@@ -6801,6 +7026,20 @@
             "QE_EV_GL_MH_01_EX"
         ]
     },
+    "IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO": {
+        "item_iname": "IT_EQ_GL_DIAGRAMPIECE_SHIO_KIMONO",
+        "questlist": [
+            "QE_EV_GL_MH_02_MULTI_EX",
+            "QE_EV_GL_MH_02_EX"
+        ]
+    },
+    "IT_AF_ARMS_SWO_GL_SIEG_01": {
+        "item_iname": "IT_AF_ARMS_SWO_GL_SIEG_01",
+        "questlist": [
+            "QE_EV_GL_MH_02_MULTI_EX",
+            "QE_EV_GL_MH_02_EX"
+        ]
+    },
     "IT_EQ_DIAGRAMPIECE_CHIH_HAIRPIN": {
         "item_iname": "IT_EQ_DIAGRAMPIECE_CHIH_HAIRPIN",
         "questlist": [
@@ -6848,6 +7087,34 @@
         "questlist": [
             "QE_GL_TRIAL_MAGE_3",
             "QE_GL_MULTI_TRIAL_MAGE_3"
+        ]
+    },
+    "IT_EQ_MND_GROVE": {
+        "item_iname": "IT_EQ_MND_GROVE",
+        "questlist": [
+            "QE_EV_GL_MH_02_02",
+            "QE_EV_GL_MH_02_04"
+        ]
+    },
+    "IT_EQ_GEM_TRUMPET": {
+        "item_iname": "IT_EQ_GEM_TRUMPET",
+        "questlist": [
+            "QE_EV_GL_MH_02_05"
+        ]
+    },
+    "IT_EQ_CRI_KUKURI": {
+        "item_iname": "IT_EQ_CRI_KUKURI",
+        "questlist": [
+            "QE_EV_GL_MH_02_06"
+        ]
+    },
+    "IT_EQ_GL_DIAGRAMPIECE_SOREN_MASK": {
+        "item_iname": "IT_EQ_GL_DIAGRAMPIECE_SOREN_MASK",
+        "questlist": [
+            "QE_EV_GL_MH_02_07",
+            "QE_EV_GL_MH_02_08",
+            "QE_EV_GL_MH_02_09",
+            "QE_EV_GL_MH_02_10"
         ]
     }
 }

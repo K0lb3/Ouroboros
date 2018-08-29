@@ -1,5 +1,5 @@
 from MainFunctions import loadFiles,os,DifParam,saveAsJSON,PATH,json,dmg_formula
-from Functions import wytesong,Tierlist,TRANSLATION
+from Functions import wytesong_units,wytesong_cards,Tierlist,TRANSLATION
 import ParamFunctions
 
 PATH_convert=os.path.join(os.path.dirname(os.path.realpath(__file__)),'_converted1')
@@ -67,6 +67,7 @@ def Fixes(master):
     GEAR=master['Artifact']
     WEAPON= master['Weapon']
     QUEST=master['quests']
+    CARD=master['ConceptCard']
 
      ##job############################################################
     print('Fix - Skill')
@@ -123,7 +124,7 @@ def Fixes(master):
             job['formula']=SKILL[job['atkskill'][0]]['formula']
 
             #evolutions
-            if 'origin' in job and job['origin']!=job['iname']:
+            if 'origin' in job and job['origin']!=job['iname'] and job['origin'] in JOB:
                 origin = JOB[job['origin']]
                 if 'evolutions' not in origin:
                     origin['evolutions']=[]
@@ -164,18 +165,22 @@ def Fixes(master):
                             enemies=[]
                             allies=[]
                             treasures=[]
+                            jewels=[]
                             for unit in map['Set']['enemy']:
                                 if unit['side'] == 'Ally':
                                     allies.append(unit)
                                 if unit['side'] == 'Enemy':
                                     if 'TREASURE' in unit['iname']:
                                         treasures.append(unit)
+                                    elif '_GEM_' in unit['iname']:
+                                        jewels.append(unit)
                                     else:
                                         enemies.append(unit)
                         map['Set'].update({
                             'enemy':    enemies,
                             'ally':     allies,
-                            'treasure': treasures
+                            'treasure': treasures,
+                            'jewel':    jewels
                         })
                         #patch arena match
                         if 'arena' in map['Set']:
@@ -228,7 +233,7 @@ def Fixes(master):
                 del unit['jobsets']
 
         #add unit kanji translations via wytesong
-        wytesong(eUnit)
+        wytesong_units(eUnit)
 
         #add tierlist
         Tierlist(eUnit)
@@ -252,14 +257,13 @@ def Fixes(master):
             unit['kaigan'][kaigan['mCategory']]=kaigan
 
         #add nensou
-        for key,card in master['ConceptCard'].items():
+        for key,card in CARD.items():
             if 'effects' not in card:
                 continue
             try:
                 unit=UNIT['UN_V2_'+key.rsplit('_',2)[1]]
                 unit['conceptcard']=key
                 card['unit']=unit['iname']
-                print('Direct: ',key,unit['iname'])
             except:
                 unit=None
                 
@@ -276,7 +280,6 @@ def Fixes(master):
                         unit=UNIT[units[0]]
                         unit['conceptcard']=key
                         card['unit']=unit['iname']
-                        print('Indirect: ',key,unit['iname'])
                     else:
                         continue
                 #skin
@@ -307,6 +310,13 @@ def Fixes(master):
         saveAsJSON(PATH_convert2, 'Unit.json',eUnit)
         saveAsJSON(PATH_convert2, 'Enemy.json',eEnemy)
 
+    ##### concept cards ############################################
+    print('Fix - Concept Cards')
+    if 1:
+        for card in CARD:
+            pass
+        wytesong_cards(CARD)
+        saveAsJSON(PATH_convert2, 'ConceptCard.json',CARD)
     #save
     saveAsJSON(PATH_export, 'Database.json', {
         key.title():items

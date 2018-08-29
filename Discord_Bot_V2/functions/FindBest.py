@@ -1,7 +1,7 @@
 import jellyfish
 
 
-def FindBest(source, text, print_=False):
+def FindBest(source, text, keys=['name'],print_=False):
     """
     Given a dictionary and a text, find the best matched item from the dictionary using the name
     :param source: The dictionary to search from (i.e. units, gears, jobs, etc)
@@ -17,14 +17,11 @@ def FindBest(source, text, print_=False):
     # Then, create a list of (key, the best score) tuples.
     if 1:
         similarities = [
-            (key, jellyfish.jaro_winkler(text, item['name'].title()))
+            (key, jellyfish.jaro_winkler(text, item[val].title()))
             for key,item in source.items()
+            for val in keys
+            if val in item
         ]
-
-        # similarities = [
-        #    (key, max(jellyfish.jaro_winkler(text, i.title()) for i in value.get('inputs', [])))
-        #    for key, value in source.items()
-        #    ]
 
         # Find the key with the highest score (This is the best matched key)
         key, score = max(similarities, key=lambda s: s[1])

@@ -45,7 +45,7 @@ async def on_ready():
 #WIP
 @bot.command() 
 async def quest(ctx, *, name):
-    quest = FindBest(ToEmbed.DIRS['Quests'], name,True)
+    quest = FindBest(ToEmbed.DIRS['Quests'], name,['name'],True)
     (embed,image)=ToEmbed.Quest(quest,'main')
 
     if image:
@@ -53,47 +53,60 @@ async def quest(ctx, *, name):
     else:
         await ctx.send(embed=embed)
 
+
+@bot.command()
+async def item(ctx, *, name):
+    item = FindBest(ToEmbed.DIRS['Item'], name,['name'], True)
+    msg = await ctx.send(embed=ToEmbed.Item(item,'main'))
+    await add_reactions(msg,PAGES['item'])
+
+@bot.command()
+async def farm(ctx, *, name):
+    item = FindBest(ToEmbed.DIRS['Item'], name,['name'], True)
+    msg = await ctx.send(embed=ToEmbed.Item(item,'Story'))
+    await add_reactions(msg,PAGES['item'])
+
+#done
+
 @bot.command()
 async def unit(ctx, *, name):
-    unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
+    unit = FindBest(ToEmbed.DIRS['Unit'], name,['name'], True)
     msg = await ctx.send(embed=ToEmbed.Unit(unit,'main'))
     await add_reactions(msg,PAGES['unit'])
-    jemoji=['1⃣','2⃣','3⃣','4⃣','5⃣','6⃣']
 
 @bot.command()
 async def kaigan(ctx, *, name):
-    unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
+    unit = FindBest(ToEmbed.DIRS['Unit'], name,['name'], True)
     msg = await ctx.send(embed=ToEmbed.Unit(unit,'kaigan'))
     await add_reactions(msg,PAGES['unit'])
 
 @bot.command()
 async def nensou(ctx,*,name):
-    card = FindBest(ToEmbed.DIRS['Conceptcard'], name, True)
+    card = FindBest(ToEmbed.DIRS['Conceptcard'], name,['name','unit','iname'], True)
     msg = await ctx.send(embed=ToEmbed.Conceptcard(card,'main'))
     await add_reactions(msg,PAGES['conceptcard'])
 
 @bot.command()
 async def job(ctx, *, name):
-    job = FindBest(ToEmbed.DIRS['Job'], name,True)
+    job = FindBest(ToEmbed.DIRS['Job'], name,['name'],True)
     msg = await ctx.send(embed= ToEmbed.Job(job, 'main'))
     await add_reactions(msg,PAGES['job'])
 
-#done
 @bot.command()
 async def gear(ctx, *, name):
-    gear = FindBest(ToEmbed.DIRS['Artifact'], name,True)
+    gear = FindBest(ToEmbed.DIRS['Artifact'], name,['name'],True)
     msg = await ctx.send(embed= ToEmbed.Gear(gear, 'main'))
     await add_reactions(msg,PAGES['gear'])
 
 @bot.command()
 async def lore(ctx,*,name):
-    unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
+    unit = FindBest(ToEmbed.DIRS['Unit'], name,['name'], True)
     msg = await ctx.send(embed=ToEmbed.Unit(unit,'lore'))
     await add_reactions(msg,PAGES['unit'])
 
 @bot.command()
 async def art(ctx,*,name):
-    unit = FindBest(ToEmbed.DIRS['Unit'], name, True)
+    unit = FindBest(ToEmbed.DIRS['Unit'], name,['name'], True)
     for embed in ToEmbed.Unit(unit,'art'):
         await ctx.send(embed=embed)
 
@@ -119,11 +132,14 @@ async def on_raw_reaction_add(payload):
             await msg.edit(embed=embed2)
 
         elif ftext == 'Unit':
-                unit = FindBest(ToEmbed.DIRS['Unit'], etitle, False)
+                unit = FindBest(ToEmbed.DIRS['Unit'], etitle)
                 await msg.edit(embed=ToEmbed.Unit(unit,PAGES['unit'][emoji]))
         elif ftext == 'Job':
-                job = FindBest(ToEmbed.DIRS['Job'], etitle, False)
+                job = FindBest(ToEmbed.DIRS['Job'], etitle)
                 await msg.edit(embed=ToEmbed.Job(job,PAGES['job'][emoji]))
+        elif ftext == 'Item':
+                item = FindBest(ToEmbed.DIRS['Item'], etitle)
+                await msg.edit(embed=ToEmbed.Item(item,PAGES['item'][emoji]))
     
 @bot.command()
 async def emoji(ctx):

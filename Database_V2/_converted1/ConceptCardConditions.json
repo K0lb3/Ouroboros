@@ -481,5 +481,17 @@
     "CARD_CNDS_DOROTHEA": {
         "iname": "CARD_CNDS_DOROTHEA",
         "unit_group": "UG_DOROTHEA"
+    },
+    "CARD_CNDS_REBECCA": {
+        "iname": "CARD_CNDS_REBECCA",
+        "unit_group": "UG_REBECCA"
+    },
+    "CARD_CNDS_ALMA": {
+        "iname": "CARD_CNDS_ALMA",
+        "unit_group": "UG_ALMA"
+    },
+    "CARD_CNDS_AOT": {
+        "iname": "CARD_CNDS_AOT",
+        "unit_group": "UG_AOT"
     }
 }

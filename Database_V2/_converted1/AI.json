@@ -12969,5 +12969,103 @@
             "Rage",
             "Berserk"
         ]
+    },
+    "AI_PLAYER_AOT_EREN01": {
+        "iname": "AI_PLAYER_AOT_EREN01",
+        "flags": [
+            "Positioning",
+            "Sneaking",
+            "CastSkillFriendlyFire",
+            "DisableJewelAttack",
+            "DisableTargetPriority",
+            "UseOldSort"
+        ],
+        "heal_border": 50,
+        "buff_border": 999,
+        "cond_border": 10,
+        "safe_border": 2,
+        "DisableSupportActionHpBorder": 35,
+        "DisableSupportActionMemberBorder": 1,
+        "SkillCategoryPriorities": [
+            "Damage",
+            "FailCondition",
+            "Heal",
+            "DisableCondition",
+            "CureCondition"
+        ],
+        "BuffPriorities": [
+            "Atk",
+            "Def"
+        ],
+        "ConditionPriorities": [
+            "Charm",
+            "Stop",
+            "DisableAttack",
+            "Stone",
+            "Paralysed",
+            "Sleep",
+            "Fast",
+            "Slow",
+            "DisableSkill",
+            "DisableMove",
+            "Donsoku",
+            "Blindness",
+            "Poison",
+            "Stun",
+            "DeathSentence",
+            "DisableBuff",
+            "DisableDebuff",
+            "Rage",
+            "Berserk"
+        ]
+    },
+    "AI_PLAYER_AOT_REIN01": {
+        "iname": "AI_PLAYER_AOT_REIN01",
+        "flags": [
+            "Positioning",
+            "Sneaking",
+            "CastSkillFriendlyFire",
+            "DisableJewelAttack",
+            "DisableTargetPriority",
+            "UseOldSort"
+        ],
+        "heal_border": 50,
+        "buff_border": 999,
+        "cond_border": 10,
+        "safe_border": 2,
+        "DisableSupportActionHpBorder": 35,
+        "DisableSupportActionMemberBorder": 1,
+        "SkillCategoryPriorities": [
+            "Damage",
+            "FailCondition",
+            "Heal",
+            "DisableCondition",
+            "CureCondition"
+        ],
+        "BuffPriorities": [
+            "Atk",
+            "Def"
+        ],
+        "ConditionPriorities": [
+            "Stone",
+            "Stop",
+            "DisableAttack",
+            "Charm",
+            "Paralysed",
+            "Sleep",
+            "Fast",
+            "Slow",
+            "DisableSkill",
+            "DisableMove",
+            "Donsoku",
+            "Blindness",
+            "Poison",
+            "Stun",
+            "DeathSentence",
+            "DisableBuff",
+            "DisableDebuff",
+            "Rage",
+            "Berserk"
+        ]
     }
 }

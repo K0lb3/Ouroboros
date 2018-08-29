@@ -6654,6 +6654,12 @@
         ],
         "dif": {}
     },
+    "OB_SO_GL_ZEKE_4": {
+        "iname": "OB_SO_GL_ZEKE_4",
+        "objective": [
+            {}
+        ]
+    },
     "OB_SO_ZEKE_4": {
         "iname": "OB_SO_ZEKE_4",
         "objective": [
@@ -9758,6 +9764,72 @@
             {}
         ]
     },
+    "OB_EV_GL_MH_02_01": {
+        "iname": "OB_EV_GL_MH_02_01",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GL_MH_02_02": {
+        "iname": "OB_EV_GL_MH_02_02",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GL_MH_02_03": {
+        "iname": "OB_EV_GL_MH_02_03",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GL_MH_02_04": {
+        "iname": "OB_EV_GL_MH_02_04",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GL_MH_02_05": {
+        "iname": "OB_EV_GL_MH_02_05",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GL_MH_02_06": {
+        "iname": "OB_EV_GL_MH_02_06",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GL_MH_02_07": {
+        "iname": "OB_EV_GL_MH_02_07",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GL_MH_02_08": {
+        "iname": "OB_EV_GL_MH_02_08",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GL_MH_02_09": {
+        "iname": "OB_EV_GL_MH_02_09",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GL_MH_02_10": {
+        "iname": "OB_EV_GL_MH_02_10",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GL_MH_02_EX": {
+        "iname": "OB_EV_GL_MH_02_EX",
+        "objective": [
+            {}
+        ]
+    },
     "OB_ST_NO_040091": {
         "iname": "OB_ST_NO_040091",
         "objective": [
@@ -10586,6 +10658,96 @@
             {}
         ]
     },
+    "OB_EV_AOT_1": {
+        "iname": "OB_EV_AOT_1",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_AOT_2": {
+        "iname": "OB_EV_AOT_2",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_AOT_3": {
+        "iname": "OB_EV_AOT_3",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_AOT_4": {
+        "iname": "OB_EV_AOT_4",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_AOT_5": {
+        "iname": "OB_EV_AOT_5",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_AOT_1_EASY": {
+        "iname": "OB_EV_AOT_1_EASY",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_AOT_2_EASY": {
+        "iname": "OB_EV_AOT_2_EASY",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_AOT_3_EASY": {
+        "iname": "OB_EV_AOT_3_EASY",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_AOT_4_EASY": {
+        "iname": "OB_EV_AOT_4_EASY",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_AOT_5_EASY": {
+        "iname": "OB_EV_AOT_5_EASY",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_SO_AOT_EREN": {
+        "iname": "OB_SO_AOT_EREN",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_SO_AOT_MIKASA": {
+        "iname": "OB_SO_AOT_MIKASA",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_SO_AOT_LEVI": {
+        "iname": "OB_SO_AOT_LEVI",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_SO_AOT_HANJI": {
+        "iname": "OB_SO_AOT_HANJI",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_TM_EXP_AOT_LV1": {
+        "iname": "OB_TM_EXP_AOT_LV1",
+        "objective": [
+            {}
+        ]
+    },
     "OB_EV_VELOZ_EX_SP": {
         "iname": "OB_EV_VELOZ_EX_SP",
         "objective": [
@@ -11018,6 +11180,18 @@
             {}
         ]
     },
+    "OB_EV_SWIM_DOROTHEA_EX": {
+        "iname": "OB_EV_SWIM_DOROTHEA_EX",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_SWIM_DOROTHEA_EX_SP": {
+        "iname": "OB_EV_SWIM_DOROTHEA_EX_SP",
+        "objective": [
+            {}
+        ]
+    },
     "OB_2018_0101_BONUS_BATTLE1": {
         "iname": "OB_2018_0101_BONUS_BATTLE1",
         "objective": [
@@ -11392,6 +11566,12 @@
     },
     "OB_WK_EJ_WED": {
         "iname": "OB_WK_EJ_WED",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_WK_EJ_NEC": {
+        "iname": "OB_WK_EJ_NEC",
         "objective": [
             {}
         ]
@@ -11854,6 +12034,42 @@
     },
     "OB_CH_LAVINA_3": {
         "iname": "OB_CH_LAVINA_3",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_CH_ZIN_1": {
+        "iname": "OB_CH_ZIN_1",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_CH_ZIN_2": {
+        "iname": "OB_CH_ZIN_2",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_CH_ZIN_3": {
+        "iname": "OB_CH_ZIN_3",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_CH_NASARIO_1": {
+        "iname": "OB_CH_NASARIO_1",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_CH_NASARIO_2": {
+        "iname": "OB_CH_NASARIO_2",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_CH_NASARIO_3": {
+        "iname": "OB_CH_NASARIO_3",
         "objective": [
             {}
         ]
@@ -12532,6 +12748,12 @@
     },
     "OB_2018_COMIKE_EV": {
         "iname": "OB_2018_COMIKE_EV",
+        "objective": [
+            {}
+        ]
+    },
+    "OB_EV_GIANT_IJ_01": {
+        "iname": "OB_EV_GIANT_IJ_01",
         "objective": [
             {}
         ]

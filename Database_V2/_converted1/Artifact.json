@@ -58,6 +58,58 @@
             null
         ]
     },
+    "AF_GL_KTN": {
+        "iname": "AF_GL_KTN",
+        "kanji": "【デフォルト武具】Emissary",
+        "name": "【デフォルト武具】Emissary",
+        "asset": "wpn_gl_ktn_00",
+        "tag": "Katana",
+        "type": "Arms",
+        "rareini": 0,
+        "raremax": 0,
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    "AF_GL_DIV": {
+        "iname": "AF_GL_DIV",
+        "kanji": "【デフォルト武具】Divine Speaker",
+        "name": "【デフォルト武具】Divine Speaker",
+        "asset": "wpn_gl_div_00",
+        "tag": "Rod",
+        "type": "Arms",
+        "rareini": 0,
+        "raremax": 0,
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
     "AF_ARM": {
         "iname": "AF_ARM",
         "kanji": "【デフォルト武具】戦士",
@@ -6463,7 +6515,7 @@
         "dif": {
             "rareini": 0,
             "condition_jobs": [
-                "JB_ORION01"
+                "JB_DORO_NEC"
             ]
         }
     },
@@ -6544,7 +6596,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ORION01"
+                "JB_DORO_NEC"
             ]
         }
     },
@@ -6882,7 +6934,7 @@
         "iname": "AF_ARMS_LAN_02",
         "kanji": "メロウランス",
         "name": "Mellow Lance",
-        "expr": "PATK Up, CRIT Up, DEX Up, Chance of Charm (additional effect)",
+        "expr": "PATK Up, CRIT Up, DEX Up, Chance of Charm",
         "flavor": "This lance is a replica of one thought to have been used in ancient times of Alchemy. Its tip is made from a magical substance that emits a pink glow when its power is activated. This glow will occasionally entrance foes and inflict Charm.",
         "spec": "No requirements to equip",
         "asset": "wpn_lan_02",
@@ -8216,7 +8268,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ORION01"
+                "JB_DORO_NEC"
             ]
         }
     },
@@ -9165,7 +9217,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ORION01"
+                "JB_DORO_NEC"
             ]
         }
     },
@@ -9223,7 +9275,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ORION01"
+                "JB_DORO_NEC"
             ]
         }
     },
@@ -9293,7 +9345,9 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": []
+            "condition_jobs": [
+                "JB_AOT_REIN01"
+            ]
         }
     },
     "AF_ARMS_DSWO_03": {
@@ -9347,7 +9401,9 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": []
+            "condition_jobs": [
+                "JB_AOT_REIN01"
+            ]
         }
     },
     "AF_ARMS_ROD_02": {
@@ -9577,7 +9633,9 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": []
+            "condition_jobs": [
+                "JB_AOT_REIN01"
+            ]
         }
     },
     "AF_ARMO_TOWER_01": {
@@ -10380,7 +10438,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ORION01"
+                "JB_DORO_NEC"
             ]
         }
     },
@@ -10581,7 +10639,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ORION01"
+                "JB_DORO_NEC"
             ]
         }
     },
@@ -11161,7 +11219,7 @@
         "iname": "AF_ARMS_EXCALIBUR",
         "kanji": "約束された勝利の剣",
         "name": "Excalibur",
-        "expr": "Attributes: PATK Up, MDEF Up, CRIT Up, Chance of AGI Up<br>3★ to 5★  Enables Master Ability when equipped on Saber when her job type is \"Saber\" (Inflicts Wind Phys Dmg & raises own Missile DEF for three turns [Range: 4, Height Range: 3])",
+        "expr": "Attributes: PATK Up, MDEF Up, CRIT Up, Chance of AGI Up<br>3★ to 5★ Enables Master Ability when equipped on Saber when her job type is \"Saber\" (Inflicts Wind Phys Dmg & raises own Missile DEF for three turns [Range: 4, Height Range: 3])",
         "flavor": "Packed with the wishes of mankind and forged on a star, this divine weapon is the holiest of all holy swords. When equipped by Saber, its chosen owner, an even greater power is unlocked.",
         "spec": "No requirements to equip",
         "asset": "wpn_fate_sabr_01",
@@ -11485,7 +11543,9 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": []
+            "condition_jobs": [
+                "JB_AOT_REIN01"
+            ]
         }
     },
     "AF_ACCS_DOREI": {
@@ -12822,7 +12882,9 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": []
+            "condition_jobs": [
+                "JB_AOT_REIN01"
+            ]
         }
     },
     "AF_ARMS_BASINI_01": {
@@ -12891,7 +12953,9 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": []
+            "condition_jobs": [
+                "JB_AOT_REIN01"
+            ]
         }
     },
     "AF_ARMS_DIS_USAL_01": {
@@ -13011,7 +13075,7 @@
         "iname": "AF_ARMO_SHIELD_03",
         "kanji": "グリッターガード",
         "name": "Glitter Guard",
-        "expr": "Attributes: HP Up, Petrify Res Up<br>Gear Ability: Raises Slash Res of ally units  [Range: 3, Area: Cross (3), Height Range: 2]",
+        "expr": "Attributes: HP Up, Petrify Res Up<br>Gear Ability: Raises Slash Res of ally units [Range: 3, Area: Cross (3), Height Range: 2]",
         "flavor": "This trapezium-shaped shield was discovered among some ancient ruins. Made using a combination of metal and a faintly-glowing crystal, it grants resistance against Slash attacks to those who possess Alchemia. The metal sections support the crystal parts, and can be repaired if damaged.",
         "spec": "No requirements to equip",
         "icon": "AF_ARMO_SHIELD_03",
@@ -13377,7 +13441,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ORION01"
+                "JB_DORO_NEC"
             ]
         }
     },
@@ -13801,7 +13865,7 @@
     "AF_ARMS_ZIN_00": {
         "iname": "AF_ARMS_ZIN_00",
         "kanji": "妖苦無・血千界刃",
-        "name": "Eerie Agony Thousand Drop Blade",
+        "name": "Cursed Kunai - Blood Edge",
         "expr": "Attributes: HP Up, PATK Up, DEX Up, Chance of inflicting Daze<br>Enables Master Ability when equipped on Jin (3-hit Dark Dmg & Poison to single target & raises own AGI until next turn [Range: 5, Height Range: 2])",
         "flavor": "This kunai was entrusted to Jin by a young girl called Sen. It sucks blood from foes, which it is then able to convert into Alchemia. Jin takes the trust placed in him by Sen very seriously, and he won't let anyone else touch it.",
         "spec": "No requirements to equip",
@@ -13930,7 +13994,7 @@
         "iname": "AF_ARMS_NEC_03",
         "kanji": "時止縛の大鎌",
         "name": "Timestealer Scythe",
-        "expr": "Attributes: PATK Up, CRIT Up, AGI Up, Chance of inflicting Stop<br>Gear Ability: Dmg to units within target area & lowers units' MATK [Range: 4, Area: Cross (3), Height Range: 2]",
+        "expr": "Attributes: PATK Up, CRIT Up, AGI Up, Chance of inflicting Stop<br>Gear Ability: Dmg to units within target area & lowers units' Mag DMG [Range: 4, Area: Cross (3), Height Range: 2]",
         "flavor": "The rope tied around the handle of this scythe has been imbued with a time-stopping spell, and the special knot used means that the weapon will occasionally stop time when used. This powerful spell is said to also be able to lower the magical attack power of enemies.",
         "spec": "No requirements to equip",
         "asset": "wpn_nec_stop_03",
@@ -13995,7 +14059,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ORION01"
+                "JB_DORO_NEC"
             ]
         }
     },
@@ -14444,7 +14508,9 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": []
+            "condition_jobs": [
+                "JB_AOT_REIN01"
+            ]
         }
     },
     "AF_ARMS_FF15_GLAD_01": {
@@ -14516,7 +14582,7 @@
         ],
         "dif": {
             "condition_jobs": [
-                "JB_ORION01"
+                "JB_DORO_NEC"
             ]
         }
     },
@@ -15392,7 +15458,9 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": []
+            "condition_jobs": [
+                "JB_AOT_REIN01"
+            ]
         }
     },
     "AF_ARMS_S_AMAT_00": {
@@ -15868,7 +15936,9 @@
             "JB_GL_WSM"
         ],
         "dif": {
-            "condition_jobs": []
+            "condition_jobs": [
+                "JB_AOT_REIN01"
+            ]
         }
     },
     "AF_ARMO_NOIN_01": {
@@ -16762,7 +16832,7 @@
     "AF_ACCS_UNDOKAI2017_01": {
         "iname": "AF_ACCS_UNDOKAI2017_01",
         "kanji": "大運動会・ウロボロ賞",
-        "name": "Sports Day - Ouroboros Prize",
+        "name": "Ouroboros's Medal",
         "expr": "Attributes: HP Up, PATK Up, MATK Up, AGI Up",
         "flavor": " ",
         "spec": "No requirements to equip",
@@ -17724,7 +17794,11 @@
             "JB_ZYVA01",
             "JB_FA_WRAT01"
         ],
-        "dif": {}
+        "dif": {
+            "condition_jobs": [
+                "JB_AOT_REIN01"
+            ]
+        }
     },
     "AF_ACCS_FA_PRID01_01": {
         "iname": "AF_ACCS_FA_PRID01_01",
@@ -17937,6 +18011,45 @@
         "sell": 9600,
         "condition_lv": 1,
         "dif": {}
+    },
+    "AF_SK_GL_SHIO_SWIM": {
+        "iname": "AF_SK_GL_SHIO_SWIM",
+        "kanji": "Shion Swimsuit Skin",
+        "name": "Swimsuit Skin",
+        "expr": " ",
+        "flavor": "",
+        "spec": " ",
+        "asset": "swim",
+        "icon": "IT_SK_GL_SHIO_SWIM",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_SK_GL_SHIO_SWIM",
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 2400,
+        "condition_lv": 1
     },
     "AF_SKIN_VETT_SWIM": {
         "iname": "AF_SKIN_VETT_SWIM",
@@ -20681,6 +20794,75 @@
         "sell": 9600,
         "condition_lv": 1
     },
+    "AF_ARMS_SWO_GL_SIEG_01": {
+        "iname": "AF_ARMS_SWO_GL_SIEG_01",
+        "kanji": "Gram & Balmung",
+        "name": "Gram & Balmung",
+        "expr": "Attribute: PATK, PDEF Up, (Crit & Luck Up added when evolving to 4★, Chance of PDEF down on target when attacking added when evolving to 5★)<br>Enables Master Ability when equipped on Siegfried when his job type is \"Wandering Swordsman\"",
+        "flavor": "A pair of peerless swords with perfect edges that never go dull. It is said that there is no armor that can withstand their assault.",
+        "spec": "No requirements to equip",
+        "asset": "wpn_gl_wsm_01",
+        "icon": "AF_ARMS_SWO_GL_SIEG_01",
+        "tag": "Twin Swords",
+        "type": "Arms",
+        "rareini": 2,
+        "raremax": 4,
+        "kakera": "IT_AF_ARMS_SWO_GL_SIEG_01",
+        "maxnum": 999,
+        "skills": [
+            " "
+        ],
+        "equip_effects": [
+            "SK_AF_ARMS_SWO_GL_SIEG_01_4",
+            "SK_AF_ARMS_SWO_GL_SIEG_01_4",
+            "SK_AF_ARMS_SWO_GL_SIEG_01_4",
+            "SK_AF_ARMS_SWO_GL_SIEG_01_5",
+            "SK_AF_ARMS_SWO_GL_SIEG_01_5"
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            "SK_AF_ARMS_SWO_GL_SIEG_01_AS"
+        ],
+        "abil_inames": [
+            "AB_ARMS_SWO_GL_SIEG_01"
+        ],
+        "abil_levels": [
+            1
+        ],
+        "abil_rareties": [
+            0
+        ],
+        "abil_shows": [
+            1
+        ],
+        "abil_conds": [
+            "なし"
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 2400,
+        "condition_lv": 1,
+        "condition_jobs": [
+            "JB_SOL",
+            "JB_YAUL_SOL",
+            "JB_BALT_SOL",
+            "JB_FATE_EMIYA",
+            "JB_BASI_SOL",
+            "JB_FF15_INGI",
+            "JB_YAUL_SOL2",
+            "JB_RH_ATO",
+            "JB_ZYVA01",
+            "JB_FA_WRAT01",
+            "JB_GL_WSM"
+        ]
+    },
     "AF_HENC": {
         "iname": "AF_HENC",
         "kanji": "【デフォルト武具】エンハンサー上位",
@@ -21097,6 +21279,32 @@
             null
         ]
     },
+    "AF_ALC_IJ_GIANT01": {
+        "iname": "AF_ALC_IJ_GIANT01",
+        "kanji": "【デフォルト武具】専用装備：今泉P",
+        "name": "【デフォルト武具】専用装備：今泉P",
+        "asset": "wpn_alc_ij_giant_00",
+        "tag": "Greatsword/Scythe",
+        "type": "Arms",
+        "rareini": 0,
+        "raremax": 0,
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
     "AF_ALC_FUJITA01": {
         "iname": "AF_ALC_FUJITA01",
         "kanji": "【デフォルト武具】専用装備：ふじたD",
@@ -21414,6 +21622,136 @@
         "kanji": "【デフォルト武具】カヤ",
         "name": "【デフォルト武具】カヤ",
         "asset": "wpn_kaya_00",
+        "tag": "N/A",
+        "type": "Arms",
+        "rareini": 0,
+        "raremax": 0,
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    "AF_AOT_EREN01": {
+        "iname": "AF_AOT_EREN01",
+        "kanji": "【デフォルト武具】エレン",
+        "name": "【デフォルト武具】エレン",
+        "asset": "wpn_aot_00",
+        "tag": "Twin Swords",
+        "type": "Arms",
+        "rareini": 0,
+        "raremax": 0,
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    "AF_AOT_G_EREN01": {
+        "iname": "AF_AOT_G_EREN01",
+        "kanji": "【デフォルト武具】巨人エレン",
+        "name": "【デフォルト武具】巨人エレン",
+        "asset": "wpn_aot_big_00",
+        "tag": "N/A",
+        "type": "Arms",
+        "rareini": 0,
+        "raremax": 0,
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    "AF_AOT_REIN01": {
+        "iname": "AF_AOT_REIN01",
+        "kanji": "【デフォルト武具】ライナー",
+        "name": "【デフォルト武具】ライナー",
+        "asset": "wpn_aot_00",
+        "tag": "Twin Swords",
+        "type": "Arms",
+        "rareini": 0,
+        "raremax": 0,
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    "AF_AOT_G_REIN01": {
+        "iname": "AF_AOT_G_REIN01",
+        "kanji": "【デフォルト武具】鎧の巨人",
+        "name": "【デフォルト武具】鎧の巨人",
+        "asset": "wpn_aot_big_00",
+        "tag": "N/A",
+        "type": "Arms",
+        "rareini": 0,
+        "raremax": 0,
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    "AF_AOT_G_BIG_00": {
+        "iname": "AF_AOT_G_BIG_00",
+        "kanji": "【デフォルト武具】巨人",
+        "name": "【デフォルト武具】巨人",
+        "asset": "wpn_aot_big_00",
         "tag": "N/A",
         "type": "Arms",
         "rareini": 0,
@@ -22123,7 +22461,8 @@
             "JB_DIOS_BAA",
             "JB_FF15_GLAD",
             "JB_POK_B_LAEV01",
-            "JB_ORION01"
+            "JB_ORION01",
+            "JB_DORO_NEC"
         ]
     },
     "AF_ARMS_SOL_SYOU_00": {
@@ -22187,7 +22526,9 @@
             "JB_YAUL_SOL2",
             "JB_RH_ATO",
             "JB_ZYVA01",
-            "JB_FA_WRAT01"
+            "JB_FA_WRAT01",
+            "JB_AOT_EREN01",
+            "JB_AOT_REIN01"
         ]
     },
     "AF_ACCS_FF15_IRIS_01": {
@@ -22716,7 +23057,8 @@
             "JB_DIOS_BAA",
             "JB_FF15_GLAD",
             "JB_POK_B_LAEV01",
-            "JB_ORION01"
+            "JB_ORION01",
+            "JB_DORO_NEC"
         ]
     },
     "AF_ARMO_ARMOR_08": {
@@ -22819,7 +23161,8 @@
             "JB_DIOS_BAA",
             "JB_FF15_GLAD",
             "JB_POK_B_LAEV01",
-            "JB_ORION01"
+            "JB_ORION01",
+            "JB_DORO_NEC"
         ]
     },
     "AF_ARMS_S_TSUK_01": {
@@ -23206,7 +23549,8 @@
             "JB_DIOS_BAA",
             "JB_FF15_GLAD",
             "JB_POK_B_LAEV01",
-            "JB_ORION01"
+            "JB_ORION01",
+            "JB_DORO_NEC"
         ]
     },
     "AF_ACCS_BRACELET_03": {
@@ -23369,7 +23713,9 @@
             "JB_YAUL_SOL2",
             "JB_RH_ATO",
             "JB_ZYVA01",
-            "JB_FA_WRAT01"
+            "JB_FA_WRAT01",
+            "JB_AOT_EREN01",
+            "JB_AOT_REIN01"
         ]
     },
     "AF_ARMS_ORION_01": {
@@ -23437,7 +23783,8 @@
             "JB_DIOS_BAA",
             "JB_FF15_GLAD",
             "JB_POK_B_LAEV01",
-            "JB_ORION01"
+            "JB_ORION01",
+            "JB_DORO_NEC"
         ]
     },
     "AF_ARMS_POK_B_ARTE_01": {
@@ -23702,6 +24049,106 @@
             "JB_GUIL_TEM",
             "JB_ZAYI_LORD_CC"
         ]
+    },
+    "AF_ACCS_AOT_EREN_01": {
+        "iname": "AF_ACCS_AOT_EREN_01",
+        "kanji": "地下室の鍵",
+        "name": "地下室の鍵",
+        "spec": "装備可能条件なし",
+        "icon": "AF_ACCS_AOT_EREN_01",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 2,
+        "raremax": 4,
+        "kakera": "IT_AF_ACCS_AOT_EREN_01",
+        "maxnum": 999,
+        "equip_effects": [
+            "SK_AF_ACCS_AOT_EREN_01_4",
+            "SK_AF_ACCS_AOT_EREN_01_4",
+            "SK_AF_ACCS_AOT_EREN_01_4",
+            "SK_AF_ACCS_AOT_EREN_01_4",
+            "SK_AF_ACCS_AOT_EREN_01_5"
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "abil_inames": [
+            "AB_AF_ACCS_AOT_EREN_01_WA"
+        ],
+        "abil_levels": [
+            1
+        ],
+        "abil_rareties": [
+            0
+        ],
+        "abil_shows": [
+            1
+        ],
+        "abil_conds": [
+            "なし"
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 1,
+        "condition_lv": 1
+    },
+    "AF_ACCS_AOT_REINER_01": {
+        "iname": "AF_ACCS_AOT_REINER_01",
+        "kanji": "調査兵団の信号弾",
+        "name": "調査兵団の信号弾",
+        "spec": "装備可能条件なし",
+        "icon": "AF_ACCS_AOT_REINER_01",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 3,
+        "raremax": 4,
+        "kakera": "IT_AF_ACCS_AOT_REINER_01",
+        "maxnum": 999,
+        "equip_effects": [
+            "SK_AF_ACCS_AOT_REINER_01_4",
+            "SK_AF_ACCS_AOT_REINER_01_4",
+            "SK_AF_ACCS_AOT_REINER_01_4",
+            "SK_AF_ACCS_AOT_REINER_01_4",
+            "SK_AF_ACCS_AOT_REINER_01_5"
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "abil_inames": [
+            "AB_AF_ACCS_AOT_REINER_01_WA"
+        ],
+        "abil_levels": [
+            1
+        ],
+        "abil_rareties": [
+            0
+        ],
+        "abil_shows": [
+            1
+        ],
+        "abil_conds": [
+            "なし"
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 9600,
+        "condition_lv": 1
     },
     "AF_ARMS_VETT_00": {
         "iname": "AF_ARMS_VETT_00",
@@ -26961,7 +27408,7 @@
         "rareini": 3,
         "raremax": 4,
         "kakera": "IT_AF_ACCS_DOROTHEA_01",
-        "maxnum": 999,
+        "maxnum": 1,
         "equip_effects": [
             "SK_AF_ACCS_DOROTHEA_01_4",
             "SK_AF_ACCS_DOROTHEA_01_4",
@@ -27001,6 +27448,7 @@
         "condition_lv": 1,
         "condition_jobs": [
             "JB_NEC",
+            "JB_DORO_NEC",
             "JB_LUROB01"
         ]
     },
@@ -27053,6 +27501,188 @@
         "buy": 100,
         "sell": 9600,
         "condition_lv": 1
+    },
+    "AF_ACCS_ALMA_02": {
+        "iname": "AF_ACCS_ALMA_02",
+        "kanji": "友情のブレスレット",
+        "name": "友情のブレスレット",
+        "spec": "装備可能条件：武闘魔女、大陸の観測者",
+        "icon": "AF_ACCS_ALMA_02",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_AF_ACCS_ALMA_02",
+        "maxnum": 999,
+        "equip_effects": [
+            "SK_AF_ACCS_ALMA_02",
+            "SK_AF_ACCS_ALMA_02",
+            "SK_AF_ACCS_ALMA_02",
+            "SK_AF_ACCS_ALMA_02",
+            "SK_AF_ACCS_ALMA_02"
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "abil_inames": [
+            "AB_AF_ACCS_ALMA_02",
+            "AB_AF_ACCS_ALMA_02_B"
+        ],
+        "abil_levels": [
+            1,
+            1
+        ],
+        "abil_rareties": [
+            0,
+            0
+        ],
+        "abil_shows": [
+            1,
+            1
+        ],
+        "abil_conds": [
+            "なし",
+            "なし"
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 9600,
+        "condition_lv": 1,
+        "condition_jobs": [
+            "JB_LUROB01",
+            "JB_ALMA01"
+        ]
+    },
+    "AF_ACCS_REBECCA_02": {
+        "iname": "AF_ACCS_REBECCA_02",
+        "kanji": "後継者の証",
+        "name": "後継者の証",
+        "spec": "装備可能条件：リズベット、アルマ、レベッカ、リル=ウロボロス",
+        "icon": "AF_ACCS_REBECCA_02",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_AF_ACCS_REBECCA_02",
+        "maxnum": 999,
+        "equip_effects": [
+            "SK_AF_ACCS_REBECCA_02",
+            "SK_AF_ACCS_REBECCA_02",
+            "SK_AF_ACCS_REBECCA_02",
+            "SK_AF_ACCS_REBECCA_02",
+            "SK_AF_ACCS_REBECCA_02"
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "abil_inames": [
+            "AB_AF_ACCS_REBECCA_02",
+            "AB_AF_ACCS_REBECCA_02_B"
+        ],
+        "abil_levels": [
+            1,
+            1
+        ],
+        "abil_rareties": [
+            0,
+            0
+        ],
+        "abil_shows": [
+            1,
+            1
+        ],
+        "abil_conds": [
+            "なし",
+            "なし"
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 9600,
+        "condition_lv": 1,
+        "condition_units": [
+            "UN_V2_ALMA",
+            "UN_V2_REBECCA",
+            "UN_V2_LIESBET",
+            "UN_V2_L_UROB"
+        ]
+    },
+    "AF_ACCS_AOT_EMBLEM_01": {
+        "iname": "AF_ACCS_AOT_EMBLEM_01",
+        "kanji": "調査兵団の紋章",
+        "name": "調査兵団の紋章",
+        "spec": "装備可能条件：進撃の巨人コラボユニット、リル＝ウロボロス",
+        "icon": "AF_ACCS_AOT_EMBLEM_01",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_AF_ACCS_AOT_EMBLEM_01",
+        "maxnum": 1,
+        "equip_effects": [
+            "SK_AF_ACCS_AOT_EMBLEM_01",
+            "SK_AF_ACCS_AOT_EMBLEM_01",
+            "SK_AF_ACCS_AOT_EMBLEM_01",
+            "SK_AF_ACCS_AOT_EMBLEM_01",
+            "SK_AF_ACCS_AOT_EMBLEM_01"
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "abil_inames": [
+            "AB_AF_ACCS_AOT_EMBLEM_01_WA",
+            "AB_AF_ACCS_AOT_EMBLEM_01_WA_2"
+        ],
+        "abil_levels": [
+            1,
+            1
+        ],
+        "abil_rareties": [
+            0,
+            0
+        ],
+        "abil_shows": [
+            1,
+            1
+        ],
+        "abil_conds": [
+            "なし",
+            "なし"
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 9600,
+        "condition_lv": 1,
+        "condition_units": [
+            "UN_V2_AOT_EREN",
+            "UN_V2_AOT_G_EREN",
+            "UN_V2_AOT_REINER",
+            "UN_V2_AOT_G_REINER",
+            "UN_V2_L_UROB"
+        ]
     },
     "AF_SK_HAZE_XMAS": {
         "iname": "AF_SK_HAZE_XMAS",
@@ -28688,6 +29318,114 @@
         "rareini": 4,
         "raremax": 4,
         "kakera": "IT_SK_DOROTHEA_SWIM",
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 2400,
+        "condition_lv": 1
+    },
+    "AF_SK_SHEN_UNIQUE": {
+        "iname": "AF_SK_SHEN_UNIQUE",
+        "kanji": "キャラスキン",
+        "name": "キャラスキン",
+        "asset": "unique",
+        "icon": "IT_SK_SHEN_UNIQUE",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_SK_SHEN_UNIQUE",
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 2400,
+        "condition_lv": 1
+    },
+    "AF_SK_ALMA_SWIM": {
+        "iname": "AF_SK_ALMA_SWIM",
+        "kanji": "水着スキン",
+        "name": "水着スキン",
+        "asset": "swim",
+        "icon": "IT_SK_ALMA_SWIM",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_SK_ALMA_SWIM",
+        "maxnum": 999,
+        "is_create": false,
+        "equip_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "attack_effects": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "kcoin": 100,
+        "tcoin": 100,
+        "acoin": 100,
+        "mcoin": 100,
+        "pcoin": 100,
+        "buy": 100,
+        "sell": 2400,
+        "condition_lv": 1
+    },
+    "AF_SK_REBECCA_SWIM": {
+        "iname": "AF_SK_REBECCA_SWIM",
+        "kanji": "水着スキン",
+        "name": "水着スキン",
+        "asset": "swim",
+        "icon": "IT_SK_REBECCA_SWIM",
+        "tag": "Earring",
+        "type": "Accessory",
+        "rareini": 4,
+        "raremax": 4,
+        "kakera": "IT_SK_REBECCA_SWIM",
         "maxnum": 999,
         "is_create": false,
         "equip_effects": [

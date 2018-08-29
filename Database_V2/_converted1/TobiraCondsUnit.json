@@ -877,5 +877,77 @@
         "mJobLevel": 11,
         "mCategory": 1,
         "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_ZOPHIE_BAA_TYPE_RISKY",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_BAA_TYPE_RISKY",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_DOROTHEA_MAH_FIRE",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_MAH_FIRE",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_NASARIO_MAH_WIND",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_MAH_WIND",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_MARIANNU_SHN_HEEL",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_SHN_HEEL",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_FEIRIN_NEC_WIND",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_NEC_WIND",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_YURI_NIN_SUZAKU",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_NIN_SUZAKU",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_AMATERASU_DOC_TYPE_HEALING",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_DOC_TYPE_HEALING",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_TSUKUYOMI_DAI_THUNDER",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_DAI_THUNDER",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
     }
 ]

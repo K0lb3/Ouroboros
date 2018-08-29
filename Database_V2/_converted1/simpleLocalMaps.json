@@ -1004,6 +1004,13 @@
             "QE_EV_GL_MH_01_EX_BOSS2"
         ]
     },
+    "ev_gl_mh_2_EX_set": {
+        "iname": "ev_gl_mh_2_EX_set",
+        "droplist": [
+            "QE_EV_GL_MH_02_EX_BOSS1",
+            "QE_EV_GL_MH_02_EX_BOSS2"
+        ]
+    },
     "ev_hagaren_01_2_set": {
         "iname": "ev_hagaren_01_2_set",
         "droplist": [
@@ -3451,7 +3458,7 @@
     "main_ha_030060_set": {
         "iname": "main_ha_030060_set",
         "droplist": [
-            "QE_SO_SETS_100"
+            "QE_SO_ALAI_100"
         ]
     },
     "main_ha_030061_set": {

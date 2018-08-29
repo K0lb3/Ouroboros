@@ -9540,6 +9540,90 @@
         ],
         "dif": {}
     },
+    "CON_GL_KTN_SKILLFUL_COUNTER": {
+        "iname": "CON_GL_KTN_SKILLFUL_COUNTER",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 45,
+        "rate_max": 65,
+        "turn_ini": 2,
+        "turn_max": 2,
+        "conditions": [
+            "Stun"
+        ]
+    },
+    "CON_GL_KTN_DEVOTION": {
+        "iname": "CON_GL_KTN_DEVOTION",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Charm"
+        ]
+    },
+    "CON_GL_KTN_FLEETING_BEAUTY": {
+        "iname": "CON_GL_KTN_FLEETING_BEAUTY",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 25,
+        "rate_max": 50,
+        "conditions": [
+            "Charm"
+        ]
+    },
+    "CON_GL_KTN_CUTTING_WIND": {
+        "iname": "CON_GL_KTN_CUTTING_WIND",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 25,
+        "rate_max": 50,
+        "conditions": [
+            "Paralyze"
+        ]
+    },
+    "CON_GL_KTN_CAPTIVATING": {
+        "iname": "CON_GL_KTN_CAPTIVATING",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 25,
+        "rate_max": 50,
+        "turn_ini": 3,
+        "turn_max": 3,
+        "conditions": [
+            "Paralyze"
+        ]
+    },
+    "CON_GL_DIV_FLARE": {
+        "iname": "CON_GL_DIV_FLARE",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 2,
+        "turn_max": 2,
+        "conditions": [
+            "Slow"
+        ]
+    },
     "CON_MAP_MOBIUS_18F_01": {
         "iname": "CON_MAP_MOBIUS_18F_01",
         "type": "ForcedFailCondition",
@@ -10117,6 +10201,36 @@
         "conditions": [
             "Death Sentence"
         ]
+    },
+    "CON_NEC_UPPER_01_FIRE": {
+        "iname": "CON_NEC_UPPER_01_FIRE",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Bind",
+            "Poison"
+        ],
+        "v_poison_rate": 20
+    },
+    "CON_NEC_UPPER_01_WATER": {
+        "iname": "CON_NEC_UPPER_01_WATER",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Sleep",
+            "Poison"
+        ],
+        "v_poison_rate": 20
     },
     "CON_KADA_GUA_CC_PROVOKE": {
         "iname": "CON_KADA_GUA_CC_PROVOKE",
@@ -12343,6 +12457,23 @@
         ],
         "v_auto_hp_heal": 10
     },
+    "CON_AF_ACCS_REBECCA_02_WA": {
+        "iname": "CON_AF_ACCS_REBECCA_02_WA",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "Eternal",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Jewel Auto Charge"
+        ],
+        "BuffIds": [
+            "BUFF_ACCS_REBECCA_01_WA"
+        ],
+        "v_auto_mp_heal": 5
+    },
     "CON_AF_ARMS_SUMERAGI_00_AS": {
         "iname": "CON_AF_ARMS_SUMERAGI_00_AS",
         "type": "FailCondition",
@@ -12358,5 +12489,213 @@
             "Jewel Auto Charge"
         ],
         "v_auto_mp_heal_fix": 10
+    },
+    "CON_MIZUGI_EX_CRYSTAL": {
+        "iname": "CON_MIZUGI_EX_CRYSTAL",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 4,
+        "turn_max": 4,
+        "conditions": [
+            "Jewel Auto Charge"
+        ],
+        "v_auto_mp_heal": 15
+    },
+    "CON_AOT_EREN01_UPPER_4": {
+        "iname": "CON_AOT_EREN01_UPPER_4",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 3,
+        "turn_max": 3,
+        "conditions": [
+            "Disable Heal"
+        ]
+    },
+    "CON_AOT_EREN01_LOWER_3": {
+        "iname": "CON_AOT_EREN01_LOWER_3",
+        "birth": "World of Titans",
+        "type": "ForcedFailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 4,
+        "turn_max": 4,
+        "conditions": [
+            "Charm"
+        ]
+    },
+    "CON_AOT_G_EREN01_UPPER_3": {
+        "iname": "CON_AOT_G_EREN01_UPPER_3",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 4,
+        "turn_max": 4,
+        "conditions": [
+            "Stun"
+        ]
+    },
+    "CON_AOT_REIN01_UPPER_3": {
+        "iname": "CON_AOT_REIN01_UPPER_3",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 4,
+        "turn_max": 4,
+        "conditions": [
+            "Slow"
+        ]
+    },
+    "CON_AOT_REIN01_UPPER_4": {
+        "iname": "CON_AOT_REIN01_UPPER_4",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 3,
+        "turn_max": 3,
+        "conditions": [
+            "Disable Heal"
+        ]
+    },
+    "CON_AOT_REIN01_LOWER_1": {
+        "iname": "CON_AOT_REIN01_LOWER_1",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 4,
+        "turn_max": 4,
+        "conditions": [
+            "Bind"
+        ]
+    },
+    "CON_AOT_GIANT_SMALL_UPPER_1": {
+        "iname": "CON_AOT_GIANT_SMALL_UPPER_1",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 4,
+        "turn_max": 4,
+        "conditions": [
+            "Bind"
+        ]
+    },
+    "CON_AOT_GIANT_SMALL_UPPER_2": {
+        "iname": "CON_AOT_GIANT_SMALL_UPPER_2",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 3,
+        "turn_max": 3,
+        "conditions": [
+            "Stun"
+        ]
+    },
+    "CON_TOROS_UPPER_1": {
+        "iname": "CON_TOROS_UPPER_1",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 300,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Poison"
+        ],
+        "v_poison_rate": 25
+    },
+    "CON_TOROS_UPPER_2": {
+        "iname": "CON_TOROS_UPPER_2",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 3,
+        "turn_max": 3,
+        "conditions": [
+            "Blind"
+        ]
+    },
+    "CON_TOROS_UPPER_4": {
+        "iname": "CON_TOROS_UPPER_4",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 3,
+        "turn_max": 3,
+        "conditions": [
+            "Stun"
+        ]
+    },
+    "CON_TOROS_REACTION": {
+        "iname": "CON_TOROS_REACTION",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 20,
+        "rate_max": 40,
+        "curse": 1,
+        "conditions": [
+            "Death Sentence"
+        ]
+    },
+    "CON_AOT_G_ABNORMAL_NIGIRI": {
+        "iname": "CON_AOT_G_ABNORMAL_NIGIRI",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Bind"
+        ]
     }
 }

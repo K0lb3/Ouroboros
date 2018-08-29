@@ -19,7 +19,7 @@ def Unit(iname, page):
     embed= Embed(
         title=page, #page name
         url='http://www.alchemistcodedb.com/{region}unit/{unit}'.format(
-            region=''if 'dif' not in unit else 'jp/',
+            region='jp/' if 'birthid' in unit or ('dif' in unit and 'birthid' in unit['dif']) else '',
             unit= unit['iname'].replace('UN_V2_', "").replace('_', "-").lower()
             ),
         color=ELEMENT_COLOR[unit['element']]
@@ -136,7 +136,9 @@ def job(unit,job):
         job=DIRS['Job'][unit['jobchanges'][job-4]]
         if not job:
             return([])
-
+    
+    print((1+(job['ranks'][-1]['status']['PATK']/100)))
+    print(TACScale(unit['ini_status']['param']['PATK'],unit['max_status']['param']['PATK'],85,100))
     return ([
         {'name': 'Weapon',          'value':job['weapon'],                              'inline':True},
         {'name': 'AI Role',            'value':job['type'],                                'inline':True},
@@ -152,11 +154,20 @@ def job(unit,job):
                 if value!=0
                 ]),
             'inline':False},
+        {'name': 'JM Bonus Stats',        
+            'value': StrBuff(DIRS['Skill'][job['master']]['target_buff_iname']),
+            'inline':False},
         {'name': 'Stats without JM bonus',        
             'value': '\n'.join([
                 '{}: {}'.format(
                     stat,
-                    int(value+((TACScale(unit['ini_status']['param'][stat],unit['max_status']['param'][stat],85,100)*(1+(job['ranks'][-1]['status'][stat]/100))) if stat in unit['max_status']['param'] else 0))
+                    int(value+
+                        (
+                            (TACScale(unit['ini_status']['param'][stat],unit['max_status']['param'][stat],85,100)*
+                            (1+
+                            (job['ranks'][-1]['status'][stat]/100))) if stat in unit['max_status']['param'] else 0
+                        )
+                    )
                     )
                 for stat,value in job['stats'].items()
                 if 'Res' not in stat

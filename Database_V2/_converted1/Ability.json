@@ -1,4 +1,221 @@
 {
+    "AB_GL_KTN_LOWER": {
+        "iname": "AB_GL_KTN_LOWER",
+        "kanji": "Basic Blade Arts",
+        "name": "Basic Blade Arts",
+        "expr": "Blade Art techniques for use with all job types",
+        "icon": "AB_GL_KTN_LOWER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_GL_KTN_LOWER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_GL_KTN_LOWER_2",
+                "locklv": 10
+            },
+            {
+                "iname": "SK_GL_KTN_LOWER_3",
+                "locklv": 15
+            },
+            {
+                "iname": "SK_GL_KTN_LOWER_4",
+                "locklv": 20
+            }
+        ]
+    },
+    "AB_GL_KTN_UPPER": {
+        "iname": "AB_GL_KTN_UPPER",
+        "kanji": "Blade Arts",
+        "name": "Blade Arts",
+        "expr": "Blade Art techniques for use with this job type only",
+        "icon": "AB_GL_KTN_UPPER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_GL_KTN_UPPER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_GL_KTN_UPPER_2",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_GL_KTN_UPPER_3",
+                "locklv": 12
+            },
+            {
+                "iname": "SK_GL_KTN_UPPER_4",
+                "locklv": 16
+            },
+            {
+                "iname": "SK_GL_KTN_UPPER_5",
+                "locklv": 20
+            }
+        ]
+    },
+    "AB_GL_KTN_REACTION_1": {
+        "iname": "AB_GL_KTN_REACTION_1",
+        "kanji": "Skillful Counter",
+        "name": "Elusive Beauty",
+        "expr": "Reaction Ability for use with all job types",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_GL_KTN_REACTION_1",
+                "locklv": 1
+            }
+        ]
+    },
+    "AB_GL_KTN_SUPPORT_1": {
+        "iname": "AB_GL_KTN_SUPPORT_1",
+        "kanji": "Peerless Bladework",
+        "name": "Peerless Bladework",
+        "expr": "Raises Slash Damage and Evasion",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_GL_KTN_SUPPORT_1",
+                "locklv": 1
+            }
+        ]
+    },
+    "AB_GL_DIV_LOWER": {
+        "iname": "AB_GL_DIV_LOWER",
+        "kanji": "Basic Divine Gift",
+        "name": "Basic Divine Gift",
+        "expr": "Divine Gift techniques for use with all job types",
+        "icon": "AB_GL_DIV_LOWER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_GL_DIV_LOWER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_GL_DIV_LOWER_2",
+                "locklv": 7
+            },
+            {
+                "iname": "SK_GL_DIV_LOWER_3",
+                "locklv": 14
+            },
+            {
+                "iname": "SK_GL_DIV_LOWER_4",
+                "locklv": 20
+            }
+        ]
+    },
+    "AB_GL_DIV_UPPER": {
+        "iname": "AB_GL_DIV_UPPER",
+        "kanji": "Divine Gift",
+        "name": "Divine Gift",
+        "expr": "Divine Gift techniques for use with this job type only",
+        "icon": "AB_GL_DIV_UPPER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_GL_DIV_UPPER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_GL_DIV_UPPER_2",
+                "locklv": 7
+            },
+            {
+                "iname": "SK_GL_DIV_UPPER_3",
+                "locklv": 14
+            },
+            {
+                "iname": "SK_GL_DIV_UPPER_4",
+                "locklv": 20
+            }
+        ]
+    },
+    "AB_GL_DIV_REACTION": {
+        "iname": "AB_GL_DIV_REACTION",
+        "kanji": "Defensive Instinct",
+        "name": "Defensive Instinct",
+        "expr": "Reaction Ability for use with all job types",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_GL_DIV_REACTION",
+                "locklv": 1
+            }
+        ]
+    },
+    "AB_GL_DIV_SUPPORT_1": {
+        "iname": "AB_GL_DIV_SUPPORT_1",
+        "kanji": "Divine Power",
+        "name": "Divine Power",
+        "expr": "Raises MATK",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_GL_DIV_SUPPORT_1",
+                "locklv": 1
+            }
+        ]
+    },
+    "AB_GL_DIV_SUPPORT_2": {
+        "iname": "AB_GL_DIV_SUPPORT_2",
+        "kanji": "Divine Protection",
+        "name": "Divine Protection",
+        "expr": "Raises PDEF",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_GL_DIV_SUPPORT_2",
+                "locklv": 1
+            }
+        ]
+    },
+    "AB_ARMS_SWO_GL_SIEG_01": {
+        "iname": "AB_ARMS_SWO_GL_SIEG_01",
+        "kanji": "Sieg Master Ability",
+        "name": "",
+        "expr": "Siegfried Limited Ability",
+        "icon": "AB_MASTER_0",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_ARMS_SWO_GL_SIEG_01_WA",
+                "locklv": 1
+            }
+        ],
+        "condition_units": [
+            "UN_V2_GL_SIEG"
+        ]
+    },
     "AB_GL_WSM_LOWER": {
         "iname": "AB_GL_WSM_LOWER",
         "kanji": "Basic Twin Swords",
@@ -23729,8 +23946,8 @@
     "AB_RAT_ARM_RELAY": {
         "iname": "AB_RAT_ARM_RELAY",
         "kanji": "ネズミ戦技【運動会リレー用】",
-        "name": "Rat War Arts [For Sports Day Relay]",
-        "expr": "[For Sports Day Relay]",
+        "name": "Rat War Arts [For Summer Sports Meet Relay]",
+        "expr": "[For Summer Sports Meet Relay]",
         "icon": "kari_no_ability",
         "type": "Active",
         "slot": "Action",
@@ -23764,8 +23981,8 @@
     "AB_RAT_TAMAIRE": {
         "iname": "AB_RAT_TAMAIRE",
         "kanji": "ネズミ戦技【運動会玉入れ用】",
-        "name": "Rat War Arts [For Sports Day Ball Game]",
-        "expr": "[For Sports Day Relay]",
+        "name": "Rat War Arts [For Summer Sports Meet Ball Game]",
+        "expr": "[For Summer Sports Meet Relay]",
         "icon": "kari_no_ability",
         "type": "Active",
         "slot": "Action",
@@ -24380,7 +24597,7 @@
     "AB_RAT_WIZ_REACTION_BLAN": {
         "iname": "AB_RAT_WIZ_REACTION_BLAN",
         "kanji": "ネズミ魔法・ブランシェット邂逅",
-        "name": "Rat Magic - Blanshett Encounter",
+        "name": "Rat Magic - Blanchett Encounter",
         "expr": "Enemy Unit Abilities",
         "icon": "kari_no_ability",
         "type": "Passive",
@@ -24399,7 +24616,7 @@
     "AB_RAT_WIZ_SKL01_BLAN": {
         "iname": "AB_RAT_WIZ_SKL01_BLAN",
         "kanji": "ネズミ魔法・ブランシェット邂逅",
-        "name": "Rat Magic - Blanshett Encounter",
+        "name": "Rat Magic - Blanchett Encounter",
         "expr": "Enemy Unit Abilities",
         "icon": "kari_no_ability",
         "type": "Active",
@@ -24418,7 +24635,7 @@
     "AB_RAT_WIZ_SKL02_BLAN": {
         "iname": "AB_RAT_WIZ_SKL02_BLAN",
         "kanji": "ネズミ魔法・ブランシェット邂逅",
-        "name": "Rat Magic - Blanshett Encounter",
+        "name": "Rat Magic - Blanchett Encounter",
         "expr": "Enemy Unit Abilities",
         "icon": "kari_no_ability",
         "type": "Active",
@@ -26104,8 +26321,8 @@
     "AB_MAN_YUJ_UPPER_RELAY": {
         "iname": "AB_MAN_YUJ_UPPER_RELAY",
         "kanji": "マンドラゴラ【運動会リレー用】",
-        "name": "Mandragora [For Sports Day Relay]",
-        "expr": "[For Sports Day Relay]",
+        "name": "Mandragora [For Summer Sports Meet Relay]",
+        "expr": "[For Summer Sports Meet Relay]",
         "icon": "kari_no_ability",
         "type": "Active",
         "slot": "Action",
@@ -28866,7 +29083,7 @@
     "AB_DMN_WIZ_UNDOUKAI": {
         "iname": "AB_DMN_WIZ_UNDOUKAI",
         "kanji": "魔人運動会2017用",
-        "name": "Demon [For Sports Day]",
+        "name": "Demon [For Summer Sports Meet]",
         "expr": "Enemy Unit Abilities",
         "icon": "kari_no_ability",
         "type": "Active",
@@ -28897,8 +29114,8 @@
     "AB_LS_JEWEL_DOWN_2": {
         "iname": "AB_LS_JEWEL_DOWN_2",
         "kanji": "【運動会敵用LS】初期ジュエル減",
-        "name": "[Sports Day Enemy LS] Initial Jewel Reduction",
-        "expr": "Sports Day Enemy Unit Leader Abilities",
+        "name": "[Summer Sports Meet Enemy LS] Initial Jewel Reduction",
+        "expr": "Summer Sports Meet Enemy Unit Leader Abilities",
         "icon": "kari_no_ability",
         "type": "Passive",
         "slot": "Support",
@@ -28916,7 +29133,7 @@
     "AB_DMN_WIZ_UNDOUKAI2": {
         "iname": "AB_DMN_WIZ_UNDOUKAI2",
         "kanji": "魔人運動会2017障害物競走用",
-        "name": "Demon [For Sports Day Obstacle Race]",
+        "name": "Demon [For Summer Sports Meet Obstacle Race]",
         "expr": "Enemy Unit Abilities",
         "icon": "kari_no_ability",
         "type": "Passive",
@@ -28935,7 +29152,7 @@
     "AB_DMN_WIZ_UNDOUKAI3": {
         "iname": "AB_DMN_WIZ_UNDOUKAI3",
         "kanji": "魔人運動会2017用障害物競走用",
-        "name": "Demon [For Sports Day Obstacle Race]",
+        "name": "Demon [For Summer Sports Meet Obstacle Race]",
         "expr": "Enemy Unit Abilities",
         "icon": "kari_no_ability",
         "type": "Active",
@@ -33754,7 +33971,7 @@
     "AB_GLU_ARM_UNDOUKAI": {
         "iname": "AB_GLU_ARM_UNDOUKAI",
         "kanji": "なぞなぞ用【2017運動会障害物競走用】",
-        "name": "For Riddles [For Sports Day Obstacle Race]",
+        "name": "For Riddles [For Summer Sports Meet Obstacle Race]",
         "expr": "Enemy Unit Abilities",
         "icon": "kari_no_ability",
         "type": "Active",
@@ -34317,8 +34534,8 @@
     "AB_BAR_LOWER_BLA": {
         "iname": "AB_BAR_LOWER_BLA",
         "kanji": "基本詩歌_3_ブランシェット邂逅用",
-        "name": "Basic Poetry_3_Blanshett Encounter",
-        "expr": "Poetry_3_Blanshett Encounter (All Job Types)",
+        "name": "Basic Poetry_3_Blanchett Encounter",
+        "expr": "Poetry_3_Blanchett Encounter (All Job Types)",
         "icon": "AB_BAR_2",
         "type": "Active",
         "slot": "Action",
@@ -35744,7 +35961,7 @@
     "AB_EN_UNDOUKAI_DEF": {
         "iname": "AB_EN_UNDOUKAI_DEF",
         "kanji": "【敵用】運動会物防詰め合わせ",
-        "name": "[Enemy] Sports Day PDEF Combination",
+        "name": "[Enemy] Summer Sports Meet PDEF Combination",
         "expr": "[Enemy use] This job type only",
         "icon": "kari_no_ability",
         "type": "Active",
@@ -35771,7 +35988,7 @@
     "AB_EN_UNDOUKAI_DEF_REACT": {
         "iname": "AB_EN_UNDOUKAI_DEF_REACT",
         "kanji": "【敵用】運動会物防カウンター",
-        "name": "[Enemy] Sports Day PDEF Counter",
+        "name": "[Enemy] Summer Sports Meet PDEF Counter",
         "expr": "[Enemy use] This job type only",
         "icon": "kari_no_ability",
         "type": "Passive",
@@ -47864,7 +48081,7 @@
         "iname": "AB_AF_ARMS_SWO_ZAYI_01_CANO",
         "kanji": "エターナル・ブライト",
         "name": "Eternal Glow",
-        "expr": "Zain-Only Ability (\"Eternal Glow\" when equipped on Kanon)",
+        "expr": "Kanon-Only Ability (\"Eternal Glow\" when equipped on Kanon)",
         "icon": "AB_MASTER_0",
         "type": "Active",
         "slot": "Action",
@@ -47886,7 +48103,7 @@
         "iname": "AB_AF_ARMS_SWO_ZAYI_01_ZAYI",
         "kanji": "ライジング・サン",
         "name": "Rising Sun",
-        "expr": "Zain-Only Ability (\"Eternal Glow\" when equipped on Kanon)",
+        "expr": "Zain-Only Ability (\"Rising Sun\" when equipped on Zain)",
         "icon": "AB_MASTER_0",
         "type": "Active",
         "slot": "Action",
@@ -48383,7 +48600,7 @@
     "AB_AF_ARMS_ZIN_00_WA": {
         "iname": "AB_AF_ARMS_ZIN_00_WA",
         "kanji": "紫毒・三悪趣",
-        "name": "Purple Poison Three Evils",
+        "name": "Purple Poison - Triple Torment",
         "expr": "Jin-Only Ability",
         "icon": "AB_MASTER_0",
         "type": "Active",
@@ -48428,7 +48645,7 @@
         "iname": "AB_AF_ARMS_NEC_03_WA",
         "kanji": "奇慟魔断",
         "name": "Demon Deflector",
-        "expr": "Inflicts Phys Dmg on units within target area with chance of critical & lowers target's MATK [Range: 4, Area: Cross (3), Height Range: 2]",
+        "expr": "Inflicts Phys Dmg on units within target area with chance of critical & lowers target's Mag DMG [Range: 4, Area: Cross (3), Height Range: 2]",
         "icon": "AB_MASTER_0",
         "type": "Active",
         "slot": "Action",
@@ -49458,7 +49675,7 @@
         "iname": "AB_AF_ARMO_HAT_01",
         "kanji": "星屑の祝福",
         "name": "Stardust Blessing",
-        "expr": "Raises own MATK for three turns",
+        "expr": "Raises own Mag DMG for three turns",
         "icon": "AB_MASTER_0",
         "type": "Active",
         "slot": "Action",
@@ -52623,8 +52840,8 @@
     "AB_MAH_KAGO_SUPER_RELAY": {
         "iname": "AB_MAH_KAGO_SUPER_RELAY",
         "kanji": "全ての攻撃を無効化【運動会リレー用】",
-        "name": "Nullify All Attacks [For Sports Day Relay]",
-        "expr": "[For Sports Day Relay]",
+        "name": "Nullify All Attacks [For Summer Sports Meet Relay]",
+        "expr": "[For Summer Sports Meet Relay]",
         "icon": "kari_no_ability",
         "type": "Passive",
         "slot": "Support",
@@ -53766,7 +53983,7 @@
     "AB_ME_KIL": {
         "iname": "AB_ME_KIL",
         "kanji": "暗殺者：マップ効果アビリティ",
-        "name": "Shadow Assassin: Map Effect Ability",
+        "name": "Dark Assassin: Map Effect Ability",
         "expr": "[Map Effect Set]",
         "icon": "kari_no_ability",
         "type": "Passive",
@@ -60765,6 +60982,492 @@
         ],
         "type_detail": "Job_Support"
     },
+    "AB_NEC_LOWER_FIRE": {
+        "iname": "AB_NEC_LOWER_FIRE",
+        "kanji": "基本死霊技",
+        "name": "基本死霊技",
+        "expr": "ジョブ汎用の死霊技",
+        "icon": "AB_NEC_LOWER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_NEC_LOWER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_LOWER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_LOWER_03",
+                "locklv": 14
+            },
+            {
+                "iname": "SK_NEC_LOWER_04",
+                "locklv": 20
+            },
+            {
+                "iname": "SK_NEC_LOWER_01_FIRE",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Basic"
+    },
+    "AB_NEC_UPPER_FIRE": {
+        "iname": "AB_NEC_UPPER_FIRE",
+        "kanji": "死霊技",
+        "name": "死霊技",
+        "expr": "ジョブ固有の死霊技",
+        "icon": "AB_NEC_UPPER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_NEC_UPPER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_UPPER_01_FIRE",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_UPPER_02_FIRE",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_UPPER_03",
+                "locklv": 12
+            },
+            {
+                "iname": "SK_NEC_UPPER_04",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_NEC_LOWER_WATER": {
+        "iname": "AB_NEC_LOWER_WATER",
+        "kanji": "基本死霊技",
+        "name": "基本死霊技",
+        "expr": "ジョブ汎用の死霊技",
+        "icon": "AB_NEC_LOWER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_NEC_LOWER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_LOWER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_LOWER_03",
+                "locklv": 14
+            },
+            {
+                "iname": "SK_NEC_LOWER_04",
+                "locklv": 20
+            },
+            {
+                "iname": "SK_NEC_LOWER_01_WATER",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Basic"
+    },
+    "AB_NEC_UPPER_WATER": {
+        "iname": "AB_NEC_UPPER_WATER",
+        "kanji": "死霊技",
+        "name": "死霊技",
+        "expr": "ジョブ固有の死霊技",
+        "icon": "AB_NEC_UPPER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_NEC_UPPER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_UPPER_01_WATER",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_UPPER_02_WATER",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_UPPER_03",
+                "locklv": 12
+            },
+            {
+                "iname": "SK_NEC_UPPER_04",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_NEC_LOWER_WIND": {
+        "iname": "AB_NEC_LOWER_WIND",
+        "kanji": "基本死霊技",
+        "name": "基本死霊技",
+        "expr": "ジョブ汎用の死霊技",
+        "icon": "AB_NEC_LOWER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_NEC_LOWER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_LOWER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_LOWER_03",
+                "locklv": 14
+            },
+            {
+                "iname": "SK_NEC_LOWER_04",
+                "locklv": 20
+            },
+            {
+                "iname": "SK_NEC_LOWER_01_WIND",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Basic"
+    },
+    "AB_NEC_UPPER_WIND": {
+        "iname": "AB_NEC_UPPER_WIND",
+        "kanji": "死霊技",
+        "name": "死霊技",
+        "expr": "ジョブ固有の死霊技",
+        "icon": "AB_NEC_UPPER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_NEC_UPPER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_UPPER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_UPPER_02_WIND",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_UPPER_01_WIND",
+                "locklv": 8
+            },
+            {
+                "iname": "SK_NEC_UPPER_03",
+                "locklv": 12
+            },
+            {
+                "iname": "SK_NEC_UPPER_04",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_NEC_LOWER_THUNDER": {
+        "iname": "AB_NEC_LOWER_THUNDER",
+        "kanji": "基本死霊技",
+        "name": "基本死霊技",
+        "expr": "ジョブ汎用の死霊技",
+        "icon": "AB_NEC_LOWER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_NEC_LOWER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_LOWER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_LOWER_03",
+                "locklv": 14
+            },
+            {
+                "iname": "SK_NEC_LOWER_04",
+                "locklv": 20
+            },
+            {
+                "iname": "SK_NEC_LOWER_01_THUNDER",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Basic"
+    },
+    "AB_NEC_UPPER_THUNDER": {
+        "iname": "AB_NEC_UPPER_THUNDER",
+        "kanji": "死霊技",
+        "name": "死霊技",
+        "expr": "ジョブ固有の死霊技",
+        "icon": "AB_NEC_UPPER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_NEC_UPPER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_UPPER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_UPPER_02_THUNDER",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_UPPER_01_THUNDER",
+                "locklv": 8
+            },
+            {
+                "iname": "SK_NEC_UPPER_03",
+                "locklv": 12
+            },
+            {
+                "iname": "SK_NEC_UPPER_04",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_NEC_LOWER_SHINE": {
+        "iname": "AB_NEC_LOWER_SHINE",
+        "kanji": "基本死霊技",
+        "name": "基本死霊技",
+        "expr": "ジョブ汎用の死霊技",
+        "icon": "AB_NEC_LOWER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_NEC_LOWER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_LOWER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_LOWER_03",
+                "locklv": 14
+            },
+            {
+                "iname": "SK_NEC_LOWER_04",
+                "locklv": 20
+            },
+            {
+                "iname": "SK_NEC_LOWER_01_SHINE",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Basic"
+    },
+    "AB_NEC_UPPER_SHINE": {
+        "iname": "AB_NEC_UPPER_SHINE",
+        "kanji": "死霊技",
+        "name": "死霊技",
+        "expr": "ジョブ固有の死霊技",
+        "icon": "AB_NEC_UPPER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_NEC_UPPER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_UPPER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_UPPER_01_SHINE",
+                "locklv": 12
+            },
+            {
+                "iname": "SK_NEC_UPPER_02_SHINE",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_NEC_LOWER_DARK": {
+        "iname": "AB_NEC_LOWER_DARK",
+        "kanji": "基本死霊技",
+        "name": "基本死霊技",
+        "expr": "ジョブ汎用の死霊技",
+        "icon": "AB_NEC_LOWER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_NEC_LOWER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_LOWER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_LOWER_03",
+                "locklv": 14
+            },
+            {
+                "iname": "SK_NEC_LOWER_04",
+                "locklv": 20
+            },
+            {
+                "iname": "SK_NEC_LOWER_01_DARK",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Basic"
+    },
+    "AB_NEC_UPPER_DARK": {
+        "iname": "AB_NEC_UPPER_DARK",
+        "kanji": "死霊技",
+        "name": "死霊技",
+        "expr": "ジョブ固有の死霊技",
+        "icon": "AB_NEC_UPPER",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_NEC_UPPER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_UPPER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_UPPER_01_DARK",
+                "locklv": 12
+            },
+            {
+                "iname": "SK_NEC_UPPER_02_DARK",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_DORO_NEC_CC_LOWER": {
+        "iname": "AB_DORO_NEC_CC_LOWER",
+        "kanji": "基本死霊技",
+        "name": "基本死霊技",
+        "expr": "ジョブ汎用の死霊技",
+        "icon": "AB_DORO_NEC_CC_2",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_NEC_LOWER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_LOWER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_LOWER_03",
+                "locklv": 14
+            },
+            {
+                "iname": "SK_NEC_LOWER_04",
+                "locklv": 20
+            },
+            {
+                "iname": "SK_NEC_UPPER_04_DORO_CC",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Basic"
+    },
+    "AB_DORO_NEC_CC_UPPER": {
+        "iname": "AB_DORO_NEC_CC_UPPER",
+        "kanji": "死霊技",
+        "name": "死霊技",
+        "expr": "ジョブ固有の死霊技",
+        "icon": "AB_DORO_NEC_CC_1",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_NEC_UPPER_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_NEC_UPPER_02",
+                "locklv": 5
+            },
+            {
+                "iname": "SK_NEC_UPPER_01_DORO_CC",
+                "locklv": 12
+            },
+            {
+                "iname": "SK_NEC_UPPER_02_DORO_CC",
+                "locklv": 15
+            },
+            {
+                "iname": "SK_NEC_UPPER_03_DORO_CC",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_NEC_SUPPORT_01_DORO_CC": {
+        "iname": "AB_NEC_SUPPORT_01_DORO_CC",
+        "kanji": "恋心研ぎ",
+        "name": "恋心研ぎ",
+        "expr": "ジョブ汎用のサポートアビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_NEC_SUPPORT_01_DORO_CC",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Support"
+    },
     "AB_CADA_GUA_CC_DEFENSER": {
         "iname": "AB_CADA_GUA_CC_DEFENSER",
         "kanji": "焔竜神の構え",
@@ -65088,6 +65791,286 @@
         ],
         "type_detail": "Job_Unique"
     },
+    "AB_AOT_EREN01_UPPER": {
+        "iname": "AB_AOT_EREN01_UPPER",
+        "kanji": "調査兵団技",
+        "name": "調査兵団技",
+        "expr": "ジョブ固有の調査兵団技",
+        "icon": "AB_AOT_EREN01_1",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_AOT_EREN01_UPPER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_EREN01_UPPER_2",
+                "locklv": 7
+            },
+            {
+                "iname": "SK_AOT_EREN01_UPPER_3",
+                "locklv": 14
+            },
+            {
+                "iname": "SK_AOT_EREN01_UPPER_4",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_AOT_EREN01_LOWER": {
+        "iname": "AB_AOT_EREN01_LOWER",
+        "kanji": "基本調査兵団技",
+        "name": "基本調査兵団技",
+        "expr": "ジョブ汎用の調査兵団技",
+        "icon": "AB_AOT_EREN01_2",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_AOT_EREN01_LOWER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_EREN01_LOWER_2",
+                "locklv": 10
+            },
+            {
+                "iname": "SK_AOT_EREN01_LOWER_3",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Basic"
+    },
+    "AB_AOT_EREN01_REACTION": {
+        "iname": "AB_AOT_EREN01_REACTION",
+        "kanji": "やられたらやり返す",
+        "name": "やられたらやり返す",
+        "expr": "ジョブ汎用のリアクションアビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_AOT_EREN01_REACTION",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Reaction"
+    },
+    "AB_AOT_EREN01_SUPPORT_1": {
+        "iname": "AB_AOT_EREN01_SUPPORT_1",
+        "kanji": "負けず嫌い",
+        "name": "負けず嫌い",
+        "expr": "ジョブ汎用のサポートアビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_AOT_EREN01_SUPPORT_1",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Support"
+    },
+    "AB_AOT_EREN01_SUPPORT_2": {
+        "iname": "AB_AOT_EREN01_SUPPORT_2",
+        "kanji": "巨人の力",
+        "name": "巨人の力",
+        "expr": "ジョブ汎用のサポートアビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_AOT_EREN01_SUPPORT_2",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Support"
+    },
+    "AB_AOT_G_EREN01_UPPER": {
+        "iname": "AB_AOT_G_EREN01_UPPER",
+        "kanji": "巨人技",
+        "name": "巨人技",
+        "expr": "ジョブ固有の巨人技",
+        "icon": "AB_AOT_G_EREN01_1",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_AOT_G_EREN01_UPPER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_G_EREN01_UPPER_2",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_G_EREN01_UPPER_3",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_G_EREN01_UPPER_4",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_G_EREN01_UPPER_5",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_AOT_REIN01_UPPER": {
+        "iname": "AB_AOT_REIN01_UPPER",
+        "kanji": "調査兵団技",
+        "name": "調査兵団技",
+        "expr": "ジョブ固有の調査兵団技",
+        "icon": "AB_AOT_REIN01_1",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_AOT_REIN01_UPPER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_REIN01_UPPER_2",
+                "locklv": 7
+            },
+            {
+                "iname": "SK_AOT_REIN01_UPPER_3",
+                "locklv": 14
+            },
+            {
+                "iname": "SK_AOT_REIN01_UPPER_4",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_AOT_REIN01_LOWER": {
+        "iname": "AB_AOT_REIN01_LOWER",
+        "kanji": "基本調査兵団技",
+        "name": "基本調査兵団技",
+        "expr": "ジョブ汎用の調査兵団技",
+        "icon": "AB_AOT_REIN01_2",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_AOT_REIN01_LOWER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_REIN01_LOWER_2",
+                "locklv": 10
+            },
+            {
+                "iname": "SK_AOT_REIN01_LOWER_3",
+                "locklv": 20
+            }
+        ],
+        "type_detail": "Job_Basic"
+    },
+    "AB_AOT_REIN01_REACTION": {
+        "iname": "AB_AOT_REIN01_REACTION",
+        "kanji": "受身",
+        "name": "受身",
+        "expr": "ジョブ汎用のリアクションアビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_AOT_REIN01_REACTION",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Reaction"
+    },
+    "AB_AOT_REIN01_SUPPORT_1": {
+        "iname": "AB_AOT_REIN01_SUPPORT_1",
+        "kanji": "戦士",
+        "name": "戦士",
+        "expr": "ジョブ汎用のサポートアビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_AOT_REIN01_SUPPORT_1",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Support"
+    },
+    "AB_AOT_REIN01_SUPPORT_2": {
+        "iname": "AB_AOT_REIN01_SUPPORT_2",
+        "kanji": "機動技術",
+        "name": "機動技術",
+        "expr": "ジョブ汎用のサポートアビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_AOT_REIN01_SUPPORT_2",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Support"
+    },
+    "AB_AOT_G_REIN01_UPPER": {
+        "iname": "AB_AOT_G_REIN01_UPPER",
+        "kanji": "鎧の巨人技",
+        "name": "鎧の巨人技",
+        "expr": "ジョブ固有の巨人技",
+        "icon": "AB_AOT_G_REIN01_1",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_AOT_G_REIN01_UPPER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_G_REIN01_UPPER_2",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_G_REIN01_UPPER_3",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_G_REIN01_UPPER_4",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_G_REIN01_UPPER_5",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
     "AB_ARM_LOWER_LOGI_TUTORIAL": {
         "iname": "AB_ARM_LOWER_LOGI_TUTORIAL",
         "kanji": "基本戦技",
@@ -65455,6 +66438,40 @@
         "skills": [
             {
                 "iname": "SK_LAVINA_MA_01",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "MasterAbility"
+    },
+    "AB_ZIN_MA_01": {
+        "iname": "AB_ZIN_MA_01",
+        "kanji": "マスターアビリティ",
+        "name": "マスターアビリティ",
+        "expr": "物攻・物防アップ&『暗闇円』『神威転』の移動範囲+1&スキル使用後移動可能",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_ZIN_MA_01",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "MasterAbility"
+    },
+    "AB_NASARIO_MA_01": {
+        "iname": "AB_NASARIO_MA_01",
+        "kanji": "マスターアビリティ",
+        "name": "マスターアビリティ",
+        "expr": "HP上限・治癒力・素早さアップ ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_NASARIO_MA_01",
                 "locklv": 1
             }
         ],
@@ -68719,6 +69736,278 @@
         "skills": [
             {
                 "iname": "SK_HISHARMU_TB_AB_2",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_ZOPHIE_TB_1": {
+        "iname": "AB_ZOPHIE_TB_1",
+        "kanji": "能力アップ【開罪:嫉妬】",
+        "name": "能力アップ【開罪:嫉妬】",
+        "expr": "HP上限・物攻・会心アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_ZOPHIE_TB_1ENV_MASTER",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_ZOPHIE_TB_2": {
+        "iname": "AB_ZOPHIE_TB_2",
+        "kanji": "ぐねぐねの墓守",
+        "name": "ぐねぐねの墓守",
+        "expr": "物攻・魔攻大幅アップ&命中率・回避率アップ&物防・魔防ダウン",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_ZOPHIE_TB_AB_2",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_DOROTHEA_TB_1": {
+        "iname": "AB_DOROTHEA_TB_1",
+        "kanji": "能力アップ【開罪:嫉妬】",
+        "name": "能力アップ【開罪:嫉妬】",
+        "expr": "HP上限・物攻・会心アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_DOROTHEA_TB_1ENV_MASTER",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_DOROTHEA_TB_2": {
+        "iname": "AB_DOROTHEA_TB_2",
+        "kanji": "燃え上がる恋心",
+        "name": "燃え上がる恋心",
+        "expr": "全属性耐性・物攻・素早さアップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_DOROTHEA_TB_AB_2",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_NASARIO_TB_1": {
+        "iname": "AB_NASARIO_TB_1",
+        "kanji": "能力アップ【開罪:嫉妬】",
+        "name": "能力アップ【開罪:嫉妬】",
+        "expr": "HP上限・魔攻・運アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_NASARIO_TB_1ENV_MASTER",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_NASARIO_TB_2": {
+        "iname": "AB_NASARIO_TB_2",
+        "kanji": "ハイエルフ至上主義",
+        "name": "ハイエルフ至上主義",
+        "expr": "全属性耐性・HP上限アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_NASARIO_TB_AB_2",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_MARIANNU_TB_1": {
+        "iname": "AB_MARIANNU_TB_1",
+        "kanji": "能力アップ【開罪:嫉妬】",
+        "name": "能力アップ【開罪:嫉妬】",
+        "expr": "HP上限・物攻・会心アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_MARIANNU_TB_1ENV_MASTER",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_MARIANNU_TB_2": {
+        "iname": "AB_MARIANNU_TB_2",
+        "kanji": "高貴なる宝石商",
+        "name": "高貴なる宝石商",
+        "expr": "初期ジュエル・HP上限アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_MARIANNU_TB_AB_2",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_FEIRIN_TB_1": {
+        "iname": "AB_FEIRIN_TB_1",
+        "kanji": "能力アップ【開罪:嫉妬】",
+        "name": "能力アップ【開罪:嫉妬】",
+        "expr": "HP上限・物攻・会心アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_FEIRIN_TB_1ENV_MASTER",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_FEIRIN_TB_2": {
+        "iname": "AB_FEIRIN_TB_2",
+        "kanji": "ピパ名奏者",
+        "name": "ピパ名奏者",
+        "expr": "会心・素早さ・物攻アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_FEIRIN_TB_AB_2",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_YURI_TB_1": {
+        "iname": "AB_YURI_TB_1",
+        "kanji": "能力アップ【開罪:嫉妬】",
+        "name": "能力アップ【開罪:嫉妬】",
+        "expr": "HP上限・物攻・会心アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_YURI_TB_1ENV_MASTER",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_YURI_TB_2": {
+        "iname": "AB_YURI_TB_2",
+        "kanji": "守り人",
+        "name": "守り人",
+        "expr": "移動力+1&移動高低差+2&素早さアップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_YURI_TB_AB_2",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_AMATERASU_TB_1": {
+        "iname": "AB_AMATERASU_TB_1",
+        "kanji": "能力アップ【開罪:嫉妬】",
+        "name": "能力アップ【開罪:嫉妬】",
+        "expr": "HP上限・物防・魔防・運アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_AMATERASU_TB_1ENV_MASTER",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_AMATERASU_TB_2": {
+        "iname": "AB_AMATERASU_TB_2",
+        "kanji": "天を照らす陽",
+        "name": "天を照らす陽",
+        "expr": "毒のダメージ・効果ターンアップ&素早さ・HP上限アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_AMATERASU_TB_AB_2",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_TSUKUYOMI_TB_1": {
+        "iname": "AB_TSUKUYOMI_TB_1",
+        "kanji": "能力アップ【開罪:嫉妬】",
+        "name": "能力アップ【開罪:嫉妬】",
+        "expr": "物防・魔防・運アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_TSUKUYOMI_TB_1ENV_MASTER",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "TobiraAbility"
+    },
+    "AB_TSUKUYOMI_TB_2": {
+        "iname": "AB_TSUKUYOMI_TB_2",
+        "kanji": "夜を統べる月",
+        "name": "夜を統べる月",
+        "expr": "魔攻・命中率アップ&全属性攻撃の威力アップ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_TSUKUYOMI_TB_AB_2",
                 "locklv": 1
             }
         ],
@@ -76165,6 +77454,447 @@
         ],
         "type_detail": "Default"
     },
+    "AB_MIZUGI2018_EX1": {
+        "iname": "AB_MIZUGI2018_EX1",
+        "kanji": "水着イベント2018EX_アビリティ",
+        "name": "水着イベント2018EX_アビリティ",
+        "expr": "敵ユニット用アビリティ",
+        "icon": "kari_no_ability",
+        "type": "Active",
+        "slot": "Support",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_MIZUGI2018_EX_ALL_RESIST",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_MIZUGI2018_EX_ALL_RESIST2",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_MIZUGI2018_EX_DEMON_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_MIZUGI2018_EX_DEMON_2",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_MIZUGI2018_EX_DEMON_3",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_MIZUGI2018_EX_DEMON_4",
+                "locklv": null
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_MIZUGI2018_EX2": {
+        "iname": "AB_MIZUGI2018_EX2",
+        "kanji": "水着イベント2018EX_魔人カウンター",
+        "name": "水着イベント2018EX_魔人カウンター",
+        "expr": "敵ユニット用アビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_MIZUGI2018_EX_DEMON_5",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_MIZUGI2018_EX3": {
+        "iname": "AB_MIZUGI2018_EX3",
+        "kanji": "水着イベント2018EX_石カウンター",
+        "name": "水着イベント2018EX_石カウンター",
+        "expr": "クロス1マスからの斬撃攻撃にのみ反応",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_MIZUGI2018_EX_CTR1",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_MIZUGI2018_EX4": {
+        "iname": "AB_MIZUGI2018_EX4",
+        "kanji": "水着イベント2018EX_石カウンター2",
+        "name": "水着イベント2018EX_石カウンター2",
+        "expr": "魔人妨害",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_MIZUGI2018_EX_CTR2",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_MIZUGI2018_EX6": {
+        "iname": "AB_MIZUGI2018_EX6",
+        "kanji": "水着イベント2018EX_石カウンター3",
+        "name": "水着イベント2018EX_石カウンター3",
+        "expr": "クロス1マスからの斬撃攻撃にのみ反応　極用",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 20,
+        "skills": [
+            {
+                "iname": "SK_MIZUGI2018_EX_CTR3",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_MIZUGI2018_EX5": {
+        "iname": "AB_MIZUGI2018_EX5",
+        "kanji": "水着イベント2018EX_魔人サポート",
+        "name": "水着イベント2018EX_魔人サポート",
+        "expr": "敵ユニット用アビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_MIZUGI2018_EX_DEMON_7",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Support"
+    },
+    "AB_ALC_IJ_GIANY_01": {
+        "iname": "AB_ALC_IJ_GIANY_01",
+        "kanji": "【巨人用】今泉P技",
+        "name": "【巨人用】今泉P技",
+        "expr": "ジョブ固有の今泉P技",
+        "icon": "kari_no_ability",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_ALC_IJ_GIANT_SKIL_01",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_ALC_IJ_GIANT_SKIL_02_MIN",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_ALC_IJ_GIANT_SKIL_02",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_ALC_IJ_GIANT_SKIL_03",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_ALC_IJ_GIANT_SKIL_04",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_ALC_IJ_GIANT_SKIL_05",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_ALC_IJ_GIANT_SKIL_06",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_ALC_IJ_GIANT_RE_01": {
+        "iname": "AB_ALC_IJ_GIANT_RE_01",
+        "kanji": "【巨人用】今泉Pリアクション技",
+        "name": "【巨人用】今泉Pリアクション技",
+        "expr": "ジョブ固有の今泉P技",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_ALC_IJ_GIANT_REACTION_01",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_NEC_ATK_GIANT_ISIS": {
+        "iname": "AB_NEC_ATK_GIANT_ISIS",
+        "kanji": "【巨人用】あいしす　裏切り",
+        "name": "【巨人用】あいしす　裏切り",
+        "expr": "敵ユニット用アビリティ",
+        "icon": "kari_no_ability",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 50,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_NEC_ATK_GIANT_ISIS",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_ORION_UPPER_1_GIANT_FUKUDA": {
+        "iname": "AB_ORION_UPPER_1_GIANT_FUKUDA",
+        "kanji": "【巨人用】ふくださん　裏切り",
+        "name": "【巨人用】ふくださん　裏切り",
+        "expr": "敵ユニット用アビリティ",
+        "icon": "kari_no_ability",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 50,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_ORION_UPPER_1_GIANT_FUKUDA",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_AJ7000_ATK_GIANT_NISIJIMA": {
+        "iname": "AB_AJ7000_ATK_GIANT_NISIJIMA",
+        "kanji": "巨人化クエ用　ニシジマさん",
+        "name": "巨人化クエ用　ニシジマさん",
+        "expr": "敵ユニット用アビリティ",
+        "icon": "kari_no_ability",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 50,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_AJ7000_ATK_GIANT_NISIJIMA",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_DMN_WIZ_STRIKE_GIANT_MURAKAMI": {
+        "iname": "AB_DMN_WIZ_STRIKE_GIANT_MURAKAMI",
+        "kanji": "巨人化クエ用　ムラカミさん",
+        "name": "巨人化クエ用　ムラカミさん",
+        "expr": "敵ユニット用アビリティ",
+        "icon": "kari_no_ability",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 50,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_DMN_WIZ_STRIKE_GIANT_MURAKAMI",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_IJ_GIANT_TASAKI_1": {
+        "iname": "AB_IJ_GIANT_TASAKI_1",
+        "kanji": "ラットン田崎　IJ巨大化マルチ用",
+        "name": "ラットン田崎　IJ巨大化マルチ用",
+        "expr": "敵ユニット用アビリティ",
+        "icon": "kari_no_ability",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_IJ_GIANT_TASAKI_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_IJ_GIANT_TASAKI_2",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_IJ_GIANT_TASAKI_3",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_IJ_GIANT_TASAKI_4",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Default"
+    },
+    "AB_AOT_GIANT_SMALL": {
+        "iname": "AB_AOT_GIANT_SMALL",
+        "kanji": "巨人技",
+        "name": "巨人技",
+        "expr": "ジョブ固有の技",
+        "icon": "kari_no_ability",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_AOT_GIANT_SMALL_UPPER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_GIANT_SMALL_UPPER_2",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_GIANT_SMALL_UPPER_3",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_GIANT_SMALL_UPPER_4",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_AOT_GIANT_SMALL_REACTION": {
+        "iname": "AB_AOT_GIANT_SMALL_REACTION",
+        "kanji": "巨人リアクション",
+        "name": "巨人リアクション",
+        "expr": "ジョブ汎用のリアクションアビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 100,
+        "skills": [
+            {
+                "iname": "SK_AOT_GIANT_SMALL_REACTION",
+                "locklv": 1
+            }
+        ]
+    },
+    "AB_TOROS": {
+        "iname": "AB_TOROS",
+        "kanji": "巨大獣＜トロス＞技",
+        "name": "巨大獣＜トロス＞技",
+        "expr": "ジョブ固有の技",
+        "icon": "kari_no_ability",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_TOROS_UPPER_1",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_TOROS_UPPER_2",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_TOROS_UPPER_3",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_TOROS_UPPER_4",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_TOROS_UPPER_5",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_TOROS_REACTION": {
+        "iname": "AB_TOROS_REACTION",
+        "kanji": "巨大獣＜トロス＞リアクション",
+        "name": "巨大獣＜トロス＞リアクション",
+        "expr": "ジョブ汎用のリアクションアビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 100,
+        "skills": [
+            {
+                "iname": "SK_TOROS_REACTION",
+                "locklv": 1
+            }
+        ]
+    },
+    "AB_AOT_ABNORMAL": {
+        "iname": "AB_AOT_ABNORMAL",
+        "kanji": "寄行種巨人技(目標捕捉以外)",
+        "name": "寄行種巨人技(目標捕捉以外)",
+        "expr": "ジョブ固有の寄行種巨人技",
+        "icon": "kari_no_ability",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 20,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_AOT_G_ABNORMAL_NIGIRI",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_G_ABNORMAL_KAMITUKI",
+                "locklv": 1
+            },
+            {
+                "iname": "SK_AOT_G_ABNORMAL_TOBI",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_AOT_ABNORMAL1": {
+        "iname": "AB_AOT_ABNORMAL1",
+        "kanji": "寄行種巨人技(目標捕捉のみ)",
+        "name": "寄行種巨人技(目標捕捉のみ)",
+        "expr": "ジョブ固有の寄行種巨人技",
+        "icon": "kari_no_ability",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 100,
+        "is_fixed": true,
+        "skills": [
+            {
+                "iname": "SK_AOT_G_ABNORMAL_TARGET",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Unique"
+    },
+    "AB_AOT_ABNORMAL_REACTION": {
+        "iname": "AB_AOT_ABNORMAL_REACTION",
+        "kanji": "寄行種巨人リアクション",
+        "name": "寄行種巨人リアクション",
+        "expr": "ジョブ汎用のリアクションアビリティ",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Reaction",
+        "lvcap": 100,
+        "skills": [
+            {
+                "iname": "SK_AOT_G_ABNORMAL_REACTION",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "Job_Reaction"
+    },
     "AB_NIN_JLV11_MAX": {
         "iname": "AB_NIN_JLV11_MAX",
         "kanji": "忍者：ジョブ11装備一式セット最大",
@@ -81181,6 +82911,185 @@
         ],
         "type_detail": "WeaponAbility"
     },
+    "AB_AF_ACCS_REBECCA_02": {
+        "iname": "AB_AF_ACCS_REBECCA_02",
+        "kanji": "ヘルコヴァーラの誇り",
+        "name": "ヘルコヴァーラの誇り",
+        "expr": "運アップ・ジュエル自動回復効果",
+        "icon": "AB_MASTER_0",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_AF_ACCS_REBECCA_02_WA",
+                "locklv": 1
+            }
+        ],
+        "condition_units": [
+            "UN_V2_REBECCA"
+        ],
+        "type_detail": "WeaponAbility"
+    },
+    "AB_AF_ACCS_REBECCA_02_B": {
+        "iname": "AB_AF_ACCS_REBECCA_02_B",
+        "kanji": "ヘルコヴァーラの誇り",
+        "name": "ヘルコヴァーラの誇り",
+        "expr": "運アップ・ジュエル自動回復効果",
+        "icon": "AB_MASTER_0",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_AF_ACCS_REBECCA_02_WA",
+                "locklv": 1
+            }
+        ],
+        "condition_units": [
+            "UN_V2_L_UROB"
+        ],
+        "condition_jobs": [
+            "JB_LUROB01"
+        ],
+        "type_detail": "WeaponAbility"
+    },
+    "AB_AF_ACCS_ALMA_02": {
+        "iname": "AB_AF_ACCS_ALMA_02",
+        "kanji": "トリニティストライク",
+        "name": "トリニティストライク",
+        "expr": "敵に3連続の光属性打撃攻撃&光属性ユニットの場合威力アップ[射程:4,高低差:2]",
+        "icon": "AB_MASTER_0",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_AF_ACCS_ALMA_02_WA",
+                "locklv": 1
+            }
+        ],
+        "condition_units": [
+            "UN_V2_ALMA"
+        ],
+        "condition_jobs": [
+            "JB_ALMA01"
+        ],
+        "type_detail": "WeaponAbility"
+    },
+    "AB_AF_ACCS_ALMA_02_B": {
+        "iname": "AB_AF_ACCS_ALMA_02_B",
+        "kanji": "トリニティストライク",
+        "name": "トリニティストライク",
+        "expr": "敵に3連続の光属性打撃攻撃&光属性ユニットの場合威力アップ[射程:4,高低差:2]",
+        "icon": "AB_MASTER_0",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_AF_ACCS_ALMA_02_WA",
+                "locklv": 1
+            }
+        ],
+        "condition_units": [
+            "UN_V2_L_UROB"
+        ],
+        "condition_jobs": [
+            "JB_LUROB01"
+        ],
+        "type_detail": "WeaponAbility"
+    },
+    "AB_AF_ACCS_AOT_EREN_01_WA": {
+        "iname": "AB_AF_ACCS_AOT_EREN_01_WA",
+        "kanji": "巨人化",
+        "name": "巨人化",
+        "expr": "エレンがジョブ「調査兵団員」のときに使える限定アビリティ",
+        "icon": "AB_MASTER_0",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_AF_ACCS_AOT_EREN_01_WA",
+                "locklv": 1
+            }
+        ],
+        "condition_units": [
+            "UN_V2_AOT_EREN"
+        ],
+        "condition_jobs": [
+            "JB_AOT_EREN01"
+        ],
+        "type_detail": "WeaponAbility"
+    },
+    "AB_AF_ACCS_AOT_REINER_01_WA": {
+        "iname": "AB_AF_ACCS_AOT_REINER_01_WA",
+        "kanji": "巨人化",
+        "name": "巨人化",
+        "expr": "ライナーがジョブ「調査兵団員」のときに使える限定アビリティ",
+        "icon": "AB_MASTER_0",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_AF_ACCS_AOT_REINER_01_WA",
+                "locklv": 1
+            }
+        ],
+        "condition_units": [
+            "UN_V2_AOT_REINER"
+        ],
+        "condition_jobs": [
+            "JB_AOT_REIN01"
+        ],
+        "type_detail": "WeaponAbility"
+    },
+    "AB_AF_ACCS_AOT_EMBLEM_01_WA": {
+        "iname": "AB_AF_ACCS_AOT_EMBLEM_01_WA",
+        "kanji": "自由の翼",
+        "name": "自由の翼",
+        "expr": "3ターン自身を中心とした範囲内の味方の全パラメータアップ[範囲:正方形1マス,高低差:2]",
+        "icon": "AB_MASTER_0",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_AF_ACCS_AOT_EMBLEM_01_WA",
+                "locklv": 1
+            }
+        ],
+        "condition_units": [
+            "UN_V2_AOT_EREN",
+            "UN_V2_AOT_REINER"
+        ],
+        "type_detail": "WeaponAbility"
+    },
+    "AB_AF_ACCS_AOT_EMBLEM_01_WA_2": {
+        "iname": "AB_AF_ACCS_AOT_EMBLEM_01_WA_2",
+        "kanji": "自由の翼",
+        "name": "自由の翼",
+        "expr": "3ターン自身を中心とした範囲内の味方の全パラメータアップ[範囲:正方形1マス,高低差:2]",
+        "icon": "AB_MASTER_0",
+        "type": "Active",
+        "slot": "Action",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_AF_ACCS_AOT_EMBLEM_01_WA",
+                "locklv": 1
+            }
+        ],
+        "condition_units": [
+            "UN_V2_L_UROB"
+        ],
+        "condition_jobs": [
+            "JB_LUROB01"
+        ],
+        "type_detail": "WeaponAbility"
+    },
     "AB_MAH_KAGO_FIRE_MIN": {
         "iname": "AB_MAH_KAGO_FIRE_MIN",
         "kanji": "火属性用耐性+（小）",
@@ -82979,5 +84888,22 @@
                 "locklv": 1
             }
         ]
+    },
+    "AB_ME_AOT": {
+        "iname": "AB_ME_AOT",
+        "kanji": "進撃の巨人コラボキャラ：マップ効果アビリティ",
+        "name": "進撃の巨人コラボキャラ：マップ効果アビリティ",
+        "expr": "【マップ効果セット】",
+        "icon": "kari_no_ability",
+        "type": "Passive",
+        "slot": "Support",
+        "lvcap": 1,
+        "skills": [
+            {
+                "iname": "SK_ME_NONE",
+                "locklv": 1
+            }
+        ],
+        "type_detail": "MapEffectAbility"
     }
 }

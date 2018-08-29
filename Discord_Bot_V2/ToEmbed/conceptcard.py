@@ -7,9 +7,9 @@ def Conceptcard(iname, page):
     #create basic embed
     embed= Embed(
         title='', #page name
-        #url=LinkDB('card',iname)  #page link
+        url=LinkDB('card',iname,'',True,'jp')  #page link
         )
-    embed.set_author(name=card['name'])#, url=LinkDB('card',iname))
+    embed.set_author(name=card['name'],url=embed.url)#, url=LinkDB('card',iname))
     embed.set_thumbnail(url='http://cdn.alchemistcodedb.com/images/cards/icons/{}.png'.format(iname))
     embed.set_image(url='http://cdn.alchemistcodedb.com/images/cards/artworks/{}.png'.format(iname))
 
@@ -56,7 +56,7 @@ def main(card):
             value.append('__**Skin:**__\n'+DIRS['Artifact'][effect['skin']]['name'])
         #statusup_skill
         if 'statusup_skill' in effect:
-            value.append('__**Unit Stats**__\n:'+
+            value.append('__**Stats:**__\n'+
             StrBuff(DIRS['Skill'][effect['statusup_skill']]['target_buff_iname'],2,2)
             )
         #card_skill
@@ -66,12 +66,12 @@ def main(card):
             )
         #add_card_skill_buff_awake
         if 'add_card_skill_buff_awake' in effect:
-            value.append('__**Awakenend Stats:**__\n'+
+            value.append('__**Limit Break Stats:**__\n'+
             StrBuff(effect['add_card_skill_buff_awake'],2,2)
             )
         #add_card_skill_buff_lvmax
         if 'add_card_skill_buff_lvmax' in effect:
-            value.append('__**Max LV Stats:**__\n:'+
+            value.append('__**Max Limit Break Stats:**__\n'+
             StrBuff(effect['add_card_skill_buff_lvmax'],2,2)
             )
         fields.append({'name':  'Effect '+str(i+1),      'value': '\n'.join(value), 'inline':False})

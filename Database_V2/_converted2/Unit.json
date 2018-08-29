@@ -10488,6 +10488,8 @@
         "raremax": 4,
         "element": "Light",
         "search": 3,
+        "ma_rarity": 5,
+        "ma_lv": 1,
         "skins": [
             "AF_SK_MIEL_SWIM"
         ],
@@ -10545,8 +10547,6 @@
         "voice": "mielikki",
         "dif": {
             "birthID": 4,
-            "ma_rarity": 5,
-            "ma_lv": 1,
             "ini_status": {
                 "param": {
                     "HP": 75
@@ -10566,9 +10566,9 @@
         "tierlist": {
             "job 1": "C",
             "job 2": "C",
-            "job 3": "C",
+            "job 3": "A",
             "jc": "",
-            "total": "C"
+            "total": "A"
         },
         "jobchanges": [
             "JB_ENC_ANTI_BUFF",
@@ -12395,6 +12395,8 @@
         "raremax": 4,
         "element": "Light",
         "search": 3,
+        "ma_rarity": 5,
+        "ma_lv": 1,
         "skins": [
             "AF_SK_SUZU_NEWY",
             "AF_SK_SUZU_UNIQUE",
@@ -12455,8 +12457,6 @@
         "dif": {
             "birthID": 8,
             "available_at": "2016/06/16 15:00:00",
-            "ma_rarity": 5,
-            "ma_lv": 1,
             "skins": [
                 "AF_SK_SUZU_S_CUTE"
             ],
@@ -12479,9 +12479,9 @@
         "tierlist": {
             "job 1": "C",
             "job 2": "B",
-            "job 3": "S",
+            "job 3": "SS",
             "jc": "",
-            "total": "S"
+            "total": "SS"
         },
         "jobchanges": [
             null,
@@ -12983,6 +12983,8 @@
         "raremax": 4,
         "element": "Water",
         "search": 3,
+        "ma_rarity": 5,
+        "ma_lv": 1,
         "skins": [],
         "tags": [
             "Human",
@@ -13038,8 +13040,6 @@
         "voice": "fengliu",
         "dif": {
             "birthID": 4,
-            "ma_rarity": 5,
-            "ma_lv": 1,
             "ini_status": {
                 "param": {
                     "HP": 82
@@ -14134,7 +14134,9 @@
         "search": 3,
         "ma_rarity": 5,
         "ma_lv": 1,
-        "skins": [],
+        "skins": [
+            "AF_SK_SHEN_UNIQUE"
+        ],
         "tags": [
             "Human",
             "Female"
@@ -14189,6 +14191,9 @@
         "voice": "shengmei",
         "dif": {
             "birthID": 6,
+            "skins": [
+                "AF_SK_SHEN_UNIQUE"
+            ],
             "ini_status": {
                 "param": {
                     "HP": 99
@@ -18138,10 +18143,83 @@
             "total": "SS"
         },
         "jobchanges": [
-            null,
+            "JB_DORO_NEC",
             "JB_MAH_FIRE",
             null
         ],
+        "kaigan": {
+            "Unlock": {
+                "mUnitIname": "UN_V2_DOROTHEA",
+                "mEnable": true,
+                "mCategory": "Unlock",
+                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_FIRE_KISHI",
+                "mLearnAbilities": []
+            },
+            "Envy": {
+                "mUnitIname": "UN_V2_DOROTHEA",
+                "mEnable": true,
+                "mCategory": "Envy",
+                "mRecipeId": "TB_RECIPE_ENV_R5_FIRE",
+                "mSkillIname": "SK_DOROTHEA_TB_1ENV",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_DOROTHEA_TB_1",
+                        "mLevel": 6,
+                        "mAddType": 2
+                    }
+                ]
+            },
+            "Wrath": {
+                "mUnitIname": "UN_V2_DOROTHEA",
+                "mEnable": true,
+                "mCategory": "Wrath",
+                "mRecipeId": "TB_RECIPE_SLO_R5_FIRE",
+                "mSkillIname": "SK_DOROTHEA_TB_2SLO",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_DOROTHEA_TB_2",
+                        "mLevel": 6,
+                        "mAddType": 1,
+                        "mAbilityOverwrite": "AB_MAH_SEIREINOKAGO"
+                    }
+                ]
+            },
+            "Sloth": {
+                "mUnitIname": "UN_V2_DOROTHEA",
+                "mEnable": true,
+                "mCategory": "Sloth",
+                "mRecipeId": "TB_RECIPE_LUS_R5_FIRE",
+                "mSkillIname": "SK_DOROTHEA_TB_3LUS",
+                "mLearnAbilities": [],
+                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_FIRE_30_U_HP_20_U_ATK_20_U_FIRE",
+                "mOverwriteLeaderSkillLevel": 6,
+                "mPriority": 1
+            },
+            "Lust": {
+                "mUnitIname": "UN_V2_DOROTHEA",
+                "mCategory": "Lust",
+                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+                "mLearnAbilities": []
+            },
+            "Gluttony": {
+                "mUnitIname": "UN_V2_DOROTHEA",
+                "mCategory": "Gluttony",
+                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+                "mLearnAbilities": []
+            },
+            "Greed": {
+                "mUnitIname": "UN_V2_DOROTHEA",
+                "mCategory": "Greed",
+                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+                "mLearnAbilities": []
+            },
+            "Pride": {
+                "mUnitIname": "UN_V2_DOROTHEA",
+                "mCategory": "Pride",
+                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+                "mLearnAbilities": []
+            }
+        },
         "conceptcard": "TS_WRATH_DOROTHEA_01"
     },
     "UN_V2_REIDA": {
@@ -21412,8 +21490,8 @@
             "JB_DAI"
         ],
         "tierlist": {
-            "job 1": "SS",
-            "job 2": "SS",
+            "job 1": "S",
+            "job 2": "S",
             "job 3": "SS",
             "jc": "",
             "total": "SS"
@@ -21612,10 +21690,83 @@
             "total": "S"
         },
         "jobchanges": [
-            null,
+            "JB_NEC_DARK",
             null,
             "JB_SHN_HEEL"
-        ]
+        ],
+        "kaigan": {
+            "Unlock": {
+                "mUnitIname": "UN_V2_MARIANNU",
+                "mEnable": true,
+                "mCategory": "Unlock",
+                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R4_DARK_KISHI",
+                "mLearnAbilities": []
+            },
+            "Envy": {
+                "mUnitIname": "UN_V2_MARIANNU",
+                "mEnable": true,
+                "mCategory": "Envy",
+                "mRecipeId": "TB_RECIPE_ENV_R5_DARK",
+                "mSkillIname": "SK_MARIANNU_TB_1ENV",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_MARIANNU_TB_1",
+                        "mLevel": 6,
+                        "mAddType": 2
+                    }
+                ]
+            },
+            "Wrath": {
+                "mUnitIname": "UN_V2_MARIANNU",
+                "mEnable": true,
+                "mCategory": "Wrath",
+                "mRecipeId": "TB_RECIPE_SLO_R5_DARK",
+                "mSkillIname": "SK_MARIANNU_TB_2SLO",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_MARIANNU_TB_2",
+                        "mLevel": 6,
+                        "mAddType": 1,
+                        "mAbilityOverwrite": "AB_SHN_SUPPORT_01"
+                    }
+                ]
+            },
+            "Sloth": {
+                "mUnitIname": "UN_V2_MARIANNU",
+                "mEnable": true,
+                "mCategory": "Sloth",
+                "mRecipeId": "TB_RECIPE_LUS_R5_DARK",
+                "mSkillIname": "SK_MARIANNU_TB_3LUS",
+                "mLearnAbilities": [],
+                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_DARK_40_U_HP_20_U_ATK_10_U_MPGET",
+                "mOverwriteLeaderSkillLevel": 6,
+                "mPriority": 1
+            },
+            "Lust": {
+                "mUnitIname": "UN_V2_MARIANNU",
+                "mCategory": "Lust",
+                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+                "mLearnAbilities": []
+            },
+            "Gluttony": {
+                "mUnitIname": "UN_V2_MARIANNU",
+                "mCategory": "Gluttony",
+                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+                "mLearnAbilities": []
+            },
+            "Greed": {
+                "mUnitIname": "UN_V2_MARIANNU",
+                "mCategory": "Greed",
+                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+                "mLearnAbilities": []
+            },
+            "Pride": {
+                "mUnitIname": "UN_V2_MARIANNU",
+                "mCategory": "Pride",
+                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+                "mLearnAbilities": []
+            }
+        }
     },
     "UN_V2_TAMAMO": {
         "no": 999,
@@ -22084,6 +22235,204 @@
             "job 3": "A",
             "jc": "",
             "total": "SS"
+        }
+    },
+    "UN_V2_GL_SHION": {
+        "no": 999,
+        "iname": "UN_V2_GL_SHION",
+        "name": "Shion",
+        "kanji": "Shion",
+        "height": 162,
+        "weight": 48,
+        "birth": "Wadatsumi",
+        "lore": {
+            "profile": "Shion is a visage of ethereal beauty which steals the breaths of everyone. Shion has unparalleled skill with both dance and bladework transforming them into a deadly and flawless art form. Everywhere Shion travels to is followed by an endless line of suitors desiring to win Shion's affections. However that which they desire is reserved by Shion's younger sister. Beneath that beautiful exterior however, Shion is a deadly effecient agent working for an unknown patron. The air of mystery surrounding this lithe and haunting beauty is bound to hide many more secrets. Perhaps one of these secrets is the reason why Shion's face is often tinged with sorrow.",
+            "country": "Wadatsumi",
+            "height": "172cm",
+            "weight": "Slender",
+            "birth": "???",
+            "zodiac": "Moon of the Fiery Imperial Skies",
+            "blood": "Type Pa",
+            "favorite": "Kimonos, Stage plays, Younger Sister",
+            "hobby": "Music, Swords",
+            "illust": "Raijuu",
+            "cv": "佐竹海莉"
+        },
+        "ai": "AI_PLAYER",
+        "model": "gl_shio",
+        "grow": "R6",
+        "piece": "IT_PI_GL_SHIO",
+        "skill": "SK_LS_GL_SHION",
+        "sw": 1,
+        "sh": 1,
+        "sex": "Male",
+        "rare": 4,
+        "raremax": 4,
+        "element": "Wind",
+        "search": 3,
+        "skins": [
+            "AF_SK_GL_SHIO_SWIM"
+        ],
+        "tags": [
+            "Human",
+            "Male"
+        ],
+        "ini_status": {
+            "param": {
+                "HP": 85,
+                "Max Jewels": 44,
+                "PATK": 55,
+                "PDEF": 25,
+                "MATK": 35,
+                "MDEF": 25,
+                "DEX": 45,
+                "AGI": 55,
+                "CRIT": 45,
+                "LUCK": 42
+            },
+            "enchant_resist": {}
+        },
+        "max_status": {
+            "param": {
+                "HP": 580,
+                "Max Jewels": 180,
+                "PATK": 195,
+                "PDEF": 97,
+                "MATK": 135,
+                "MDEF": 95,
+                "DEX": 160,
+                "AGI": 92,
+                "CRIT": 152,
+                "LUCK": 148
+            },
+            "enchant_resist": {}
+        },
+        "leader_skills": [
+            "SK_LS_GL_SHION",
+            "SK_LS_GL_SHION",
+            "SK_LS_GL_SHION",
+            "SK_LS_GL_SHION",
+            "SK_LS_GL_SHION",
+            "SK_LS_GL_SHION"
+        ],
+        "recipes": [
+            "RECIPE_SETSUNA_1",
+            "RECIPE_SETSUNA_2",
+            "RECIPE_SETSUNA_3",
+            "RECIPE_SETSUNA_4",
+            null,
+            null
+        ],
+        "image": "gl_shio",
+        "voice": "gl_shion",
+        "jobs": [
+            "JB_GL_KTN",
+            "JB_SHN",
+            "JB_KIL"
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "B",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
+    },
+    "UN_V2_GL_SOREN": {
+        "no": 999,
+        "iname": "UN_V2_GL_SOREN",
+        "name": "Soren",
+        "kanji": "Soren",
+        "height": 149,
+        "weight": 46,
+        "birth": "Lustburg",
+        "lore": {
+            "profile": "Soren is a mysterious man with no recollection of his past. He is the Speaker of a peculiar village with an incredible talent for Alchemy. A traveller showed Soren that people need to fend for themselves to grow, so he left with the traveller to discover more about his own past.",
+            "country": "Saga Region",
+            "height": "158cm",
+            "weight": "42kg",
+            "birth": "???",
+            "zodiac": "Moon of the Ice Water Wolf",
+            "blood": "Type Pa",
+            "favorite": "Small animals",
+            "hobby": "Discovering his past",
+            "illust": "gumi Asia",
+            "cv": "寺島愛"
+        },
+        "ai": "AI_PLAYER",
+        "model": "gl_sore",
+        "grow": "R6",
+        "piece": "IT_PI_GL_SORE",
+        "skill": "SK_LS_GL_SOREN",
+        "sw": 1,
+        "sh": 1,
+        "sex": "Male",
+        "rare": 4,
+        "raremax": 4,
+        "element": "Water",
+        "search": 3,
+        "skins": [],
+        "tags": [
+            "Human",
+            "Male"
+        ],
+        "ini_status": {
+            "param": {
+                "HP": 80,
+                "Max Jewels": 44,
+                "PATK": 38,
+                "PDEF": 25,
+                "MATK": 42,
+                "MDEF": 25,
+                "DEX": 43,
+                "AGI": 53,
+                "CRIT": 42,
+                "LUCK": 40
+            },
+            "enchant_resist": {}
+        },
+        "max_status": {
+            "param": {
+                "HP": 633,
+                "Max Jewels": 185,
+                "PATK": 105,
+                "PDEF": 80,
+                "MATK": 152,
+                "MDEF": 110,
+                "DEX": 116,
+                "AGI": 85,
+                "CRIT": 125,
+                "LUCK": 138
+            },
+            "enchant_resist": {}
+        },
+        "leader_skills": [
+            "SK_LS_GL_SOREN",
+            "SK_LS_GL_SOREN",
+            "SK_LS_GL_SOREN",
+            "SK_LS_GL_SOREN",
+            "SK_LS_GL_SOREN",
+            "SK_LS_GL_SOREN"
+        ],
+        "recipes": [
+            "RECIPE_LIESBET_1",
+            "RECIPE_LIESBET_2",
+            "RECIPE_LIESBET_3",
+            "RECIPE_LIESBET_4",
+            null,
+            null
+        ],
+        "image": "gl_sore",
+        "voice": "gl_soren",
+        "jobs": [
+            "JB_GL_DIV"
+        ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "",
+            "job 3": "",
+            "jc": "",
+            "total": "B"
         }
     },
     "UN_V2_FF15_NOCTIS": {
@@ -22854,6 +23203,8 @@
         "dif": {
             "birth": "Northern Pride",
             "birthID": 10,
+            "ability": "AB_NASARIO_MA_01",
+            "ma_quest": "QE_CH_NASARIO_3",
             "ini_status": {
                 "param": {
                     "HP": 124
@@ -22881,7 +23232,80 @@
             "JB_SYO_TIR",
             "JB_MAH_WIND",
             null
-        ]
+        ],
+        "kaigan": {
+            "Unlock": {
+                "mUnitIname": "UN_V2_NASARIO",
+                "mEnable": true,
+                "mCategory": "Unlock",
+                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_WIND_KISHI",
+                "mLearnAbilities": []
+            },
+            "Envy": {
+                "mUnitIname": "UN_V2_NASARIO",
+                "mEnable": true,
+                "mCategory": "Envy",
+                "mRecipeId": "TB_RECIPE_ENV_R5_WIND",
+                "mSkillIname": "SK_NASARIO_TB_1ENV",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_NASARIO_TB_1",
+                        "mLevel": 6,
+                        "mAddType": 2
+                    }
+                ]
+            },
+            "Wrath": {
+                "mUnitIname": "UN_V2_NASARIO",
+                "mEnable": true,
+                "mCategory": "Wrath",
+                "mRecipeId": "TB_RECIPE_SLO_R5_WIND",
+                "mSkillIname": "SK_NASARIO_TB_2SLO",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_NASARIO_TB_2",
+                        "mLevel": 6,
+                        "mAddType": 1,
+                        "mAbilityOverwrite": "AB_MAH_SEIREINOKAGO"
+                    }
+                ]
+            },
+            "Sloth": {
+                "mUnitIname": "UN_V2_NASARIO",
+                "mEnable": true,
+                "mCategory": "Sloth",
+                "mRecipeId": "TB_RECIPE_LUS_R5_WIND",
+                "mSkillIname": "SK_NASARIO_TB_3LUS",
+                "mLearnAbilities": [],
+                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_WIND_30_U_MAGIC_30_U_HP_10_U_DFWIND",
+                "mOverwriteLeaderSkillLevel": 6,
+                "mPriority": 1
+            },
+            "Lust": {
+                "mUnitIname": "UN_V2_NASARIO",
+                "mCategory": "Lust",
+                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+                "mLearnAbilities": []
+            },
+            "Gluttony": {
+                "mUnitIname": "UN_V2_NASARIO",
+                "mCategory": "Gluttony",
+                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+                "mLearnAbilities": []
+            },
+            "Greed": {
+                "mUnitIname": "UN_V2_NASARIO",
+                "mCategory": "Greed",
+                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+                "mLearnAbilities": []
+            },
+            "Pride": {
+                "mUnitIname": "UN_V2_NASARIO",
+                "mCategory": "Pride",
+                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+                "mLearnAbilities": []
+            }
+        }
     },
     "UN_V2_MIKOTO": {
         "no": 999,
@@ -23238,7 +23662,80 @@
             null,
             "JB_DOC_TYPE_HEALING",
             null
-        ]
+        ],
+        "kaigan": {
+            "Unlock": {
+                "mUnitIname": "UN_V2_S_AMATERASU",
+                "mEnable": true,
+                "mCategory": "Unlock",
+                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R3_SHINE_JYUTSUSHI",
+                "mLearnAbilities": []
+            },
+            "Envy": {
+                "mUnitIname": "UN_V2_S_AMATERASU",
+                "mEnable": true,
+                "mCategory": "Envy",
+                "mRecipeId": "TB_RECIPE_COLLABO_ENV_R5_SHINE",
+                "mSkillIname": "SK_AMATERASU_TB_1ENV",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_AMATERASU_TB_1",
+                        "mLevel": 6,
+                        "mAddType": 2
+                    }
+                ]
+            },
+            "Wrath": {
+                "mUnitIname": "UN_V2_S_AMATERASU",
+                "mEnable": true,
+                "mCategory": "Wrath",
+                "mRecipeId": "TB_RECIPE_COLLABO_SLO_R5_SHINE",
+                "mSkillIname": "SK_AMATERASU_TB_2SLO",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_AMATERASU_TB_2",
+                        "mLevel": 6,
+                        "mAddType": 1,
+                        "mAbilityOverwrite": "AB_DOC_POISON_KNOWLEDGE"
+                    }
+                ]
+            },
+            "Sloth": {
+                "mUnitIname": "UN_V2_S_AMATERASU",
+                "mEnable": true,
+                "mCategory": "Sloth",
+                "mRecipeId": "TB_RECIPE_COLLABO_LUS_R5_SHINE",
+                "mSkillIname": "SK_AMATERASU_TB_3LUS",
+                "mLearnAbilities": [],
+                "mOverwriteLeaderSkillIname": "SK_LS_CN_OTHER_40_U_HP_20_U_MAG_5_U_JEWEL",
+                "mOverwriteLeaderSkillLevel": 6,
+                "mPriority": 1
+            },
+            "Lust": {
+                "mUnitIname": "UN_V2_S_AMATERASU",
+                "mCategory": "Lust",
+                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+                "mLearnAbilities": []
+            },
+            "Gluttony": {
+                "mUnitIname": "UN_V2_S_AMATERASU",
+                "mCategory": "Gluttony",
+                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+                "mLearnAbilities": []
+            },
+            "Greed": {
+                "mUnitIname": "UN_V2_S_AMATERASU",
+                "mCategory": "Greed",
+                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+                "mLearnAbilities": []
+            },
+            "Pride": {
+                "mUnitIname": "UN_V2_S_AMATERASU",
+                "mCategory": "Pride",
+                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+                "mLearnAbilities": []
+            }
+        }
     },
     "UN_V2_POK_EROS": {
         "no": 999,
@@ -23476,7 +23973,80 @@
             null,
             "JB_NIN_SUZAKU",
             null
-        ]
+        ],
+        "kaigan": {
+            "Unlock": {
+                "mUnitIname": "UN_V2_S_YURI",
+                "mEnable": true,
+                "mCategory": "Unlock",
+                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_THUNDER_FURAI",
+                "mLearnAbilities": []
+            },
+            "Envy": {
+                "mUnitIname": "UN_V2_S_YURI",
+                "mEnable": true,
+                "mCategory": "Envy",
+                "mRecipeId": "TB_RECIPE_COLLABO_ENV_R5_THUNDER",
+                "mSkillIname": "SK_YURI_TB_1ENV",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_YURI_TB_1",
+                        "mLevel": 6,
+                        "mAddType": 2
+                    }
+                ]
+            },
+            "Wrath": {
+                "mUnitIname": "UN_V2_S_YURI",
+                "mEnable": true,
+                "mCategory": "Wrath",
+                "mRecipeId": "TB_RECIPE_COLLABO_SLO_R5_THUNDER",
+                "mSkillIname": "SK_YURI_TB_2SLO",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_YURI_TB_2",
+                        "mLevel": 6,
+                        "mAddType": 1,
+                        "mAbilityOverwrite": "AB_NIN_SHINOBIASHI_SUZAKU"
+                    }
+                ]
+            },
+            "Sloth": {
+                "mUnitIname": "UN_V2_S_YURI",
+                "mEnable": true,
+                "mCategory": "Sloth",
+                "mRecipeId": "TB_RECIPE_COLLABO_LUS_R5_THUNDER",
+                "mSkillIname": "SK_YURI_TB_3LUS",
+                "mLearnAbilities": [],
+                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_THUNDER_40_U_ATK_10_U_HIT_5_U_JEWEL",
+                "mOverwriteLeaderSkillLevel": 6,
+                "mPriority": 1
+            },
+            "Lust": {
+                "mUnitIname": "UN_V2_S_YURI",
+                "mCategory": "Lust",
+                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+                "mLearnAbilities": []
+            },
+            "Gluttony": {
+                "mUnitIname": "UN_V2_S_YURI",
+                "mCategory": "Gluttony",
+                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+                "mLearnAbilities": []
+            },
+            "Greed": {
+                "mUnitIname": "UN_V2_S_YURI",
+                "mCategory": "Greed",
+                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+                "mLearnAbilities": []
+            },
+            "Pride": {
+                "mUnitIname": "UN_V2_S_YURI",
+                "mCategory": "Pride",
+                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+                "mLearnAbilities": []
+            }
+        }
     },
     "UN_V2_YUNAGI": {
         "no": 999,
@@ -23770,6 +24340,8 @@
         "voice": "zin",
         "dif": {
             "birthID": 8,
+            "ability": "AB_ZIN_MA_01",
+            "ma_quest": "QE_CH_ZIN_3",
             "ini_status": {
                 "param": {
                     "HP": 89
@@ -23872,6 +24444,327 @@
             }
         },
         "conceptcard": "TS_WADA_ZIN_01",
+        "occurrence": [
+            "QE_LIMIT_UEXP_03"
+        ]
+    },
+    "UN_V2_CHAO": {
+        "no": 999,
+        "iname": "UN_V2_CHAO",
+        "name": "Chao",
+        "kanji": "チャオ",
+        "height": 153,
+        "weight": 40,
+        "birth": "Greed Dike",
+        "lore": {
+            "profile": "Chao is a young strategic genius from Greed Dike who is versed in a range of strategic military theory. He is heir to a great noble family, and perhaps as a result of his privileged upbringing, will often act snobbishly, boasting arrogantly of his intellect. In some ways he does act like you'd expect a child of his age to, though-his greatest dream is to become a \"cool guy who's good with weapons.\"",
+            "country": "Greed Dike",
+            "height": "153cm",
+            "weight": "40kg",
+            "birth": "Nov 13",
+            "zodiac": "Moon of the Thunder Beast",
+            "blood": "Type Qe",
+            "favorite": "Being treated like an adult",
+            "hobby": "Daydreaming",
+            "illust": "杏虎太郎",
+            "cv": "斎賀みつき"
+        },
+        "ai": "AI_PLAYER",
+        "model": "chao",
+        "grow": "R6",
+        "piece": "IT_PI_CHAO",
+        "skill": "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+        "sw": 1,
+        "sh": 1,
+        "sex": "Male",
+        "rare": 4,
+        "raremax": 4,
+        "element": "Thunder",
+        "search": 3,
+        "skins": [],
+        "tags": [
+            "Human",
+            "Male"
+        ],
+        "ini_status": {
+            "param": {
+                "HP": 90,
+                "Max Jewels": 48,
+                "PATK": 36,
+                "PDEF": 28,
+                "MATK": 39,
+                "MDEF": 30,
+                "DEX": 40,
+                "AGI": 52,
+                "CRIT": 38,
+                "LUCK": 40
+            },
+            "enchant_resist": {}
+        },
+        "max_status": {
+            "param": {
+                "HP": 478,
+                "Max Jewels": 194,
+                "PATK": 128,
+                "PDEF": 100,
+                "MATK": 140,
+                "MDEF": 108,
+                "DEX": 146,
+                "AGI": 89,
+                "CRIT": 138,
+                "LUCK": 146
+            },
+            "enchant_resist": {}
+        },
+        "leader_skills": [
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
+            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP"
+        ],
+        "recipes": [
+            "RECIPE_CHAO_1",
+            "RECIPE_CHAO_2",
+            "RECIPE_CHAO_3",
+            "RECIPE_CHAO_4",
+            null,
+            null
+        ],
+        "image": "chao",
+        "voice": "chao",
+        "dif": {
+            "birthID": 6,
+            "ability": "AB_CHAO_MA_01",
+            "ma_quest": "QE_CH_CHAO_3",
+            "ma_rarity": 5,
+            "ma_lv": 1,
+            "ini_status": {
+                "param": {
+                    "HP": 87
+                }
+            },
+            "max_status": {
+                "param": {
+                    "HP": 455
+                }
+            }
+        },
+        "jobs": [
+            "JB_HWIZ",
+            "JB_SOL",
+            "JB_SEN"
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "A"
+        },
+        "jobchanges": [
+            null,
+            "JB_SOL_ATK",
+            null
+        ],
+        "kaigan": {
+            "Unlock": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mEnable": true,
+                "mCategory": "Unlock",
+                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_THUNDER_KISHI",
+                "mLearnAbilities": []
+            },
+            "Envy": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mEnable": true,
+                "mCategory": "Envy",
+                "mRecipeId": "TB_RECIPE_ENV_R5_THUNDER",
+                "mSkillIname": "SK_CHAO_TB_1ENV",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_CHAO_TB_1",
+                        "mLevel": 6,
+                        "mAddType": 2
+                    }
+                ]
+            },
+            "Wrath": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mEnable": true,
+                "mCategory": "Wrath",
+                "mRecipeId": "TB_RECIPE_SLO_R5_THUNDER",
+                "mSkillIname": "SK_CHAO_TB_2SLO",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_CHAO_TB_2",
+                        "mLevel": 6,
+                        "mAddType": 1,
+                        "mAbilityOverwrite": "AB_SOL_FEINT"
+                    }
+                ]
+            },
+            "Sloth": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mEnable": true,
+                "mCategory": "Sloth",
+                "mRecipeId": "TB_RECIPE_LUS_R5_THUNDER",
+                "mSkillIname": "SK_CHAO_TB_3LUS",
+                "mLearnAbilities": [],
+                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP_10_U_DFTHUNDER",
+                "mOverwriteLeaderSkillLevel": 6,
+                "mPriority": 1
+            },
+            "Lust": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mCategory": "Lust",
+                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+                "mLearnAbilities": []
+            },
+            "Gluttony": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mCategory": "Gluttony",
+                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+                "mLearnAbilities": []
+            },
+            "Greed": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mCategory": "Greed",
+                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+                "mLearnAbilities": []
+            },
+            "Pride": {
+                "mUnitIname": "UN_V2_CHAO",
+                "mCategory": "Pride",
+                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+                "mLearnAbilities": []
+            }
+        },
+        "occurrence": [
+            "QE_MT_TOWER_TEST23",
+            "QE_EV_HAGAREN_7",
+            "QE_EV_HAGAREN_2_7",
+            "QE_EV_HAGAREN_3_7",
+            "QE_MULTI_HAGAREN_3_7"
+        ]
+    },
+    "UN_V2_OLGA": {
+        "no": 999,
+        "iname": "UN_V2_OLGA",
+        "name": "Olga",
+        "kanji": "オルガ",
+        "height": 173,
+        "weight": 58,
+        "birth": "Saga Region",
+        "lore": {
+            "profile": "Olga is a young girl from a tribe of beast-people who live in the darkest depths of the Saga Region. She despises alchemy, which goes against the laws of nature, and the humans who use it. As you'd expect for someone who's grown up in the wild, she possesses phenomenal physical agility. When treated like a lady, though, she'll also show a cute, \"girly\" side...",
+            "country": "Saga Region",
+            "height": "173cm",
+            "weight": "58kg",
+            "birth": "Jan 1",
+            "zodiac": "Moon of the Bright Knight",
+            "blood": "Type Qe",
+            "favorite": "Fruit, new things",
+            "hobby": "Physical exercise",
+            "illust": "大盛よしを",
+            "cv": "中西優香"
+        },
+        "ai": "AI_PLAYER",
+        "model": "olga",
+        "grow": "R6",
+        "piece": "IT_PI_OLGA",
+        "skill": "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+        "sw": 1,
+        "sh": 1,
+        "sex": "Female",
+        "rare": 4,
+        "raremax": 4,
+        "element": "Light",
+        "search": 3,
+        "skins": [],
+        "tags": [
+            "Human",
+            "Female"
+        ],
+        "ini_status": {
+            "param": {
+                "HP": 121,
+                "Max Jewels": 45,
+                "PATK": 44,
+                "PDEF": 34,
+                "MATK": 37,
+                "MDEF": 30,
+                "DEX": 42,
+                "AGI": 51,
+                "CRIT": 41,
+                "LUCK": 40
+            },
+            "enchant_resist": {}
+        },
+        "max_status": {
+            "param": {
+                "HP": 811,
+                "Max Jewels": 182,
+                "PATK": 166,
+                "PDEF": 120,
+                "MATK": 133,
+                "MDEF": 116,
+                "DEX": 145,
+                "AGI": 93,
+                "CRIT": 152,
+                "LUCK": 146
+            },
+            "enchant_resist": {}
+        },
+        "leader_skills": [
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
+            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO"
+        ],
+        "recipes": [
+            "RECIPE_OLGA_1",
+            "RECIPE_OLGA_2",
+            "RECIPE_OLGA_3",
+            "RECIPE_OLGA_4",
+            null,
+            null
+        ],
+        "image": "olga",
+        "voice": "olga",
+        "dif": {
+            "birthID": 7,
+            "ini_status": {
+                "param": {
+                    "HP": 130
+                }
+            },
+            "max_status": {
+                "param": {
+                    "HP": 902
+                }
+            }
+        },
+        "jobs": [
+            "JB_BLA",
+            "JB_MAH",
+            "JB_ONM"
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        },
+        "jobchanges": [
+            "JB_BLA_TYPE_TK_MONS",
+            null,
+            null
+        ],
         "occurrence": [
             "QE_LIMIT_UEXP_03"
         ]
@@ -23990,6 +24883,189 @@
             "QE_WA_ZIN_EX_1",
             "QE_MULTI_WA_ZIN_EX_1"
         ]
+    },
+    "UN_V2_MIUNA": {
+        "no": 999,
+        "iname": "UN_V2_MIUNA",
+        "name": "Miuna",
+        "kanji": "ミウナ",
+        "height": 154,
+        "weight": 40,
+        "birth": "Slothstein",
+        "lore": {
+            "profile": "Miuna is a descendant from the People of Ku, who forged Excalibur. Miuna inherited her father's talent as well, making her an excellent blacksmith. She can be quite emotional, but once you've earned her trust, she's a reliable ally who will never betray you. Miuna looks up to Zain and Cadanova like older brothers, since they often visited her father.",
+            "country": "Slothstein",
+            "height": "154cm",
+            "weight": "40kg",
+            "birth": "Apr 21",
+            "zodiac": "Moon of the Flame King",
+            "blood": "Type Qe",
+            "favorite": "Anvil sparks",
+            "hobby": "Gathering ores",
+            "illust": "─",
+            "cv": "小倉唯"
+        },
+        "ai": "AI_PLAYER",
+        "model": "miun",
+        "grow": "R6",
+        "piece": "IT_PI_MIUNA",
+        "skill": "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
+        "sw": 1,
+        "sh": 1,
+        "sex": "Female",
+        "rare": 4,
+        "raremax": 4,
+        "element": "Fire",
+        "search": 3,
+        "skins": [],
+        "tags": [
+            "Human",
+            "Female"
+        ],
+        "ini_status": {
+            "param": {
+                "HP": 88,
+                "Max Jewels": 41,
+                "PATK": 40,
+                "PDEF": 26,
+                "MATK": 32,
+                "MDEF": 22,
+                "DEX": 45,
+                "AGI": 53,
+                "CRIT": 43,
+                "LUCK": 42
+            },
+            "enchant_resist": {}
+        },
+        "max_status": {
+            "param": {
+                "HP": 480,
+                "Max Jewels": 166,
+                "PATK": 148,
+                "PDEF": 91,
+                "MATK": 127,
+                "MDEF": 82,
+                "DEX": 168,
+                "AGI": 101,
+                "CRIT": 155,
+                "LUCK": 141
+            },
+            "enchant_resist": {}
+        },
+        "leader_skills": [
+            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
+            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
+            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
+            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
+            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
+            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE"
+        ],
+        "recipes": [
+            "RECIPE_MIUNA_1",
+            "RECIPE_MIUNA_2",
+            "RECIPE_MIUNA_3",
+            "RECIPE_MIUNA_4",
+            null,
+            null
+        ],
+        "image": "miun",
+        "voice": "miuna",
+        "dif": {
+            "birthID": 3,
+            "ini_status": {
+                "param": {
+                    "HP": 90
+                }
+            },
+            "max_status": {
+                "param": {
+                    "HP": 507
+                }
+            }
+        },
+        "jobs": [
+            "JB_MIUN_KAJ",
+            "JB_THI",
+            "JB_GUA"
+        ],
+        "jobchanges": [
+            "JB_MIUN_KAJ_CC",
+            null,
+            "JB_GUA_TYPE_HEALING"
+        ],
+        "kaigan": {
+            "Unlock": {
+                "mUnitIname": "UN_V2_MIUNA",
+                "mEnable": true,
+                "mCategory": "Unlock",
+                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_FIRE_KISHI",
+                "mLearnAbilities": []
+            },
+            "Envy": {
+                "mUnitIname": "UN_V2_MIUNA",
+                "mEnable": true,
+                "mCategory": "Envy",
+                "mRecipeId": "TB_RECIPE_ENV_R5_FIRE",
+                "mSkillIname": "SK_MIUNA_TB_1ENV",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_MIUNA_TB_1",
+                        "mLevel": 6,
+                        "mAddType": 2
+                    }
+                ]
+            },
+            "Wrath": {
+                "mUnitIname": "UN_V2_MIUNA",
+                "mEnable": true,
+                "mCategory": "Wrath",
+                "mRecipeId": "TB_RECIPE_SLO_R5_FIRE",
+                "mSkillIname": "SK_MIUNA_TB_2SLO",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_MIUNA_TB_2",
+                        "mLevel": 6,
+                        "mAddType": 1,
+                        "mAbilityOverwrite": "AB_MIUN_KAJ_SUPPORT"
+                    }
+                ]
+            },
+            "Sloth": {
+                "mUnitIname": "UN_V2_MIUNA",
+                "mEnable": true,
+                "mCategory": "Sloth",
+                "mRecipeId": "TB_RECIPE_LUS_R5_FIRE",
+                "mSkillIname": "SK_MIUNA_TB_3LUS",
+                "mLearnAbilities": [],
+                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_FIRE_40_U_ATK_20_U_FIRE_10_U_DFFIRE",
+                "mOverwriteLeaderSkillLevel": 6,
+                "mPriority": 1
+            },
+            "Lust": {
+                "mUnitIname": "UN_V2_MIUNA",
+                "mCategory": "Lust",
+                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+                "mLearnAbilities": []
+            },
+            "Gluttony": {
+                "mUnitIname": "UN_V2_MIUNA",
+                "mCategory": "Gluttony",
+                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+                "mLearnAbilities": []
+            },
+            "Greed": {
+                "mUnitIname": "UN_V2_MIUNA",
+                "mCategory": "Greed",
+                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+                "mLearnAbilities": []
+            },
+            "Pride": {
+                "mUnitIname": "UN_V2_MIUNA",
+                "mCategory": "Pride",
+                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+                "mLearnAbilities": []
+            }
+        }
     },
     "UN_V2_FENCER": {
         "no": 999,
@@ -24853,177 +25929,6 @@
             "JB_NIN"
         ]
     },
-    "UN_V2_MIUNA": {
-        "no": 999,
-        "iname": "UN_V2_MIUNA",
-        "name": "Miuna",
-        "kanji": "ミウナ",
-        "height": 154,
-        "weight": 40,
-        "birth": "Slothstein",
-        "birthID": 3,
-        "lore": {
-            "profile": "Miuna is a descendant from the People of Ku, who forged Excalibur. Miuna inherited her father's talent as well, making her an excellent blacksmith. She can be quite emotional, but once you've earned her trust, she's a reliable ally who will never betray you. Miuna looks up to Zain and Cadanova like older brothers, since they often visited her father.",
-            "country": "Slothstein",
-            "height": "154cm",
-            "weight": "40kg",
-            "birth": "Apr 21",
-            "zodiac": "Moon of the Flame King",
-            "blood": "Type Qe",
-            "favorite": "Anvil sparks",
-            "hobby": "Gathering ores",
-            "illust": "─",
-            "cv": "小倉唯"
-        },
-        "ai": "AI_PLAYER",
-        "model": "miun",
-        "grow": "R6",
-        "piece": "IT_PI_MIUNA",
-        "skill": "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
-        "sw": 1,
-        "sh": 1,
-        "sex": "Female",
-        "rare": 4,
-        "raremax": 4,
-        "element": "Fire",
-        "search": 3,
-        "skins": [],
-        "tags": [
-            "Human",
-            "Female"
-        ],
-        "ini_status": {
-            "param": {
-                "HP": 90,
-                "Max Jewels": 41,
-                "PATK": 40,
-                "PDEF": 26,
-                "MATK": 32,
-                "MDEF": 22,
-                "DEX": 45,
-                "AGI": 53,
-                "CRIT": 43,
-                "LUCK": 42
-            },
-            "enchant_resist": {}
-        },
-        "max_status": {
-            "param": {
-                "HP": 507,
-                "Max Jewels": 166,
-                "PATK": 148,
-                "PDEF": 91,
-                "MATK": 127,
-                "MDEF": 82,
-                "DEX": 168,
-                "AGI": 101,
-                "CRIT": 155,
-                "LUCK": 141
-            },
-            "enchant_resist": {}
-        },
-        "leader_skills": [
-            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
-            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
-            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
-            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
-            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE",
-            "SK_LS_ELEM_FIRE_30_U_ATK_10_U_A_ELEM_FIRE"
-        ],
-        "recipes": [
-            "RECIPE_MIUNA_1",
-            "RECIPE_MIUNA_2",
-            "RECIPE_MIUNA_3",
-            "RECIPE_MIUNA_4",
-            null,
-            null
-        ],
-        "image": "miun",
-        "voice": "miuna",
-        "jobs": [
-            "JB_MIUN_KAJ",
-            "JB_THI",
-            "JB_GUA"
-        ],
-        "jobchanges": [
-            "JB_MIUN_KAJ_CC",
-            null,
-            "JB_GUA_TYPE_HEALING"
-        ],
-        "kaigan": {
-            "Unlock": {
-                "mUnitIname": "UN_V2_MIUNA",
-                "mEnable": true,
-                "mCategory": "Unlock",
-                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_FIRE_KISHI",
-                "mLearnAbilities": []
-            },
-            "Envy": {
-                "mUnitIname": "UN_V2_MIUNA",
-                "mEnable": true,
-                "mCategory": "Envy",
-                "mRecipeId": "TB_RECIPE_ENV_R5_FIRE",
-                "mSkillIname": "SK_MIUNA_TB_1ENV",
-                "mLearnAbilities": [
-                    {
-                        "mAbilityIname": "AB_MIUNA_TB_1",
-                        "mLevel": 6,
-                        "mAddType": 2
-                    }
-                ]
-            },
-            "Wrath": {
-                "mUnitIname": "UN_V2_MIUNA",
-                "mEnable": true,
-                "mCategory": "Wrath",
-                "mRecipeId": "TB_RECIPE_SLO_R5_FIRE",
-                "mSkillIname": "SK_MIUNA_TB_2SLO",
-                "mLearnAbilities": [
-                    {
-                        "mAbilityIname": "AB_MIUNA_TB_2",
-                        "mLevel": 6,
-                        "mAddType": 1,
-                        "mAbilityOverwrite": "AB_MIUN_KAJ_SUPPORT"
-                    }
-                ]
-            },
-            "Sloth": {
-                "mUnitIname": "UN_V2_MIUNA",
-                "mEnable": true,
-                "mCategory": "Sloth",
-                "mRecipeId": "TB_RECIPE_LUS_R5_FIRE",
-                "mSkillIname": "SK_MIUNA_TB_3LUS",
-                "mLearnAbilities": [],
-                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_FIRE_40_U_ATK_20_U_FIRE_10_U_DFFIRE",
-                "mOverwriteLeaderSkillLevel": 6,
-                "mPriority": 1
-            },
-            "Lust": {
-                "mUnitIname": "UN_V2_MIUNA",
-                "mCategory": "Lust",
-                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
-                "mLearnAbilities": []
-            },
-            "Gluttony": {
-                "mUnitIname": "UN_V2_MIUNA",
-                "mCategory": "Gluttony",
-                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
-                "mLearnAbilities": []
-            },
-            "Greed": {
-                "mUnitIname": "UN_V2_MIUNA",
-                "mCategory": "Greed",
-                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
-                "mLearnAbilities": []
-            },
-            "Pride": {
-                "mUnitIname": "UN_V2_MIUNA",
-                "mCategory": "Pride",
-                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
-                "mLearnAbilities": []
-            }
-        }
-    },
     "UN_V2_BASINI": {
         "no": 999,
         "iname": "UN_V2_BASINI",
@@ -25684,188 +26589,6 @@
             "JB_DIS_USAL",
             "JB_THI",
             "JB_GEN"
-        ]
-    },
-    "UN_V2_CHAO": {
-        "no": 999,
-        "iname": "UN_V2_CHAO",
-        "name": "Chao",
-        "kanji": "チャオ",
-        "height": 153,
-        "weight": 40,
-        "birth": "Greed Dike",
-        "birthID": 6,
-        "lore": {
-            "profile": "Chao is a young strategic genius from Greed Dike who is versed in a range of strategic military theory. He is heir to a great noble family, and perhaps as a result of his privileged upbringing, will often act snobbishly, boasting arrogantly of his intellect. In some ways he does act like you'd expect a child of his age to, though-his greatest dream is to become a \"cool guy who's good with weapons.\"",
-            "country": "Greed Dike",
-            "height": "153cm",
-            "weight": "40kg",
-            "birth": "Nov 13",
-            "zodiac": "Moon of the Thunder Beast",
-            "blood": "Type Qe",
-            "favorite": "Being treated like an adult",
-            "hobby": "Daydreaming",
-            "illust": "杏虎太郎",
-            "cv": "斎賀みつき"
-        },
-        "ai": "AI_PLAYER",
-        "model": "chao",
-        "grow": "R6",
-        "piece": "IT_PI_CHAO",
-        "skill": "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-        "ability": "AB_CHAO_MA_01",
-        "ma_quest": "QE_CH_CHAO_3",
-        "sw": 1,
-        "sh": 1,
-        "sex": "Male",
-        "rare": 4,
-        "raremax": 4,
-        "element": "Thunder",
-        "search": 3,
-        "ma_rarity": 5,
-        "ma_lv": 1,
-        "skins": [],
-        "tags": [
-            "Human",
-            "Male"
-        ],
-        "ini_status": {
-            "param": {
-                "HP": 87,
-                "Max Jewels": 48,
-                "PATK": 36,
-                "PDEF": 28,
-                "MATK": 39,
-                "MDEF": 30,
-                "DEX": 40,
-                "AGI": 52,
-                "CRIT": 38,
-                "LUCK": 40
-            },
-            "enchant_resist": {}
-        },
-        "max_status": {
-            "param": {
-                "HP": 455,
-                "Max Jewels": 194,
-                "PATK": 128,
-                "PDEF": 100,
-                "MATK": 140,
-                "MDEF": 108,
-                "DEX": 146,
-                "AGI": 89,
-                "CRIT": 138,
-                "LUCK": 146
-            },
-            "enchant_resist": {}
-        },
-        "leader_skills": [
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP",
-            "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP"
-        ],
-        "recipes": [
-            "RECIPE_CHAO_1",
-            "RECIPE_CHAO_2",
-            "RECIPE_CHAO_3",
-            "RECIPE_CHAO_4",
-            null,
-            null
-        ],
-        "image": "chao",
-        "voice": "chao",
-        "jobs": [
-            "JB_HWIZ",
-            "JB_SOL",
-            "JB_SEN"
-        ],
-        "jobchanges": [
-            null,
-            "JB_SOL_ATK",
-            null
-        ],
-        "kaigan": {
-            "Unlock": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mEnable": true,
-                "mCategory": "Unlock",
-                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_THUNDER_KISHI",
-                "mLearnAbilities": []
-            },
-            "Envy": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mEnable": true,
-                "mCategory": "Envy",
-                "mRecipeId": "TB_RECIPE_ENV_R5_THUNDER",
-                "mSkillIname": "SK_CHAO_TB_1ENV",
-                "mLearnAbilities": [
-                    {
-                        "mAbilityIname": "AB_CHAO_TB_1",
-                        "mLevel": 6,
-                        "mAddType": 2
-                    }
-                ]
-            },
-            "Wrath": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mEnable": true,
-                "mCategory": "Wrath",
-                "mRecipeId": "TB_RECIPE_SLO_R5_THUNDER",
-                "mSkillIname": "SK_CHAO_TB_2SLO",
-                "mLearnAbilities": [
-                    {
-                        "mAbilityIname": "AB_CHAO_TB_2",
-                        "mLevel": 6,
-                        "mAddType": 1,
-                        "mAbilityOverwrite": "AB_SOL_FEINT"
-                    }
-                ]
-            },
-            "Sloth": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mEnable": true,
-                "mCategory": "Sloth",
-                "mRecipeId": "TB_RECIPE_LUS_R5_THUNDER",
-                "mSkillIname": "SK_CHAO_TB_3LUS",
-                "mLearnAbilities": [],
-                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_THUNDER_30_U_MATK_20_U_HP_10_U_DFTHUNDER",
-                "mOverwriteLeaderSkillLevel": 6,
-                "mPriority": 1
-            },
-            "Lust": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mCategory": "Lust",
-                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
-                "mLearnAbilities": []
-            },
-            "Gluttony": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mCategory": "Gluttony",
-                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
-                "mLearnAbilities": []
-            },
-            "Greed": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mCategory": "Greed",
-                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
-                "mLearnAbilities": []
-            },
-            "Pride": {
-                "mUnitIname": "UN_V2_CHAO",
-                "mCategory": "Pride",
-                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
-                "mLearnAbilities": []
-            }
-        },
-        "occurrence": [
-            "QE_MT_TOWER_TEST23",
-            "QE_EV_HAGAREN_7",
-            "QE_EV_HAGAREN_2_7",
-            "QE_EV_HAGAREN_3_7",
-            "QE_MULTI_HAGAREN_3_7"
         ]
     },
     "UN_V2_DAISY": {
@@ -26715,14 +27438,14 @@
     "UN_V2_BLANCHETT": {
         "no": 999,
         "iname": "UN_V2_BLANCHETT",
-        "name": "Blanshett",
+        "name": "Blanchett",
         "kanji": "ブランシェット",
         "height": 150,
         "weight": 42,
         "birth": "Wratharis",
         "birthID": 2,
         "lore": {
-            "profile": "Blanshett is a young girl who is the sole survivor of a village destroyed by war. The codename of the group that destroyed it was \"WOLF,\" and as a result she hates anything and everything related to wolves. She's usually cheerful, but if wolves somehow become involved she'll instantly change and unleash a furious, raw power.",
+            "profile": "Blanchett is a young girl who is the sole survivor of a village destroyed by war. The codename of the group that destroyed it was \"WOLF,\" and as a result she hates anything and everything related to wolves. She's usually cheerful, but if wolves somehow become involved she'll instantly change and unleash a furious, raw power.",
             "country": "Wratharis",
             "height": "150cm",
             "weight": "42kg",
@@ -27152,111 +27875,83 @@
             "JB_BAA"
         ],
         "jobchanges": [
-            null,
+            "JB_NEC_THUNDER",
             null,
             "JB_BAA_TYPE_RISKY"
-        ]
-    },
-    "UN_V2_OLGA": {
-        "no": 999,
-        "iname": "UN_V2_OLGA",
-        "name": "Olga",
-        "kanji": "オルガ",
-        "height": 173,
-        "weight": 58,
-        "birth": "Saga Region",
-        "birthID": 7,
-        "lore": {
-            "profile": "Olga is a young girl from a tribe of beast-people who live in the darkest depths of the Saga Region. She despises alchemy, which goes against the laws of nature, and the humans who use it. As you'd expect for someone who's grown up in the wild, she possesses phenomenal physical agility. When treated like a lady, though, she'll also show a cute, \"girly\" side...",
-            "country": "Saga Region",
-            "height": "173cm",
-            "weight": "58kg",
-            "birth": "Jan 1",
-            "zodiac": "Moon of the Bright Knight",
-            "blood": "Type Qe",
-            "favorite": "Fruit, new things",
-            "hobby": "Physical exercise",
-            "illust": "大盛よしを",
-            "cv": "中西優香"
-        },
-        "ai": "AI_PLAYER",
-        "model": "olga",
-        "grow": "R6",
-        "piece": "IT_PI_OLGA",
-        "skill": "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-        "sw": 1,
-        "sh": 1,
-        "sex": "Female",
-        "rare": 4,
-        "raremax": 4,
-        "element": "Light",
-        "search": 3,
-        "skins": [],
-        "tags": [
-            "Human",
-            "Female"
         ],
-        "ini_status": {
-            "param": {
-                "HP": 130,
-                "Max Jewels": 45,
-                "PATK": 44,
-                "PDEF": 34,
-                "MATK": 37,
-                "MDEF": 30,
-                "DEX": 42,
-                "AGI": 51,
-                "CRIT": 41,
-                "LUCK": 40
+        "kaigan": {
+            "Unlock": {
+                "mUnitIname": "UN_V2_ZOPHIE",
+                "mEnable": true,
+                "mCategory": "Unlock",
+                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_THUNDER_KISHI",
+                "mLearnAbilities": []
             },
-            "enchant_resist": {}
-        },
-        "max_status": {
-            "param": {
-                "HP": 902,
-                "Max Jewels": 182,
-                "PATK": 166,
-                "PDEF": 120,
-                "MATK": 133,
-                "MDEF": 116,
-                "DEX": 145,
-                "AGI": 93,
-                "CRIT": 152,
-                "LUCK": 146
+            "Envy": {
+                "mUnitIname": "UN_V2_ZOPHIE",
+                "mEnable": true,
+                "mCategory": "Envy",
+                "mRecipeId": "TB_RECIPE_ENV_R5_THUNDER",
+                "mSkillIname": "SK_ZOPHIE_TB_1ENV",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_ZOPHIE_TB_1",
+                        "mLevel": 6,
+                        "mAddType": 2
+                    }
+                ]
             },
-            "enchant_resist": {}
-        },
-        "leader_skills": [
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO",
-            "SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO"
-        ],
-        "recipes": [
-            "RECIPE_OLGA_1",
-            "RECIPE_OLGA_2",
-            "RECIPE_OLGA_3",
-            "RECIPE_OLGA_4",
-            null,
-            null
-        ],
-        "image": "olga",
-        "voice": "olga",
-        "jobs": [
-            "JB_BLA",
-            "JB_MAH",
-            "JB_ONM"
-        ],
-        "jobchanges": [
-            "JB_BLA_TYPE_TK_MONS",
-            null,
-            null
-        ],
-        "occurrence": [
-            "QE_LIMIT_UEXP_03"
-        ]
+            "Wrath": {
+                "mUnitIname": "UN_V2_ZOPHIE",
+                "mEnable": true,
+                "mCategory": "Wrath",
+                "mRecipeId": "TB_RECIPE_SLO_R5_THUNDER",
+                "mSkillIname": "SK_ZOPHIE_TB_2SLO",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_ZOPHIE_TB_2",
+                        "mLevel": 6,
+                        "mAddType": 1,
+                        "mAbilityOverwrite": "AB_BAA_OVER_SOUL"
+                    }
+                ]
+            },
+            "Sloth": {
+                "mUnitIname": "UN_V2_ZOPHIE",
+                "mEnable": true,
+                "mCategory": "Sloth",
+                "mRecipeId": "TB_RECIPE_LUS_R5_THUNDER",
+                "mSkillIname": "SK_ZOPHIE_TB_3LUS",
+                "mLearnAbilities": [],
+                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_THUNDER_40_U_ATK_20_U_THUNDER_5_U_AVO",
+                "mOverwriteLeaderSkillLevel": 6,
+                "mPriority": 1
+            },
+            "Lust": {
+                "mUnitIname": "UN_V2_ZOPHIE",
+                "mCategory": "Lust",
+                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+                "mLearnAbilities": []
+            },
+            "Gluttony": {
+                "mUnitIname": "UN_V2_ZOPHIE",
+                "mCategory": "Gluttony",
+                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+                "mLearnAbilities": []
+            },
+            "Greed": {
+                "mUnitIname": "UN_V2_ZOPHIE",
+                "mCategory": "Greed",
+                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+                "mLearnAbilities": []
+            },
+            "Pride": {
+                "mUnitIname": "UN_V2_ZOPHIE",
+                "mCategory": "Pride",
+                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+                "mLearnAbilities": []
+            }
+        }
     },
     "UN_V2_CHATNOIR": {
         "no": 999,
@@ -29483,7 +30178,85 @@
             "JB_NEC",
             "JB_ODO",
             "JB_SAM"
-        ]
+        ],
+        "jobchanges": [
+            "JB_NEC_WIND",
+            null,
+            null
+        ],
+        "kaigan": {
+            "Unlock": {
+                "mUnitIname": "UN_V2_FEIRIN",
+                "mEnable": true,
+                "mCategory": "Unlock",
+                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R3_WIND_KISHI",
+                "mLearnAbilities": []
+            },
+            "Envy": {
+                "mUnitIname": "UN_V2_FEIRIN",
+                "mEnable": true,
+                "mCategory": "Envy",
+                "mRecipeId": "TB_RECIPE_ENV_R5_WIND",
+                "mSkillIname": "SK_FEIRIN_TB_1ENV",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_FEIRIN_TB_1",
+                        "mLevel": 6,
+                        "mAddType": 2
+                    }
+                ]
+            },
+            "Wrath": {
+                "mUnitIname": "UN_V2_FEIRIN",
+                "mEnable": true,
+                "mCategory": "Wrath",
+                "mRecipeId": "TB_RECIPE_SLO_R5_WIND",
+                "mSkillIname": "SK_FEIRIN_TB_2SLO",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_FEIRIN_TB_2",
+                        "mLevel": 6,
+                        "mAddType": 1,
+                        "mAbilityOverwrite": "AB_NEC_SUPPORT_01"
+                    }
+                ]
+            },
+            "Sloth": {
+                "mUnitIname": "UN_V2_FEIRIN",
+                "mEnable": true,
+                "mCategory": "Sloth",
+                "mRecipeId": "TB_RECIPE_LUS_R5_WIND",
+                "mSkillIname": "SK_FEIRIN_TB_3LUS",
+                "mLearnAbilities": [],
+                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_WIND_30_U_HP_20_U_WIND_20_U_MP",
+                "mOverwriteLeaderSkillLevel": 6,
+                "mPriority": 1
+            },
+            "Lust": {
+                "mUnitIname": "UN_V2_FEIRIN",
+                "mCategory": "Lust",
+                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+                "mLearnAbilities": []
+            },
+            "Gluttony": {
+                "mUnitIname": "UN_V2_FEIRIN",
+                "mCategory": "Gluttony",
+                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+                "mLearnAbilities": []
+            },
+            "Greed": {
+                "mUnitIname": "UN_V2_FEIRIN",
+                "mCategory": "Greed",
+                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+                "mLearnAbilities": []
+            },
+            "Pride": {
+                "mUnitIname": "UN_V2_FEIRIN",
+                "mCategory": "Pride",
+                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+                "mLearnAbilities": []
+            }
+        }
     },
     "UN_V2_TOMAS": {
         "no": 999,
@@ -31684,7 +32457,7 @@
             "favorite": "シチュー",
             "hobby": "―",
             "illust": "―",
-            "cv": "朴?美"
+            "cv": "朴璐美"
         },
         "ai": "AI_PLAYER",
         "model": "fa_edwa",
@@ -34767,7 +35540,80 @@
             null,
             null,
             "JB_DAI_THUNDER"
-        ]
+        ],
+        "kaigan": {
+            "Unlock": {
+                "mUnitIname": "UN_V2_S_TSUKUYOMI",
+                "mEnable": true,
+                "mCategory": "Unlock",
+                "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_DARK_JYUTSUSHI",
+                "mLearnAbilities": []
+            },
+            "Envy": {
+                "mUnitIname": "UN_V2_S_TSUKUYOMI",
+                "mEnable": true,
+                "mCategory": "Envy",
+                "mRecipeId": "TB_RECIPE_COLLABO_ENV_R5_DARK",
+                "mSkillIname": "SK_TSUKUYOMI_TB_1ENV",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_TSUKUYOMI_TB_1",
+                        "mLevel": 6,
+                        "mAddType": 2
+                    }
+                ]
+            },
+            "Wrath": {
+                "mUnitIname": "UN_V2_S_TSUKUYOMI",
+                "mEnable": true,
+                "mCategory": "Wrath",
+                "mRecipeId": "TB_RECIPE_COLLABO_SLO_R5_DARK",
+                "mSkillIname": "SK_TSUKUYOMI_TB_2SLO",
+                "mLearnAbilities": [
+                    {
+                        "mAbilityIname": "AB_TSUKUYOMI_TB_2",
+                        "mLevel": 6,
+                        "mAddType": 1,
+                        "mAbilityOverwrite": "AB_DAI_MAGI_UP"
+                    }
+                ]
+            },
+            "Sloth": {
+                "mUnitIname": "UN_V2_S_TSUKUYOMI",
+                "mEnable": true,
+                "mCategory": "Sloth",
+                "mRecipeId": "TB_RECIPE_COLLABO_LUS_R5_DARK",
+                "mSkillIname": "SK_TSUKUYOMI_TB_3LUS",
+                "mLearnAbilities": [],
+                "mOverwriteLeaderSkillIname": "SK_LS_ELEM_DARK_30_U_DARK_30_U_HP_10_D_CT",
+                "mOverwriteLeaderSkillLevel": 6,
+                "mPriority": 1
+            },
+            "Lust": {
+                "mUnitIname": "UN_V2_S_TSUKUYOMI",
+                "mCategory": "Lust",
+                "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+                "mLearnAbilities": []
+            },
+            "Gluttony": {
+                "mUnitIname": "UN_V2_S_TSUKUYOMI",
+                "mCategory": "Gluttony",
+                "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+                "mLearnAbilities": []
+            },
+            "Greed": {
+                "mUnitIname": "UN_V2_S_TSUKUYOMI",
+                "mCategory": "Greed",
+                "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+                "mLearnAbilities": []
+            },
+            "Pride": {
+                "mUnitIname": "UN_V2_S_TSUKUYOMI",
+                "mCategory": "Pride",
+                "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+                "mLearnAbilities": []
+            }
+        }
     },
     "UN_V2_FIONA": {
         "no": 999,
@@ -37003,7 +37849,9 @@
         "element": "Light",
         "search": 3,
         "available_at": "2077/07/07",
-        "skins": [],
+        "skins": [
+            "AF_SK_ALMA_SWIM"
+        ],
         "tags": [
             "Human",
             "Female"
@@ -37066,7 +37914,7 @@
             null,
             "JB_KIL_SCOUT"
         ],
-        "conceptcard": "TS_LUST_ALMA_01"
+        "conceptcard": "TS_LUST_ALMA_02"
     },
     "UN_V2_REBECCA": {
         "no": 999,
@@ -37103,7 +37951,9 @@
         "element": "Thunder",
         "search": 3,
         "available_at": "2077/07/07",
-        "skins": [],
+        "skins": [
+            "AF_SK_REBECCA_SWIM"
+        ],
         "tags": [
             "Human",
             "Female"
@@ -37161,7 +38011,12 @@
             "JB_MAD",
             "JB_WEA"
         ],
-        "conceptcard": "TS_LUST_REBECCA_01"
+        "jobchanges": [
+            "JB_DAI_THUNDER",
+            null,
+            null
+        ],
+        "conceptcard": "TS_LUST_REBECCA_02"
     },
     "UN_V2_KAYA": {
         "no": 999,
@@ -37259,6 +38114,203 @@
             null,
             null,
             "JB_FIRE_WED_F"
+        ]
+    },
+    "UN_V2_AOT_EREN": {
+        "no": 999,
+        "iname": "UN_V2_AOT_EREN",
+        "name": "Eren",
+        "kanji": "エレン",
+        "height": 170,
+        "weight": 63,
+        "birth": "Foreign World",
+        "birthID": 100,
+        "lore": {
+            "profile": "巨人が猛威を振るう異世界から導かれた調査兵団の少年。怒りや衝動に任せた無鉄砲な行動が多い一方で、困難な状況を打破する強い意志も併せ持つ。巨人化できる能力を有しており、人類を脅かす巨人たちを駆逐すべく戦う。",
+            "country": "─",
+            "height": "170cm",
+            "weight": "63kg",
+            "birth": "3月30日",
+            "zodiac": "─",
+            "blood": "─型",
+            "favorite": "─",
+            "hobby": "─",
+            "illust": "─",
+            "cv": "梶裕貴"
+        },
+        "ai": "AI_PLAYER",
+        "model": "aot_eren",
+        "grow": "R6",
+        "piece": "IT_PI_AOT_EREN",
+        "skill": "SK_LS_ELEM_FIRE_40_U_HP_40_U_ATK_20_U_BIGATK",
+        "sw": 1,
+        "sh": 1,
+        "sex": "Male",
+        "rare": 4,
+        "raremax": 4,
+        "element": "Fire",
+        "search": 3,
+        "skins": [],
+        "tags": [
+            "Human",
+            "Male"
+        ],
+        "ini_status": {
+            "param": {
+                "HP": 179,
+                "Max Jewels": 44,
+                "PATK": 52,
+                "PDEF": 40,
+                "MATK": 22,
+                "MDEF": 35,
+                "DEX": 39,
+                "AGI": 55,
+                "CRIT": 44,
+                "LUCK": 27
+            },
+            "enchant_resist": {}
+        },
+        "max_status": {
+            "param": {
+                "HP": 782,
+                "Max Jewels": 180,
+                "PATK": 190,
+                "PDEF": 123,
+                "MATK": 92,
+                "MDEF": 118,
+                "DEX": 144,
+                "AGI": 95,
+                "CRIT": 165,
+                "LUCK": 136
+            },
+            "enchant_resist": {}
+        },
+        "leader_skills": [
+            "SK_LS_ELEM_FIRE_40_U_HP_40_U_ATK_20_U_BIGATK",
+            "SK_LS_ELEM_FIRE_40_U_HP_40_U_ATK_20_U_BIGATK",
+            "SK_LS_ELEM_FIRE_40_U_HP_40_U_ATK_20_U_BIGATK",
+            "SK_LS_ELEM_FIRE_40_U_HP_40_U_ATK_20_U_BIGATK",
+            "SK_LS_ELEM_FIRE_40_U_HP_40_U_ATK_20_U_BIGATK",
+            "SK_LS_ELEM_FIRE_40_U_HP_40_U_ATK_20_U_BIGATK"
+        ],
+        "recipes": [
+            "RECIPE_AOT_EREN_1",
+            "RECIPE_AOT_EREN_2",
+            "RECIPE_AOT_EREN_3",
+            "RECIPE_AOT_EREN_4",
+            null,
+            null
+        ],
+        "image": "aot_eren",
+        "voice": "eren",
+        "jobs": [
+            "JB_AOT_EREN01",
+            "JB_WOR",
+            "JB_NEC"
+        ],
+        "jobchanges": [
+            null,
+            null,
+            "JB_NEC_FIRE"
+        ]
+    },
+    "UN_V2_AOT_REINER": {
+        "no": 999,
+        "iname": "UN_V2_AOT_REINER",
+        "name": "Reiner",
+        "kanji": "ライナー",
+        "height": 188,
+        "weight": 83,
+        "birth": "Foreign World",
+        "birthID": 100,
+        "lore": {
+            "profile": "巨人が猛威を振るう異世界から導かれた戦士。屈強な体と強い精神力を持ち、仲間からも高い信頼を得る、エレンたち同期の中心的な存在。巨人化できる能力を有しており、頑強な鎧に身を包んだ巨人へと変貌し絶大な力を見せる。",
+            "country": "─",
+            "height": "188cm",
+            "weight": "83kg",
+            "birth": "8月1日",
+            "zodiac": "─",
+            "blood": "─型",
+            "favorite": "─",
+            "hobby": "─",
+            "illust": "─",
+            "cv": "細谷佳正"
+        },
+        "ai": "AI_PLAYER",
+        "model": "aot_rein",
+        "grow": "R6",
+        "piece": "IT_PI_AOT_REINER",
+        "skill": "SK_LS_ELEM_WIND_30_U_HP_20_U_ATK_20_U_DEF",
+        "sw": 1,
+        "sh": 1,
+        "sex": "Male",
+        "rare": 2,
+        "raremax": 4,
+        "element": "Wind",
+        "search": 3,
+        "available_at": "2077/07/07",
+        "skins": [],
+        "tags": [
+            "Human",
+            "Male"
+        ],
+        "ini_status": {
+            "param": {
+                "HP": 142,
+                "Max Jewels": 38,
+                "PATK": 42,
+                "PDEF": 46,
+                "MATK": 27,
+                "MDEF": 35,
+                "DEX": 39,
+                "AGI": 51,
+                "CRIT": 47,
+                "LUCK": 27
+            },
+            "enchant_resist": {}
+        },
+        "max_status": {
+            "param": {
+                "HP": 581,
+                "Max Jewels": 144,
+                "PATK": 155,
+                "PDEF": 155,
+                "MATK": 135,
+                "MDEF": 132,
+                "DEX": 155,
+                "AGI": 91,
+                "CRIT": 162,
+                "LUCK": 129
+            },
+            "enchant_resist": {}
+        },
+        "leader_skills": [
+            "SK_LS_ELEM_WIND_20_U_HP_10_U_ATK_10_U_DEF",
+            "SK_LS_ELEM_WIND_20_U_HP_10_U_ATK_10_U_DEF",
+            "SK_LS_ELEM_WIND_20_U_HP_10_U_ATK_10_U_DEF",
+            "SK_LS_ELEM_WIND_30_U_HP_10_U_ATK_10_U_DEF",
+            "SK_LS_ELEM_WIND_30_U_HP_20_U_ATK_20_U_DEF",
+            "SK_LS_ELEM_WIND_30_U_HP_20_U_ATK_20_U_DEF"
+        ],
+        "recipes": [
+            "RECIPE_AOT_REINER_1",
+            "RECIPE_AOT_REINER_2",
+            "RECIPE_AOT_REINER_3",
+            "RECIPE_AOT_REINER_4",
+            null,
+            null
+        ],
+        "image": "aot_rein",
+        "voice": "reiner",
+        "jobs": [
+            "JB_AOT_REIN01",
+            "JB_KAK",
+            "JB_GUA"
+        ],
+        "jobchanges": [
+            null,
+            null,
+            "JB_GUA_TYPE_ANTI_BLOW"
         ]
     }
 }

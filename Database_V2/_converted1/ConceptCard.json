@@ -4922,12 +4922,52 @@
         "en_trust": 1000,
         "lvcap": 1
     },
+    "TS_OFFEVENT_01": {
+        "iname": "TS_OFFEVENT_01",
+        "name": "祭りの勉強だモノ",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_OFFEVENT_01",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "lvcap": 1,
+        "effects": [
+            {
+                "statusup_skill": "SK_OFFEVENT_02"
+            },
+            {
+                "card_skill": "SK_GS1_OFFEVENT_02"
+            }
+        ]
+    },
     "TS_OFFEVENT_02": {
         "iname": "TS_OFFEVENT_02",
         "name": "うどんの修行だモノ",
         "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
         "type": "Equipment",
         "icon": "TS_OFFEVENT_02",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "lvcap": 1,
+        "effects": [
+            {
+                "statusup_skill": "SK_OFFEVENT_02"
+            },
+            {
+                "card_skill": "SK_GS1_OFFEVENT_02"
+            }
+        ]
+    },
+    "TS_OFFEVENT_03": {
+        "iname": "TS_OFFEVENT_03",
+        "name": "漫才の修行だモノ",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_OFFEVENT_03",
         "rare": 4,
         "sell": 1000,
         "en_cost": 2000,
@@ -5086,6 +5126,115 @@
             },
             {
                 "card_skill": "SK_GS1_COMIKE_01"
+            }
+        ]
+    },
+    "TS_LUST_ALMA_02": {
+        "iname": "TS_LUST_ALMA_02",
+        "name": "特訓サマービーチ",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_LUST_ALMA_02",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "trust_reward": "CARD_TS_LUST_ALMA_02",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_LUST_ALMA_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_LUST_ALMA_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_LUST"
+            },
+            {
+                "card_skill": "SK_GS1_LUST_ALMA_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_LUST_ALMA_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_LUST_ALMA_02",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_LUST_ALMA_02_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LUST_ALMA_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_ALMA_RIZ_REBE"
+            },
+            {
+                "statusup_skill": "SK_LUST_ALMA_02"
+            },
+            {
+                "skin": "AF_SK_ALMA_SWIM",
+                "cnds_iname": "CARD_CNDS_ALMA"
+            }
+        ]
+    },
+    "TS_LUST_REBECCA_02": {
+        "iname": "TS_LUST_REBECCA_02",
+        "name": "特訓サマーシュート",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_LUST_REBECCA_02",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "trust_reward": "CARD_TS_LUST_REBECCA_02",
+        "effects": [
+            {
+                "card_skill": "SK_GS1_LUST_REBECCA_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_LUST_REBECCA_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_ALMA_RIZ_REBE"
+            },
+            {
+                "card_skill": "SK_GS1_LUST_REBECCA_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_LUST_REBECCA_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "card_skill": "SK_GS2_LUST_REBECCA_02",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_LUST_REBECCA_02_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LUST_REBECCA_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_REBECCA"
+            },
+            {
+                "card_skill": "SK_GS2_LUST_REBECCA_02",
+                "add_card_skill_buff_lvmax": "BUFF_GS2_LUST_REBECCA_02_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS2_LUST_REBECCA_02_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
+            },
+            {
+                "statusup_skill": "SK_LUST_REBECCA_02"
+            },
+            {
+                "skin": "AF_SK_REBECCA_SWIM",
+                "cnds_iname": "CARD_CNDS_REBECCA"
+            }
+        ]
+    },
+    "TS_AOT_01": {
+        "iname": "TS_AOT_01",
+        "name": "勝利への紅き一矢",
+        "expr": "レアリティ★5の真理念装。装備することでユニットを強化することができる。",
+        "type": "Equipment",
+        "icon": "TS_AOT_01",
+        "rare": 4,
+        "sell": 1000,
+        "en_cost": 2000,
+        "en_exp": 20000,
+        "trust_reward": "CARD_TS_AOT_01",
+        "effects": [
+            {
+                "statusup_skill": "SK_AOT_01"
+            },
+            {
+                "card_skill": "SK_GS1_AOT_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_AOT_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_AOT_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_AOT"
+            },
+            {
+                "card_skill": "SK_GS1_AOT_01",
+                "add_card_skill_buff_lvmax": "BUFF_GS1_AOT_01_BONUS_02",
+                "add_card_skill_buff_awake": "BUFF_GS1_AOT_01_BONUS_01",
+                "cnds_iname": "CARD_CNDS_UROBOROS_2"
             }
         ]
     }

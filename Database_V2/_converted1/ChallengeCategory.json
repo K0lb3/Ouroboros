@@ -1,8 +1,8 @@
 {
-    "Challenge_GL_SUMMER2018": {
-        "iname": "Challenge_GL_SUMMER2018",
-        "begin_at": "8/2/2018",
-        "end_at": "8/15/2018 11:59:00 PM",
+    "Challenge_GL_SUMMERSPORT": {
+        "iname": "Challenge_GL_SUMMERSPORT",
+        "begin_at": "8/16/2018",
+        "end_at": "8/29/2018 11:59:00 PM",
         "prio": 1
     },
     "Challenge_Normal": {
@@ -105,5 +105,11 @@
         "begin_at": false,
         "end_at": "2018/08/23 23:59:59",
         "prio": 19
+    },
+    "Challenge_WONDERFUL_2018": {
+        "iname": "Challenge_WONDERFUL_2018",
+        "begin_at": false,
+        "end_at": "2018/08/31 23:59:59",
+        "prio": 20
     }
 }
