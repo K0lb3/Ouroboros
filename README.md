@@ -1,7 +1,7 @@
 # Ouroboros
 
 An *unofficial* [Discord](https://discordapp.com/) bot for [The Alchemist Code](https://alchemistcode.com/)
-Data from [The ALchemist Codes](https://gitlab.com/the-alchemist-codes).
+Data from [The Alchemist Codes/Database/export](https://gitlab.com/the-alchemist-codes/Database).
 
 ## What does it do?
 
