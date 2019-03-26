@@ -1,2 +1,5 @@
-set DISCORD_BOT_TOKEN='MyDiscordBot'
-python %~dp0\Discord_Bot\Bot.py
+set DISCORD_BOT_TOKEN=
+set DISCORD_BOT_TOKEN_ROLES=
+set MONGO_USER=
+set MONGO_PW=
+python %~dp0\Bot.py 

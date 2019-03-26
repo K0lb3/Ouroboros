@@ -1,16 +1,33 @@
-# TAC-BOT
+# Ouroboros
 
 An *unofficial* [Discord](https://discordapp.com/) bot for [The Alchemist Code](https://alchemistcode.com/)
+Data from [The ALchemist Codes](https://gitlab.com/the-alchemist-codes).
 
 ## What does it do?
 
-`TAC-BOT` is a Discord bot for listing relevant information about The Alchemist Code. `TAC_bot_db` supports following commands:
-* `o?unit *name*`: Displays game-related information about the unit
-* `o?lore *name*`: Displays the lore of the unit
-* `o?art *name*`: Display artworks of all available skins of the unit
-* `o?farm *name*`: Displays quests in which the item can be acquired
-* `o?collabs *name*`: Elaborates the shortcuts of each collaboration events that are used in the unit related commands
-* `o?info`: Displays the usage information about this bot
+`Ouroboros` is a Discord bot for listing relevant information about The Alchemist Code. 
+It supports following commands:
+* `ai` : displays boundary conditions and settings of the ai
+* `arena [alias: gr ,ranking]` : shows the current top 50 arena ranking
+* `arena_map [alias: arenamap ,amap ,am]` : displays the current arena map
+* `art [alias: artwork]` : posts all images of the unit
+* `emoji` : converts reaction to unicode (for copypaste)
+* `farm [alias: grind ,drop]` : shows missions which drop the item
+* `gear [alias: arments ,equip]` : displays stats of the gear
+* `help` : shows description of all commands
+* `info` : shows informations about the bot and holds the invite link
+* `item` : displays data of the item
+* `job` : displays details of the job
+* `kaigan [alias: enlightment]` : displays the kaigan stats and skills of the unit
+* `lore` : shows the lore of the unit
+* `map` : displays map and enemies of the mission
+* `nensou [alias: conceptcard ,concept card ,card]` : displays stats of the concept card
+* `quest` : displays quest informations
+* `rank [alias: enemy]` : shows units and their gear of the selected rank (top 50)
+* `story` : shows the conversations of the mission
+* `unit` : displays key data of the unit
+
+The usage statistics are tracked via a MongoDB.
 
 ## How do I run it?
 
@@ -19,15 +36,17 @@ Check out the code and run it as a simple Python process! A hosting solutions li
 ### In Unix-like environments
 
 ```bash
-$ export DISCORD_BOT_TOKEN='MyDiscordBot'
-$ python discord_bot/Bot.py
+$ export DISCORD_BOT_TOKEN=
+$ export DISCORD_BOT_TOKEN_ROLES=
+$ export MONGO_USER=
+$ export MONGO_PW=
+$ export python discord_bot/Bot.py
 ```
 
 ### In Windows environments
 
 ```bash
-C:\TAC_bot_db> set DISCORD_BOT_TOKEN='MyDiscordBot'
-C:\TAC_bot_db> python discord_bot\Bot.py
+.\RunBot.bat
 ```
 
 ## How do I contribute?
